@@ -1,0 +1,38 @@
+PODS:
+  - FMDB (2.1):
+    - FMDB/standard (= 2.1)
+  - FMDB/common (2.1)
+  - FMDB/standard (2.1):
+    - FMDB/common
+  - JSONKit (1.5pre)
+  - Masonry (0.3.0)
+  - MKNetworkKit (0.87):
+    - Reachability (~> 3.1.0)
+  - Reachability (3.1.1)
+  - SDWebImage (3.5):
+    - SDWebImage/Core (= 3.5)
+  - SDWebImage/Core (3.5)
+  - SVProgressHUD (1.0)
+  - SVPullToRefresh (0.4.1)
+
+DEPENDENCIES:
+  - FMDB (~> 2.1)
+  - JSONKit (~> 1.5pre)
+  - Masonry (~> 0.3.0)
+  - MKNetworkKit (~> 0.87)
+  - Reachability (~> 3.1.1)
+  - SDWebImage (~> 3.5)
+  - SVProgressHUD (~> 1.0)
+  - SVPullToRefresh (~> 0.4.1)
+
+SPEC CHECKSUMS:
+  FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
+  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
+  Masonry: f7e7e5692c9133b7ee44d1a17b1c64ad423cd64e
+  MKNetworkKit: f174100f92473012138b6b1c3040266af8d43a14
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  SDWebImage: f1a72472f8a2d54445f1fedafe2090593d9caf7f
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
+  SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
+
+COCOAPODS: 0.37.1

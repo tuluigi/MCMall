@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C154BA97-24A5-4ECA-A9BD-B54A8DD94212</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</key>
+		<string>https://github.com/tuluigi/MCMall.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</key>
+		<string>MCMall</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tuluigi/MCMall.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MCMall</string>
+		</dict>
+	</array>
+</dict>
+</plist>
