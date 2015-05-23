@@ -9,27 +9,26 @@
 // FMDB
 #define COCOAPODS_POD_AVAILABLE_FMDB
 #define COCOAPODS_VERSION_MAJOR_FMDB 2
-#define COCOAPODS_VERSION_MINOR_FMDB 1
+#define COCOAPODS_VERSION_MINOR_FMDB 5
 #define COCOAPODS_VERSION_PATCH_FMDB 0
 
 // FMDB/common
 #define COCOAPODS_POD_AVAILABLE_FMDB_common
 #define COCOAPODS_VERSION_MAJOR_FMDB_common 2
-#define COCOAPODS_VERSION_MINOR_FMDB_common 1
+#define COCOAPODS_VERSION_MINOR_FMDB_common 5
 #define COCOAPODS_VERSION_PATCH_FMDB_common 0
 
 // FMDB/standard
 #define COCOAPODS_POD_AVAILABLE_FMDB_standard
 #define COCOAPODS_VERSION_MAJOR_FMDB_standard 2
-#define COCOAPODS_VERSION_MINOR_FMDB_standard 1
+#define COCOAPODS_VERSION_MINOR_FMDB_standard 5
 #define COCOAPODS_VERSION_PATCH_FMDB_standard 0
 
-// JSONKit
-#define COCOAPODS_POD_AVAILABLE_JSONKit
-// This library does not follow semantic-versioning,
-// so we were not able to define version macros.
-// Please contact the author.
-// Version: 1.5pre.
+// JSONKit-NoWarning
+#define COCOAPODS_POD_AVAILABLE_JSONKit_NoWarning
+#define COCOAPODS_VERSION_MAJOR_JSONKit_NoWarning 1
+#define COCOAPODS_VERSION_MINOR_JSONKit_NoWarning 2
+#define COCOAPODS_VERSION_PATCH_JSONKit_NoWarning 0
 
 // MKNetworkKit
 #define COCOAPODS_POD_AVAILABLE_MKNetworkKit
@@ -40,8 +39,8 @@
 // Masonry
 #define COCOAPODS_POD_AVAILABLE_Masonry
 #define COCOAPODS_VERSION_MAJOR_Masonry 0
-#define COCOAPODS_VERSION_MINOR_Masonry 3
-#define COCOAPODS_VERSION_PATCH_Masonry 0
+#define COCOAPODS_VERSION_MINOR_Masonry 6
+#define COCOAPODS_VERSION_PATCH_Masonry 1
 
 // Reachability
 #define COCOAPODS_POD_AVAILABLE_Reachability
@@ -52,20 +51,20 @@
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
-#define COCOAPODS_VERSION_MINOR_SDWebImage 5
-#define COCOAPODS_VERSION_PATCH_SDWebImage 0
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 2
 
 // SDWebImage/Core
 #define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
-#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 5
-#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 0
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
-#define COCOAPODS_VERSION_MINOR_SVProgressHUD 0
-#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 3
 
 // SVPullToRefresh
 #define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
