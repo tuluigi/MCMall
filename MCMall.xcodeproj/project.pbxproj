@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* MCMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DA1B0CC62A00D0FE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 			children = (
 				2A37B0DA1B0CC62A00D0FE88 /* Info.plist */,
 				2A37B0DB1B0CC62A00D0FE88 /* main.m */,
+				2A2553281B1355C00046C696 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -635,6 +637,8 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MCMall/PrefixHeader.pch;
 				INFOPLIST_FILE = MCMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -647,6 +651,8 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MCMall/PrefixHeader.pch;
 				INFOPLIST_FILE = MCMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
