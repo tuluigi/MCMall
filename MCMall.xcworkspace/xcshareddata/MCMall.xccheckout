@@ -6,15 +6,19 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C154BA97-24A5-4ECA-A9BD-B54A8DD94212</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MCMall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</key>
 		<string>https://github.com/tuluigi/MCMall.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MCMall.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</key>
-		<string>MCMall</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/tuluigi/MCMall.git</string>

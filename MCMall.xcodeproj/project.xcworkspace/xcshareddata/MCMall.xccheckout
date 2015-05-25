@@ -6,29 +6,33 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>BBB6289F-772E-451B-A98F-A72ABB5CF43A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MCMall</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</key>
+		<key>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</key>
 		<string>https://github.com/tuluigi/MCMall.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MCMall.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</key>
-		<string>MCMall/</string>
+		<key>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/tuluigi/MCMall.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</string>
+	<string>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>21CD33B9FC3988666E2BEB90D1EA815CBDF4C3C6</string>
+			<string>A0B9F8E490CF7AA510E5140C55F096D5B1947DCB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MCMall</string>
 		</dict>
