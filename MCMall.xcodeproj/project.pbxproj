@@ -29,6 +29,11 @@
 		2A50F7021B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2A50F7061B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
+		2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
+		2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */; };
+		2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E131B1475C800912D53 /* navigationBg@2x.png */; };
+		2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E151B14760700912D53 /* checkbox_Select@2x.png */; };
+		2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */; };
 		2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2A984EB61B141205004DF4C0 /* HHFrameWorkSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E661B141205004DF4C0 /* HHFrameWorkSetting.m */; };
 		2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
@@ -111,6 +116,12 @@
 		2A50F7001B1099E300607723 /* MCMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallViewController.m; sourceTree = "<group>"; };
 		2A50F7031B109A0C00607723 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
 		2A50F7041B109A0C00607723 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		2A7C4E071B146E0200912D53 /* HHNetWorkEngine+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+Activity.h"; sourceTree = "<group>"; };
+		2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+Activity.m"; sourceTree = "<group>"; };
+		2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
+		2A7C4E131B1475C800912D53 /* navigationBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@2x.png"; sourceTree = "<group>"; };
+		2A7C4E151B14760700912D53 /* checkbox_Select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_Select@2x.png"; sourceTree = "<group>"; };
+		2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_normal@2x.png"; sourceTree = "<group>"; };
 		2A984E621B141205004DF4C0 /* AESEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESEncryption.h; sourceTree = "<group>"; };
 		2A984E631B141205004DF4C0 /* AESEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESEncryption.m; sourceTree = "<group>"; };
 		2A984E651B141205004DF4C0 /* HHFrameWorkSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFrameWorkSetting.h; sourceTree = "<group>"; };
@@ -265,6 +276,7 @@
 		2A37B0D91B0CC62A00D0FE88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A7C4E0A1B14728500912D53 /* Images */,
 				2A37B0DA1B0CC62A00D0FE88 /* Info.plist */,
 				2A37B0DB1B0CC62A00D0FE88 /* main.m */,
 				2A2553281B1355C00046C696 /* PrefixHeader.pch */,
@@ -409,6 +421,65 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2A7C4E0A1B14728500912D53 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2A7C4E101B14755B00912D53 /* Icon */,
+				2A7C4E0F1B14754800912D53 /* Mall */,
+				2A7C4E0E1B14753E00912D53 /* Health */,
+				2A7C4E0D1B14752F00912D53 /* Activity */,
+				2A7C4E0C1B14750500912D53 /* UserCenter */,
+				2A7C4E0B1B14731C00912D53 /* Common */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		2A7C4E0B1B14731C00912D53 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2A7C4E131B1475C800912D53 /* navigationBg@2x.png */,
+				2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2A7C4E0C1B14750500912D53 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */,
+				2A7C4E151B14760700912D53 /* checkbox_Select@2x.png */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		2A7C4E0D1B14752F00912D53 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		2A7C4E0E1B14753E00912D53 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		2A7C4E0F1B14754800912D53 /* Mall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mall;
+			sourceTree = "<group>";
+		};
+		2A7C4E101B14755B00912D53 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		2A984E4A1B14119B004DF4C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +591,8 @@
 		2A984E581B1411B9004DF4C0 /* NetEngine */ = {
 			isa = PBXGroup;
 			children = (
+				2A7C4E071B146E0200912D53 /* HHNetWorkEngine+Activity.h */,
+				2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */,
 			);
 			path = NetEngine;
 			sourceTree = "<group>";
@@ -828,8 +901,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */,
+				2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
 				2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */,
+				2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */,
+				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
 				2A37B0E71B0CC62A00D0FE88 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,6 +986,7 @@
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
+				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
 				2A984EBE1B141205004DF4C0 /* HHDataPicker.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,

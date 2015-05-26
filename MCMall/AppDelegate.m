@@ -21,6 +21,11 @@
     self.window.backgroundColor=[UIColor whiteColor];
     RootTabBarController *rootTabbarController=[[RootTabBarController alloc]  init];
     self.window.rootViewController=rootTabbarController;
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBg"] forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
