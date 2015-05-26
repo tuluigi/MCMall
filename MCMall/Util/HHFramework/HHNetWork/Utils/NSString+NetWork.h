@@ -10,8 +10,6 @@
 
 @interface NSString (NetWork)
 
--(NSString *)parserHHSeverResponseResultToJsonString;
-
 -(NSString *)encryptHHSoftNetWorkString;
 -(NSString *)decryptNetWorkString;
 @end

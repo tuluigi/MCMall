@@ -326,7 +326,9 @@
     if ([[[UIDevice currentDevice]  systemVersion] floatValue]>=7.0) {
         contentSize=[self boundingRectWithSize:maxTextSize options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName, nil] context:nil].size;
     }else{
+#ifdef __IPHONE_6_0
         contentSize=[self sizeWithFont:font constrainedToSize:maxTextSize];
+#endif
     }
     return contentSize;
 }

@@ -20,4 +20,5 @@
 #import "UIImageView+WebCache.h"
 #import "SVProgressHUD.h"
 #import "SVPullToRefresh.h"
+#import "HHFrameWorkKit.h"
 #endif
