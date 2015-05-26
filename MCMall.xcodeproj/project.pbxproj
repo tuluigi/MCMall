@@ -76,6 +76,9 @@
 		2A984EDA1B141205004DF4C0 /* UIView+LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */; };
 		2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984EDE1B14123C004DF4C0 /* HHAppInfo.m */; };
 		2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */; };
+		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
+		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
+		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
 		719DEB0340F379D8DC5841E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356228AB91A09B7821DF914 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +215,10 @@
 		2A984EE01B14123C004DF4C0 /* HHFrameWorkKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFrameWorkKitMacro.h; sourceTree = "<group>"; };
 		2A984EE21B141375004DF4C0 /* HHNetWorkEngine+UserCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+UserCenter.h"; sourceTree = "<group>"; };
 		2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+UserCenter.m"; sourceTree = "<group>"; };
+		2AD019061B14A8C000702BD5 /* loading_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@2x.png"; sourceTree = "<group>"; };
+		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
+		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2AD0190B1B14A8F600702BD5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9356228AB91A09B7821DF914 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +397,7 @@
 		2A37B10D1B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AD019051B14A63900702BD5 /* Login */,
 				2A50F7031B109A0C00607723 /* UserCenterViewController.h */,
 				2A50F7041B109A0C00607723 /* UserCenterViewController.m */,
 			);
@@ -446,6 +454,8 @@
 		2A7C4E0B1B14731C00912D53 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2AD019081B14A8D600702BD5 /* loading_Default@3x.png */,
+				2AD019061B14A8C000702BD5 /* loading_Default@2x.png */,
 				2A7C4E131B1475C800912D53 /* navigationBg@2x.png */,
 				2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */,
 			);
@@ -830,6 +840,15 @@
 			path = HHAppInfo;
 			sourceTree = "<group>";
 		};
+		2AD019051B14A63900702BD5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2AD0190A1B14A8F600702BD5 /* LoginViewController.h */,
+				2AD0190B1B14A8F600702BD5 /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		39B4741562352CC646DDD6C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,10 +941,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */,
+				2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */,
 				2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
 				2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */,
 				2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */,
+				2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
 				2A37B0E71B0CC62A00D0FE88 /* Images.xcassets in Resources */,
 			);
@@ -1010,6 +1031,7 @@
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
 				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
+				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,
 				2A984EBE1B141205004DF4C0 /* HHDataPicker.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2A984EBB1B141205004DF4C0 /* NSString+NetWork.m in Sources */,
