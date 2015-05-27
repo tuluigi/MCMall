@@ -10,7 +10,7 @@
 
 @implementation HHGlobalVarTool
 +(NSString *)domainPath{
-    return @"www.baidu.com";
+    return @"223.147.105.151:8080";
 }
 /**
  *  当前appMerchangID

@@ -12,21 +12,13 @@
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2A37B0E71B0CC62A00D0FE88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E61B0CC62A00D0FE88 /* Images.xcassets */; };
 		2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
-		2A37B0F61B0CC62A00D0FE88 /* MCMallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0F51B0CC62A00D0FE88 /* MCMallTests.m */; };
 		2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
-		2A37B12A1B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
 		2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
-		2A50F6EE1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
-		2A50F6F61B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
 		2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
-		2A50F6FA1B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
 		2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6FC1B1099C900607723 /* HealthViewController.m */; };
-		2A50F6FE1B1099C900607723 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6FC1B1099C900607723 /* HealthViewController.m */; };
 		2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
-		2A50F7021B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
-		2A50F7061B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
 		2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */; };
 		2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E131B1475C800912D53 /* navigationBg@2x.png */; };
@@ -82,16 +74,6 @@
 		719DEB0340F379D8DC5841E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356228AB91A09B7821DF914 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2A37B0F01B0CC62A00D0FE88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A37B0CE1B0CC62A00D0FE88 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A37B0D51B0CC62A00D0FE88;
-			remoteInfo = MCMall;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* MCMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +84,6 @@
 		2A37B0E41B0CC62A00D0FE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A37B0E61B0CC62A00D0FE88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A37B0E91B0CC62A00D0FE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2A37B0EF1B0CC62A00D0FE88 /* MCMallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCMallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0F41B0CC62A00D0FE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A37B0F51B0CC62A00D0FE88 /* MCMallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCMallTests.m; sourceTree = "<group>"; };
 		2A37B1271B0CCB1800D0FE88 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -235,13 +216,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A37B0EC1B0CC62A00D0FE88 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -268,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				2A37B0D61B0CC62A00D0FE88 /* MCMall.app */,
-				2A37B0EF1B0CC62A00D0FE88 /* MCMallTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -884,24 +857,6 @@
 			productReference = 2A37B0D61B0CC62A00D0FE88 /* MCMall.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2A37B0EE1B0CC62A00D0FE88 /* MCMallTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A37B0FC1B0CC62A00D0FE88 /* Build configuration list for PBXNativeTarget "MCMallTests" */;
-			buildPhases = (
-				2A37B0EB1B0CC62A00D0FE88 /* Sources */,
-				2A37B0EC1B0CC62A00D0FE88 /* Frameworks */,
-				2A37B0ED1B0CC62A00D0FE88 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A37B0F11B0CC62A00D0FE88 /* PBXTargetDependency */,
-			);
-			name = MCMallTests;
-			productName = MCMallTests;
-			productReference = 2A37B0EF1B0CC62A00D0FE88 /* MCMallTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -913,10 +868,6 @@
 				TargetAttributes = {
 					2A37B0D51B0CC62A00D0FE88 = {
 						CreatedOnToolsVersion = 6.0.1;
-					};
-					2A37B0EE1B0CC62A00D0FE88 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 2A37B0D51B0CC62A00D0FE88;
 					};
 				};
 			};
@@ -934,7 +885,6 @@
 			projectRoot = "";
 			targets = (
 				2A37B0D51B0CC62A00D0FE88 /* MCMall */,
-				2A37B0EE1B0CC62A00D0FE88 /* MCMallTests */,
 			);
 		};
 /* End PBXProject section */
@@ -953,13 +903,6 @@
 				2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
 				2A37B0E71B0CC62A00D0FE88 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A37B0ED1B0CC62A00D0FE88 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1061,30 +1004,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A37B0EB1B0CC62A00D0FE88 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A50F6FE1B1099C900607723 /* HealthViewController.m in Sources */,
-				2A37B12A1B0CCB1800D0FE88 /* UserModel.m in Sources */,
-				2A50F6FA1B10987C00607723 /* ActivityViewController.m in Sources */,
-				2A50F6F61B10985400607723 /* RootTabBarController.m in Sources */,
-				2A50F6EE1B10972300607723 /* BaseViewController.m in Sources */,
-				2A50F7061B109A0C00607723 /* UserCenterViewController.m in Sources */,
-				2A50F7021B1099E300607723 /* MCMallViewController.m in Sources */,
-				2A37B0F61B0CC62A00D0FE88 /* MCMallTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2A37B0F11B0CC62A00D0FE88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A37B0D51B0CC62A00D0FE88 /* MCMall */;
-			targetProxy = 2A37B0F01B0CC62A00D0FE88 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */ = {
@@ -1210,40 +1130,6 @@
 			};
 			name = Release;
 		};
-		2A37B0FD1B0CC62A00D0FE88 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MCMallTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCMall.app/MCMall";
-			};
-			name = Debug;
-		};
-		2A37B0FE1B0CC62A00D0FE88 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MCMallTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MCMall.app/MCMall";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1261,15 +1147,6 @@
 			buildConfigurations = (
 				2A37B0FA1B0CC62A00D0FE88 /* Debug */,
 				2A37B0FB1B0CC62A00D0FE88 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A37B0FC1B0CC62A00D0FE88 /* Build configuration list for PBXNativeTarget "MCMallTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A37B0FD1B0CC62A00D0FE88 /* Debug */,
-				2A37B0FE1B0CC62A00D0FE88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,6 +8,7 @@
 
 #import "UserCenterViewController.h"
 #import "UIViewController+MCMall.h"
+#import "HHNetWorkEngine+UserCenter.h"
 @interface UserCenterViewController ()
 
 @end
@@ -15,7 +16,10 @@
 @implementation UserCenterViewController
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self verfiyUserLogin];
+    //[self verfiyUserLogin];
+    [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:@"admin" pwd:@"admin" onCompletionHandler:^(HHResponseResult *responseResult) {
+        
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

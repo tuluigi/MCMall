@@ -14,8 +14,8 @@
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[UserCenterAPI userLoginAPI];
-    NSDictionary *postDic=@{name:@"name",pwd:@"pwd"};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHPOST onCompletionHandler:^(HHResponseResult *responseResult) {
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:name,@"username",pwd,@"password", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
@@ -34,8 +34,8 @@
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[UserCenterAPI userLoginAPI];
-    NSDictionary *postDic=@{name:@"name",pwd:@"pwd"};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHPOST onCompletionHandler:^(HHResponseResult *responseResult) {
+    NSDictionary *postDic=@{name:@"username",pwd:@"pwd"};
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserRegisterWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];

@@ -24,7 +24,7 @@
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBg"] forBarMetrics:UIBarMetricsDefault];
     
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  setHost:[HHGlobalVarTool domainPath]];
+
     [self.window makeKeyAndVisible];
     return YES;
 }

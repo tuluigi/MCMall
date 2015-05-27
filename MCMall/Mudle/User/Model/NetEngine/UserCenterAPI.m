@@ -10,10 +10,10 @@
 
 @implementation UserCenterAPI
 +(NSString *)userLoginAPI{
-    return [[HHGlobalVarTool domainPath] stringByAppendingPathExtension:@""];
+    return @"/BasePJ/ws/login";
 }
 +(NSString *)userRegisterAPI{
-    return [[HHGlobalVarTool domainPath] stringByAppendingPathExtension:@""];
+    return [[HHGlobalVarTool domainPath] stringByAppendingString:@""];
 }
 +(NSString *)userEditPwdAPI{
     return [[HHGlobalVarTool domainPath] stringByAppendingPathExtension:@""];

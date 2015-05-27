@@ -25,7 +25,7 @@
     if (!newPostDic){
         newPostDic=[NSMutableDictionary new];
     }
-    [newPostDic setObject:@"merchantID" forKey:@"xxx"];
+    [newPostDic setObject:@"SYSSHOP" forKey:@"shopid"];
     return newPostDic;
 }
 +(HHResponseResult *)parseHHNetWorkResponseCompetion:(MKNetworkOperation *)completionOpetion error:(NSError *)error{
@@ -49,13 +49,15 @@
         
         if (nil==resultDic&&errorJson) {
 #ifdef DEBUG
-                NSLog(@"接口返回json格式错误");
+            NSLog(@"接口返回json格式错误");
 #endif
             responseResult.responseData=resultDic;
             responseResult.responseMessage=@"json格式错误";
             responseResult.responseCode=100002;//json 格式错误
         }else{
             responseResult.responseData=resultDic;
+            responseResult.responseCode=[[resultDic objectForKey:@"code"] integerValue];
+            responseResult.responseMessage=[resultDic objectForKey:@"message"];
         }
     }
     return responseResult;

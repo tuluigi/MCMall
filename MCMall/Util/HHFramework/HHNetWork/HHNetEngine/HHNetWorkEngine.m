@@ -14,7 +14,7 @@ static HHNetWorkEngine *hh_NetWorkEngine;
 {
     @synchronized(self){
         if (nil==hh_NetWorkEngine) {
-            hh_NetWorkEngine=[[HHNetWorkEngine alloc] initWithHostName:nil];
+            hh_NetWorkEngine=[[HHNetWorkEngine alloc] initWithHostName:[HHGlobalVarTool domainPath]];
         }
     }
     return hh_NetWorkEngine;
