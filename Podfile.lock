@@ -4,7 +4,6 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - JSONKit-NoWarning (1.2)
   - Masonry (0.6.1)
   - MKNetworkKit (0.87):
     - Reachability (~> 3.1.0)
@@ -17,7 +16,6 @@ PODS:
 
 DEPENDENCIES:
   - FMDB (~> 2.1)
-  - JSONKit-NoWarning (~> 1.2)
   - Masonry (~> 0.6.1)
   - MKNetworkKit (~> 0.87)
   - Reachability (~> 3.1.1)
@@ -27,7 +25,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   MKNetworkKit: 60ad3c83b62183e40ba75ce772c9427c25b520de
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893

@@ -31,10 +31,9 @@
  *  @param phoneNum        电话号码
  *  @param completionBlcok
  *
- *  @return <#return value description#>
+ *  @return 
  */
--(MKNetworkOperation *)userRegisterWithMerchantID:(NSString *)merchantID
-                                         UserName:(NSString *)name
+-(MKNetworkOperation *)userRegisterWithUserName:(NSString *)name
                                               pwd:(NSString *)pwd
                                          phoneNum:(NSString *)phoneNum
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;

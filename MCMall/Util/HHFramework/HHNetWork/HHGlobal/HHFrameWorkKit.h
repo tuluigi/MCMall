@@ -10,14 +10,12 @@
 #define HHFrameWorkKit_HHFrameWorkKit_h
 
 #import "HHFrameWorkKitMacro.h"
-#import "HHFrameWorkSetting.h"
 #pragma mark- NetWork
 #import "HHResponseResult.h"
 #import "HHNetWorkEngine.h"
 #import "MKNetworkOperation.h"
 #import "MKNetworkOperation.h"
 #import "Reachability.h"
-#import "JSONKit.h"
 #import "NSMutableDictionary+HHFrameWorkKit.h"
 
 

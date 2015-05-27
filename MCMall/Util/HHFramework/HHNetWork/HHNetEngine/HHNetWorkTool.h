@@ -11,7 +11,7 @@
 @class MKNetworkOperation;
 @interface HHNetWorkTool : NSObject
     //将参数postDic 转化为json postDic
-+(NSMutableDictionary *)convertToJsonPostDicWithParaDic:(NSMutableDictionary *)postDic;
++(NSDictionary *)convertPostDic:(NSDictionary *)postDic;
     //解析返回数据
 
 +(HHResponseResult *)parseHHNetWorkResponseCompetion:(MKNetworkOperation *)completionOpetion error:(NSError *)error;

@@ -14,7 +14,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "MKNetworkKit.h"
-#import "JSONKit.h"
 #import "Masonry.h"
 #import "Reachability.h"
 #import "UIImageView+WebCache.h"
@@ -22,6 +21,8 @@
 #import "SVPullToRefresh.h"
 #import "HHFrameWorkKit.h"
 #import "UserModel.h"
+#import "GlobalMacro.h"
+#import "HHGlobalVarTool.h"
 #import "BaseViewController.h"
 #import "BaseTableViewController.h"
 #import "UIViewController+MCMall.h"

@@ -20,7 +20,7 @@
 +(NSString *)merchantID{
     NSString *merchangID=@"";
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMall.xxx"]) {
+    if ([identifier isEqualToString:@"com.MCMall.Test"]) {
         merchangID=@"1";
     }
     return merchangID;

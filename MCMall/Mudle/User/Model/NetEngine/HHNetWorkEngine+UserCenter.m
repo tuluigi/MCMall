@@ -7,7 +7,45 @@
 //
 
 #import "HHNetWorkEngine+UserCenter.h"
-
+#import "UserCenterAPI.h"
 @implementation HHNetWorkEngine (UserCenter)
+-(MKNetworkOperation *)userLoginWithUserName:(NSString *)name
+                                         pwd:(NSString *)pwd
+                         onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    WEAKSELF
+    NSString *apiPath=[UserCenterAPI userLoginAPI];
+    NSDictionary *postDic=@{name:@"name",pwd:@"pwd"};
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHPOST onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
+-(HHResponseResult *)parseUserLoginWithResponseResult:(HHResponseResult *)responseResult{
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        
+    }
+    return responseResult;
+}
+#pragma mark - 注册
+-(MKNetworkOperation *)userRegisterWithUserName:(NSString *)name
+                                            pwd:(NSString *)pwd
+                                       phoneNum:(NSString *)phoneNum
+                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    WEAKSELF
+    NSString *apiPath=[UserCenterAPI userLoginAPI];
+    NSDictionary *postDic=@{name:@"name",pwd:@"pwd"};
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHPOST onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult=[weakSelf parseUserRegisterWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
+-(HHResponseResult *)parseUserRegisterWithResponseResult:(HHResponseResult *)responseResult{
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        
+    }
+    return responseResult;
+}
 
 @end

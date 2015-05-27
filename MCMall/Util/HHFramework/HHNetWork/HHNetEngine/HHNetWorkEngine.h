@@ -29,7 +29,7 @@
  *  @return MKNetworkOperation
  */
 -(MKNetworkOperation *)requestWithUrlPath:(NSString *)hh_path
-                          parmarDic:(NSMutableDictionary *)hh_postDic
+                          parmarDic:(NSDictionary *)hh_postDic
                              method:(NSString *)hh_method
                    onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 /**
@@ -48,12 +48,12 @@
 
 -(MKNetworkOperation *)uploadFileWithPath:(NSString *)hh_path
                                  filePath:(NSString *)hh_filePath
-                               parmarDic:(NSMutableDictionary *)hh_postDic
+                               parmarDic:(NSDictionary *)hh_postDic
                                      key:(NSString *)hh_key
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 -(MKNetworkOperation *)uploadBatchFileWithPath:(NSString *)hh_path
                                  filePathArray:(NSMutableArray *)pathArray
-                                parmarDic:(NSMutableDictionary *)hh_postDic
+                                parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
                       onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 
@@ -72,7 +72,7 @@
  */
 -(MKNetworkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
                                  fileData:(NSData *)hh_fileData
-                                parmarDic:(NSMutableDictionary *)hh_postDic
+                                parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 /**
@@ -87,7 +87,7 @@
  *  @return
  */
 -(MKNetworkOperation *)downLoadFileWithUrlPath:(NSString *)hh_path
-                                   parmarDic:(NSMutableDictionary *)hh_postDic
+                                   parmarDic:(NSDictionary *)hh_postDic
                                           method:(NSString *)hh_method
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 
