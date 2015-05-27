@@ -21,4 +21,8 @@
 #import "SVProgressHUD.h"
 #import "SVPullToRefresh.h"
 #import "HHFrameWorkKit.h"
+#import "UserModel.h"
+#import "BaseViewController.h"
+#import "BaseTableViewController.h"
+#import "UIViewController+MCMall.h"
 #endif

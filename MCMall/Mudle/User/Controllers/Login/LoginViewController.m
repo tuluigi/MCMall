@@ -15,7 +15,13 @@
 @implementation LoginViewController
 -(UIView *)headerView{
     if (nil==_headerView) {
-        _headerView=[[UIView alloc]  init];
+        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
+        [_headerView addSubview:logoImgView];
+        [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(_headerView);
+            make.size.mas_equalTo(CGSizeMake(100.0, 100.0));
+        }];
     }
     return _headerView;
 }
@@ -26,10 +32,46 @@
 }
 -(void)onInitData{
     self.title=@"知婴知孕";
-   }
+    self.tableView.tableHeaderView=self.headerView;
+    [self.tableView reloadData];
+    self.tableView.tableFooterView=[UIView new];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark -UITableView Delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifer=@"cellIdentifer";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+    if (nil==cell) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+    }
+    switch (indexPath.row) {
+        case 0:{
+            cell.textLabel.text=@"欢迎您!";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 1:{
+            cell.textLabel.text=@"账户余额:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 2:{
+            cell.textLabel.text=@"所属门店:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 3:{
+            cell.textLabel.text=@"手机号:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+            
+        default:
+            break;
+    }
+    return cell;
 }
 
 /*

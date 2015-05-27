@@ -2,12 +2,12 @@
 //  BaseTableViewController.h
 //  MCMall
 //
-//  Created by Luigi on 15/5/23.
+//  Created by Luigi on 15/5/27.
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface BaseTableViewController : BaseViewController
-
+@interface BaseTableViewController : UITableViewController
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @end

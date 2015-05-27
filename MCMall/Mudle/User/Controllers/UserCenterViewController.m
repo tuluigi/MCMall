@@ -7,16 +7,20 @@
 //
 
 #import "UserCenterViewController.h"
-
+#import "UIViewController+MCMall.h"
 @interface UserCenterViewController ()
 
 @end
 
 @implementation UserCenterViewController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self verfiyUserLogin];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
