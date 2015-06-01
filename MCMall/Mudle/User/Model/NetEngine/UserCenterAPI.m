@@ -13,10 +13,10 @@
     return @"/BasePJ/ws/login";
 }
 +(NSString *)userRegisterAPI{
-    return [[HHGlobalVarTool domainPath] stringByAppendingString:@""];
+    return @"/BasePJ/ws/register";
 }
 +(NSString *)userEditPwdAPI{
-    return [[HHGlobalVarTool domainPath] stringByAppendingPathExtension:@""];
+    return @"/BasePJ/ws/changepassoword";
 }
 
 @end
