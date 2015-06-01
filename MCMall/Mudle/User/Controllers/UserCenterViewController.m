@@ -92,6 +92,40 @@
         
     }];
 }
+#pragma mark -UITableView Delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifer=@"cellIdentifer";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+    if (nil==cell) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+    }
+    switch (indexPath.row) {
+        case 0:{
+            cell.textLabel.text=@"欢迎您!";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 1:{
+            cell.textLabel.text=@"账户余额:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 2:{
+            cell.textLabel.text=@"所属门店:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+        case 3:{
+            cell.textLabel.text=@"手机号:";
+            cell.detailTextLabel.text=@"xxxx";
+        }break;
+            
+        default:
+            break;
+    }
+    return cell;
+}
+
 /*
 #pragma mark - Navigation
 

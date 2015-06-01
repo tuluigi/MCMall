@@ -13,9 +13,22 @@
 @end
 
 @implementation LoginViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self onInitData];
+}
+-(void)onInitData{
+    self.title=@"知婴知孕";
+    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(leftNavigationItemClicked)];
+    self.tableView.backgroundColor=[UIColor red:240.0 green:241.0 blue:246.0 alpha:1];
+    self.tableView.tableHeaderView=self.headerView;
+    self.tableView.tableFooterView=self.footView;
+    [self.tableView reloadData];
+}
 -(UIView *)headerView{
     if (nil==_headerView) {
-        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160)];
         UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
         [_headerView addSubview:logoImgView];
         [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -25,18 +38,67 @@
     }
     return _headerView;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self onInitData];
+-(UIView *)footView{
+    if (nil==_footView) {
+        _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        
+        NSInteger tag=2000;
+        for (NSInteger i=0; i<3; i++) {
+            UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeCustom];
+            [_footView addSubview:actionButton];
+            actionButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
+            actionButton.tag=tag+i;
+            actionButton.layer.cornerRadius=5.0;
+            actionButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
+            actionButton.layer.masksToBounds=YES;
+            [actionButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            if (i==0) {
+                [actionButton setTitle:@"登 录" forState:UIControlStateNormal];
+                
+                [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.top.mas_equalTo(_footView).with.offset(20.0);
+                    make.right.mas_equalTo(_footView.right).with.offset(-20.0);
+                    make.height.equalTo(@40.0);
+                }];
+            }else if(i==1){
+                [actionButton setTitle:@"忘记密码" forState:UIControlStateNormal];
+                UIButton *preButton=(UIButton *)[_footView viewWithTag:(actionButton.tag-1)];
+                [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(preButton.mas_bottom).with.offset(10.0);
+                    make.left.right.mas_equalTo(preButton);
+                    make.height.equalTo(preButton);
+                }];
+            }else if(i==2){
+                [actionButton setTitle:@"新用户注册" forState:UIControlStateNormal];
+                UIButton *preButton=(UIButton *)[_footView viewWithTag:(actionButton.tag-1)];
+                [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.top.mas_equalTo(preButton.mas_bottom).with.offset(10.0);
+                    make.left.right.mas_equalTo(preButton);
+                    make.height.equalTo(preButton);
+                }];
+            }
+            
+        }
+    }
+    return _footView;
 }
--(void)onInitData{
-    self.title=@"知婴知孕";
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(leftNavigationItemClicked)];
-    self.tableView.tableHeaderView=self.headerView;
-    [self.tableView reloadData];
-    self.tableView.tableFooterView=[UIView new];
+-(void)didActionButtonPressed:(UIButton *)sender{
+    switch (sender.tag) {
+        case 2000:{//登录
+        
+        }break;
+        case 2001:{//忘记密码
+            
+        }break;
+        case 2002:{//新用户注册
+            
+        }break;
+            
+        default:
+            break;
+    }
 }
+
 #pragma mark -button
 -(void)leftNavigationItemClicked{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -49,30 +111,28 @@
 }
 #pragma mark -UITableView Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 2;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"cellIdentifer";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(100.0, 5.0, 200.0, 35.0)];
+        textField.textAlignment=NSTextAlignmentLeft;
+        textField.tag=1000;
+        [cell.contentView addSubview:textField];
     }
+    UITextField *textField=(UITextField *)[cell viewWithTag:1000];
     switch (indexPath.row) {
         case 0:{
-            cell.textLabel.text=@"欢迎您!";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.textLabel.text=@"用户名:";
+            textField.placeholder=@"请输入用户账号";
         }break;
         case 1:{
-            cell.textLabel.text=@"账户余额:";
-            cell.detailTextLabel.text=@"xxxx";
-        }break;
-        case 2:{
-            cell.textLabel.text=@"所属门店:";
-            cell.detailTextLabel.text=@"xxxx";
-        }break;
-        case 3:{
-            cell.textLabel.text=@"手机号:";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.textLabel.text=@"密码:";
+            textField.placeholder=@"请输入登录密码";
         }break;
             
         default:
