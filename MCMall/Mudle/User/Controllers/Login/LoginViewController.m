@@ -7,9 +7,11 @@
 //
 
 #import "LoginViewController.h"
-
-@interface LoginViewController ()
+#import "HHNetWorkEngine+UserCenter.h"
+#import "RegisterViewController.h"
+@interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
+@property(nonatomic,strong)NSString *userName,*userPwd;
 @end
 
 @implementation LoginViewController
@@ -85,20 +87,45 @@
 -(void)didActionButtonPressed:(UIButton *)sender{
     switch (sender.tag) {
         case 2000:{//登录
-        
+            [self userLogin];
         }break;
         case 2001:{//忘记密码
             
         }break;
         case 2002:{//新用户注册
-            
+            RegisterViewController *registerController=[[RegisterViewController alloc]  initWithStyle:UITableViewStylePlain];
+            [self.navigationController pushViewController:registerController animated:YES];
         }break;
             
         default:
             break;
     }
 }
-
+#pragma mark - 登录
+-(void)userLogin{
+    for (UITableViewCell *cell in [self.tableView visibleCells]) {
+        UITextField *textField=(UITextField *)[cell viewWithTag:1000];
+        NSIndexPath *indexPath=[self.tableView indexPathForCell:cell];
+        if (indexPath.row==0) {
+            self.userName=textField.text;
+        }else if (indexPath.row==1){
+            self.userPwd=textField.text;
+        }
+    }
+    if ([NSString IsNullOrEmptyString:self.userName]) {
+        [HHProgressHUD showErrorMssage:@"请输入用户名"];
+    }else if([NSString IsNullOrEmptyString:self.userPwd]){
+        [HHProgressHUD showErrorMssage:@"请输入密码"];
+    }else{
+        [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
+            if (responseResult.responseCode ==HHResponseResultCode100) {
+                
+            }else{
+                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            }
+        }];
+    }
+}
 #pragma mark -button
 -(void)leftNavigationItemClicked{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -120,6 +147,7 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(100.0, 5.0, 200.0, 35.0)];
+        textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
         textField.tag=1000;
         [cell.contentView addSubview:textField];
@@ -140,7 +168,13 @@
     }
     return cell;
 }
-
+#pragma mark -UITextFieldDelegate
+-(BOOL)textFieldShouldClear:(UITextField *)textField{
+    return YES;
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
 /*
  #pragma mark - Navigation
  

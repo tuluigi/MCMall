@@ -9,7 +9,7 @@
 #import "BaseTableViewController.h"
 
 @interface BaseTableViewController ()
-
+@property(nonatomic,assign)UITableViewStyle tableViewStyle;
 @end
 
 @implementation BaseTableViewController
@@ -19,10 +19,21 @@
     }
     return _dataArray;
 }
+-(id)initWithStyle:(UITableViewStyle)style{
+    if (self=[super init]) {
+        _tableViewStyle=style;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // [self setupForDismissKeyboard];
+    self.tableView=[[HHTableView alloc]  initWithFrame:self.view.bounds style:self.tableViewStyle];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     self.tableView.showsHorizontalScrollIndicator=NO;
     self.tableView.showsVerticalScrollIndicator=NO;
+    [self.view addSubview:self.tableView];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -58,6 +69,11 @@
     return cell;
 }
 */
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

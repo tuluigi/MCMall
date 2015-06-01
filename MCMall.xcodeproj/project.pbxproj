@@ -44,10 +44,6 @@
 		2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E861B141205004DF4C0 /* HHTextView.m */; };
 		2A984EC61B141205004DF4C0 /* HHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E881B141205004DF4C0 /* HHView.m */; };
 		2A984EC71B141205004DF4C0 /* HHWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E8A1B141205004DF4C0 /* HHWebView.m */; };
-		2A984EC81B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E8D1B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.m */; };
-		2A984EC91B141205004DF4C0 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E8F1B141205004DF4C0 /* TPKeyboardAvoidingScrollView.m */; };
-		2A984ECA1B141205004DF4C0 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E911B141205004DF4C0 /* TPKeyboardAvoidingTableView.m */; };
-		2A984ECB1B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E931B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E991B141205004DF4C0 /* UIViewController+DismissKeyboard.m */; };
 		2A984ECE1B141205004DF4C0 /* HHLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E9B1B141205004DF4C0 /* HHLoadingView.m */; };
@@ -71,6 +67,9 @@
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
+		2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */; };
+		2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793201B1C40470008E241 /* HHProgressHUD.m */; };
+		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		719DEB0340F379D8DC5841E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356228AB91A09B7821DF914 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -147,14 +146,6 @@
 		2A984E881B141205004DF4C0 /* HHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHView.m; sourceTree = "<group>"; };
 		2A984E891B141205004DF4C0 /* HHWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHWebView.h; sourceTree = "<group>"; };
 		2A984E8A1B141205004DF4C0 /* HHWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHWebView.m; sourceTree = "<group>"; };
-		2A984E8C1B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
-		2A984E8D1B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
-		2A984E8E1B141205004DF4C0 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
-		2A984E8F1B141205004DF4C0 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		2A984E901B141205004DF4C0 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
-		2A984E911B141205004DF4C0 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
-		2A984E921B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		2A984E931B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		2A984E951B141205004DF4C0 /* Base64Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Tool.h; sourceTree = "<group>"; };
 		2A984E961B141205004DF4C0 /* Base64Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Tool.m; sourceTree = "<group>"; };
 		2A984E981B141205004DF4C0 /* UIViewController+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DismissKeyboard.h"; sourceTree = "<group>"; };
@@ -202,6 +193,12 @@
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2AD0190B1B14A8F600702BD5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HHKeyboardControl.h"; sourceTree = "<group>"; };
+		2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HHKeyboardControl.m"; sourceTree = "<group>"; };
+		2AE7931F1B1C40470008E241 /* HHProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHProgressHUD.h; sourceTree = "<group>"; };
+		2AE793201B1C40470008E241 /* HHProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHProgressHUD.m; sourceTree = "<group>"; };
+		2AE793221B1C42180008E241 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		2AE793231B1C42180008E241 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9356228AB91A09B7821DF914 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -732,29 +729,17 @@
 				2A984E881B141205004DF4C0 /* HHView.m */,
 				2A984E891B141205004DF4C0 /* HHWebView.h */,
 				2A984E8A1B141205004DF4C0 /* HHWebView.m */,
-				2A984E8B1B141205004DF4C0 /* TPKeyboardAvoiding */,
+				2AE7931F1B1C40470008E241 /* HHProgressHUD.h */,
+				2AE793201B1C40470008E241 /* HHProgressHUD.m */,
 			);
 			path = HHUIKit;
-			sourceTree = "<group>";
-		};
-		2A984E8B1B141205004DF4C0 /* TPKeyboardAvoiding */ = {
-			isa = PBXGroup;
-			children = (
-				2A984E8C1B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.h */,
-				2A984E8D1B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.m */,
-				2A984E8E1B141205004DF4C0 /* TPKeyboardAvoidingScrollView.h */,
-				2A984E8F1B141205004DF4C0 /* TPKeyboardAvoidingScrollView.m */,
-				2A984E901B141205004DF4C0 /* TPKeyboardAvoidingTableView.h */,
-				2A984E911B141205004DF4C0 /* TPKeyboardAvoidingTableView.m */,
-				2A984E921B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				2A984E931B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
-			);
-			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */,
+				2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */,
 				2A984E951B141205004DF4C0 /* Base64Tool.h */,
 				2A984E961B141205004DF4C0 /* Base64Tool.m */,
 				2A984E971B141205004DF4C0 /* Controller */,
@@ -822,6 +807,8 @@
 			children = (
 				2AD0190A1B14A8F600702BD5 /* LoginViewController.h */,
 				2AD0190B1B14A8F600702BD5 /* LoginViewController.m */,
+				2AE793221B1C42180008E241 /* RegisterViewController.h */,
+				2AE793231B1C42180008E241 /* RegisterViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -947,9 +934,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A984EC11B141205004DF4C0 /* HHPickerView.m in Sources */,
-				2A984ECA1B141205004DF4C0 /* TPKeyboardAvoidingTableView.m in Sources */,
 				2A984ED51B141205004DF4C0 /* UIImage+Addition.m in Sources */,
-				2A984EC91B141205004DF4C0 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				2AC6B24E1B16000C00CEBA42 /* UserCenterAPI.m in Sources */,
 				2A984EBF1B141205004DF4C0 /* HHImageView.m in Sources */,
 				2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */,
@@ -962,23 +947,24 @@
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
 				2A984EBC1B141205004DF4C0 /* HHButton.m in Sources */,
 				2A984EBA1B141205004DF4C0 /* NSMutableDictionary+HHFrameWorkKit.m in Sources */,
+				2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A984ECE1B141205004DF4C0 /* HHLoadingView.m in Sources */,
 				2A984ED81B141205004DF4C0 /* UIView+Addition.m in Sources */,
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */,
-				2A984EC81B141205004DF4C0 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,
 				2A984EC01B141205004DF4C0 /* HHLable.m in Sources */,
-				2A984ECB1B141205004DF4C0 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
 				2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
+				2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */,
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
+				2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */,
 				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
 				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,

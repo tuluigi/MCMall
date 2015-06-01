@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIViewController+MCMall.h"
 @interface BaseViewController : UIViewController
 
 

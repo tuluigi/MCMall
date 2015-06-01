@@ -25,5 +25,5 @@
 #import "HHGlobalVarTool.h"
 #import "BaseViewController.h"
 #import "BaseTableViewController.h"
-#import "UIViewController+MCMall.h"
+
 #endif

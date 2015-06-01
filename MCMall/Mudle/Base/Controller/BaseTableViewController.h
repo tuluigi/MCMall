@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BaseTableViewController : UITableViewController
+#import "BaseViewController.h"
+@interface BaseTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)HHTableView *tableView;
+
+- (instancetype)initWithStyle:(UITableViewStyle)style;
 @end

@@ -86,7 +86,7 @@
 
 
 -(void)didLoginButtonPressed{
-    LoginViewController *loginController=[[LoginViewController alloc]  init];
+    LoginViewController *loginController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];
     UINavigationController *navController=[[UINavigationController alloc]  initWithRootViewController:loginController];
     [self.navigationController presentViewController:navController animated:YES completion:^{
         

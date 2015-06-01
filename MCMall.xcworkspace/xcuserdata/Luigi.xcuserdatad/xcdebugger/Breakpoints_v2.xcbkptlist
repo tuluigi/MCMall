@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/Login/LoginViewController.m"
-            timestampString = "454823172.771302"
+            filePath = "MCMall/Mudle/Base/Controller/UIViewController+MCMall.m"
+            timestampString = "454830168.162647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-touchesEnded:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/Login/LoginViewController.m"
-            timestampString = "454823172.771302"
+            filePath = "MCMall/Mudle/Base/Controller/BaseTableViewController.m"
+            timestampString = "454835306.16738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

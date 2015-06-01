@@ -19,4 +19,7 @@
     }
     return isLogin;
 }
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];;
+}
 @end

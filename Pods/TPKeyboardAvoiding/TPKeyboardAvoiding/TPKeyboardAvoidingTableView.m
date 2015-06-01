@@ -1,21 +1,21 @@
 //
-//  TPKeyboardAvoidingScrollView.m
+//  TPKeyboardAvoidingTableView.m
 //
 //  Created by Michael Tyson on 30/09/2013.
 //  Copyright 2013 A Tasty Pixel. All rights reserved.
 //
 
-#import "TPKeyboardAvoidingScrollView.h"
+#import "TPKeyboardAvoidingTableView.h"
 
-@interface TPKeyboardAvoidingScrollView () <UITextFieldDelegate, UITextViewDelegate>
+@interface TPKeyboardAvoidingTableView () <UITextFieldDelegate, UITextViewDelegate>
 @end
 
-@implementation TPKeyboardAvoidingScrollView
+@implementation TPKeyboardAvoidingTableView
 
 #pragma mark - Setup/Teardown
 
 - (void)setup {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToActiveTextField) name:UITextViewTextDidBeginEditingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToActiveTextField) name:UITextFieldTextDidBeginEditingNotification object:nil];
@@ -23,6 +23,12 @@
 
 -(id)initWithFrame:(CGRect)frame {
     if ( !(self = [super initWithFrame:frame]) ) return nil;
+    [self setup];
+    return self;
+}
+
+-(id)initWithFrame:(CGRect)frame style:(UITableViewStyle)withStyle {
+    if ( !(self = [super initWithFrame:frame style:withStyle]) ) return nil;
     [self setup];
     return self;
 }
@@ -45,11 +51,7 @@
 
 -(void)setContentSize:(CGSize)contentSize {
     [super setContentSize:contentSize];
-    [self TPKeyboardAvoiding_updateFromContentSizeChange];
-}
-
-- (void)contentSizeToFit {
-    self.contentSize = [self TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames];
+    [self TPKeyboardAvoiding_updateContentInset];
 }
 
 - (BOOL)focusNextTextField {

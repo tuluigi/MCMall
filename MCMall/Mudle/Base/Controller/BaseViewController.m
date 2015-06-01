@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupForDismissKeyboard];
     // Do any additional setup after loading the view.
 }
 
@@ -23,7 +24,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+//    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+//}
 /*
 #pragma mark - Navigation
 

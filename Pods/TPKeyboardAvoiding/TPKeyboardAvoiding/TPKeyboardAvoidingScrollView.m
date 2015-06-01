@@ -1,21 +1,21 @@
 //
-//  TPKeyboardAvoidingTableView.m
+//  TPKeyboardAvoidingScrollView.m
 //
 //  Created by Michael Tyson on 30/09/2013.
 //  Copyright 2013 A Tasty Pixel. All rights reserved.
 //
 
-#import "TPKeyboardAvoidingTableView.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
-@interface TPKeyboardAvoidingTableView () <UITextFieldDelegate, UITextViewDelegate>
+@interface TPKeyboardAvoidingScrollView () <UITextFieldDelegate, UITextViewDelegate>
 @end
 
-@implementation TPKeyboardAvoidingTableView
+@implementation TPKeyboardAvoidingScrollView
 
 #pragma mark - Setup/Teardown
 
 - (void)setup {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToActiveTextField) name:UITextViewTextDidBeginEditingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToActiveTextField) name:UITextFieldTextDidBeginEditingNotification object:nil];
@@ -23,12 +23,6 @@
 
 -(id)initWithFrame:(CGRect)frame {
     if ( !(self = [super initWithFrame:frame]) ) return nil;
-    [self setup];
-    return self;
-}
-
--(id)initWithFrame:(CGRect)frame style:(UITableViewStyle)withStyle {
-    if ( !(self = [super initWithFrame:frame style:withStyle]) ) return nil;
     [self setup];
     return self;
 }
@@ -51,7 +45,11 @@
 
 -(void)setContentSize:(CGSize)contentSize {
     [super setContentSize:contentSize];
-    [self TPKeyboardAvoiding_updateContentInset];
+    [self TPKeyboardAvoiding_updateFromContentSizeChange];
+}
+
+- (void)contentSizeToFit {
+    self.contentSize = [self TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames];
 }
 
 - (BOOL)focusNextTextField {
