@@ -23,8 +23,9 @@
     self.window.rootViewController=rootTabbarController;
     
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBg"] forBarMetrics:UIBarMetricsDefault];
-    
-
+    NSDictionary *attrDic=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont boldSystemFontOfSize:20.0],NSFontAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:attrDic];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
     return YES;
 }
