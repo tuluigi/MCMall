@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface ActivityViewController : BaseViewController
+@interface ActivityViewController : BaseTableViewController
 
 @end

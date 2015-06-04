@@ -7,14 +7,14 @@
 //
 
 #import "HHNetWorkEngine+UserCenter.h"
-#import "UserCenterAPI.h"
+#import "MCMallAPI.h"
 #import "UserModel.h"
 @implementation HHNetWorkEngine (UserCenter)
 -(MKNetworkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
-    NSString *apiPath=[UserCenterAPI userLoginAPI];
+    NSString *apiPath=[MCMallAPI userLoginAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:name,@"username",pwd,@"password", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
@@ -35,7 +35,7 @@
                                        phoneNum:(NSString *)phoneNum
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
-    NSString *apiPath=[UserCenterAPI userRegisterAPI];
+    NSString *apiPath=[MCMallAPI userRegisterAPI];
     NSDictionary *postDic=@{@"username":name,@"password":pwd,@"phone":phoneNum,@"type":@"1"};
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];

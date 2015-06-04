@@ -19,11 +19,14 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @interface ActivityModel : NSObject
 @property(nonatomic,copy)NSString *activityID;
 @property(nonatomic,copy)NSString *activityTitle;
+@property(nonatomic,copy)NSString *activityImageUrl;
 @property(nonatomic,copy)NSString *activityBrief;
 @property(nonatomic,copy)NSString *activityDetail;
-@property(nonatomic,strong)OperationModel *operationModel;
-
+@property(nonatomic,strong)NSString *activityTime;
+@property(nonatomic,assign)ActivityType activityType;
 @end
+
+
 
 
 @interface OperationModel : NSObject

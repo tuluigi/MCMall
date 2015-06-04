@@ -18,8 +18,8 @@
  *
  *  @return
  */
--(MKNetworkOperation *)getActivityListWithMerchantID:(NSString *)merchantID
-                                              pageID:(NSInteger)pageID
+-(MKNetworkOperation *)getActivityListWithPageNum:(NSInteger)pageNum
+                                         pageSize:(NSInteger)pageSize
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**

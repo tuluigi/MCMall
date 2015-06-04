@@ -26,6 +26,7 @@
 		2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */; };
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
+		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
 		2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
 		2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E6A1B141205004DF4C0 /* HHNetWorkTool.m */; };
@@ -63,7 +64,6 @@
 		2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */; };
 		2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99BD591B15971B004771C8 /* BaseTableViewController.m */; };
 		2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99BD5C1B1597B3004771C8 /* UIViewController+MCMall.m */; };
-		2AC6B24E1B16000C00CEBA42 /* UserCenterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6B24D1B16000C00CEBA42 /* UserCenterAPI.m */; };
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
@@ -110,6 +110,8 @@
 		2A7C4E1D1B147FBA00912D53 /* HHGlobalVarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGlobalVarTool.h; sourceTree = "<group>"; };
 		2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGlobalVarTool.m; sourceTree = "<group>"; };
 		2A7C4E201B14802000912D53 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
+		2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallAPI.h; sourceTree = "<group>"; };
+		2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallAPI.m; sourceTree = "<group>"; };
 		2A984E621B141205004DF4C0 /* AESEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESEncryption.h; sourceTree = "<group>"; };
 		2A984E631B141205004DF4C0 /* AESEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESEncryption.m; sourceTree = "<group>"; };
 		2A984E671B141205004DF4C0 /* HHNetWorkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNetWorkEngine.h; sourceTree = "<group>"; };
@@ -187,8 +189,6 @@
 		2A99BD591B15971B004771C8 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		2A99BD5B1B1597B3004771C8 /* UIViewController+MCMall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MCMall.h"; sourceTree = "<group>"; };
 		2A99BD5C1B1597B3004771C8 /* UIViewController+MCMall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MCMall.m"; sourceTree = "<group>"; };
-		2AC6B24C1B16000B00CEBA42 /* UserCenterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterAPI.h; sourceTree = "<group>"; };
-		2AC6B24D1B16000C00CEBA42 /* UserCenterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterAPI.m; sourceTree = "<group>"; };
 		2AD019061B14A8C000702BD5 /* loading_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@2x.png"; sourceTree = "<group>"; };
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -479,6 +479,8 @@
 				2A7C4E1D1B147FBA00912D53 /* HHGlobalVarTool.h */,
 				2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */,
 				2A7C4E201B14802000912D53 /* GlobalMacro.h */,
+				2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */,
+				2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -504,8 +506,6 @@
 			children = (
 				2A984EE21B141375004DF4C0 /* HHNetWorkEngine+UserCenter.h */,
 				2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */,
-				2AC6B24C1B16000B00CEBA42 /* UserCenterAPI.h */,
-				2AC6B24D1B16000C00CEBA42 /* UserCenterAPI.m */,
 			);
 			path = NetEngine;
 			sourceTree = "<group>";
@@ -935,7 +935,6 @@
 			files = (
 				2A984EC11B141205004DF4C0 /* HHPickerView.m in Sources */,
 				2A984ED51B141205004DF4C0 /* UIImage+Addition.m in Sources */,
-				2AC6B24E1B16000C00CEBA42 /* UserCenterAPI.m in Sources */,
 				2A984EBF1B141205004DF4C0 /* HHImageView.m in Sources */,
 				2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */,
 				2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */,
@@ -954,6 +953,7 @@
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */,
+				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,
