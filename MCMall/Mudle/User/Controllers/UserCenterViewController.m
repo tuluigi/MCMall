@@ -11,29 +11,29 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "LoginViewController.h"
 @interface UserCenterViewController ()
-@property(nonatomic,strong)UIView *headerView,*footView;
-
+@property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
+@property(nonatomic,strong)UIImageView *logoImgView;
 @end
 
 @implementation UserCenterViewController
 -(UIView *)headerView{
     if (nil==_headerView) {
-        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
-        [_headerView addSubview:logoImgView];
-        [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
+        _logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
+        [_headerView addSubview:_logoImgView];
+        [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(_headerView);
             make.size.mas_equalTo(CGSizeMake(100.0, 100.0));
         }];
     }
     return _headerView;
 }
--(UIView *)footView{
-    if (nil==_footView) {
-       _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+-(UIView *)loginFootView{
+    if (nil==_loginFootView) {
+       _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [_footView addSubview:loginButton];
+        [_loginFootView addSubview:loginButton];
         loginButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
         loginButton.layer.cornerRadius=5.0;
         loginButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
@@ -41,31 +41,47 @@
         [loginButton setTitle:@"登 录" forState:UIControlStateNormal];
         [loginButton addTarget:self action:@selector(didLoginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.mas_equalTo(_footView).with.offset(20.0);
-            make.right.mas_equalTo(_footView.right).with.offset(-20.0);
+            make.left.top.mas_equalTo(_loginFootView).with.offset(20.0);
+            make.right.mas_equalTo(_loginFootView.right).with.offset(-20.0);
             make.height.equalTo(@40.0);
         }];
+    
         
-        /*
         UIButton *registerButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [_footView addSubview:registerButton];
+        [_loginFootView addSubview:registerButton];
         registerButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
         registerButton.layer.cornerRadius=5.0;
         registerButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
         registerButton.layer.masksToBounds=YES;
         [registerButton setTitle:@"注 册" forState:UIControlStateNormal];
         [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(loginButton.bottom).with.offset(40);
+            make.top.mas_equalTo(loginButton.mas_bottom).with.offset(10);
             make.left.right.mas_equalTo(loginButton);
-            //make.right.mas_equalTo(loginButton);
             make.height.equalTo(loginButton);
-           // make.right.height.mas_equalTo(loginButton.right);
-           // make.top.mas_equalTo(loginButton.bottom).with.offset(20.0);;
-            
         }];
-         */
     }
-    return _footView;
+    return _loginFootView;
+}
+-(UIView *)logoutFootView{
+    if (nil==_logoutFootView) {
+        _logoutFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        [_logoutFootView addSubview:loginButton];
+       
+        loginButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
+        loginButton.layer.cornerRadius=5.0;
+        loginButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
+        loginButton.layer.masksToBounds=YES;
+        [loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
+        [loginButton addTarget:self action:@selector(didLogoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.mas_equalTo(_logoutFootView).with.offset(20.0);
+            make.right.mas_equalTo(_logoutFootView.right).with.offset(-20.0);
+            make.height.equalTo(@40.0);
+        }];
+
+    }
+    return _logoutFootView;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -75,16 +91,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableHeaderView=self.headerView;
-    self.tableView.tableFooterView=self.footView;
-    
+    self.tableView.separatorColor=MCMallThemeColor;
+    [self reloadUI];
+    WEAKSELF
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf reloadUI];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+-(void)reloadUI{
+    if ([UserModel isLogin]) {
+        self.tableView.tableFooterView=self.logoutFootView;
+    }else{
+         self.tableView.tableFooterView=self.loginFootView;
+    }
+    UserModel *userModel=[UserModel userModel];
+    [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+    [self.tableView reloadData];
+}
+-(void)didLogoutButtonPressed{
+    [UserModel logout];
+    [self reloadUI];
+    [self verfiyUserLogin];
+}
 -(void)didLoginButtonPressed{
     LoginViewController *loginController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];
     UINavigationController *navController=[[UINavigationController alloc]  initWithRootViewController:loginController];
@@ -94,38 +127,51 @@
 }
 #pragma mark -UITableView Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+        return 5;
+
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"cellIdentifer";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.detailTextLabel.textColor=MCMallThemeColor;
     }
+    UserModel *userModel=[UserModel userModel ];
     switch (indexPath.row) {
         case 0:{
-            cell.textLabel.text=@"欢迎您!";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.textLabel.text=@"欢迎您:";
+            cell.detailTextLabel.text=userModel.userName;
         }break;
         case 1:{
             cell.textLabel.text=@"账户余额:";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
         }break;
         case 2:{
             cell.textLabel.text=@"所属门店:";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.detailTextLabel.text=userModel.merchantName;
         }break;
         case 3:{
             cell.textLabel.text=@"手机号:";
-            cell.detailTextLabel.text=@"xxxx";
+            cell.detailTextLabel.text=userModel.userTel;
         }break;
             
-        default:
+        default:{
+            cell.textLabel.text=@"";
+            cell.detailTextLabel.text=@"";
+        }
             break;
     }
     return cell;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row==5) {
+        return CGFLOAT_MIN;
+    }else{
+        return 44.0;
+    }
+}
 /*
 #pragma mark - Navigation
 

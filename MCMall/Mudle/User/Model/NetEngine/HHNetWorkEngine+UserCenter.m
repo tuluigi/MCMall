@@ -8,6 +8,7 @@
 
 #import "HHNetWorkEngine+UserCenter.h"
 #import "UserCenterAPI.h"
+#import "UserModel.h"
 @implementation HHNetWorkEngine (UserCenter)
 -(MKNetworkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
@@ -23,7 +24,8 @@
 }
 -(HHResponseResult *)parseUserLoginWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
-        
+        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData];
+        responseResult.responseData=userModel;
     }
     return responseResult;
 }
@@ -33,19 +35,13 @@
                                        phoneNum:(NSString *)phoneNum
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
-    NSString *apiPath=[UserCenterAPI userLoginAPI];
-    NSDictionary *postDic=@{name:@"username",pwd:@"pwd"};
+    NSString *apiPath=[UserCenterAPI userRegisterAPI];
+    NSDictionary *postDic=@{@"username":name,@"password":pwd,@"phone":phoneNum,@"type":@"1"};
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        responseResult=[weakSelf parseUserRegisterWithResponseResult:responseResult];
+        responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
-}
--(HHResponseResult *)parseUserRegisterWithResponseResult:(HHResponseResult *)responseResult{
-    if (responseResult.responseCode==HHResponseResultCode100) {
-        
-    }
-    return responseResult;
 }
 
 @end

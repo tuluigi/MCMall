@@ -132,20 +132,23 @@
     }
 }
 -(void)userRegister{
-    if ([NSString IsNullOrEmptyString:self.userName]) {
-        [HHProgressHUD showErrorMssage:@"请输入登录名"];
-    }else if ([NSString IsNullOrEmptyString:self.userPwd]){
-        [HHProgressHUD showErrorMssage:@"请输入用户密码"];
-    }else if ([NSString IsNullOrEmptyString:self.repeatPwd]){
-        [HHProgressHUD showErrorMssage:@"请输入重复密码"];
-    }else if ([NSString IsNullOrEmptyString:self.telPhone]){
-        [HHProgressHUD showErrorMssage:@"请输入电话号码"];
+    if (self.userName.length<6) {
+        [HHProgressHUD showErrorMssage:@"登录名长度不能小于6位"];
+    }else if (self.userPwd.length<6){
+        [HHProgressHUD showErrorMssage:@"密码不能少于6位"];
+    }else if (self.repeatPwd.length<6){
+        [HHProgressHUD showErrorMssage:@"密码不能少于6位"];
+    }else if (![self.telPhone isPhoneNumber]){
+        [HHProgressHUD showErrorMssage:@"请输入正确号码"];
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
         [HHProgressHUD showErrorMssage:@"两次输入的密码不一样"];
     }else{
         [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCode100) {
-                
+                [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
+                [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
             }else{
                 [HHProgressHUD showErrorMssage:responseResult.responseMessage];
             }
@@ -162,7 +165,7 @@
     return 15.0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 4;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";
@@ -198,16 +201,19 @@
     
     UILabel *leftLable=(UILabel *)textField.leftView;
     textField.rightViewMode=UITextFieldViewModeNever;
+    textField.secureTextEntry=NO;
     switch (indexPath.row) {
         case 0:{
             textField.placeholder=@"请输入登录名";
             leftLable.text=@"用户名";
         } break;
         case 1:{
+            textField.secureTextEntry=YES;
             textField.placeholder=@"请输入至少6位密码";
             leftLable.text=@"密码";
         }break;
         case 2:{
+            textField.secureTextEntry=YES;
             textField.placeholder=@"确认新密码";
             leftLable.text=@"确认密码";
         }break;

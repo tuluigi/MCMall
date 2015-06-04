@@ -15,7 +15,10 @@
     if (!isLogin) {
         LoginViewController *loginViewController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];
         loginViewController.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:loginViewController animated:YES];
+        UINavigationController *rootNavController=[[UINavigationController alloc]  initWithRootViewController:loginViewController];
+        [self.navigationController presentViewController:rootNavController animated:YES completion:^{
+            
+        }];
     }
     return isLogin;
 }

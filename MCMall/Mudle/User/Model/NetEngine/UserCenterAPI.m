@@ -9,14 +9,15 @@
 #import "UserCenterAPI.h"
 
 @implementation UserCenterAPI
+
 +(NSString *)userLoginAPI{
-    return @"/BasePJ/ws/login";
+    return @"/muying/ws//login";
 }
 +(NSString *)userRegisterAPI{
-    return @"/BasePJ/ws/register";
+    return @"/muying/ws/register";
 }
 +(NSString *)userEditPwdAPI{
-    return @"/BasePJ/ws/changepassoword";
+    return @"/muying/ws/changepassoword";
 }
 
 @end

@@ -16,8 +16,9 @@
 @property(nonatomic,copy)NSDecimalNumber *userAmount;
 @property(nonatomic,copy)NSString *merchantID;
 @property(nonatomic,copy)NSString *merchantName;
-
-
++(UserModel *)userModelWithResponseDic:(NSDictionary *)dic;
++(UserModel *)userModel;
++(void)logout;
 +(NSString *)userID;
 +(BOOL)isLogin;
 @end

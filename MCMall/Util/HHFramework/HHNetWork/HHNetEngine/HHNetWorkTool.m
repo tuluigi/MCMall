@@ -55,7 +55,7 @@
             responseResult.responseMessage=@"json格式错误";
             responseResult.responseCode=100002;//json 格式错误
         }else{
-            responseResult.responseData=resultDic;
+            responseResult.responseData=[resultDic objectForKey:@"result"];
             responseResult.responseCode=[[resultDic objectForKey:@"code"] integerValue];
             responseResult.responseMessage=[resultDic objectForKey:@"message"];
         }

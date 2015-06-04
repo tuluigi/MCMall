@@ -119,7 +119,10 @@
     }else{
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCode100) {
-                
+                [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
+                [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
             }else{
                 [HHProgressHUD showErrorMssage:responseResult.responseMessage];
             }
@@ -161,6 +164,7 @@
         case 1:{
             cell.textLabel.text=@"密码:";
             textField.placeholder=@"请输入登录密码";
+            textField.secureTextEntry=YES;
         }break;
             
         default:
