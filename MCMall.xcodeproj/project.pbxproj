@@ -27,6 +27,7 @@
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
 		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
+		2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
 		2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
 		2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E6A1B141205004DF4C0 /* HHNetWorkTool.m */; };
@@ -112,6 +113,8 @@
 		2A7C4E201B14802000912D53 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
 		2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallAPI.h; sourceTree = "<group>"; };
 		2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallAPI.m; sourceTree = "<group>"; };
+		2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHelper.h; sourceTree = "<group>"; };
+		2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHImagePickerHelper.m; sourceTree = "<group>"; };
 		2A984E621B141205004DF4C0 /* AESEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESEncryption.h; sourceTree = "<group>"; };
 		2A984E631B141205004DF4C0 /* AESEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESEncryption.m; sourceTree = "<group>"; };
 		2A984E671B141205004DF4C0 /* HHNetWorkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNetWorkEngine.h; sourceTree = "<group>"; };
@@ -485,6 +488,15 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		2A8DFFE11B20628E0060CA76 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */,
+				2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		2A984E4A1B14119B004DF4C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,6 +750,7 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A8DFFE11B20628E0060CA76 /* ImagePicker */,
 				2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */,
 				2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */,
 				2A984E951B141205004DF4C0 /* Base64Tool.h */,
@@ -960,6 +973,7 @@
 				2A984EC01B141205004DF4C0 /* HHLable.m in Sources */,
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
+				2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */,
 				2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
 				2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */,
