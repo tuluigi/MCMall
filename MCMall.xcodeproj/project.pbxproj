@@ -19,6 +19,7 @@
 		2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6FC1B1099C900607723 /* HealthViewController.m */; };
 		2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
+		2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
 		2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */; };
 		2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E131B1475C800912D53 /* navigationBg@2x.png */; };
@@ -100,6 +101,9 @@
 		2A50F7001B1099E300607723 /* MCMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallViewController.m; sourceTree = "<group>"; };
 		2A50F7031B109A0C00607723 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
 		2A50F7041B109A0C00607723 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		2A6EC9CB1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+UploadFile.h"; sourceTree = "<group>"; };
+		2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+UploadFile.m"; sourceTree = "<group>"; };
+		2A6EC9CE1B21393E00DEAF04 /* HHImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHeader.h; sourceTree = "<group>"; };
 		2A7C4E071B146E0200912D53 /* HHNetWorkEngine+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+Activity.h"; sourceTree = "<group>"; };
 		2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+Activity.m"; sourceTree = "<group>"; };
 		2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
@@ -493,6 +497,9 @@
 			children = (
 				2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */,
 				2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */,
+				2A6EC9CB1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.h */,
+				2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */,
+				2A6EC9CE1B21393E00DEAF04 /* HHImagePickerHeader.h */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -969,6 +976,7 @@
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
+				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,
 				2A984EC01B141205004DF4C0 /* HHLable.m in Sources */,
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,

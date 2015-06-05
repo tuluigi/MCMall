@@ -10,16 +10,27 @@
 #import "UIViewController+MCMall.h"
 #import "HHNetWorkEngine+UserCenter.h"
 #import "LoginViewController.h"
+#import "HHImagePickerHelper.h"
 @interface UserCenterViewController ()
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
+@property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 @end
 
 @implementation UserCenterViewController
+-(HHImagePickerHelper *)imagePickerHelper{
+    if (nil==_imagePickerHelper) {
+        _imagePickerHelper=[[HHImagePickerHelper alloc]  init];
+    }
+    return _imagePickerHelper;
+}
 -(UIView *)headerView{
     if (nil==_headerView) {
         _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
         _logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
+        _logoImgView.userInteractionEnabled=YES;
+        UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didHeaderImageTouchedWithGesture:)];
+        [_logoImgView addGestureRecognizer:tapGesture];
         [_headerView addSubview:_logoImgView];
         [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(_headerView);
@@ -112,6 +123,11 @@
     UserModel *userModel=[UserModel userModel];
     [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
     [self.tableView reloadData];
+}
+-(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
+    [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(UIImage *image, NSDictionary *editingInfo, NSString *imgPath) {
+        
+    }];
 }
 -(void)didLogoutButtonPressed{
     [UserModel logout];

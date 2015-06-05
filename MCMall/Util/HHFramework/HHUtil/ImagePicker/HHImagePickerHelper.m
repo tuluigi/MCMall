@@ -12,6 +12,7 @@
 @interface HHImagePickerHelper ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 @property(nonatomic,strong)UIImagePickerController *imagePickerController;
 @property(nonatomic,assign)HHImagePickType pickType;
+@property(nonatomic,copy)DidFinishMediaOnCompledBlock completionBlock;
 @end
 
 @implementation HHImagePickerHelper
@@ -23,7 +24,10 @@
     return _imagePickerController;
 }
 -(void)showImagePickerWithType:(HHImagePickType)type onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock{
-
+    self.completionBlock=completionBlock;
+    [self showImagePickerWithType:type];
+}
+-(void)showImagePickerWithType:(HHImagePickType)type{
     _pickType=type;
     UIViewController *rootController=[UIApplication sharedApplication].keyWindow.rootViewController;
     if (_pickType==HHImagePickTypeCamrea) {//相机
@@ -82,16 +86,12 @@
     }];
 }
 #pragma mark- actionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag==1000) {//上传照片
         if (buttonIndex==0) {//相机
-            [self  showImagePickerWithType:HHImagePickTypeCamrea onCompletionHandler:^(UIImage *image, NSDictionary *editingInfo, NSString *imgPath) {
-                
-            }];
+            [self showImagePickerWithType:HHImagePickTypeCamrea];
         }else if (buttonIndex==1){//相册
-            [self  showImagePickerWithType:HHImagePickTypeAblum onCompletionHandler:^(UIImage *image, NSDictionary *editingInfo, NSString *imgPath) {
-                
-            }];
+            [self showImagePickerWithType:HHImagePickTypeAblum];
         }
     }
 }
