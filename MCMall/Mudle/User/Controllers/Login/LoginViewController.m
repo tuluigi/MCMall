@@ -117,8 +117,10 @@
     }else if([NSString IsNullOrEmptyString:self.userPwd]){
         [HHProgressHUD showErrorMssage:@"请输入密码"];
     }else{
+                [HHProgressHUD showLoadingState];
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCode100) {
+                [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 [self.navigationController dismissViewControllerAnimated:YES completion:^{
                     

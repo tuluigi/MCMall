@@ -9,21 +9,18 @@
 #import "HHGlobalVarTool.h"
 
 @implementation HHGlobalVarTool
-+(NSString *)domainPath{
-    return @"118.254.209.9:8080";
-}
 /**
  *  当前appMerchangID
  *
  *  @return
  */
-+(NSString *)merchantID{
-    NSString *merchangID=@"";
++(NSString *)shopID{
+    NSString *shopID=@"";
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
     if ([identifier isEqualToString:@"com.MCMall.Test"]) {
-        merchangID=@"1";
+        shopID=@"D2077d9";
     }
-    return merchangID;
+    return shopID;
 }
 
 #pragma mark- token

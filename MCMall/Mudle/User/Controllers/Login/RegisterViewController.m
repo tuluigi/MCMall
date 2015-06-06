@@ -23,7 +23,7 @@
 -(void)onInitData{
     self.title=@"注册";
     self.tableView.backgroundColor=[UIColor red:240.0 green:241.0 blue:246.0 alpha:1];
-  //  self.tableView.tableHeaderView=self.headerView;
+    //  self.tableView.tableHeaderView=self.headerView;
     self.tableView.tableFooterView=self.footView;
     [self.tableView reloadData];
 }
@@ -84,7 +84,7 @@
             make.top.equalTo(checkRightButton);
             make.size.mas_equalTo(CGSizeMake(120.0, 20.0));
         }];
-
+        
         
         NSInteger tag=2000;
         for (NSInteger i=0; i<3; i++) {
@@ -139,12 +139,14 @@
     }else if (self.repeatPwd.length<6){
         [HHProgressHUD showErrorMssage:@"密码不能少于6位"];
     }else if (![self.telPhone isPhoneNumber]){
-        [HHProgressHUD showErrorMssage:@"请输入正确号码"];
+        [HHProgressHUD showErrorMssage:@"请输入正确手机号码"];
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
         [HHProgressHUD showErrorMssage:@"两次输入的密码不一样"];
     }else{
+        [HHProgressHUD showLoadingState];
         [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCode100) {
+                [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 [self.navigationController dismissViewControllerAnimated:YES completion:^{
                     
@@ -157,7 +159,7 @@
 }
 #pragma mark 获取验证码
 -(void)didVerifyCodeButtonPressed{
-
+    
 }
 
 #pragma mark -UITableView Delegate
@@ -217,7 +219,7 @@
             textField.placeholder=@"确认新密码";
             leftLable.text=@"确认密码";
         }break;
-
+            
         case 3:{
             textField.placeholder=@"请输入您的手机号";
             leftLable.text=@"手机号";

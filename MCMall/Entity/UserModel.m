@@ -12,7 +12,7 @@ NSString *const MCMall_UserName     =@"MCMall_UserName";
 NSString *const MCMall_UserHeadUrl  =@"MCMall_UserHeadUrl";
 NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
-NSString *const MCMall_MerchantName   =@"MCMall_MerchantName";
+NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 @implementation UserModel
 +(UserModel *)userModelWithResponseDic:(NSDictionary *)dic{
     UserModel *userModel=[[UserModel alloc]  init];
@@ -21,7 +21,7 @@ NSString *const MCMall_MerchantName   =@"MCMall_MerchantName";
     userModel.userAmount=[NSDecimalNumber decimalNumberWithString:[dic objectForKey:@"money"]];
     userModel.userID=[dic objectForKey:@"userId"];
     userModel.userHeadUrl=[dic objectForKey:@"img"];
-    userModel.merchantName=[dic objectForKey:@"shopName"];
+    userModel.shopName=[dic objectForKey:@"shopName"];
     [UserModel storeUserModel:userModel];
     return userModel;
 }
@@ -31,7 +31,7 @@ NSString *const MCMall_MerchantName   =@"MCMall_MerchantName";
     [userDefault setObject:userModel.userName forKey:MCMall_UserName];
     [userDefault setObject:userModel.userAmount forKey:MCMall_UserAmount];
     [userDefault setObject:userModel.userHeadUrl forKey:MCMall_UserHeadUrl];
-    [userDefault setObject:userModel.merchantName forKey:MCMall_MerchantName];
+    [userDefault setObject:userModel.shopName forKey:MCMall_ShopName];
     [userDefault setObject:userModel.userTel forKey:MCMall_UserTel];
     [userDefault synchronize];
 }
@@ -43,7 +43,7 @@ NSString *const MCMall_MerchantName   =@"MCMall_MerchantName";
     model.userHeadUrl=[userDefault objectForKey:MCMall_UserHeadUrl];
     model.userAmount=[userDefault objectForKey:MCMall_UserAmount];
     model.userTel=[userDefault objectForKey:MCMall_UserTel];
-    model.merchantName=[userDefault objectForKey:MCMall_MerchantName];
+    model.shopName=[userDefault objectForKey:MCMall_ShopName];
     return model;
 }
 +(void)logout{
@@ -52,7 +52,7 @@ NSString *const MCMall_MerchantName   =@"MCMall_MerchantName";
     [userDefault setObject:nil forKey:MCMall_UserName];
     [userDefault setObject:nil forKey:MCMall_UserAmount];
     [userDefault setObject:nil forKey:MCMall_UserHeadUrl];
-    [userDefault setObject:nil forKey:MCMall_MerchantName];
+    [userDefault setObject:nil forKey:MCMall_ShopName];
     [userDefault setObject:nil forKey:MCMall_UserTel];
     [userDefault synchronize];
 

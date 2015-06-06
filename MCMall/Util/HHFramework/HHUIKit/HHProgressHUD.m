@@ -9,6 +9,12 @@
 #import "HHProgressHUD.h"
 #import "SVProgressHUD.h"
 @implementation HHProgressHUD
++(void)showLoadingMessage:(NSString *)msg{
+    [SVProgressHUD showWithStatus:msg];
+}
++(void)showLoadingState{
+    [self showLoadingMessage:@"请稍等..."];
+}
 +(void)showSuccessMessage:(NSString *)msg{
     [SVProgressHUD showSuccessWithStatus:msg];
 }

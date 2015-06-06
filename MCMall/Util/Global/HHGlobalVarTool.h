@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface HHGlobalVarTool : NSObject
-+(NSString *)domainPath;
 /**
  *  当前appMerchangID
  *
  *  @return 
  */
-+(NSString *)merchantID;
++(NSString *)shopID;
 
 #pragma mark- token
 +(NSString *)deviceToken;

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface MCMallAPI : NSObject
++(NSString *)domainPath;
+
 #pragma mark - 个人中心
 +(NSString *)userLoginAPI;
 +(NSString *)userRegisterAPI;
@@ -16,5 +18,10 @@
 
 #pragma mark -活动
 +(NSString *)getActivityListAPI;
-
+//获取活动详情
++(NSString *)getActivityDetailAPI;
+//投票
++(NSString *)voteActivityAPI;
+//报名
++(NSString *)applyActivityAPI;
 @end

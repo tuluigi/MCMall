@@ -27,4 +27,50 @@
     }
     return responseResult;
 }
+#pragma mark - 获取活动详情
+-(MKNetworkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
+                                          activityType:(NSInteger)type
+                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    WEAKSELF
+    NSString *apiPath=[MCMallAPI getActivityDetailAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",@(type),@"atype", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
+-(HHResponseResult *)parseActivityDetailWithResponseResult:(HHResponseResult *)responseResult{
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        
+    }
+    return responseResult;
+}
+#pragma mark -投票
+-(MKNetworkOperation *)voteActivityWithUserID:(NSString*)userID
+                                   ActivityID:(NSString *)activityID
+                                      voteNum:(NSInteger)num
+                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    //WEAKSELF
+    NSString *apiPath=[MCMallAPI voteActivityAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",@(num),@"no",userID,@"userid", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        //responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
+#pragma mark - 报名
+-(MKNetworkOperation *)applyActivityWithUserID:(NSString*)userID
+                                    ActivityID:(NSString *)activityID
+                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    //WEAKSELF
+    NSString *apiPath=[MCMallAPI voteActivityAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+       // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 @end

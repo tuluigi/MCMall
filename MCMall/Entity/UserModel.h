@@ -14,8 +14,8 @@
 @property(nonatomic,copy)NSString *userHeadUrl;
 @property(nonatomic,copy)NSString *userTel;
 @property(nonatomic,copy)NSDecimalNumber *userAmount;
-@property(nonatomic,copy)NSString *merchantID;
-@property(nonatomic,copy)NSString *merchantName;
+@property(nonatomic,copy)NSString *shopID;
+@property(nonatomic,copy)NSString *shopName;
 +(UserModel *)userModelWithResponseDic:(NSDictionary *)dic;
 +(UserModel *)userModel;
 +(void)logout;

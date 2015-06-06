@@ -166,7 +166,7 @@
         }break;
         case 2:{
             cell.textLabel.text=@"所属门店:";
-            cell.detailTextLabel.text=userModel.merchantName;
+            cell.detailTextLabel.text=userModel.shopName;
         }break;
         case 3:{
             cell.textLabel.text=@"手机号:";

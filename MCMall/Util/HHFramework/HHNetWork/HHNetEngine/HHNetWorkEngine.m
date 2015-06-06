@@ -8,13 +8,14 @@
 #import "HHNetWorkEngine.h"
 #import "HHNetWorkTool.h"
 #import "HHFrameWorkKitMacro.h"
+#import "MCMallAPI.h"
 static HHNetWorkEngine *hh_NetWorkEngine;
 @implementation HHNetWorkEngine
 +(id)sharedHHNetWorkEngine
 {
     @synchronized(self){
         if (nil==hh_NetWorkEngine) {
-            hh_NetWorkEngine=[[HHNetWorkEngine alloc] initWithHostName:[HHGlobalVarTool domainPath]];
+            hh_NetWorkEngine=[[HHNetWorkEngine alloc] initWithHostName:[MCMallAPI domainPath ]];
         }
     }
     return hh_NetWorkEngine;

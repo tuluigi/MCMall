@@ -16,11 +16,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getActivityListWithPageNum:1 pageSize:10];
+   
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+     [self getActivityListWithPageNum:1 pageSize:10];
 }
 
 - (void)didReceiveMemoryWarning {

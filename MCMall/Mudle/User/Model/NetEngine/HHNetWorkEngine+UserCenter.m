@@ -43,5 +43,17 @@
     }];
     return op;
 }
-
+-(MKNetworkOperation *)editUserPassWordWithUserID:(NSString *)userID
+                                       OrignalPwd:(NSString *)orignalPwd
+                                          newsPwd:(NSString *)newPwd
+                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    WEAKSELF
+    NSString *apiPath=[MCMallAPI  userEditPwdAPI];
+    NSDictionary *postDic=@{@"userid":userID,@"oldps":orignalPwd,@"newps":newPwd};
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 @end

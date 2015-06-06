@@ -27,6 +27,7 @@
 		2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */; };
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
+		2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFD141B22751900004035 /* EditPasswordViewController.m */; };
 		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
 		2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
 		2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
@@ -115,6 +116,8 @@
 		2A7C4E1D1B147FBA00912D53 /* HHGlobalVarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGlobalVarTool.h; sourceTree = "<group>"; };
 		2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGlobalVarTool.m; sourceTree = "<group>"; };
 		2A7C4E201B14802000912D53 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
+		2A8DFD131B22751900004035 /* EditPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordViewController.h; sourceTree = "<group>"; };
+		2A8DFD141B22751900004035 /* EditPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordViewController.m; sourceTree = "<group>"; };
 		2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallAPI.h; sourceTree = "<group>"; };
 		2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallAPI.m; sourceTree = "<group>"; };
 		2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHelper.h; sourceTree = "<group>"; };
@@ -829,6 +832,8 @@
 				2AD0190B1B14A8F600702BD5 /* LoginViewController.m */,
 				2AE793221B1C42180008E241 /* RegisterViewController.h */,
 				2AE793231B1C42180008E241 /* RegisterViewController.m */,
+				2A8DFD131B22751900004035 /* EditPasswordViewController.h */,
+				2A8DFD141B22751900004035 /* EditPasswordViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				2A984EBE1B141205004DF4C0 /* HHDataPicker.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2A984EBB1B141205004DF4C0 /* NSString+NetWork.m in Sources */,
+				2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */,
 				2A984ED31B141205004DF4C0 /* UIColor+Addition.m in Sources */,
 				2A984ED01B141205004DF4C0 /* NSDateFormatter+Addititon.m in Sources */,
 				2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */,

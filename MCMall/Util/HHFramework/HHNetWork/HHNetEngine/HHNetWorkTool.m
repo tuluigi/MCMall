@@ -25,7 +25,7 @@
     if (!newPostDic){
         newPostDic=[NSMutableDictionary new];
     }
-    [newPostDic setObject:@"SYSSHOP" forKey:@"shopid"];
+    [newPostDic setObject:[HHGlobalVarTool shopID] forKey:@"shopid"];
     return newPostDic;
 }
 +(HHResponseResult *)parseHHNetWorkResponseCompetion:(MKNetworkOperation *)completionOpetion error:(NSError *)error{
