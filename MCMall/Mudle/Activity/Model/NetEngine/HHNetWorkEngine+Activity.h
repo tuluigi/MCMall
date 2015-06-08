@@ -18,7 +18,8 @@
  *
  *  @return
  */
--(MKNetworkOperation *)getActivityListWithPageNum:(NSInteger)pageNum
+-(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
+                                         pageNum:(NSInteger)pageNum
                                          pageSize:(NSInteger)pageSize
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 

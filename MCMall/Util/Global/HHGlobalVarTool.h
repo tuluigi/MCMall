@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface HHGlobalVarTool : NSObject
+
++(NSString *)fullImagePath:(NSString *)imgPath;
+
 /**
  *  当前appMerchangID
  *

@@ -9,6 +9,13 @@
 #import "HHGlobalVarTool.h"
 
 @implementation HHGlobalVarTool
++(NSString *)fullImagePath:(NSString *)imgPath{
+    if (imgPath) {
+         return [@"http://120.25.152.224:8080/muying/" stringByAppendingString:imgPath];
+    }else{
+        return nil;
+    }
+}
 /**
  *  当前appMerchangID
  *

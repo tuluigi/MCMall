@@ -16,12 +16,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+   [self getActivityListWithPageNum:1 pageSize:10];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     [self getActivityListWithPageNum:1 pageSize:10];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +30,7 @@
 }
 -(void)getActivityListWithPageNum:(NSInteger)num pageSize:(NSInteger)size{
     WEAKSELF
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithPageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (num==1) {
                 [weakSelf.dataArray removeAllObjects];

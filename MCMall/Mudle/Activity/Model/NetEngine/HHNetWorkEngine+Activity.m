@@ -8,13 +8,18 @@
 
 #import "HHNetWorkEngine+Activity.h"
 #import "MCMallAPI.h"
+#import "ActivityModel.h"
 @implementation HHNetWorkEngine (Activity)
--(MKNetworkOperation *)getActivityListWithPageNum:(NSInteger)pageNum
+-(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
+                                         pageNum:(NSInteger)pageNum
                                          pageSize:(NSInteger)pageSize
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getActivityListAPI];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(pageNum),@"pageno",@(pageSize),@"records", nil];
+    if (nil==userID) {
+        userID=@"";
+    }
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid",@(pageNum),@"pageno",@(pageSize),@"records", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseActivityListsWithResponseResult:responseResult];
         completionBlcok(responseResult);

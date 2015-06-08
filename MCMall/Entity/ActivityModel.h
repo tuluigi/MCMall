@@ -18,12 +18,15 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @class OperationModel;
 @interface ActivityModel : NSObject
 @property(nonatomic,copy)NSString *activityID;
-@property(nonatomic,copy)NSString *activityTitle;
+@property(nonatomic,copy)NSString *activityName;
 @property(nonatomic,copy)NSString *activityImageUrl;
 @property(nonatomic,copy)NSString *activityBrief;
 @property(nonatomic,copy)NSString *activityDetail;
-@property(nonatomic,strong)NSString *activityTime;
+@property(nonatomic,copy)NSString *activityEndTime;
 @property(nonatomic,assign)ActivityType activityType;
+
++(ActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
+
 @end
 
 
