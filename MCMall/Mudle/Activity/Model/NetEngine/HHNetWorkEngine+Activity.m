@@ -40,10 +40,12 @@
 #pragma mark - 获取活动详情
 -(MKNetworkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
+                                                userID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getActivityDetailAPI];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",@(type),@"atype", nil];
+    userID=[NSString stringByReplaceNullString:userID];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", activityID,@"activeid",@(type),@"atype", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);

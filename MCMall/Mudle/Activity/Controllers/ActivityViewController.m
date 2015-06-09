@@ -9,6 +9,8 @@
 #import "ActivityViewController.h"
 #import "HHNetWorkEngine+Activity.h"
 #import "ActivityListCell.h"
+#import "ActivityModel.h"
+#import "VoteActivityViewController.h"
 @interface ActivityViewController ()
 
 @end
@@ -64,6 +66,26 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [ActivityListCell activityCellHeight];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ActivityModel *model=[self.dataArray objectAtIndex:indexPath.row];
+    switch (model.activityType=ActivityTypeVote) {
+        case ActivityTypeVote:{
+            VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  init];
+            voteController.activityID=model.activityID;
+            voteController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:voteController animated:YES];
+        }break;
+        case ActivityTypeApply:{
+        
+        }break;
+        case ActivityTypeCommon:{
+        
+        }break;
+            
+        default:
+            break;
+    }
 }
 /*
 #pragma mark - Navigation

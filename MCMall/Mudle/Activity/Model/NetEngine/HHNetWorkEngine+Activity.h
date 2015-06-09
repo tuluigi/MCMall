@@ -36,6 +36,7 @@
  */
 -(MKNetworkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
+                                                userID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 
