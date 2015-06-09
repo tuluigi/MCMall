@@ -8,6 +8,7 @@
 
 #import "ActivityViewController.h"
 #import "HHNetWorkEngine+Activity.h"
+#import "ActivityListCell.h"
 @interface ActivityViewController ()
 
 @end
@@ -16,12 +17,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   [self getActivityListWithPageNum:1 pageSize:10];
-}
+   }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"活动";
     // Do any additional setup after loading the view.
-    
+    [self getActivityListWithPageNum:1 pageSize:10];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,11 +54,16 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *idenfierStr=@"idenfierStr";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:idenfierStr];
+    ActivityListCell *cell=(ActivityListCell *)[tableView dequeueReusableCellWithIdentifier:idenfierStr];
     if (nil==cell) {
-        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr];
+        cell=[[ActivityListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr];
     }
+    ActivityModel *model=[self.dataArray objectAtIndex:indexPath.row];
+    cell.activityModel=model;
     return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [ActivityListCell activityCellHeight];
 }
 /*
 #pragma mark - Navigation

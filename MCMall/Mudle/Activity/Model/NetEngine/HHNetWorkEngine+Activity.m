@@ -28,7 +28,12 @@
 }
 -(HHResponseResult *)parseActivityListsWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
-        
+        NSMutableArray *array=[[NSMutableArray alloc]  init];
+        for (NSDictionary *dic in responseResult.responseData) {
+            ActivityModel *model=[ActivityModel activityModelWithResponseDic:dic];
+            [array addObject:model];
+        }
+        responseResult.responseData=array;
     }
     return responseResult;
 }
