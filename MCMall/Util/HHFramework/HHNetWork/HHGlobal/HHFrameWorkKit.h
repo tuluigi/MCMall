@@ -34,6 +34,7 @@
 #import "UIViewController+DismissKeyboard.h"
 #import "NSDateFormatter+Addititon.h"
 #import "UIResponder+Router.h"
+#import "UIScrollView+SVStopAnimation.h"
 
 #pragma mark -UIKit
 #import "HHView.h"

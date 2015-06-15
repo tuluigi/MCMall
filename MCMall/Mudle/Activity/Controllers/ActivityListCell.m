@@ -35,17 +35,16 @@
     _logoImgView=[[UIImageView alloc]  init];
     [self.contentView addSubview:_logoImgView];
     [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(weakSelf.contentView).offset(15);
-        make.bottom.mas_equalTo(weakSelf.contentView.bottom).offset(-15);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.left.top.equalTo(weakSelf.contentView).with.offset(15);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
+        make.width.mas_equalTo(@80);
     }];
-    
     _titleLable=[[UILabel alloc]  init];
     _titleLable.font=[UIFont boldSystemFontOfSize:16];
     [self.contentView addSubview:_titleLable];
     [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_logoImgView.mas_right).with.offset(10);
-        make.top.mas_equalTo(_logoImgView.mas_top).offset(5);
+        make.top.mas_equalTo(_logoImgView.mas_top).with.offset(5);
         make.right.mas_equalTo(weakSelf.contentView.right);
         make.height.equalTo(@(20));
     }];
@@ -57,7 +56,7 @@
     [self.contentView addSubview:_timeLable];
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.equalTo(_titleLable);
-        make.top.mas_equalTo(_titleLable.mas_bottom).offset(5);
+        make.top.mas_equalTo(_titleLable.mas_bottom).with.offset(5);
         make.height.equalTo(@15);
         make.right.equalTo(_titleLable);
     }];
@@ -68,7 +67,7 @@
     [self.contentView addSubview:_typeLable];
     [_typeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.equalTo(_titleLable);
-        make.top.mas_equalTo(_timeLable.mas_bottom).offset(5);
+        make.top.mas_equalTo(_timeLable.mas_bottom).with.offset(5);
         make.height.equalTo(@15);
         make.right.equalTo(_titleLable);
     }];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -80,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2A2931741B2825F0008A1C09 /* UIScrollView+SVStopAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVStopAnimation.h"; sourceTree = "<group>"; };
+		2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVStopAnimation.m"; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* MCMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DA1B0CC62A00D0FE88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -786,6 +789,8 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A2931741B2825F0008A1C09 /* UIScrollView+SVStopAnimation.h */,
+				2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */,
 				2A8DFFE11B20628E0060CA76 /* ImagePicker */,
 				2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */,
 				2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */,
@@ -995,6 +1000,7 @@
 				2A984EC21B141205004DF4C0 /* HHScrollView.m in Sources */,
 				2A984EC31B141205004DF4C0 /* HHTableView.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
+				2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2A984EBC1B141205004DF4C0 /* HHButton.m in Sources */,
 				2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */,
 				2A984EBA1B141205004DF4C0 /* NSMutableDictionary+HHFrameWorkKit.m in Sources */,

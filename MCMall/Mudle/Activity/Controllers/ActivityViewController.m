@@ -23,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"活动";
+    WEAKSELF
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [weakSelf getActivityListWithPageNum:1 pageSize:10];
+    }];
     // Do any additional setup after loading the view.
     [self getActivityListWithPageNum:1 pageSize:10];
 
