@@ -36,6 +36,7 @@
     self.tableView.dataSource=self;
     self.tableView.showsHorizontalScrollIndicator=NO;
     self.tableView.showsVerticalScrollIndicator=NO;
+    self.tableView.tableFooterView=[UIView new];
     [self.view addSubview:self.tableView];
     self.tableView.infiniteScrollingView.enabled=NO;
     // Uncomment the following line to preserve selection between presentations.

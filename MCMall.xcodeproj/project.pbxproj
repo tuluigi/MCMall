@@ -176,9 +176,9 @@
 		2A984E961B141205004DF4C0 /* Base64Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Tool.m; sourceTree = "<group>"; };
 		2A984E981B141205004DF4C0 /* UIViewController+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DismissKeyboard.h"; sourceTree = "<group>"; };
 		2A984E991B141205004DF4C0 /* UIViewController+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DismissKeyboard.m"; sourceTree = "<group>"; };
-		2A984E9A1B141205004DF4C0 /* HHLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHLoadingView.h; sourceTree = "<group>"; };
-		2A984E9B1B141205004DF4C0 /* HHLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHLoadingView.m; sourceTree = "<group>"; };
-		2A984E9C1B141205004DF4C0 /* HHLoadingViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHLoadingViewDelegate.h; sourceTree = "<group>"; };
+		2A984E9A1B141205004DF4C0 /* HHLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHLoadingView.h; path = ../HHLoadingView.h; sourceTree = "<group>"; };
+		2A984E9B1B141205004DF4C0 /* HHLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HHLoadingView.m; path = ../HHLoadingView.m; sourceTree = "<group>"; };
+		2A984E9C1B141205004DF4C0 /* HHLoadingViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHLoadingViewDelegate.h; path = ../HHLoadingViewDelegate.h; sourceTree = "<group>"; };
 		2A984E9D1B141205004DF4C0 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		2A984E9E1B141205004DF4C0 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
 		2A984E9F1B141205004DF4C0 /* NSDateFormatter+Addititon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Addititon.h"; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 		2A984EB01B141205004DF4C0 /* UIView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		2A984EB11B141205004DF4C0 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		2A984EB21B141205004DF4C0 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
-		2A984EB31B141205004DF4C0 /* UIView+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadingView.h"; sourceTree = "<group>"; };
-		2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadingView.m"; sourceTree = "<group>"; };
+		2A984EB31B141205004DF4C0 /* UIView+LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+LoadingView.h"; path = "../UIView+LoadingView.h"; sourceTree = "<group>"; };
+		2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+LoadingView.m"; path = "../UIView+LoadingView.m"; sourceTree = "<group>"; };
 		2A984EDD1B14123C004DF4C0 /* HHAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHAppInfo.h; sourceTree = "<group>"; };
 		2A984EDE1B14123C004DF4C0 /* HHAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHAppInfo.m; sourceTree = "<group>"; };
 		2A984EDF1B14123C004DF4C0 /* HHFrameWorkKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFrameWorkKit.h; sourceTree = "<group>"; };
@@ -530,6 +530,18 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		2A816DEC1B2FFEB00007862B /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				2A984E9A1B141205004DF4C0 /* HHLoadingView.h */,
+				2A984E9B1B141205004DF4C0 /* HHLoadingView.m */,
+				2A984E9C1B141205004DF4C0 /* HHLoadingViewDelegate.h */,
+				2A984EB31B141205004DF4C0 /* UIView+LoadingView.h */,
+				2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
 		2A8DFFE11B20628E0060CA76 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +807,7 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A816DEC1B2FFEB00007862B /* PageView */,
 				2A2931741B2825F0008A1C09 /* UIScrollView+SVStopAnimation.h */,
 				2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */,
 				2A8DFFE11B20628E0060CA76 /* ImagePicker */,
@@ -803,9 +816,6 @@
 				2A984E951B141205004DF4C0 /* Base64Tool.h */,
 				2A984E961B141205004DF4C0 /* Base64Tool.m */,
 				2A984E971B141205004DF4C0 /* Controller */,
-				2A984E9A1B141205004DF4C0 /* HHLoadingView.h */,
-				2A984E9B1B141205004DF4C0 /* HHLoadingView.m */,
-				2A984E9C1B141205004DF4C0 /* HHLoadingViewDelegate.h */,
 				2A984E9D1B141205004DF4C0 /* NSDate+Addition.h */,
 				2A984E9E1B141205004DF4C0 /* NSDate+Addition.m */,
 				2A984E9F1B141205004DF4C0 /* NSDateFormatter+Addititon.h */,
@@ -828,8 +838,6 @@
 				2A984EB01B141205004DF4C0 /* UIView+Addition.m */,
 				2A984EB11B141205004DF4C0 /* UIView+Animation.h */,
 				2A984EB21B141205004DF4C0 /* UIView+Animation.m */,
-				2A984EB31B141205004DF4C0 /* UIView+LoadingView.h */,
-				2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */,
 			);
 			path = HHUtil;
 			sourceTree = "<group>";

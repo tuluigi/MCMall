@@ -34,17 +34,9 @@
                 animationImages:(NSArray *)imagesArray
               animationDuration:(NSTimeInterval)duration;
 
-/**
- *  显示loadingView
- *
- *  @param text     显示的文字
- *  @param animated 是否显示正在加载的动画
- *  @param delegate delegate： 是否支持点击屏幕重新加载
- */
 - (void)showLoadingViewWithText:(NSString *)text
                 loadingAnimated:(BOOL)animated
                        delegate:(id)delegate;
-
 /**
  *  显示loadingView
  *

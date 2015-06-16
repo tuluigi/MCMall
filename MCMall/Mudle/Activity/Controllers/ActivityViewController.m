@@ -44,7 +44,11 @@
 }
 -(void)getActivityListWithPageNum:(NSUInteger)num pageSize:(NSInteger)size{
     WEAKSELF
+    if (self.dataSourceArray.count==0) {
+        [self.tableView showPageLoadingView];
+    }
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
+        [self.tableView dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (num==1) {
                 [weakSelf.dataSourceArray removeAllObjects];

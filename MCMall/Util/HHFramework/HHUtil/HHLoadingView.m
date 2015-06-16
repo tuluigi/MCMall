@@ -91,7 +91,7 @@ static HHLoadingView *__hhLoadingView;
     _textLable.backgroundColor=[UIColor clearColor];
     [self addSubview:_textLable];
     
-    float colorValue=230.0/255.0;
+    float colorValue=245.0/255.0;
     __hhLoadingView.backgroundColor=[UIColor colorWithRed:colorValue green:colorValue blue:colorValue alpha:1];
     
 }

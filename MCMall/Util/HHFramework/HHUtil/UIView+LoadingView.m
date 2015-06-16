@@ -9,7 +9,16 @@
 #import "UIView+LoadingView.h"
 #import "HHLoadingView.h"
 @implementation UIView (LoadingView)
-
+#pragma mrak
+-(void)showPageLoadingView{
+    [self showLoadingViewWithText:@"正在努力加载..." loadingAnimated:YES delegate:nil];
+}
+-(void)showPageLoadViewWithMessage:(NSString *)message{
+    [self showLoadingViewWithText:message showImage:nil delegate:nil touchType:0];
+}
+-(void)dismissPageLoadView{
+    [self hideLoadingView];
+}
 -(void)showLoadingView:(UIView *)view{
     [self stopAndPreventScrollEnable];
     [[HHLoadingView sharedLoadingView] hideLoadingView];
