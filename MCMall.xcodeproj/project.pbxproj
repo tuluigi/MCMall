@@ -30,6 +30,7 @@
 		2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */; };
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
+		2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A816DE71B2FBC1D0007862B /* Localizable.strings */; };
 		2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFD141B22751900004035 /* EditPasswordViewController.m */; };
 		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
 		2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -125,6 +126,10 @@
 		2A7C4E1D1B147FBA00912D53 /* HHGlobalVarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGlobalVarTool.h; sourceTree = "<group>"; };
 		2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGlobalVarTool.m; sourceTree = "<group>"; };
 		2A7C4E201B14802000912D53 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
+		2A816DE01B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		2A816DE11B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2A816DE61B2FBC1D0007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2A816DE81B2FBC220007862B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A8DFD131B22751900004035 /* EditPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordViewController.h; sourceTree = "<group>"; };
 		2A8DFD141B22751900004035 /* EditPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordViewController.m; sourceTree = "<group>"; };
 		2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallAPI.h; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 				2A37B0DA1B0CC62A00D0FE88 /* Info.plist */,
 				2A37B0DB1B0CC62A00D0FE88 /* main.m */,
 				2A2553281B1355C00046C696 /* PrefixHeader.pch */,
+				2A816DE71B2FBC1D0007862B /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -921,6 +927,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2A37B0CD1B0CC62A00D0FE88;
 			productRefGroup = 2A37B0D71B0CC62A00D0FE88 /* Products */;
@@ -942,6 +949,7 @@
 				2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
 				2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */,
+				2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */,
 				2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */,
 				2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
@@ -1059,6 +1067,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A37B0E41B0CC62A00D0FE88 /* Base */,
+				2A816DE01B2FBAA30007862B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1067,8 +1076,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A37B0E91B0CC62A00D0FE88 /* Base */,
+				2A816DE11B2FBAA30007862B /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		2A816DE71B2FBC1D0007862B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A816DE61B2FBC1D0007862B /* zh-Hans */,
+				2A816DE81B2FBC220007862B /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

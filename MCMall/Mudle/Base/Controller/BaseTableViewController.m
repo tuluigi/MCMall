@@ -10,23 +10,26 @@
 
 @interface BaseTableViewController ()
 @property(nonatomic,assign)UITableViewStyle tableViewStyle;
+@property(nonatomic,copy)NSString *dataSourceArrayKey;
 @end
 
-@implementation BaseTableViewController
--(NSMutableArray *)dataArray{
-    if (nil==_dataArray) {
-        _dataArray=[NSMutableArray new];
-    }
-    return _dataArray;
+@implementation BaseTableViewController{
+    NSMutableArray *_dataSourceArray;
+}
+-(void)dealloc{
+
+
 }
 -(id)initWithStyle:(UITableViewStyle)style{
     if (self=[super init]) {
         _tableViewStyle=style;
+        self.pageIndex=1;
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageIndex=1;
     // [self setupForDismissKeyboard];
     self.tableView=[[HHTableView alloc]  initWithFrame:self.view.bounds style:self.tableViewStyle];
     self.tableView.delegate=self;
@@ -34,11 +37,13 @@
     self.tableView.showsHorizontalScrollIndicator=NO;
     self.tableView.showsVerticalScrollIndicator=NO;
     [self.view addSubview:self.tableView];
+    self.tableView.infiniteScrollingView.enabled=NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,5 +119,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -setter
+-(NSMutableArray *)dataSourceArray{
+    if (nil==_dataSourceArray) {
+        _dataSourceArray=[NSMutableArray new];
+    }
+    return _dataSourceArray;
+}
 
 @end

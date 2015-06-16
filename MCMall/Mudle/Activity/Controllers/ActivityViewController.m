@@ -25,10 +25,16 @@
     self.title=@"活动";
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
-        [weakSelf getActivityListWithPageNum:1 pageSize:10];
+        weakSelf.pageIndex=1;
+        [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
     }];
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.pageIndex++;
+        [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
+    }];
+    
     // Do any additional setup after loading the view.
-    [self getActivityListWithPageNum:1 pageSize:10];
+    [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
 
 }
 
@@ -36,27 +42,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)getActivityListWithPageNum:(NSInteger)num pageSize:(NSInteger)size{
+-(void)getActivityListWithPageNum:(NSUInteger)num pageSize:(NSInteger)size{
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (num==1) {
-                [weakSelf.dataArray removeAllObjects];
-                [weakSelf.dataArray addObjectsFromArray:responseResult.responseData];
+                [weakSelf.dataSourceArray removeAllObjects];
+                [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             }else{
-                [weakSelf.dataArray addObjectsFromArray:responseResult.responseData];
+                [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             }
             [weakSelf.tableView reloadData];
         }else{
         
         }
+         [weakSelf.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];
-
 }
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *idenfierStr=@"idenfierStr";
@@ -64,7 +70,7 @@
     if (nil==cell) {
         cell=[[ActivityListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr];
     }
-    ActivityModel *model=[self.dataArray objectAtIndex:indexPath.row];
+    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.activityModel=model;
     return cell;
 }
@@ -72,7 +78,7 @@
     return [ActivityListCell activityCellHeight];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ActivityModel *model=[self.dataArray objectAtIndex:indexPath.row];
+    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
     switch (model.activityType=ActivityTypeVote) {
         case ActivityTypeVote:{
             VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  init];
@@ -100,5 +106,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

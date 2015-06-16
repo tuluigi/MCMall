@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 @interface BaseTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-@property(nonatomic,strong)NSMutableArray *dataArray;
+{
+    NSUInteger _pageIndex;
+}
+@property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)HHTableView *tableView;
+@property(nonatomic,assign)NSUInteger pageIndex;
 
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 @end

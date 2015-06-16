@@ -22,7 +22,7 @@
  *
  *  @return 当前scrollview 是否支持加载更多
  */
--(BOOL)handlerInifitScrollingWithPageIndex:(NSInteger *)pid
+-(BOOL)handlerInifitScrollingWithPageIndex:(NSUInteger *)pid
                                   pageSize:(NSInteger)pageSize
                             totalDataCount:(NSInteger)dataCount;
 @end

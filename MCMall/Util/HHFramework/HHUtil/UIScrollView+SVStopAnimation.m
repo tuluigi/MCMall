@@ -17,7 +17,7 @@
          [svScrollView.infiniteScrollingView stopAnimating];
     }
 }
--(BOOL)handlerInifitScrollingWithPageIndex:(NSInteger *)pid
+-(BOOL)handlerInifitScrollingWithPageIndex:(NSUInteger *)pid
                                   pageSize:(NSInteger)pageSize
                             totalDataCount:(NSInteger)dataCount{
     if (dataCount==(*pid)*pageSize) {
