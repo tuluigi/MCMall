@@ -16,6 +16,9 @@
 		2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
 		2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
+		2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C651B32BC8E005F5D15 /* GoodsModel.m */; };
+		2A468C691B32BD3C005F5D15 /* CatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C681B32BD3C005F5D15 /* CatModel.m */; };
+		2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
 		2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
@@ -102,6 +105,12 @@
 		2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyActivityViewController.m; sourceTree = "<group>"; };
 		2A468C611B32AF4A005F5D15 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		2A468C621B32AF4A005F5D15 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		2A468C641B32BC8E005F5D15 /* GoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
+		2A468C651B32BC8E005F5D15 /* GoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
+		2A468C671B32BD3C005F5D15 /* CatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatModel.h; sourceTree = "<group>"; };
+		2A468C681B32BD3C005F5D15 /* CatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatModel.m; sourceTree = "<group>"; };
+		2A468C6A1B32BDA6005F5D15 /* McMallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McMallCell.h; sourceTree = "<group>"; };
+		2A468C6B1B32BDA6005F5D15 /* McMallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = McMallCell.m; sourceTree = "<group>"; };
 		2A50F6EB1B10972300607723 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2A50F6EC1B10972300607723 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		2A50F6F31B10985400607723 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
@@ -387,6 +396,8 @@
 			children = (
 				2A50F6FF1B1099E300607723 /* MCMallViewController.h */,
 				2A50F7001B1099E300607723 /* MCMallViewController.m */,
+				2A468C6A1B32BDA6005F5D15 /* McMallCell.h */,
+				2A468C6B1B32BDA6005F5D15 /* McMallCell.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +429,10 @@
 				2A37B1281B0CCB1800D0FE88 /* UserModel.m */,
 				2A7C4E191B147A2B00912D53 /* ActivityModel.h */,
 				2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */,
+				2A468C641B32BC8E005F5D15 /* GoodsModel.h */,
+				2A468C651B32BC8E005F5D15 /* GoodsModel.m */,
+				2A468C671B32BD3C005F5D15 /* CatModel.h */,
+				2A468C681B32BD3C005F5D15 /* CatModel.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1024,6 +1039,7 @@
 				2A984EC71B141205004DF4C0 /* HHWebView.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
 				2A984ED91B141205004DF4C0 /* UIView+Animation.m in Sources */,
+				2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */,
 				2A984EC21B141205004DF4C0 /* HHScrollView.m in Sources */,
 				2A984EC31B141205004DF4C0 /* HHTableView.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
@@ -1061,10 +1077,12 @@
 				2A984EBB1B141205004DF4C0 /* NSString+NetWork.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,
 				2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */,
+				2A468C691B32BD3C005F5D15 /* CatModel.m in Sources */,
 				2A984ED31B141205004DF4C0 /* UIColor+Addition.m in Sources */,
 				2A984ED01B141205004DF4C0 /* NSDateFormatter+Addititon.m in Sources */,
 				2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */,
 				2A984ED61B141205004DF4C0 /* UIResponder+Router.m in Sources */,
+				2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */,
 				2A984ED21B141205004DF4C0 /* NSString+Addition.m in Sources */,
 				2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */,
 				2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */,
