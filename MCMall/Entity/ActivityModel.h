@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, ActivityType) {
-    ActivityTypeCommon  =1,//普通
-    ActivityTypeVote     =3 ,//投票
-    ActivityTypeApply     =2,//报名
+    ActivityTypeCommon      =1,//普通
+    ActivityTypeVote        =3 ,//投票
+    ActivityTypeApply       =2,//报名
 };
 
 
@@ -29,19 +29,27 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 
 @end
 
-@interface VoteActivityModel : ActivityModel
-@property(nonatomic,assign)BOOL isVoted;
-@property(nonatomic,assign)NSInteger totalVotedNum;
-+(VoteActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
 
-@end
 
 @interface ApplyActivityModel : ActivityModel
 @property(nonatomic,assign)BOOL isApplied;
+@property(nonatomic,assign)NSInteger totalApplyNum;
 +(ApplyActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
 @end
 
-@interface OperationModel : NSObject
-@property(nonatomic,copy)NSString *operationID;
-@property(nonatomic,copy)NSString *operationName;
+
+@interface VoteActivityModel : ActivityModel
+@property(nonatomic,assign)BOOL enableRepeatVote;//是否允许重复投票
+@property(nonatomic,assign)BOOL isVoted;
+@property(nonatomic,strong)NSMutableArray *playersArray;
++(VoteActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
+
+@end
+@interface PlayerModel: NSObject
+@property(nonatomic,copy)NSString *playerID;
+@property(nonatomic,copy)NSString *playerName;
+@property(nonatomic,copy)NSString *playerImageUrl;
+@property(nonatomic,assign)NSInteger totalVotedNum;//总的投票人数
+@property(nonatomic,copy)NSString *playerBrief;
+@property(nonatomic,copy)NSString *playerDetail;
 @end

@@ -1,23 +1,30 @@
 //
-//  VoteActivityViewController.m
+//  ApplyActivityViewController.m
 //  MCMall
 //
-//  Created by Luigi on 15/6/9.
+//  Created by Luigi on 15/6/18.
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "VoteActivityViewController.h"
+#import "ApplyActivityViewController.h"
 #import "HHNetWorkEngine+Activity.h"
 #import "ActivityModel.h"
-#import "PlayerCell.h"
-@interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate>
+@interface ApplyActivityViewController ()<UIWebViewDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *footWebView;
-@property(nonatomic,strong)VoteActivityModel *activityModel;
+@property(nonatomic,strong)ApplyActivityModel *activityModel;
+@property(nonatomic,copy)NSString *activityID;
+@property(nonatomic,assign)ActivityType actType;
 @end
 
-@implementation VoteActivityViewController
-
+@implementation ApplyActivityViewController
+-(id)initWithActivityID:(NSString *)activityID type:(ActivityType)type{
+    if (self=[super init]) {
+        self.activityID=activityID;
+        _actType=type;
+    }
+    return self;
+}
 #pragma mark - getter setter
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
@@ -34,17 +41,22 @@
     }
     return _footWebView;
 }
--(void)setActivityModel:(VoteActivityModel *)activityModel{
+-(void)setActivityModel:(ApplyActivityModel *)activityModel{
     _activityModel=activityModel;
     [self.tableView reloadData];
-
+    
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
     [self.footWebView loadHTMLString:_activityModel.activityDetail baseURL:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"投票活动";
+    if (self.actType==ActivityTypeApply) {
+        self.title=@"报名活动";
+    }else if (self.actType==ActivityTypeCommon){
+    self.title=@"普通活动";
+    }
+    
     self.tableView.tableHeaderView=self.headImageView;
     self.tableView.tableFooterView=self.footWebView;
     [self getVoteAcitivityWithActivityID:self.activityID];
@@ -57,7 +69,7 @@
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
     [self.tableView showPageLoadingView];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:ActivityTypeVote userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             weakSelf.activityModel=responseResult.responseData;
         }
@@ -65,23 +77,27 @@
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.activityModel.playersArray.count;
+    return 2;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";
-
-    PlayerCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
-        cell=[[PlayerCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.delegate=self;
     }
-    PlayerModel *model=[self.activityModel.playersArray objectAtIndex:indexPath.row];
-    cell.playerModel=model;
+    if (indexPath.row==0) {
+        
+        cell.textLabel.textColor=MCMallThemeColor;
+        cell.textLabel.font=[UIFont systemFontOfSize:16];
+        cell.textLabel.text=self.activityModel.activityName;
+        //cell.detailTextLabel.text=[NSString stringWithFormat:@"%ld报名",self.activityModel.totalVotedNum ];
+        cell.detailTextLabel.textColor=[UIColor lightGrayColor];
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
+    }else if (indexPath.row==1){
+        
+    }
     return cell;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PlayerCell playerCellHeight];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     CGFloat  sizeHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
@@ -90,21 +106,7 @@
     webView.frame=frame;
     webView.scrollView.scrollEnabled=NO;
     [self.tableView dismissPageLoadView];
-}
-
-#pragma mark playercelldelegate
--(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{
-    [HHProgressHUD showLoadingMessage:@"正在投票"];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  voteActivityWithUserID:[UserModel userID] ActivityID:self.activityID voteNum:1 onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
-              [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
-        }else{
-          [HHProgressHUD showErrorMssage:responseResult.responseMessage];
-        }
-       
-    }];
-}
-/*
+}/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -11,6 +11,7 @@
 #import "ActivityListCell.h"
 #import "ActivityModel.h"
 #import "VoteActivityViewController.h"
+#import "ApplyActivityViewController.h"
 @interface ActivityViewController ()
 
 @end
@@ -83,19 +84,19 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
-    switch (model.activityType=ActivityTypeVote) {
+    switch (model.activityType) {
         case ActivityTypeVote:{
             VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  init];
             voteController.activityID=model.activityID;
             voteController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:voteController animated:YES];
         }break;
-        case ActivityTypeApply:{
-        
-        }break;
+        case ActivityTypeApply:
         case ActivityTypeCommon:{
-        
-        }break;
+            ApplyActivityViewController *applyActivityController=[[ApplyActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
+            applyActivityController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:applyActivityController animated:YES];
+          }break;
             
         default:
             break;
