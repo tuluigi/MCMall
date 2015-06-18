@@ -12,8 +12,8 @@
 @implementation HHNetWorkEngine (Activity)
 -(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
-                                         pageSize:(NSInteger)pageSize
-                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+                                        pageSize:(NSInteger)pageSize
+                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getActivityListAPI];
     if (nil==userID) {
@@ -54,7 +54,17 @@
 }
 -(HHResponseResult *)parseActivityDetailWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
+        NSInteger activityType=[[responseResult.responseData objectForKey:@"atype"] integerValue];
+        id activityModel;
+        if (activityType==ActivityTypeCommon) {
+            activityModel=[ActivityModel activityModelWithResponseDic:responseResult.responseData];
+        }else if (activityType==ActivityTypeVote){
+            activityModel=[VoteActivityModel activityModelWithResponseDic:responseResult.responseData];
+        }else if (activityType==ActivityTypeApply){
+            activityModel=[ApplyActivityModel activityModelWithResponseDic:responseResult.responseData];
+        }
         
+        responseResult.responseData=activityModel;
     }
     return responseResult;
 }
@@ -80,7 +90,7 @@
     NSString *apiPath=[MCMallAPI voteActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-       // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;

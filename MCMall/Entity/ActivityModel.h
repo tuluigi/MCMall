@@ -10,8 +10,8 @@
 
 typedef NS_ENUM(NSUInteger, ActivityType) {
     ActivityTypeCommon  =1,//普通
-    ActivityTypeVote      ,//投票
-    ActivityTypeApply     ,//报名
+    ActivityTypeVote     =3 ,//投票
+    ActivityTypeApply     =2,//报名
 };
 
 
@@ -25,12 +25,21 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,copy)NSString *activityEndTime;
 @property(nonatomic,assign)ActivityType activityType;
 
-+(ActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
++(id )activityModelWithResponseDic:(NSDictionary *)dic;
 
 @end
 
+@interface VoteActivityModel : ActivityModel
+@property(nonatomic,assign)BOOL isVoted;
+@property(nonatomic,assign)NSInteger totalVotedNum;
++(VoteActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
 
+@end
 
+@interface ApplyActivityModel : ActivityModel
+@property(nonatomic,assign)BOOL isApplied;
++(ApplyActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
+@end
 
 @interface OperationModel : NSObject
 @property(nonatomic,copy)NSString *operationID;
