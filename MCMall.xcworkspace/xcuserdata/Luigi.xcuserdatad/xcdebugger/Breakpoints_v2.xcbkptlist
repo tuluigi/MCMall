@@ -195,13 +195,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-            timestampString = "456847026.707219"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
+            timestampString = "456847469.742558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-getActivityListWithUserID:pageNum:pageSize:onCompletionHandler:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-requestWithUrlPath:parmarDic:method:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
+            timestampString = "456847476.500558"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-requestWithUrlPath:parmarDic:method:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
+            timestampString = "456847572.777318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-requestWithUrlPath:parmarDic:method:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

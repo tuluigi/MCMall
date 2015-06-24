@@ -59,7 +59,7 @@
             }
             [weakSelf.tableView reloadData];
         }else{
-        
+            [weakSelf.tableView showPageLoadViewWithMessage:responseResult.responseMessage];
         }
          [weakSelf.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];

@@ -24,7 +24,7 @@
 +(NSString *)shopID{
     NSString *shopID=@"";
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMall.Test"]) {
+    if ([identifier isEqualToString:@"com.MCMall.HaHa"]) {
         shopID=@"D2077d9";
     }
     return shopID;

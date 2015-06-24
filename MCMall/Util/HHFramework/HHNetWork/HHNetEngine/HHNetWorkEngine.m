@@ -26,11 +26,11 @@ static HHNetWorkEngine *hh_NetWorkEngine;
                                 parmarDic:(NSDictionary *)hh_postDic
                                    method:(NSString *)hh_method
                       onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
-#ifdef Debug
-    NSLog(@"接口地址:\n%@",hh_path);
-#endif
-    
     hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+#ifdef DEBUG
+    NSLog(@"接口地址:\n%@",hh_path);
+    NSLog(@"参数:\n%@",hh_postDic);
+#endif
     MKNetworkOperation *hhop=[[HHNetWorkEngine sharedHHNetWorkEngine] operationWithPath:hh_path params:hh_postDic httpMethod:hh_method];
     [hhop addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         HHResponseResult *responseResult=[HHNetWorkTool parseHHNetWorkResponseCompetion:completedOperation error:nil];
@@ -48,11 +48,11 @@ static HHNetWorkEngine *hh_NetWorkEngine;
                                 parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
                       onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
-#ifdef Debug
-    NSLog(@"接口地址:\n%@",hh_path);
-#endif
-    
     hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+#ifdef DEBUG
+    NSLog(@"接口地址:\n%@",hh_path);
+    NSLog(@"参数:\n%@",hh_postDic);
+#endif
     MKNetworkOperation *hhop=[[HHNetWorkEngine sharedHHNetWorkEngine] operationWithPath:hh_path params:hh_postDic httpMethod:@"POST"];
     [hhop addFile:hh_filePath forKey:hh_key];
     [hhop addCompletionHandler:^(MKNetworkOperation *completedOperation) {
@@ -70,10 +70,12 @@ static HHNetWorkEngine *hh_NetWorkEngine;
                                      parmarDic:(NSDictionary *)hh_postDic
                                            key:(NSString *)hh_key
                            onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
-#ifdef Debug
-    NSLog(@"接口地址:\n%@",hh_path);
-#endif
+
     hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+#ifdef DEBUG
+    NSLog(@"接口地址:\n%@",hh_path);
+    NSLog(@"参数:\n%@",hh_postDic);
+#endif
     MKNetworkOperation *hhop=[[HHNetWorkEngine sharedHHNetWorkEngine] operationWithPath:hh_path params:hh_postDic httpMethod:@"POST"];
     for (NSString *hh_filePath in pathArray) {
         [hhop addFile:hh_filePath forKey:hh_key];
@@ -95,10 +97,11 @@ static HHNetWorkEngine *hh_NetWorkEngine;
                                    parmarDic:(NSDictionary *)hh_postDic
                                          key:(NSString *)hh_key
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
-#ifdef Debug
-    NSLog(@"接口地址:\n%@",hh_path);
-#endif
     hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+#ifdef DEBUG
+    NSLog(@"接口地址:\n%@",hh_path);
+    NSLog(@"参数:\n%@",hh_postDic);
+#endif
     MKNetworkOperation *hhop=[[HHNetWorkEngine sharedHHNetWorkEngine] operationWithPath:hh_path params:hh_postDic httpMethod:@"POST"];
     [hhop addData:hh_fileData forKey:hh_key];
     [hhop addCompletionHandler:^(MKNetworkOperation *completedOperation) {
@@ -116,10 +119,12 @@ static HHNetWorkEngine *hh_NetWorkEngine;
                                      parmarDic:(NSDictionary *)hh_postDic
                                         method:(NSString *)hh_method
                            onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
-#ifdef Debug
-    NSLog(@"接口地址:\n%@",hh_path);
-#endif
+
     hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+#ifdef DEBUG
+    NSLog(@"接口地址:\n%@",hh_path);
+    NSLog(@"参数:\n%@",hh_postDic);
+#endif
     MKNetworkOperation *hhop=[[HHNetWorkEngine sharedHHNetWorkEngine] operationWithPath:hh_path params:hh_postDic httpMethod:hh_method];
     [hhop addCompletionHandler:^(MKNetworkOperation *completedOperation) {
         HHResponseResult *responseResult=[[HHResponseResult alloc]  init];
