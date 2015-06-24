@@ -94,7 +94,7 @@
 }
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-    NSLog(@"DeviceToken 获取失败，原因：%@",error);
+    DLog(@"DeviceToken 获取失败，原因：%@",error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
