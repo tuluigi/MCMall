@@ -28,6 +28,8 @@
 		2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9F71B2721EA00B7920F /* ActivityListCell.m */; };
 		2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9FC1B272D1700B7920F /* VoteActivityViewController.m */; };
+		2A7959F51B3A4F5C00F7F2EF /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7959F41B3A4F5C00F7F2EF /* libBPush.a */; };
+		2A7959F71B3A4FA300F7F2EF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7959F61B3A4FA300F7F2EF /* libz.dylib */; };
 		2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
 		2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */; };
 		2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E131B1475C800912D53 /* navigationBg@2x.png */; };
@@ -130,6 +132,10 @@
 		2A73C9F71B2721EA00B7920F /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListCell.m; sourceTree = "<group>"; };
 		2A73C9FB1B272D1700B7920F /* VoteActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteActivityViewController.h; sourceTree = "<group>"; };
 		2A73C9FC1B272D1700B7920F /* VoteActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteActivityViewController.m; sourceTree = "<group>"; };
+		2A7959F31B3A4F5C00F7F2EF /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
+		2A7959F41B3A4F5C00F7F2EF /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		2A7959F61B3A4FA300F7F2EF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2A7959F81B3A4FAD00F7F2EF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		2A7C4E071B146E0200912D53 /* HHNetWorkEngine+Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+Activity.h"; sourceTree = "<group>"; };
 		2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+Activity.m"; sourceTree = "<group>"; };
 		2A7C4E111B1475AD00912D53 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
@@ -248,6 +254,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7959F71B3A4FA300F7F2EF /* libz.dylib in Frameworks */,
+				2A7959F51B3A4F5C00F7F2EF /* libBPush.a in Frameworks */,
 				719DEB0340F379D8DC5841E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +266,8 @@
 		0FE839CC0E61588E5E496E53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A7959F81B3A4FAD00F7F2EF /* CoreTelephony.framework */,
+				2A7959F61B3A4FA300F7F2EF /* libz.dylib */,
 				9356228AB91A09B7821DF914 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -480,6 +490,23 @@
 				2A468C621B32AF4A005F5D15 /* PlayerCell.m */,
 			);
 			path = VoteActivity;
+			sourceTree = "<group>";
+		};
+		2A7959F11B3A4F5400F7F2EF /* 3Class */ = {
+			isa = PBXGroup;
+			children = (
+				2A7959F21B3A4F5C00F7F2EF /* LibBPush */,
+			);
+			path = 3Class;
+			sourceTree = "<group>";
+		};
+		2A7959F21B3A4F5C00F7F2EF /* LibBPush */ = {
+			isa = PBXGroup;
+			children = (
+				2A7959F31B3A4F5C00F7F2EF /* BPush.h */,
+				2A7959F41B3A4F5C00F7F2EF /* libBPush.a */,
+			);
+			path = LibBPush;
 			sourceTree = "<group>";
 		};
 		2A7C4E0A1B14728500912D53 /* Images */ = {
@@ -736,6 +763,7 @@
 		2A984E5E1B1411FD004DF4C0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2A7959F11B3A4F5400F7F2EF /* 3Class */,
 				2A7C4E1C1B147BEF00912D53 /* Global */,
 				2A984E5F1B141205004DF4C0 /* HHFramework */,
 			);
@@ -1148,7 +1176,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1168,6 +1197,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1189,7 +1219,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1202,6 +1233,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1217,6 +1249,10 @@
 				INFOPLIST_FILE = MCMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MCMall/Util/3Class/LibBPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1231,6 +1267,10 @@
 				INFOPLIST_FILE = MCMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MCMall/Util/3Class/LibBPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
