@@ -143,8 +143,11 @@
 }
 #pragma mark -UITableView Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        return 5;
-
+    if ([UserModel isLogin]) {
+        return 5;   
+    }else{
+        return 0;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"cellIdentifer";
