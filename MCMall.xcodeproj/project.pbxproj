@@ -78,6 +78,8 @@
 		2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */; };
 		2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99BD591B15971B004771C8 /* BaseTableViewController.m */; };
 		2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99BD5C1B1597B3004771C8 /* UIViewController+MCMall.m */; };
+		2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DD39E1B401B200010893F /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DD3A01B401B200010893F /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
@@ -234,6 +236,11 @@
 		2A99BD591B15971B004771C8 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		2A99BD5B1B1597B3004771C8 /* UIViewController+MCMall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MCMall.h"; sourceTree = "<group>"; };
 		2A99BD5C1B1597B3004771C8 /* UIViewController+MCMall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MCMall.m"; sourceTree = "<group>"; };
+		2A9DD39C1B401B200010893F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		2A9DD39D1B401B200010893F /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		2A9DD39E1B401B200010893F /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		2A9DD39F1B401B200010893F /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		2A9DD3A01B401B200010893F /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		2AD019061B14A8C000702BD5 /* loading_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@2x.png"; sourceTree = "<group>"; };
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -495,6 +502,7 @@
 		2A7959F11B3A4F5400F7F2EF /* 3Class */ = {
 			isa = PBXGroup;
 			children = (
+				2A9DD39B1B401B200010893F /* GTMNSString-HTML */,
 				2A7959F21B3A4F5C00F7F2EF /* LibBPush */,
 			);
 			path = 3Class;
@@ -923,6 +931,18 @@
 			path = HHAppInfo;
 			sourceTree = "<group>";
 		};
+		2A9DD39B1B401B200010893F /* GTMNSString-HTML */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DD39C1B401B200010893F /* GTMDefines.h */,
+				2A9DD39D1B401B200010893F /* GTMNSString+HTML.h */,
+				2A9DD39E1B401B200010893F /* GTMNSString+HTML.m */,
+				2A9DD39F1B401B200010893F /* NSString+HTML.h */,
+				2A9DD3A01B401B200010893F /* NSString+HTML.m */,
+			);
+			path = "GTMNSString-HTML";
+			sourceTree = "<group>";
+		};
 		2AD019051B14A63900702BD5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,6 +1084,7 @@
 				2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */,
 				2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */,
 				2A984ECF1B141205004DF4C0 /* NSDate+Addition.m in Sources */,
+				2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */,
 				2A984EC71B141205004DF4C0 /* HHWebView.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
 				2A984ED91B141205004DF4C0 /* UIView+Animation.m in Sources */,
@@ -1117,6 +1138,7 @@
 				2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */,
 				2A984ED41B141205004DF4C0 /* UIDevice+DeviceInfo.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
+				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
 				2A984ED71B141205004DF4C0 /* UITextField+Addition.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,
 				2A984EB91B141205004DF4C0 /* HHResponseResult.m in Sources */,
