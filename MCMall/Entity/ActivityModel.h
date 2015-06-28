@@ -12,6 +12,8 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
     ActivityTypeCommon      =1,//普通
     ActivityTypeVote        =3 ,//投票
     ActivityTypeApply       =2,//报名
+    ActivityTypePicture     =4,//图片活动
+    
 };
 
 
@@ -43,8 +45,13 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,assign)BOOL isVoted;
 @property(nonatomic,strong)NSMutableArray *playersArray;
 +(VoteActivityModel *)activityModelWithResponseDic:(NSDictionary *)dic;
-
 @end
+
+@interface PhotoAcitvityModel : ActivityModel
+@property(nonatomic,assign)BOOL isFavored;
+@property(nonatomic,strong)NSMutableArray *photoListArray;
+@end
+
 @interface PlayerModel: NSObject
 @property(nonatomic,copy)NSString *playerID;
 @property(nonatomic,copy)NSString *playerName;

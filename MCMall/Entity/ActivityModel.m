@@ -86,6 +86,37 @@
     }
 }
 @end
+
+@implementation PhotoAcitvityModel
++(PhotoAcitvityModel *)activityModelWithResponseDic:(NSDictionary *)dic{
+    if ([dic isKindOfClass:[NSDictionary class]]) {
+        PhotoAcitvityModel *activityModel =[[PhotoAcitvityModel alloc]  init];
+        activityModel.activityID=[dic objectForKey:@"activeId"];
+        activityModel.activityName=[dic objectForKey:@"activeName"];
+        activityModel.activityType=[[dic objectForKey:@"type"] integerValue];
+        activityModel.activityEndTime=[dic objectForKey:@"endDay"];
+        activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
+        activityModel.activityDetail=[dic objectForKey:@"explain"];
+        if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
+            activityModel.isFavored=NO;
+        }else{
+            activityModel.isFavored=YES;
+        }
+        NSMutableArray *array;
+        for (NSDictionary *item in [dic objectForKey:@"photolist"]) {
+            NSString *photoUrl=[HHGlobalVarTool fullImagePath:[item objectForKey:@"photo"]];
+            [array addObject:photoUrl];
+        }
+        activityModel.photoListArray=array;
+        return activityModel;
+    }else{
+        return nil;
+    }
+}
+
+
+@end
+
 @implementation PlayerModel
 
 @end
