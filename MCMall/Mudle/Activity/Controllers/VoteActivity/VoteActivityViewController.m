@@ -60,6 +60,7 @@
     if (nil==_detailWebView) {
         _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds), self.headView.bounds.size.width, 10)];
         _detailWebView.delegate=self;
+        _detailWebView.backgroundColor=[UIColor redColor];
         [self.headView addSubview:_detailWebView];
     }
     return _detailWebView;
@@ -68,17 +69,18 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
 
+    /*
     [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
     
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
     self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
-
+*/
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"投票活动";
-    self.tableView.tableHeaderView=self.headView;
+   // self.tableView.tableHeaderView=self.headView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
 
@@ -118,7 +120,7 @@
     return [PlayerCell playerCellHeightWithPlayerModel:model];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    CGFloat  sizeHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
+    CGFloat  sizeHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight;"] floatValue];
     CGRect frame=webView.frame;
     frame.size.height=sizeHeight;
     webView.frame=frame;
