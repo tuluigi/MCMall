@@ -145,9 +145,7 @@
     }];
 }
 -(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel{
-    NSInteger index=[self.dataSourceArray indexOfObject:playerModel];
     [self.tableView beginUpdates];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 /*
