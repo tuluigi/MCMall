@@ -88,7 +88,8 @@
     
     _moreButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [_moreButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
-    [_moreButton addTarget:self action:@selector(moreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    _moreButton.contentHorizontalAlignment=UIControlContentHorizontalAlignmentLeft;
+    [_moreButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_moreButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_moreButton setTitle:@"更多介绍>>" forState:UIControlStateNormal];
     [self.contentView addSubview:_moreButton];
@@ -131,25 +132,44 @@
         [_delegate playerCellDidVoteButtonPressedWithPlayer:self.playerModel];
     }
 }
--(void)moreButtonPressed{
-    WEAKSELF
-   
-    CGSize size=[_playerModel.playerDetail boundingRectWithfont:_descLable.font maxTextSize:CGSizeMake(_descLable.bounds.size.width, 1000)];
+-(void)moreButtonPressed:(UIButton *)sender{
+     WEAKSELF
+    if (self.playerModel.totalHeight) {
+         [_moreButton setTitle:@"更多介绍>>" forState:UIControlStateNormal];
+       
+        self.playerModel.totalHeight=0.0;
+        [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_titleLable);
+            make.top.mas_equalTo(_titleLable.mas_bottom);
+            make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
+            make.bottom.mas_equalTo(_logoImgView.mas_bottom);
+        }];
+
+    }else{
+        [sender setTitle:@"收起介绍<<" forState:UIControlStateNormal];
+    CGSize size=[_playerModel.playerDetail boundingRectWithfont:_descLable.font maxTextSize:CGSizeMake(_descLable.bounds.size.width, CGFLOAT_MAX)];
      self.playerModel.totalHeight=self.bounds.size.height+size.height-_descLable.bounds.size.height;
+    if ( self.playerModel.totalHeight) {
+       
+        [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.removeExisting=YES;
+            make.height.equalTo(@(size.height));
+            make.left.equalTo(_titleLable);
+            make.top.mas_equalTo(_titleLable.mas_bottom);
+            make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
+        }];
+    }
+    }
     if (_delegate &&[_delegate respondsToSelector: @selector(playerCellDidMoreButtonPressedWithPlayer:)]) {
         [_delegate playerCellDidMoreButtonPressedWithPlayer:self.playerModel];
     }
     _descLable.text=self.playerModel.playerDetail;
-    [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.removeExisting=YES;
-        make.height.equalTo(@(size.width));
-        make.left.equalTo(_titleLable);
-        make.top.mas_equalTo(_titleLable.mas_bottom);
-        make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
-    }];
    
   
     
+}
+-(void)updateConstraints{
+    [super updateConstraints];
 }
 +(CGFloat)playerCellHeightWithPlayerModel:(PlayerModel *)model{
     if (model.totalHeight) {
