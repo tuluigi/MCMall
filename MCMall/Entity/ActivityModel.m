@@ -9,6 +9,10 @@
 #import "ActivityModel.h"
 @class VoteActivityModel;
 @implementation ActivityModel
+-(NSString *)activityDetailHtmlString{
+    NSString *htmlStr=[NSString activityHtmlStringWithImageUrL:self.activityImageUrl content:self.activityDetail];
+    return htmlStr;
+}
 +(id )activityModelWithResponseDic:(NSDictionary *)dic{
     if ([dic isKindOfClass:[NSDictionary class]]) {
         ActivityModel *activityModel =[[ActivityModel alloc]  init];

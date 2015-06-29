@@ -29,8 +29,8 @@
     if (nil==_footWebView) {
         _footWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
         _footWebView.delegate=self;
-        _footWebView.scrollView.showsHorizontalScrollIndicator=NO;
-        _footWebView.scrollView.showsVerticalScrollIndicator=NO;
+//        _footWebView.scrollView.showsHorizontalScrollIndicator=NO;
+//        _footWebView.scrollView.showsVerticalScrollIndicator=NO;
     }
     return _footWebView;
 }
@@ -38,14 +38,14 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
 
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
-    [self.footWebView loadHTMLString:_activityModel.activityDetail baseURL:nil];
+   // [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+    [self.footWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"投票活动";
-    self.tableView.tableHeaderView=self.headImageView;
+  //  self.tableView.tableHeaderView=self.headImageView;
     self.tableView.tableFooterView=self.footWebView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
@@ -88,7 +88,8 @@
     CGRect frame=webView.frame;
     frame.size.height=sizeHeight;
     webView.frame=frame;
-    webView.scrollView.scrollEnabled=NO;
+    self.tableView.tableFooterView=webView;
+    //webView.scrollView.scrollEnabled=NO;
     [self.tableView dismissPageLoadView];
 }
 

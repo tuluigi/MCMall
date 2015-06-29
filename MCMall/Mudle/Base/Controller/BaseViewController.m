@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.8]];
+    
     [self setupForDismissKeyboard];
     // Do any additional setup after loading the view.
 }

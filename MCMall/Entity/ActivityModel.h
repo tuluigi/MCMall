@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NSString+MCHtml.h"
 typedef NS_ENUM(NSUInteger, ActivityType) {
     ActivityTypeCommon      =1,//普通
     ActivityTypeVote        =3 ,//投票
@@ -22,13 +22,12 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,copy)NSString *activityID;
 @property(nonatomic,copy)NSString *activityName;
 @property(nonatomic,copy)NSString *activityImageUrl;
-@property(nonatomic,copy)NSString *activityBrief;
 @property(nonatomic,copy)NSString *activityDetail;
 @property(nonatomic,copy)NSString *activityEndTime;
 @property(nonatomic,assign)ActivityType activityType;
 
 +(id )activityModelWithResponseDic:(NSDictionary *)dic;
-
+-(NSString *)activityDetailHtmlString;
 @end
 
 

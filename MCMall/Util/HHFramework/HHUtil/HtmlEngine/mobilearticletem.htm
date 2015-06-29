@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width" />
+        <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+              $("img").attr("style","");
+              var imgWidth=screen.width*100%;
+              alert(imgWidth);
+              $("img").attr("onload","AutoResizeImage(imgWidth,800,this)");
+               });
+              function AutoResizeImage(maxWidth,maxHeight,objImg){
+                  maxWidth=screen.availWidth;
+                  var img = new Image();
+                  img.src = objImg.src;
+                  var hRatio;
+                  var wRatio;
+                  var Ratio = 1;
+                  var w = img.width;
+                  var h = img.height;
+                  wRatio = maxWidth / w;
+                  hRatio = maxHeight / h;
+                  if (maxWidth ==0 && maxHeight==0){
+                      Ratio = 1;
+                  }else if (maxWidth==0){//
+                      if (hRatio<1) Ratio = hRatio;
+                  }else if (maxHeight==0){
+                      if (wRatio<1) Ratio = wRatio;
+                  }else if (wRatio<1 || hRatio<1){
+                      Ratio = (wRatio<=hRatio?wRatio:hRatio);
+                  }
+                  if (Ratio<1){
+                      w = w * Ratio;
+                      h = h * Ratio;
+                  }
+                  objImg.height = h;
+                  objImg.width = w;
+              }
+        function removeArtitleTitle(){//删除头部标签
+            $("#head").remove();
+        }
+        </script>
+        
+        <style type="text/css">
+            html,body,div,h3,span,p
+            {
+                margin:5px auto ;
+                padding:0;
+                width:96%;
+            }
+        #head
+        {
+            margin:10px auto;
+            width:97%;
+            font-size:12px;
+            color:#575757;
+            text-align:center;
+        }
+        #head h3
+        {
+            font-size:20px;
+            font-weight:bold;
+            color:#333333;
+            margin-left:5px;
+            margin-right:5px;
+            margin-bottom:10px;
+            text-align:left;
+        }
+        #head p
+        {
+            text-align:left;
+            margin-left:5px;
+        }
+        #content
+        {
+            width:100%;
+            font-size:16px;
+            line-height: 1.4;
+            align:center;
+        }
+        img{
+            margin:auto;
+            margin-bottom:5px;
+            display:block;
+            align:center;
+            max-width:100%;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            $content
+        </div>
+    </body>
+</html>

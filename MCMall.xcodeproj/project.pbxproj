@@ -38,6 +38,10 @@
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
 		2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A816DE71B2FBC1D0007862B /* Localizable.strings */; };
+		2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
+		2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
+		2A87EE271B4114770051D668 /* mobilearticletem.htm in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE251B4114770051D668 /* mobilearticletem.htm */; };
+		2A87EE2A1B411DEF0051D668 /* CommonActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE291B411DEF0051D668 /* CommonActivityController.m */; };
 		2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFD141B22751900004035 /* EditPasswordViewController.m */; };
 		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
 		2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -154,6 +158,12 @@
 		2A816DE11B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		2A816DE61B2FBC1D0007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2A816DE81B2FBC220007862B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A87EE1D1B40F8440051D668 /* NSString+MCHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MCHtml.h"; sourceTree = "<group>"; };
+		2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MCHtml.m"; sourceTree = "<group>"; };
+		2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.9.1.min.js"; sourceTree = "<group>"; };
+		2A87EE251B4114770051D668 /* mobilearticletem.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mobilearticletem.htm; sourceTree = "<group>"; };
+		2A87EE281B411DEF0051D668 /* CommonActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonActivityController.h; sourceTree = "<group>"; };
+		2A87EE291B411DEF0051D668 /* CommonActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonActivityController.m; sourceTree = "<group>"; };
 		2A8DFD131B22751900004035 /* EditPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPasswordViewController.h; sourceTree = "<group>"; };
 		2A8DFD141B22751900004035 /* EditPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPasswordViewController.m; sourceTree = "<group>"; };
 		2A8DFFDE1B2052750060CA76 /* MCMallAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallAPI.h; sourceTree = "<group>"; };
@@ -463,6 +473,8 @@
 			children = (
 				2A468C5E1B329CBF005F5D15 /* ApplyActivityViewController.h */,
 				2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */,
+				2A87EE281B411DEF0051D668 /* CommonActivityController.h */,
+				2A87EE291B411DEF0051D668 /* CommonActivityController.m */,
 			);
 			path = ApplyActivity;
 			sourceTree = "<group>";
@@ -604,6 +616,17 @@
 				2A984EB41B141205004DF4C0 /* UIView+LoadingView.m */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		2A87EE1A1B40F7880051D668 /* HtmlEngine */ = {
+			isa = PBXGroup;
+			children = (
+				2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */,
+				2A87EE251B4114770051D668 /* mobilearticletem.htm */,
+				2A87EE1D1B40F8440051D668 /* NSString+MCHtml.h */,
+				2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */,
+			);
+			path = HtmlEngine;
 			sourceTree = "<group>";
 		};
 		2A8DFFE11B20628E0060CA76 /* ImagePicker */ = {
@@ -872,6 +895,7 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A87EE1A1B40F7880051D668 /* HtmlEngine */,
 				2A816DEC1B2FFEB00007862B /* PageView */,
 				2A2931741B2825F0008A1C09 /* UIScrollView+SVStopAnimation.h */,
 				2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */,
@@ -1042,10 +1066,12 @@
 				2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */,
 				2A7C4E141B1475C800912D53 /* navigationBg@2x.png in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
+				2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */,
 				2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */,
 				2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */,
 				2A7C4E121B1475AD00912D53 /* navigationBg@3x.png in Resources */,
 				2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */,
+				2A87EE271B4114770051D668 /* mobilearticletem.htm in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
 				2A37B0E71B0CC62A00D0FE88 /* Images.xcassets in Resources */,
 			);
@@ -1108,12 +1134,14 @@
 				2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2A984EBC1B141205004DF4C0 /* HHButton.m in Sources */,
 				2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */,
+				2A87EE2A1B411DEF0051D668 /* CommonActivityController.m in Sources */,
 				2A984EBA1B141205004DF4C0 /* NSMutableDictionary+HHFrameWorkKit.m in Sources */,
 				2A9DD3A61B402C390010893F /* PhotoActivityViewController.m in Sources */,
 				2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A984ECE1B141205004DF4C0 /* HHLoadingView.m in Sources */,
 				2A984ED81B141205004DF4C0 /* UIView+Addition.m in Sources */,
+				2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */,
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */,

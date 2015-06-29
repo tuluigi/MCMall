@@ -13,6 +13,7 @@
 #import "VoteActivityViewController.h"
 #import "ApplyActivityViewController.h"
 #import "PhotoActivityViewController.h"
+#import "CommonActivityController.h"
 @interface ActivityViewController ()
 
 @end
@@ -92,11 +93,15 @@
             voteController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:voteController animated:YES];
         }break;
-        case ActivityTypeApply:
-        case ActivityTypeCommon:{
+        case ActivityTypeApply:{
             ApplyActivityViewController *applyActivityController=[[ApplyActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
             applyActivityController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:applyActivityController animated:YES];
+        }break;
+        case ActivityTypeCommon:{
+            CommonActivityController *commonActivityController=[[CommonActivityController alloc]  initWithActivityID:model.activityID];
+            commonActivityController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:commonActivityController animated:YES];
           }break;
         case ActivityTypePicture:{
             PhotoActivityViewController *photoActivitController=[[PhotoActivityViewController alloc]  initWithActivityID:model.activityID];

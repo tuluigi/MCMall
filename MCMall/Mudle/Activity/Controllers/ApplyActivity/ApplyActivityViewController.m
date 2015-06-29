@@ -36,8 +36,8 @@
     if (nil==_footWebView) {
         _footWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
         _footWebView.delegate=self;
-        _footWebView.scrollView.showsHorizontalScrollIndicator=NO;
-        _footWebView.scrollView.showsVerticalScrollIndicator=NO;
+//        _footWebView.scrollView.showsHorizontalScrollIndicator=NO;
+//        _footWebView.scrollView.showsVerticalScrollIndicator=NO;
     }
     return _footWebView;
 }
@@ -45,8 +45,8 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
     
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
-    [self.footWebView loadHTMLString:_activityModel.activityDetail baseURL:nil];
+  //  [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+    [self.footWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,11 +54,12 @@
     if (self.actType==ActivityTypeApply) {
         self.title=@"报名活动";
     }else if (self.actType==ActivityTypeCommon){
-    self.title=@"普通活动";
+        self.title=@"普通活动";
+       // [self.view addSubview:self.footWebView];
     }
-    
-    self.tableView.tableHeaderView=self.headImageView;
-    self.tableView.tableFooterView=self.footWebView;
+   
+  //  self.tableView.tableHeaderView=self.headImageView;
+   // self.tableView.tableFooterView=self.footWebView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
 
@@ -77,7 +78,13 @@
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    if (self.actType==ActivityTypeApply) {
+        return 2;
+    }else if (self.actType==ActivityTypeCommon){
+        return 0;
+    }else{
+        return 0;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";
@@ -104,7 +111,9 @@
     CGRect frame=webView.frame;
     frame.size.height=sizeHeight;
     webView.frame=frame;
-    webView.scrollView.scrollEnabled=NO;
+    self.tableView.tableHeaderView=self.footWebView;
+    self.tableView.tableHeaderView.backgroundColor=[UIColor redColor];
+//    webView.scrollView.scrollEnabled=NO;
     [self.tableView dismissPageLoadView];
 }/*
 #pragma mark - Navigation

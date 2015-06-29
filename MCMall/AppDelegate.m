@@ -49,7 +49,8 @@
         NSLog(@"从消息启动:%@",userInfo);
         [BPush handleNotification:userInfo];
     }
-   
+    
+    [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     return YES;
