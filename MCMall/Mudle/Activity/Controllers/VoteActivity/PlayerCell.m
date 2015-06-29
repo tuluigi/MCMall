@@ -95,7 +95,7 @@
     [_moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_descLable);
         make.width.equalTo(@(80));
-        make.top.mas_equalTo(_logoImgView.mas_bottom).with.offset(10);
+        make.top.mas_equalTo(_descLable.mas_bottom).with.offset(10);
         make.height.equalTo(@(15));
     }];
 
@@ -120,10 +120,10 @@
     _descLable.text=_playerModel.playerDetail;
     _titleLable.text=_playerModel.playerName;
     _totalNum.text=[NSString stringWithFormat:@"目前票数:%ld票",_playerModel.totalVotedNum];
-    if (_descLable.numberOfLines>=3) {
-        _moreButton.hidden=NO;
-    }else{
+    if (_playerModel.totalHeight) {
         _moreButton.hidden=YES;
+    }else{
+        _moreButton.hidden=NO;
     }
 }
 -(void)voteButtonPressed{
@@ -132,11 +132,30 @@
     }
 }
 -(void)moreButtonPressed{
+    WEAKSELF
+   
     CGSize size=[_playerModel.playerDetail boundingRectWithfont:_descLable.font maxTextSize:CGSizeMake(_descLable.bounds.size.width, 1000)];
-    
+     self.playerModel.totalHeight=self.bounds.size.height+size.height-_descLable.bounds.size.height;
+    if (_delegate &&[_delegate respondsToSelector: @selector(playerCellDidMoreButtonPressedWithPlayer:)]) {
+        [_delegate playerCellDidMoreButtonPressedWithPlayer:self.playerModel];
+    }
+    _descLable.text=self.playerModel.playerDetail;
+    [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.removeExisting=YES;
+        make.height.equalTo(@(size.width));
+        make.left.equalTo(_titleLable);
+        make.top.mas_equalTo(_titleLable.mas_bottom);
+        make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
+    }];
+   
+  
     
 }
-+(CGFloat)playerCellHeight{
-    return 140.0;
++(CGFloat)playerCellHeightWithPlayerModel:(PlayerModel *)model{
+    if (model.totalHeight) {
+        return model.totalHeight;
+    }else{
+        return 140.0;
+    }
 }
 @end

@@ -11,6 +11,7 @@
 @protocol PlayerCellDelegate <NSObject>
 
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel;
+-(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel;
 
 @end
 
@@ -19,5 +20,5 @@
 @property(nonatomic,strong)PlayerModel *playerModel;
 @property(nonatomic,weak)id <PlayerCellDelegate>delegate;
 
-+(CGFloat)playerCellHeight;
++(CGFloat)playerCellHeightWithPlayerModel:(PlayerModel *)model;
 @end

@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-            timestampString = "457260425.000597"
+            timestampString = "457264859.588603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-webViewDidFinishLoad:"
             landmarkType = "5">
          </BreakpointContent>
@@ -163,14 +163,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-            timestampString = "457260425.000597"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+            timestampString = "457265191.015963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-setActivityModel:"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "+playerCellHeightWithPlayerModel:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+            timestampString = "457265195.335857"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "-moreButtonPressed"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+            timestampString = "457265196.284472"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-moreButtonPressed"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+            timestampString = "457265197.0159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "-moreButtonPressed"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PlayerCell moreButtonPressed]"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+                  timestampString = "457265197.018584"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "1183">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[PlayerCell moreButtonPressed]_block_invoke"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
+                  timestampString = "457265197.018769"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

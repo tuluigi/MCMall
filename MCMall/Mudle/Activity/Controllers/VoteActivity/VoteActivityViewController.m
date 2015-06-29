@@ -114,7 +114,8 @@
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PlayerCell playerCellHeight];
+     PlayerModel *model=[self.activityModel.playersArray objectAtIndex:indexPath.row];
+    return [PlayerCell playerCellHeightWithPlayerModel:model];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     CGFloat  sizeHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
@@ -142,6 +143,10 @@
         }
        
     }];
+}
+-(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel{
+    NSInteger index=[self.dataSourceArray indexOfObject:playerModel];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 /*
 #pragma mark - Navigation
