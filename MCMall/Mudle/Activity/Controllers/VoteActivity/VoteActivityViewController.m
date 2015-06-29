@@ -12,41 +12,73 @@
 #import "PlayerCell.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
-@property(nonatomic,strong)UIWebView *footWebView;
+@property(nonatomic,strong)UIWebView *detailWebView;
+@property(nonatomic,strong)UIView *headView;
+@property(nonatomic,strong)UILabel *titleLable, *timeLable;
 @property(nonatomic,strong)VoteActivityModel *activityModel;
 @end
 
 @implementation VoteActivityViewController
 
 #pragma mark - getter setter
+-(UIView *)headView{
+    if (nil==_headView) {
+        _headView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        self.tableView.tableHeaderView=_headView;
+           }
+    return _headView;
+}
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
-        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 150.0)];
+        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
+        _headView.backgroundColor=[UIColor clearColor];
+        [self.headView addSubview:_headImageView];
+        CGFloat lableHeight=25.0;
+        CGFloat offy=_headImageView.bounds.size.height+5;
+        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(10.0,offy, 100.0, lableHeight)];
+        _titleLable.backgroundColor=[UIColor clearColor];
+         [_headView addSubview:_titleLable];
+        _titleLable.text=@"活动介绍:";
+        _titleLable.textColor=MCMallThemeColor;
+        _titleLable.textAlignment=NSTextAlignmentLeft;
+        _titleLable.font=[UIFont boldSystemFontOfSize:18];
+       
+        
+        _timeLable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_titleLable.frame),offy, CGRectGetWidth(self.view.bounds)-CGRectGetMaxX(_titleLable.frame)-10.0, lableHeight)];
+          [_headView addSubview:_timeLable];
+        _timeLable.backgroundColor=[UIColor clearColor];
+        _timeLable.text=@"";
+        _timeLable.textColor=[UIColor lightGrayColor];
+        _timeLable.textAlignment=NSTextAlignmentRight;
+        _timeLable.font=[UIFont systemFontOfSize:15];
+      
+
     }
     return _headImageView;
 }
--(UIWebView *)footWebView{
-    if (nil==_footWebView) {
-        _footWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
-        _footWebView.delegate=self;
-//        _footWebView.scrollView.showsHorizontalScrollIndicator=NO;
-//        _footWebView.scrollView.showsVerticalScrollIndicator=NO;
+-(UIWebView *)detailWebView{
+    if (nil==_detailWebView) {
+        _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds), self.headView.bounds.size.width, 10)];
+        _detailWebView.delegate=self;
+        [self.headView addSubview:_detailWebView];
     }
-    return _footWebView;
+    return _detailWebView;
 }
 -(void)setActivityModel:(VoteActivityModel *)activityModel{
     _activityModel=activityModel;
     [self.tableView reloadData];
 
-   // [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
-    [self.footWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
+    [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
+    
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+    self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"投票活动";
-  //  self.tableView.tableHeaderView=self.headImageView;
-    self.tableView.tableFooterView=self.footWebView;
+    self.tableView.tableHeaderView=self.headView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
 
@@ -65,6 +97,7 @@
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return self.activityModel.playersArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -88,8 +121,13 @@
     CGRect frame=webView.frame;
     frame.size.height=sizeHeight;
     webView.frame=frame;
-    self.tableView.tableFooterView=webView;
-    //webView.scrollView.scrollEnabled=NO;
+    webView.backgroundColor=[UIColor redColor];
+    CGRect headViewFrame=self.headView.frame;
+    headViewFrame.size.height=CGRectGetHeight(self.headImageView.bounds)+CGRectGetHeight(self.titleLable.bounds)+sizeHeight;
+    self.headView.frame=headViewFrame;
+   self.tableView.tableHeaderView=self.headView;
+    webView.scrollView.scrollEnabled=NO;
+    
     [self.tableView dismissPageLoadView];
 }
 

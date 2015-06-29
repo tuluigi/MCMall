@@ -112,7 +112,6 @@
     frame.size.height=sizeHeight;
     webView.frame=frame;
     self.tableView.tableHeaderView=self.footWebView;
-    self.tableView.tableHeaderView.backgroundColor=[UIColor redColor];
 //    webView.scrollView.scrollEnabled=NO;
     [self.tableView dismissPageLoadView];
 }/*

@@ -10,7 +10,7 @@
 @class VoteActivityModel;
 @implementation ActivityModel
 -(NSString *)activityDetailHtmlString{
-    NSString *htmlStr=[NSString activityHtmlStringWithImageUrL:self.activityImageUrl content:self.activityDetail];
+    NSString *htmlStr=[NSString activityHtmlStringWithImageUrL:nil content:self.activityDetail];
     return htmlStr;
 }
 +(id )activityModelWithResponseDic:(NSDictionary *)dic{

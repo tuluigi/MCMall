@@ -50,7 +50,7 @@
         [BPush handleNotification:userInfo];
     }
     
-    [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     return YES;
