@@ -31,7 +31,8 @@
     [super viewDidLoad];
     self.pageIndex=1;
     // [self setupForDismissKeyboard];
-    self.tableView=[[HHTableView alloc]  initWithFrame:self.view.bounds style:self.tableViewStyle];
+    CGRect frame=self.view.bounds;
+    self.tableView=[[HHTableView alloc]  initWithFrame:frame style:self.tableViewStyle];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.showsHorizontalScrollIndicator=NO;
@@ -39,6 +40,7 @@
     self.tableView.tableFooterView=[UIView new];
     [self.view addSubview:self.tableView];
     self.tableView.infiniteScrollingView.enabled=NO;
+    self.automaticallyAdjustsScrollViewInsets=YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
