@@ -69,12 +69,12 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
 
-    /*
+    
     [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
     
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
     self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
-*/
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
