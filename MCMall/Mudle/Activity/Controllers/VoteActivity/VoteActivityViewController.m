@@ -255,7 +255,7 @@
 -(void)applyButtonPressed{
     [HHProgressHUD showLoadingState];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[UserModel userID] ActivityID:self.activityID onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD dismiss];
+       // [HHProgressHUD dismiss];
         if (responseResult.responseCode==HHResponseResultCode100) {
             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
         }else{

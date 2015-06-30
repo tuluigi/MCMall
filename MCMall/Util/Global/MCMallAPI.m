@@ -43,6 +43,6 @@ NSString *const SufferName=@"muying/ws/";
 }
 //报名
 +(NSString *)applyActivityAPI{
-return [SufferName stringByAppendingString:@"getactivitylist"];
+return [SufferName stringByAppendingString:@"enroll"];
 }
 @end

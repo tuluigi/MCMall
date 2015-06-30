@@ -87,7 +87,7 @@
                                     ActivityID:(NSString *)activityID
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     //WEAKSELF
-    NSString *apiPath=[MCMallAPI voteActivityAPI];
+    NSString *apiPath=[MCMallAPI applyActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
