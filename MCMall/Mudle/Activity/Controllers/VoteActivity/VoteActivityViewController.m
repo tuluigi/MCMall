@@ -156,9 +156,41 @@
             
         }
             break;
-            
+        case ActivityTypeApply:{
+            NSString *identifer=@"identifer";
+            UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+            if (nil==cell) {
+                cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+                cell.selectionStyle=UITableViewCellSelectionStyleNone;
+                tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+                UIButton *applyButton=[UIButton buttonWithType:UIButtonTypeCustom];
+                [cell.contentView addSubview:applyButton];
+                [applyButton setTitle:@"报  名" forState:UIControlStateNormal];
+                applyButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
+                [applyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [applyButton addTarget:self action:@selector(applyButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+                applyButton.backgroundColor=MCMallThemeColor;
+                applyButton.layer.cornerRadius=5.0;
+                applyButton.layer.masksToBounds=YES;
+                [applyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(@20.0);
+                    make.right.equalTo(@(-10));
+                    make.top.bottom.equalTo(@(10));
+                }];
+                //cell.delegate=self;
+            }
+           
+            return cell;
+
+        }break;
         default:{
-            return nil;
+            NSString *identifer=@"identifer";
+            UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+            if (nil==cell) {
+                cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+                cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            }
+            return cell;
         }
             break;
     }
@@ -173,6 +205,9 @@
             height= [PlayerCell playerCellHeightWithPlayerModel:model];
         }
             break;
+        case ActivityTypeApply:{
+            height=55;
+        }break;
             
         default:
             break;
@@ -194,7 +229,6 @@
     
     [self.tableView dismissPageLoadView];
 }
-
 #pragma mark playercelldelegate
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{
     WEAKSELF
@@ -215,6 +249,19 @@
 -(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel{
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+}
+
+#pragma mark -apply button
+-(void)applyButtonPressed{
+    [HHProgressHUD showLoadingState];
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[UserModel userID] ActivityID:self.activityID onCompletionHandler:^(HHResponseResult *responseResult) {
+        [HHProgressHUD dismiss];
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+        }else{
+            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+        }
+    }];
 }
 /*
  #pragma mark - Navigation
