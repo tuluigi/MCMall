@@ -136,14 +136,19 @@
 
 #pragma mark playercelldelegate
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{
+    WEAKSELF
     [HHProgressHUD showLoadingMessage:@"正在投票"];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  voteActivityWithUserID:[UserModel userID] ActivityID:self.activityID voteNum:1 onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-              [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+            playerModel.isVoted=YES;
+            playerModel.totalVotedNum++;
+            NSInteger index=[weakSelf.dataSourceArray indexOfObject:playerModel];
+            [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            
         }else{
-          [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
         }
-       
     }];
 }
 -(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel{

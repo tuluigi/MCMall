@@ -21,4 +21,5 @@
 @property(nonatomic,weak)id <PlayerCellDelegate>delegate;
 
 +(CGFloat)playerCellHeightWithPlayerModel:(PlayerModel *)model;
+
 @end

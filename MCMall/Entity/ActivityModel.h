@@ -59,4 +59,5 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,copy)NSString *playerBrief;
 @property(nonatomic,copy)NSString *playerDetail;
 @property(nonatomic,assign)CGFloat totalHeight;//高度
+@property(nonatomic,assign)BOOL isVoted;//是否投过了
 @end
