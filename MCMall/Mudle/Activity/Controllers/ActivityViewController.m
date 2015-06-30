@@ -86,9 +86,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
+    VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
+    voteController.activityID=model.activityID;
+    voteController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:voteController animated:YES];
+    
+/*
     switch (model.activityType) {
         case ActivityTypeVote:{
-            VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  init];
+            VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
             voteController.activityID=model.activityID;
             voteController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:voteController animated:YES];
@@ -111,6 +117,7 @@
         default:
             break;
     }
+ */
 }
 /*
 #pragma mark - Navigation
