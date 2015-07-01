@@ -61,3 +61,7 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,assign)CGFloat totalHeight;//高度
 @property(nonatomic,assign)BOOL isVoted;//是否投过了
 @end
+@interface PhotoModel : NSObject
+@property(nonatomic,copy)NSString *photoID;
+@property(nonatomic,copy)NSString *photoUrl;
+@end

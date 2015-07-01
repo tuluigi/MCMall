@@ -111,7 +111,6 @@
         make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
         make.width.equalTo(@100);
     }];
-    
 }
 
 
@@ -151,9 +150,6 @@
         [_delegate playerCellDidMoreButtonPressedWithPlayer:self.playerModel];
     }
     _descLable.text=self.playerModel.playerDetail;
-    
-    
-    
 }
 -(void)updateConstraints{
     [super updateConstraints];

@@ -118,12 +118,13 @@
                 make.right.equalTo(_titleLable);
             }];
             
-            CGFloat imageViewWidth=100.0;
-            CGFloat pading=(CGRectGetWidth([UIScreen mainScreen].bounds)-imageViewWidth*3)/4.0;
+            
+            CGFloat pading=1.0;
+            CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)- 15*2-pading*2)/3.0;
          
             [_imageView0 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(_logoImgView.mas_bottom).offset(10.0);
-                make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(pading);
+                make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(pading+15.0);
                 make.size.mas_equalTo(CGSizeMake(imageViewWidth, imageViewWidth));
             }];
             [_imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -157,7 +158,8 @@
         _imageView1.image=nil;
         _imageView2.image=nil;
         for (NSInteger i=0; i<photoActivityModel.photoListArray.count; i++) {
-            NSString *imageUrl=[photoActivityModel.photoListArray objectAtIndex:i];
+           PhotoModel *photoModle =[photoActivityModel.photoListArray objectAtIndex:i];
+             NSString *imageUrl =photoModle.photoUrl;
             if (i==0) {
                 [_imageView0 sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
             }else if(i==1){
@@ -173,7 +175,9 @@
     switch (actType) {
         case ActivityTypePicture:
         {
-            height=180;
+            CGFloat pading=1.0;
+            CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)- 15*2-pading*2)/3.0;
+            height=imageViewWidth+50+10*3;
         }break;
         case ActivityTypeApply:
         case ActivityTypeCommon:

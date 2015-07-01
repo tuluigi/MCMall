@@ -123,8 +123,11 @@ return _activityDetail.length>0?_activityDetail:@"";
         }
         NSMutableArray *array=[[NSMutableArray alloc]  init];
         for (NSDictionary *item in [dic objectForKey:@"photolist"]) {
+            PhotoModel *photoModel=[[PhotoModel alloc]  init];
             NSString *photoUrl=[HHGlobalVarTool fullImagePath:[item objectForKey:@"photo"]];
-            [array addObject:photoUrl];
+            photoModel.photoUrl=photoUrl;
+            photoModel.photoID=[item objectForKey:@"id"];
+            [array addObject:photoModel];
         }
         activityModel.photoListArray=array;
         return activityModel;
@@ -137,5 +140,9 @@ return _activityDetail.length>0?_activityDetail:@"";
 @end
 
 @implementation PlayerModel
+
+@end
+@implementation PhotoModel
+
 
 @end

@@ -86,6 +86,7 @@
     return [ActivityListCell activityCellHeightWithActType:model.activityType];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
     VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
     voteController.activityID=model.activityID;

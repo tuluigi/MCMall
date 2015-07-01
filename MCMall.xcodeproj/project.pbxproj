@@ -25,6 +25,7 @@
 		2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6FC1B1099C900607723 /* HealthViewController.m */; };
 		2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
+		2A6779DE1B4397FB00144ED2 /* PhotoActListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */; };
 		2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9F71B2721EA00B7920F /* ActivityListCell.m */; };
 		2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9FC1B272D1700B7920F /* VoteActivityViewController.m */; };
@@ -132,6 +133,8 @@
 		2A50F7001B1099E300607723 /* MCMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallViewController.m; sourceTree = "<group>"; };
 		2A50F7031B109A0C00607723 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
 		2A50F7041B109A0C00607723 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		2A6779DC1B4397FB00144ED2 /* PhotoActListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoActListCell.h; sourceTree = "<group>"; };
+		2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoActListCell.m; sourceTree = "<group>"; };
 		2A6EC9CB1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+UploadFile.h"; sourceTree = "<group>"; };
 		2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+UploadFile.m"; sourceTree = "<group>"; };
 		2A6EC9CE1B21393E00DEAF04 /* HHImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHeader.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				2A73C9FC1B272D1700B7920F /* VoteActivityViewController.m */,
 				2A468C611B32AF4A005F5D15 /* PlayerCell.h */,
 				2A468C621B32AF4A005F5D15 /* PlayerCell.m */,
+				2A6779DC1B4397FB00144ED2 /* PhotoActListCell.h */,
+				2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */,
 			);
 			path = VoteActivity;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
 				2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */,
+				2A6779DE1B4397FB00144ED2 /* PhotoActListCell.m in Sources */,
 				2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
 				2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */,
