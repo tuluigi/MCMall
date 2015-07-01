@@ -20,6 +20,14 @@
 
 
 }
+-(id)init{
+    self=[super init];
+    if (self) {
+        _tableViewStyle=UITableViewStylePlain;
+        self.pageIndex=1;
+    }
+    return self;
+}
 -(id)initWithStyle:(UITableViewStyle)style{
     if (self=[super init]) {
         _tableViewStyle=style;
@@ -30,17 +38,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageIndex=1;
-    // [self setupForDismissKeyboard];
-    CGRect frame=self.view.bounds;
-    self.tableView=[[HHTableView alloc]  initWithFrame:frame style:self.tableViewStyle];
+     [self setupForDismissKeyboard];
+    self.tableView=[[HHTableView alloc]  initWithFrame:CGRectZero dataSource:self delegate:self style:self.tableViewStyle];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.showsHorizontalScrollIndicator=NO;
     self.tableView.showsVerticalScrollIndicator=NO;
     self.tableView.tableFooterView=[UIView new];
     [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
     self.tableView.infiniteScrollingView.enabled=NO;
-    self.automaticallyAdjustsScrollViewInsets=YES;
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

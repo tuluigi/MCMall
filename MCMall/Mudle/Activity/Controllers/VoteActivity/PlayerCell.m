@@ -126,6 +126,7 @@
     }else{
         _moreButton.hidden=NO;
     }
+    _voteButton.hidden=playerModel.isVoted;
 }
 -(void)voteButtonPressed{
     if (_delegate&&[_delegate respondsToSelector:@selector(playerCellDidVoteButtonPressedWithPlayer:)]) {

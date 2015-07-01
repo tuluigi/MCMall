@@ -69,6 +69,12 @@
         }else{
             activityModel.isVoted=YES;
         }
+        NSInteger repeatValue=[[dic objectForKey:@"expType"] integerValue];
+        if (repeatValue==1) {
+            activityModel.enableRepeatVote=NO;
+        }else if(repeatValue==2){
+            activityModel.enableRepeatVote=YES;
+        }
         NSMutableArray *array;
         for (NSDictionary *item in [dic objectForKey:@"list"]) {
             PlayerModel *playerModel=[[PlayerModel alloc]  init];
@@ -78,6 +84,9 @@
             playerModel.playerName=[item objectForKey:@"text"];
             playerModel.playerDetail=[item objectForKey:@"exp"];
             playerModel.totalVotedNum=[[item objectForKey:@"voters"] integerValue];
+            if (!activityModel.enableRepeatVote) {
+                playerModel.isVoted=activityModel.isVoted;
+            }
             if (nil==array) {
                 array=[[NSMutableArray alloc]  init];
             }

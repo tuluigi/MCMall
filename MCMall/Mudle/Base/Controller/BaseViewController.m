@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+   // self.navigationController.navigationBar.translucent= NO;
     [self setupForDismissKeyboard];
     // Do any additional setup after loading the view.
 }
