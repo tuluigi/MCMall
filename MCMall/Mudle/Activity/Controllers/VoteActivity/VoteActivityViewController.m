@@ -79,11 +79,13 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
     
-    
-    [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
-    
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
-    self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
+    if (_activityModel) {
+        [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
+        
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+        
+        self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
+    }
     
 }
 - (void)viewDidLoad {
@@ -118,12 +120,12 @@
 }
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
-    [self.tableView showPageLoadingView];
+    [self.view showPageLoadingView];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             weakSelf.activityModel=responseResult.responseData;
         }
-        [weakSelf.tableView dismissPageLoadView];
+        [weakSelf.view dismissPageLoadView];
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -227,7 +229,7 @@
     self.tableView.tableHeaderView=self.headView;
     webView.scrollView.scrollEnabled=NO;
     
-    [self.tableView dismissPageLoadView];
+    [self.view dismissPageLoadView];
 }
 #pragma mark playercelldelegate
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{

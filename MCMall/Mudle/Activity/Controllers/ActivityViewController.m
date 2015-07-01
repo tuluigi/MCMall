@@ -72,17 +72,18 @@
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *idenfierStr=@"idenfierStr";
+    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
+    NSString *idenfierStr=[ActivityListCell activityListCellIdentiferWithActType:model.activityType];
     ActivityListCell *cell=(ActivityListCell *)[tableView dequeueReusableCellWithIdentifier:idenfierStr];
     if (nil==cell) {
-        cell=[[ActivityListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr];
+        cell=[[ActivityListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr activityType:model.activityType];
     }
-    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.activityModel=model;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ActivityListCell activityCellHeight];
+    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
+    return [ActivityListCell activityCellHeightWithActType:model.activityType];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];

@@ -30,8 +30,18 @@
     if (responseResult.responseCode==HHResponseResultCode100) {
         NSMutableArray *array=[[NSMutableArray alloc]  init];
         for (NSDictionary *dic in responseResult.responseData) {
-            ActivityModel *model=[ActivityModel activityModelWithResponseDic:dic];
-            [array addObject:model];
+            NSInteger activityType=[[dic objectForKey:@"type"] integerValue];
+            id activityModel;
+            if (activityType==ActivityTypeCommon) {
+                activityModel=[ActivityModel activityModelWithResponseDic:dic];
+            }else if (activityType==ActivityTypeVote){
+                activityModel=[VoteActivityModel activityModelWithResponseDic:dic];
+            }else if (activityType==ActivityTypeApply){
+                activityModel=[ApplyActivityModel activityModelWithResponseDic:dic];
+            }else if (activityType==ActivityTypePicture){
+                activityModel=[PhotoAcitvityModel activityModelWithResponseDic:dic];
+            }
+            [array addObject:activityModel];
         }
         responseResult.responseData=array;
     }
@@ -62,6 +72,8 @@
             activityModel=[VoteActivityModel activityModelWithResponseDic:responseResult.responseData];
         }else if (activityType==ActivityTypeApply){
             activityModel=[ApplyActivityModel activityModelWithResponseDic:responseResult.responseData];
+        }else if (activityType==ActivityTypePicture){
+            activityModel=[PhotoAcitvityModel activityModelWithResponseDic:responseResult.responseData];
         }
         
         responseResult.responseData=activityModel;

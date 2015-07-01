@@ -9,6 +9,12 @@
 #import "ActivityModel.h"
 @class VoteActivityModel;
 @implementation ActivityModel
+-(NSString *)activityEndTime{
+    return _activityEndTime.length>0?_activityEndTime:@"";
+}
+-(NSString *)activityDetail{
+return _activityDetail.length>0?_activityDetail:@"";
+}
 -(NSString *)activityDetailHtmlString{
     NSString *htmlStr=[NSString activityHtmlStringWithImageUrL:nil content:self.activityDetail];
     return htmlStr;
@@ -115,7 +121,7 @@
         }else{
             activityModel.isFavored=YES;
         }
-        NSMutableArray *array;
+        NSMutableArray *array=[[NSMutableArray alloc]  init];
         for (NSDictionary *item in [dic objectForKey:@"photolist"]) {
             NSString *photoUrl=[HHGlobalVarTool fullImagePath:[item objectForKey:@"photo"]];
             [array addObject:photoUrl];

@@ -135,24 +135,10 @@
 }
 -(void)moreButtonPressed:(UIButton *)sender{
     WEAKSELF
-    if (self.playerModel.totalHeight) {
-        [_moreButton setTitle:@"更多介绍>>" forState:UIControlStateNormal];
-        
-        self.playerModel.totalHeight=0.0;
-        [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.removeExisting=YES;
-            make.left.equalTo(_titleLable);
-            make.top.mas_equalTo(_titleLable.mas_bottom);
-            make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
-            make.bottom.mas_equalTo(_logoImgView.mas_bottom);
-        }];
-        
-    }else{
-        [sender setTitle:@"收起介绍<<" forState:UIControlStateNormal];
+    sender.hidden=YES;
         CGSize size=[_playerModel.playerDetail boundingRectWithfont:_descLable.font maxTextSize:CGSizeMake(_descLable.bounds.size.width, CGFLOAT_MAX)];
         self.playerModel.totalHeight=self.bounds.size.height+size.height-_descLable.bounds.size.height;
         if ( self.playerModel.totalHeight) {
-            
             [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.removeExisting=YES;
                 make.height.equalTo(@(size.height));
@@ -161,7 +147,6 @@
                 make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
             }];
         }
-    }
     if (_delegate &&[_delegate respondsToSelector: @selector(playerCellDidMoreButtonPressedWithPlayer:)]) {
         [_delegate playerCellDidMoreButtonPressedWithPlayer:self.playerModel];
     }

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ActivityModel ;
+#import "ActivityModel.h"
 @interface ActivityListCell : UITableViewCell
 @property(nonatomic,strong)ActivityModel *activityModel;
-+(CGFloat)activityCellHeight;
++(CGFloat)activityCellHeightWithActType:(ActivityType)actType;
++(NSString *)activityListCellIdentiferWithActType:(ActivityType)actType;
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier activityType:(ActivityType)actType;
 @end
