@@ -107,4 +107,18 @@
     }];
     return op;
 }
+-(MKNetworkOperation *)publishActivityCommentWithUserID:(NSString*)userID
+                                             ActivityID:(NSString *)activityID
+                                                photoID:(NSString *)photoID
+                                               comments:(NSString *)contents
+                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI publishActivityAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid",photoID,@"lineno",contents,@"reply", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+
+}
 @end

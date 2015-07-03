@@ -45,4 +45,9 @@ NSString *const SufferName=@"muying/ws/";
 +(NSString *)applyActivityAPI{
 return [SufferName stringByAppendingString:@"enroll"];
 }
+
++(NSString *)publishActivityAPI{
+    return [SufferName stringByAppendingString:@"replyphoto"];
+}
+
 @end
