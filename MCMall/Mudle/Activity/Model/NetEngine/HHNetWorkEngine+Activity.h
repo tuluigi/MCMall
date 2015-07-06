@@ -20,8 +20,8 @@
  */
 -(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
-                                         pageSize:(NSInteger)pageSize
-                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+                                        pageSize:(NSInteger)pageSize
+                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 
 
@@ -62,11 +62,16 @@
  *  @param activityID      活动ID
  *  @param completionBlcok
  *
- *  @return   
+ *  @return
  */
 -(MKNetworkOperation *)applyActivityWithUserID:(NSString*)userID
-                                   ActivityID:(NSString *)activityID
-                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+                                    ActivityID:(NSString *)activityID
+                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
+-(MKNetworkOperation *)publishActivityCommentWithUserID:(NSString*)userID
+                                             ActivityID:(NSString *)activityID
+                                                photoID:(NSString *)photoID
+                                               comments:(NSString *)contents
+                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 @end

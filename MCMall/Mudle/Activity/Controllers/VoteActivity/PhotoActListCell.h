@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 @class PhotoModel;
+
+@protocol PhotoActListCellDelegate <NSObject>
+
+-(void)photoListCellDidSelectedWithPhotoModel:(PhotoModel *)photoModel;
+
+@end
+
 @interface PhotoActListCell : UITableViewCell
+@property(nonatomic,assign)id<PhotoActListCellDelegate>delegate;
 @property(nonatomic,strong)NSMutableArray *photoArray;
 +(CGFloat)photoListCellHeight;
 @end

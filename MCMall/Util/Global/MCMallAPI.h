@@ -24,4 +24,5 @@
 +(NSString *)voteActivityAPI;
 //报名
 +(NSString *)applyActivityAPI;
++(NSString *)publishActivityAPI;
 @end

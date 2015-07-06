@@ -23,10 +23,22 @@
 -(void)onInitUI{
     _imageView0=[[UIImageView alloc]  init];
     [self.contentView addSubview:_imageView0];
+    _imageView0.userInteractionEnabled=YES;
+    UITapGestureRecognizer *tapGesture0=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didImageViewTaped:)];
+    [_imageView0 addGestureRecognizer:tapGesture0];
+    
     _imageView1=[[UIImageView alloc]  init];
     [self.contentView addSubview:_imageView1];
+    _imageView1.userInteractionEnabled=YES;
+    UITapGestureRecognizer *tapGesture1=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didImageViewTaped:)];
+    [_imageView1 addGestureRecognizer:tapGesture1];
+
     _imageView2=[[UIImageView alloc]  init];
     [self.contentView addSubview:_imageView2];
+    _imageView2.userInteractionEnabled=YES;
+    UITapGestureRecognizer *tapGesture2=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didImageViewTaped:)];
+    [_imageView2 addGestureRecognizer:tapGesture2];
+
     
     CGFloat pading=1.0;
     CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)-pading*2)/3.0;
@@ -66,6 +78,20 @@
         }
         [imageView sd_setImageWithURL:[NSURL URLWithString:photoModel.photoUrl] placeholderImage:MCMallDefaultImg];
 
+    }
+}
+-(void)didImageViewTaped:(UITapGestureRecognizer *)tapGestre{
+    UIImageView *imageView=(UIImageView *)tapGestre.view;
+    PhotoModel *photoModel;
+    if (imageView==_imageView0) {
+        photoModel=[self.photoArray objectAtIndex:0];
+    }else if (imageView==_imageView1){
+        photoModel=[self.photoArray objectAtIndex:1];
+    }else if (imageView==_imageView2){
+        photoModel=[self.photoArray objectAtIndex:2];
+    }
+    if (_delegate&&[_delegate respondsToSelector:@selector(photoListCellDidSelectedWithPhotoModel:)]) {
+        [_delegate photoListCellDidSelectedWithPhotoModel:photoModel];
     }
 }
 +(CGFloat)photoListCellHeight{

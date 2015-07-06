@@ -34,27 +34,29 @@
 #pragma mark - getter setter
 -(UIView *)headView{
     if (nil==_headView) {
-        //_headView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        _headView=[[UIView alloc]  init];
+        _headView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+       // _headView=[[UIView alloc]  init];
       
        // self.tableView.tableHeaderView=_headView;
        // [self.view addSubview:_headView];
-        WEAKSELF
-        [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@0);
-            make.left.equalTo(@0);
-            make.width.mas_equalTo(weakSelf.tableView.bounds.size.width);
-            make.height.mas_equalTo(@200);
-        }];
-        [_headView addSubview:self.headImageView];
-        [_headView addSubview:self.detailWebView];
+//        WEAKSELF
+//        [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(@0);
+//            make.left.equalTo(@0);
+//            make.width.mas_equalTo(weakSelf.tableView.bounds.size.width);
+//            make.height.mas_equalTo(@200);
+//        }];
+        _headImageView=self.headImageView;
+        _detailWebView=self.detailWebView;
+//        [_headView addSubview:self.headImageView];
+//       [_headView addSubview:self.detailWebView];
     }
     return _headView;
 }
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
-//        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
-        _headImageView=[[UIImageView alloc]  init];
+        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
+       // _headImageView=[[UIImageView alloc]  init];
         [self.headView addSubview:_headImageView];
         WEAKSELF
         [_headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,26 +116,26 @@
     _activityModel=activityModel;
     [self.tableView reloadData];
     
-    if (_activityModel) {
-        [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
-        
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
-        
-        self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
-    }
+//    if (_activityModel) {
+//        [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
+//        
+//        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+//        
+//        self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
+//    }
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  //  self.tableView.tableHeaderView=self.headView;
-    [self.view addSubview:self.headView];
-            WEAKSELF
-            [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.left.equalTo(weakSelf.view);
-                make.width.mas_equalTo(weakSelf.view.bounds.size.width);
-                make.height.mas_equalTo(@200);
-            }];
+  self.tableView.tableHeaderView=self.headView;
+    //[self.view addSubview:self.headView];
+//            WEAKSELF
+//            [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.top.left.equalTo(weakSelf.view);
+//                make.width.mas_equalTo(weakSelf.view.bounds.size.width);
+//                make.height.mas_equalTo(@200);
+//            }];
     switch (_actType) {
         case ActivityTypeCommon:
         {
@@ -236,6 +238,7 @@
             if (nil==cell) {
                 cell=[[PhotoActListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
+                cell.delegate=self;
             }
             PhotoAcitvityModel * photoModel=(PhotoAcitvityModel *)self.activityModel;
             cell.photoArray=photoModel.photoListArray;
@@ -317,7 +320,11 @@
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 }
-
+-(void)photoListCellDidSelectedWithPhotoModel:(PhotoModel *)photoModel{
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:photoModel.photoID comments:@"ios发表一个评论，哈哈哈哈 " onCompletionHandler:^(HHResponseResult *responseResult) {
+        [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+    }];
+}
 #pragma mark -apply button
 -(void)applyButtonPressed{
     [HHProgressHUD showLoadingState];
