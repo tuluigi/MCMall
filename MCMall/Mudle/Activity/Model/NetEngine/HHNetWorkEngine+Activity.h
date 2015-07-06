@@ -73,5 +73,22 @@
                                                 photoID:(NSString *)photoID
                                                comments:(NSString *)contents
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+/**
+ *  获取评论列表
+ *
+ *  @param activityID      活动
+ *  @param photoID
+ *  @param pageIndex
+ *  @param pageSize
+ *  @param completionBlcok
+ *
+ *  @return
+ */
+-(MKNetworkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
+                                                photoID:(NSString *)photoID
+                                               userID:(NSString *)userID
+                                            pageIndex:(NSInteger)pageIndex
+                                             pageSize:(NSInteger)pageSize
+                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 @end

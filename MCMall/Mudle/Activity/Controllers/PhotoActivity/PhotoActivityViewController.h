@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface PhotoActivityViewController : BaseTableViewController
--(id)initWithActivityID:(NSString *)activityID;
+-(id)initWithActivityID:(NSString *)activityID PhotoID:(NSString *)photoID photoUrl:(NSString *)url;
 @end

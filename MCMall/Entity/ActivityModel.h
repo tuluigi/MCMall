@@ -65,3 +65,11 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,copy)NSString *photoID;
 @property(nonatomic,copy)NSString *photoUrl;
 @end
+
+@interface PhotoCommentModel : NSObject
+@property(nonatomic,copy)NSString *userName;
+@property(nonatomic,copy)NSString *userImage;
+@property(nonatomic,copy)NSString *commentTime;
+@property(nonatomic,copy)NSString *commentContents;
+
+@end

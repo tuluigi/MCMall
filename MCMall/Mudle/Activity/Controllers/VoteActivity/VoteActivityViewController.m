@@ -11,6 +11,7 @@
 #import "ActivityModel.h"
 #import "PlayerCell.h"
 #import "PhotoActListCell.h"
+#import "PhotoActivityViewController.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
@@ -351,9 +352,8 @@
     [self.tableView endUpdates];
 }
 -(void)photoListCellDidSelectedWithPhotoModel:(PhotoModel *)photoModel{
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:photoModel.photoID comments:@"ios发表一个评论，哈哈哈哈 " onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD showErrorMssage:responseResult.responseMessage];
-    }];
+    PhotoActivityViewController *photoActivitController=   [[PhotoActivityViewController alloc]  initWithActivityID:self.activityID PhotoID:photoModel.photoID photoUrl:photoModel.photoUrl   ];
+    [self.navigationController pushViewController:photoActivitController animated:YES];
 }
 #pragma mark -apply button
 -(void)applyButtonPressed{

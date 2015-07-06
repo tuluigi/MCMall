@@ -146,3 +146,8 @@ return _activityDetail.length>0?_activityDetail:@"";
 
 
 @end
+@implementation PhotoCommentModel
+
+
+
+@end
