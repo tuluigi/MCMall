@@ -46,8 +46,10 @@
 //            make.width.mas_equalTo(weakSelf.tableView.bounds.size.width);
 //            make.height.mas_equalTo(@200);
 //        }];
+        _headImageView=self.headImageView;
+        _detailWebView=self.detailWebView;
 //        [_headView addSubview:self.headImageView];
-//        [_headView addSubview:self.detailWebView];
+//       [_headView addSubview:self.detailWebView];
     }
     return _headView;
 }
@@ -126,7 +128,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  //  self.tableView.tableHeaderView=self.headView;
+  self.tableView.tableHeaderView=self.headView;
     //[self.view addSubview:self.headView];
 //            WEAKSELF
 //            [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
