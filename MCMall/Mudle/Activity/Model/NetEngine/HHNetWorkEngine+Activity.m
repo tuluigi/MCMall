@@ -161,13 +161,9 @@
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photo,@"photo",userID,@"userid", nil];
     
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHPOST onCompletionHandler:^(HHResponseResult *responseResult) {
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithUrlPath:apiPath fileData:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
-    //op.postDataEncoding=MKNKPostDataEncodingTypePlist;
-    [op setCustomPostDataEncodingHandler:^NSString *(NSDictionary *postDataDict) {
-        return @"";
-    } forType:@"multipart/form-data"];
     return op;
 }
 @end
