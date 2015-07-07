@@ -7,6 +7,7 @@ PODS:
   - Masonry (0.6.1)
   - MKNetworkKit (0.87):
     - Reachability (~> 3.1.0)
+  - QBImagePickerController (2.5.2)
   - Reachability (3.1.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - FMDB (~> 2.1)
   - Masonry (~> 0.6.1)
   - MKNetworkKit (~> 0.87)
+  - QBImagePickerController (~> 2.5.2)
   - Reachability (~> 3.1.1)
   - SDWebImage (~> 3.7.1)
   - SVProgressHUD (~> 1.0)
@@ -29,10 +31,11 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   MKNetworkKit: 60ad3c83b62183e40ba75ce772c9427c25b520de
+  QBImagePickerController: 96c2e340edb7fcac5acf21b72314fac9201ffb8e
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.37.1

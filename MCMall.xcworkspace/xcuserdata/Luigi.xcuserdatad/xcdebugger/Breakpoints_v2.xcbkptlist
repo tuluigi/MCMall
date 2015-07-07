@@ -20,22 +20,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Entity/ActivityModel.m"
-            timestampString = "456305561.533772"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "+activityModelWithResponseDic:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Entity/ActivityModel.m"
             timestampString = "456305599.112714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -99,22 +83,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-            timestampString = "457885231.095305"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-headView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/PlayerCell.m"
             timestampString = "457275954.629512"
             startingColumnNumber = "9223372036854775807"
@@ -132,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-            timestampString = "457885231.095305"
+            timestampString = "457969515.087243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -148,12 +116,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-            timestampString = "457927030.317898"
+            timestampString = "457969515.087243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-photoListCellDidSelectedWithPhotoModel:"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-qb_imagePickerController:didSelectAsset:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,13 +131,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Controllers/PhotoActivity/PhotoActivityViewController.m"
-            timestampString = "457927858.876823"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+            timestampString = "457968947.40865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-initWithActivityID:PhotoID:photoUrl:"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "-qb_imagePickerController:didFinishPickingAssets:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -179,13 +147,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Controllers/PhotoActivity/PhotoActivityViewController.m"
-            timestampString = "457928671.643049"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+            timestampString = "457969517.204601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-qb_imagePickerController:didSelectAsset:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -195,44 +163,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-            timestampString = "457927078.869545"
+            filePath = "MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+            timestampString = "457969558.140101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-getPhotoCommontsWithActivityID:photoID:userID:pageIndex:pageSize:onCompletionHandler:"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "-qb_imagePickerController:didSelectAsset:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HHNetWorkEngine(Activity) getPhotoCommontsWithActivityID:photoID:userID:pageIndex:pageSize:onCompletionHandler:]"
+                  symbolName = "-[VoteActivityViewController qb_imagePickerController:didSelectAsset:]"
                   moduleName = "MCMall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-                  timestampString = "457928672.524294"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4/iosCode/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+                  timestampString = "457969868.250004"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "701">
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "111">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__114-[HHNetWorkEngine(Activity) getPhotoCommontsWithActivityID:photoID:userID:pageIndex:pageSize:onCompletionHandler:]_block_invoke"
+                  symbolName = "__70-[VoteActivityViewController qb_imagePickerController:didSelectAsset:]_block_invoke"
                   moduleName = "MCMall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-                  timestampString = "457928672.524417"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4/iosCode/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+                  timestampString = "457969868.250198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -243,13 +211,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Activity/Controllers/PhotoActivity/PhotoActivityViewController.m"
-            timestampString = "457928671.643049"
+            filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
+            timestampString = "457969686.97399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-didPublishCommentButtonPressed"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-uploadActivityPhotoWithActivityID:photoPath:userID:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

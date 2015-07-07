@@ -12,7 +12,8 @@
 #import "PlayerCell.h"
 #import "PhotoActListCell.h"
 #import "PhotoActivityViewController.h"
-@interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate>
+#import "QBImagePickerController.h"
+@interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
 @property(nonatomic,strong)UIView *headView;
@@ -179,6 +180,7 @@
         }break;
         case ActivityTypePicture:{
             self.title=@"图片活动";
+            self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
         }
         default:
             break;
@@ -192,6 +194,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
     [self.view showPageLoadingView];
@@ -201,6 +206,33 @@
         }
         [weakSelf.view dismissPageLoadView];
     }];
+}
+#pragma mark - select iamge
+-(void)imagePickerButtonPressed{
+    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = NO;
+    imagePickerController.showsNumberOfSelectedAssets = NO;
+    
+    [self presentViewController:imagePickerController animated:YES completion:NULL];
+}
+#pragma mark - qbimagecontroller delegate
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
+    for (ALAsset *asset in assets) {
+        // Do something with the asset
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
+    NSURL *url=[asset valueForProperty:ALAssetPropertyAssetURL];
+    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photoPath:url.absoluteString userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+        
+    }];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
+[self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger row=0;

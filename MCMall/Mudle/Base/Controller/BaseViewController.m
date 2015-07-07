@@ -13,7 +13,9 @@
 @end
 
 @implementation BaseViewController
-
+-(void)dealloc{
+    [HHProgressHUD dismiss];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
    // self.navigationController.navigationBar.translucent= NO;

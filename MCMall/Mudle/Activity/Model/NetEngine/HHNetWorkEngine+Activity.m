@@ -151,5 +151,18 @@
     }
     return responseResult;
 }
+-(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
+                                               photoPath:(NSString *)photoPath
+                                                  userID:(NSString *)userID
+                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
 
+    WEAKSELF
+    userID=[NSString stringByReplaceNullString:userID];
+    NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photoPath,@"photo",userID,@"userid", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 @end

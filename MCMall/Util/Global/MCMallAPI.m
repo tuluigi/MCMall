@@ -57,5 +57,7 @@ return [SufferName stringByAppendingString:@"enroll"];
 +(NSString *)favorPhotoAPI{
     return [SufferName stringByAppendingString:@"praise"];
 }
-
++(NSString *)uploadActivityPhotoAPI{
+    return [SufferName stringByAppendingString:@"updphoto"];
+}
 @end

@@ -30,5 +30,6 @@
 +(NSString *)getPhotoCommonsListAPI;
 //点赞
 +(NSString *)favorPhotoAPI;
-
+//上传活动图片
++(NSString *)uploadActivityPhotoAPI;
 @end

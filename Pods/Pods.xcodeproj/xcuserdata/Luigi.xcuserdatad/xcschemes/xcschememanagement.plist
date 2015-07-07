@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QBImagePickerController-QBImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00B38322E7873B0A3EC0CA89</key>
+		<key>2206790F7C5FC221DCCAD367</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>205BD5C7C43E24C56C4257FA</key>
+		<key>27BEF54EDF7955C851E13236</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2273E4AEFAB77FA086354B91</key>
+		<key>4FA8007B76B17C0A0E69F698</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7ADC67BDBD2E57B19A67CB07</key>
+		<key>583467D845B1A59AE217A6AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>884669D53690D416BC622262</key>
+		<key>7003426AFC097058097B23DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B7A3B9E42E2950E562AA70E</key>
+		<key>704CF57BF276A178AACED812</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A06D9361F38977F950554CB1</key>
+		<key>7FD478B9D3789EB44F1960EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7AE2AD0D425E2F4AD90DB0F</key>
+		<key>A741962DDF6BB2545B9D5873</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF57DAF775EF54D9D437A891</key>
+		<key>C586CEE11FED45229A77E5E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EAD16C2CEE5FF606469130BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6344668E2B1E7704107517F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

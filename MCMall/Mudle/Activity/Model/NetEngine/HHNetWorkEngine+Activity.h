@@ -91,4 +91,10 @@
                                              pageSize:(NSInteger)pageSize
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
+-(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
+                                              photoPath:(NSString *)photoPath
+                                               userID:(NSString *)userID
+                                  onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+
+
 @end

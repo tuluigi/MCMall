@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_Masonry 6
 #define COCOAPODS_VERSION_PATCH_Masonry 1
 
+// QBImagePickerController
+#define COCOAPODS_POD_AVAILABLE_QBImagePickerController
+#define COCOAPODS_VERSION_MAJOR_QBImagePickerController 2
+#define COCOAPODS_VERSION_MINOR_QBImagePickerController 5
+#define COCOAPODS_VERSION_PATCH_QBImagePickerController 2
+
 // Reachability
 #define COCOAPODS_POD_AVAILABLE_Reachability
 #define COCOAPODS_VERSION_MAJOR_Reachability 3
