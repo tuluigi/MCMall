@@ -142,12 +142,12 @@
         for (NSDictionary *itemDic in array) {
             PhotoCommentModel *commentModel=[[PhotoCommentModel alloc]  init];
             commentModel.userImage=[itemDic objectForKey:@"img"];
-
             commentModel.userName=[itemDic objectForKey:@"username"];
-            commentModel.commentTime=[itemDic objectForKey:@""];
-            commentModel.commentContents=[itemDic objectForKey:@""];
+            commentModel.commentTime=[itemDic objectForKey:@"time"];
+            commentModel.commentContents=[itemDic objectForKey:@"content"];
+            [array addObject:commentModel];
         }
-       // responseResult.responseData=activityModel;
+    responseResult.responseData=array;
     }
     return responseResult;
 }

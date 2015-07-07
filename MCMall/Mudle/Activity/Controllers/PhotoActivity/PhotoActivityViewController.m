@@ -9,7 +9,9 @@
 #import "PhotoActivityViewController.h"
 #import "HHNetWorkEngine+Activity.h"
 #import "ActivityModel.h"
+#import "PhotoCommontCell.h"
 @interface PhotoActivityViewController ()
+@property(nonatomic,strong)UITextField *commentTextField;
 @property(nonatomic,copy)NSString *photoID,*photoUrl,*activityID;
 @property(nonatomic,strong)UIImageView *headImageView;
 @end
@@ -30,8 +32,38 @@
     }
     return _headImageView;
 }
+-(UITextField *)commentTextField{
+    if (nil==_commentTextField) {
+        _commentTextField=[[UITextField alloc]  init];
+        _commentTextField.borderStyle=UITextBorderStyleRoundedRect;
+        _commentTextField.placeholder=@"输入评论内容...";
+        _commentTextField.delegate=self;
+        _commentTextField.backgroundColor=[UIColor redColor];
+       
+    }
+    return _commentTextField;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"图片详情";
+    [self.view addSubview:self.commentTextField];
+    WEAKSELF
+    [self.commentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.mas_equalTo(weakSelf.view);
+        make.height.equalTo(@50.0);
+    }];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(weakSelf.view).offset(-(weakSelf.commentTextField.bounds.size.height));
+    }];
+    UIButton *publishButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [publishButton setBackgroundColor:[UIColor redColor]];
+    [publishButton setTitle:@"发送" forState:UIControlStateNormal];
+    [publishButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
+    publishButton.titleLabel.font=[UIFont systemFontOfSize:14];
+    [publishButton addTarget:self action:@selector(didPublishCommentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    _commentTextField.rightView=publishButton;
+    _commentTextField.rightViewMode=UITextFieldViewModeAlways;
+
     self.tableView.tableHeaderView=self.headImageView;
     [self getPhotoCommontsWithActivityID:self.activityID photoID:self.photoID];
     // Do any additional setup after loading the view.
@@ -43,16 +75,17 @@
 }
 -(void)getPhotoCommontsWithActivityID:(NSString *)activityID photoID:(NSString *)photoID{
     if (self.dataSourceArray.count==0) {
-        [self.tableView showPageLoadingView];
+         [HHProgressHUD showLoadingState];
     }
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[UserModel userID]  pageIndex:1 pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            
+            [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            [weakSelf.tableView reloadData];
+            [HHProgressHUD dismiss];
         }else{
-        
+            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
         }
-        [self.tableView dismissPageLoadView];
     }];
     
 }
@@ -62,6 +95,32 @@
     }];
 
 }
+#pragma mark publishComment
+-(void)didPublishCommentButtonPressed{
+
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSourceArray.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *Identifer=@"photoIdentifer";
+    PhotoCommontCell *cell=[tableView dequeueReusableCellWithIdentifier:Identifer];
+    if (nil==cell) {
+        cell=[[PhotoCommontCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifer];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    PhotoCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    cell.commentModel=commentModel;
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
+}
+-(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
+}
+
+
 
 /*
 #pragma mark - Navigation

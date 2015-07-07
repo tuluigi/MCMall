@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
 		2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
@@ -96,6 +97,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
+		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A2931741B2825F0008A1C09 /* UIScrollView+SVStopAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVStopAnimation.h"; sourceTree = "<group>"; };
 		2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVStopAnimation.m"; sourceTree = "<group>"; };
@@ -981,6 +984,8 @@
 			children = (
 				2A9DD3A41B402C390010893F /* PhotoActivityViewController.h */,
 				2A9DD3A51B402C390010893F /* PhotoActivityViewController.m */,
+				2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */,
+				2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */,
 			);
 			path = PhotoActivity;
 			sourceTree = "<group>";
@@ -1166,6 +1171,7 @@
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
 				2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */,
 				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
+				2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
 				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,
 				2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */,
