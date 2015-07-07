@@ -92,7 +92,7 @@
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 -(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
-                                              photoPath:(NSString *)photoPath
+                                              photo:(NSData *)photo
                                                userID:(NSString *)userID
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 

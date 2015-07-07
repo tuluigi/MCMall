@@ -225,8 +225,11 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    NSURL *url=[asset valueForProperty:ALAssetPropertyAssetURL];
-    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photoPath:url.absoluteString userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    NSURL *photoUrl=[asset valueForProperty:ALAssetPropertyAssetURL];
+
+    CGImageRef fullResImage = [asset thumbnail];
+        NSData *photoData=UIImageJPEGRepresentation([UIImage imageWithCGImage:fullResImage], 0.2);
+    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:photoData userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
     [self dismissViewControllerAnimated:YES completion:NULL];
