@@ -112,13 +112,44 @@
                                                 photoID:(NSString *)photoID
                                                comments:(NSString *)contents
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=[MCMallAPI publishActivityAPI];
+    NSString *apiPath=[MCMallAPI publishCommontActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid",photoID,@"lineno",contents,@"reply", nil];
     MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
-
 }
+-(MKNetworkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
+                                               photoID:(NSString *)photoID
+                                               userID:(NSString *)userID
+                                             pageIndex:(NSInteger)pageIndex
+                                              pageSize:(NSInteger)pageSize
+                                  onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    WEAKSELF
+    userID=[NSString stringByReplaceNullString:userID];
+    NSString *apiPath=[MCMallAPI getPhotoCommonsListAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photoID,@"lineno",@(pageIndex),@"pageno",@(pageSize),@"records",userID,@"userid", nil];
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult=[weakSelf parsePhotoCommontsListWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
+-(HHResponseResult *)parsePhotoCommontsListWithResponseResult:(HHResponseResult *)responseResult{
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        NSMutableArray *array=[NSMutableArray new];
+        for (NSDictionary *itemDic in array) {
+            PhotoCommentModel *commentModel=[[PhotoCommentModel alloc]  init];
+            commentModel.userImage=[itemDic objectForKey:@"img"];
+
+            commentModel.userName=[itemDic objectForKey:@"username"];
+            commentModel.commentTime=[itemDic objectForKey:@""];
+            commentModel.commentContents=[itemDic objectForKey:@""];
+        }
+       // responseResult.responseData=activityModel;
+    }
+    return responseResult;
+}
+
 @end

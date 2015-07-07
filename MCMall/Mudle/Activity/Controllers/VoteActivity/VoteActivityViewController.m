@@ -11,6 +11,7 @@
 #import "ActivityModel.h"
 #import "PlayerCell.h"
 #import "PhotoActListCell.h"
+#import "PhotoActivityViewController.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
@@ -34,75 +35,89 @@
 #pragma mark - getter setter
 -(UIView *)headView{
     if (nil==_headView) {
-       // _headView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        _headView=[[UIView alloc]  init];
-      
-//        self.tableView.tableHeaderView=_headView;
-//        //[self.view addSubview:_headView];
-//        WEAKSELF
-//        [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(@0);
-//            make.left.equalTo(@0);
-//            make.width.mas_equalTo(weakSelf.tableView.bounds.size.width);
-//            make.height.mas_equalTo(@200);
-//        }];
-//        _headImageView=self.headImageView;
-//        _detailWebView=self.detailWebView;
+        _headView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         [_headView addSubview:self.headImageView];
-       [_headView addSubview:self.detailWebView];
-        WEAKSELF
-        [self.headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(weakSelf.headView);
-            make.right.mas_equalTo(weakSelf.headView).offset(0);
-            make.height.equalTo(@160.0);
-        }];
-        [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.mas_equalTo(weakSelf.headView);
-            make.top.mas_equalTo(weakSelf.titleLable.mas_bottom);
-        }];
+        [_headView addSubview:self.detailWebView];
+        
+        //  _headView=[[UIView alloc]  init];
+        
+        //        self.tableView.tableHeaderView=_headView;
+        //        //[self.view addSubview:_headView];
+        //        WEAKSELF
+        //        [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.top.equalTo(@0);
+        //            make.left.equalTo(@0);
+        //            make.width.mas_equalTo(weakSelf.tableView.bounds.size.width);
+        //            make.height.mas_equalTo(@200);
+        //        }];
+        //        _headImageView=self.headImageView;
+        //        _detailWebView=self.detailWebView;
+        /*
+         WEAKSELF
+         [self.headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.top.left.equalTo(weakSelf.headView);
+         make.right.mas_equalTo(weakSelf.headView).offset(0);
+         make.height.equalTo(@160.0);
+         }];
+         [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.left.mas_equalTo(weakSelf.headView.mas_left).offset(10.0);
+         make.top.mas_equalTo(_headImageView.mas_bottom).offset(5.0);
+         make.size.mas_equalTo(CGSizeMake(100.0, 25.0));
+         }];
+         [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.left.mas_equalTo(_titleLable.mas_right);
+         make.top.bottom.mas_equalTo(_titleLable);
+         make.right.mas_equalTo(weakSelf.headView.mas_right);
+         }];
+         
+         [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.left.right.bottom.mas_equalTo(weakSelf.headView);
+         make.top.mas_equalTo(weakSelf.titleLable.mas_bottom);
+         }];
+         */
     }
     return _headView;
 }
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
-      //  _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
-        _headImageView=[[UIImageView alloc]  init];
-       // [self.headView addSubview:_headImageView];
+        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
+        //  _headImageView=[[UIImageView alloc]  init];
+        [self.headView addSubview:_headImageView];
         WEAKSELF
-//        [_headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.left.right.equalTo(weakSelf.headView);
-//            make.height.equalTo(@160.0);
-//        }];
+        //        [_headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.top.left.right.equalTo(weakSelf.headView);
+        //            make.height.equalTo(@160.0);
+        //        }];
         CGFloat lableHeight=25.0;
         CGFloat offy=_headImageView.bounds.size.height+5;
-//        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(10.0,offy, 100.0, lableHeight)];
-        _titleLable=[[UILabel alloc]  init];
+        _titleLable=[[UILabel alloc] initWithFrame:CGRectMake(10.0,offy, 100.0, lableHeight)];
+        //     _titleLable=[[UILabel alloc]  init];
         _titleLable.backgroundColor=[UIColor clearColor];
         [_headView addSubview:_titleLable];
         _titleLable.text=@"活动介绍:";
         _titleLable.textColor=MCMallThemeColor;
         _titleLable.textAlignment=NSTextAlignmentLeft;
         _titleLable.font=[UIFont boldSystemFontOfSize:18];
-        [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(weakSelf.headView.mas_left).offset(10.0);
-            make.top.mas_equalTo(_headImageView.mas_bottom).offset(5.0);
-            make.size.mas_equalTo(CGSizeMake(100.0, 25.0));
-        }];
+        //        [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.left.mas_equalTo(weakSelf.headView.mas_left).offset(10.0);
+        //            make.top.mas_equalTo(_headImageView.mas_bottom).offset(5.0);
+        //            make.size.mas_equalTo(CGSizeMake(100.0, 25.0));
+        //        }];
         
         
-//        _timeLable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_titleLable.frame),offy, CGRectGetWidth(self.view.bounds)-CGRectGetMaxX(_titleLable.frame)-10.0, lableHeight)];
-        _timeLable=[[UILabel alloc]  init];
+        _timeLable=[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_titleLable.frame),offy, CGRectGetWidth(self.view.bounds)-CGRectGetMaxX(_titleLable.frame)-10.0, lableHeight)];
+        //    _timeLable=[[UILabel alloc]  init];
         [_headView addSubview:_timeLable];
         _timeLable.backgroundColor=[UIColor clearColor];
         _timeLable.text=@"";
         _timeLable.textColor=[UIColor lightGrayColor];
         _timeLable.textAlignment=NSTextAlignmentRight;
         _timeLable.font=[UIFont systemFontOfSize:15];
-        [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(_titleLable.mas_right);
-            make.top.bottom.mas_equalTo(_titleLable);
-            make.right.mas_equalTo(weakSelf.headView.mas_right);
-        }];
+        //        [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.left.mas_equalTo(_titleLable.mas_right);
+        //            make.top.bottom.mas_equalTo(_titleLable);
+        //            make.right.mas_equalTo(weakSelf.headView.mas_right);
+        //        }];
         
         
     }
@@ -110,15 +125,15 @@
 }
 -(UIWebView *)detailWebView{
     if (nil==_detailWebView) {
-//        _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds), self.headView.bounds.size.width, 10)];
-        _detailWebView=[[UIWebView alloc]  init];
+        _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds), self.headView.bounds.size.width, 10)];
+        //  _detailWebView=[[UIWebView alloc]  init];
         _detailWebView.delegate=self;
-//        [self.headView addSubview:_detailWebView];
-//        WEAKSELF
-//        [_detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.right.bottom.mas_equalTo(weakSelf.headView);
-//            make.top.mas_equalTo(weakSelf.titleLable.mas_bottom);
-//        }];
+        //        [self.headView addSubview:_detailWebView];
+        //        WEAKSELF
+        //        [_detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.left.right.bottom.mas_equalTo(weakSelf.headView);
+        //            make.top.mas_equalTo(weakSelf.titleLable.mas_bottom);
+        //        }];
     }
     return _detailWebView;
 }
@@ -137,18 +152,19 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
+    
     // Do any additional setup after loading the view.
-   // _headView=self.headView;
-  self.tableView.tableHeaderView=self.headView;
-    //[self.view addSubview:self.headView];
-            WEAKSELF
-            [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
-                //make.edges.mas_equalTo(UIEdgeInsetsZero);
-                make.top.left.equalTo(weakSelf.view);
-                make.width.mas_equalTo(weakSelf.view.bounds.size.width);
-                make.height.mas_equalTo(@200);
-            }];
+    // _headView=self.headView;
+    self.tableView.tableHeaderView=self.headView;
+    /*
+    WEAKSELF
+    [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        // make.edges.equalTo(weakSelf.tableView.tableHeaderView).mas_equalTo(UIEdgeInsetsMake(2, 2, 2, 0));
+        make.top.left.bottom.equalTo(weakSelf.tableView.tableHeaderView);
+        make.width.mas_equalTo(weakSelf.view.bounds.size.width);
+        //                make.height.mas_equalTo(@200);
+    }];
+     */
     switch (_actType) {
         case ActivityTypeCommon:
         {
@@ -256,7 +272,7 @@
             PhotoAcitvityModel * photoModel=(PhotoAcitvityModel *)self.activityModel;
             cell.photoArray=photoModel.photoListArray;
             return cell;
-
+            
         }break;
         default:{
             NSString *identifer=@"identifer";
@@ -295,12 +311,13 @@
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     CGFloat  sizeHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight;"] floatValue];
-//    CGRect frame=webView.frame;
-//    frame.size.height=sizeHeight;
-//    webView.frame=frame;
-//    CGRect headViewFrame=self.headView.frame;
-//    headViewFrame.size.height=CGRectGetHeight(self.headImageView.bounds)+CGRectGetHeight(self.titleLable.bounds)+sizeHeight;
-//    self.headView.frame=headViewFrame;
+        CGRect frame=webView.frame;
+        frame.size.height=sizeHeight;
+        webView.frame=frame;
+        CGRect headViewFrame=self.headView.frame;
+        headViewFrame.size.height=CGRectGetHeight(self.headImageView.bounds)+CGRectGetHeight(self.titleLable.bounds)+sizeHeight;
+        self.headView.frame=headViewFrame;
+    /*
     WEAKSELF
     [self.detailWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.removeExisting=YES;
@@ -308,7 +325,8 @@
         make.top.mas_equalTo(weakSelf.titleLable.mas_bottom);
         make.height.mas_equalTo(sizeHeight);
     }];
-    self.tableView.tableHeaderView=self.headView;
+     */
+     self.tableView.tableHeaderView=self.headView;
     webView.scrollView.scrollEnabled=NO;
     
     [self.view dismissPageLoadView];
@@ -334,9 +352,8 @@
     [self.tableView endUpdates];
 }
 -(void)photoListCellDidSelectedWithPhotoModel:(PhotoModel *)photoModel{
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:photoModel.photoID comments:@"ios发表一个评论，哈哈哈哈 " onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD showErrorMssage:responseResult.responseMessage];
-    }];
+    PhotoActivityViewController *photoActivitController=   [[PhotoActivityViewController alloc]  initWithActivityID:self.activityID PhotoID:photoModel.photoID photoUrl:photoModel.photoUrl   ];
+    [self.navigationController pushViewController:photoActivitController animated:YES];
 }
 #pragma mark -apply button
 -(void)applyButtonPressed{

@@ -24,5 +24,11 @@
 +(NSString *)voteActivityAPI;
 //报名
 +(NSString *)applyActivityAPI;
-+(NSString *)publishActivityAPI;
+//发表评论
++(NSString *)publishCommontActivityAPI;
+//获取评论列表
++(NSString *)getPhotoCommonsListAPI;
+//点赞
++(NSString *)favorPhotoAPI;
+
 @end

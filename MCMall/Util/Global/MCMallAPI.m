@@ -45,9 +45,17 @@ NSString *const SufferName=@"muying/ws/";
 +(NSString *)applyActivityAPI{
 return [SufferName stringByAppendingString:@"enroll"];
 }
-
-+(NSString *)publishActivityAPI{
+//评论
++(NSString *)publishCommontActivityAPI{
     return [SufferName stringByAppendingString:@"replyphoto"];
+}
+//获取评论列表
++(NSString *)getPhotoCommonsListAPI{
+    return [SufferName stringByAppendingString:@"getreplylist"];
+}
+//点赞
++(NSString *)favorPhotoAPI{
+    return [SufferName stringByAppendingString:@"praise"];
 }
 
 @end

@@ -10,20 +10,30 @@
 #import "HHNetWorkEngine+Activity.h"
 #import "ActivityModel.h"
 @interface PhotoActivityViewController ()
-@property(nonatomic,copy)NSString *activityID;
-@property(nonatomic,strong)ActivityModel *activityModel;
+@property(nonatomic,copy)NSString *photoID,*photoUrl,*activityID;
+@property(nonatomic,strong)UIImageView *headImageView;
 @end
 
 @implementation PhotoActivityViewController
--(id)initWithActivityID:(NSString *)activityID{
+-(id)initWithActivityID:(NSString *)activityID PhotoID:(NSString *)photoID photoUrl:(NSString *)url{
     if (self=[super init]) {
         _activityID=activityID;
+        _photoID=photoID;
+        _photoUrl=url;
     }
     return self;
 }
+-(UIImageView *)headImageView{
+    if (nil==_headImageView) {
+        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoUrl] placeholderImage:MCMallDefaultImg];
+    }
+    return _headImageView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getPhotoAcitivityWithActivityID:self.activityID];
+    self.tableView.tableHeaderView=self.headImageView;
+    [self getPhotoCommontsWithActivityID:self.activityID photoID:self.photoID];
     // Do any additional setup after loading the view.
 }
 
@@ -31,15 +41,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)getPhotoAcitivityWithActivityID:(NSString *)activityID{
+-(void)getPhotoCommontsWithActivityID:(NSString *)activityID photoID:(NSString *)photoID{
+    if (self.dataSourceArray.count==0) {
+        [self.tableView showPageLoadingView];
+    }
     WEAKSELF
-    [self.tableView showPageLoadingView];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:ActivityTypePicture userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[UserModel userID]  pageIndex:1 pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            weakSelf.activityModel=responseResult.responseData;
+            
+        }else{
+        
         }
-        [weakSelf.tableView dismissPageLoadView];
+        [self.tableView dismissPageLoadView];
     }];
+    
+}
+-(void)publistPhotoCommontsWithContent:(NSString *)content{
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoUrl comments:@"ios发表一个评论，哈哈哈哈 " onCompletionHandler:^(HHResponseResult *responseResult) {
+        [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+    }];
+
 }
 
 /*
