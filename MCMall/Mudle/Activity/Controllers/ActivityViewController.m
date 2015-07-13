@@ -53,7 +53,7 @@
     if (self.dataSourceArray.count==0) {
         [self.tableView showPageLoadingView];
     }
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
+   HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
         [self.tableView dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (num==1) {
@@ -68,6 +68,7 @@
         }
          [weakSelf.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];
+    [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
 }
 
 

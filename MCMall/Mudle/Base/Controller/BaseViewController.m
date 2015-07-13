@@ -15,6 +15,7 @@
 @implementation BaseViewController
 -(void)dealloc{
     [HHProgressHUD dismiss];
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  cancleOperationsWithOperationUniqueIdentifers:self.operationsArray];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +39,7 @@
 }
 -(void)addOperationUniqueIdentifer:(NSString *)uniqueOperaionIdentfer{
     if (uniqueOperaionIdentfer) {
-      [self.operationsArray addObject:uniqueOperaionIdentfer];
+        [self.operationsArray addObject:uniqueOperaionIdentfer];
     }
 }
 //-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{

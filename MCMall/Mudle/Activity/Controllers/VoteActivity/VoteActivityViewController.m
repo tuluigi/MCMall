@@ -201,12 +201,13 @@
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
     [self.view showPageLoadingView];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             weakSelf.activityModel=responseResult.responseData;
         }
         [weakSelf.view dismissPageLoadView];
     }];
+    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 #pragma mark - select iamge
 -(void)imagePickerButtonPressed{
@@ -218,19 +219,13 @@
     [self presentViewController:imagePickerController animated:YES completion:NULL];
 }
 #pragma mark - qbimagecontroller delegate
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
-    for (ALAsset *asset in assets) {
-        // Do something with the asset
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
     CGImageRef ciimage=[[asset defaultRepresentation] fullScreenImage];
     NSString *loaclPath=[[SDImageCache sharedImageCache] sdImageStoreImage:[[UIImage alloc]  initWithCGImage:ciimage]];
-    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:loaclPath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:loaclPath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
+    [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
