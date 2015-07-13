@@ -163,8 +163,8 @@
                   symbolName = "-[VoteActivityViewController qb_imagePickerController:didSelectAsset:]"
                   moduleName = "MCMall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4/iosCode/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-                  timestampString = "458403868.828904"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+                  timestampString = "458450269.414327"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "231"
@@ -178,8 +178,8 @@
                   symbolName = "__70-[VoteActivityViewController qb_imagePickerController:didSelectAsset:]_block_invoke"
                   moduleName = "MCMall"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4/iosCode/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
-                  timestampString = "458403868.829078"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Controllers/VoteActivity/VoteActivityViewController.m"
+                  timestampString = "458450269.414461"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "231"
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/ActivityViewController.m"
-            timestampString = "458144304.744609"
+            timestampString = "458452363.934643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-qb_imagePickerController:didSelectAsset:"
             landmarkType = "5">
          </BreakpointContent>
@@ -228,13 +228,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Controllers/ActivityViewController.m"
-            timestampString = "458144304.744609"
+            timestampString = "458452363.934643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-qb_imagePickerController:didSelectAsset:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
+            timestampString = "458449665.099264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-downloadFile:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HHNetWorkEngine(Activity) downloadFile:]"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
+                  timestampString = "458450269.416488"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[HHNetWorkEngine(Activity) downloadFile:]_block_invoke"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk/Documents/Luigi/%E6%AF%8D%E5%A9%B4/MCMall/MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
+                  timestampString = "458450269.416635"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

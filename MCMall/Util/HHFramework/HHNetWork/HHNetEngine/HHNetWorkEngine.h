@@ -10,10 +10,12 @@
 #define HHGET           @"GET"
 
 
-#import "MKNetworkOperation.h"
+#import "AFHTTPRequestOperationManager.h"
 #import "HHResponseResult.h"
 #import "HHNetWorkOperation.h"
-@interface HHNetWorkEngine : MKNetworkEngine
+FOUNDATION_EXPORT NSString *const OCNetGET;
+FOUNDATION_EXPORT NSString *const OCNetPOST;
+@interface HHNetWorkEngine : AFHTTPRequestOperationManager
 +(id)sharedHHNetWorkEngine;
 
 -(void)cancleOperationsWithOperationUniqueIdentifers:(NSArray *)operationsIdenfiers;
@@ -27,7 +29,7 @@
  *  @param hh_completion 结果
  *  @param hh_errorBlock 网络错误block
  *
- *  @return MKNetworkOperation
+ *  @return HHNetWorkOperation
  */
 -(HHNetWorkOperation *)requestWithUrlPath:(NSString *)hh_path
                           parmarDic:(NSDictionary *)hh_postDic
@@ -44,7 +46,7 @@
  *  @param hh_completion 结果
  *  @param hh_errorBlock 网络错误（block）
  *
- *  @return MKNetworkOperation
+ *  @return HHNetWorkOperation
 */
 
 -(HHNetWorkOperation *)uploadFileWithPath:(NSString *)hh_path
@@ -52,11 +54,7 @@
                                parmarDic:(NSDictionary *)hh_postDic
                                      key:(NSString *)hh_key
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
--(HHNetWorkOperation *)uploadBatchFileWithPath:(NSString *)hh_path
-                                 filePathArray:(NSMutableArray *)pathArray
-                                parmarDic:(NSDictionary *)hh_postDic
-                                      key:(NSString *)hh_key
-                      onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
+
 
 /**
  *  上传图片（以data形式上传）
@@ -69,7 +67,7 @@
  *  @param hh_completion 结果
  *  @param hh_errorBlock 网络错误（block）
  *
- *  @return MKNetworkOperation
+ *  @return HHNetWorkOperation
  */
 -(HHNetWorkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
                                  fileData:(NSData *)hh_fileData

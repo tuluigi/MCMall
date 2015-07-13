@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, HHResponseResultCode) {
 };
 @class HHResponseResult;
 typedef void(^HHResponseResultSucceedBlock)(HHResponseResult *responseResult);
+typedef void(^HHResponseResultErrorBlock)(NSError *error);
 @interface HHResponseResult : NSObject
 @property (nonatomic, strong) id        responseData;
 @property (nonatomic, assign) NSInteger responseCode;

@@ -7,6 +7,7 @@
 //
 
 #import "HHNetWorkEngine.h"
+
 @class ActivityModel;
 @interface HHNetWorkEngine (Activity)
 /**
@@ -18,7 +19,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
                                         pageSize:(NSInteger)pageSize
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
@@ -34,7 +35,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
+-(HHNetWorkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
                                                 userID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
@@ -50,7 +51,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)voteActivityWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)voteActivityWithUserID:(NSString*)userID
                                    ActivityID:(NSString *)activityID
                                       voteNum:(NSInteger)num
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
@@ -64,11 +65,11 @@
  *
  *  @return
  */
--(MKNetworkOperation *)applyActivityWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)applyActivityWithUserID:(NSString*)userID
                                     ActivityID:(NSString *)activityID
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
--(MKNetworkOperation *)publishActivityCommentWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)publishActivityCommentWithUserID:(NSString*)userID
                                              ActivityID:(NSString *)activityID
                                                 photoID:(NSString *)photoID
                                                comments:(NSString *)contents
@@ -84,17 +85,17 @@
  *
  *  @return
  */
--(MKNetworkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
+-(HHNetWorkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
                                                 photoID:(NSString *)photoID
                                                userID:(NSString *)userID
                                             pageIndex:(NSInteger)pageIndex
                                              pageSize:(NSInteger)pageSize
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
--(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
+-(HHNetWorkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
                                               photo:(NSString *)photo
                                                userID:(NSString *)userID
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
-
+-(HHNetWorkOperation *)downloadFile:(NSString *)fileUrl;
 @end

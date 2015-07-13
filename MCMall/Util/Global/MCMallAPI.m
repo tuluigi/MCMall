@@ -7,55 +7,57 @@
 //
 
 #import "MCMallAPI.h"
-NSString *const SufferName=@"muying/ws/";
-
+NSString *const SufferName  =@"/muying/ws/";
+NSString *const DomainPath  =@"http://120.25.152.224:8080";
 @interface MCMallAPI ()
 
 @end
 
 @implementation MCMallAPI
-
++(NSString *)domainPath{
+    return DomainPath;
+}
 #pragma mark - 个人中心
 +(NSString *)userLoginAPI{
-    return [SufferName stringByAppendingString:@"login"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"login"];
 }
 +(NSString *)userRegisterAPI{
-    return [SufferName stringByAppendingString:@"register"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"register"];
 }
 +(NSString *)userEditPwdAPI{
-    return [SufferName stringByAppendingString:@"changepassoword"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"changepassoword"];
 }
 
 #pragma mark -活动
 //活动列表
 +(NSString *)getActivityListAPI{
-    return [SufferName stringByAppendingString:@"getactivitylist"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getactivitylist"];
 }
 //获取活动详情
 +(NSString *)getActivityDetailAPI{
-    return [SufferName stringByAppendingString:@"getactivityinfo"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getactivityinfo"];
 }
 //投票
 +(NSString *)voteActivityAPI{
-    return [SufferName stringByAppendingString:@"suffrage"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"suffrage"];
 }
 //报名
 +(NSString *)applyActivityAPI{
-return [SufferName stringByAppendingString:@"enroll"];
+return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"enroll"];
 }
 //评论
 +(NSString *)publishCommontActivityAPI{
-    return [SufferName stringByAppendingString:@"replyphoto"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"replyphoto"];
 }
 //获取评论列表
 +(NSString *)getPhotoCommonsListAPI{
-    return [SufferName stringByAppendingString:@"getreplylist"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getreplylist"];
 }
 //点赞
 +(NSString *)favorPhotoAPI{
-    return [SufferName stringByAppendingString:@"praise"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"praise"];
 }
 +(NSString *)uploadActivityPhotoAPI{
-    return [SufferName stringByAppendingString:@"updphoto"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"updphoto"];
 }
 @end

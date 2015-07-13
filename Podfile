@@ -2,7 +2,7 @@
 platform :ios,'7.0'
 
 pod 'Reachability', '~> 3.1.1'
-pod 'MKNetworkKit', '~> 0.87'
+pod 'AFNetworking', '~> 2.5.4'
 pod 'SVProgressHUD', '~> 1.0'
 pod 'FMDB', '~> 2.1'
 pod 'SVPullToRefresh', '~> 0.4.1'

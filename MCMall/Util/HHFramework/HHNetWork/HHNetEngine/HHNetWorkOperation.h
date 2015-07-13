@@ -6,8 +6,10 @@
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "MKNetworkOperation.h"
+@interface AFHTTPRequestOperation (OpenCourse)
+-(NSString *)uniqueIdentifier;//唯一标示
+@end
 
-@interface HHNetWorkOperation : MKNetworkOperation
-
+@interface HHNetWorkOperation : AFHTTPRequestOperation
+@property(nonatomic,copy)NSString *uniqueIdentifier;//唯一标示
 @end

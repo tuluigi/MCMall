@@ -10,13 +10,13 @@
 #import "MCMallAPI.h"
 #import "UserModel.h"
 @implementation HHNetWorkEngine (UserCenter)
--(MKNetworkOperation *)userLoginWithUserName:(NSString *)name
+-(HHNetWorkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI userLoginAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:name,@"username",pwd,@"password", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
@@ -30,27 +30,27 @@
     return responseResult;
 }
 #pragma mark - 注册
--(MKNetworkOperation *)userRegisterWithUserName:(NSString *)name
+-(HHNetWorkOperation *)userRegisterWithUserName:(NSString *)name
                                             pwd:(NSString *)pwd
                                        phoneNum:(NSString *)phoneNum
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI userRegisterAPI];
     NSDictionary *postDic=@{@"username":name,@"password":pwd,@"phone":phoneNum,@"type":@"1"};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
 }
--(MKNetworkOperation *)editUserPassWordWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)editUserPassWordWithUserID:(NSString *)userID
                                        OrignalPwd:(NSString *)orignalPwd
                                           newsPwd:(NSString *)newPwd
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI  userEditPwdAPI];
     NSDictionary *postDic=@{@"userid":userID,@"oldps":orignalPwd,@"newps":newPwd};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];

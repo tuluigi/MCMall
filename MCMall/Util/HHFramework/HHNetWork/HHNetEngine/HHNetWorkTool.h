@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class HHResponseResult;
-@class MKNetworkOperation;
+@class HHNetWorkOperation;
 @interface HHNetWorkTool : NSObject
     //将参数postDic 转化为json postDic
 +(NSDictionary *)convertPostDic:(NSDictionary *)postDic;
     //解析返回数据
 
-+(HHResponseResult *)parseHHNetWorkResponseCompetion:(MKNetworkOperation *)completionOpetion error:(NSError *)error;
 @end

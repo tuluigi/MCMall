@@ -9,27 +9,27 @@
 #import "HHNetWorkEngine+UploadFile.h"
 
 @implementation HHNetWorkEngine (UploadFile)
--(MKNetworkOperation *)uploadFileWithFilePath:(NSString *)filePath
+-(HHNetWorkOperation *)uploadFileWithFilePath:(NSString *)filePath
                                          mark:(HHFileModule)mark
                                      fileType:(HHFileType)type
                           OnCompletionHandler:(HHResponseResultSucceedBlock)completionResult
-                               onErrorHandler:(MKNKErrorBlock)errorBlock{
+                               onErrorHandler:(HHResponseResultErrorBlock)errorBlock{
     NSString *apiPath=@"";
     NSDictionary *dic=@{};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:filePath parmarDic:dic key:@"" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:filePath parmarDic:dic key:@"" onCompletionHandler:^(HHResponseResult *responseResult) {
      
     }];
     return op;
 }
 
--(MKNetworkOperation *)uploadImageWithFileData:(NSData *)fileData
+-(HHNetWorkOperation *)uploadImageWithFileData:(NSData *)fileData
                                           mark:(HHFileModule)mark
                                       fileType:(HHFileType)type
                            OnCompletionHandler:(HHResponseResultSucceedBlock)completionResult
-                                onErrorHandler:(MKNKErrorBlock)errorBlock{
+                                onErrorHandler:(HHResponseResultErrorBlock)errorBlock{
     NSString *apiPath=@"";
     NSDictionary *dic=@{};
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithUrlPath:apiPath fileData:fileData parmarDic:dic key:@"" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithUrlPath:apiPath fileData:fileData parmarDic:dic key:@"" onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
     return op;

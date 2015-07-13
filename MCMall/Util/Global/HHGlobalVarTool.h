@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface HHGlobalVarTool : NSObject
-+(NSString *)domainPath;
 +(NSString *)fullImagePath:(NSString *)imgPath;
 
 /**

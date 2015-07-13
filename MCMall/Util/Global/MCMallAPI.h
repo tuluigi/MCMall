@@ -11,6 +11,7 @@
 @interface MCMallAPI : NSObject
 
 #pragma mark - 个人中心
++(NSString *)domainPath;
 +(NSString *)userLoginAPI;
 +(NSString *)userRegisterAPI;
 +(NSString *)userEditPwdAPI;

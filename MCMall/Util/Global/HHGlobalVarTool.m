@@ -7,18 +7,16 @@
 //
 
 #import "HHGlobalVarTool.h"
-
+#import "MCMallAPI.h"
 @implementation HHGlobalVarTool
 +(NSString *)fullImagePath:(NSString *)imgPath{
     if (imgPath) {
-         return [NSString stringWithFormat:@"http://%@/%@",[HHGlobalVarTool domainPath],imgPath];
+         return [NSString stringWithFormat:@"%@/%@",[MCMallAPI  domainPath],imgPath];
     }else{
         return nil;
     }
 }
-+(NSString *)domainPath{
-    return @"120.25.152.224:8080";
-}
+
 /**
  *  当前appMerchangID
  *

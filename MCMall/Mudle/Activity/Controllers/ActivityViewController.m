@@ -41,6 +41,7 @@
     // Do any additional setup after loading the view.
     [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+
 }
 
 - (void)didReceiveMemoryWarning {

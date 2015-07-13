@@ -19,7 +19,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)userLoginWithUserName:(NSString *)name
+-(HHNetWorkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
@@ -33,7 +33,7 @@
  *
  *  @return 
  */
--(MKNetworkOperation *)userRegisterWithUserName:(NSString *)name
+-(HHNetWorkOperation *)userRegisterWithUserName:(NSString *)name
                                               pwd:(NSString *)pwd
                                          phoneNum:(NSString *)phoneNum
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
@@ -46,7 +46,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)editUserPassWordWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)editUserPassWordWithUserID:(NSString *)userID
                                        OrignalPwd:(NSString *)orignalPwd
                                               newsPwd:(NSString *)newPwd
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;

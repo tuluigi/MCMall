@@ -19,15 +19,15 @@
  *
  *  @return
  */
--(MKNetworkOperation *)uploadFileWithFilePath:(NSString *)filePath
+-(HHNetWorkOperation *)uploadFileWithFilePath:(NSString *)filePath
                                          mark:(HHFileModule)mark
                                      fileType:(HHFileType)type
                           OnCompletionHandler:(HHResponseResultSucceedBlock)completionResult
-                               onErrorHandler:(MKNKErrorBlock)errorBlock;
+                               onErrorHandler:(HHResponseResultErrorBlock)errorBlock;
 
--(MKNetworkOperation *)uploadImageWithFileData:(NSData *)fileData
+-(HHNetWorkOperation *)uploadImageWithFileData:(NSData *)fileData
                                           mark:(HHFileModule)mark
                                       fileType:(HHFileType)type
                            OnCompletionHandler:(HHResponseResultSucceedBlock)completionResult
-                                onErrorHandler:(MKNKErrorBlock)errorBlock;
+                                onErrorHandler:(HHResponseResultErrorBlock)errorBlock;
 @end

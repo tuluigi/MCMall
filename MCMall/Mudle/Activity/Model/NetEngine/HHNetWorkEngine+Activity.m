@@ -10,7 +10,7 @@
 #import "MCMallAPI.h"
 #import "ActivityModel.h"
 @implementation HHNetWorkEngine (Activity)
--(MKNetworkOperation *)getActivityListWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
                                         pageSize:(NSInteger)pageSize
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
@@ -20,7 +20,7 @@
         userID=@"";
     }
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid",@(pageNum),@"pageno",@(pageSize),@"records", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseActivityListsWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
@@ -48,7 +48,7 @@
     return responseResult;
 }
 #pragma mark - 获取活动详情
--(MKNetworkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
+-(HHNetWorkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
                                                 userID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
@@ -56,7 +56,7 @@
     NSString *apiPath=[MCMallAPI getActivityDetailAPI];
     userID=[NSString stringByReplaceNullString:userID];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", activityID,@"activeid",@(type),@"atype", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
@@ -81,46 +81,46 @@
     return responseResult;
 }
 #pragma mark -投票
--(MKNetworkOperation *)voteActivityWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)voteActivityWithUserID:(NSString*)userID
                                    ActivityID:(NSString *)activityID
                                       voteNum:(NSInteger)num
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     //WEAKSELF
     NSString *apiPath=[MCMallAPI voteActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",@(num),@"no",userID,@"userid", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         //responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
 }
 #pragma mark - 报名
--(MKNetworkOperation *)applyActivityWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)applyActivityWithUserID:(NSString*)userID
                                     ActivityID:(NSString *)activityID
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     //WEAKSELF
     NSString *apiPath=[MCMallAPI applyActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
 }
--(MKNetworkOperation *)publishActivityCommentWithUserID:(NSString*)userID
+-(HHNetWorkOperation *)publishActivityCommentWithUserID:(NSString*)userID
                                              ActivityID:(NSString *)activityID
                                                 photoID:(NSString *)photoID
                                                comments:(NSString *)contents
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI publishCommontActivityAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid",photoID,@"lineno",contents,@"reply", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
 }
--(MKNetworkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
+-(HHNetWorkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
                                                photoID:(NSString *)photoID
                                                userID:(NSString *)userID
                                              pageIndex:(NSInteger)pageIndex
@@ -130,7 +130,7 @@
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI getPhotoCommonsListAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photoID,@"lineno",@(pageIndex),@"pageno",@(pageSize),@"records",userID,@"userid", nil];
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parsePhotoCommontsListWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
@@ -151,7 +151,7 @@
     }
     return responseResult;
 }
--(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
+-(HHNetWorkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
                                                photo:(NSString *)photo
                                                   userID:(NSString *)userID
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
@@ -163,9 +163,16 @@
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photo,@"photo",userID,@"userid", nil];
     
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
+    return op;
+}
+-(HHNetWorkOperation *)downloadFile:(NSString *)fileUrl{
+    HHNetWorkOperation *op =[[HHNetWorkEngine sharedHHNetWorkEngine] downLoadFileWithUrlPath:fileUrl parmarDic:nil method:@"POST" onCompletionHandler:^(HHResponseResult *responseResult) {
+        
+    }];
+
     return op;
 }
 @end
