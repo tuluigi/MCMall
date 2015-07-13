@@ -220,8 +220,8 @@
 }
 #pragma mark - qbimagecontroller delegate
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    CGImageRef ciimage=[[asset defaultRepresentation] fullScreenImage];
-    NSString *loaclPath=[[SDImageCache sharedImageCache] sdImageStoreImage:[[UIImage alloc]  initWithCGImage:ciimage]];
+    CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
+    NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:loaclPath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];

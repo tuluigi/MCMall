@@ -86,15 +86,7 @@
     // Do any additional setup after loading the view.
     [self.tableView  setupPanGestureControlKeyboardHide:YES];
     self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
-        [UIView animateWithDuration:duration animations:^{
-            [weakSelf.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.removeExisting=YES;
-                make.left.right.mas_equalTo(weakSelf.view);
-                make.bottom.mas_equalTo(keyboardRect.size.height);
-                make.top.mas_equalTo(keyboardRect.origin.y);
-            }];
-        }];
-
+        [weakSelf.bottomView layoutIfNeeded];
     };
 }
 

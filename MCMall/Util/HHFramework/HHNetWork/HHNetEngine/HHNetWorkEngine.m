@@ -19,6 +19,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
         if (nil==sharedNtWorkManager) {
             sharedNtWorkManager=[[HHNetWorkEngine alloc] init];
             sharedNtWorkManager.responseSerializer=[AFHTTPResponseSerializer serializer];
+            
         }
     }
     return sharedNtWorkManager;
@@ -98,9 +99,9 @@ static HHNetWorkEngine *sharedNtWorkManager;
     __weak HHNetWorkEngine *weakSelf=self;
     operation=(HHNetWorkOperation *)[[HHNetWorkEngine sharedHHNetWorkEngine] POST:hh_path parameters:hh_postDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSError *error;
-        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL URLWithString:hh_filePath] name:hh_key   error:&error];
+        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL URLWithString:hh_filePath] name:@"photo" error:nil];
         if (isSuccess&&(nil==error)) {
-            [weakSelf handleRequestOperation:nil error:error];
+           // [weakSelf handleRequestOperation:nil error:error];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [weakSelf handleRequestOperation:operation error:nil];
