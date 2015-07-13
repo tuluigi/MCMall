@@ -32,13 +32,13 @@
     _imageView1.userInteractionEnabled=YES;
     UITapGestureRecognizer *tapGesture1=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didImageViewTaped:)];
     [_imageView1 addGestureRecognizer:tapGesture1];
-
+    
     _imageView2=[[UIImageView alloc]  init];
     [self.contentView addSubview:_imageView2];
     _imageView2.userInteractionEnabled=YES;
     UITapGestureRecognizer *tapGesture2=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didImageViewTaped:)];
     [_imageView2 addGestureRecognizer:tapGesture2];
-
+    
     
     CGFloat pading=1.0;
     CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)-pading*2)/3.0;
@@ -71,24 +71,30 @@
         UIImageView *imageView;
         if (i==0) {
             imageView=_imageView0;
-         }else if (i==1){
-              imageView=_imageView1;
+        }else if (i==1){
+            imageView=_imageView1;
         }else if (i==2){
-          imageView=_imageView2;
+            imageView=_imageView2;
         }
         [imageView sd_setImageWithURL:[NSURL URLWithString:photoModel.photoUrl] placeholderImage:MCMallDefaultImg];
-
+        
     }
 }
 -(void)didImageViewTaped:(UITapGestureRecognizer *)tapGestre{
     UIImageView *imageView=(UIImageView *)tapGestre.view;
     PhotoModel *photoModel;
     if (imageView==_imageView0) {
-        photoModel=[self.photoArray objectAtIndex:0];
+        if (self.photoArray.count>=1) {
+            photoModel=[self.photoArray objectAtIndex:0];
+        }
     }else if (imageView==_imageView1){
-        photoModel=[self.photoArray objectAtIndex:1];
+        if (self.photoArray.count>=2) {
+            photoModel=[self.photoArray objectAtIndex:1];
+        }
     }else if (imageView==_imageView2){
-        photoModel=[self.photoArray objectAtIndex:2];
+        if (self.photoArray.count>=3) {
+            photoModel=[self.photoArray objectAtIndex:2];
+        }
     }
     if (_delegate&&[_delegate respondsToSelector:@selector(photoListCellDidSelectedWithPhotoModel:)]) {
         [_delegate photoListCellDidSelectedWithPhotoModel:photoModel];

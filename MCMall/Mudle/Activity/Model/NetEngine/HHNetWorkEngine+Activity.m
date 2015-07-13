@@ -152,16 +152,18 @@
     return responseResult;
 }
 -(MKNetworkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
-                                               photo:(NSData *)photo
+                                               photo:(NSString *)photo
                                                   userID:(NSString *)userID
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
 
+  // activityID=@"Cba1f6c";
+    userID=@"Y5b2fee8";
     WEAKSELF
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photo,@"photo",userID,@"userid", nil];
     
-    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithUrlPath:apiPath fileData:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+    MKNetworkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
     return op;

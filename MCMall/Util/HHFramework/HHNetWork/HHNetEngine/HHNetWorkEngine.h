@@ -12,10 +12,11 @@
 
 #import "MKNetworkOperation.h"
 #import "HHResponseResult.h"
-#import "MKNetworkEngine.h"
+#import "HHNetWorkOperation.h"
 @interface HHNetWorkEngine : MKNetworkEngine
 +(id)sharedHHNetWorkEngine;
 
+-(void)cancleOperationsWithOperationUniqueIdentifers:(NSArray *)operationsIdenfiers;
 
 /**
  *  网络请求
@@ -28,7 +29,7 @@
  *
  *  @return MKNetworkOperation
  */
--(MKNetworkOperation *)requestWithUrlPath:(NSString *)hh_path
+-(HHNetWorkOperation *)requestWithUrlPath:(NSString *)hh_path
                           parmarDic:(NSDictionary *)hh_postDic
                              method:(NSString *)hh_method
                    onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
@@ -46,12 +47,12 @@
  *  @return MKNetworkOperation
 */
 
--(MKNetworkOperation *)uploadFileWithPath:(NSString *)hh_path
+-(HHNetWorkOperation *)uploadFileWithPath:(NSString *)hh_path
                                  filePath:(NSString *)hh_filePath
                                parmarDic:(NSDictionary *)hh_postDic
                                      key:(NSString *)hh_key
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
--(MKNetworkOperation *)uploadBatchFileWithPath:(NSString *)hh_path
+-(HHNetWorkOperation *)uploadBatchFileWithPath:(NSString *)hh_path
                                  filePathArray:(NSMutableArray *)pathArray
                                 parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
@@ -70,7 +71,7 @@
  *
  *  @return MKNetworkOperation
  */
--(MKNetworkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
+-(HHNetWorkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
                                  fileData:(NSData *)hh_fileData
                                 parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
@@ -86,7 +87,7 @@
  *
  *  @return
  */
--(MKNetworkOperation *)downLoadFileWithUrlPath:(NSString *)hh_path
+-(HHNetWorkOperation *)downLoadFileWithUrlPath:(NSString *)hh_path
                                    parmarDic:(NSDictionary *)hh_postDic
                                           method:(NSString *)hh_method
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;

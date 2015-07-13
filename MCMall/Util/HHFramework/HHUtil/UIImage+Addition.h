@@ -70,6 +70,10 @@
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 
 
+-(UIImage*)resizedImageToSize:(CGSize)dstSize;
+-(UIImage*)resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
+
+
 @end
 
 

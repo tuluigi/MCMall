@@ -8,14 +8,12 @@
 
 #import "MCMallAPI.h"
 NSString *const SufferName=@"muying/ws/";
+
 @interface MCMallAPI ()
 
 @end
 
 @implementation MCMallAPI
-+(NSString *)domainPath{
-    return @"120.25.152.224:8080";
-}
 
 #pragma mark - 个人中心
 +(NSString *)userLoginAPI{

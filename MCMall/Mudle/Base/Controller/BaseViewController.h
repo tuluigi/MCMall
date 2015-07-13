@@ -10,6 +10,6 @@
 #import "UIViewController+MCMall.h"
 @interface BaseViewController : UIViewController
 
-
+-(void)addOperationUniqueIdentifer:(NSString *)uniqueOperaionIdentfer;
 
 @end

@@ -11,10 +11,13 @@
 @implementation HHGlobalVarTool
 +(NSString *)fullImagePath:(NSString *)imgPath{
     if (imgPath) {
-         return [@"http://120.25.152.224:8080/muying/" stringByAppendingString:imgPath];
+         return [NSString stringWithFormat:@"http://%@/%@",[HHGlobalVarTool domainPath],imgPath];
     }else{
         return nil;
     }
+}
++(NSString *)domainPath{
+    return @"120.25.152.224:8080";
 }
 /**
  *  当前appMerchangID

@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
-
+@property(nonatomic,strong)NSMutableArray *operationsArray;
 @end
 
 @implementation BaseViewController
@@ -27,6 +27,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Getter Setter
+-(NSMutableArray *)operationsArray{
+    if (nil==_operationsArray) {
+        _operationsArray=[[NSMutableArray alloc]  init];
+    }
+    return _operationsArray;
+}
+-(void)addOperationUniqueIdentifer:(NSString *)uniqueOperaionIdentfer{
+    if (uniqueOperaionIdentfer) {
+      [self.operationsArray addObject:uniqueOperaionIdentfer];
+    }
 }
 //-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 //    [[UIApplication sharedApplication].keyWindow endEditing:YES];

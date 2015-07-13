@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MCMallAPI : NSObject
-+(NSString *)domainPath;
 
 #pragma mark - 个人中心
 +(NSString *)userLoginAPI;

@@ -39,6 +39,8 @@
 		2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7C4E171B14764200912D53 /* checkbox_normal@2x.png */; };
 		2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
+		2A7EA1EB1B528229005B04A9 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
+		2A7EA1EE1B5299D9005B04A9 /* SDImageCache+Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1ED1B5299D9005B04A9 /* SDImageCache+Store.m */; };
 		2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A816DE71B2FBC1D0007862B /* Localizable.strings */; };
 		2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
@@ -160,6 +162,10 @@
 		2A7C4E1D1B147FBA00912D53 /* HHGlobalVarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHGlobalVarTool.h; sourceTree = "<group>"; };
 		2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHGlobalVarTool.m; sourceTree = "<group>"; };
 		2A7C4E201B14802000912D53 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
+		2A7EA1E91B528229005B04A9 /* HHNetWorkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNetWorkOperation.h; sourceTree = "<group>"; };
+		2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHNetWorkOperation.m; sourceTree = "<group>"; };
+		2A7EA1EC1B5299D9005B04A9 /* SDImageCache+Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDImageCache+Store.h"; sourceTree = "<group>"; };
+		2A7EA1ED1B5299D9005B04A9 /* SDImageCache+Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDImageCache+Store.m"; sourceTree = "<group>"; };
 		2A816DE01B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		2A816DE11B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		2A816DE61B2FBC1D0007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -852,6 +858,8 @@
 				2A984E6A1B141205004DF4C0 /* HHNetWorkTool.m */,
 				2A984E6B1B141205004DF4C0 /* HHResponseResult.h */,
 				2A984E6C1B141205004DF4C0 /* HHResponseResult.m */,
+				2A7EA1E91B528229005B04A9 /* HHNetWorkOperation.h */,
+				2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */,
 			);
 			path = HHNetEngine;
 			sourceTree = "<group>";
@@ -935,6 +943,8 @@
 				2A984EB01B141205004DF4C0 /* UIView+Addition.m */,
 				2A984EB11B141205004DF4C0 /* UIView+Animation.h */,
 				2A984EB21B141205004DF4C0 /* UIView+Animation.m */,
+				2A7EA1EC1B5299D9005B04A9 /* SDImageCache+Store.h */,
+				2A7EA1ED1B5299D9005B04A9 /* SDImageCache+Store.m */,
 			);
 			path = HHUtil;
 			sourceTree = "<group>";
@@ -1152,6 +1162,7 @@
 				2A984ECE1B141205004DF4C0 /* HHLoadingView.m in Sources */,
 				2A984ED81B141205004DF4C0 /* UIView+Addition.m in Sources */,
 				2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */,
+				2A7EA1EE1B5299D9005B04A9 /* SDImageCache+Store.m in Sources */,
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */,
@@ -1170,6 +1181,7 @@
 				2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */,
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
 				2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */,
+				2A7EA1EB1B528229005B04A9 /* HHNetWorkOperation.m in Sources */,
 				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
 				2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,

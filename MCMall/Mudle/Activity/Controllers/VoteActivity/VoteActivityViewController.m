@@ -13,6 +13,7 @@
 #import "PhotoActListCell.h"
 #import "PhotoActivityViewController.h"
 #import "QBImagePickerController.h"
+#import "SDImageCache+Store.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
@@ -225,11 +226,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    NSURL *photoUrl=[asset valueForProperty:ALAssetPropertyAssetURL];
-
-    CGImageRef fullResImage = [asset thumbnail];
-        NSData *photoData=UIImageJPEGRepresentation([UIImage imageWithCGImage:fullResImage], 0.2);
-    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:photoData userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    CGImageRef ciimage=[[asset defaultRepresentation] fullScreenImage];
+    NSString *loaclPath=[[SDImageCache sharedImageCache] sdImageStoreImage:[[UIImage alloc]  initWithCGImage:ciimage]];
+    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:loaclPath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         
     }];
     [self dismissViewControllerAnimated:YES completion:NULL];
