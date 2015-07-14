@@ -156,23 +156,18 @@
                                                   userID:(NSString *)userID
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
 
-  // activityID=@"Cba1f6c";
-    userID=@"Y5b2fee8";
-    WEAKSELF
+
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",photo,@"photo",userID,@"userid", nil];
-    
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
+    [HHProgressHUD showLoadingState];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
-        
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            
+        }
+        [HHProgressHUD dismiss];
     }];
     return op;
 }
--(HHNetWorkOperation *)downloadFile:(NSString *)fileUrl{
-    HHNetWorkOperation *op =[[HHNetWorkEngine sharedHHNetWorkEngine] downLoadFileWithUrlPath:fileUrl parmarDic:nil method:@"POST" onCompletionHandler:^(HHResponseResult *responseResult) {
-        
-    }];
 
-    return op;
-}
 @end

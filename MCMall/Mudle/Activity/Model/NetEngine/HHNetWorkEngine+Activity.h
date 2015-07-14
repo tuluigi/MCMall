@@ -97,5 +97,4 @@
                                                userID:(NSString *)userID
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
--(HHNetWorkOperation *)downloadFile:(NSString *)fileUrl;
 @end

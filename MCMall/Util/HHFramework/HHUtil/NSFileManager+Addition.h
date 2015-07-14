@@ -25,7 +25,7 @@
  *  return  成功返回YES，失败返回NO。
  */
 + (BOOL)saveData:(NSData *)data withName:(NSString *)name atPath:(NSString *)path;
-
++(NSString *)saveImage:(UIImage *)aImage presentation:(CGFloat)presentation;
 /**
  *  查找并返回文件。
  *  @param  fileName:要查找的文件名。
