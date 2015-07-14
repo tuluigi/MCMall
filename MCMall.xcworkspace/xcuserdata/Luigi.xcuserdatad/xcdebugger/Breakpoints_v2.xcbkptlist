@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-            timestampString = "458565304.972044"
+            timestampString = "458567707.722731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-uploadActivityPhotoWithActivityID:photo:userID:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
@@ -57,29 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
-            timestampString = "458565459.423225"
+            filePath = "MCMall/Mudle/Activity/Controllers/PhotoActivity/PhotoActivityViewController.m"
+            timestampString = "458567838.621643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-uploadFileWithPath:filePath:parmarDic:key:onCompletionHandler:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
-            timestampString = "458565459.423225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-handleRequestOperation:error:"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "-textFieldValueDidChange:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

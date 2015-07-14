@@ -16,6 +16,7 @@
 @property(nonatomic,strong)UIView *bottomView;
 @property(nonatomic,copy)NSString *photoID,*photoUrl,*activityID;
 @property(nonatomic,strong)UIImageView *headImageView;
+@property(nonatomic,strong)UIButton *publishButton;
 @end
 
 @implementation PhotoActivityViewController
@@ -50,6 +51,7 @@
         _commentTextField.borderStyle=UITextBorderStyleRoundedRect;
         _commentTextField.placeholder=@"输入评论内容...";
         _commentTextField.delegate=self;
+        [_commentTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
        // _commentTextField.backgroundColor=[UIColor redColor];
        
     }
@@ -71,14 +73,15 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(weakSelf.view).offset(-(weakSelf.commentTextField.bounds.size.height));
     }];
-    UIButton *publishButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    publishButton.frame=CGRectMake(0, 0, 70, 50);
+    _publishButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _publishButton.frame=CGRectMake(0, 0, 70, 50);
     //[publishButton setBackgroundColor:[UIColor redColor]];
-    [publishButton setTitle:@"发送" forState:UIControlStateNormal];
-    [publishButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
-    publishButton.titleLabel.font=[UIFont systemFontOfSize:16];
-    [publishButton addTarget:self action:@selector(didPublishCommentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    _commentTextField.rightView=publishButton;
+    [_publishButton setTitle:@"发送" forState:UIControlStateNormal];
+    _publishButton.enabled=NO;
+    [_publishButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
+    _publishButton.titleLabel.font=[UIFont systemFontOfSize:16];
+    [_publishButton addTarget:self action:@selector(didPublishCommentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    _commentTextField.rightView=_publishButton;
     _commentTextField.rightViewMode=UITextFieldViewModeAlways;
 
     self.tableView.tableHeaderView=self.headImageView;
@@ -86,6 +89,15 @@
     // Do any additional setup after loading the view.
     [self.tableView  setupPanGestureControlKeyboardHide:YES];
     self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
+        [weakSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+           // make.removeExisting=YES;
+            if (showKeyborad) {
+                make.bottom.equalTo(@(-(keyboardRect.size.height)));
+            }else{
+                make.bottom.equalTo(weakSelf.view);
+            }
+            
+        }];
         [weakSelf.bottomView layoutIfNeeded];
     };
 }
@@ -110,15 +122,28 @@
     }];
     
 }
--(void)publistPhotoCommontsWithContent:(NSString *)content{
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoUrl comments:@"ios发表一个评论，哈哈哈哈 " onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD showErrorMssage:responseResult.responseMessage];
-    }];
 
-}
 #pragma mark publishComment
 -(void)didPublishCommentButtonPressed{
-
+    WEAKSELF
+    [HHProgressHUD showLoadingState];
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
+            UserModel *userModel=[UserModel userModel];
+            model.userName=userModel.userName;
+            model.userImage=userModel.userHeadUrl;
+            model.commentContents=weakSelf.commentTextField.text;
+            model.commentTime=@"";
+            [self.dataSourceArray insertObject:model atIndex:0];
+            [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            weakSelf.commentTextField.text=@"";
+            [weakSelf.commentTextField resignFirstResponder];
+            [HHProgressHUD dismiss];
+        }else{
+           [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+        }
+    }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
@@ -140,8 +165,17 @@
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.0;
 }
-
-
+#pragma mark -textFiled delegate
+- (void)textFieldValueDidChange:(UITextField *)textField
+{
+    if (textField == self.commentTextField) {
+        self.publishButton.enabled=textField.text.length;
+    }
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self didPublishCommentButtonPressed];
+    return YES;
+}
 
 /*
 #pragma mark - Navigation

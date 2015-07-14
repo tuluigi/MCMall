@@ -138,13 +138,14 @@
 }
 -(HHResponseResult *)parsePhotoCommontsListWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
+        NSArray *commentsListArray=[responseResult.responseData objectForKey:@"list"];
         NSMutableArray *array=[NSMutableArray new];
-        for (NSDictionary *itemDic in array) {
+        for (NSDictionary *itemDic in commentsListArray) {
             PhotoCommentModel *commentModel=[[PhotoCommentModel alloc]  init];
             commentModel.userImage=[itemDic objectForKey:@"img"];
-            commentModel.userName=[itemDic objectForKey:@"username"];
+            commentModel.userName=[itemDic objectForKey:@"userName"];
             commentModel.commentTime=[itemDic objectForKey:@"time"];
-            commentModel.commentContents=[itemDic objectForKey:@"content"];
+            commentModel.commentContents=[itemDic objectForKey:@"reply"];
             [array addObject:commentModel];
         }
     responseResult.responseData=array;
