@@ -220,10 +220,20 @@
 }
 #pragma mark - qbimagecontroller delegate
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
+    [HHProgressHUD showLoadingState];
     CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
     NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:loaclPath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            if ([responseResult.responseData isKindOfClass:[NSString class]]) {
+                [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
+                [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:loaclPath] forKey:responseResult.responseData];
+               
+            }
+             [HHProgressHUD dismiss];
+        }else{
+            [HHProgressHUD showErrorMssage:@"上传失败"];
+        }
     }];
     [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
     [self dismissViewControllerAnimated:YES completion:NULL];

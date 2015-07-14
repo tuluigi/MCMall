@@ -99,14 +99,16 @@ static HHNetWorkEngine *sharedNtWorkManager;
     __weak HHNetWorkEngine *weakSelf=self;
     operation=(HHNetWorkOperation *)[[HHNetWorkEngine sharedHHNetWorkEngine] POST:hh_path parameters:hh_postDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSError *error;
-        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL URLWithString:hh_filePath] name:@"photo" error:nil];
+        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL fileURLWithPath:hh_filePath] name:@"photo" error:&error];
         if (isSuccess&&(nil==error)) {
-           // [weakSelf handleRequestOperation:nil error:error];
+           
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [weakSelf handleRequestOperation:operation error:nil];
+        HHResponseResult *responseResult=[weakSelf handleRequestOperation:operation error:nil];
+        hh_completion(responseResult);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [weakSelf handleRequestOperation:operation error:error];
+        HHResponseResult *responseResult=[weakSelf handleRequestOperation:operation error:error];
+        hh_completion(responseResult);
     }];
     return operation;
 }

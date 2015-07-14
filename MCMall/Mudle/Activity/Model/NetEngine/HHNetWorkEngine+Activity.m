@@ -160,10 +160,9 @@
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
-    [HHProgressHUD showLoadingState];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            
+            responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
         }
         [HHProgressHUD dismiss];
     }];
