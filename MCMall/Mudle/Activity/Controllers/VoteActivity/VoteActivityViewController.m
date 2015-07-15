@@ -252,7 +252,9 @@
         row=1;
     }else if(self.actType==ActivityTypePicture){
         PhotoAcitvityModel * photModel=(PhotoAcitvityModel *)self.activityModel;
-        row= photModel.photoListArray.count;
+        NSInteger totalCount=photModel.photoListArray.count;
+        row= totalCount/3.0+((totalCount%3)>0?1:0);
+        row=row+1;
     }else{
         row=0;
     }
@@ -301,6 +303,19 @@
             return cell;
         }break;
         case ActivityTypePicture:{
+             PhotoAcitvityModel * photoModel=(PhotoAcitvityModel *)self.activityModel;
+            if (indexPath.row==0) {
+                NSString *identifer=@"identifer000";
+                UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+                if (nil==cell) {
+                    cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+                    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+                }
+                cell.textLabel.font=[UIFont systemFontOfSize:13];
+                cell.textLabel.textColor=[UIColor darkGrayColor];
+                cell.textLabel.text=[photoModel.activityEndTime stringByAppendingString:@"结束"];
+                return cell;
+            }else{
             NSString *identifer=@"identifer";
             PhotoActListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
             if (nil==cell) {
@@ -308,10 +323,17 @@
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 cell.delegate=self;
             }
-            PhotoAcitvityModel * photoModel=(PhotoAcitvityModel *)self.activityModel;
-            NSArray *array=[photoModel.photoLi];
-            cell.photoArray=photoModel.photoListArray;
+             NSArray *photoArray;
+           
+            if (indexPath.row<([self.tableView numberOfRowsInSection:0]-1)) {
+                photoArray=[photoModel.photoListArray subarrayWithRange:NSMakeRange((indexPath.row-1)*3, 3)];
+            }else if(indexPath.row==([self.tableView numberOfRowsInSection:0]-1)){
+             photoArray=[photoModel.photoListArray subarrayWithRange:NSMakeRange((indexPath.row-1)*3, (photoModel.photoListArray.count-(indexPath.row-1)*3)-1)];
+            }
+           
+            cell.photoArray=photoArray;
             return cell;
+            }
             
         }break;
         default:{
@@ -340,7 +362,11 @@
             height=55;
         }break;
         case ActivityTypePicture:{
-            height=[PhotoActListCell photoListCellHeight];
+            if (indexPath.row==0) {
+                height=50;
+            }else{
+                height=[PhotoActListCell photoListCellHeight];
+            }
         }break;
             
         default:

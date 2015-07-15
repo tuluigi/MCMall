@@ -61,7 +61,7 @@
     }];
 }
 
--(void)setPhotoArray:(NSMutableArray *)photoArray{
+-(void)setPhotoArray:(NSArray *)photoArray{
     _photoArray=photoArray;
     _imageView0.image=nil;
     _imageView1.image=nil;
