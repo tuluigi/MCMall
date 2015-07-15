@@ -7,8 +7,8 @@
 //
 
 #import "MCMallAPI.h"
-NSString *const SufferName  =@"/muying/ws/";
-NSString *const DomainPath  =@"http://120.25.152.224:8080";
+NSString *const SufferName  =@"ws/";
+NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
 @interface MCMallAPI ()
 
 @end

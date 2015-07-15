@@ -11,6 +11,7 @@
 #import "ActivityModel.h"
 #import "PhotoCommontCell.h"
 #import "UIScrollView+HHKeyboardControl.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 @interface PhotoActivityViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *commentTextField;
 @property(nonatomic,strong)UIView *bottomView;
@@ -62,6 +63,7 @@
     self.title=@"图片详情";
     [self.view addSubview:self.bottomView];
     WEAKSELF
+   
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(weakSelf.view);
         make.height.mas_equalTo(50.0);
@@ -70,8 +72,8 @@
         make.left.top.mas_equalTo(weakSelf.bottomView).offset(5.0);
         make.right.bottom.mas_equalTo(weakSelf.bottomView).offset(-5.0);
     }];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weakSelf.view).offset(-(weakSelf.commentTextField.bounds.size.height));
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+       make.bottom.equalTo(@(-(weakSelf.bottomView.height)));
     }];
     _publishButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     _publishButton.frame=CGRectMake(0, 0, 70, 50);
@@ -85,6 +87,8 @@
     _commentTextField.rightViewMode=UITextFieldViewModeAlways;
 
     self.tableView.tableHeaderView=self.headImageView;
+
+    [self.tableView registerClass:[PhotoCommontCell class] forCellReuseIdentifier:@"photoIdentifer"];
     [self getPhotoCommontsWithActivityID:self.activityID photoID:self.photoID];
     // Do any additional setup after loading the view.
     [self.tableView  setupPanGestureControlKeyboardHide:YES];
@@ -134,10 +138,12 @@
             model.userName=userModel.userName;
             model.userImage=userModel.userHeadUrl;
             model.commentContents=weakSelf.commentTextField.text;
-            model.commentTime=@"";
+            NSString *timeStr=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm"];
+            weakSelf.commentTextField.text=@"";
+            model.commentTime=timeStr;
             [self.dataSourceArray insertObject:model atIndex:0];
             [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-            weakSelf.commentTextField.text=@"";
+
             [weakSelf.commentTextField resignFirstResponder];
             [HHProgressHUD dismiss];
         }else{
@@ -163,7 +169,11 @@
     return 60.0;
 }
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.0;
+    PhotoCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+
+    return [tableView fd_heightForCellWithIdentifier:@"photoIdentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
+        ((PhotoCommontCell *)cell).commentModel=commentModel;
+    }];
 }
 #pragma mark -textFiled delegate
 - (void)textFieldValueDidChange:(UITextField *)textField

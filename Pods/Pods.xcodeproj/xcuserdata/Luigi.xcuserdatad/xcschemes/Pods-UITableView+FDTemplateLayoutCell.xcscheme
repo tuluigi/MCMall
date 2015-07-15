@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF69DED5AE979B274EC544C3"
-               BuildableName = "libPods-TPKeyboardAvoiding.a"
-               BlueprintName = "Pods-TPKeyboardAvoiding"
+               BlueprintIdentifier = "90B97D28697931DC4B822705"
+               BuildableName = "libPods-UITableView+FDTemplateLayoutCell.a"
+               BlueprintName = "Pods-UITableView+FDTemplateLayoutCell"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
