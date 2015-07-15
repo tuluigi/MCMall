@@ -38,6 +38,7 @@
 -(UIView *)bottomView{
     if (nil==_bottomView) {
         _bottomView=[[UIView alloc]  init];
+        _bottomView.backgroundColor=[UIColor red:240 green:240 blue:240 alpha:1];
         [_bottomView addSubview:self.commentTextField];
     }
     return _bottomView;
@@ -100,7 +101,7 @@
         _commentTextField.delegate=self;
         [_commentTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
         _publishButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _publishButton.frame=CGRectMake(0, 0, 70, 50);
+        _publishButton.frame=CGRectMake(0, 5, 60, 40);
         //[publishButton setBackgroundColor:[UIColor redColor]];
         [_publishButton setTitle:@"发送" forState:UIControlStateNormal];
         _publishButton.enabled=NO;
