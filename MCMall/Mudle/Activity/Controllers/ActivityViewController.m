@@ -40,7 +40,6 @@
     
     // Do any additional setup after loading the view.
     [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
 
 }
 
@@ -125,71 +124,7 @@
     }
  */
 }
-#pragma mark - select iamge
--(void)imagePickerButtonPressed{
-    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = NO;
-    imagePickerController.showsNumberOfSelectedAssets = NO;
-    
-    [self presentViewController:imagePickerController animated:YES completion:NULL];
-}
-#pragma mark - qbimagecontroller delegate
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
-    for (ALAsset *asset in assets) {
-        // Do something with the asset
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    NSURL *photoUrl=[asset valueForProperty:ALAssetPropertyAssetURL];
-    
-    CGImageRef fullResImage = [asset thumbnail];
-    NSData *photoData=UIImageJPEGRepresentation([UIImage imageWithCGImage:fullResImage], 0.2);
-    NSString *key=@"uploadimg";
-    
-    
-    NSString *path=[self imagePathByWirteToCacheDiroctoryWithImage:[UIImage imageWithCGImage:fullResImage]];
-    [[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:nil photo:path userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        
-    }];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
--(NSString *)imagePathByWirteToCacheDiroctoryWithImage:(UIImage *)image{
-    if(self){
-        CGFloat radio=1;
-        NSData *imgData=UIImageJPEGRepresentation(image, radio);
-        NSFileManager *fileMgr=[NSFileManager defaultManager];
-        NSTimeInterval timeInterval=[[NSDate date] timeIntervalSince1970]*1000;
-        NSString *fileName = [NSString stringWithFormat:@"%lli.jpg",[@(floor(timeInterval)) longLongValue]];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *cachesDir = [paths objectAtIndex:0];
-        NSString *cachePath=[cachesDir stringByAppendingPathComponent:@"ImageCache"];//这个sdwebimage的混存路径
-        BOOL isCategory= [[NSFileManager defaultManager] fileExistsAtPath:cachePath];
-        if (!isCategory) {
-            [[NSFileManager defaultManager] createDirectoryAtPath:cachePath withIntermediateDirectories:YES attributes:nil error:nil];
-        }
-        NSString  *filePath=[cachePath stringByAppendingPathComponent:fileName];
-        BOOL isExist=[fileMgr fileExistsAtPath:filePath];
-        if (!isExist) {
-            BOOL isSuccess=[imgData writeToFile:filePath atomically:YES];
-            if (isSuccess) {
-                return filePath;
-            }else{
-                return nil;
-            }
-        }else{
-            return nil;
-        }
-    }else{
-        return nil;
-    }
-}
 
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 /*
 #pragma mark - Navigation
 

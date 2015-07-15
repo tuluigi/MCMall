@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 d gl. All rights reserved.
 //
 #import "HHNetWorkEngine.h"
+#import "AFNetworkActivityIndicatorManager.h"
 #import "HHNetWorkTool.h"
 #import "HHFrameWorkKitMacro.h"
 #import "MCMallAPI.h"
@@ -19,7 +20,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
         if (nil==sharedNtWorkManager) {
             sharedNtWorkManager=[[HHNetWorkEngine alloc] init];
             sharedNtWorkManager.responseSerializer=[AFHTTPResponseSerializer serializer];
-            
+             [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES] ;
         }
     }
     return sharedNtWorkManager;

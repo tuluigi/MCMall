@@ -120,6 +120,19 @@
     }];
     return op;
 }
+-(HHNetWorkOperation  *)favorPhotoActivitWithUserID:(NSString *)userID
+                                      activityID:(NSString *)activityID
+                                         photoID:(NSString *)photoID
+                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+
+    NSString *apiPath=[MCMallAPI favorPhotoAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid",photoID,@"lineno", nil];
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 -(HHNetWorkOperation *)getPhotoCommontsWithActivityID:(NSString*)activityID
                                                photoID:(NSString *)photoID
                                                userID:(NSString *)userID
@@ -138,7 +151,11 @@
 }
 -(HHResponseResult *)parsePhotoCommontsListWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
-        NSArray *commentsListArray=[responseResult.responseData objectForKey:@"list"];
+        NSDictionary *resultDic=responseResult.responseData;
+        NSArray *commentsListArray=[resultDic objectForKey:@"list"];
+        PhotoModel *photoModel=[[PhotoModel alloc]  init];
+        photoModel.favorCount=[[resultDic objectForKey:@"zan"] integerValue];
+        photoModel.isFavor=[[resultDic objectForKey:@"already"] isEqualToString:@"true"];
         NSMutableArray *array=[NSMutableArray new];
         for (NSDictionary *itemDic in commentsListArray) {
             PhotoCommentModel *commentModel=[[PhotoCommentModel alloc]  init];
@@ -148,7 +165,8 @@
             commentModel.commentContents=[itemDic objectForKey:@"reply"];
             [array addObject:commentModel];
         }
-    responseResult.responseData=array;
+        photoModel.commentArray=array;
+        responseResult.responseData=photoModel;
     }
     return responseResult;
 }
@@ -165,7 +183,7 @@
         if (responseResult.responseCode==HHResponseResultCode100) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
         }
-        [HHProgressHUD dismiss];
+        completionBlcok(responseResult);
     }];
     return op;
 }

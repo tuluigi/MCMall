@@ -64,6 +64,9 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @interface PhotoModel : NSObject
 @property(nonatomic,copy)NSString *photoID;
 @property(nonatomic,copy)NSString *photoUrl;
+@property(nonatomic,assign)BOOL isFavor;
+@property(nonatomic,assign)NSInteger favorCount;
+@property(nonatomic,strong)NSMutableArray *commentArray;
 @end
 
 @interface PhotoCommentModel : NSObject

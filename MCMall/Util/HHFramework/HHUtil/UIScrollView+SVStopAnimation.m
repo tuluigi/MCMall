@@ -20,15 +20,19 @@
 -(BOOL)handlerInifitScrollingWithPageIndex:(NSUInteger *)pid
                                   pageSize:(NSInteger)pageSize
                             totalDataCount:(NSInteger)dataCount{
-    if (dataCount==(*pid)*pageSize) {
-        (*pid)++;
-        self.infiniteScrollingView.enabled=YES;
-    }else if(dataCount<(*pid)*pageSize){
-        if (dataCount%pageSize) {
-            self.infiniteScrollingView.enabled=NO;
-        }else{
-            (*pid)--;
+    if (pageSize) {
+        if (dataCount==(*pid)*pageSize) {
+            (*pid)++;
             self.infiniteScrollingView.enabled=YES;
+        }else if(dataCount<(*pid)*pageSize){
+            if (dataCount%pageSize) {
+                self.infiniteScrollingView.enabled=NO;
+            }else{
+                (*pid)--;
+                self.infiniteScrollingView.enabled=YES;
+            }
+        }else{
+            self.infiniteScrollingView.enabled=NO;
         }
     }else{
         self.infiniteScrollingView.enabled=NO;

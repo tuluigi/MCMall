@@ -309,6 +309,7 @@
                 cell.delegate=self;
             }
             PhotoAcitvityModel * photoModel=(PhotoAcitvityModel *)self.activityModel;
+            NSArray *array=[photoModel.photoLi];
             cell.photoArray=photoModel.photoListArray;
             return cell;
             

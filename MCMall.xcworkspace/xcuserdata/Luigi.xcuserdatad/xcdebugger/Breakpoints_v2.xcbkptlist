@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
-            timestampString = "458567707.722731"
+            timestampString = "458634352.151529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "-uploadActivityPhotoWithActivityID:photo:userID:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,12 +42,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHNetWorkEngine.m"
-            timestampString = "458565459.423225"
+            timestampString = "458635835.461666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-uploadFileWithPath:filePath:parmarDic:key:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Controllers/PhotoActivity/PhotoActivityViewController.m"
+            timestampString = "458635000.270713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-favorButtonPressed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Activity/Model/NetEngine/HHNetWorkEngine+Activity.m"
+            timestampString = "458634828.470226"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-favorPhotoActivitWithUserID:activityID:photoID:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

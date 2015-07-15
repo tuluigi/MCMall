@@ -69,11 +69,36 @@
                                     ActivityID:(NSString *)activityID
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
+/**
+ *  发表评论
+ *
+ *  @param userID          用户id
+ *  @param activityID
+ *  @param photoID
+ *  @param contents
+ *  @param completionBlcok
+ *
+ *  @return
+ */
 -(HHNetWorkOperation *)publishActivityCommentWithUserID:(NSString*)userID
                                              ActivityID:(NSString *)activityID
                                                 photoID:(NSString *)photoID
                                                comments:(NSString *)contents
                                     onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+/**
+ *  对图片点赞
+ *
+ *  @param userID
+ *  @param activityID
+ *  @param photoID
+ *  @param completionBlcok
+ *
+ *  @return <#return value description#>
+ */
+-(HHNetWorkOperation  *)favorPhotoActivitWithUserID:(NSString *)userID
+                                      activityID:(NSString *)activityID
+                                         photoID:(NSString *)photoID
+                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
  *  获取评论列表
  *
