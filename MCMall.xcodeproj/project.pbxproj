@@ -52,6 +52,8 @@
 		2A7EA20C1B56B4BA005B04A9 /* tabbar_health_HL@3X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7EA2081B56B4BA005B04A9 /* tabbar_health_HL@3X.png */; };
 		2A7EA20D1B56B4BA005B04A9 /* tabbar_health@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7EA2091B56B4BA005B04A9 /* tabbar_health@2x.png */; };
 		2A7EA20E1B56B4BA005B04A9 /* tabbar_health@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7EA20A1B56B4BA005B04A9 /* tabbar_health@3x.png */; };
+		2A7EA2121B57F72D005B04A9 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA2111B57F72D005B04A9 /* UserInfoViewController.m */; };
+		2A7EA2151B57F746005B04A9 /* UserInfoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */; };
 		2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A816DE71B2FBC1D0007862B /* Localizable.strings */; };
 		2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
@@ -190,6 +192,10 @@
 		2A7EA2081B56B4BA005B04A9 /* tabbar_health_HL@3X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_health_HL@3X.png"; sourceTree = "<group>"; };
 		2A7EA2091B56B4BA005B04A9 /* tabbar_health@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_health@2x.png"; sourceTree = "<group>"; };
 		2A7EA20A1B56B4BA005B04A9 /* tabbar_health@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_health@3x.png"; sourceTree = "<group>"; };
+		2A7EA2101B57F72D005B04A9 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		2A7EA2111B57F72D005B04A9 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		2A7EA2131B57F746005B04A9 /* UserInfoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoEditViewController.h; sourceTree = "<group>"; };
+		2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditViewController.m; sourceTree = "<group>"; };
 		2A816DE01B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		2A816DE11B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		2A816DE61B2FBC1D0007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -484,6 +490,7 @@
 		2A37B10D1B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A7EA20F1B57F712005B04A9 /* UserInfo */,
 				2AD019051B14A63900702BD5 /* Login */,
 				2A50F7031B109A0C00607723 /* UserCenterViewController.h */,
 				2A50F7041B109A0C00607723 /* UserCenterViewController.m */,
@@ -640,6 +647,17 @@
 			children = (
 			);
 			path = Mall;
+			sourceTree = "<group>";
+		};
+		2A7EA20F1B57F712005B04A9 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2A7EA2101B57F72D005B04A9 /* UserInfoViewController.h */,
+				2A7EA2111B57F72D005B04A9 /* UserInfoViewController.m */,
+				2A7EA2131B57F746005B04A9 /* UserInfoEditViewController.h */,
+				2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 		2A816DEC1B2FFEB00007862B /* PageView */ = {
@@ -1201,6 +1219,7 @@
 				2A87EE2A1B411DEF0051D668 /* CommonActivityController.m in Sources */,
 				2A984EBA1B141205004DF4C0 /* NSMutableDictionary+HHFrameWorkKit.m in Sources */,
 				2A9DD3A61B402C390010893F /* PhotoActivityViewController.m in Sources */,
+				2A7EA2121B57F72D005B04A9 /* UserInfoViewController.m in Sources */,
 				2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A984ECE1B141205004DF4C0 /* HHLoadingView.m in Sources */,
@@ -1239,6 +1258,7 @@
 				2A468C691B32BD3C005F5D15 /* CatModel.m in Sources */,
 				2A984ED31B141205004DF4C0 /* UIColor+Addition.m in Sources */,
 				2A984ED01B141205004DF4C0 /* NSDateFormatter+Addititon.m in Sources */,
+				2A7EA2151B57F746005B04A9 /* UserInfoEditViewController.m in Sources */,
 				2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */,
 				2A984ED61B141205004DF4C0 /* UIResponder+Router.m in Sources */,
 				2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */,

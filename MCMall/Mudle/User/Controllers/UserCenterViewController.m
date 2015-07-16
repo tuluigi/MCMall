@@ -11,7 +11,9 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "LoginViewController.h"
 #import "HHImagePickerHelper.h"
-@interface UserCenterViewController ()
+#import "QBImagePickerController.h"
+#import "UserInfoViewController.h"
+@interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
@@ -101,6 +103,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"我";
     self.tableView.tableHeaderView=self.headerView;
     self.tableView.separatorColor=MCMallThemeColor;
     [self reloadUI];
@@ -125,9 +128,7 @@
     [self.tableView reloadData];
 }
 -(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
-    [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(UIImage *image, NSDictionary *editingInfo, NSString *imgPath) {
-        
-    }];
+        [self imagePickerButtonPressed];
 }
 -(void)didLogoutButtonPressed{
     [UserModel logout];
@@ -141,6 +142,38 @@
         
     }];
 }
+#pragma mark - select iamge
+-(void)imagePickerButtonPressed{
+    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = NO;
+    imagePickerController.showsNumberOfSelectedAssets = NO;
+    
+    [self presentViewController:imagePickerController animated:YES completion:NULL];
+}
+#pragma mark - qbimagecontroller delegate
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
+    [HHProgressHUD showLoadingState];
+    WEAKSELF
+    CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
+    NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            if ([responseResult.responseData isKindOfClass:[NSString class]]) {
+                [weakSelf.logoImgView sd_setImageWithURL:[NSURL URLWithString:responseResult.responseData] placeholderImage:MCMallDefaultImg];
+            }
+            [HHProgressHUD dismiss];
+        }else{
+            [HHProgressHUD showErrorMssage:@"上传失败"];
+        }
+    }];
+    [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 #pragma mark -UITableView Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([UserModel isLogin]) {
@@ -189,6 +222,20 @@
         return CGFLOAT_MIN;
     }else{
         return 44.0;
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+        {
+            UserInfoViewController *userInfoViewController=[[UserInfoViewController alloc]  init];
+            userInfoViewController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:userInfoViewController animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 /*

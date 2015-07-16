@@ -92,11 +92,13 @@
                                        imagePath:(NSString *)imgPath
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     userID=[NSString stringByReplaceNullString:userID];
-    NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
+    NSString *apiPath=[MCMallAPI uploadUserHeadImageAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:imgPath parmarDic:postDic key:@"img" onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
+            [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
+            [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imgPath] forKey:responseResult.responseData];
         }
         completionBlcok(responseResult);
     }];
