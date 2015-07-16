@@ -27,7 +27,21 @@ NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
 +(NSString *)userEditPwdAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"changepassoword"];
 }
-
++(NSString *)getUserPhoneVerfiyCodeAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"sendcode"];
+}
++(NSString *)checkVersionUpdateAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"autpupdate"];
+}
++(NSString *)getUserInfoAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"qetuserinfo"];
+}
++(NSString *)editUserInfoAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"perfect"];
+}
++(NSString *)uploadUserHeadImageAPI{
+return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"upload"];
+}
 #pragma mark -活动
 //活动列表
 +(NSString *)getActivityListAPI{

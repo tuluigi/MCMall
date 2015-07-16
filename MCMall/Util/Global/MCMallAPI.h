@@ -15,7 +15,11 @@
 +(NSString *)userLoginAPI;
 +(NSString *)userRegisterAPI;
 +(NSString *)userEditPwdAPI;
-
++(NSString *)getUserPhoneVerfiyCodeAPI;
++(NSString *)checkVersionUpdateAPI;
++(NSString *)getUserInfoAPI;
++(NSString *)editUserInfoAPI;
++(NSString *)uploadUserHeadImageAPI;
 #pragma mark -活动
 +(NSString *)getActivityListAPI;
 //获取活动详情
