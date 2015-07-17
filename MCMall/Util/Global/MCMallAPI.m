@@ -34,7 +34,7 @@ NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"autpupdate"];
 }
 +(NSString *)getUserInfoAPI{
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"qetuserinfo"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getuserinfo"];
 }
 +(NSString *)editUserInfoAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"perfect"];

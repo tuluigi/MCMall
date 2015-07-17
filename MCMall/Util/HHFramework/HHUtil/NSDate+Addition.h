@@ -22,7 +22,7 @@
  *  @param  format:转化格式，形如@"yyyy年MM月dd日hh时mm分ss秒"。日期格式要和string格式一致，否则会为空。
  *  return  返回转化后的日期。
  */
-- (NSDate *)convertStringToDate:(NSString *)string format:(NSString *)format;
++ (NSDate *)convertStringToDate:(NSString *)string format:(NSString *)format;
 
 - (NSString *)timeIntervalDescription;//距离当前的时间间隔描述
 

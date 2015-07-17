@@ -14,15 +14,25 @@ NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 @implementation UserModel
-+(UserModel *)userModelWithResponseDic:(NSDictionary *)dic{
-    UserModel *userModel=[[UserModel alloc]  init];
-    userModel.userName=[dic objectForKey:@"userName"];
-    userModel.userTel=[dic objectForKey:@"phone"];
-    userModel.userAmount=[NSDecimalNumber decimalNumberWithString:[dic objectForKey:@"money"]];
-    userModel.userID=[dic objectForKey:@"userId"];
-    userModel.userHeadUrl=[dic objectForKey:@"img"];
-    userModel.shopName=[dic objectForKey:@"shopName"];
-    [UserModel storeUserModel:userModel];
++(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz{
+    UserModel *userModel    =[[UserModel alloc]  init];
+    userModel.userName      =[dic objectForKey:@"userName"];
+    userModel.userTel       =[dic objectForKey:@"phone"];
+    userModel.userAmount    =[NSDecimalNumber decimalNumberWithString:[dic objectForKey:@"money"]];
+    userModel.userID        =[dic objectForKey:@"userId"];
+    userModel.userHeadUrl   =[dic objectForKey:@"img"];
+    userModel.shopName      =[dic objectForKey:@"shopName"];
+    userModel.gender        =[[dic objectForKey:@"sex"] isEqual:[NSNull null]]?@(-1):@(1);
+
+    NSString *birth         =[NSString stringByReplaceNullString:[dic objectForKey:@"birth"]];
+    NSDateFormatter *fromatter=[NSDateFormatter dateFormatterWithFormat:@"yyyy-MM-dd"];
+    userModel.birthday      =[fromatter  dateFromString:birth];
+    userModel.bigNickName   =[NSString stringByReplaceNullString:[dic objectForKey:@"full"]];
+    userModel.smallNickName =[NSString stringByReplaceNullString:[dic objectForKey:@"child"]];
+    
+    if (synchroniz) {
+        [UserModel storeUserModel:userModel];
+    }
     return userModel;
 }
 +(void)storeUserModel:(UserModel *)userModel{

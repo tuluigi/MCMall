@@ -24,7 +24,7 @@
 }
 -(HHResponseResult *)parseUserLoginWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
-        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData];
+        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData shouldSynchronize:YES];
         responseResult.responseData=userModel;
     }
     return responseResult;
@@ -116,11 +116,11 @@
  */
 -(HHNetWorkOperation *)getUserInfoWithUserID:(NSString *)userID
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI  getUserInfoAPI];
     NSDictionary *postDic=@{@"userid":userID};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        //responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
+        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData shouldSynchronize:NO];
+        responseResult.responseData=userModel;
         completionBlcok(responseResult);
     }];
     return op;
@@ -144,14 +144,12 @@
                                smallNickeName:(NSString *)smallNickName
                                        gender:(BOOL)isBoy
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI  getUserInfoAPI];
     birthday=[NSString stringByReplaceNullString:birthday];
     bigNickName=[NSString stringByReplaceNullString:bigNickName];
     smallNickName=[NSString stringByReplaceNullString:smallNickName];
     NSDictionary *postDic=@{@"userid":userID,@"birth":birthday,@"full":bigNickName,@"child":smallNickName,@"sex":@(isBoy)};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        //responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;

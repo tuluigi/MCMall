@@ -21,6 +21,7 @@
 #pragma mark- Category
 #import "UIDevice+DeviceInfo.h"
 #import "NSFileManager+Addition.h"
+#import "NSDateFormatter+Addititon.h"
 #import "NSDate+Addition.h"
 #import "NSString+Addition.h"
 #import "UIColor+Addition.h"

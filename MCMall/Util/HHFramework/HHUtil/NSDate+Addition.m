@@ -37,7 +37,7 @@
     return dateStr;
 }
 
-- (NSDate *)convertStringToDate:(NSString *)string format:(NSString *)format
++(NSDate *)convertStringToDate:(NSString *)string format:(NSString *)format
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
