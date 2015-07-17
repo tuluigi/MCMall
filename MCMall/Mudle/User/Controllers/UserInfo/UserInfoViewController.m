@@ -61,6 +61,7 @@
         _dataPicker.datePickerMode = UIDatePickerModeDate;
         _dataPicker.hidden = NO;
         _dataPicker.minimumDate = [[NSDate alloc]  initWithTimeIntervalSince1970:0];
+        _dataPicker.maximumDate= [NSDate date];
         //响应日期选择事件，自定义dateChanged方法
         [ _dataPicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
 
