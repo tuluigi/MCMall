@@ -12,6 +12,7 @@
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd;
+
 @end
 
 @implementation LoginViewController

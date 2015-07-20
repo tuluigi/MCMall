@@ -10,11 +10,31 @@
 #import "HHNetWorkEngine+UserCenter.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
-@property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr;
+@property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr;
 @property(nonatomic,assign)BOOL enableUserAgrement,enableCookie;
+@property(nonatomic,strong)NSTimer *timer;
+@property(nonatomic,strong)UIButton *actionButton;
 @end
 
 @implementation RegisterViewController
+-(NSTimer *)timer{
+    if (nil==_timer) {
+        _timer=[NSTimer timerWithTimeInterval:60 target:self selector:@selector(handlerTimer:) userInfo:nil repeats:NO];
+        [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+    return _timer;
+}
+-(void)handlerTimer:(NSTimer *)aTimer{
+    if (aTimer.timeInterval==0) {
+       [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+        _actionButton.enabled=YES;
+        [_actionButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
+    }else{
+        [_actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [_actionButton setTitle:[NSString stringWithFormat:@"%f",aTimer.timeInterval] forState:UIControlStateNormal];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -142,9 +162,13 @@
         [HHProgressHUD showErrorMssage:@"请输入正确手机号码"];
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
         [HHProgressHUD showErrorMssage:@"两次输入的密码不一样"];
-    }else{
+    }
+//    else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
+//        [HHProgressHUD showErrorMssage:@"请输入正确的验证码"];
+//    }
+    else{
         [HHProgressHUD showLoadingState];
-        [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
+        [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr  onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
@@ -159,7 +183,16 @@
 }
 #pragma mark 获取验证码
 -(void)didVerifyCodeButtonPressed{
-    
+    [HHProgressHUD showLoadingState];
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getVerifyPhoneCodeWithPhoneNumber:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            [HHProgressHUD showSuccessMessage:@"验证码已发送,请查收"];
+          //  self.severVerifyCodeStr=responseResult.responseData;
+        }else{
+            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+        }
+    }];
+    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 
 #pragma mark -UITableView Delegate
@@ -167,7 +200,7 @@
     return 15.0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 5;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";
@@ -178,6 +211,7 @@
         textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
         textField.tag=1000;
+        cell.contentView.userInteractionEnabled=YES;
         [cell.contentView addSubview:textField];
         
         UILabel *leftLable=[[UILabel alloc]  initWithFrame:CGRectMake(0, 0, 80.0, CGRectGetHeight(textField.bounds))];
@@ -187,16 +221,19 @@
         textField.leftView=leftLable;
         textField.leftViewMode=UITextFieldViewModeAlways;
         
-        UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        actionButton.frame=CGRectMake(0, 5.0, 80, 34.0);
-        actionButton.layer.cornerRadius=5.0;
-        actionButton.layer.masksToBounds=YES;
-        [actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-        [actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [actionButton setBackgroundColor:[UIColor red:255.0 green:92.0 blue:134.0 alpha:1]];
-        actionButton.titleLabel.font=[UIFont boldSystemFontOfSize:15.0];
-        [actionButton addTarget:self action:@selector(didVerifyCodeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        textField.rightView=actionButton;
+        _actionButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _actionButton.frame=CGRectMake(0, 5.0, 80, 34.0);
+        _actionButton.layer.cornerRadius=5.0;
+        _actionButton.layer.masksToBounds=YES;
+        _actionButton.enabled=NO;
+        [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+        [_actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_actionButton setBackgroundColor:[UIColor red:255.0 green:92.0 blue:134.0 alpha:1]];
+        _actionButton.titleLabel.font=[UIFont boldSystemFontOfSize:15.0];
+        [_actionButton addTarget:self action:@selector(didVerifyCodeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        textField.userInteractionEnabled=YES;
+        _actionButton.userInteractionEnabled=YES;
+        textField.rightView=_actionButton;
         [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
     }
     UITextField *textField=(UITextField *)[cell viewWithTag:1000];
@@ -204,6 +241,7 @@
     UILabel *leftLable=(UILabel *)textField.leftView;
     textField.rightViewMode=UITextFieldViewModeNever;
     textField.secureTextEntry=NO;
+    textField.keyboardType=UIKeyboardTypeDefault;
     switch (indexPath.row) {
         case 0:{
             textField.placeholder=@"请输入登录名";
@@ -221,6 +259,7 @@
         }break;
             
         case 3:{
+            textField.keyboardType=UIKeyboardTypeNamePhonePad;
             textField.placeholder=@"请输入您的手机号";
             leftLable.text=@"手机号";
         }break;
@@ -251,9 +290,15 @@
         }break;
         case 3:{
             self.telPhone=textFiled.text;
+            if ([self.telPhone isPhoneNumber]) {
+                self.actionButton.enabled=YES;
+            }else{
+                self.actionButton.enabled=NO;
+            }
         }break;
         case 4:{
             self.verfiCodeStr=textFiled.text;
+
         }break;
         default:
             break;

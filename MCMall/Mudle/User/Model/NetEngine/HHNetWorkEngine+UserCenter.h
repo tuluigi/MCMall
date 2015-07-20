@@ -36,6 +36,7 @@
 -(HHNetWorkOperation *)userRegisterWithUserName:(NSString *)name
                                             pwd:(NSString *)pwd
                                        phoneNum:(NSString *)phoneNum
+                                     verfiyCode:(NSString *)verfiyCode
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
  *  用户修改密码

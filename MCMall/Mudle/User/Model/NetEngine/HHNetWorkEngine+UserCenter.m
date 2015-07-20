@@ -33,10 +33,11 @@
 -(HHNetWorkOperation *)userRegisterWithUserName:(NSString *)name
                                             pwd:(NSString *)pwd
                                        phoneNum:(NSString *)phoneNum
+                                     verfiyCode:(NSString *)verfiyCode
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
     NSString *apiPath=[MCMallAPI userRegisterAPI];
-    NSDictionary *postDic=@{@"username":name,@"password":pwd,@"phone":phoneNum,@"type":@"1"};
+    NSDictionary *postDic=@{@"username":name,@"password":pwd,@"phone":phoneNum,@"type":@"1",@"v":verfiyCode};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
