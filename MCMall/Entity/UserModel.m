@@ -14,6 +14,17 @@ NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 @implementation UserModel
+/*
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self=[super init]) {
+        self.userID     =[aDecoder decodeObjectForKey:@"userID"];
+        self.userName   =[aDecoder decodeObjectForKey:@"userName"];
+        self.userTel    =[aDecoder decodeObjectForKey:@"userTel"];
+        self.userAmount =[aDecoder decodeObjectForKey:@"userAmount"];
+    }
+    return self;
+}
+ */
 +(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz{
     UserModel *userModel    =[[UserModel alloc]  init];
     userModel.userName      =[dic objectForKey:@"userName"];

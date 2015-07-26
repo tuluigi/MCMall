@@ -74,4 +74,14 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)uploadActivityPhotoAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"updphoto"];
 }
+#pragma mark -主题
+//专家问答主题列表
++(NSString *)getSubjectListAPI{
+return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"speciallist"];
+}
+//专家问答详情
++(NSString *)getSubjectDetailAPI{
+return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"specialinfo"];
+}
+
 @end

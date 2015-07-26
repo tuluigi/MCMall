@@ -36,4 +36,11 @@
 +(NSString *)favorPhotoAPI;
 //上传活动图片
 +(NSString *)uploadActivityPhotoAPI;
+
+
+#pragma mark -主题
+//专家问答主题列表
++(NSString *)getSubjectListAPI;
+//专家问答详情
++(NSString *)getSubjectDetailAPI;
 @end

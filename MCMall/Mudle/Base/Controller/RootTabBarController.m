@@ -11,7 +11,7 @@
 #import "ActivityViewController.h"
 #import "HealthViewController.h"
 #import "UserCenterViewController.h"
-
+#import "SubjectViewController.h"
 @interface HHTabBarItem  : UITabBarItem;
 @end
 @implementation HHTabBarItem
@@ -63,12 +63,22 @@
      MCMallViewController *mcMallController=[[MCMallViewController alloc]  init];
      UINavigationController *mcNavController=[[UINavigationController alloc]  initWithRootViewController:mcMallController];
      mcNavController.tabBarItem.title=@"商城";
-     */
+     
     HealthViewController *healthController=[[HealthViewController alloc]  init];
     UINavigationController *healthNavController=[[UINavigationController alloc]  initWithRootViewController:healthController];
     
     HHTabBarItem *healthTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"健康安全" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
     healthNavController.tabBarItem=healthTabbarItem;
+    */
+    
+    
+    SubjectViewController *subjectViewController=[[SubjectViewController alloc]  init];
+    UINavigationController *subjectNavController=[[UINavigationController alloc]  initWithRootViewController:subjectViewController];
+    
+    HHTabBarItem *subjectTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专题" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
+    subjectNavController.tabBarItem=subjectTabbarItem;
+    
+    
     
     
     ActivityViewController *activityController=[[ActivityViewController alloc]  init];
@@ -82,7 +92,7 @@
     userNavController.tabBarItem=userTabbarItem;
     
     
-    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:healthNavController,activityNavController,userNavController, nil];
+    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:subjectNavController,activityNavController,userNavController, nil];
     self.viewControllers=tabBarControllers;
 }
 /*

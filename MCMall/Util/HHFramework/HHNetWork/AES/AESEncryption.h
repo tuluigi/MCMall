@@ -12,7 +12,7 @@
 @interface AESEncryption : NSObject
 
 
-
++(NSString *)defaultAesKey;
 +(NSString*) AESEncrypt:(NSString*)plainText strKey:(NSString*)strKey;
 +(NSString*) AESDecrypt:(NSString*)cipherText strKey:(NSString*)strKey;
 @end

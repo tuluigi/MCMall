@@ -25,6 +25,9 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - Mantle (2.0.2):
+    - Mantle/extobjc (= 2.0.2)
+  - Mantle/extobjc (2.0.2)
   - Masonry (0.6.1)
   - QBImagePickerController (2.5.2)
   - Reachability (3.1.1)
@@ -33,12 +36,13 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - SVProgressHUD (1.1.3)
   - SVPullToRefresh (0.4.1)
-  - TPKeyboardAvoiding (1.2.7)
-  - UITableView+FDTemplateLayoutCell (1.3)
+  - TPKeyboardAvoiding (1.2.6)
+  - UITableView+FDTemplateLayoutCell (1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - FMDB (~> 2.1)
+  - Mantle (~> 2.0.2)
   - Masonry (~> 0.6.1)
   - QBImagePickerController (~> 2.5.2)
   - Reachability (~> 3.1.1)
@@ -46,18 +50,19 @@ DEPENDENCIES:
   - SVProgressHUD (~> 1.0)
   - SVPullToRefresh (~> 0.4.1)
   - TPKeyboardAvoiding (~> 1.2.6)
-  - UITableView+FDTemplateLayoutCell (~> 1.3)
+  - UITableView+FDTemplateLayoutCell (~> 1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   QBImagePickerController: 96c2e340edb7fcac5acf21b72314fac9201ffb8e
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
-  TPKeyboardAvoiding: 9375176f625873c9f9246cd42d5fcf9fc5787ae9
-  UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+  UITableView+FDTemplateLayoutCell: 355e1c52461bf51e2338f443ee358faca9628878
 
 COCOAPODS: 0.37.2
