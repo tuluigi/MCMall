@@ -105,14 +105,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Subject/Controllers/SubjectViewController.m"
-            timestampString = "459587742.392365"
+            filePath = "MCMall/Entity/SubjectModel.m"
+            timestampString = "459603024.110857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "@implementation SubjectModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

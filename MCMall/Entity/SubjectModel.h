@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, SubjectModelState) {
 @property(nonatomic,copy) NSString *doctorLogo;
 @property(nonatomic,copy) NSString *doctorDesc;
 @property(nonatomic,copy) NSString *doctorJob;
+//@property(nonatomic,copy)NSString * subjectState;
 @property(nonatomic,assign)SubjectModelState subjectState;
 +(SubjectModel *)subjectModelWithResponseDic:(NSDictionary *)dic;
 @end

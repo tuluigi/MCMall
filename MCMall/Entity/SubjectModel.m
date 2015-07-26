@@ -18,6 +18,7 @@
              @"subjectTitle":@"title",
              @"doctorDesc":@"exp"};
 }
+
 +(NSValueTransformer *)subjectStateJSONTransformer{
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
                                                                            @"-1": @(SubjectModelStateUnStart),
@@ -25,7 +26,21 @@
                                                                            @"1":@(SubjectModelStateFinsihed)
                                                                            }];
 }
+ 
+/*
++(NSValueTransformer *)JSONTransformerForKey:(NSString *)key{
+    if ([key isEqualToString:@"stauts"]) {
+        return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                               @(-1): @(SubjectModelStateUnStart),
+                                                                               @(0): @(SubjectModelStateProcessing),
+                                                                               @(1):@(SubjectModelStateFinsihed)
+                                                                               }];
 
+    }else{
+        return nil;
+    }
+}
+ */
 +(SubjectModel *)subjectModelWithResponseDic:(NSDictionary *)dic{
 
     return nil;

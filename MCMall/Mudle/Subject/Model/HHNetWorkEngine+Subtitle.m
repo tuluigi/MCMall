@@ -29,7 +29,9 @@
         if (responseResult.responseCode==HHResponseResultCode100) {
             NSArray *resultDataArray=responseResult.responseData;
             for (NSDictionary *dic in resultDataArray  ) {
-                SubjectModel *subjectModel=[[SubjectModel alloc]  initWithDictionary:dic error:nil];
+                NSError *error;
+                SubjectModel *subjectModel=[MTLJSONAdapter modelOfClass:[SubjectModel class] fromJSONDictionary:dic error:&error];
+               // SubjectModel *subjectModel=[[SubjectModel alloc]  initWithDictionary:dic error:&error];
                 if (subjectModel) {
                     [responseArray addObject:subjectModel];
                 }

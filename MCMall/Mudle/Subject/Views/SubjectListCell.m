@@ -94,7 +94,7 @@
         make.top.equalTo(_bgView.mas_right).offset(5);
         make.right.equalTo(_historyButton.mas_left).offset(-5);
         make.height.mas_lessThanOrEqualTo(@20);
-        make.bottom.mas_equalTo(_doctorDescLable.mas_top).offset(-5);
+       // make.bottom.mas_equalTo(_doctorDescLable.mas_top).offset(-5);
     }];
     [_historyButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorJobLable.mas_right).offset(5);
@@ -107,7 +107,7 @@
         make.left.equalTo(_doctorJobLable);
         make.top.mas_equalTo(_doctorJobLable.mas_bottom).offset(5);
         make.right.equalTo(_bgView.mas_right).offset(-10);
-        make.bottom.mas_equalTo(_subjectTimeLable.mas_top).offset(-5);
+       // make.bottom.mas_equalTo(_subjectTimeLable.mas_top).offset(-5);
         make.height.mas_lessThanOrEqualTo(20);
     }];
     [_subjectTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -124,7 +124,7 @@
         make.right.equalTo(_entranceButton.mas_left).offset(-5);
     }];
     [_entranceButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_subjectTitleLable.mas_right).offset(5);
+      //  make.left.mas_equalTo(_subjectTitleLable.mas_right).offset(5);
         make.top.bottom.mas_equalTo(_subjectTitleLable);
         make.width.mas_lessThanOrEqualTo(60);
         make.right.mas_equalTo(_bgView.mas_right).offset(-10);
