@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface SubtitleExpertAnswerController : BaseTableViewController
-
+-(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title;
 @end

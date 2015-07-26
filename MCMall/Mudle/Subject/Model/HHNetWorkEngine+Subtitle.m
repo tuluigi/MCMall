@@ -22,25 +22,29 @@
 -(HHNetWorkOperation *)getSubjectListWithPageIndex:(NSInteger)pageIndex
                                           pageSize:(NSInteger )pageSize
                                onCompletionHandler:(HHResponseResultSucceedBlock)completion{
+    WEAKSELF
     NSString *apiPath=[MCMallAPI getSubjectListAPI];
     NSDictionary *postDic=@{@"pageno":@(pageIndex),@"records":@(pageSize)};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        NSMutableArray *responseArray=[NSMutableArray new];
-        if (responseResult.responseCode==HHResponseResultCode100) {
-            NSArray *resultDataArray=responseResult.responseData;
-            for (NSDictionary *dic in resultDataArray  ) {
-                NSError *error;
-                SubjectModel *subjectModel=[MTLJSONAdapter modelOfClass:[SubjectModel class] fromJSONDictionary:dic error:&error];
-               // SubjectModel *subjectModel=[[SubjectModel alloc]  initWithDictionary:dic error:&error];
-                if (subjectModel) {
-                    [responseArray addObject:subjectModel];
-                }
-            }
-            responseResult.responseData=responseArray;
-        }
+        [weakSelf parseSubjectListWithResponseResult:&responseResult];
         completion(responseResult);
     }];
     return op;
+}
+-(void )parseSubjectListWithResponseResult:(HHResponseResult **)aResponseResult{
+    HHResponseResult *responseResult=*aResponseResult;
+    NSMutableArray *responseArray=[NSMutableArray new];
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        NSArray *resultDataArray=responseResult.responseData;
+        for (NSDictionary *dic in resultDataArray  ) {
+            NSError *error;
+            SubjectModel *subjectModel=[MTLJSONAdapter modelOfClass:[SubjectModel class] fromJSONDictionary:dic error:&error];
+            if (subjectModel) {
+                [responseArray addObject:subjectModel];
+            }
+        }
+        responseResult.responseData=responseArray;
+    }
 }
 /**
  *  获取主题详情
@@ -56,11 +60,28 @@
                                            pageIndex:(NSInteger)pageIndex
                                             pageSize:(NSInteger )pageSize
                                  onCompletionHandler:(HHResponseResultSucceedBlock)completion{
+    WEAKSELF
     NSString *apiPath=[MCMallAPI getSubjectDetailAPI];
     NSDictionary *postDic=@{@"pageno":@(pageIndex),@"records":@(pageSize),@"id":subjectID};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        
+        [weakSelf parseSubjectDetailWithResponseResult:&responseResult];
+        completion(responseResult);
     }];
     return op;
+}
+-(void )parseSubjectDetailWithResponseResult:(HHResponseResult **)aResponseResult{
+    HHResponseResult *responseResult=*aResponseResult;
+    if (responseResult.responseCode==HHResponseResultCode100) {
+        NSMutableArray *responseArray=[NSMutableArray new];
+        NSArray *resultDataArray=[responseResult.responseData objectForKey:@"list"];
+        for (NSDictionary *dic in resultDataArray  ) {
+            NSError *error;
+            SubjectCommentModel *subjectModel=[MTLJSONAdapter modelOfClass:[SubjectCommentModel class] fromJSONDictionary:dic error:&error];
+            if (subjectModel) {
+                [responseArray addObject:subjectModel];
+            }
+        }
+        responseResult.responseData=responseArray;
+    }
 }
 @end

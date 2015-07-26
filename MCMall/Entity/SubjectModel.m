@@ -26,23 +26,24 @@
                                                                            @"1":@(SubjectModelStateFinsihed)
                                                                            }];
 }
- 
-/*
-+(NSValueTransformer *)JSONTransformerForKey:(NSString *)key{
-    if ([key isEqualToString:@"stauts"]) {
-        return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
-                                                                               @(-1): @(SubjectModelStateUnStart),
-                                                                               @(0): @(SubjectModelStateProcessing),
-                                                                               @(1):@(SubjectModelStateFinsihed)
-                                                                               }];
-
-    }else{
-        return nil;
+-(void)setDoctorLogo:(NSString *)doctorLogo{
+    _doctorLogo=doctorLogo;
+    if (_doctorLogo&&_doctorLogo.length) {
+        _doctorLogo=[HHGlobalVarTool fullImagePath:_doctorLogo];
     }
 }
- */
-+(SubjectModel *)subjectModelWithResponseDic:(NSDictionary *)dic{
+@end
 
-    return nil;
+@implementation SubjectCommentModel
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             //@"commentUserID":@"",
+             @"commentUserName":@"userName",
+//             @"commentTitle":@"title",
+             @"commentUserImageUrl":@"img",
+             @"commentTime":@"asktime",
+             @"commentComment":@"data"};
 }
+
+
 @end

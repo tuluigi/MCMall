@@ -9,5 +9,4 @@
 #import "HHResponseResult.h"
 
 @implementation HHResponseResult
-
 @end

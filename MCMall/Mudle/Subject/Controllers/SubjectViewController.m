@@ -9,6 +9,8 @@
 #import "SubjectViewController.h"
 #import "SubjectListCell.h"
 #import "HHNetWorkEngine+Subtitle.h"
+#import "SubjectModel.h"
+#import "SubtitleExpertAnswerController.h"
 @interface SubjectViewController ()
 
 @end
@@ -32,16 +34,25 @@
     if (self.dataSourceArray.count==0) {
         [self.tableView showPageLoadingView];
     }
+    WEAKSELF
    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
        if (responseResult.responseCode==HHResponseResultCode100) {
-           if (_pageIndex) {
-               [self.dataSourceArray removeAllObjects];
-               [self.tableView dismissPageLoadView];
+           if (weakSelf.dataSourceArray.count==0) {
+               [weakSelf.tableView dismissPageLoadView];
            }
-           [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
-           [self.tableView reloadData];
+           if (_pageIndex==1) {
+               [weakSelf.dataSourceArray removeAllObjects];
+           }
+           [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+           [weakSelf.tableView reloadData];
+       }else{
+           if (weakSelf.dataSourceArray.count==0) {
+               [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
+           }else{
+               [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+           }
        }
-       [self.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:self.dataSourceArray.count];
+       [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:self.dataSourceArray.count];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
@@ -60,6 +71,13 @@
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.subjectModel=subjectModel;
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle];
+    expertViewController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:expertViewController animated:YES];
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;

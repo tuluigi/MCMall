@@ -21,7 +21,13 @@ typedef NS_ENUM(NSInteger, SubjectModelState) {
 @property(nonatomic,copy) NSString *doctorLogo;
 @property(nonatomic,copy) NSString *doctorDesc;
 @property(nonatomic,copy) NSString *doctorJob;
-//@property(nonatomic,copy)NSString * subjectState;
 @property(nonatomic,assign)SubjectModelState subjectState;
-+(SubjectModel *)subjectModelWithResponseDic:(NSDictionary *)dic;
+@end
+
+@interface SubjectCommentModel : MTLModel<MTLJSONSerializing>
+@property(nonatomic,copy)NSString *commentUserID;
+@property(nonatomic,copy)NSString *commentUserName;
+@property(nonatomic,copy)NSString *commentUserImageUrl;
+@property(nonatomic,copy)NSString *commentTime;
+@property(nonatomic,copy)NSString *commentComment;
 @end
