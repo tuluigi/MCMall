@@ -10,6 +10,7 @@
 #import "SubjectModel.h"
 #import "HHNetWorkEngine+Subtitle.h"
 #import "SubjectAnswerCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 @interface SubtitleExpertAnswerController ()
 @property(nonatomic,copy)NSString *subjectID,*subjectTitle;
 @end
@@ -26,6 +27,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=_subjectTitle;
+    [self.tableView registerClass:[SubjectAnswerCell class] forCellReuseIdentifier:@"cellidentifer"];
     WEAKSELF
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf getSubjectAnswerWithSubjectID:weakSelf.subjectID];
@@ -43,8 +45,12 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            if (weakSelf.dataSourceArray.count==0) {
                 [weakSelf.view dismissPageLoadView];
+            if (((NSArray *)responseResult.responseData).count) {
+                
+               
+            }else{
+                [HHProgressHUD showErrorMssage:@"暂时没有更多数据"];
             }
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
@@ -64,15 +70,27 @@
 }
 
 #pragma mark -tableview
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSourceArray.count;
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *idenfier=@"cellidentifer";
     SubjectAnswerCell *cell=[tableView dequeueReusableCellWithIdentifier:idenfier];
     if (nil==cell) {
         cell=[[SubjectAnswerCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfier];
     }
-    
+    SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    cell.subjectCommentModel=commentModel;
     return cell;
 }
-
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+     SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    return [tableView fd_heightForCellWithIdentifier:@"cellidentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
+          ((SubjectAnswerCell *)cell).subjectCommentModel=commentModel;
+    }];
+}
 
 @end

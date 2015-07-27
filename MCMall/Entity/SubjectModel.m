@@ -44,6 +44,11 @@
              @"commentTime":@"asktime",
              @"commentComment":@"data"};
 }
-
+-(void)setCommentUserImageUrl:(NSString *)commentUserImageUrl{
+    _commentUserImageUrl=commentUserImageUrl;
+    if (_commentUserImageUrl&&_commentUserImageUrl.length) {
+        _commentUserImageUrl=[HHGlobalVarTool fullImagePath:_commentUserImageUrl];
+    }
+}
 
 @end
