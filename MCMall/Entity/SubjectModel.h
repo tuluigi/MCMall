@@ -8,9 +8,9 @@
 
 #import "MTLModel.h"
 typedef NS_ENUM(NSInteger, SubjectModelState) {
-    SubjectModelStateUnStart        =-1,
+    SubjectModelStateUnStart        =1,
     SubjectModelStateProcessing     =0,
-    SubjectModelStateFinsihed       =1,
+    SubjectModelStateFinsihed       =-1,
 };
 
 @interface SubjectModel : MTLModel<MTLJSONSerializing>

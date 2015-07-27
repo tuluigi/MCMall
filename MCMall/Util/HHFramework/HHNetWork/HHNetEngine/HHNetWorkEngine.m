@@ -139,7 +139,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
         }
 #endif
         HHResponseResult *responseResult=[[HHResponseResult alloc] init];
-        if (error) {
+        if (error||[operation responseData]==nil) {
             NSString *errorMsg=error.description;
             if (!errorMsg.length) {
                 errorMsg=@"网络连接发生错误";
@@ -151,6 +151,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
         }else{
             //解密
             NSError *errorJson=nil;
+            
             NSMutableDictionary *resultDic= [NSJSONSerialization JSONObjectWithData:[operation responseData] options:NSJSONReadingMutableContainers error:&errorJson];
             
             if (nil==resultDic&&errorJson) {

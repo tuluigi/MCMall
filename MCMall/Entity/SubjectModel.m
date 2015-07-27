@@ -21,9 +21,9 @@
 
 +(NSValueTransformer *)subjectStateJSONTransformer{
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
-                                                                           @"-1": @(SubjectModelStateUnStart),
+                                                                           @"1": @(SubjectModelStateUnStart),
                                                                            @"0": @(SubjectModelStateProcessing),
-                                                                           @"1":@(SubjectModelStateFinsihed)
+                                                                           @"-1":@(SubjectModelStateFinsihed)
                                                                            }];
 }
 -(void)setDoctorLogo:(NSString *)doctorLogo{

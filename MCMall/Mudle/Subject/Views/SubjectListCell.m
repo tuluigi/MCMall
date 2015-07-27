@@ -11,7 +11,7 @@
 @interface SubjectListCell ()
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIImageView *doctorLogoImageView;
-@property(nonatomic,strong)UILabel *doctorNameLable,*doctorJobLable,*doctorDescLable,*subjectTimeLable,*subjectTitleLable;
+@property(nonatomic,strong)UILabel *doctorNameLable,*stateLable,*doctorDescLable,*subjectTimeLable,*subjectTitleLable;
 @property(nonatomic,strong)UIButton *entranceButton,*historyButton;
 @end
 
@@ -32,31 +32,36 @@
     
     _doctorLogoImageView=[UIImageView new];
     _doctorLogoImageView.backgroundColor=[UIColor clearColor];
+    _doctorLogoImageView.layer.cornerRadius=30.0;
+    _doctorLogoImageView.layer.masksToBounds=YES;
     [_bgView addSubview:_doctorLogoImageView];
     
     _doctorNameLable=[UILabel new];
     _doctorNameLable.textColor=[UIColor darkGrayColor];
-    _doctorNameLable.font=[UIFont systemFontOfSize:10];
+    _doctorNameLable.font=[UIFont systemFontOfSize:12];
     _doctorNameLable.textAlignment=NSTextAlignmentCenter;
     [_bgView addSubview:_doctorNameLable];
 
-    _doctorJobLable=[UILabel new];
-    _doctorJobLable.textColor=[UIColor blackColor];
-    _doctorJobLable.font=[UIFont systemFontOfSize:14];
-    _doctorJobLable.textAlignment=NSTextAlignmentCenter;
-    [_bgView addSubview:_doctorJobLable];
+    /*
+    _stateLable=[UILabel new];
+    _stateLable.textColor=[UIColor blackColor];
+    _stateLable.font=[UIFont systemFontOfSize:14];
+    _stateLable.textAlignment=NSTextAlignmentCenter;
+    [_bgView addSubview:_stateLable];
+    
     
     _historyButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [_historyButton setTitle:@"往期回顾" forState:UIControlStateNormal];
     _historyButton.titleLabel.textColor=[UIColor red:241 green:203 blue:134.0 alpha:1];
     _historyButton.titleLabel.font=[UIFont systemFontOfSize:13];
     [_bgView addSubview:_historyButton];
+    */
     
     _doctorDescLable=[UILabel new];
-    _doctorDescLable.numberOfLines=2;
-    _doctorDescLable.textColor=[UIColor darkGrayColor];
-    _doctorDescLable.font=[UIFont systemFontOfSize:12];
-    _doctorDescLable.textAlignment=NSTextAlignmentCenter;
+    _doctorDescLable.numberOfLines=3;
+    _doctorDescLable.textColor=[UIColor lightGrayColor];
+    _doctorDescLable.font=[UIFont systemFontOfSize:13];
+    _doctorDescLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_doctorDescLable];
 
     _subjectTimeLable=[UILabel new];
@@ -85,7 +90,7 @@
         make.edges.equalTo(weakSelf.contentView);
     }];
     [_doctorLogoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(_bgView).offset(15.0);
+        make.left.top.equalTo(_bgView).offset(10.0);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     [_doctorNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,13 +98,16 @@
         make.top.mas_equalTo(_doctorLogoImageView.mas_bottom).offset(5);
         make.height.mas_lessThanOrEqualTo(@20);
     }];
-    [_doctorJobLable mas_makeConstraints:^(MASConstraintMaker *make) {
+    /*
+    [_stateLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorLogoImageView.mas_right).offset(10);
         make.top.equalTo(_bgView).offset(5);
         make.right.equalTo(_historyButton.mas_left).offset(-5);
         make.height.mas_lessThanOrEqualTo(@20);
        // make.bottom.mas_equalTo(_doctorDescLable.mas_top).offset(-5);
     }];
+     */
+    /*
     [_historyButton mas_makeConstraints:^(MASConstraintMaker *make) {
        // make.left.equalTo(_doctorJobLable.mas_right).offset(5);
         make.top.height.equalTo(_doctorJobLable);
@@ -107,29 +115,33 @@
         make.height.equalTo(_doctorJobLable);
         make.right.mas_equalTo(_bgView.mas_right).offset(-10);
     }];
+     */
     
     [_doctorDescLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_doctorJobLable);
-        make.top.mas_equalTo(_doctorJobLable.mas_bottom);
+        make.left.equalTo(_doctorLogoImageView.mas_right).offset(10);
+        make.top.mas_equalTo(_bgView.mas_top).offset(7);
         make.right.equalTo(_bgView.mas_right).offset(-10);
-        make.height.mas_lessThanOrEqualTo(40);
+        make.height.mas_lessThanOrEqualTo(60);
     }];
     [_subjectTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_doctorJobLable);
+        make.left.equalTo(_doctorDescLable);
         make.right.mas_equalTo(_doctorDescLable);
-        make.top.mas_equalTo(_doctorDescLable.mas_bottom);
+        make.top.mas_equalTo(_doctorDescLable.mas_bottom).offset(5);
         make.height.mas_lessThanOrEqualTo(20);
     }];
     [_subjectTitleLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_doctorJobLable);
-        make.top.mas_equalTo(_subjectTimeLable.mas_bottom);
-        make.bottom.equalTo(_bgView.mas_bottom).offset(-5);
+        make.left.equalTo(_doctorDescLable);
+        make.top.mas_equalTo(_subjectTimeLable.mas_bottom).offset(5);
+      //  make.bottom.equalTo(_bgView.mas_bottom).offset(-5);
         make.right.equalTo(_entranceButton.mas_left).offset(-5);
+      make.height.mas_lessThanOrEqualTo(20);
     }];
     [_entranceButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_equalTo(_subjectTitleLable);
-        make.width.mas_lessThanOrEqualTo(60);
+        make.top.mas_equalTo(_subjectTitleLable);
+        make.bottom.mas_equalTo(_subjectTitleLable);
+        make.width.mas_lessThanOrEqualTo(65);
         make.right.mas_equalTo(_bgView.mas_right).offset(-10);
+        
     }];
     
 }
@@ -137,18 +149,20 @@
     _subjectModel=subjectModel;
     [_doctorLogoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectModel.doctorLogo] placeholderImage:MCMallDefaultImg];
     _doctorNameLable.text=_subjectModel.doctorName;
-    _doctorDescLable.text=_subjectModel.doctorDesc;
-    _doctorJobLable.text=@"";
-    _subjectTimeLable.text=_subjectModel.subjectTime;
-    _subjectTitleLable.text=_subjectModel.subjectTitle;
-    if (_subjectModel.subjectState==SubjectModelStateFinsihed||_subjectModel.subjectState==SubjectModelStateUnStart) {
-        _entranceButton.hidden=YES;
-        if (_subjectModel.subjectState==SubjectModelStateFinsihed) {
-            _historyButton.hidden=YES;
-        }
+    _doctorDescLable.text=[@"简介:" stringByAppendingString:_subjectModel.doctorDesc];
+    //_doctorJobLable.text=@"";
+    _subjectTimeLable.text=[@"讲座时间:" stringByAppendingString:_subjectModel.subjectTime];
+    _subjectTitleLable.text=[@"主题:" stringByAppendingString:_subjectModel.subjectTitle];
+    if (_subjectModel.subjectState==SubjectModelStateFinsihed){
+        _entranceButton.hidden=NO;
+        _entranceButton.backgroundColor=[UIColor red:204 green:204 blue:204 alpha:1];
+        [_entranceButton setTitle:@"往期回顾" forState:UIControlStateNormal];
     }else if (_subjectModel.subjectState==SubjectModelStateProcessing){
         _entranceButton.hidden=NO;
-        _historyButton.hidden=YES;
+        [_entranceButton setTitle:@"马上进入" forState:UIControlStateNormal];
+         _entranceButton.backgroundColor=[UIColor red:241 green:203 blue:134.0 alpha:1];
+    }else if(_subjectModel.subjectState==SubjectModelStateUnStart){
+        _entranceButton.hidden=YES;
     }
 }
 @end
