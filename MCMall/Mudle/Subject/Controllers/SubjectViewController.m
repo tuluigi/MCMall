@@ -22,6 +22,7 @@
     self.title=@"专家问答";
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
+         _pageIndex=1;
         [weakSelf getSubjectList];
     }];
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -80,7 +81,7 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    return 110;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;

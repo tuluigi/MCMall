@@ -38,7 +38,7 @@
     
     _doctorNameLable=[UILabel new];
     _doctorNameLable.textColor=[UIColor darkGrayColor];
-    _doctorNameLable.font=[UIFont systemFontOfSize:12];
+    _doctorNameLable.font=[UIFont systemFontOfSize:11];
     _doctorNameLable.textAlignment=NSTextAlignmentCenter;
     [_bgView addSubview:_doctorNameLable];
 
@@ -95,33 +95,17 @@
     }];
     [_doctorNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.equalTo(_doctorLogoImageView);
+        //make.right.mas_equalTo(_doctorLogoImageView);
         make.top.mas_equalTo(_doctorLogoImageView.mas_bottom).offset(5);
         make.height.mas_lessThanOrEqualTo(@20);
+      //  make.bottom.mas_equalTo(_bgView).offset(-10);
     }];
-    /*
-    [_stateLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_doctorLogoImageView.mas_right).offset(10);
-        make.top.equalTo(_bgView).offset(5);
-        make.right.equalTo(_historyButton.mas_left).offset(-5);
-        make.height.mas_lessThanOrEqualTo(@20);
-       // make.bottom.mas_equalTo(_doctorDescLable.mas_top).offset(-5);
-    }];
-     */
-    /*
-    [_historyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-       // make.left.equalTo(_doctorJobLable.mas_right).offset(5);
-        make.top.height.equalTo(_doctorJobLable);
-        make.width.equalTo(@60);
-        make.height.equalTo(_doctorJobLable);
-        make.right.mas_equalTo(_bgView.mas_right).offset(-10);
-    }];
-     */
     
     [_doctorDescLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorLogoImageView.mas_right).offset(10);
-        make.top.mas_equalTo(_bgView.mas_top).offset(7);
+        make.top.mas_equalTo(_bgView.mas_top).offset(10);
         make.right.equalTo(_bgView.mas_right).offset(-10);
-        make.height.mas_lessThanOrEqualTo(60);
+        make.height.mas_lessThanOrEqualTo(@60);
     }];
     [_subjectTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorDescLable);
@@ -132,9 +116,9 @@
     [_subjectTitleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorDescLable);
         make.top.mas_equalTo(_subjectTimeLable.mas_bottom).offset(5);
-      //  make.bottom.equalTo(_bgView.mas_bottom).offset(-5);
+        make.bottom.equalTo(_bgView.mas_bottom).offset(-10);
         make.right.equalTo(_entranceButton.mas_left).offset(-5);
-      make.height.mas_lessThanOrEqualTo(20);
+        make.height.mas_lessThanOrEqualTo(20);
     }];
     [_entranceButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_subjectTitleLable);
@@ -151,7 +135,7 @@
     _doctorNameLable.text=_subjectModel.doctorName;
     _doctorDescLable.text=[@"简介:" stringByAppendingString:_subjectModel.doctorDesc];
     //_doctorJobLable.text=@"";
-    _subjectTimeLable.text=[@"讲座时间:" stringByAppendingString:_subjectModel.subjectTime];
+    _subjectTimeLable.text=[@"时间:" stringByAppendingString:_subjectModel.subjectTime];
     _subjectTitleLable.text=[@"主题:" stringByAppendingString:_subjectModel.subjectTitle];
     if (_subjectModel.subjectState==SubjectModelStateFinsihed){
         _entranceButton.hidden=NO;

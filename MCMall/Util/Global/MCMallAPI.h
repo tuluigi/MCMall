@@ -43,4 +43,6 @@
 +(NSString *)getSubjectListAPI;
 //专家问答详情
 +(NSString *)getSubjectDetailAPI;
+//专家问答详情
++(NSString *)askSubjectQuestionAPI;
 @end

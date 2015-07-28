@@ -25,13 +25,13 @@
 -(void)onInitUI{
     _logoImageView=[UIImageView new];
     _logoImageView.backgroundColor=[UIColor clearColor];
-    _logoImageView.layer.cornerRadius=25;
+    _logoImageView.layer.cornerRadius=20;
     _logoImageView.layer.masksToBounds=YES;
     [self.contentView addSubview:_logoImageView];
     
     _userNameLable=[UILabel new];
     _userNameLable.textColor=MCMallThemeColor;
-    _userNameLable.font=[UIFont systemFontOfSize:10];
+    _userNameLable.font=[UIFont systemFontOfSize:14];
     _userNameLable.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_userNameLable];
     
@@ -43,7 +43,7 @@
     
     
     _contentLable=[UILabel new];
-    //_contentLable.numberOfLines=2;
+    _contentLable.numberOfLines=0;
     _contentLable.textColor=[UIColor blackColor];
     _contentLable.font=[UIFont systemFontOfSize:12];
     _contentLable.textAlignment=NSTextAlignmentLeft;
@@ -51,14 +51,14 @@
     
     WEAKSELF
     [_logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.contentView).offset(15);
+        make.left.equalTo(weakSelf.contentView).offset(10);
         make.top.equalTo(@10);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
-        make.bottom.mas_equalTo(-5);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.bottom.mas_lessThanOrEqualTo(-10);
     }];
     [_userNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.logoImageView.mas_right).offset(5);
-        make.top.mas_equalTo(5);
+        make.left.mas_equalTo(weakSelf.logoImageView.mas_right).offset(10);
+        make.top.mas_equalTo(10);
         make.right.mas_equalTo(_timeLable.mas_left).offset(-5);
         make.height.mas_lessThanOrEqualTo(20);
     }];
@@ -70,7 +70,7 @@
     [_contentLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_userNameLable);
         make.right.mas_equalTo(-5);
-        make.bottom.mas_equalTo(-5);
+        make.bottom.mas_equalTo(-10);
         make.top.mas_equalTo(_userNameLable.mas_bottom);
     }];
    

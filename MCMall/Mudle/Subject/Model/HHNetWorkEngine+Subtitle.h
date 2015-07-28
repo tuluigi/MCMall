@@ -35,5 +35,9 @@
                                            pageIndex:(NSInteger)pageIndex
                                            pageSize:(NSInteger )pageSize
                                 onCompletionHandler:(HHResponseResultSucceedBlock)completion;
-
+//提问问题
+-(HHNetWorkOperation *)askSubjectQuestionWithSubjectID:(NSString *)subjectID
+                                           userID:(NSString *)userID
+                                       questionContent:(NSString *)question
+                                 onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 @end

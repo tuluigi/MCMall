@@ -84,4 +84,16 @@
         responseResult.responseData=responseArray;
     }
 }
+-(HHNetWorkOperation *)askSubjectQuestionWithSubjectID:(NSString *)subjectID
+                                                userID:(NSString *)userID
+                                       questionContent:(NSString *)question
+                                   onCompletionHandler:(HHResponseResultSucceedBlock)completion{
+    
+    NSString *apiPath=[MCMallAPI askSubjectQuestionAPI];
+    NSDictionary *postDic=@{@"userid":userID,@"data":question,@"id":subjectID};
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        completion(responseResult);
+    }];
+    return op;
+}
 @end

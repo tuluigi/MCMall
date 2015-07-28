@@ -141,6 +141,10 @@
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf getPhotoCommontsWithActivityID:weakSelf.activityID photoID:weakSelf.photoModle.photoID];
     }];
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        _pageIndex=1;
+        [weakSelf getPhotoCommontsWithActivityID:weakSelf.activityID photoID:weakSelf.photoModle.photoID];
+    }];
     // Do any additional setup after loading the view.
     [self.tableView  setupPanGestureControlKeyboardHide:YES];
     self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){

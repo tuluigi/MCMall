@@ -83,5 +83,8 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)getSubjectDetailAPI{
 return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"specialinfo"];
 }
-
+//专家问答详情
++(NSString *)askSubjectQuestionAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"ask"];
+}
 @end
