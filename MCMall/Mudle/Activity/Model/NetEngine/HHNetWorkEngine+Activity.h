@@ -31,6 +31,7 @@
  *
  *  @param activityID      活动ID
  *  @param type            活动类型
+ *  @param sortMethod       1 是按照时间，其他按照点赞
  *  @param completionBlcok
  *
  *  @return
@@ -38,6 +39,7 @@
 -(HHNetWorkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
                                                 userID:(NSString *)userID
+                                            sortMethod:(NSString *)sort
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 

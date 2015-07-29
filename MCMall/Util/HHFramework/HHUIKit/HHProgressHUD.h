@@ -16,4 +16,7 @@
 +(void)showProgressWithMessage:(NSString *)msg;
 
 +(void)dismiss;
+
++(void)makeToast:(NSString *)aMessage;
++(void)hideToast;
 @end

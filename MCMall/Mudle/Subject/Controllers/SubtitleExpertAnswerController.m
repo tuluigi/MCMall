@@ -15,6 +15,7 @@
 @interface SubtitleExpertAnswerController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *commentTextField;
 @property(nonatomic,copy)NSString *subjectID,*subjectTitle;
+@property(nonatomic,assign)SubjectModelState subjectState;
 @end
 
 @implementation SubtitleExpertAnswerController
@@ -29,35 +30,36 @@
         _commentTextField.delegate=self;
         [_commentTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
         _commentTextField.returnKeyType=UIReturnKeyDone;
-       //  _commentTextField.backgroundColor=[UIColor redColor];
+        //  _commentTextField.backgroundColor=[UIColor redColor];
         
     }
     return _commentTextField;
 }
--(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title{
+-(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title state:(SubjectModelState)state{
     self=[super init];
     if (self) {
         _subjectID=subjectID;
         _subjectTitle=title;
+        _subjectState=state;
     }
     return self;
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    [self.view addSubview:self.commentTextField];
     WEAKSELF
-    [self.commentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(weakSelf.view);
-        make.height.mas_equalTo(50.0);
-    }];
-    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.removeExisting=YES;
-        make.bottom.mas_equalTo(weakSelf.commentTextField.mas_top).priorityHigh();
-       // make.bottom.priorityHigh.
-        
-    }];
-     [self.tableView  setupPanGestureControlKeyboardHide:YES];
+    if (self.subjectState==SubjectModelStateProcessing) {
+        [self.view addSubview:self.commentTextField];
+        [self.commentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(weakSelf.view);
+            make.height.mas_equalTo(50.0);
+        }];
+        [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(weakSelf.commentTextField.mas_top).priorityHigh();
+        }];
+    }
+    
+    [self.tableView  setupPanGestureControlKeyboardHide:YES];
     self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
         [weakSelf.commentTextField mas_updateConstraints:^(MASConstraintMaker *make) {
             if (showKeyborad) {
@@ -69,16 +71,16 @@
         }];
         [weakSelf.commentTextField layoutIfNeeded];
     };
-
+    
     self.title=_subjectTitle;
     
     [self.tableView registerClass:[SubjectAnswerCell class] forCellReuseIdentifier:@"cellidentifer"];
-
+    
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf getSubjectAnswerWithSubjectID:weakSelf.subjectID];
     }];
     [self.tableView addPullToRefreshWithActionHandler:^{
-         _pageIndex=1;
+        _pageIndex=1;
         [weakSelf getSubjectAnswerWithSubjectID:weakSelf.subjectID];
     }];
     [self getSubjectAnswerWithSubjectID:self.subjectID];
@@ -91,23 +93,28 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-                [weakSelf.view dismissPageLoadView];
-            if (((NSArray *)responseResult.responseData).count) {
-                
-               
-            }else{
-                [HHProgressHUD showErrorMssage:@"暂时没有更多数据"];
-            }
+            [weakSelf.view dismissPageLoadView];
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             [weakSelf.tableView reloadData];
+            if (weakSelf.dataSourceArray.count==0) {
+                if (_subjectState==SubjectModelStateProcessing) {
+                     [HHProgressHUD makeToast:@"暂时还没有问题,赶紧来提问吧！"];
+                }else{
+                    [weakSelf.tableView showPageLoadViewWithMessage:@"暂时没有更多内容"];
+                }
+            }else{
+                if (((NSArray *)responseResult.responseData).count==0) {
+                    [HHProgressHUD makeToast:@"暂时没有更多内容"];
+                }
+            }
         }else{
             if (weakSelf.dataSourceArray==0) {
                 [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
             }else{
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [HHProgressHUD makeToast:responseResult.responseMessage];
             }
         }
         [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
@@ -127,15 +134,15 @@
             commentModel.commentUserName=userModel.userName;
             commentModel.commentTime=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
             [weakSelf.dataSourceArray addObject:commentModel];
-           NSIndexPath *indexPath= [NSIndexPath indexPathForRow:(weakSelf.dataSourceArray.count-1) inSection:0];
+            NSIndexPath *indexPath= [NSIndexPath indexPathForRow:(weakSelf.dataSourceArray.count-1) inSection:0];
             [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             [weakSelf.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
             weakSelf.commentTextField.text=@"";
         }else{
             [HHProgressHUD showErrorMssage:responseResult.responseMessage];
         }
-       
+        
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
@@ -157,9 +164,9 @@
     return 60;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-     SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     return [tableView fd_heightForCellWithIdentifier:@"cellidentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
-          ((SubjectAnswerCell *)cell).subjectCommentModel=commentModel;
+        ((SubjectAnswerCell *)cell).subjectCommentModel=commentModel;
     }];
 }
 #pragma mark textField
@@ -167,7 +174,7 @@
 - (void)textFieldValueDidChange:(UITextField *)textField
 {
     if (textField == self.commentTextField) {
-       // self.publishButton.enabled=textField.text.length;
+        // self.publishButton.enabled=textField.text.length;
     }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

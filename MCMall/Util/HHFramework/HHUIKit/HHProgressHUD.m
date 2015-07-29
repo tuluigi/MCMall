@@ -8,6 +8,7 @@
 
 #import "HHProgressHUD.h"
 #import "SVProgressHUD.h"
+#import "UIView+Toast.h"
 @implementation HHProgressHUD
 +(void)showLoadingMessage:(NSString *)msg{
     [SVProgressHUD showWithStatus:msg];
@@ -27,5 +28,15 @@
 
 +(void)dismiss{
     [SVProgressHUD dismiss];
+}
++(void)makeToast:(NSString *)aMessage{
+    if ([SVProgressHUD isVisible]) {
+        [SVProgressHUD dismiss];
+    }
+    [[UIApplication sharedApplication].keyWindow hideToastActivity];
+    [[UIApplication sharedApplication].keyWindow makeToast:aMessage duration:0.8 position:[NSValue valueWithCGPoint:CGPointMake([UIApplication sharedApplication].keyWindow.center.x,[UIApplication sharedApplication].keyWindow.frame.size.height-100 )]];
+}
++(void)hideToast{
+    [[UIApplication sharedApplication].keyWindow hideToastActivity];
 }
 @end
