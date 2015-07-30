@@ -51,11 +51,15 @@
 -(HHNetWorkOperation *)getActivityDetailWithActivityID:(NSString *)activityID
                                           activityType:(NSInteger)type
                                                 userID:(NSString *)userID
+                                            sortMethod:(NSString *)sort
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
+    if (nil==sort||sort.length==0) {
+        sort=@"0";
+    }
     NSString *apiPath=[MCMallAPI getActivityDetailAPI];
     userID=[NSString stringByReplaceNullString:userID];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", activityID,@"activeid",@(type),@"atype", nil];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", activityID,@"activeid",@(type),@"atype",sort,@"sort", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);

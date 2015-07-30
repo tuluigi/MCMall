@@ -22,7 +22,7 @@
     self.title=@"专家问答";
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
-         _pageIndex=1;
+        _pageIndex=1;
         [weakSelf getSubjectList];
     }];
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -36,24 +36,29 @@
         [self.tableView showPageLoadingView];
     }
     WEAKSELF
-   HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-       if (responseResult.responseCode==HHResponseResultCode100) {
-           if (weakSelf.dataSourceArray.count==0) {
-               [weakSelf.tableView dismissPageLoadView];
-           }
-           if (_pageIndex==1) {
-               [weakSelf.dataSourceArray removeAllObjects];
-           }
-           [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
-           [weakSelf.tableView reloadData];
-       }else{
-           if (weakSelf.dataSourceArray.count==0) {
-               [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
-           }else{
-               [HHProgressHUD showErrorMssage:responseResult.responseMessage];
-           }
-       }
-       [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:self.dataSourceArray.count];
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            if (_pageIndex==1) {
+                [weakSelf.dataSourceArray removeAllObjects];
+            }
+            [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            [weakSelf.tableView reloadData];
+            if (weakSelf.dataSourceArray.count==0) {
+                [weakSelf.tableView showPageLoadViewWithMessage:@"暂时没有更多内容"];
+            }else{
+                [weakSelf.tableView dismissPageLoadView];
+                if (((NSArray *)responseResult.responseData).count==0) {
+                    [HHProgressHUD makeToast:@"没有更多内容"];
+                }
+            }
+        }else{
+            if (weakSelf.dataSourceArray.count==0) {
+                [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
+            }else{
+                [HHProgressHUD makeToast:responseResult.responseMessage];
+            }
+        }
+        [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:self.dataSourceArray.count];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
@@ -75,10 +80,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle];
-    expertViewController.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:expertViewController animated:YES];
-    
+    if (subjectModel.subjectState==SubjectModelStateProcessing||subjectModel.subjectState==SubjectModelStateFinsihed){
+        SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle state:subjectModel.subjectState];
+        expertViewController.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:expertViewController animated:YES];
+        
+    }else if (subjectModel.subjectState==SubjectModelStateUnStart){
+        [HHProgressHUD makeToast:@"专题尚未开始"];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 110;

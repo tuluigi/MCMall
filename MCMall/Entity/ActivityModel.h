@@ -13,9 +13,11 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
     ActivityTypeVote        =3 ,//投票
     ActivityTypeApply       =2,//报名
     ActivityTypePicture     =4,//图片活动
-    
 };
-
+typedef NS_ENUM(NSInteger, ActivitySortType) {
+    ActivitySortTypeHot     =0,//最热
+    ActivitySortTypeLatest =1,//最细
+};
 
 @class OperationModel;
 @interface ActivityModel : NSObject
@@ -25,6 +27,7 @@ typedef NS_ENUM(NSUInteger, ActivityType) {
 @property(nonatomic,copy)NSString *activityDetail;
 @property(nonatomic,copy)NSString *activityEndTime;
 @property(nonatomic,assign)ActivityType activityType;
+
 
 +(id )activityModelWithResponseDic:(NSDictionary *)dic;
 -(NSString *)activityDetailHtmlString;

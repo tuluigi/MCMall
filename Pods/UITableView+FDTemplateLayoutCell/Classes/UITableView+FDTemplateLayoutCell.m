@@ -118,7 +118,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 
 - (id)fd_templateCellForReuseIdentifier:(NSString *)identifier
 {
-    NSAssert(identifier.length > 0, @"Expects a valid identifier - %@", identifier);
+    NSAssert(identifier.length > 0, @"Expect a valid identifier - %@", identifier);
     
     NSMutableDictionary *templateCellsByIdentifiers = objc_getAssociatedObject(self, _cmd);
     if (!templateCellsByIdentifiers) {
@@ -132,6 +132,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
         templateCell = [self dequeueReusableCellWithIdentifier:identifier];
         NSAssert(templateCell != nil, @"Cell must be registered to table view for identifier - %@", identifier);
         templateCell.fd_isTemplateLayoutCell = YES;
+        templateCell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
         templateCellsByIdentifiers[identifier] = templateCell;
         [self fd_debugLog:[NSString stringWithFormat:@"layout cell created - %@", identifier]];
     }
@@ -139,7 +140,8 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
     return templateCell;
 }
 
-- (_FDTemplateLayoutCellHeightCache *)fd_cellHeightCache {
+- (_FDTemplateLayoutCellHeightCache *)fd_cellHeightCache
+{
     _FDTemplateLayoutCellHeightCache *cache = objc_getAssociatedObject(self, _cmd);
     if (!cache) {
         cache = [_FDTemplateLayoutCellHeightCache new];
@@ -210,6 +212,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
         // Remove observer when all precache tasks are done.
         if (mutableIndexPathsToBePrecached.count == 0) {
             CFRunLoopRemoveObserver(runLoop, observer, runLoopMode);
+            CFRelease(observer);
             return;
         }
         // Pop first index path record as this RunLoop iteration's task.
@@ -230,15 +233,25 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 
 - (void)fd_precacheIndexPathIfNeeded:(NSIndexPath *)indexPath
 {
-    if (![self.fd_cellHeightCache hasCachedHeightAtIndexPath:indexPath]) {
-        CGFloat height = [self.delegate tableView:self heightForRowAtIndexPath:indexPath];
-        [self.fd_cellHeightCache cacheHeight:height byIndexPath:indexPath];
-        [self fd_debugLog:[NSString stringWithFormat:
-                           @"precached - [%@:%@] %@",
-                           @(indexPath.section),
-                           @(indexPath.row),
-                           @(height)]];
+    // A cached indexPath
+    if ([self.fd_cellHeightCache hasCachedHeightAtIndexPath:indexPath]) {
+        return;
     }
+    
+    // This RunLoop source may have been invalid at this point when data source
+    // changes during precache's dispatching.
+    if (indexPath.section >= [self numberOfSections] ||
+        indexPath.row >= [self numberOfRowsInSection:indexPath.section]) {
+        return;
+    }
+    
+    CGFloat height = [self.delegate tableView:self heightForRowAtIndexPath:indexPath];
+    [self.fd_cellHeightCache cacheHeight:height byIndexPath:indexPath];
+    [self fd_debugLog:[NSString stringWithFormat:
+                       @"finished precache - [%@:%@] %@",
+                       @(indexPath.section),
+                       @(indexPath.row),
+                       @(height)]];
 }
 
 - (NSArray *)fd_allIndexPathsToBePrecached
@@ -321,9 +334,11 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 {
     if (self.fd_autoCacheInvalidationEnabled) {
         [sections enumerateIndexesUsingBlock: ^(NSUInteger idx, BOOL *stop) {
-            NSMutableArray *rows = self.fd_cellHeightCache.sections[idx];
-            for (NSInteger row = 0; row < rows.count; ++row) {
-                rows[row] = @(_FDTemplateLayoutCellHeightCacheAbsentValue);
+            if (idx < self.fd_cellHeightCache.sections.count) {
+                NSMutableArray *rows = self.fd_cellHeightCache.sections[idx];
+                for (NSInteger row = 0; row < rows.count; ++row) {
+                    rows[row] = @(_FDTemplateLayoutCellHeightCacheAbsentValue);
+                }
             }
         }];
     }
@@ -334,7 +349,10 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)fd_moveSection:(NSInteger)section toSection:(NSInteger)newSection
 {
     if (self.fd_autoCacheInvalidationEnabled) {
-        [self.fd_cellHeightCache.sections exchangeObjectAtIndex:section withObjectAtIndex:newSection];
+        NSInteger sectionCount = self.fd_cellHeightCache.sections.count;
+        if (section < sectionCount && newSection < sectionCount) {
+            [self.fd_cellHeightCache.sections exchangeObjectAtIndex:section withObjectAtIndex:newSection];
+        }
     }
     [self fd_moveSection:section toSection:newSection]; // Primary call
 }
@@ -342,6 +360,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)fd_insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     if (self.fd_autoCacheInvalidationEnabled) {
+        [self.fd_cellHeightCache buildHeightCachesAtIndexPathsIfNeeded:indexPaths];
         [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
             NSMutableArray *rows = self.fd_cellHeightCache.sections[indexPath.section];
             [rows insertObject:@(_FDTemplateLayoutCellHeightCacheAbsentValue) atIndex:indexPath.row];
@@ -354,8 +373,10 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)fd_deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     if (self.fd_autoCacheInvalidationEnabled) {
+        [self.fd_cellHeightCache buildHeightCachesAtIndexPathsIfNeeded:indexPaths];
         [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-            [self.fd_cellHeightCache.sections[indexPath.section] removeObjectAtIndex:indexPath.row];
+            NSMutableArray *rows = self.fd_cellHeightCache.sections[indexPath.section];
+            [rows removeObjectAtIndex:indexPath.row];
         }];
     }
     [self fd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation]; // Primary call
@@ -364,6 +385,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)fd_reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     if (self.fd_autoCacheInvalidationEnabled) {
+        [self.fd_cellHeightCache buildHeightCachesAtIndexPathsIfNeeded:indexPaths];
         [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
             NSMutableArray *rows = self.fd_cellHeightCache.sections[indexPath.section];
             rows[indexPath.row] = @(_FDTemplateLayoutCellHeightCacheAbsentValue);
@@ -376,6 +398,8 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)fd_moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     if (self.fd_autoCacheInvalidationEnabled) {
+        [self.fd_cellHeightCache buildHeightCachesAtIndexPathsIfNeeded:@[sourceIndexPath, destinationIndexPath]];
+
         NSMutableArray *sourceRows = self.fd_cellHeightCache.sections[sourceIndexPath.section];
         NSMutableArray *destinationRows = self.fd_cellHeightCache.sections[destinationIndexPath.section];
         
@@ -411,28 +435,69 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
         configuration(cell);
     }
     
-    // Add a hard width constraint to make dynamic content views (like labels) expand vertically instead
-    // of growing horizontally, in a flow-layout manner.
-    NSLayoutConstraint *tempWidthConstraint =
-    [NSLayoutConstraint constraintWithItem:cell.contentView
-                                 attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:CGRectGetWidth(self.frame)];
-    [cell.contentView addConstraint:tempWidthConstraint];
+    CGFloat contentViewWidth = CGRectGetWidth(self.frame);
+
+    // If a cell has accessory view or system accessory type, its content view's width is smaller
+    // than cell's by some fixed value.
+    if (cell.accessoryView) {
+        contentViewWidth -= 16 + CGRectGetWidth(cell.accessoryView.frame);
+    } else {
+        static CGFloat systemAccessoryWidths[] = {
+            [UITableViewCellAccessoryNone] = 0,
+            [UITableViewCellAccessoryDisclosureIndicator] = 34,
+            [UITableViewCellAccessoryDetailDisclosureButton] = 68,
+            [UITableViewCellAccessoryCheckmark] = 40,
+            [UITableViewCellAccessoryDetailButton] = 48
+        };
+        contentViewWidth -= systemAccessoryWidths[cell.accessoryType];
+    }
     
-    // Auto layout engine does its math
-    CGSize fittingSize = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    
-    [cell.contentView removeConstraint:tempWidthConstraint];
+    CGSize fittingSize = CGSizeZero;
+
+    // If auto layout enabled, cell's contentView must have some constraints.
+    BOOL autoLayoutEnabled = cell.contentView.constraints.count > 0 && !cell.fd_enforceFrameLayout;
+    if (autoLayoutEnabled) {
+        
+        // Add a hard width constraint to make dynamic content views (like labels) expand vertically instead
+        // of growing horizontally, in a flow-layout manner.
+        NSLayoutConstraint *tempWidthConstraint =
+        [NSLayoutConstraint constraintWithItem:cell.contentView
+                                     attribute:NSLayoutAttributeWidth
+                                     relatedBy:NSLayoutRelationEqual
+                                        toItem:nil
+                                     attribute:NSLayoutAttributeNotAnAttribute
+                                    multiplier:1.0
+                                      constant:contentViewWidth];
+        [cell.contentView addConstraint:tempWidthConstraint];
+        // Auto layout engine does its math
+        fittingSize = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        [cell.contentView removeConstraint:tempWidthConstraint];
+        
+    } else {
+        
+        // If not using auto layout, you have to override "-sizeThatFits:" to provide a fitting size by yourself.
+        // This is the same method used in iOS8 self-sizing cell's implementation.
+        // Note: fitting height should not include separator view.
+        SEL selector = @selector(sizeThatFits:);
+        BOOL inherited = ![cell isMemberOfClass:UITableViewCell.class];
+        BOOL overrided = [cell.class instanceMethodForSelector:selector] != [UITableViewCell instanceMethodForSelector:selector];
+        if (inherited && !overrided) {
+            NSAssert(NO, @"Customized cell must override '-sizeThatFits:' method if not using auto layout.");
+        }
+        fittingSize = [cell sizeThatFits:CGSizeMake(contentViewWidth, 0)];
+    }
     
     // Add 1px extra space for separator line if needed, simulating default UITableViewCell.
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
         fittingSize.height += 1.0 / [UIScreen mainScreen].scale;
     }
     
+    if (autoLayoutEnabled) {
+        [self fd_debugLog:[NSString stringWithFormat:@"calculate using auto layout - %@", @(fittingSize.height)]];
+    } else {
+        [self fd_debugLog:[NSString stringWithFormat:@"calculate using frame layout - %@", @(fittingSize.height)]];
+    }
+
     return fittingSize.height;
 }
 
@@ -446,6 +511,7 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
     if (!self.fd_autoCacheInvalidationEnabled) {
         self.fd_autoCacheInvalidationEnabled = YES;
     }
+    
     // Enable precache if you use this "cacheByIndexPath" API.
     if (!self.fd_precacheEnabled) {
         self.fd_precacheEnabled = YES;
@@ -463,10 +529,10 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
         return [self.fd_cellHeightCache cachedHeightAtIndexPath:indexPath];
     }
     
-    // Do calculations
+    // Call basic height calculation method.
     CGFloat height = [self fd_heightForCellWithIdentifier:identifier configuration:configuration];
     [self fd_debugLog:[NSString stringWithFormat:
-                       @"calculate - [%@:%@] %@",
+                       @"cached - [%@:%@] %@",
                        @(indexPath.section),
                        @(indexPath.row),
                        @(height)]];
@@ -501,6 +567,16 @@ static CGFloat const _FDTemplateLayoutCellHeightCacheAbsentValue = -1;
 - (void)setFd_isTemplateLayoutCell:(BOOL)isTemplateLayoutCell
 {
     objc_setAssociatedObject(self, @selector(fd_isTemplateLayoutCell), @(isTemplateLayoutCell), OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)fd_enforceFrameLayout
+{
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setFd_enforceFrameLayout:(BOOL)enforceFrameLayout
+{
+    objc_setAssociatedObject(self, @selector(fd_enforceFrameLayout), @(enforceFrameLayout), OBJC_ASSOCIATION_RETAIN);
 }
 
 @end

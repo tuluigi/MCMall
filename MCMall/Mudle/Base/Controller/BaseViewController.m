@@ -15,7 +15,12 @@
 @implementation BaseViewController
 -(void)dealloc{
     [HHProgressHUD dismiss];
+    [HHProgressHUD hideToast];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  cancleOperationsWithOperationUniqueIdentifers:self.operationsArray];
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [HHProgressHUD hideToast];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

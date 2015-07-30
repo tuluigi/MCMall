@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
-
+#import "SubjectModel.h"
 @interface SubtitleExpertAnswerController : BaseTableViewController
--(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title;
+-(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title state:(SubjectModelState)state;
 @end

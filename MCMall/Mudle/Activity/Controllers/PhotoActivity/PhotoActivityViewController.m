@@ -96,6 +96,7 @@
 -(UITextField *)commentTextField{
     if (nil==_commentTextField) {
         _commentTextField=[[UITextField alloc]  init];
+        _commentTextField.returnKeyType=UIReturnKeyDone;
         _commentTextField.borderStyle=UITextBorderStyleRoundedRect;
         _commentTextField.placeholder=@"输入评论内容...";
         _commentTextField.delegate=self;
@@ -170,6 +171,7 @@
     }
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[UserModel userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        [HHProgressHUD dismiss];
         if (responseResult.responseCode==HHResponseResultCode100) {
             PhotoModel *model=responseResult.responseData;
             if (_pageIndex==1) {
@@ -179,6 +181,9 @@
                 if (weakSelf.photoModle.isFavor) {
                     _favorButton.selected=YES;
                 }
+                if (weakSelf.photoModle.commentArray) {
+                     [weakSelf.photoModle.commentArray removeAllObjects];
+                }
             }
            
             if (nil==weakSelf.photoModle.commentArray) {
@@ -186,9 +191,11 @@
             }
             [weakSelf.photoModle.commentArray addObjectsFromArray:model.commentArray];
             [weakSelf.tableView reloadData];
-            [HHProgressHUD dismiss];
+            if (model.commentArray.count==0) {
+                [HHProgressHUD makeToast:@"暂时没有更多评论"];
+            }
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [HHProgressHUD makeToast:responseResult.responseMessage];
         }
         [self.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:self.photoModle.commentArray.count];
     }];
@@ -204,7 +211,7 @@
                  _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
                 [sender setSelected:YES];
             }else{
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [HHProgressHUD makeToast:responseResult.responseMessage];
             }
         }];
     }
@@ -227,10 +234,10 @@
                 [self.photoModle.commentArray insertObject:model atIndex:0];
                 [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
                 
-                [weakSelf.commentTextField resignFirstResponder];
-                [HHProgressHUD dismiss];
+               
+                [HHProgressHUD makeToast:responseResult.responseMessage];
             }else{
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [HHProgressHUD makeToast:responseResult.responseMessage];
             }
         }];
     }
@@ -267,6 +274,7 @@
     }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
     [self didPublishCommentButtonPressed];
     return YES;
 }

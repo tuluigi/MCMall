@@ -57,12 +57,13 @@
  *  @return
  */
 -(HHNetWorkOperation *)getSubjectDetailWithSubjectID:(NSString *)subjectID
+                                              userID:(NSString *)userID
                                            pageIndex:(NSInteger)pageIndex
                                             pageSize:(NSInteger )pageSize
                                  onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getSubjectDetailAPI];
-    NSDictionary *postDic=@{@"pageno":@(pageIndex),@"records":@(pageSize),@"id":subjectID};
+    NSDictionary *postDic=@{@"pageno":@(pageIndex),@"records":@(pageSize),@"id":subjectID,@"userid":userID};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf parseSubjectDetailWithResponseResult:&responseResult];
         completion(responseResult);
