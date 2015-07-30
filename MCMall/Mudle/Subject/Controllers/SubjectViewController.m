@@ -80,6 +80,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    if ([UserModel isLogin]) {
     if (subjectModel.subjectState==SubjectModelStateProcessing||subjectModel.subjectState==SubjectModelStateFinsihed){
         SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle state:subjectModel.subjectState];
         expertViewController.hidesBottomBarWhenPushed=YES;
@@ -87,6 +88,8 @@
         
     }else if (subjectModel.subjectState==SubjectModelStateUnStart){
         [HHProgressHUD makeToast:@"专题尚未开始"];
+    }}else{
+        [self verfiyUserLogin];
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{

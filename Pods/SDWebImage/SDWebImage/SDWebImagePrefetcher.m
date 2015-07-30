@@ -94,7 +94,6 @@
                 self.completionBlock(self.finishedCount, self.skippedCount);
                 self.completionBlock = nil;
             }
-            self.progressBlock = nil;
         }
     }];
 }

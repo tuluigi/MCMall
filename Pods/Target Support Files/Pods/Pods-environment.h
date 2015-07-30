@@ -82,7 +82,7 @@
 #define COCOAPODS_POD_AVAILABLE_Masonry
 #define COCOAPODS_VERSION_MAJOR_Masonry 0
 #define COCOAPODS_VERSION_MINOR_Masonry 6
-#define COCOAPODS_VERSION_PATCH_Masonry 2
+#define COCOAPODS_VERSION_PATCH_Masonry 1
 
 // QBImagePickerController
 #define COCOAPODS_POD_AVAILABLE_QBImagePickerController
@@ -100,13 +100,13 @@
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage 7
-#define COCOAPODS_VERSION_PATCH_SDWebImage 3
+#define COCOAPODS_VERSION_PATCH_SDWebImage 2
 
 // SDWebImage/Core
 #define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
-#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 3
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
@@ -124,7 +124,7 @@
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
 #define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
-#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 9
+#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 6
 
 // Toast
 #define COCOAPODS_POD_AVAILABLE_Toast
@@ -135,6 +135,6 @@
 // UITableView+FDTemplateLayoutCell
 #define COCOAPODS_POD_AVAILABLE_UITableView_FDTemplateLayoutCell
 #define COCOAPODS_VERSION_MAJOR_UITableView_FDTemplateLayoutCell 1
-#define COCOAPODS_VERSION_MINOR_UITableView_FDTemplateLayoutCell 3
+#define COCOAPODS_VERSION_MINOR_UITableView_FDTemplateLayoutCell 2
 #define COCOAPODS_VERSION_PATCH_UITableView_FDTemplateLayoutCell 0
 
