@@ -96,6 +96,7 @@
 -(UITextField *)commentTextField{
     if (nil==_commentTextField) {
         _commentTextField=[[UITextField alloc]  init];
+        _commentTextField.returnKeyType=UIReturnKeyDone;
         _commentTextField.borderStyle=UITextBorderStyleRoundedRect;
         _commentTextField.placeholder=@"输入评论内容...";
         _commentTextField.delegate=self;
@@ -233,7 +234,7 @@
                 [self.photoModle.commentArray insertObject:model atIndex:0];
                 [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
                 
-                [weakSelf.commentTextField resignFirstResponder];
+               
                 [HHProgressHUD makeToast:responseResult.responseMessage];
             }else{
                 [HHProgressHUD makeToast:responseResult.responseMessage];
@@ -273,6 +274,7 @@
     }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
     [self didPublishCommentButtonPressed];
     return YES;
 }

@@ -32,6 +32,7 @@
  *  @return
  */
 -(HHNetWorkOperation *)getSubjectDetailWithSubjectID:(NSString *)subjectID
+                                              userID:(NSString *)userID
                                            pageIndex:(NSInteger)pageIndex
                                            pageSize:(NSInteger )pageSize
                                 onCompletionHandler:(HHResponseResultSucceedBlock)completion;

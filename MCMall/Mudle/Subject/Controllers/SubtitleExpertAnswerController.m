@@ -91,9 +91,9 @@
         [self.view showPageLoadingView];
     }
     WEAKSELF
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID userID:[UserModel userID]  pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
-            [weakSelf.view dismissPageLoadView];
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
@@ -111,7 +111,7 @@
                 }
             }
         }else{
-            if (weakSelf.dataSourceArray==0) {
+            if (weakSelf.dataSourceArray.count==0) {
                 [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
             }else{
                 [HHProgressHUD makeToast:responseResult.responseMessage];
