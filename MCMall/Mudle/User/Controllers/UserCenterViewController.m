@@ -43,7 +43,7 @@
 }
 -(UIView *)loginFootView{
     if (nil==_loginFootView) {
-       _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_loginFootView addSubview:loginButton];
@@ -58,7 +58,7 @@
             make.right.mas_equalTo(_loginFootView.right).with.offset(-20.0);
             make.height.equalTo(@40.0);
         }];
-    
+        
         
         UIButton *registerButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_loginFootView addSubview:registerButton];
@@ -80,7 +80,7 @@
         _logoutFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_logoutFootView addSubview:loginButton];
-       
+        
         loginButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
         loginButton.layer.cornerRadius=5.0;
         loginButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
@@ -92,20 +92,20 @@
             make.right.mas_equalTo(_logoutFootView.right).with.offset(-20.0);
             make.height.equalTo(@40.0);
         }];
-
+        
     }
     return _logoutFootView;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //[self verfiyUserLogin];
-   
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"我";
     self.tableView.tableHeaderView=self.headerView;
-    self.tableView.separatorColor=MCMallThemeColor;
+   // self.tableView.separatorColor=MCMallThemeColor;
     [self reloadUI];
     WEAKSELF
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -121,14 +121,14 @@
     if ([UserModel isLogin]) {
         self.tableView.tableFooterView=self.logoutFootView;
     }else{
-         self.tableView.tableFooterView=self.loginFootView;
+        self.tableView.tableFooterView=self.loginFootView;
     }
     UserModel *userModel=[UserModel userModel];
     [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
     [self.tableView reloadData];
 }
 -(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
-        [self imagePickerButtonPressed];
+    [self imagePickerButtonPressed];
 }
 -(void)didLogoutButtonPressed{
     [UserModel logout];
@@ -175,12 +175,32 @@
 }
 
 #pragma mark -UITableView Delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 4;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSInteger row=0;
     if ([UserModel isLogin]) {
-        return 5;   
+        switch (section) {
+            case 0:{
+                row=2;
+            }break;
+            case 1:{
+                row=1;
+            }break;
+            case 2:{
+                row=4;
+            }break;
+            case 3:{
+                row=1;
+            }break;
+            default:
+                break;
+        }
     }else{
-        return 0;
+        row=0;
     }
+    return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"cellIdentifer";
@@ -239,13 +259,13 @@
     }
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
