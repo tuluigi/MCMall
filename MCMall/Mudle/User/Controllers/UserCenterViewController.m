@@ -241,21 +241,25 @@
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row==5) {
-        return CGFLOAT_MIN;
+    CGFloat height=0;
+    HHItemModel *itemModel=[[[self dataSourceArray]  objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if (itemModel.itemType==HHUserCenterItemTypeUserInfo) {
+        height=60;
     }else{
-        return 44.0;
+        height=44.0;
     }
+    return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0:
+    HHItemModel *itemModel=[[[self dataSourceArray]  objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    switch (itemModel.itemType) {
+        case HHUserCenterItemTypeUserInfo:
         {
             UserInfoViewController *userInfoViewController=[[UserInfoViewController alloc]  init];
             userInfoViewController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:userInfoViewController animated:YES];
-        }
-            break;
+        }break;
+            
             
         default:
             break;
