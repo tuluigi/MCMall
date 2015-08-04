@@ -86,7 +86,7 @@
     HHTabBarItem *activityTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"活动" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
     activityNavController.tabBarItem=activityTabbarItem;
     
-    UserCenterViewController *userCenterController=[[UserCenterViewController alloc]  init];
+    UserCenterViewController *userCenterController=[[UserCenterViewController alloc]  initWithStyle:UITableViewStyleGrouped];
     UINavigationController *userNavController=[[UINavigationController alloc]  initWithRootViewController:userCenterController];
     HHTabBarItem *userTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectedImage:[UIImage   imageNamed:@"tabbar_me_HL"]];
     userNavController.tabBarItem=userTabbarItem;

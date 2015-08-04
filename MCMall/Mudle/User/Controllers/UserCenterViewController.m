@@ -13,6 +13,7 @@
 #import "HHImagePickerHelper.h"
 #import "QBImagePickerController.h"
 #import "UserInfoViewController.h"
+#import "HHItemModel.h"
 @interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
@@ -77,7 +78,7 @@
 }
 -(UIView *)logoutFootView{
     if (nil==_logoutFootView) {
-        _logoutFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _logoutFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 80)];
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_logoutFootView addSubview:loginButton];
         
@@ -104,7 +105,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"我";
-    self.tableView.tableHeaderView=self.headerView;
+    self.dataSourceArray=[HHItemModel userCenterItems];
+    self.tableView.backgroundColor=[UIColor red:246 green:242 blue:241 alpha:1];
+//    self.tableView.tableHeaderView=self.headerView;
    // self.tableView.separatorColor=MCMallThemeColor;
     [self reloadUI];
     WEAKSELF
@@ -176,27 +179,13 @@
 
 #pragma mark -UITableView Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return self.dataSourceArray.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger row=0;
     if ([UserModel isLogin]) {
-        switch (section) {
-            case 0:{
-                row=2;
-            }break;
-            case 1:{
-                row=1;
-            }break;
-            case 2:{
-                row=4;
-            }break;
-            case 3:{
-                row=1;
-            }break;
-            default:
-                break;
-        }
+        NSArray *arry= [self.dataSourceArray objectAtIndex:section];
+        row=arry.count;
     }else{
         row=0;
     }
@@ -206,28 +195,42 @@
     static NSString *identifer=@"cellIdentifer";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.textColor=MCMallThemeColor;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     UserModel *userModel=[UserModel userModel ];
-    switch (indexPath.row) {
-        case 0:{
-            cell.textLabel.text=@"欢迎您:";
+    HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.imageView.image=itemModel.itemImage;
+    cell.textLabel.text=itemModel.itemName;
+    cell.backgroundColor=[UIColor whiteColor];
+    switch (itemModel.itemType) {
+        case  HHUserCenterItemTypeUserInfo:{
             cell.detailTextLabel.text=userModel.userName;
         }break;
-        case 1:{
-            cell.textLabel.text=@"账户余额:";
+        case HHUserCenterItemTypePoint:{
             cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
         }break;
-        case 2:{
-            cell.textLabel.text=@"所属门店:";
+        case HHUserCenterItemTypeConsume:{
             cell.detailTextLabel.text=userModel.shopName;
         }break;
-        case 3:{
-            cell.textLabel.text=@"手机号:";
+        case HHUserCenterItemTypeShop:{
+            cell.detailTextLabel.text=userModel.shopName;
+        }break;
+        case HHUserCenterItemTypeTel:{
             cell.detailTextLabel.text=userModel.userTel;
         }break;
+        case HHUserCenterItemTypeBabyInfo:{
+            cell.detailTextLabel.text=@"";
+        }break;
+        case HHUserCenterItemTypeMyActivity:{
+            cell.detailTextLabel.text=@"";
+        }break;
+        case HHUserCenterItemTypeSetting:{
+            cell.detailTextLabel.text=@"";
+        }break;
+
             
         default:{
             cell.textLabel.text=@"";
