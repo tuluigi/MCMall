@@ -13,7 +13,9 @@
 #import "HHImagePickerHelper.h"
 #import "QBImagePickerController.h"
 #import "UserInfoViewController.h"
+#import "BabeInfoViewController.h"
 #import "HHItemModel.h"
+#import "HHKeyValueContainerView.h"
 @interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
@@ -105,10 +107,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"我";
-    self.dataSourceArray=[HHItemModel userCenterItems];
+    self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userCenterItems]];
     self.tableView.backgroundColor=[UIColor red:246 green:242 blue:241 alpha:1];
-//    self.tableView.tableHeaderView=self.headerView;
-   // self.tableView.separatorColor=MCMallThemeColor;
+    //    self.tableView.tableHeaderView=self.headerView;
+    // self.tableView.separatorColor=MCMallThemeColor;
     [self reloadUI];
     WEAKSELF
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -131,6 +133,7 @@
     [self.tableView reloadData];
 }
 -(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
+    
     [self imagePickerButtonPressed];
 }
 -(void)didLogoutButtonPressed{
@@ -192,28 +195,85 @@
     return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifer=@"cellIdentifer";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
-    if (nil==cell) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        cell.detailTextLabel.textColor=MCMallThemeColor;
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    }
     UserModel *userModel=[UserModel userModel ];
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    cell.imageView.image=itemModel.itemImage;
-    cell.textLabel.text=itemModel.itemName;
-    cell.backgroundColor=[UIColor whiteColor];
+    UITableViewCell *cell;
+    if (itemModel.itemType==HHUserCenterItemTypeUserInfo) {
+        static NSString *identifer=@"usercentercellIdentifer";
+        cell =[tableView dequeueReusableCellWithIdentifier:identifer];
+        if (nil==cell) {
+            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+            UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didHeaderImageTouchedWithGesture:)];
+            [cell.imageView addGestureRecognizer:tapGesture];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.detailTextLabel.textColor=[UIColor lightGrayColor];
+            cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        }
+        cell.separatorInset=UIEdgeInsetsZero;
+    }else if (itemModel.itemType==HHUserCenterItemTypePoint){
+        static NSString *identifer=@"userpointercellIdentifer";
+        cell =[tableView dequeueReusableCellWithIdentifier:identifer];
+        if (nil==cell) {
+            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.detailTextLabel.textColor=[UIColor lightGrayColor];
+            cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            HHKeyValueContainerView *containerView=[[HHKeyValueContainerView alloc]  initContainerViewWithKeyValuViews:[HHKeyValueView userCenterKeyValueViews]];
+            containerView.tag=1000;
+            [cell.contentView addSubview:containerView];
+            __weak UITableViewCell *weakSelf=cell;
+            [containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(weakSelf.contentView);
+            }];
+            containerView.didKeyValueTouchedBlock=^(HHKeyValueView *aKeyValuView,NSInteger index){
+                if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
+                    
+                }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
+                
+                }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){
+                
+                }
+            };
+        }
+        HHKeyValueContainerView *containerView=(HHKeyValueContainerView *)[cell viewWithTag:1000];
+        for (HHKeyValueView *aKeyValuView in containerView.keyValueViewArray) {
+            if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
+                aKeyValuView.value=[NSString stringWithFormat:@"%.1f",userModel.userPoint];
+            }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
+                aKeyValuView.value=[NSString stringWithFormat:@"%@元",userModel.userAmount];
+            }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){
+                aKeyValuView.value=@"5条";
+                aKeyValuView.badgeValue=5;
+            }
+        }
+    }else{
+        static NSString *identifer=@"cellIdentifer";
+        cell =[tableView dequeueReusableCellWithIdentifier:identifer];
+        if (nil==cell) {
+            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.detailTextLabel.textColor=[UIColor lightGrayColor];
+            cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        cell.imageView.image=itemModel.itemImage;
+        cell.textLabel.text=itemModel.itemName;
+        cell.backgroundColor=[UIColor whiteColor];
+    }
     switch (itemModel.itemType) {
         case  HHUserCenterItemTypeUserInfo:{
             cell.detailTextLabel.text=userModel.userName;
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+            cell.textLabel.text=userModel.userName;
         }break;
         case HHUserCenterItemTypePoint:{
-            cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
+            //cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
         }break;
         case HHUserCenterItemTypeConsume:{
-            cell.detailTextLabel.text=userModel.shopName;
+            cell.detailTextLabel.text=@"5";
         }break;
         case HHUserCenterItemTypeShop:{
             cell.detailTextLabel.text=userModel.shopName;
@@ -230,7 +290,7 @@
         case HHUserCenterItemTypeSetting:{
             cell.detailTextLabel.text=@"";
         }break;
-
+            
             
         default:{
             cell.textLabel.text=@"";
@@ -244,7 +304,9 @@
     CGFloat height=0;
     HHItemModel *itemModel=[[[self dataSourceArray]  objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (itemModel.itemType==HHUserCenterItemTypeUserInfo) {
-        height=60;
+        height=80;
+    }else if(itemModel.itemType==HHUserCenterItemTypePoint){
+        height=50;
     }else{
         height=44.0;
     }
@@ -253,11 +315,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     HHItemModel *itemModel=[[[self dataSourceArray]  objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     switch (itemModel.itemType) {
-        case HHUserCenterItemTypeUserInfo:
-        {
+        case HHUserCenterItemTypeUserInfo:{
             UserInfoViewController *userInfoViewController=[[UserInfoViewController alloc]  init];
             userInfoViewController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:userInfoViewController animated:YES];
+
+        }break;
+        case HHUserCenterItemTypeBabyInfo:
+        {
+            BabeInfoViewController *babeInfoViewController=[[BabeInfoViewController alloc]  init];
+            babeInfoViewController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:babeInfoViewController animated:YES];
         }break;
             
             

@@ -1,22 +1,21 @@
 //
-//  UserInfoViewController.m
+//  BabeInfoViewController.m
 //  MCMall
 //
-//  Created by Luigi on 15/7/16.
+//  Created by Luigi on 15/8/8.
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "UserInfoViewController.h"
+#import "BabeInfoViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
-
-@interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
+@interface BabeInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
 @property(nonatomic,strong)UserModel *userModel;
 @property(nonatomic,strong)UIDatePicker *dataPicker;
 @property(nonatomic,strong)UIView *pickView;
 @property (nonatomic, strong) MASConstraint *pickViewHeightConstraint;
 @end
 
-@implementation UserInfoViewController
+@implementation BabeInfoViewController
 -(UIView *)pickView{
     if (nil==_pickView) {
         _pickView=[[UIView alloc]  init];
@@ -64,7 +63,7 @@
         _dataPicker.maximumDate= [NSDate date];
         //响应日期选择事件，自定义dateChanged方法
         [ _dataPicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
-
+        
     }
     return _dataPicker;
 }
@@ -72,7 +71,7 @@
     NSDate*date= sender.date;
     self.userModel.birthday=date;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+    
     
 }
 -(void)doneButtonPressed:(UIBarButtonItem *)sender{
@@ -82,7 +81,7 @@
             make.bottom.equalTo(weakSelf.view).offset(300);
         }];
         [weakSelf.pickView layoutIfNeeded];
-       NSDate*date= weakSelf.dataPicker.date;
+        NSDate*date= weakSelf.dataPicker.date;
         weakSelf.userModel.birthday=date;
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
@@ -97,11 +96,11 @@
         [weakSelf.pickView layoutIfNeeded];
     }];
     return;
-
+    
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.title=@"修改个人信息";
+    self.title=@"宝宝信息";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed)];
     [self.view addSubview:self.pickView];
     WEAKSELF
@@ -127,7 +126,7 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(void)getUserInfo{
-WEAKSELF
+    WEAKSELF
     [HHProgressHUD showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getUserInfoWithUserID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
@@ -161,11 +160,11 @@ WEAKSELF
         case 0:{
             cell.textLabel.text=@"生日";
             if (self.userModel.birthday) {
-                 cell.detailTextLabel.text=[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"];
+                cell.detailTextLabel.text=[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"];
             }else{
-            cell.detailTextLabel.text=@"";
+                cell.detailTextLabel.text=@"";
             }
-           
+            
         }break;
         case 1:{
             cell.textLabel.text=@"大名";
@@ -180,7 +179,7 @@ WEAKSELF
             if ([self.userModel.gender integerValue]==0) {
                 cell.detailTextLabel.text=@"男";
             } else  if ([self.userModel.gender integerValue]==1){
-            cell.detailTextLabel.text=@"女";
+                cell.detailTextLabel.text=@"女";
             }
             
         }break;
@@ -206,17 +205,17 @@ WEAKSELF
             }];
             [weakSelf.pickView layoutIfNeeded];
         }];
-
+        
     }
     switch (indexPath.row) {
         case 0:{
-             WEAKSELF
+            WEAKSELF
             [UIView animateWithDuration:0.2 animations:^{
                 [weakSelf.pickView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.bottom.equalTo(weakSelf.view);
                 }];
                 if (weakSelf.userModel.birthday) {
-                      [weakSelf.dataPicker setDate:weakSelf.userModel.birthday animated:YES];
+                    [weakSelf.dataPicker setDate:weakSelf.userModel.birthday animated:YES];
                 }
                 [weakSelf.pickView layoutIfNeeded];
             }];
@@ -231,14 +230,14 @@ WEAKSELF
             messageStr=self.userModel.smallNickName;
         }break;
         case 3:{
-          UIActionSheet *actionSheet= [[UIActionSheet alloc]  initWithTitle:@"性别" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女", nil];
+            UIActionSheet *actionSheet= [[UIActionSheet alloc]  initWithTitle:@"性别" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女", nil];
             [actionSheet showInView:self.view];
             return;
         }break;
         default:
             break;
     }
-
+    
     UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:titleStr message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alerView.alertViewStyle=UIAlertViewStylePlainTextInput;
     UITextField *textFiled=[alerView textFieldAtIndex:0];
@@ -270,6 +269,6 @@ WEAKSELF
     }
     self.userModel.gender=@(buttonIndex);
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+    
 }
 @end

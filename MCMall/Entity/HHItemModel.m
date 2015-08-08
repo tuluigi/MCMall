@@ -39,4 +39,15 @@
     
     return itemsArray;
 }
++(NSArray *)userInfoItemsArray{
+    NSArray *itemsArray;
+    HHItemModel *userImageItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeHeaderImage name:@"头像" image:nil];
+    HHItemModel *nickeNameItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeName name:@"昵称" image:nil];
+    NSArray *sectionArray0=@[userImageItem,nickeNameItem];
+    
+    itemsArray=@[sectionArray0];
+    
+    return itemsArray;
+
+}
 @end

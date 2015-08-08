@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
 		2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
@@ -120,6 +121,8 @@
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
+		2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B01B75B7AB0063197D /* HHKeyValueView.m */; };
+		2AD321B41B75BEBE0063197D /* HHKeyValueContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */; };
 		2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */; };
 		2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793201B1C40470008E241 /* HHProgressHUD.m */; };
 		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
@@ -134,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A0946F11B763FA2000A205A /* BabeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabeInfoViewController.h; sourceTree = "<group>"; };
+		2A0946F21B763FA2000A205A /* BabeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabeInfoViewController.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -336,6 +341,10 @@
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2AD0190B1B14A8F600702BD5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2AD321AF1B75B7AB0063197D /* HHKeyValueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHKeyValueView.h; sourceTree = "<group>"; };
+		2AD321B01B75B7AB0063197D /* HHKeyValueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHKeyValueView.m; sourceTree = "<group>"; };
+		2AD321B21B75BEBE0063197D /* HHKeyValueContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHKeyValueContainerView.h; sourceTree = "<group>"; };
+		2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHKeyValueContainerView.m; sourceTree = "<group>"; };
 		2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HHKeyboardControl.h"; sourceTree = "<group>"; };
 		2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HHKeyboardControl.m"; sourceTree = "<group>"; };
 		2AE7931F1B1C40470008E241 /* HHProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHProgressHUD.h; sourceTree = "<group>"; };
@@ -529,8 +538,8 @@
 		2A37B10C1B0CC83B00D0FE88 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				2AB976341B7241F1009D49B8 /* View */,
 				2A984E4A1B14119B004DF4C0 /* Model */,
-				2A984E4D1B14119B004DF4C0 /* View */,
 				2A37B10D1B0CC83B00D0FE88 /* Controllers */,
 			);
 			path = User;
@@ -710,6 +719,8 @@
 				2A7EA2111B57F72D005B04A9 /* UserInfoViewController.m */,
 				2A7EA2131B57F746005B04A9 /* UserInfoEditViewController.h */,
 				2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */,
+				2A0946F11B763FA2000A205A /* BabeInfoViewController.h */,
+				2A0946F21B763FA2000A205A /* BabeInfoViewController.m */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -772,13 +783,6 @@
 				2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */,
 			);
 			path = NetEngine;
-			sourceTree = "<group>";
-		};
-		2A984E4D1B14119B004DF4C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2A984E4E1B1411B0004DF4C0 /* Model */ = {
@@ -1104,6 +1108,17 @@
 			path = PhotoActivity;
 			sourceTree = "<group>";
 		};
+		2AB976341B7241F1009D49B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AD321AF1B75B7AB0063197D /* HHKeyValueView.h */,
+				2AD321B01B75B7AB0063197D /* HHKeyValueView.m */,
+				2AD321B21B75BEBE0063197D /* HHKeyValueContainerView.h */,
+				2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2AC28B851B7105F200F91760 /* item */ = {
 			isa = PBXGroup;
 			children = (
@@ -1339,6 +1354,7 @@
 				2A984ED51B141205004DF4C0 /* UIImage+Addition.m in Sources */,
 				2A984EBF1B141205004DF4C0 /* HHImageView.m in Sources */,
 				2A7C4E1F1B147FBA00912D53 /* HHGlobalVarTool.m in Sources */,
+				2AD321B41B75BEBE0063197D /* HHKeyValueContainerView.m in Sources */,
 				2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */,
 				2A984ECF1B141205004DF4C0 /* NSDate+Addition.m in Sources */,
 				2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */,
@@ -1372,6 +1388,7 @@
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
 				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,
+				2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */,
 				2A984EC01B141205004DF4C0 /* HHLable.m in Sources */,
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
@@ -1413,6 +1430,7 @@
 				2A984ED41B141205004DF4C0 /* UIDevice+DeviceInfo.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
+				2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */,
 				2A984ED71B141205004DF4C0 /* UITextField+Addition.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,
 				2A984EB91B141205004DF4C0 /* HHResponseResult.m in Sources */,

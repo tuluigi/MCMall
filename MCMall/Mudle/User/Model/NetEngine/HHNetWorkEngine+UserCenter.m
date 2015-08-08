@@ -145,7 +145,7 @@
                                smallNickeName:(NSString *)smallNickName
                                        gender:(BOOL)isBoy
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=[MCMallAPI  getUserInfoAPI];
+    NSString *apiPath=[MCMallAPI  editUserInfoAPI];
     birthday=[NSString stringByReplaceNullString:birthday];
     bigNickName=[NSString stringByReplaceNullString:bigNickName];
     smallNickName=[NSString stringByReplaceNullString:smallNickName];

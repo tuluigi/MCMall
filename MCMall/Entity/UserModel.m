@@ -14,6 +14,7 @@ NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 @implementation UserModel
+
 /*
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self=[super init]) {

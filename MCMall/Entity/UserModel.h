@@ -13,6 +13,7 @@
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *userHeadUrl;
 @property(nonatomic,copy)NSString *userTel;
+@property(nonatomic,assign)CGFloat userPoint;
 @property(nonatomic,copy)NSDecimalNumber *userAmount;
 @property(nonatomic,copy)NSString *shopID;
 @property(nonatomic,copy)NSString *shopName;
