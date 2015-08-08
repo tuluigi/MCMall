@@ -134,7 +134,7 @@
 }
 -(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
     
-    [self imagePickerButtonPressed];
+   // [self imagePickerButtonPressed];
 }
 -(void)didLogoutButtonPressed{
     [UserModel logout];
@@ -147,37 +147,6 @@
     [self.navigationController presentViewController:navController animated:YES completion:^{
         
     }];
-}
-#pragma mark - select iamge
--(void)imagePickerButtonPressed{
-    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = NO;
-    imagePickerController.showsNumberOfSelectedAssets = NO;
-    
-    [self presentViewController:imagePickerController animated:YES completion:NULL];
-}
-#pragma mark - qbimagecontroller delegate
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    [HHProgressHUD showLoadingState];
-    WEAKSELF
-    CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
-    NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
-    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
-            if ([responseResult.responseData isKindOfClass:[NSString class]]) {
-                [weakSelf.logoImgView sd_setImageWithURL:[NSURL URLWithString:responseResult.responseData] placeholderImage:MCMallDefaultImg];
-            }
-            [HHProgressHUD dismiss];
-        }else{
-            [HHProgressHUD showErrorMssage:@"上传失败"];
-        }
-    }];
-    [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark -UITableView Delegate
