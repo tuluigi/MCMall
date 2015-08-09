@@ -103,7 +103,7 @@
                                      birthday:(NSString *)birthday
                                   bigNickName:(NSString *)bigNickName
                                smallNickeName:(NSString *)smallNickName
-                                       gender:(BOOL)isBoy
+                                       gender:(NSString *)gender
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**

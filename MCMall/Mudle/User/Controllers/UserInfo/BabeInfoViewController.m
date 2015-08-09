@@ -115,7 +115,7 @@
 -(void)rightBarButtonPressed{
     WEAKSELF
     [HHProgressHUD showLoadingState];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editUserInfoWithUserID:[UserModel userID] birthday:[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.userModel.bigNickName smallNickeName:self.userModel.smallNickName gender:self.userModel.gender.boolValue onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editUserInfoWithUserID:[UserModel userID] birthday:[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.userModel.bigNickName smallNickeName:self.userModel.smallNickName gender:self.userModel.gender onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
             [HHProgressHUD dismiss];
@@ -176,11 +176,7 @@
         }break;
         case 3:{
             cell.textLabel.text=@"性别";
-            if ([self.userModel.gender integerValue]==0) {
-                cell.detailTextLabel.text=@"男";
-            } else  if ([self.userModel.gender integerValue]==1){
-                cell.detailTextLabel.text=@"女";
-            }
+            cell.detailTextLabel.text=self.userModel.gender;
             
         }break;
         default:
@@ -264,10 +260,10 @@
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:alertView.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==[self.userModel.gender integerValue]) {
+    if ([self.userModel.gender isEqualToString:[actionSheet buttonTitleAtIndex:buttonIndex]]) {
         return;
     }
-    self.userModel.gender=@(buttonIndex);
+    self.userModel.gender=[actionSheet buttonTitleAtIndex:buttonIndex];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     
 }

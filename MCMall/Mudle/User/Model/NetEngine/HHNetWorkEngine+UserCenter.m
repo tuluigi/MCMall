@@ -94,10 +94,10 @@
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadUserHeadImageAPI];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", nil];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid",imgPath,@"img", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:imgPath parmarDic:postDic key:@"img" onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
+            responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"img"]];
             [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
             [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imgPath] forKey:responseResult.responseData];
         }
@@ -143,13 +143,13 @@
                                      birthday:(NSString *)birthday
                                   bigNickName:(NSString *)bigNickName
                                smallNickeName:(NSString *)smallNickName
-                                       gender:(BOOL)isBoy
+                                       gender:(NSString *)gender
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI  editUserInfoAPI];
     birthday=[NSString stringByReplaceNullString:birthday];
     bigNickName=[NSString stringByReplaceNullString:bigNickName];
     smallNickName=[NSString stringByReplaceNullString:smallNickName];
-    NSDictionary *postDic=@{@"userid":userID,@"birth":birthday,@"full":bigNickName,@"child":smallNickName,@"sex":@(isBoy)};
+    NSDictionary *postDic=@{@"userid":userID,@"birth":birthday,@"full":bigNickName,@"child":smallNickName,@"sex":gender,@"foresee":@""};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         completionBlcok(responseResult);
     }];

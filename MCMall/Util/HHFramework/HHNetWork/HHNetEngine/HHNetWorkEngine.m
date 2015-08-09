@@ -100,7 +100,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
     __weak HHNetWorkEngine *weakSelf=self;
     operation=(HHNetWorkOperation *)[[HHNetWorkEngine sharedHHNetWorkEngine] POST:hh_path parameters:hh_postDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSError *error;
-        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL fileURLWithPath:hh_filePath] name:@"photo" error:&error];
+        BOOL isSuccess=[formData appendPartWithFileURL:[NSURL fileURLWithPath:hh_filePath] name:hh_key error:&error];
         if (isSuccess&&(nil==error)) {
            
         }

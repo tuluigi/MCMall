@@ -15,6 +15,7 @@
 #import "QBImagePickerController.h"
 #import "SDImageCache+Store.h"
 #import "HHImagePickerHelper.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
@@ -98,6 +99,7 @@
     
     // Do any additional setup after loading the view.
     // _headView=self.headView;
+    [self.tableView registerClass:[PlayerCell class] forCellReuseIdentifier:@"playeridentifer"];
     self.tableView.tableHeaderView=self.headView;
     switch (_actType) {
         case ActivityTypeCommon:
@@ -188,12 +190,13 @@
     switch (_actType) {
         case ActivityTypeVote://投票
         {
-            NSString *identifer=@"identifer";
+            NSString *identifer=@"playeridentifer";
             PlayerCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
             if (nil==cell) {
                 cell=[[PlayerCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 cell.delegate=self;
+                cell.backgroundColor=[UIColor whiteColor];
             }
             VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
             PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
@@ -279,7 +282,10 @@
         {
             VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
             PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
-            height= [PlayerCell playerCellHeightWithPlayerModel:model];
+           // height= [PlayerCell playerCellHeightWithPlayerModel:model];
+            return [tableView fd_heightForCellWithIdentifier:@"playeridentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
+                ((PlayerCell *)cell).playerModel=model;
+            }];
         }
             break;
         case ActivityTypeApply:{

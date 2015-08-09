@@ -48,7 +48,9 @@
     [HHProgressHUD showLoadingMessage:@"正在上传..."];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
+            [UserModel setUserHeaderImageUrl:responseResult.responseData];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
             [HHProgressHUD dismiss];
         }else{
             [HHProgressHUD showErrorMssage:@"上传失败"];
@@ -87,9 +89,9 @@
             [cell.contentView addSubview:headImageView];
             __weak UITableViewCell *weakCell=cell;
             [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(weakCell.contentView.top).offset(5);
-                make.bottom.mas_equalTo(weakCell.contentView.mas_bottom).offset(-5);
+                make.centerY.mas_equalTo(weakCell.contentView);
                 make.right.mas_equalTo(weakCell.contentView.mas_right).offset(-10);
+                make.size.mas_equalTo(CGSizeMake(50, 50));
             }];
         }
 

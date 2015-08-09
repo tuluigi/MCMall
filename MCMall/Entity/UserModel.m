@@ -7,6 +7,7 @@
 //
 
 #import "UserModel.h"
+#import "NSUserDefaults+AesEncrypt.h"
 NSString *const MCMall_UserID       =@"MCMall_UserID";
 NSString *const MCMall_UserName     =@"MCMall_UserName";
 NSString *const MCMall_UserHeadUrl  =@"MCMall_UserHeadUrl";
@@ -14,18 +15,6 @@ NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 @implementation UserModel
-
-/*
--(instancetype)initWithCoder:(NSCoder *)aDecoder{
-    if (self=[super init]) {
-        self.userID     =[aDecoder decodeObjectForKey:@"userID"];
-        self.userName   =[aDecoder decodeObjectForKey:@"userName"];
-        self.userTel    =[aDecoder decodeObjectForKey:@"userTel"];
-        self.userAmount =[aDecoder decodeObjectForKey:@"userAmount"];
-    }
-    return self;
-}
- */
 +(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz{
     UserModel *userModel    =[[UserModel alloc]  init];
     userModel.userName      =[dic objectForKey:@"userName"];
@@ -34,7 +23,7 @@ NSString *const MCMall_ShopName   =@"MCMall_ShopName";
     userModel.userID        =[dic objectForKey:@"userId"];
     userModel.userHeadUrl   =[dic objectForKey:@"img"];
     userModel.shopName      =[dic objectForKey:@"shopName"];
-    userModel.gender        =[[dic objectForKey:@"sex"] isEqual:[NSNull null]]?@(-1):@(1);
+    userModel.gender        =[dic objectForKey:@"sex"];
 
     NSString *birth         =[NSString stringByReplaceNullString:[dic objectForKey:@"birth"]];
     NSDateFormatter *fromatter=[NSDateFormatter dateFormatterWithFormat:@"yyyy-MM-dd"];
@@ -49,23 +38,28 @@ NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 }
 +(void)storeUserModel:(UserModel *)userModel{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
-    [userDefault setObject:userModel.userID forKey:MCMall_UserID];
-    [userDefault setObject:userModel.userName forKey:MCMall_UserName];
-    [userDefault setObject:userModel.userAmount forKey:MCMall_UserAmount];
-    [userDefault setObject:userModel.userHeadUrl forKey:MCMall_UserHeadUrl];
-    [userDefault setObject:userModel.shopName forKey:MCMall_ShopName];
-    [userDefault setObject:userModel.userTel forKey:MCMall_UserTel];
+    [userDefault setAesEncryptValue:userModel.userID withkey:MCMall_UserID];
+    [userDefault setAesEncryptValue:userModel.userName withkey:MCMall_UserName];
+    [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%@",userModel.userAmount] withkey:MCMall_UserAmount];
+    [userDefault setAesEncryptValue:userModel.userHeadUrl withkey:MCMall_UserHeadUrl];
+    [userDefault setAesEncryptValue:userModel.shopName withkey:MCMall_ShopName];
+    [userDefault setAesEncryptValue:userModel.userTel withkey:MCMall_UserTel];
     [userDefault synchronize];
+}
++(void)setUserHeaderImageUrl:(NSString *)headImagPath{
+     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+     [userDefault setAesEncryptValue:headImagPath withkey:MCMall_UserHeadUrl];
 }
 +(UserModel *)userModel{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     UserModel *model=[[UserModel alloc]  init];
-    model.userID=[userDefault objectForKey:MCMall_UserID];
-    model.userName=[userDefault objectForKey:MCMall_UserName];
-    model.userHeadUrl=[userDefault objectForKey:MCMall_UserHeadUrl];
-    model.userAmount=[userDefault objectForKey:MCMall_UserAmount];
-    model.userTel=[userDefault objectForKey:MCMall_UserTel];
-    model.shopName=[userDefault objectForKey:MCMall_ShopName];
+    model.userID=[userDefault decryptedValueWithKey:MCMall_UserID];
+    model.userName=[userDefault decryptedValueWithKey:MCMall_UserName];
+    model.userHeadUrl=[userDefault decryptedValueWithKey:MCMall_UserHeadUrl];
+    NSString *amountStr=[userDefault decryptedValueWithKey:MCMall_UserAmount];
+    model.userAmount=[[NSDecimalNumber alloc]  initWithString:amountStr];
+    model.userTel=[userDefault decryptedValueWithKey:MCMall_UserTel];
+    model.shopName=[userDefault decryptedValueWithKey:MCMall_ShopName];
     return model;
 }
 +(void)logout{
@@ -80,7 +74,7 @@ NSString *const MCMall_ShopName   =@"MCMall_ShopName";
 
 }
 +(NSString *)userID{
-    NSString *userID=[[NSUserDefaults standardUserDefaults]  objectForKey:MCMall_UserID];
+    NSString *userID=[[NSUserDefaults standardUserDefaults]  decryptedValueWithKey:MCMall_UserID];
     return userID;
 }
 +(BOOL)isLogin{

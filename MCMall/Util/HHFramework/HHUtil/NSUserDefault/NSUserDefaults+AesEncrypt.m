@@ -11,22 +11,22 @@
 static NSString *AesEncryptKEY=@"NO_AESDecrypt_key";
 @implementation NSUserDefaults (AesEncrypt)
 -(void)setAesEncryptValue:(NSString *)value withkey:(NSString *)key{
-    NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
+   // NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
     NSString *encryptValue=[AESEncryption AESEncrypt:value strKey:[self AESKey]];
-    [self setObject:encryptValue forKey:encryptKey];
+    [self setObject:encryptValue forKey:key];
     [self synchronize];
     
 }
 -(NSString *)decryptedValueWithKey:(NSString *)key{
-    NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
-    NSString *encryptValue=[self objectForKey:encryptKey];
-    NSString *value=[AESEncryption AESDecrypt:encryptValue strKey:encryptKey];
+   // NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
+    NSString *encryptValue=[self objectForKey:key];
+    NSString *value=[AESEncryption AESDecrypt:encryptValue strKey:[self AESKey]];
     return value;
 }
 
 - (void)removeObjectForAESKey:(NSString *)key{
-    NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
-    [self removeObjectForKey:encryptKey];
+   // NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
+    [self removeObjectForKey:key];
     [self synchronize];
 }
 

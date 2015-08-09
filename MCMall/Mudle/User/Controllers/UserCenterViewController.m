@@ -85,7 +85,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self verfiyUserLogin];
+    [self.tableView reloadData];
     
 }
 - (void)viewDidLoad {
@@ -151,6 +151,13 @@
         cell =[tableView dequeueReusableCellWithIdentifier:identifer];
         if (nil==cell) {
             cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+            cell.imageView.layer.cornerRadius=5;
+            cell.imageView.layer.masksToBounds=YES;
+            [cell.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.size.mas_equalTo(CGSizeMake(60, 60));
+                make.left.mas_equalTo(15);
+                make.centerY.mas_equalTo(cell.contentView.mas_centerY);
+            }];
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             cell.detailTextLabel.textColor=[UIColor lightGrayColor];
             cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
@@ -213,6 +220,9 @@
         case  HHUserCenterItemTypeUserInfo:{
             cell.detailTextLabel.text=userModel.userName;
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+//          CGRect frame=  cell.frame;
+//            frame.size=CGSizeMake(50, 50);
+//            cell.frame=frame;
             cell.textLabel.text=userModel.userName;
         }break;
         case HHUserCenterItemTypePoint:{
