@@ -8,16 +8,21 @@
 
 #import "UserInfoViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
-#import "QBImagePickerController.h"
 #import "HHItemModel.h"
-@interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate,QBImagePickerControllerDelegate>
-@property(nonatomic,strong)UITapGestureRecognizer *tapGesture;
+#import "HHImagePickerHelper.h"
+@interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
+@property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 
 @end
 
 @implementation UserInfoViewController
-
--(void)doneButtonPressed:(UIBarButtonItem *)sender{
+-(HHImagePickerHelper *)imagePickerHelper{
+    if (nil==_imagePickerHelper) {
+        _imagePickerHelper=[[HHImagePickerHelper alloc]  init];
+    }
+    return _imagePickerHelper;
+}
+-(void)rightBarButtonPressed:(UIBarButtonItem *)sender{
     
 }
 -(void)cancelButtonPressed:(UIBarButtonItem *)sender{
@@ -26,37 +31,21 @@
 }
 
 -(void)handleTapGesture:(UITapGestureRecognizer *)gesture{
-    UIActionSheet *actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"查看大图",@"重新上传", nil];
-    actionSheet.tag=2000;
-    [actionSheet showInView:self.view];
+    WEAKSELF
+    [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+        [weakSelf uploadHeaderImageWithImagePath:imgPath];
+    }];
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=@"个人信息";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed:)];
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userInfoItemsArray]];
 }
 #pragma mark- getuserinfo
--(void)rightBarButtonPressed{
-    
-}
-
-
-#pragma mark - select iamge
--(void)imagePickerButtonPressed{
-    QBImagePickerController *imagePickerController = [QBImagePickerController new];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsMultipleSelection = NO;
-    imagePickerController.showsNumberOfSelectedAssets = NO;
-    
-    [self presentViewController:imagePickerController animated:YES completion:NULL];
-}
-#pragma mark - qbimagecontroller delegate
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
-    [HHProgressHUD showLoadingState];
+-(void)uploadHeaderImageWithImagePath:(NSString *)loaclPath{
     WEAKSELF
-    CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
-    NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
+    [HHProgressHUD showLoadingMessage:@"正在上传..."];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -66,12 +55,11 @@
         }
     }];
     [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+
+
+#pragma mark -tableview
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
 }
@@ -137,7 +125,14 @@
     return 20;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    CGFloat height=0;
+    HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if (itemModel.itemType==HHUserInfoItemTypeHeaderImage) {
+        height=60;
+    }else{
+        height=44.0;
+    }
+    return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     /*
@@ -158,21 +153,5 @@
     UITextField *textFiled=[alertView textFieldAtIndex:0];
     
 }
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (actionSheet.tag==2000) {
-        if (buttonIndex==0) {
-            
-        }else if (buttonIndex==1){
-            UIActionSheet *actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照上传",@"相册上传", nil];
-            actionSheet.tag=2001;
-            [actionSheet showInView:self.view];
-        }
-    }else if(actionSheet.tag==2001){
-        if (buttonIndex==0) {
-            
-        }else if (buttonIndex==1){
-            [self imagePickerButtonPressed];
-        }
-    }
-}
+
 @end

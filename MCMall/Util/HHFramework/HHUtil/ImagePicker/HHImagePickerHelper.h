@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HHImagePickerHeader.h"
-typedef void(^DidFinishMediaOnCompledBlock)(UIImage *image, NSDictionary *editingInfo, NSString *imgPath);
+typedef void(^DidFinishMediaOnCompledBlock)( NSString *imgPath);
 @interface HHImagePickerHelper : NSObject
 -(void)showImagePickerWithType:(HHImagePickType)type onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock;
 @end

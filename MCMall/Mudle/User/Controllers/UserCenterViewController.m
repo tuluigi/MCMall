@@ -34,8 +34,6 @@
         _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
         _logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
         _logoImgView.userInteractionEnabled=YES;
-        UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didHeaderImageTouchedWithGesture:)];
-        [_logoImgView addGestureRecognizer:tapGesture];
         [_headerView addSubview:_logoImgView];
         [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(_headerView);
@@ -46,7 +44,7 @@
 }
 -(UIView *)loginFootView{
     if (nil==_loginFootView) {
-        _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
         
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_loginFootView addSubview:loginButton];
@@ -54,26 +52,12 @@
         loginButton.layer.cornerRadius=5.0;
         loginButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
         loginButton.layer.masksToBounds=YES;
-        [loginButton setTitle:@"登 录" forState:UIControlStateNormal];
+        [loginButton setTitle:@"登 录/注册" forState:UIControlStateNormal];
         [loginButton addTarget:self action:@selector(didLoginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.mas_equalTo(_loginFootView).with.offset(20.0);
-            make.right.mas_equalTo(_loginFootView.right).with.offset(-20.0);
+            make.left.top.mas_equalTo(_loginFootView).offset(20.0);
+            make.right.mas_equalTo(_loginFootView.mas_right).offset(-20.0);
             make.height.equalTo(@40.0);
-        }];
-        
-        
-        UIButton *registerButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [_loginFootView addSubview:registerButton];
-        registerButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
-        registerButton.layer.cornerRadius=5.0;
-        registerButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
-        registerButton.layer.masksToBounds=YES;
-        [registerButton setTitle:@"注 册" forState:UIControlStateNormal];
-        [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(loginButton.mas_bottom).with.offset(10);
-            make.left.right.mas_equalTo(loginButton);
-            make.height.equalTo(loginButton);
         }];
     }
     return _loginFootView;
@@ -91,8 +75,8 @@
         [loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
         [loginButton addTarget:self action:@selector(didLogoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.mas_equalTo(_logoutFootView).with.offset(20.0);
-            make.right.mas_equalTo(_logoutFootView.right).with.offset(-20.0);
+            make.left.top.mas_equalTo(_logoutFootView).offset(20.0);
+            make.right.mas_equalTo(_logoutFootView).offset(-20.0);
             make.height.equalTo(@40.0);
         }];
         
@@ -107,10 +91,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"我";
-    self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userCenterItems]];
     self.tableView.backgroundColor=[UIColor red:246 green:242 blue:241 alpha:1];
-    //    self.tableView.tableHeaderView=self.headerView;
-    // self.tableView.separatorColor=MCMallThemeColor;
     [self reloadUI];
     WEAKSELF
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -123,23 +104,24 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)reloadUI{
+    WEAKSELF
+    self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userCenterItems]];
     if ([UserModel isLogin]) {
+        self.tableView.tableHeaderView=nil;
         self.tableView.tableFooterView=self.logoutFootView;
     }else{
+        self.tableView.tableHeaderView=self.headerView;
         self.tableView.tableFooterView=self.loginFootView;
     }
     UserModel *userModel=[UserModel userModel];
     [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
     [self.tableView reloadData];
 }
--(void)didHeaderImageTouchedWithGesture:(UITapGestureRecognizer *)gesture{
-    
-   // [self imagePickerButtonPressed];
-}
+
 -(void)didLogoutButtonPressed{
     [UserModel logout];
     [self reloadUI];
-    [self verfiyUserLogin];
+   // [self verfiyUserLogin];
 }
 -(void)didLoginButtonPressed{
     LoginViewController *loginController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];
@@ -155,12 +137,9 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger row=0;
-    if ([UserModel isLogin]) {
-        NSArray *arry= [self.dataSourceArray objectAtIndex:section];
-        row=arry.count;
-    }else{
-        row=0;
-    }
+    NSArray *arry= [self.dataSourceArray objectAtIndex:section];
+    row=arry.count;
+
     return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -172,8 +151,6 @@
         cell =[tableView dequeueReusableCellWithIdentifier:identifer];
         if (nil==cell) {
             cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
-            UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didHeaderImageTouchedWithGesture:)];
-            [cell.imageView addGestureRecognizer:tapGesture];
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             cell.detailTextLabel.textColor=[UIColor lightGrayColor];
             cell.detailTextLabel.font=[UIFont systemFontOfSize:13];

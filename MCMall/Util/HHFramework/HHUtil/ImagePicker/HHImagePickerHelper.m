@@ -9,8 +9,10 @@
 #import "HHImagePickerHelper.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-@interface HHImagePickerHelper ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
+#import "QBImagePickerController.h"
+@interface HHImagePickerHelper ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,QBImagePickerControllerDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)UIImagePickerController *imagePickerController;
+@property(nonatomic,strong)QBImagePickerController *qbImagePickerController;
 @property(nonatomic,assign)HHImagePickType pickType;
 @property(nonatomic,copy)DidFinishMediaOnCompledBlock completionBlock;
 @end
@@ -23,6 +25,52 @@
     }
     return _imagePickerController;
 }
+-(QBImagePickerController *)qbImagePickerController{
+    if (nil==_qbImagePickerController) {
+        _qbImagePickerController = [QBImagePickerController new];
+        _qbImagePickerController.delegate = self;
+        _qbImagePickerController.allowsMultipleSelection = NO;
+        _qbImagePickerController.showsNumberOfSelectedAssets = NO;
+    }
+    return _qbImagePickerController;
+}
+-(UIViewController *)parentController{
+    UIViewController *rootController=[UIApplication sharedApplication].keyWindow.rootViewController;
+//    if ([rootController isKindOfClass:[UITabBarController class]]) {
+//        
+//    }else if ([rootController isKindOfClass:[UINavigationController class]]){
+//    
+//    }else if([rootController isKindOfClass:[UIViewController class]]){
+//    
+//    }
+    if ([rootController isKindOfClass:[UIViewController class]]) {
+        return rootController;
+    }else{
+        return nil;
+    }
+}
+#pragma mark - select iamge
+-(void)imagePickerButtonPressed{
+    QBImagePickerController *imagePickerController = [QBImagePickerController new];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = NO;
+    imagePickerController.showsNumberOfSelectedAssets = NO;
+    
+    [[self parentController] presentViewController:imagePickerController animated:YES completion:NULL];
+}
+#pragma mark - qbimagecontroller delegate
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
+    CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
+    NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
+    if (self.completionBlock) {
+        self.completionBlock(loaclPath);
+    }
+    [[self parentController] dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
+    [[self parentController] dismissViewControllerAnimated:YES completion:NULL];
+}
+
 -(void)showImagePickerWithType:(HHImagePickType)type onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock{
     self.completionBlock=completionBlock;
     [self showImagePickerWithType:type];
@@ -46,7 +94,8 @@
                     // app名称
                     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
                     NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许%@访问你的相机",app_Name];
-                    UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    alerView.tag=1000;
                     [alerView show];
                 }
             }
@@ -55,8 +104,7 @@
             [alerView show];
         }
     }else if (_pickType==HHImagePickTypeAblum){//相册
-        self.imagePickerController.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
-        [rootController presentViewController:self.imagePickerController animated:YES completion:nil];
+        [[self parentController] presentViewController:self.qbImagePickerController animated:YES completion:nil];
         if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
             ALAuthorizationStatus authoStatus = [ALAssetsLibrary authorizationStatus];
             if (([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) && (authoStatus==ALAuthorizationStatusDenied)) {
@@ -64,7 +112,8 @@
                 // app名称
                 NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
                 NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许%@访问你的相册",app_Name];
-                UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                alerView.tag=1000;
                 [alerView show];
             }
         }
@@ -77,13 +126,12 @@
 #pragma mark -选取照片并上传
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *images=[info objectForKey:@"UIImagePickerControllerEditedImage"];
-    [[SDImageCache sharedImageCache]  storeImage:images forKey:nil];
-    //NSString *filePath=[self imagePathByWirteToCacheDiroctoryWithImage:dealImage];
-    WEAKSELF
-    [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    UIImage *orignalImage=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    NSString *loaclPath=[NSFileManager saveImage:orignalImage presentation:0.5];
+    if (self.completionBlock) {
+        self.completionBlock(loaclPath);
+    }
+    [[self parentController] dismissViewControllerAnimated:YES completion:NULL];
 }
 #pragma mark- actionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -93,6 +141,11 @@
         }else if (buttonIndex==1){//相册
             [self showImagePickerWithType:HHImagePickTypeAblum];
         }
+    }
+}
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (alertView.tag==1000) {
+        [[self parentController] dismissViewControllerAnimated:YES completion:NULL];
     }
 }
 @end
