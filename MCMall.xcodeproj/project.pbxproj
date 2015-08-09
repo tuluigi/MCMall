@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
+		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
 		2A2931761B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2931751B2825F0008A1C09 /* UIScrollView+SVStopAnimation.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
@@ -139,6 +140,8 @@
 /* Begin PBXFileReference section */
 		2A0946F11B763FA2000A205A /* BabeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabeInfoViewController.h; sourceTree = "<group>"; };
 		2A0946F21B763FA2000A205A /* BabeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabeInfoViewController.m; sourceTree = "<group>"; };
+		2A0946F51B7762D0000A205A /* HHUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUserManager.h; sourceTree = "<group>"; };
+		2A0946F61B7762D0000A205A /* HHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserManager.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -392,6 +395,15 @@
 				9356228AB91A09B7821DF914 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A0946F41B7762BF000A205A /* UserManager */ = {
+			isa = PBXGroup;
+			children = (
+				2A0946F51B7762D0000A205A /* HHUserManager.h */,
+				2A0946F61B7762D0000A205A /* HHUserManager.m */,
+			);
+			path = UserManager;
 			sourceTree = "<group>";
 		};
 		2A37B0CD1B0CC62A00D0FE88 = {
@@ -1009,6 +1021,7 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A0946F41B7762BF000A205A /* UserManager */,
 				2AFFF67F1B64802600712317 /* NSUserDefault */,
 				2A87EE1A1B40F7880051D668 /* HtmlEngine */,
 				2A816DEC1B2FFEB00007862B /* PageView */,
@@ -1410,6 +1423,7 @@
 				2A984EBE1B141205004DF4C0 /* HHDataPicker.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2AFFF6961B64B77700712317 /* SubtitleExpertAnswerController.m in Sources */,
+				2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */,
 				2A984EBB1B141205004DF4C0 /* NSString+NetWork.m in Sources */,
 				2AFFF6931B64A9FF00712317 /* SubjectListCell.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,

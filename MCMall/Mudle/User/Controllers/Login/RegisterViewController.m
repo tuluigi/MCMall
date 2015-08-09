@@ -8,30 +8,34 @@
 
 #import "RegisterViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
+#define TotalTimeDuration 10
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr;
 @property(nonatomic,assign)BOOL enableUserAgrement,enableCookie;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)UIButton *actionButton;
+@property(nonatomic,assign)NSInteger totalTime;
 @end
 
 @implementation RegisterViewController
 -(NSTimer *)timer{
     if (nil==_timer) {
-        _timer=[NSTimer timerWithTimeInterval:60 target:self selector:@selector(handlerTimer:) userInfo:nil repeats:NO];
+        _timer=[NSTimer timerWithTimeInterval:1 target:self selector:@selector(handlerTimer:) userInfo:nil repeats:YES];
+        [_timer setFireDate:[NSDate distantFuture]];
         [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return _timer;
 }
 -(void)handlerTimer:(NSTimer *)aTimer{
-    if (aTimer.timeInterval==0) {
-       [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-        _actionButton.enabled=YES;
-        [_actionButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
+    if (self.totalTime==0) {
+        self.actionButton.enabled=YES;
+        self.totalTime=TotalTimeDuration;
+        [self.timer setFireDate:[NSDate distantFuture]];
+        [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
     }else{
-        [_actionButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [_actionButton setTitle:[NSString stringWithFormat:@"%f",aTimer.timeInterval] forState:UIControlStateNormal];
+        self.totalTime--;
+        [_actionButton setTitle:[NSString stringWithFormat:@"%ld",self.totalTime] forState:UIControlStateNormal];
     }
 }
 
@@ -42,6 +46,7 @@
 }
 -(void)onInitData{
     self.title=@"注册";
+    self.totalTime=TotalTimeDuration;
     self.tableView.backgroundColor=[UIColor red:240.0 green:241.0 blue:246.0 alpha:1];
     //  self.tableView.tableHeaderView=self.headerView;
     self.tableView.tableFooterView=self.footView;
@@ -62,11 +67,14 @@
 -(UIView *)footView{
     if (nil==_footView) {
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        
+        _footView.userInteractionEnabled=YES;
         UIButton *checkLeftButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_footView addSubview:checkLeftButton];
+        checkLeftButton.tag=1000;
+        checkLeftButton.userInteractionEnabled=YES;
         [checkLeftButton setBackgroundImage:[UIImage imageNamed:@"checkbox_normal"] forState:UIControlStateNormal];
         [checkLeftButton setBackgroundImage:[UIImage imageNamed:@"checkbox_Select"] forState:UIControlStateSelected];
+        [checkLeftButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [checkLeftButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(_footView.top).offset(10.0);
             make.left.mas_equalTo(_footView.left).offset(30.0);
@@ -85,7 +93,10 @@
         }];
         
         UIButton *checkRightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        checkRightButton.userInteractionEnabled=YES;
+        checkRightButton.tag=1001;
         [_footView addSubview:checkRightButton];
+         [checkRightButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [checkRightButton setBackgroundImage:[UIImage imageNamed:@"checkbox_normal"] forState:UIControlStateNormal];
         [checkRightButton setBackgroundImage:[UIImage imageNamed:@"checkbox_Select"] forState:UIControlStateSelected];
         [checkRightButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -147,6 +158,12 @@
         case 2001:{//我是老用户
             [self.navigationController popViewControllerAnimated:YES];
         }break;
+        case 1000:{//用户协议
+            sender.selected=!sender.selected;
+        }break;
+        case 1001:{//下次直接登录
+          sender.selected=!sender.selected;
+        }break;
         default:
             break;
     }
@@ -163,36 +180,46 @@
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
         [HHProgressHUD showErrorMssage:@"两次输入的密码不一样"];
     }
-//    else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
-//        [HHProgressHUD showErrorMssage:@"请输入正确的验证码"];
-//    }
+    //    else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
+    //        [HHProgressHUD showErrorMssage:@"请输入正确的验证码"];
+    //    }
     else{
         [HHProgressHUD showLoadingState];
+        WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr  onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
-                [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                    
+                [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
+                    if (weakSelf.userLoginCompletionBlock) {
+                        weakSelf.userLoginCompletionBlock(YES,[UserModel userID]);
+                    }
                 }];
             }else{
+                if (weakSelf.userLoginCompletionBlock) {
+                    weakSelf.userLoginCompletionBlock(NO,nil);
+                }
                 [HHProgressHUD showErrorMssage:responseResult.responseMessage];
             }
         }];
     }
 }
 #pragma mark 获取验证码
--(void)didVerifyCodeButtonPressed{
-    [HHProgressHUD showLoadingState];
+-(void)didVerifyCodeButtonPressed:(UIButton *)sender{
+    WEAKSELF
+    sender.enabled=NO;
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getVerifyPhoneCodeWithPhoneNumber:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            [HHProgressHUD showSuccessMessage:@"验证码已发送,请查收"];
-          //  self.severVerifyCodeStr=responseResult.responseData;
+            [self.timer setFireDate:[NSDate date]];
         }else{
+            sender.enabled=YES;
+            weakSelf.totalTime=TotalTimeDuration;
+            [weakSelf.timer setFireDate:[NSDate distantFuture]];
             [HHProgressHUD showErrorMssage:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+    
 }
 
 #pragma mark -UITableView Delegate
@@ -228,9 +255,10 @@
         _actionButton.enabled=NO;
         [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
         [_actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_actionButton setBackgroundImage:nil forState:UIControlStateSelected|UIControlStateNormal];
         [_actionButton setBackgroundColor:[UIColor red:255.0 green:92.0 blue:134.0 alpha:1]];
         _actionButton.titleLabel.font=[UIFont boldSystemFontOfSize:15.0];
-        [_actionButton addTarget:self action:@selector(didVerifyCodeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [_actionButton addTarget:self action:@selector(didVerifyCodeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         textField.userInteractionEnabled=YES;
         _actionButton.userInteractionEnabled=YES;
         textField.rightView=_actionButton;
@@ -298,7 +326,7 @@
         }break;
         case 4:{
             self.verfiCodeStr=textFiled.text;
-
+            
         }break;
         default:
             break;

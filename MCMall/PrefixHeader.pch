@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "GlobalMacro.h"
 #import "AFNetworking.h"
 #import "Masonry.h"
 #import "Reachability.h"
@@ -22,7 +23,7 @@
 #import "Mantle.h"
 #import "HHFrameWorkKit.h"
 #import "UserModel.h"
-#import "GlobalMacro.h"
+
 #import "HHGlobalVarTool.h"
 #import "BaseViewController.h"
 #import "BaseTableViewController.h"

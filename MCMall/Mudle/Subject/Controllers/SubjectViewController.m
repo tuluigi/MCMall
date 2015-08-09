@@ -81,16 +81,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     if ([UserModel isLogin]) {
-    if (subjectModel.subjectState==SubjectModelStateProcessing||subjectModel.subjectState==SubjectModelStateFinsihed){
-        SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle state:subjectModel.subjectState];
-        expertViewController.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:expertViewController animated:YES];
-        
-    }else if (subjectModel.subjectState==SubjectModelStateUnStart){
-        [HHProgressHUD makeToast:@"专题尚未开始"];
-    }}else{
-        [self verfiyUserLogin];
-    }
+        if (subjectModel.subjectState==SubjectModelStateProcessing||subjectModel.subjectState==SubjectModelStateFinsihed){
+            SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle state:subjectModel.subjectState];
+            expertViewController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:expertViewController animated:YES];
+            
+        }else if (subjectModel.subjectState==SubjectModelStateUnStart){
+            [HHProgressHUD makeToast:@"专题尚未开始"];
+        }}else{
+            WEAKSELF
+            [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID){
+                if (isSucceed) {
+                    [weakSelf tableView:tableView didSelectRowAtIndexPath:indexPath ];
+                }
+            }];
+        }
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 110;

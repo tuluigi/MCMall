@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (MCMall)
--(BOOL)verfiyUserLogin;
+
 @end

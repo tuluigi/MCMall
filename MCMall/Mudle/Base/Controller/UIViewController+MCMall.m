@@ -10,18 +10,7 @@
 #import "LoginViewController.h"
 
 @implementation UIViewController (MCMall)
--(BOOL)verfiyUserLogin{
-    BOOL isLogin=[UserModel isLogin];
-    if (!isLogin) {
-        LoginViewController *loginViewController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];
-        loginViewController.hidesBottomBarWhenPushed=YES;
-        UINavigationController *rootNavController=[[UINavigationController alloc]  initWithRootViewController:loginViewController];
-        [self.navigationController presentViewController:rootNavController animated:YES completion:^{
-            
-        }];
-    }
-    return isLogin;
-}
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     [[UIApplication sharedApplication].keyWindow endEditing:YES];;
 }

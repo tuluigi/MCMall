@@ -8,6 +8,7 @@
 
 #import "BaseTableViewController.h"
 
-@interface RegisterViewController : BaseTableViewController
 
+@interface RegisterViewController : BaseTableViewController
+@property(nonatomic,copy)DidUserLoginCompletionBlock userLoginCompletionBlock;
 @end

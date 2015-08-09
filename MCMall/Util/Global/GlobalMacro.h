@@ -18,4 +18,6 @@
 #define UserLoginSucceedNotification @"UserLoginSucceedNotification"
 #define UserLogoutSucceedNotification @"UserLogoutSucceedNotification"
 
+
+typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 #endif

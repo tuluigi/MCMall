@@ -201,47 +201,67 @@
     }];
 }
 -(void)favorButtonPressed:(UIButton *)sender{
-    if (!sender.isSelected) {
+    if ([UserModel isLogin]) {
+        if (!sender.isSelected) {
+            WEAKSELF
+            [HHProgressHUD showLoadingState];
+            [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[UserModel userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
+                if (responseResult.responseCode==HHResponseResultCode100) {
+                    weakSelf.photoModle.isFavor=YES;
+                    weakSelf.photoModle.favorCount++;
+                    _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
+                    [sender setSelected:YES];
+                    [HHProgressHUD dismiss];
+                }else{
+                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                }
+            }];
+        }
+    }else{
         WEAKSELF
-        [HHProgressHUD showLoadingState];
-        [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[UserModel userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
-                weakSelf.photoModle.isFavor=YES;
-                weakSelf.photoModle.favorCount++;
-                 _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
-                [sender setSelected:YES];
-            }else{
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+        [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+            if (isSucceed) {
+                [weakSelf favorButtonPressed:nil];
             }
         }];
     }
 }
 #pragma mark publishComment
 -(void)didPublishCommentButtonPressed{
-    if (self.commentTextField.text.length) {
+    if ([UserModel isLogin]) {
+        if (self.commentTextField.text.length) {
+            [self.commentTextField resignFirstResponder];
+            WEAKSELF
+            [HHProgressHUD showLoadingState];
+            [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
+                if (responseResult.responseCode==HHResponseResultCode100) {
+                    PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
+                    UserModel *userModel=[UserModel userModel];
+                    model.userName=userModel.userName;
+                    model.userImage=userModel.userHeadUrl;
+                    model.commentContents=weakSelf.commentTextField.text;
+                    NSString *timeStr=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm"];
+                    weakSelf.commentTextField.text=@"";
+                    model.commentTime=timeStr;
+                    [self.photoModle.commentArray insertObject:model atIndex:0];
+                    [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    
+                    
+                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                }else{
+                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                }
+            }];
+        }
+    }else{
         WEAKSELF
-        [HHProgressHUD showLoadingState];
-        [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
-                PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
-                UserModel *userModel=[UserModel userModel];
-                model.userName=userModel.userName;
-                model.userImage=userModel.userHeadUrl;
-                model.commentContents=weakSelf.commentTextField.text;
-                NSString *timeStr=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm"];
-                weakSelf.commentTextField.text=@"";
-                model.commentTime=timeStr;
-                [self.photoModle.commentArray insertObject:model atIndex:0];
-                [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                
-               
-                [HHProgressHUD makeToast:responseResult.responseMessage];
-            }else{
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+        [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+            if (isSucceed) {
+                [weakSelf didPublishCommentButtonPressed];
             }
         }];
     }
-}
+ }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.self.photoModle.commentArray.count;
 }

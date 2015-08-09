@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface LoginViewController : BaseTableViewController
-
+@property(nonatomic,copy)DidUserLoginCompletionBlock userLoginCompletionBlock;
 @end

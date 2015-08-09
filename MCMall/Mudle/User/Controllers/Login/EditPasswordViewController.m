@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     self.title=@"修改密码";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"确定修改" style:UIBarButtonItemStylePlain target:self action:@selector(didRightNavBarButtonPressed)];
 }
@@ -50,7 +51,7 @@
     return 15.0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 3;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";

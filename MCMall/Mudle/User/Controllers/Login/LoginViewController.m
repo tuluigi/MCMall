@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
 #import "RegisterViewController.h"
+#import "EditPasswordViewController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd;
@@ -91,10 +92,17 @@
             [self userLogin];
         }break;
         case 2001:{//忘记密码
-            
+            EditPasswordViewController *editPasswordController=[[EditPasswordViewController alloc]  initWithStyle:UITableViewStyleGrouped];
+            [self.navigationController pushViewController:editPasswordController animated:YES];
         }break;
         case 2002:{//新用户注册
+            WEAKSELF
             RegisterViewController *registerController=[[RegisterViewController alloc]  initWithStyle:UITableViewStylePlain];
+            registerController.userLoginCompletionBlock=^(BOOL isSucceed,NSString *userID){
+                if (weakSelf.userLoginCompletionBlock) {
+                    weakSelf.userLoginCompletionBlock(isSucceed,userID);
+                }
+            };
             [self.navigationController pushViewController:registerController animated:YES];
         }break;
             
@@ -119,14 +127,22 @@
         [HHProgressHUD showErrorMssage:@"请输入密码"];
     }else{
                 [HHProgressHUD showLoadingState];
+        WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                    
+                    if (weakSelf.userLoginCompletionBlock) {
+                        weakSelf.userLoginCompletionBlock(YES,[UserModel userID]);
+                    }
+
                 }];
             }else{
+                if (weakSelf.userLoginCompletionBlock) {
+                    weakSelf.userLoginCompletionBlock(NO,nil);
+                }
+
                 [HHProgressHUD showErrorMssage:responseResult.responseMessage];
             }
         }];

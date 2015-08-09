@@ -53,4 +53,5 @@
 
 #pragma mark classLib
 #import "HHProgressHUD.h"
+#import "HHUserManager.h"
 #endif

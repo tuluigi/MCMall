@@ -26,3 +26,5 @@
 +(NSString *)userID;
 +(BOOL)isLogin;
 @end
+
+
