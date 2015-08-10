@@ -18,6 +18,7 @@
 #define UserLoginSucceedNotification @"UserLoginSucceedNotification"
 #define UserLogoutSucceedNotification @"UserLogoutSucceedNotification"
 
+#define MCMallTimerTaskNotification @"MCMallTimerTaskNotification"
 
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 #endif

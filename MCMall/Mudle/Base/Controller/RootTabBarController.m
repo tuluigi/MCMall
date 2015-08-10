@@ -59,11 +59,13 @@
 }
 -(void)onInitTabrControllers{
     
-    /*
      MCMallViewController *mcMallController=[[MCMallViewController alloc]  init];
      UINavigationController *mcNavController=[[UINavigationController alloc]  initWithRootViewController:mcMallController];
-     mcNavController.tabBarItem.title=@"商城";
-     
+    HHTabBarItem *mallTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"首页" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
+    mcNavController.tabBarItem=mallTabbarItem;
+
+    
+    /*
     HealthViewController *healthController=[[HealthViewController alloc]  init];
     UINavigationController *healthNavController=[[UINavigationController alloc]  initWithRootViewController:healthController];
     
@@ -75,7 +77,7 @@
     SubjectViewController *subjectViewController=[[SubjectViewController alloc]  init];
     UINavigationController *subjectNavController=[[UINavigationController alloc]  initWithRootViewController:subjectViewController];
     
-    HHTabBarItem *subjectTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专题" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
+    HHTabBarItem *subjectTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专家问答" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
     subjectNavController.tabBarItem=subjectTabbarItem;
     
     
@@ -92,7 +94,7 @@
     userNavController.tabBarItem=userTabbarItem;
     
     
-    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:subjectNavController,activityNavController,userNavController, nil];
+    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:mcNavController,subjectNavController,activityNavController,userNavController, nil];
     self.viewControllers=tabBarControllers;
 }
 /*

@@ -31,10 +31,9 @@
 }
 
 -(void)handleTapGesture:(UITapGestureRecognizer *)gesture{
-    WEAKSELF
-    [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
-        [weakSelf uploadHeaderImageWithImagePath:imgPath];
-    }];
+    UserModel *userModel=[HHUserManager userModel];
+    [[HHPhotoBroswer sharedPhotoBroswer]  showBrowserWithImages:@[userModel.userHeadUrl] atIndex:0];
+   
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -138,6 +137,15 @@
     return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if (itemModel.itemType==HHUserInfoItemTypeHeaderImage) {
+        WEAKSELF
+        [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+            [weakSelf uploadHeaderImageWithImagePath:imgPath];
+        }];
+    }
+   
+
     /*
     NSString *titleStr=@"";
     NSString *messageStr=@"";

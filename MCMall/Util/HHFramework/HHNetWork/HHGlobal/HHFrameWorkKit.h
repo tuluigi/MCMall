@@ -36,6 +36,7 @@
 #import "UIResponder+Router.h"
 #import "UIScrollView+SVStopAnimation.h"
 #import "NSUserDefaults+AesEncrypt.h"
+#import "HHPhotoBroswer.h"
 
 #pragma mark -UIKit
 #import "HHView.h"

@@ -7,7 +7,7 @@
 //
 
 #import "MCMallViewController.h"
-
+#import "MallListCell.h"
 @interface MCMallViewController ()
 
 @end
@@ -23,7 +23,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.dataSourceArray count];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifer=@"identifer";
+    MallListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+    if (nil==cell) {
+        cell=[[MallListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    cell.goodsModel=goodsModel;
+    return cell;
+}
 /*
 #pragma mark - Navigation
 
