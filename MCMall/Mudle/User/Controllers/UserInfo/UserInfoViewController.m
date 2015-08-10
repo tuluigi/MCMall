@@ -46,9 +46,9 @@
 -(void)uploadHeaderImageWithImagePath:(NSString *)loaclPath{
     WEAKSELF
     //[HHProgressHUD showLoadingMessage:@"正在上传..."];
-    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[HHUserManager userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            [UserModel setUserHeaderImageUrl:responseResult.responseData];
+            [HHUserManager setUserHeaderImageUrl:responseResult.responseData];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];
             
             [HHProgressHUD dismiss];
@@ -108,7 +108,7 @@
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
     }
-    UserModel *userModel=[UserModel userModel];
+    UserModel *userModel=[HHUserManager userModel];
     cell.textLabel.text=itemModel.itemName;
     switch (itemModel.itemType) {
         case HHUserInfoItemTypeHeaderImage:

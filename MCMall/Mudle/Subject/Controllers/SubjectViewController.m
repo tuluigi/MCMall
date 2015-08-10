@@ -80,7 +80,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    if ([UserModel isLogin]) {
+    if ([HHUserManager isLogin]) {
         if (subjectModel.subjectState==SubjectModelStateProcessing||subjectModel.subjectState==SubjectModelStateFinsihed){
             SubtitleExpertAnswerController *expertViewController=[[SubtitleExpertAnswerController alloc] initWithSubjectID:subjectModel.subjectID title:subjectModel.subjectTitle state:subjectModel.subjectState];
             expertViewController.hidesBottomBarWhenPushed=YES;

@@ -84,7 +84,7 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)getUserInfoWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)getBabeInfoWithUserID:(NSString *)userID
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**
@@ -99,7 +99,7 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)editUserInfoWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)editBabeInfoWithUserID:(NSString *)userID
                                      birthday:(NSString *)birthday
                                   bigNickName:(NSString *)bigNickName
                                smallNickeName:(NSString *)smallNickName

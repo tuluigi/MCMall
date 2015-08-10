@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class UserModel;
 @interface HHUserManager : NSObject
++(void)storeLoginUserModel:(UserModel *)userModel;
++(void)setUserHeaderImageUrl:(NSString *)headImagPath;
+
++(void)logout;
++(UserModel *)userModel;
++(NSString *)userID;
++(BOOL)isLogin;
+
 +(void)shouldUserLoginOnCompletionBlock:(DidUserLoginCompletionBlock)loginBlock;
 @end

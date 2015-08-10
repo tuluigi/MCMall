@@ -19,7 +19,7 @@
 }
 +(NSArray *)userCenterItems{
     NSArray *itemsArray=[NSArray new];
-    if ([UserModel isLogin]) {
+    if ([HHUserManager isLogin]) {
         HHItemModel *userInfoItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeUserInfo name:@"" image:nil];
         HHItemModel *pointeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypePoint name:@"" image:nil];
         NSArray *sectionArray0=@[userInfoItem,pointeItem];

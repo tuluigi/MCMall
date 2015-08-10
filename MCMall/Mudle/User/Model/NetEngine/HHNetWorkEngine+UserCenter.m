@@ -24,7 +24,11 @@
 }
 -(HHResponseResult *)parseUserLoginWithResponseResult:(HHResponseResult *)responseResult{
     if (responseResult.responseCode==HHResponseResultCode100) {
-        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData shouldSynchronize:YES];
+        NSError *error;
+        UserModel *userModel=[MTLJSONAdapter modelOfClass:[UserModel class] fromJSONDictionary:responseResult.responseData error:&error];
+        [HHUserManager storeLoginUserModel:userModel];
+//        responseResult.responseData=babeModel;
+//        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData shouldSynchronize:YES];
         responseResult.responseData=userModel;
     }
     return responseResult;
@@ -118,20 +122,21 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)getUserInfoWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)getBabeInfoWithUserID:(NSString *)userID
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI  getUserInfoAPI];
     NSDictionary *postDic=@{@"userid":userID};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        UserModel *userModel=[UserModel userModelWithResponseDic:responseResult.responseData shouldSynchronize:NO];
-        responseResult.responseData=userModel;
+        NSError *error;
+         BabeModel *babeModel=[MTLJSONAdapter modelOfClass:[BabeModel class] fromJSONDictionary:responseResult.responseData error:&error];
+        responseResult.responseData=babeModel;
         completionBlcok(responseResult);
     }];
     return op;
 }
 
 /**
- *  修改用户信息
+ *  修改宝宝信息
  *
  *  @param userID          用户
  *  @param birthday
@@ -142,7 +147,7 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)editUserInfoWithUserID:(NSString *)userID
+-(HHNetWorkOperation *)editBabeInfoWithUserID:(NSString *)userID
                                      birthday:(NSString *)birthday
                                   bigNickName:(NSString *)bigNickName
                                smallNickeName:(NSString *)smallNickName

@@ -170,7 +170,7 @@
          [HHProgressHUD showLoadingState];
     }
     WEAKSELF
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[UserModel userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[HHUserManager userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         [HHProgressHUD dismiss];
         if (responseResult.responseCode==HHResponseResultCode100) {
             PhotoModel *model=responseResult.responseData;
@@ -201,11 +201,11 @@
     }];
 }
 -(void)favorButtonPressed:(UIButton *)sender{
-    if ([UserModel isLogin]) {
+    if ([HHUserManager isLogin]) {
         if (!sender.isSelected) {
             WEAKSELF
             [HHProgressHUD showLoadingState];
-            [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[UserModel userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
+            [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[HHUserManager userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCode100) {
                     weakSelf.photoModle.isFavor=YES;
                     weakSelf.photoModle.favorCount++;
@@ -228,15 +228,15 @@
 }
 #pragma mark publishComment
 -(void)didPublishCommentButtonPressed{
-    if ([UserModel isLogin]) {
+    if ([HHUserManager isLogin]) {
         if (self.commentTextField.text.length) {
             [self.commentTextField resignFirstResponder];
             WEAKSELF
             [HHProgressHUD showLoadingState];
-            [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[UserModel userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
+            [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[HHUserManager userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCode100) {
                     PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
-                    UserModel *userModel=[UserModel userModel];
+                    UserModel *userModel=[HHUserManager userModel];
                     model.userName=userModel.userName;
                     model.userImage=userModel.userHeadUrl;
                     model.commentContents=weakSelf.commentTextField.text;

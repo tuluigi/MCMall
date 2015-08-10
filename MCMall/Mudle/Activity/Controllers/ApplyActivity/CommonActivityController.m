@@ -50,7 +50,7 @@
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
     [self.view showPageLoadingView];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:ActivityTypeCommon userID:[UserModel userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:ActivityTypeCommon userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             weakSelf.activityModel=responseResult.responseData;
         }

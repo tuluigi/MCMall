@@ -36,7 +36,7 @@
         [HHProgressHUD showErrorMssage:@"两次输入的密码不一致"];
     }else{
         [HHProgressHUD showLoadingState];
-        [[HHNetWorkEngine sharedHHNetWorkEngine]  editUserPassWordWithUserID:[UserModel userID] OrignalPwd:self.orignalPwd newsPwd:self.newsPwd onCompletionHandler:^(HHResponseResult *responseResult) {
+        [[HHNetWorkEngine sharedHHNetWorkEngine]  editUserPassWordWithUserID:[HHUserManager userID] OrignalPwd:self.orignalPwd newsPwd:self.newsPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCode100) {
                 [HHProgressHUD showSuccessMessage:@"密码修改成功"];
             }else{

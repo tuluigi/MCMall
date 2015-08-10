@@ -106,20 +106,20 @@
 -(void)reloadUI{
     WEAKSELF
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userCenterItems]];
-    if ([UserModel isLogin]) {
+    if ([HHUserManager isLogin]) {
         self.tableView.tableHeaderView=nil;
         self.tableView.tableFooterView=self.logoutFootView;
     }else{
         self.tableView.tableHeaderView=self.headerView;
         self.tableView.tableFooterView=self.loginFootView;
     }
-    UserModel *userModel=[UserModel userModel];
+    UserModel *userModel=[HHUserManager userModel];
     [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
     [self.tableView reloadData];
 }
 
 -(void)didLogoutButtonPressed{
-    [UserModel logout];
+    [HHUserManager logout];
     [self reloadUI];
    // [self verfiyUserLogin];
 }
@@ -143,7 +143,7 @@
     return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UserModel *userModel=[UserModel userModel ];
+    UserModel *userModel=[HHUserManager userModel ];
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     UITableViewCell *cell;
     if (itemModel.itemType==HHUserCenterItemTypeUserInfo) {

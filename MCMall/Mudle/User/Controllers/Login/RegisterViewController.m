@@ -192,7 +192,7 @@
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
                     if (weakSelf.userLoginCompletionBlock) {
-                        weakSelf.userLoginCompletionBlock(YES,[UserModel userID]);
+                        weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
                     }
                 }];
             }else{

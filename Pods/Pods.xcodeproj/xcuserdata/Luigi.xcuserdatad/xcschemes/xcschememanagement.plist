@@ -9,7 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MWPhotoBrowser-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MWPhotoBrowser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,72 +97,92 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D02165C706B9C417007E267</key>
+		<key>083B3734ACE17DD3BB047CEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21F06B458FF1250978A34687</key>
+		<key>09732D5F25E5734FB98A8E92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CAC166E5273BD0BC82A6604</key>
+		<key>310F2A9912A8773C3FC305CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CC7059B5B9F6C2180B63FB8</key>
+		<key>48FAAB8526ACAF6C1BD8EFB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>659693A537293463BC4A0ACF</key>
+		<key>4A6AD6C70259425A06DB3E19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6A2EAE1F40B7914C31E6857F</key>
+		<key>5D4EA50281FF5D7030EE90D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>944A75CD4FD45A13B13E064B</key>
+		<key>704D8F8521AF9C3B3AB06DB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9ACA58210CBB03B9CE344BBF</key>
+		<key>8EC712601EA403D12F10BF4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DA6B081CD7976D89746ED52</key>
+		<key>9B66D660ECC79704EE13A042</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAC421D6E132C02C714939E4</key>
+		<key>AABE1D3D9A580F349EBBE1CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC03CBA38219C42A9D34F0EF</key>
+		<key>AB95F53D0870DE3F60D41C50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4847F72CF62F7E63EC3CA28</key>
+		<key>AD3E4B01DA5142F59B8AD467</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F69A925C3A1F01534287BD82</key>
+		<key>B52F2C3D992162C7A91751A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FAE212E51029E65E8AD3E0B3</key>
+		<key>BC2515BFA4AD0B194CAD0079</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE75006F5CCD21AF6A68C8D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D23B4E288CDFE057A137916A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE9A562D5278E47B11FAB4E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED85D686FED53C6AAD0FE053</key>
 		<dict>
 			<key>primary</key>
 			<true/>

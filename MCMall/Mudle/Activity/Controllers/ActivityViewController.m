@@ -52,7 +52,7 @@
     if (self.dataSourceArray.count==0) {
         [self.tableView showPageLoadingView];
     }
-   HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[UserModel userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
+   HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[HHUserManager userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
         [self.tableView dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (num==1) {

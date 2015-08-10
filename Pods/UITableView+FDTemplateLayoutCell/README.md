@@ -22,6 +22,7 @@ If you have a **self-satisfied** cell, then all you have to do is:
     }];
 }
 ```
+
 ## Height Caching API
 
 Since iOS8, `-tableView:heightForRowAtIndexPath:` will be called more times than we expect, we can feel these extra calculations when scrolling. So we provide another API with caches:   
@@ -47,6 +48,26 @@ Pre-cache is an advanced function which helps to cache the rest of offscreen UIT
 `estimatedRowHeight` helps to delay all cells' height calculation from load time to scroll time. Feel free to set it or not when you're using FDTemplateLayoutCell. If you use "cacheByIndexPath" API, setting this estimatedRowHeight property is a better practice for imporve load time, and it **DOES NO LONGER** affect scroll performance because of "precache".
 ``` objc
 self.tableView.estimatedRowHeight = 200;
+```
+## Frame layout mode
+
+`FDTemplateLayoutCell` offers 2 modes for asking cell's height.  
+
+1. Auto layout mode using "-systemLayoutSizeFittingSize:"  
+2. Frame layout mode using "-sizeThatFits:"  
+
+Generally, no need to care about modes, it will **automatically** choose a proper mode by whether you have set auto layout constrants on cell's content view. If you want to enforce frame layout mode, enable this property in your cell's configuration block:  
+
+``` objc
+cell.fd_enforceFrameLayout = YES;
+```
+And if you're using frame layout mode, you must override `-sizeThatFits:` in your customized cell and return content view's height (separator excluded)
+
+```
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    return CGSizeMake(size.width, A+B+C+D+E+....);
+}
 ```
 
 ## Debug log
@@ -76,7 +97,7 @@ It will print like this:
 
 ## About self-satisfied cell
 
-a fully **self-satisfied** cell is constrainted by auto layout and each edge("top", "left", "bottom", "right") has at least one layout constraint against it.  
+a fully **self-satisfied** cell is constrainted by auto layout and each edge("top", "left", "bottom", "right") has at least one layout constraint against it. It's the same concept introduced as "self-sizing cell" in iOS8 using auto layout.
 
 A bad one :( - missing right and bottom
 ![non-self-satisfied](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell/blob/master/Sceenshots/screenshot0.png)   
@@ -84,11 +105,46 @@ A bad one :( - missing right and bottom
 A good one :)  
 ![self-satisfied](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell/blob/master/Sceenshots/screenshot1.png)   
 
+## Note
+
+A template layout cell is created by `-dequeueReusableCellWithIdentifier:` method, it means that you MUST have registered this cell reuse identifier by one of:  
+
+- A prototype cell of UITableView in storyboard.
+- Use `-registerNib:forCellReuseIdentifier:` 
+- Use `-registerClass:forCellReuseIdentifier:`
+
+## 如果你在天朝
+可以看这篇中文博客： 
+[http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/](http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/)
+
 ## Installation
+
+Latest version: **1.3**
 
 ```
 pod search UITableView+FDTemplateLayoutCell 
 ```
+If you cannot search out the latest version, try:  
+
+```
+pod setup
+```
+
+## Release Notes
+
+We recommend to use the latest release in cocoapods.
+
+- 1.3  
+Frame layout mode, handle cell's accessory view/type
+
+- 1.2  
+Precache and auto cache invalidation
+
+- 1.1  
+Height cache
+
+- 1.0  
+Basic automatically height calculation
 
 ## License
 MIT

@@ -9,7 +9,7 @@
 #import "BabeInfoViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
 @interface BabeInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
-@property(nonatomic,strong)UserModel *userModel;
+@property(nonatomic,strong)BabeModel *babeModel;
 @property(nonatomic,strong)UIDatePicker *dataPicker;
 @property(nonatomic,strong)UIView *pickView;
 @property (nonatomic, strong) MASConstraint *pickViewHeightConstraint;
@@ -69,7 +69,7 @@
 }
 -(void)dateChanged:(UIDatePicker *)sender{
     NSDate*date= sender.date;
-    self.userModel.birthday=date;
+    self.babeModel.birthday=date;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     
@@ -82,7 +82,7 @@
         }];
         [weakSelf.pickView layoutIfNeeded];
         NSDate*date= weakSelf.dataPicker.date;
-        weakSelf.userModel.birthday=date;
+        weakSelf.babeModel.birthday=date;
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     return;
@@ -115,7 +115,7 @@
 -(void)rightBarButtonPressed{
     WEAKSELF
     [HHProgressHUD showLoadingState];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editUserInfoWithUserID:[UserModel userID] birthday:[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.userModel.bigNickName smallNickeName:self.userModel.smallNickName gender:self.userModel.gender onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editBabeInfoWithUserID:[HHUserManager userID] birthday:[self.babeModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.babeModel.bigNickName smallNickeName:self.babeModel.smallNickName gender:self.babeModel.gender onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
             [HHProgressHUD dismiss];
@@ -128,9 +128,9 @@
 -(void)getUserInfo{
     WEAKSELF
     [HHProgressHUD showLoadingState];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getUserInfoWithUserID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getBabeInfoWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            _userModel=responseResult.responseData;
+            _babeModel=responseResult.responseData;
             [weakSelf.tableView reloadData];
             [HHProgressHUD dismiss];
         }else{
@@ -159,8 +159,8 @@
     switch (indexPath.row) {
         case 0:{
             cell.textLabel.text=@"生日";
-            if (self.userModel.birthday) {
-                cell.detailTextLabel.text=[self.userModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"];
+            if (self.babeModel.birthday) {
+                cell.detailTextLabel.text=[self.babeModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"];
             }else{
                 cell.detailTextLabel.text=@"";
             }
@@ -168,15 +168,15 @@
         }break;
         case 1:{
             cell.textLabel.text=@"大名";
-            cell.detailTextLabel.text=self.userModel.bigNickName;
+            cell.detailTextLabel.text=self.babeModel.bigNickName;
         }break;
         case 2:{
             cell.textLabel.text=@"小名";
-            cell.detailTextLabel.text=self.userModel.smallNickName;
+            cell.detailTextLabel.text=self.babeModel.smallNickName;
         }break;
         case 3:{
             cell.textLabel.text=@"性别";
-            cell.detailTextLabel.text=self.userModel.gender;
+            cell.detailTextLabel.text=self.babeModel.gender;
             
         }break;
         default:
@@ -210,8 +210,8 @@
                 [weakSelf.pickView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.bottom.equalTo(weakSelf.view);
                 }];
-                if (weakSelf.userModel.birthday) {
-                    [weakSelf.dataPicker setDate:weakSelf.userModel.birthday animated:YES];
+                if (weakSelf.babeModel.birthday) {
+                    [weakSelf.dataPicker setDate:weakSelf.babeModel.birthday animated:YES];
                 }
                 [weakSelf.pickView layoutIfNeeded];
             }];
@@ -219,11 +219,11 @@
         }break;
         case 1:{
             titleStr=@"修改大名";
-            messageStr=self.userModel.bigNickName;
+            messageStr=self.babeModel.bigNickName;
         }break;
         case 2:{
             titleStr=@"修改小名";
-            messageStr=self.userModel.smallNickName;
+            messageStr=self.babeModel.smallNickName;
         }break;
         case 3:{
             UIActionSheet *actionSheet= [[UIActionSheet alloc]  initWithTitle:@"性别" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女", nil];
@@ -247,23 +247,23 @@
     UITextField *textFiled=[alertView textFieldAtIndex:0];
     
     if (alertView.tag==1) {
-        if ([self.userModel.bigNickName isEqualToString:textFiled.text]) {
+        if ([self.babeModel.bigNickName isEqualToString:textFiled.text]) {
             return;
         }
-        self.userModel.bigNickName=textFiled.text;
+        self.babeModel.bigNickName=textFiled.text;
     }else if (alertView.tag==2){
-        if ([self.userModel.smallNickName isEqualToString:textFiled.text]) {
+        if ([self.babeModel.smallNickName isEqualToString:textFiled.text]) {
             return;
         }
-        self.userModel.smallNickName=textFiled.text;
+        self.babeModel.smallNickName=textFiled.text;
     }
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:alertView.tag inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([self.userModel.gender isEqualToString:[actionSheet buttonTitleAtIndex:buttonIndex]]) {
+    if ([self.babeModel.gender isEqualToString:[actionSheet buttonTitleAtIndex:buttonIndex]]) {
         return;
     }
-    self.userModel.gender=[actionSheet buttonTitleAtIndex:buttonIndex];
+    self.babeModel.gender=[actionSheet buttonTitleAtIndex:buttonIndex];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     
 }

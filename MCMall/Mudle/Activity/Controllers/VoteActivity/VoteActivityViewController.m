@@ -135,7 +135,7 @@
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
     [self.view showPageLoadingView];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[UserModel userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             weakSelf.activityModel=responseResult.responseData;
         }
@@ -151,7 +151,7 @@
     }];
 }
 -(void)uploadImageWithImagePath:(NSString *)imagePath{
-    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             if ([responseResult.responseData isKindOfClass:[NSString class]]) {
                 [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
@@ -322,7 +322,7 @@
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{
     WEAKSELF
     [HHProgressHUD showLoadingMessage:@"正在投票"];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  voteActivityWithUserID:[UserModel userID] ActivityID:self.activityID voteNum:1 onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  voteActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID voteNum:1 onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
             playerModel.isVoted=YES;
@@ -345,7 +345,7 @@
 #pragma mark -apply button
 -(void)applyButtonPressed{
     [HHProgressHUD showLoadingState];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[UserModel userID] ActivityID:self.activityID onCompletionHandler:^(HHResponseResult *responseResult) {
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
         }else{

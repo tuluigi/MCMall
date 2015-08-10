@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : MTLModel<MTLJSONSerializing>
 @property(nonatomic,copy)NSString *userID;
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *userHeadUrl;
@@ -19,8 +19,9 @@
 @property(nonatomic,copy)NSString *shopName;
 @property(nonatomic,copy)NSString * gender;//0男；1 女
 @property(nonatomic,copy)NSDate *birthday;
-@property(nonatomic,copy)NSString *bigNickName,*smallNickName;//大名 小明
 
+/*
++(void)storeUserModel:(UserModel *)userModel;
 +(void)setUserHeaderImageUrl:(NSString *)headImagPath;
 
 +(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz;
@@ -28,6 +29,17 @@
 +(void)logout;
 +(NSString *)userID;
 +(BOOL)isLogin;
+ */
 @end
 
+
+@interface BabeModel : MTLModel<MTLJSONSerializing>
+@property(nonatomic,copy)NSString *motherID;
+@property(nonatomic,copy)NSString *babeId;
+@property(nonatomic,copy)NSString *bigNickName,*smallNickName;
+@property(nonatomic,copy)NSString *gender;
+@property(nonatomic,copy)NSDate    *birthday;
+@property(nonatomic,copy)NSString *babeHeaderUrl;
+
+@end
 

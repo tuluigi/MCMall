@@ -91,7 +91,7 @@
         [self.view showPageLoadingView];
     }
     WEAKSELF
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID userID:[UserModel userID]  pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID userID:[HHUserManager userID]  pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (_pageIndex==1) {
@@ -124,12 +124,12 @@
 -(void)askQuestionWithSubjectID:(NSString *)subjectID question:(NSString *)question{
     WEAKSELF
     [HHProgressHUD showLoadingState];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  askSubjectQuestionWithSubjectID:subjectID userID:[UserModel userID] questionContent:question onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  askSubjectQuestionWithSubjectID:subjectID userID:[HHUserManager userID] questionContent:question onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             SubjectCommentModel *commentModel=[[SubjectCommentModel alloc]  init];
             commentModel.commentComment=question;
-            UserModel *userModel=[UserModel userModel];
-            commentModel.commentUserID=[UserModel userID];
+            UserModel *userModel=[HHUserManager userModel];
+            commentModel.commentUserID=[HHUserManager userID];
             commentModel.commentUserImageUrl=userModel.userHeadUrl;
             commentModel.commentUserName=userModel.userName;
             commentModel.commentTime=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
