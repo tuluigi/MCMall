@@ -14,6 +14,7 @@
 +(void)showSuccessMessage:(NSString *)msg;
 +(void)showErrorMssage:(NSString *)msg;
 +(void)showProgressWithMessage:(NSString *)msg;
++(void)showProgress:(CGFloat)progress;
 
 +(void)dismiss;
 

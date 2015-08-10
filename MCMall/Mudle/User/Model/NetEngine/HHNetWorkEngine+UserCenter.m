@@ -103,6 +103,9 @@
         }
         completionBlcok(responseResult);
     }];
+    [op setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        [HHProgressHUD showProgress:totalBytesWritten/totalBytesExpectedToWrite];
+    }];
     return op;
 }
 

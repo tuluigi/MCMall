@@ -163,7 +163,7 @@
         NSMutableArray *array=[NSMutableArray new];
         for (NSDictionary *itemDic in commentsListArray) {
             PhotoCommentModel *commentModel=[[PhotoCommentModel alloc]  init];
-            commentModel.userImage=[itemDic objectForKey:@"img"];
+            commentModel.userImage=[HHGlobalVarTool fullImagePath:[itemDic objectForKey:@"img"]];
             commentModel.userName=[itemDic objectForKey:@"userName"];
             commentModel.commentTime=[itemDic objectForKey:@"time"];
             commentModel.commentContents=[itemDic objectForKey:@"reply"];

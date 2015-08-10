@@ -25,6 +25,10 @@
 +(void)showProgressWithMessage:(NSString *)msg{
     [SVProgressHUD showProgress:1 status:msg];
 }
++(void)showProgress:(CGFloat)progress{
+    [SVProgressHUD showProgress:progress];
+}
+
 
 +(void)dismiss{
     [SVProgressHUD dismiss];

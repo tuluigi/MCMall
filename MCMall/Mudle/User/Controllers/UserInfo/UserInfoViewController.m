@@ -45,7 +45,7 @@
 #pragma mark- getuserinfo
 -(void)uploadHeaderImageWithImagePath:(NSString *)loaclPath{
     WEAKSELF
-    [HHProgressHUD showLoadingMessage:@"正在上传..."];
+    //[HHProgressHUD showLoadingMessage:@"正在上传..."];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[UserModel userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [UserModel setUserHeaderImageUrl:responseResult.responseData];
@@ -56,6 +56,7 @@
             [HHProgressHUD showErrorMssage:@"上传失败"];
         }
     }];
+   
     [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
 }
 

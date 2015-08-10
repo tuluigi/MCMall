@@ -195,7 +195,7 @@
             if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
                 aKeyValuView.value=[NSString stringWithFormat:@"%.1f",userModel.userPoint];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
-                aKeyValuView.value=[NSString stringWithFormat:@"%@元",userModel.userAmount];
+                aKeyValuView.value=[NSString stringWithFormat:@"%.2f元",userModel.userAmount];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){
                 aKeyValuView.value=@"5条";
                 aKeyValuView.badgeValue=5;

@@ -14,7 +14,7 @@
 @property(nonatomic,copy)NSString *userHeadUrl;
 @property(nonatomic,copy)NSString *userTel;
 @property(nonatomic,assign)CGFloat userPoint;
-@property(nonatomic,copy)NSDecimalNumber *userAmount;
+@property(nonatomic,assign)CGFloat userAmount;
 @property(nonatomic,copy)NSString *shopID;
 @property(nonatomic,copy)NSString *shopName;
 @property(nonatomic,copy)NSString * gender;//0男；1 女

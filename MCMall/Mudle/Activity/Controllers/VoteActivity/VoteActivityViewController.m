@@ -151,7 +151,6 @@
     }];
 }
 -(void)uploadImageWithImagePath:(NSString *)imagePath{
-    [HHProgressHUD showLoadingState];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[UserModel userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             if ([responseResult.responseData isKindOfClass:[NSString class]]) {
