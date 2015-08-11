@@ -51,16 +51,17 @@
     [self.contentView addSubview:_timeLable];
     
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(weakSelf.contentView);
+        make.top.left.width.mas_equalTo(weakSelf.contentView);
         make.height.mas_equalTo(100);
     }];
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(10);
         make.top.mas_equalTo(_goodsImageView.mas_bottom);
         make.width.mas_lessThanOrEqualTo(100);
-        make.height.mas_equalTo(20);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(10);
+        make.height.mas_lessThanOrEqualTo(20);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-10);
     }];
+    
     [_goodsPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsNameLable.mas_right);
         make.top.height.mas_equalTo(_goodsNameLable);
@@ -69,15 +70,16 @@
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsPriceLable.mas_right);
         make.top.height.mas_equalTo(_goodsNameLable);
-        make.width.mas_lessThanOrEqualTo(100);
+       // make.width.mas_lessThanOrEqualTo(100);
         make.right.mas_equalTo(weakSelf.contentView).offset(-10);
     }];
+    
 }
 -(void)setGoodsModel:(GoodsModel *)goodsModel{
     _goodsModel=goodsModel;
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg];
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
-    _goodsPriceLable.text=goodsModel.goodsOrignalPrice;
+    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",goodsModel.orignalPrice];
     _timeLable.text=@"";
 }
 @end

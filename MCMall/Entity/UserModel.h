@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface UserModel : MTLModel<MTLJSONSerializing>
+#import "BaseModel.h"
+@interface UserModel : BaseModel
 @property(nonatomic,copy)NSString *userID;
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *userHeadUrl;
@@ -33,7 +33,7 @@
 @end
 
 
-@interface BabeModel : MTLModel<MTLJSONSerializing>
+@interface BabeModel :BaseModel
 @property(nonatomic,copy)NSString *motherID;
 @property(nonatomic,copy)NSString *babeId;
 @property(nonatomic,copy)NSString *bigNickName,*smallNickName;

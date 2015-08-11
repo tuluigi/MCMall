@@ -15,6 +15,7 @@
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)HHTableView *tableView;
 @property(nonatomic,assign)NSUInteger pageIndex;
+@property(nonatomic,assign)CGFloat cellHeight;
 
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 @end

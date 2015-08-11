@@ -1,28 +1,27 @@
 //
-//  MCMallViewController.m
+//  GoodsListViewController.m
 //  MCMall
 //
-//  Created by Luigi on 15/5/23.
+//  Created by Luigi on 15/8/11.
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "MCMallViewController.h"
-#import "HHNetWorkEngine+Goods.h"
-#import "MallListCell.h"
-#import "GoodsModel.h"
 #import "GoodsListViewController.h"
-@interface MCMallViewController ()
+#import "HHNetWorkEngine+Goods.h"
+#import "MallGoodsListCell.h"
+#import "GoodsModel.h"
+#import "GoodsView.h"
+@interface GoodsListViewController ()
 @property(nonatomic,strong)NSArray *catArray;
-
+@property(nonatomic,assign)CGFloat cellHeight;
 @end
 
-@implementation MCMallViewController
+@implementation GoodsListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"首页";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(gotoGoodsListController)];
+    self.title=@"专享汇";
     if (!self.catArray.count) {
         [self getCategoryList];
     }
@@ -32,11 +31,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)gotoGoodsListController{
-    GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-    goodListController.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:goodListController animated:YES];
-}
+
 -(void)getCategoryList{
     [self.view showPageLoadingView];
     WEAKSELF
@@ -48,7 +43,7 @@
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
             }
         }else{
-             [HHProgressHUD makeToast:responseResult.responseMessage];
+            [HHProgressHUD makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -71,17 +66,23 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.dataSourceArray count];
+    return [self.dataSourceArray count]/2+(self.dataSourceArray.count%2>0?1:0);
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"identifer";
-    MallListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
+    MallGoodsListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
-        cell=[[MallListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+        cell=[[MallGoodsListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
-    GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    cell.goodsModel=goodsModel;
+    NSInteger row=indexPath.row;
+    GoodsModel *goodsModel0=[self.dataSourceArray objectAtIndex:(row*2)];
+    GoodsModel *goodsModel1;
+    if ((indexPath.row+1)*2<=self.dataSourceArray.count) {
+        goodsModel1=[self.dataSourceArray objectAtIndex:(indexPath.row+1)];
+    }
+    [cell setGoodsModel0:goodsModel0 goodsModel1:goodsModel1];
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,20 +90,13 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!self.cellHeight) {
-        MallListCell *cell=(MallListCell *)[tableView cellForRowAtIndexPath:0];
-        if (!cell) {
-            cell=[[MallListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifer"];
-            GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-            cell.goodsModel=goodsModel;
-        }
-        CGSize size= [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize ];
-        self.cellHeight=size.height+1;
- 
+        GoodsView *goodsView=[[GoodsView alloc]  init];
+        goodsView.goodsModel=[self.dataSourceArray objectAtIndex:0];
+        CGSize size= [goodsView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize ];
+        self.cellHeight=size.height;
     }
-       return self.cellHeight;
-}
-
-/*
+    return self.cellHeight;
+}/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

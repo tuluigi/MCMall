@@ -60,37 +60,46 @@
     [self addSubview:_timeLable];
     
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(100);
+        make.top.left.width.mas_equalTo(weakSelf);
+        make.height.mas_equalTo(150);
     }];
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.mas_left).offset(10);
+        make.left.mas_equalTo(weakSelf.mas_left).offset(5);
         make.top.mas_equalTo(_goodsImageView.mas_bottom);
-        make.width.mas_lessThanOrEqualTo(100);
-        make.height.mas_lessThanOrEqualTo(30);
-        make.right.mas_equalTo(weakSelf.mas_right).offset(-10);
+        make.height.mas_equalTo(30);
+        make.right.mas_equalTo(weakSelf.mas_right).offset(-5);
     }];
     [_goodsPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsNameLable);
         make.top.mas_equalTo(_goodsNameLable.mas_bottom);
+        make.right.equalTo(weakSelf.mas_centerX);
         make.height.mas_equalTo(20);
     }];
     [_storeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsPriceLable.mas_right);
-        make.right.mas_equalTo(weakSelf.mas_right);
-        make.height.mas_equalTo(_goodsPriceLable);
+        make.top.height.mas_equalTo(_goodsPriceLable);
+        make.right.mas_equalTo(_goodsNameLable);
     }];
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(_goodsNameLable);
-        make.top.height.mas_equalTo(_goodsPriceLable.mas_bottom);
+        make.top.mas_equalTo(_goodsPriceLable.mas_bottom);
         make.bottom.mas_equalTo(weakSelf).offset(-10);
     }];
 }
 -(void)setGoodsModel:(GoodsModel *)goodsModel{
     _goodsModel=goodsModel;
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg];
-    _goodsNameLable.text=goodsModel.goodsName;
-    _goodsPriceLable.text=goodsModel.goodsOrignalPrice;
-    _timeLable.text=@"";
+    
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
+    _goodsNameLable.text=_goodsModel.goodsName;
+    _storeLable.text=[NSString stringWithFormat:@"%ld",_goodsModel.storeNum];
+    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",_goodsModel.orignalPrice];
+    NSDateFormatter *fromatter=[NSDateFormatter defaultDateFormatter];
+    _timeLable.text= [fromatter stringFromDate:_goodsModel.endTime];
+    if (_goodsModel) {
+        self.hidden=NO;
+    }else{
+        self.hidden=YES;
+    }
+   
 }
 @end
