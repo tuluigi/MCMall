@@ -45,4 +45,10 @@
 +(NSString *)getSubjectDetailAPI;
 //专家问答详情
 +(NSString *)askSubjectQuestionAPI;
+
+#pragma mark -商品部分
++(NSString *)getGoodsClassAPI;
++(NSString *)getGoodsListAPI;
++(NSString *)getGoodsDetailAPI;
++(NSString *)bookGoodsAPI;//预定
 @end

@@ -6,15 +6,19 @@
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseModel.h"
 
-@interface GoodsModel : NSObject
+@interface CategoryModel : BaseModel
+@property(nonatomic,copy)NSString *catID;
+@property(nonatomic,copy)NSString *catName;
+@end
+
+@interface GoodsModel : BaseModel
 @property(nonatomic,copy)NSString *goodsID;
 @property(nonatomic,copy)NSString *goodsName;
-@property(nonatomic,copy)NSString *goodsOrignalPrice;
-@property(nonatomic,copy)NSString *goodsPresentPrice;
-@property(nonatomic,copy)NSString *goodsThumbImageUrl;
-@property(nonatomic,copy)NSString *goodsBigImageUrl;
-@property(nonatomic,strong)NSMutableArray *goodsImagesArray;
-
+@property(nonatomic,copy)NSString *goodsImageUrl;
+@property(nonatomic,strong)NSNumber *orignalPrice;
+@property(nonatomic,strong)NSNumber *presenPrice;
+@property(nonatomic,strong)NSNumber *storeNum;//库存
+@property(nonatomic,strong)NSDate * endTime;
 @end

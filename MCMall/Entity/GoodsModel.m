@@ -8,6 +8,28 @@
 
 #import "GoodsModel.h"
 
+
+@implementation CategoryModel
+
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{@"catID":@"cId",
+             @"catName":@"cName",
+             };
+}
+
+@end
+
 @implementation GoodsModel
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             //@"goodsID":@"goodID",
+             @"goodsName":@"goodName",
+             @"goodsImageUrl":@"goodImg",
+             @"orignalPrice":@"oldPrice",
+             @"presenPrice":@"newPrice",
+             @"storeNum":@"stock",
+             @"endTime":@"endDay",
+             };
+}
 
 @end

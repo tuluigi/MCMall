@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "MTLModel.h"
+#import "BaseModel.h"
 typedef NS_ENUM(NSInteger, SubjectModelState) {
     SubjectModelStateUnStart        =1,
     SubjectModelStateProcessing     =0,
     SubjectModelStateFinsihed       =-1,
 };
 
-@interface SubjectModel : MTLModel<MTLJSONSerializing>
+@interface SubjectModel : BaseModel
 @property(nonatomic,copy) NSString *subjectID;
 @property(nonatomic,copy) NSString *subjectTitle;
 @property(nonatomic,copy) NSString    *subjectTime;
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, SubjectModelState) {
 @property(nonatomic,assign)SubjectModelState subjectState;
 @end
 
-@interface SubjectCommentModel : MTLModel<MTLJSONSerializing>
+@interface SubjectCommentModel :BaseModel
 @property(nonatomic,copy)NSString *commentUserID;
 @property(nonatomic,copy)NSString *commentUserName;
 @property(nonatomic,copy)NSString *commentUserImageUrl;

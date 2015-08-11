@@ -59,7 +59,7 @@
     
     _doctorDescLable=[UILabel new];
     _doctorDescLable.numberOfLines=3;
-    _doctorDescLable.textColor=[UIColor lightGrayColor];
+    _doctorDescLable.textColor=[UIColor darkGrayColor];
     _doctorDescLable.font=[UIFont systemFontOfSize:13];
     _doctorDescLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_doctorDescLable];

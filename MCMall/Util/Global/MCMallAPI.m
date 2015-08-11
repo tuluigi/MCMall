@@ -88,4 +88,18 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)askSubjectQuestionAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"ask"];
 }
+
+#pragma mark -商品部分
++(NSString *)getGoodsClassAPI{
+ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getcategories"];
+}
++(NSString *)getGoodsListAPI{
+ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"vipgo"];
+}
++(NSString *)getGoodsDetailAPI{
+ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getadvgoods"];
+}
++(NSString *)bookGoodsAPI{
+ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
+}
 @end
