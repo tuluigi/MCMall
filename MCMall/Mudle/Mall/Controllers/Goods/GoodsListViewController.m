@@ -11,6 +11,7 @@
 #import "MallGoodsListCell.h"
 #import "GoodsModel.h"
 #import "GoodsView.h"
+#import "GoodsDetailViewController.h"
 @interface GoodsListViewController ()
 @property(nonatomic,strong)NSArray *catArray;
 @property(nonatomic,assign)CGFloat cellHeight;
@@ -74,6 +75,12 @@
     if (nil==cell) {
         cell=[[MallGoodsListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        WEAKSELF
+        cell.goodsViewClickedBlock=^(GoodsModel *goodsModel){
+            GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
+            goodDetailController.goodsModel=goodsModel;
+            [weakSelf.navigationController pushViewController:goodDetailController animated:YES];
+        };
     }
     NSInteger row=indexPath.row;
     GoodsModel *goodsModel0=[self.dataSourceArray objectAtIndex:(row*2)];

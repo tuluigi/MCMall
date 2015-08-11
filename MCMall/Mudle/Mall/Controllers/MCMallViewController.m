@@ -13,6 +13,7 @@
 #import "GoodsListViewController.h"
 @interface MCMallViewController ()
 @property(nonatomic,strong)NSArray *catArray;
+@property(nonatomic,strong)NSTimer *timer;
 
 @end
 
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     // Do any additional setup after loading the view.
     self.title=@"首页";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(gotoGoodsListController)];
@@ -31,6 +34,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)handTimerTask:(NSTimer *)timer{
+    [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
 }
 -(void)gotoGoodsListController{
     GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];

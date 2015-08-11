@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @class GoodsModel;
+typedef void(^HandleGoodsViewClickedBlock)(GoodsModel *goodsModel);
+
 @interface MallGoodsListCell : UITableViewCell
 -(void)setGoodsModel0:(GoodsModel *)goodsModel0 goodsModel1:(GoodsModel *)goodsModel1;
+@property(nonatomic,copy)HandleGoodsViewClickedBlock goodsViewClickedBlock;
 @end

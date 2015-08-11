@@ -108,6 +108,7 @@
 		2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DD39E1B401B200010893F /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DD3A01B401B200010893F /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2A9DD3A61B402C390010893F /* PhotoActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DD3A51B402C390010893F /* PhotoActivityViewController.m */; };
+		2AA179F61B7A3ED100A33F88 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA179F51B7A3ED100A33F88 /* GoodsDetailViewController.m */; };
 		2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671681B78CFA500ECC8A3 /* HHPhotoBroswer.m */; };
 		2AA6716F1B78E4EC00ECC8A3 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA6716E1B78E4EC00ECC8A3 /* MallGoodsListCell.m */; };
 		2AA671721B78E66B00ECC8A3 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
@@ -337,6 +338,8 @@
 		2A9DD3A01B401B200010893F /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		2A9DD3A41B402C390010893F /* PhotoActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoActivityViewController.h; sourceTree = "<group>"; };
 		2A9DD3A51B402C390010893F /* PhotoActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoActivityViewController.m; sourceTree = "<group>"; };
+		2AA179F41B7A3ED100A33F88 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		2AA179F51B7A3ED100A33F88 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		2AA671671B78CFA500ECC8A3 /* HHPhotoBroswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPhotoBroswer.h; sourceTree = "<group>"; };
 		2AA671681B78CFA500ECC8A3 /* HHPhotoBroswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPhotoBroswer.m; sourceTree = "<group>"; };
 		2AA6716D1B78E4EC00ECC8A3 /* MallGoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallGoodsListCell.h; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 			children = (
 				2A09307C1B79C62C00BF9368 /* GoodsListViewController.h */,
 				2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */,
+				2AA179F41B7A3ED100A33F88 /* GoodsDetailViewController.h */,
+				2AA179F51B7A3ED100A33F88 /* GoodsDetailViewController.m */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -1442,6 +1447,7 @@
 				2A984EC51B141205004DF4C0 /* HHTextView.m in Sources */,
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
+				2AA179F61B7A3ED100A33F88 /* GoodsDetailViewController.m in Sources */,
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
 				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,

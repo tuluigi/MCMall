@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @class GoodsModel;
+typedef void(^GoodsViewDidClickedBlock)(GoodsModel *goodsModel);
 @interface GoodsView : UIView
 @property(nonatomic,strong)GoodsModel *goodsModel;
+@property(nonatomic,copy)GoodsViewDidClickedBlock goodsViewClickBlock;
 @end

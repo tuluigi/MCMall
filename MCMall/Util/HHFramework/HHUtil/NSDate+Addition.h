@@ -26,4 +26,5 @@
 
 - (NSString *)timeIntervalDescription;//距离当前的时间间隔描述
 
+-(NSDateComponents *)componentsToDate:(NSDate *)date;
 @end
