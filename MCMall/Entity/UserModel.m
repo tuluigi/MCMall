@@ -13,14 +13,20 @@
     return @{
              @"userName":@"userName",
              @"userTel":@"phone",
-           //  @"userAmount":@"money",
+             @"userAmount":@"money",
              @"userID":@"userId",
              @"userHeadUrl":@"img",
              @"shopName":@"shopName"};
 }
 
--(void)setNilValueForKey:(NSString *)key{
-    [self setValue:@"" forKey:key];
++(MTLValueTransformer *)userAmountJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isKindOfClass:[NSString class]]) {
+            return [NSNumber numberWithFloat:[value floatValue]];
+        }else{
+            return value;
+        }
+    }];
 }
 -(void)setUserHeadUrl:(NSString *)userHeadUrl{
     _userHeadUrl=userHeadUrl;

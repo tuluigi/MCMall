@@ -17,8 +17,8 @@
 @property(nonatomic,copy)NSString *goodsID;
 @property(nonatomic,copy)NSString *goodsName;
 @property(nonatomic,copy)NSString *goodsImageUrl;
-@property(nonatomic,strong)NSNumber *orignalPrice;
-@property(nonatomic,strong)NSNumber *presenPrice;
-@property(nonatomic,strong)NSNumber *storeNum;//库存
-@property(nonatomic,strong)NSDate * endTime;
+@property(nonatomic,assign)CGFloat orignalPrice;
+@property(nonatomic,assign)CGFloat presenPrice;
+@property(nonatomic,assign)NSInteger storeNum;//库存
+@property(nonatomic,strong)NSDate   *endTime;
 @end

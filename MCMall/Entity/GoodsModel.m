@@ -31,5 +31,52 @@
              @"endTime":@"endDay",
              };
 }
-
++ (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
+    if ([key isEqualToString:@"oldPrice"]||[key isEqualToString:@"newPrice"]||[key isEqualToString:@"stock"]) {
+        return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            if ([value isKindOfClass:[NSString class]]) {
+                return [NSNumber numberWithFloat:[value floatValue]];
+            }else{
+                return value;
+            }
+        }];
+    }
+    return nil;
+}
+/*
++(MTLValueTransformer *)storeNumJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isKindOfClass:[NSString class]]) {
+            return [NSNumber numberWithFloat:[value floatValue]];
+        }else{
+            return value;
+        }
+    }];
+}
++(MTLValueTransformer *)presenPriceJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isKindOfClass:[NSString class]]) {
+            return [NSNumber numberWithFloat:[value floatValue]];
+        }else{
+            return value;
+        }
+    }];
+}
++(MTLValueTransformer *)orignalPriceJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isKindOfClass:[NSString class]]) {
+            return [NSNumber numberWithFloat:[value floatValue]];
+        }else{
+            return value;
+        }
+    }];
+}
+ */
++(MTLValueTransformer *)endTimeJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+        NSDate *date=[formatter dateFromString:value];
+        return date;
+    }];
+}
 @end

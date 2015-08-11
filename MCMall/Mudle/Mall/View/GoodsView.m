@@ -88,9 +88,18 @@
 }
 -(void)setGoodsModel:(GoodsModel *)goodsModel{
     _goodsModel=goodsModel;
+    
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
-    _goodsNameLable.text=@"xxxxxxx";
-    _goodsPriceLable.text=@"100";
-    _timeLable.text=@"0807";
+    _goodsNameLable.text=_goodsModel.goodsName;
+    _storeLable.text=[NSString stringWithFormat:@"%ld",_goodsModel.storeNum];
+    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",_goodsModel.orignalPrice];
+    NSDateFormatter *fromatter=[NSDateFormatter defaultDateFormatter];
+    _timeLable.text= [fromatter stringFromDate:_goodsModel.endTime];
+    if (_goodsModel) {
+        self.hidden=NO;
+    }else{
+        self.hidden=YES;
+    }
+   
 }
 @end
