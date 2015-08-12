@@ -22,11 +22,11 @@
 @implementation GoodsModel
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             //@"goodsID":@"goodID",
+             @"goodsID":@"goodId",
              @"goodsName":@"goodName",
              @"goodsImageUrl":@"goodImg",
-             @"orignalPrice":@"oldPrice",
-             @"presenPrice":@"newPrice",
+             @"orignalPrice":@"oldprice",
+             @"presenPrice":@"newprice",
              @"storeNum":@"stock",
              @"endTime":@"endDay",
              };
@@ -43,35 +43,12 @@
     }
     return nil;
 }
-/*
-+(MTLValueTransformer *)storeNumJSONTransformer{
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        if ([value isKindOfClass:[NSString class]]) {
-            return [NSNumber numberWithFloat:[value floatValue]];
-        }else{
-            return value;
-        }
-    }];
+-(void)setGoodsImageUrl:(NSString *)goodsImageUrl{
+    _goodsImageUrl=goodsImageUrl;
+    if (_goodsImageUrl&&![_goodsImageUrl hasPrefix:@"http"]) {
+        _goodsImageUrl=[HHGlobalVarTool fullImagePath:_goodsImageUrl];
+    }
 }
-+(MTLValueTransformer *)presenPriceJSONTransformer{
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        if ([value isKindOfClass:[NSString class]]) {
-            return [NSNumber numberWithFloat:[value floatValue]];
-        }else{
-            return value;
-        }
-    }];
-}
-+(MTLValueTransformer *)orignalPriceJSONTransformer{
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        if ([value isKindOfClass:[NSString class]]) {
-            return [NSNumber numberWithFloat:[value floatValue]];
-        }else{
-            return value;
-        }
-    }];
-}
- */
 +(MTLValueTransformer *)endTimeJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
         NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];

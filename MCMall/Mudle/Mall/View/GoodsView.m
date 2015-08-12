@@ -8,13 +8,16 @@
 
 #import "GoodsView.h"
 #import "GoodsModel.h"
-
+#import <CoreText/CoreText.h>
 @interface GoodsView ()
 @property(nonatomic,strong)UIImageView *goodsImageView;
 @property(nonatomic,strong)UILabel *goodsNameLable, *goodsPriceLable,*timeLable,*storeLable;
 @end
 
 @implementation GoodsView
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MCMallTimerTaskNotification object:nil];
+}
 -(instancetype)init{
     self=[self initWithFrame:CGRectZero];
     if (self) {
@@ -30,38 +33,46 @@
 }
 -(void)onInitUI{
     WEAKSELF
+    [[NSNotificationCenter defaultCenter] addObserverForName:MCMallTimerTaskNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf updateTimeLableText];
+    }];
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handTapGesture:)];
+    [self addGestureRecognizer:tapGesture];
+    self.layer.borderColor=[UIColor red:243 green:243 blue:243 alpha:1].CGColor;
+    self.layer.borderWidth=0.5;
     _goodsImageView=[UIImageView new];
     [self addSubview:_goodsImageView];
     
     _goodsNameLable=[[UILabel alloc]  init];
     _goodsPriceLable.numberOfLines=2;
-    _goodsNameLable.font=[UIFont systemFontOfSize:12];
-    _goodsNameLable.textAlignment=NSTextAlignmentCenter;
+    _goodsNameLable.font=[UIFont systemFontOfSize:14];
+    _goodsNameLable.textAlignment=NSTextAlignmentLeft;
     _goodsNameLable.textColor=[UIColor blackColor];
     [self addSubview:_goodsNameLable];
     
     _goodsPriceLable=[[UILabel alloc]  init];
-    _goodsPriceLable.font=[UIFont systemFontOfSize:12];
-    _goodsPriceLable.textAlignment=NSTextAlignmentCenter;
-    _goodsPriceLable.textColor=[UIColor blackColor];
+    _goodsPriceLable.font=[UIFont systemFontOfSize:16];
+    _goodsPriceLable.textAlignment=NSTextAlignmentLeft;
+    _goodsPriceLable.textColor=MCMallThemeColor;
     [self addSubview:_goodsPriceLable];
     
     _storeLable=[[UILabel alloc]  init];
     _storeLable.font=[UIFont systemFontOfSize:12];
-    _storeLable.textAlignment=NSTextAlignmentCenter;
-    _storeLable.textColor=[UIColor blackColor];
+    _storeLable.textAlignment=NSTextAlignmentRight;
+    _storeLable.textColor=[UIColor darkGrayColor];
     [self addSubview:_storeLable];
-
+    
     
     _timeLable=[[UILabel alloc]  init];
     _timeLable.font=[UIFont systemFontOfSize:12];
-    _timeLable.textAlignment=NSTextAlignmentCenter;
+    _timeLable.textAlignment=NSTextAlignmentLeft;
     _timeLable.textColor=[UIColor blackColor];
     [self addSubview:_timeLable];
     
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.width.mas_equalTo(weakSelf);
-        make.height.mas_equalTo(150);
+        make.top.left.mas_equalTo(weakSelf).offset(10);
+        make.right.mas_equalTo(weakSelf).offset(-10);
+        make.height.mas_equalTo(200);
     }];
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.mas_left).offset(5);
@@ -70,19 +81,19 @@
         make.right.mas_equalTo(weakSelf.mas_right).offset(-5);
     }];
     [_goodsPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_goodsNameLable);
-        make.top.mas_equalTo(_goodsNameLable.mas_bottom);
-        make.right.equalTo(weakSelf.mas_centerX);
+        make.left.mas_equalTo(weakSelf);
+        make.top.mas_equalTo(_goodsNameLable.mas_bottom).offset(10);
+        //  make.right.equalTo(weakSelf.mas_centerX);
         make.height.mas_equalTo(20);
     }];
     [_storeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsPriceLable.mas_right);
-        make.top.height.mas_equalTo(_goodsPriceLable);
+        make.centerY.height.mas_equalTo(_goodsPriceLable);
         make.right.mas_equalTo(_goodsNameLable);
     }];
     [_timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(_goodsNameLable);
-        make.top.mas_equalTo(_goodsPriceLable.mas_bottom);
+        make.top.mas_equalTo(_goodsPriceLable.mas_bottom).offset(5);
         make.bottom.mas_equalTo(weakSelf).offset(-10);
     }];
 }
@@ -91,15 +102,33 @@
     
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=_goodsModel.goodsName;
-    _storeLable.text=[NSString stringWithFormat:@"%ld",_goodsModel.storeNum];
-    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",_goodsModel.orignalPrice];
-    NSDateFormatter *fromatter=[NSDateFormatter defaultDateFormatter];
-    _timeLable.text= [fromatter stringFromDate:_goodsModel.endTime];
+    _storeLable.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
+
+    NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:16 newPrice:_goodsModel.presenPrice newFontSize:12];
+    _goodsPriceLable.attributedText=priceAttrStr;
     if (_goodsModel) {
         self.hidden=NO;
     }else{
         self.hidden=YES;
     }
-   
+    [self updateTimeLableText];
+}
+-(void)updateTimeLableText{
+    if (_goodsModel.endTime) {
+        NSDate *earlyDate=[_goodsModel.endTime  earlierDate:[NSDate date]];
+        if (earlyDate==_goodsModel.endTime) {
+            NSString *timeStr=@"还有天0小时0分0秒";
+            _timeLable.text=timeStr;
+        }else{
+            NSDateComponents *components=[_goodsModel.endTime componentsToDate:[NSDate date]];
+            NSString *timeStr=[NSString stringWithFormat:@"还有%ld天%ld小时%ld分%ld秒",components.day,components.hour,components.minute,components.second];
+            _timeLable.text=timeStr;
+        }
+    }
+}
+-(void)handTapGesture:(UITapGestureRecognizer *)tapGesture{
+    if (self.goodsViewClickBlock) {
+        self.goodsViewClickBlock(self.goodsModel);
+    }
 }
 @end

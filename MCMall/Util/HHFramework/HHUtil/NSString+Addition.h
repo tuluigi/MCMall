@@ -147,3 +147,6 @@
     //将时间格式转化为日期的格式,按照斜杠区分开，eg;2014/1/01 14:12
 -(NSDate *)dateByHHSoftFormate;
 @end
+@interface NSString (Attr)
++(NSAttributedString *)attributedStringWithOrignalPrice:(CGFloat )orignalPrce orignalFontSize:(CGFloat)orignalFontSize newPrice:(CGFloat)newPrice newFontSize:(CGFloat)newFontSize;
+@end

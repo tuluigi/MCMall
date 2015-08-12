@@ -21,11 +21,22 @@
     return self;
 }
 -(void)onInitUI{
+        WEAKSELF
     _goodsView0=[[GoodsView alloc]  init];
     [self.contentView addSubview:_goodsView0];
+    _goodsView0.goodsViewClickBlock=^(GoodsModel *goodsModel){
+        if (weakSelf.goodsViewClickedBlock) {
+            weakSelf.goodsViewClickedBlock(goodsModel);
+        }
+    };
     _goodsView1=[[GoodsView alloc]  init];
+    _goodsView1.goodsViewClickBlock=^(GoodsModel *goodsModel){
+        if (weakSelf.goodsViewClickedBlock) {
+            weakSelf.goodsViewClickedBlock(goodsModel);
+        }
+    };
     [self.contentView addSubview:_goodsView1];
-    WEAKSELF
+
 
     [_goodsView0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.mas_equalTo(weakSelf.contentView);

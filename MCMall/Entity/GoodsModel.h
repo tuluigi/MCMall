@@ -21,4 +21,5 @@
 @property(nonatomic,assign)CGFloat presenPrice;
 @property(nonatomic,assign)NSInteger storeNum;//库存
 @property(nonatomic,strong)NSDate   *endTime;
+@property(nonatomic,copy)NSString *goodsDetail;
 @end

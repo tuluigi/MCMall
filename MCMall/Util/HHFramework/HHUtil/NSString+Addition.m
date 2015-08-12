@@ -7,6 +7,7 @@
     //
 #import "NSString+Addition.h"
 #import <CommonCrypto/CommonDigest.h>
+#import <CoreText/CoreText.h>
 #import "HHAppInfo.h"
 #import "AESEncryption.h"
 #import "NSString+NetWork.h"
@@ -372,6 +373,26 @@
     }else{
         return nil;
     }
+}
+
+@end
+
+@implementation NSString (Attr)
+
++(NSAttributedString *)attributedStringWithOrignalPrice:(CGFloat )orignalPrce orignalFontSize:(CGFloat)orignalFontSize newPrice:(CGFloat)newPrice newFontSize:(CGFloat)newFontSize{
+    NSString *orignalPriceStr=[NSString stringWithFormat:@"￥%.1f",orignalPrce];
+    NSString *newPriceStr=[NSString stringWithFormat:@"￥%.1f",newPrice];
+    NSString *priceStr=[orignalPriceStr stringByAppendingString:newPriceStr];
+    NSMutableAttributedString *priceAttrStr=[[NSMutableAttributedString alloc]  initWithString:priceStr];
+    NSDictionary *priceDic=@{
+                             (NSString *)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor],(NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:orignalFontSize]};
+    [priceAttrStr addAttributes:priceDic range:[priceStr rangeOfString:orignalPriceStr]];
+    
+    NSDictionary *newDic=@{
+                           (NSString *)kCTForegroundColorAttributeName:(id)[[UIColor blackColor] CGColor],  (NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:newFontSize],
+                           NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+    [priceAttrStr addAttributes:newDic range:[priceStr rangeOfString:newPriceStr]];
+    return priceAttrStr;
 }
 
 @end
