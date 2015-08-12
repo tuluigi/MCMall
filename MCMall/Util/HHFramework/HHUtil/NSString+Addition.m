@@ -383,13 +383,13 @@
     NSString *orignalPriceStr=[NSString stringWithFormat:@"￥%.1f",orignalPrce];
     NSString *newPriceStr=[NSString stringWithFormat:@"￥%.1f",newPrice];
     NSString *priceStr=[orignalPriceStr stringByAppendingString:newPriceStr];
-    NSMutableAttributedString *priceAttrStr=[[NSMutableAttributedString alloc]  initWithString:priceStr];
+    NSMutableAttributedString *priceAttrStr=[[NSMutableAttributedString alloc]  initWithString:priceStr attributes:@{NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)}];
     NSDictionary *priceDic=@{
-                             (NSString *)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor],(NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:orignalFontSize]};
+                             (id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor],(NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:orignalFontSize]};
     [priceAttrStr addAttributes:priceDic range:[priceStr rangeOfString:orignalPriceStr]];
     
     NSDictionary *newDic=@{
-                           (NSString *)kCTForegroundColorAttributeName:(id)[[UIColor blackColor] CGColor],  (NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:newFontSize],
+                           (id)kCTForegroundColorAttributeName:(id)[[UIColor blackColor] CGColor],  (NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:newFontSize],
                            NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]};
     [priceAttrStr addAttributes:newDic range:[priceStr rangeOfString:newPriceStr]];
     return priceAttrStr;

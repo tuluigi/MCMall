@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Mall/View/GoodsView.m"
-            timestampString = "460997575.896337"
+            timestampString = "461036843.24199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-setGoodsModel:"
             landmarkType = "5">
          </BreakpointContent>

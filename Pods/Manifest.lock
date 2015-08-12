@@ -21,6 +21,17 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DACircularProgress (2.3.1)
+  - DTCoreText (1.6.16):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.6)
+  - DTFoundation/DTAnimatedGIF (1.7.6)
+  - DTFoundation/DTHTMLParser (1.7.6):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.6):
+    - DTFoundation/Core
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -48,6 +59,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
+  - DTCoreText (~> 1.6.16)
   - FMDB (~> 2.1)
   - Mantle (~> 2.0.2)
   - Masonry (~> 0.6.1)
@@ -64,6 +76,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  DTCoreText: 934a16fe9ffdd169c96261721b39dc312b75713d
+  DTFoundation: bf431de2292484461ff7d92295fdae7dc15a3820
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be

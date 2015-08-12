@@ -9,9 +9,11 @@
 #import "GoodsView.h"
 #import "GoodsModel.h"
 #import <CoreText/CoreText.h>
+#import "DTAttributedLabel.h"
 @interface GoodsView ()
 @property(nonatomic,strong)UIImageView *goodsImageView;
-@property(nonatomic,strong)UILabel *goodsNameLable, *goodsPriceLable,*timeLable,*storeLable;
+@property(nonatomic,strong)UILabel *goodsNameLable,*timeLable,*storeLable;
+@property(nonatomic,strong)DTAttributedLabel *goodsPriceLable;
 @end
 
 @implementation GoodsView
@@ -44,16 +46,13 @@
     [self addSubview:_goodsImageView];
     
     _goodsNameLable=[[UILabel alloc]  init];
-    _goodsPriceLable.numberOfLines=2;
+    _goodsNameLable.numberOfLines=2;
     _goodsNameLable.font=[UIFont systemFontOfSize:14];
     _goodsNameLable.textAlignment=NSTextAlignmentLeft;
     _goodsNameLable.textColor=[UIColor blackColor];
     [self addSubview:_goodsNameLable];
     
-    _goodsPriceLable=[[UILabel alloc]  init];
-    _goodsPriceLable.font=[UIFont systemFontOfSize:16];
-    _goodsPriceLable.textAlignment=NSTextAlignmentLeft;
-    _goodsPriceLable.textColor=MCMallThemeColor;
+    _goodsPriceLable=[[DTAttributedLabel alloc]  init];
     [self addSubview:_goodsPriceLable];
     
     _storeLable=[[UILabel alloc]  init];
@@ -105,7 +104,7 @@
     _storeLable.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
 
     NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:16 newPrice:_goodsModel.presenPrice newFontSize:12];
-    _goodsPriceLable.attributedText=priceAttrStr;
+    _goodsPriceLable.attributedString=priceAttrStr;
     if (_goodsModel) {
         self.hidden=NO;
     }else{

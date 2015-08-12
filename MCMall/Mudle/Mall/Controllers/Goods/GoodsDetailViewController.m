@@ -75,6 +75,7 @@
             cell.textLabel.text=timeStr;
         }
     }else if (indexPath.row==1){
+      // [cell.textLabel.attributedText fr]
         cell.textLabel.textAlignment=NSTextAlignmentRight;
          NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:18 newPrice:_goodsModel.presenPrice newFontSize:14];
         cell.textLabel.attributedText=priceAttrStr;
