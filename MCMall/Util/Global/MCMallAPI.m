@@ -102,4 +102,20 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)bookGoodsAPI{
  return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
 }
+#pragma mark -日记部分
++(NSString *)userSignInAPI{//用户签到
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"sign"];
+}
++(NSString *)getUserSignListAPI{//用户签到列表
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getsignlist"];
+}
++(NSString *)userPublishDiaryAPI{//写日记
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"diary"];
+}
++(NSString *)userEditDiaryAPI{//修改日记
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
+}
++(NSString *)getDiraryListAPI{//获取日记列表
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
+}
 @end

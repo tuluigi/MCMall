@@ -14,7 +14,6 @@
 #import "GoodsDetailViewController.h"
 @interface GoodsListViewController ()
 @property(nonatomic,strong)NSArray *catArray;
-@property(nonatomic,assign)CGFloat cellHeight;
 @end
 
 @implementation GoodsListViewController

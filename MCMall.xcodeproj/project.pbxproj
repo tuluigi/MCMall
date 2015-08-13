@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2A06452F1B7C49C700C27AD5 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */; };
 		2A0645321B7C49DF00C27AD5 /* GoodsAddressAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */; };
+		2A0645381B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645371B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m */; };
+		2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */; };
+		2A0645401B7C971E00C27AD5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06453F1B7C971E00C27AD5 /* SignUpViewController.m */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930791B79949500BF9368 /* HHNetWorkEngine+Goods.m */; };
 		2A09307E1B79C62C00BF9368 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */; };
@@ -29,7 +32,6 @@
 		2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
 		2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
-		2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6FC1B1099C900607723 /* HealthViewController.m */; };
 		2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2A6779DE1B4397FB00144ED2 /* PhotoActListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */; };
@@ -152,6 +154,12 @@
 		2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressViewController.m; sourceTree = "<group>"; };
 		2A0645301B7C49DF00C27AD5 /* GoodsAddressAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressAddViewController.h; sourceTree = "<group>"; };
 		2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressAddViewController.m; sourceTree = "<group>"; };
+		2A0645361B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Assistant.h"; path = "MCMall/Mudle/User/Controllers/Address/HHNetWorkEngine+Assistant.h"; sourceTree = SOURCE_ROOT; };
+		2A0645371B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "HHNetWorkEngine+Assistant.m"; path = "MCMall/Mudle/User/Controllers/Address/HHNetWorkEngine+Assistant.m"; sourceTree = SOURCE_ROOT; };
+		2A0645391B7C7DFF00C27AD5 /* SignInModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInModel.h; sourceTree = "<group>"; };
+		2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInModel.m; sourceTree = "<group>"; };
+		2A06453E1B7C971E00C27AD5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = MCMall/Entity/SignUpViewController.h; sourceTree = SOURCE_ROOT; };
+		2A06453F1B7C971E00C27AD5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = MCMall/Entity/SignUpViewController.m; sourceTree = SOURCE_ROOT; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0930781B79949500BF9368 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Goods.h"; path = "MCMall/Entity/HHNetWorkEngine+Goods.h"; sourceTree = SOURCE_ROOT; };
@@ -193,8 +201,6 @@
 		2A50F6F41B10985400607723 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
 		2A50F6F71B10987C00607723 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		2A50F6F81B10987C00607723 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
-		2A50F6FB1B1099C900607723 /* HealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthViewController.h; sourceTree = "<group>"; };
-		2A50F6FC1B1099C900607723 /* HealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthViewController.m; sourceTree = "<group>"; };
 		2A50F6FF1B1099E300607723 /* MCMallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMallViewController.h; sourceTree = "<group>"; };
 		2A50F7001B1099E300607723 /* MCMallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallViewController.m; sourceTree = "<group>"; };
 		2A50F7031B109A0C00607723 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
@@ -438,6 +444,24 @@
 			path = Address;
 			sourceTree = "<group>";
 		};
+		2A06453C1B7C96FB00C27AD5 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				2A06453E1B7C971E00C27AD5 /* SignUpViewController.h */,
+				2A06453F1B7C971E00C27AD5 /* SignUpViewController.m */,
+			);
+			name = SignUp;
+			path = ../../../../../../../../Desktop/SignUp;
+			sourceTree = "<group>";
+		};
+		2A06453D1B7C970700C27AD5 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Diary;
+			path = ../../../../../../../../Desktop/Diary;
+			sourceTree = "<group>";
+		};
 		2A09307B1B79C61400BF9368 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,7 +552,7 @@
 				2AFFF68A1B64A98600712317 /* Subject */,
 				2A50F6E91B1096B600607723 /* Base */,
 				2A37B1001B0CC83B00D0FE88 /* Activity */,
-				2A37B1041B0CC83B00D0FE88 /* Health */,
+				2A37B1041B0CC83B00D0FE88 /*  MotherAid */,
 				2A37B1081B0CC83B00D0FE88 /* Mall */,
 				2A37B10C1B0CC83B00D0FE88 /* User */,
 			);
@@ -559,21 +583,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		2A37B1041B0CC83B00D0FE88 /* Health */ = {
+		2A37B1041B0CC83B00D0FE88 /*  MotherAid */ = {
 			isa = PBXGroup;
 			children = (
 				2A984E521B1411B4004DF4C0 /* Model */,
 				2A984E551B1411B4004DF4C0 /* View */,
 				2A37B1051B0CC83B00D0FE88 /* Controllers */,
 			);
+			name = " MotherAid";
 			path = Health;
 			sourceTree = "<group>";
 		};
 		2A37B1051B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A50F6FB1B1099C900607723 /* HealthViewController.h */,
-				2A50F6FC1B1099C900607723 /* HealthViewController.m */,
+				2A06453D1B7C970700C27AD5 /* Diary */,
+				2A06453C1B7C96FB00C27AD5 /* SignUp */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -637,6 +662,8 @@
 				2AC28B831B70F7A600F91760 /* HHItemModel.m */,
 				2A0930751B79926F00BF9368 /* BaseModel.h */,
 				2A0930761B79926F00BF9368 /* BaseModel.m */,
+				2A0645391B7C7DFF00C27AD5 /* SignInModel.h */,
+				2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -870,6 +897,8 @@
 		2A984E541B1411B4004DF4C0 /* NetEngine */ = {
 			isa = PBXGroup;
 			children = (
+				2A0645361B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.h */,
+				2A0645371B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m */,
 			);
 			path = NetEngine;
 			sourceTree = "<group>";
@@ -1467,6 +1496,7 @@
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
 				2AA179F61B7A3ED100A33F88 /* GoodsDetailViewController.m in Sources */,
+				2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */,
 				2A984ECD1B141205004DF4C0 /* UIViewController+DismissKeyboard.m in Sources */,
 				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2A984EC41B141205004DF4C0 /* HHTextField.m in Sources */,
@@ -1512,9 +1542,9 @@
 				2AFFF6881B6492AC00712317 /* SubjectModel.m in Sources */,
 				2A984ED21B141205004DF4C0 /* NSString+Addition.m in Sources */,
 				2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */,
-				2A50F6FD1B1099C900607723 /* HealthViewController.m in Sources */,
 				2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */,
 				2A984ED41B141205004DF4C0 /* UIDevice+DeviceInfo.m in Sources */,
+				2A0645401B7C971E00C27AD5 /* SignUpViewController.m in Sources */,
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,
 				2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
@@ -1527,6 +1557,7 @@
 				2A984EC61B141205004DF4C0 /* HHView.m in Sources */,
 				2A0930771B79926F00BF9368 /* BaseModel.m in Sources */,
 				2A984ED11B141205004DF4C0 /* NSFileManager+ Addition.m in Sources */,
+				2A0645381B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

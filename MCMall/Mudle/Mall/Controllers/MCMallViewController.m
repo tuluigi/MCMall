@@ -11,6 +11,7 @@
 #import "MallListCell.h"
 #import "GoodsModel.h"
 #import "GoodsListViewController.h"
+#import "SignUpViewController.h"
 @interface MCMallViewController ()
 @property(nonatomic,strong)NSArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
@@ -25,7 +26,8 @@
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     // Do any additional setup after loading the view.
     self.title=@"首页";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(gotoGoodsListController)];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
+    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"签到" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
     if (!self.catArray.count) {
         [self getCategoryList];
     }
@@ -38,10 +40,17 @@
 -(void)handTimerTask:(NSTimer *)timer{
     [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
 }
--(void)gotoGoodsListController{
-    GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-    goodListController.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:goodListController animated:YES];
+-(void)didBarButtonPressed:(UIBarButtonItem *)barButton{
+    if (barButton ==self.navigationItem.rightBarButtonItem) {
+        GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
+        goodListController.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:goodListController animated:YES];
+    }else if (barButton==self.navigationItem.leftBarButtonItem){
+        SignUpViewController *signupController=[[SignUpViewController alloc]  init];
+        signupController.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:signupController animated:YES];
+    }
+   
 }
 -(void)getCategoryList{
     [self.view showPageLoadingView];

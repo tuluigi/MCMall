@@ -51,4 +51,11 @@
 +(NSString *)getGoodsListAPI;
 +(NSString *)getGoodsDetailAPI;
 +(NSString *)bookGoodsAPI;//预定
+
+#pragma mark -日记部分
++(NSString *)userSignInAPI;//用户签到
++(NSString *)getUserSignListAPI;//签到列表
++(NSString *)userPublishDiaryAPI;//写日记
++(NSString *)userEditDiaryAPI;//修改日记
++(NSString *)getDiraryListAPI;//获取日记列表
 @end

@@ -9,7 +9,6 @@
 #import "RootTabBarController.h"
 #import "MCMallViewController.h"
 #import "ActivityViewController.h"
-#import "HealthViewController.h"
 #import "UserCenterViewController.h"
 #import "SubjectViewController.h"
 @interface HHTabBarItem  : UITabBarItem;
