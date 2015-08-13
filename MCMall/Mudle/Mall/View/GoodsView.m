@@ -9,11 +9,12 @@
 #import "GoodsView.h"
 #import "GoodsModel.h"
 #import <CoreText/CoreText.h>
-#import "DTAttributedLabel.h"
+#import "TTTAttributedLabel.h"
 @interface GoodsView ()
 @property(nonatomic,strong)UIImageView *goodsImageView;
-@property(nonatomic,strong)UILabel *goodsNameLable,*timeLable,*storeLable;
-@property(nonatomic,strong)DTAttributedLabel *goodsPriceLable;
+@property(nonatomic,strong)UILabel *goodsNameLable,*storeLable;
+@property(nonatomic,strong)UILabel *goodsPriceLable;
+@property(nonatomic,strong)TTTAttributedLabel *timeLable;
 @end
 
 @implementation GoodsView
@@ -52,7 +53,8 @@
     _goodsNameLable.textColor=[UIColor blackColor];
     [self addSubview:_goodsNameLable];
     
-    _goodsPriceLable=[[DTAttributedLabel alloc]  init];
+    _goodsPriceLable=[[UILabel alloc]  initWithFrame:CGRectZero];
+    _goodsPriceLable.textColor=MCMallThemeColor;
     [self addSubview:_goodsPriceLable];
     
     _storeLable=[[UILabel alloc]  init];
@@ -62,10 +64,7 @@
     [self addSubview:_storeLable];
     
     
-    _timeLable=[[UILabel alloc]  init];
-    _timeLable.font=[UIFont systemFontOfSize:12];
-    _timeLable.textAlignment=NSTextAlignmentLeft;
-    _timeLable.textColor=[UIColor blackColor];
+    _timeLable=[[TTTAttributedLabel alloc]  initWithFrame:CGRectZero];
     [self addSubview:_timeLable];
     
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,9 +101,9 @@
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=_goodsModel.goodsName;
     _storeLable.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
-
+    
     NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:16 newPrice:_goodsModel.presenPrice newFontSize:12];
-    _goodsPriceLable.attributedString=priceAttrStr;
+    _goodsPriceLable.attributedText=priceAttrStr;
     if (_goodsModel) {
         self.hidden=NO;
     }else{
@@ -120,8 +119,22 @@
             _timeLable.text=timeStr;
         }else{
             NSDateComponents *components=[_goodsModel.endTime componentsToDate:[NSDate date]];
-            NSString *timeStr=[NSString stringWithFormat:@"还有%ld天%ld小时%ld分%ld秒",components.day,components.hour,components.minute,components.second];
-            _timeLable.text=timeStr;
+            
+            NSString *dayStr=[NSString stringWithFormat:@"%ld",components.day];
+            NSString *hourStr=[NSString stringWithFormat:@"%ld",components.hour];
+            NSString *miniutStr=[NSString stringWithFormat:@"%ld",components.minute];
+            NSString *secondStr=[NSString stringWithFormat:@"%ld",components.second];
+            NSString *timeStr=[NSString stringWithFormat:@"还有%@天%@小时%@分%@秒",dayStr,hourStr,miniutStr,secondStr];
+            NSMutableAttributedString *attTimeStr=[[NSMutableAttributedString alloc]  initWithString:timeStr];
+            [attTimeStr beginEditing];
+            [attTimeStr addAttributes:@{(id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor]} range:[timeStr rangeOfString:secondStr]];
+            [attTimeStr endEditing];
+            [attTimeStr addAttributes:@{(id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor]} range:[timeStr rangeOfString:hourStr]];
+            [attTimeStr addAttributes:@{(id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor]} range:[timeStr rangeOfString:miniutStr]];
+            
+            [attTimeStr addAttributes:@{(id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor]} range:[timeStr rangeOfString:dayStr]];
+            [_timeLable setText:attTimeStr];
+            
         }
     }
 }

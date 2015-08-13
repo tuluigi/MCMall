@@ -45,7 +45,7 @@
 -(UIView *)footView{
     if (nil==_footView) {
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        
+        _footView.userInteractionEnabled=YES;
         NSInteger tag=2000;
         for (NSInteger i=0; i<3; i++) {
             UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeCustom];

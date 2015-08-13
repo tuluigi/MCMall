@@ -385,7 +385,8 @@
     NSString *priceStr=[orignalPriceStr stringByAppendingString:newPriceStr];
     NSMutableAttributedString *priceAttrStr=[[NSMutableAttributedString alloc]  initWithString:priceStr attributes:@{NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)}];
     NSDictionary *priceDic=@{
-                             (id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor],(NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:orignalFontSize]};
+                             (id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor],(NSString *)kCTFontAttributeName:[UIFont systemFontOfSize:orignalFontSize],
+                              NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleNone]};
     [priceAttrStr addAttributes:priceDic range:[priceStr rangeOfString:orignalPriceStr]];
     
     NSDictionary *newDic=@{

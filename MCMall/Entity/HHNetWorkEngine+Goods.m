@@ -91,10 +91,11 @@
  *  @return
  */
 -(HHNetWorkOperation *)getGoodsDetailWithGoodsID:(NSString *)goodsID
+                                          userID:(NSString *)userID
                              onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getGoodsDetailAPI];
-    NSDictionary *postDic=@{@"goodid":goodsID};
+    NSDictionary *postDic=@{@"goodid":goodsID,@"userid":userID};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf parseGoodsDetailWithResponseResult:&responseResult];
         completion(responseResult);
@@ -127,15 +128,12 @@
                                 connact:(NSString *)connact
                                 address:(NSString *)address
                     onCompletionHandler:(HHResponseResultSucceedBlock)completion{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI bookGoodsAPI];
     NSDictionary *postDic=@{@"goodid":goodsID,@"userid":userID,@"phone":phoneNum,@"contact":connact,@"address":address};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf parseGoodsDetailWithResponseResult:&responseResult];
         completion(responseResult);
     }];
     return op;
-
 }
 
 @end

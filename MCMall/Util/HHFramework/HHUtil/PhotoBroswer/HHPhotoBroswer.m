@@ -34,10 +34,11 @@ static HHPhotoBroswer *sharedBroswer;
     if (_photoBrowser == nil) {
         _photoBrowser = [[MWPhotoBrowser alloc] initWithDelegate:self];
         _photoBrowser.displayActionButton = YES;
-        _photoBrowser.displayNavArrows = YES;
+        _photoBrowser.displayNavArrows = NO;
         _photoBrowser.displaySelectionButtons = NO;
-        _photoBrowser.alwaysShowControls = NO;
+        _photoBrowser.alwaysShowControls = YES;
         _photoBrowser.zoomPhotosToFill = YES;
+        _photoBrowser.enableSwipeToDismiss=YES;
         _photoBrowser.enableGrid = NO;
         _photoBrowser.startOnGrid = NO;
         [_photoBrowser setCurrentPhotoIndex:0];

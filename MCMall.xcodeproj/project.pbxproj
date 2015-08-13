@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A06452F1B7C49C700C27AD5 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */; };
+		2A0645321B7C49DF00C27AD5 /* GoodsAddressAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930791B79949500BF9368 /* HHNetWorkEngine+Goods.m */; };
 		2A09307E1B79C62C00BF9368 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */; };
@@ -146,6 +148,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A06452D1B7C49C700C27AD5 /* GoodsAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressViewController.h; sourceTree = "<group>"; };
+		2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressViewController.m; sourceTree = "<group>"; };
+		2A0645301B7C49DF00C27AD5 /* GoodsAddressAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressAddViewController.h; sourceTree = "<group>"; };
+		2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressAddViewController.m; sourceTree = "<group>"; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0930781B79949500BF9368 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Goods.h"; path = "MCMall/Entity/HHNetWorkEngine+Goods.h"; sourceTree = SOURCE_ROOT; };
@@ -421,6 +427,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A06452C1B7C49B300C27AD5 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				2A06452D1B7C49C700C27AD5 /* GoodsAddressViewController.h */,
+				2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */,
+				2A0645301B7C49DF00C27AD5 /* GoodsAddressAddViewController.h */,
+				2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
 		2A09307B1B79C61400BF9368 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +613,7 @@
 		2A37B10D1B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A06452C1B7C49B300C27AD5 /* Address */,
 				2A7EA20F1B57F712005B04A9 /* UserInfo */,
 				2AD019051B14A63900702BD5 /* Login */,
 				2A50F7031B109A0C00607723 /* UserCenterViewController.h */,
@@ -1425,6 +1443,7 @@
 				2A984ED91B141205004DF4C0 /* UIView+Animation.m in Sources */,
 				2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */,
 				2A984EC21B141205004DF4C0 /* HHScrollView.m in Sources */,
+				2A06452F1B7C49C700C27AD5 /* GoodsAddressViewController.m in Sources */,
 				2AC28B841B70F7A600F91760 /* HHItemModel.m in Sources */,
 				2A984EC31B141205004DF4C0 /* HHTableView.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
@@ -1484,6 +1503,7 @@
 				2A984ED31B141205004DF4C0 /* UIColor+Addition.m in Sources */,
 				2AA671751B78EC7100ECC8A3 /* GoodsView.m in Sources */,
 				2A984ED01B141205004DF4C0 /* NSDateFormatter+Addititon.m in Sources */,
+				2A0645321B7C49DF00C27AD5 /* GoodsAddressAddViewController.m in Sources */,
 				2A7EA2151B57F746005B04A9 /* UserInfoEditViewController.m in Sources */,
 				2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */,
 				2AFFF69C1B65243F00712317 /* SubjectAnswerCell.m in Sources */,

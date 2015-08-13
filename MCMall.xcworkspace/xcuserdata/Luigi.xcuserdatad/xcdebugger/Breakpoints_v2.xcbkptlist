@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Mall/View/GoodsView.m"
-            timestampString = "461036843.24199"
+            filePath = "MCMall/Mudle/User/Controllers/Login/LoginViewController.m"
+            timestampString = "461139602.175123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-setGoodsModel:"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-didActionButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Entity/HHNetWorkEngine+Goods.m"
-            timestampString = "460998226.719155"
+            filePath = "MCMall/Mudle/Mall/Controllers/Goods/GoodsDetailViewController.m"
+            timestampString = "461141404.466742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-getGoodsDetailWithGoodsID:onCompletionHandler:"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "-webViewDidFinishLoad:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Mall/Controllers/Goods/GoodsDetailViewController.m"
+            timestampString = "461141404.466742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-getGoodsDetailWithGoodsID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

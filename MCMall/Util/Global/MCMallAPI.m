@@ -97,7 +97,7 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
  return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"vipgo"];
 }
 +(NSString *)getGoodsDetailAPI{
- return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getadvgoods"];
+ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getadvgoodsinfo"];
 }
 +(NSString *)bookGoodsAPI{
  return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];

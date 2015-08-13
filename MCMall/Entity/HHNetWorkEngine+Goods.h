@@ -41,6 +41,7 @@
  *  @return
  */
 -(HHNetWorkOperation *)getGoodsDetailWithGoodsID:(NSString *)goodsID
+                                          userID:(NSString *)userID
                          onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 /**
  *  预定商品

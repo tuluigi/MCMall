@@ -29,7 +29,7 @@
              @"presenPrice":@"newprice",
              @"storeNum":@"stock",
              @"endTime":@"endDay",
-             @"goodsDetail":@"goodsDetail",
+             @"goodsDetail":@"synopsis",
              };
 }
 + (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
