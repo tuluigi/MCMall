@@ -8,7 +8,8 @@
 
 #import "SignUpViewController.h"
 #import <JTCalendar/JTCalendar.h>
-
+#import "HHNetWorkEngine+Assistant.h"
+#import "SignInModel.h"
 @interface SignUpViewController ()<JTCalendarDelegate>
 @property (strong, nonatomic)  JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
@@ -67,7 +68,7 @@
 }
 -(NSMutableArray *)dataSourceArray{
     if (nil==_datesSelected) {
-        _datesSelected=[[NSMutableArray alloc]  init];
+        //_datesSelected=[[NSMutableArray alloc]  init];
     }
     return _datesSelected;
 }
@@ -76,7 +77,20 @@
     self.title=@"有奖签到";
     _calendarManager=self.calendarManager;
     self.tableView.tableFooterView=self.footView;
+    [self getOneMonthySingupListAtDay:[NSDate date]];
     
+}
+-(void)getOneMonthySingupListAtDay:(NSDate *)date{
+    WEAKSELF
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getOneMonthSignupListWithUserID:[HHUserManager userID] atDay:date onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            [weakSelf.calendarManager reload];
+        }else{
+        
+        }
+    }];
+    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 #pragma mark -tableviewdelegae
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -203,12 +217,14 @@
     return dateFormatter;
 }
 - (BOOL)haveEventForDay:(NSDate *)date{
-    NSString *key = [[self dateFormatter] stringFromDate:date];
-    
-//    if(_eventsByDate[key] && [_eventsByDate[key] count] > 0){
-//        return YES;
-//    }
-    
-    return NO;
+    BOOL isHaveEvent=NO;
+    if (self.dataSourceArray&&self.dataSourceArray.count) {
+        for (SignInModel *signModel in self.dataSourceArray) {
+            if ([self.calendarManager.dateHelper  date:date isTheSameDayThan:signModel.signinDate]) {
+                isHaveEvent= signModel.isSigned;
+            }
+        }
+    }
+    return isHaveEvent;
 }
 @end

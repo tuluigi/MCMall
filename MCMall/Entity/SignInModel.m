@@ -16,7 +16,7 @@
 }
 +(MTLValueTransformer *)signinDateJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+        NSDateFormatter *formatter= [NSDateFormatter dateFormatterWithFormat:@"yyyy-mm-dd"];
         NSDate *date=[formatter dateFromString:value];
         return date;
     }];

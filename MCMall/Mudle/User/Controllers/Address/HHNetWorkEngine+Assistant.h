@@ -29,9 +29,9 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)getSignupListWithUserID:(NSString *)userID
-                                          year:(NSString *)year
-                                         month:(NSString *)month onCompletionHandler:(HHResponseResultSucceedBlock)completion;
+-(HHNetWorkOperation *)getOneMonthSignupListWithUserID:(NSString *)userID
+                                                 atDay:(NSDate *)date
+                                   onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 /**
  *  用户写日记
  *

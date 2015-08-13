@@ -37,10 +37,12 @@
  *
  *  @return
  */
--(HHNetWorkOperation *)getSignupListWithUserID:(NSString *)userID
-                                          year:(NSString *)year
-                                         month:(NSString *)month onCompletionHandler:(HHResponseResultSucceedBlock)completion{
+-(HHNetWorkOperation *)getOneMonthSignupListWithUserID:(NSString *)userID
+                                                 atDay:(NSDate *)date
+                                   onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
+    NSString *year=@"2015";
+    NSString *month=@"08";
     NSString *apiPath=[MCMallAPI getUserSignListAPI];
     NSDictionary *postDic=@{@"userid":userID,@"y":year,@"m":month};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
@@ -53,7 +55,7 @@
     HHResponseResult *responseResult=*aResponseResult;
     if (responseResult.responseCode==HHResponseResultCode100) {
         NSMutableArray *responseArray=[NSMutableArray new];
-        NSArray *resultDataArray=responseResult.responseData;
+        NSArray *resultDataArray=[responseResult.responseData objectForKey:@"month"];
         for (NSDictionary *dic in resultDataArray  ) {
             NSError *error;
             SignInModel *signModel =[MTLJSONAdapter modelOfClass:[SignInModel class] fromJSONDictionary:dic error:&error];
