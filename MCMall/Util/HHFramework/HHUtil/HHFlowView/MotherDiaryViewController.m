@@ -182,6 +182,7 @@
                 weakSelf.noteModel=responseResult.responseData;
                 [HHProgressHUD dismiss];
             }else{
+                weakSelf.noteModel=nil;
                 [HHProgressHUD makeToast:responseResult.responseMessage];
             }
         } ];
@@ -244,7 +245,7 @@
     _lastSelectedDate=dayView.date;
     [_calendarManager reload];
     // Load the previous or next page if touch a day from another month
-    
+    [self getDiaryDetailAtDate:dayView.date];
     if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
         if([_calendarContentView.date compare:dayView.date] == NSOrderedAscending){
             [_calendarContentView loadNextPageWithAnimation];
