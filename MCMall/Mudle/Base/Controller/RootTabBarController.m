@@ -96,7 +96,7 @@
     GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
     UINavigationController *goodsNavController=[[UINavigationController alloc]  initWithRootViewController:goodListController];
     HHTabBarItem *goodsTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专享汇" image:[UIImage imageNamed:@"tabbar_vip"] selectedImage:[UIImage   imageNamed:@"tabbar_vip_HL"]];
-    userNavController.tabBarItem=userTabbarItem;
+    userNavController.tabBarItem=goodsTabbarItem;
     
     NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:mcNavController,activityNavController,userNavController,goodsNavController,subjectNavController, nil];
     self.viewControllers=tabBarControllers;
