@@ -21,6 +21,7 @@
     [HHProgressHUD showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
+              [HHUserManager setMotherState:state];
             NSInteger index=(weakSelf.navigationController.viewControllers.count-3);
             if (index<0) {
                 [weakSelf.navigationController popToRootViewControllerAnimated:YES];

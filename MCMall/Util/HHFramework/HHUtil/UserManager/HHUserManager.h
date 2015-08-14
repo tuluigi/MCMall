@@ -11,7 +11,7 @@
 @interface HHUserManager : NSObject
 +(void)storeLoginUserModel:(UserModel *)userModel;
 +(void)setUserHeaderImageUrl:(NSString *)headImagPath;
-
++(void)setMotherState:(NSInteger)state;
 +(void)logout;
 +(UserModel *)userModel;
 +(NSString *)userID;

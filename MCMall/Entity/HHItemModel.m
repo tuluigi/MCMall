@@ -50,10 +50,10 @@
 +(NSArray *)userInfoItemsArray{
     NSArray *itemsArray;
     HHItemModel *userImageItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeHeaderImage name:@"头像" image:nil];
-    HHItemModel *nickeNameItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeName name:@"昵称" image:nil];
-    NSArray *sectionArray0=@[userImageItem,nickeNameItem];
-    
-    itemsArray=@[sectionArray0];
+    HHItemModel *motherStateItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeMotherState name:@"状态" image:nil];
+    NSArray *sectionArray0=@[userImageItem];
+     NSArray *sectionArray1=@[motherStateItem];
+    itemsArray=@[sectionArray0,sectionArray1];
     
     return itemsArray;
 

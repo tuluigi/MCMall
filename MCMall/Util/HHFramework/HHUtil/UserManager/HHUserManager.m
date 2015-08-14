@@ -34,6 +34,10 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     [userDefault setAesEncryptValue:headImagPath withkey:MCMall_UserHeadUrl];
 }
++(void)setMotherState:(NSInteger)state{
+    NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+    [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%ld",state] withkey:MCMall_MotherSatte];
+}
 +(UserModel *)userModel{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     

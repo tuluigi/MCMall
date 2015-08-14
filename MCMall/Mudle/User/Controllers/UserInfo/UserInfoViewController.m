@@ -38,7 +38,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=@"个人信息";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed:)];
+//    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed:)];
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userInfoItemsArray]];
 }
 #pragma mark- getuserinfo
@@ -59,11 +59,28 @@
     [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
 }
 
-
+-(void)editMotherState:(NSInteger)state{
+    WEAKSELF
+    [HHProgressHUD showLoadingState];
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
+        [HHProgressHUD dismiss];
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            
+            [HHUserManager setMotherState:state];
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationFade];
+        }else{
+            [HHProgressHUD makeToast:responseResult.responseMessage];
+        }
+    }];
+    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+}
 
 #pragma mark -tableview
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSourceArray.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [[self.dataSourceArray objectAtIndex:section] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -115,9 +132,14 @@
             UIImageView *headImageView=(UIImageView *)[cell.contentView viewWithTag:1000];
             [headImageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
 
-        }
-            break;
-            
+        }break;
+        case HHUserInfoItemTypeMotherState:{
+            if (userModel.motherState==MotherStatePregnant) {
+                cell.detailTextLabel.text=@"备孕中";
+            }else if(userModel.motherState==MotherStateAfterBirth){
+                cell.detailTextLabel.text=@"产后";
+            }
+        }break;
         default:
             break;
     }
@@ -137,12 +159,17 @@
     return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (itemModel.itemType==HHUserInfoItemTypeHeaderImage) {
         WEAKSELF
         [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
             [weakSelf uploadHeaderImageWithImagePath:imgPath];
         }];
+    }else if (itemModel.itemType==HHUserInfoItemTypeMotherState){
+        UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"备孕中",@"产后", nil];
+        actionSheet.tag=100;
+        [actionSheet showInView:self.view];
     }
    
 
@@ -164,5 +191,7 @@
     UITextField *textFiled=[alertView textFieldAtIndex:0];
     
 }
-
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self editMotherState:(buttonIndex+1)];
+}
 @end
