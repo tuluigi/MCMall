@@ -134,7 +134,6 @@
             
             [attTimeStr addAttributes:@{(id)kCTForegroundColorAttributeName:(id)[MCMallThemeColor CGColor]} range:[timeStr rangeOfString:dayStr]];
             [_timeLable setText:attTimeStr];
-            
         }
     }
 }

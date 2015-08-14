@@ -15,6 +15,7 @@
 #import "HHFlowView.h"
 #import "HomeMenuContentView.h"
 #import "MotherDiaryViewController.h"
+#import "GoodsDetailViewController.h"
 @interface MCMallViewController ()
 @property(nonatomic,strong)NSArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
@@ -138,6 +139,13 @@
  
     }
        return self.cellHeight;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    GoodsDetailViewController *goodsDetailController=[[GoodsDetailViewController alloc]  init];
+    goodsDetailController.goodsModel=goodsModel;
+    goodsDetailController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:goodsDetailController animated:YES];
 }
 
 /*

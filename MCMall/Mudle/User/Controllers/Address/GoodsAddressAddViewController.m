@@ -36,10 +36,11 @@
     return _footView;
 }
 -(void)didActionButtonPressed:(UIButton *)sedner{
+    [self.view endEditing:YES];
     if ([NSString IsNullOrEmptyString:self.userName]) {
         [HHProgressHUD makeToast:@"请输入收货人名称"];
     }else if (![self.userTel isPhoneNumber]){
-        [HHProgressHUD makeToast:@"请输入收货人电话"];
+        [HHProgressHUD makeToast:@"请输入正确的电话号码"];
     }else if ([NSString IsNullOrEmptyString:self.address]){
         [HHProgressHUD makeToast:@"请输入收货人地址"];
     }else{
