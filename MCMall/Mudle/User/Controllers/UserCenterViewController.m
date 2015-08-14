@@ -220,10 +220,12 @@
         case  HHUserCenterItemTypeUserInfo:{
             cell.detailTextLabel.text=userModel.userName;
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
-//          CGRect frame=  cell.frame;
-//            frame.size=CGSizeMake(50, 50);
-//            cell.frame=frame;
             cell.textLabel.text=userModel.userName;
+            if (userModel.motherState==MotherStatePregnant) {
+                cell.detailTextLabel.text=@"备孕中";
+            }else if (userModel.motherState==MotherStateAfterBirth){
+                cell.detailTextLabel.text=@"产后";
+            }
         }break;
         case HHUserCenterItemTypePoint:{
             //cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];

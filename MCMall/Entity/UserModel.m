@@ -16,7 +16,8 @@
              @"userAmount":@"money",
              @"userID":@"userId",
              @"userHeadUrl":@"img",
-             @"shopName":@"shopName"};
+             @"shopName":@"shopName",
+              @"motherState":@"status",};
 }
 
 +(MTLValueTransformer *)userAmountJSONTransformer{
@@ -30,27 +31,17 @@
 }
 -(void)setUserHeadUrl:(NSString *)userHeadUrl{
     _userHeadUrl=userHeadUrl;
-    if (_userHeadUrl&&(![_userHeadUrl hasPrefix:@"http://"])) {
+    if (_userHeadUrl&&(![_userHeadUrl hasPrefix:@"http://"]&&![_userHeadUrl hasPrefix:NSHomeDirectory()])) {
         _userHeadUrl=[HHGlobalVarTool fullImagePath:_userHeadUrl];
     }
 }
-/*
-+(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz{
-    UserModel *userModel    =[[UserModel alloc]  init];
-    userModel.userName      =[dic objectForKey:@"userName"];
-    userModel.userTel       =[dic objectForKey:@"phone"];
-    userModel.userAmount    =[[dic objectForKey:@"money"] floatValue];
-    userModel.userID        =[dic objectForKey:@"userId"];
-    userModel.userHeadUrl   =[HHGlobalVarTool fullImagePath:[dic objectForKey:@"img"]];
-    userModel.shopName      =[dic objectForKey:@"shopName"];
-    userModel.gender        =[dic objectForKey:@"sex"];
-    
-    if (synchroniz) {
-        [UserModel storeUserModel:userModel];
-    }
-    return userModel;
++(NSValueTransformer *)motherStateJSONTransformer{
+    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                           @"0": @(MotherStateUnSelected),
+                                                                           @"1": @(MotherStatePregnant),
+                                                                           @"2":@(MotherStateAfterBirth)
+                                                                           }];
 }
-*/
 @end
 
 @implementation BabeModel

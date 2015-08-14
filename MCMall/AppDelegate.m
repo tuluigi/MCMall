@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootTabBarController.h"
 #import "BPush.h"
+#import "UserStateSelectController.h"
 @interface AppDelegate ()
 
 @end
@@ -54,6 +55,13 @@
    // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    UserModel *userModel=[HHUserManager userModel];
+    if (userModel.motherState==MotherStateUnSelected) {
+        UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
+        stateSelectController.hidesBottomBarWhenPushed=YES;
+       
+        [ [UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:stateSelectController animated:YES];
+    }
     return YES;
 }
 

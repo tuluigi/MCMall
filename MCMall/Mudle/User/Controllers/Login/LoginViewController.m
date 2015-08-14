@@ -10,6 +10,7 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "RegisterViewController.h"
 #import "EditPasswordViewController.h"
+#import "UserStateSelectController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd;
@@ -131,13 +132,19 @@
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
+                UserModel *userModel=[HHUserManager userModel];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
-                [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                    if (weakSelf.userLoginCompletionBlock) {
-                        weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
-                    }
-
-                }];
+                if (userModel.motherState==MotherStateUnSelected) {
+                    UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
+                    stateSelectController.hidesBottomBarWhenPushed=YES;
+                    [self.navigationController pushViewController:stateSelectController animated:YES];
+                }else{
+                    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                        if (weakSelf.userLoginCompletionBlock) {
+                            weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
+                        }
+                    }];
+                }
             }else{
                 if (weakSelf.userLoginCompletionBlock) {
                     weakSelf.userLoginCompletionBlock(NO,nil);

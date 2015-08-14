@@ -24,6 +24,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent=NO;
    // self.navigationController.navigationBar.translucent= NO;
     self.view.backgroundColor=[UIColor whiteColor];
     [self setupForDismissKeyboard];

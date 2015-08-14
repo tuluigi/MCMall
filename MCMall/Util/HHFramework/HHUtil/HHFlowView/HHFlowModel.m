@@ -19,7 +19,7 @@
 }
 -(void)setFlowImageUrl:(NSString *)flowImageUrl{
     _flowImageUrl=flowImageUrl;
-    if (![_flowImageUrl hasPrefix:@"http://"]) {
+    if (![_flowImageUrl hasPrefix:@"http://" ]&&![_flowImageUrl hasPrefix:NSHomeDirectory()]) {
         _flowImageUrl=[HHGlobalVarTool fullImagePath:_flowImageUrl];
     }
 }

@@ -10,6 +10,16 @@
 #import "MCMallAPI.h"
 #import "UserModel.h"
 @implementation HHNetWorkEngine (UserCenter)
+-(HHNetWorkOperation *)userChoseWithUserID:(NSString *)userID
+                                     statu:(NSInteger)statu
+                       onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI changeStateAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(statu),@"status",userID,@"userid", nil];
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 -(HHNetWorkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{

@@ -143,6 +143,7 @@
 		2AA671721B78E66B00ECC8A3 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2AA671751B78EC7100ECC8A3 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671741B78EC7100ECC8A3 /* GoodsView.m */; };
 		2AA671781B78F4FE00ECC8A3 /* GoodsClassSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671771B78F4FE00ECC8A3 /* GoodsClassSectionView.m */; };
+		2AA7F2E11B7E1CB900BFC1A1 /* UserStateSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7F2E01B7E1CB900BFC1A1 /* UserStateSelectController.m */; };
 		2AC28B841B70F7A600F91760 /* HHItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC28B831B70F7A600F91760 /* HHItemModel.m */; };
 		2AC28B921B71060000F91760 /* item_activity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B861B71060000F91760 /* item_activity@2x.png */; };
 		2AC28B931B71060000F91760 /* item_activity@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B871B71060000F91760 /* item_activity@3x.png */; };
@@ -419,6 +420,8 @@
 		2AA671741B78EC7100ECC8A3 /* GoodsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsView.m; sourceTree = "<group>"; };
 		2AA671761B78F4FE00ECC8A3 /* GoodsClassSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsClassSectionView.h; sourceTree = "<group>"; };
 		2AA671771B78F4FE00ECC8A3 /* GoodsClassSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsClassSectionView.m; sourceTree = "<group>"; };
+		2AA7F2DF1B7E1CB900BFC1A1 /* UserStateSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStateSelectController.h; sourceTree = "<group>"; };
+		2AA7F2E01B7E1CB900BFC1A1 /* UserStateSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStateSelectController.m; sourceTree = "<group>"; };
 		2AC28B821B70F7A600F91760 /* HHItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHItemModel.h; sourceTree = "<group>"; };
 		2AC28B831B70F7A600F91760 /* HHItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHItemModel.m; sourceTree = "<group>"; };
 		2AC28B861B71060000F91760 /* item_activity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item_activity@2x.png"; sourceTree = "<group>"; };
@@ -925,6 +928,8 @@
 				2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */,
 				2A0946F11B763FA2000A205A /* BabeInfoViewController.h */,
 				2A0946F21B763FA2000A205A /* BabeInfoViewController.m */,
+				2AA7F2DF1B7E1CB900BFC1A1 /* UserStateSelectController.h */,
+				2AA7F2E01B7E1CB900BFC1A1 /* UserStateSelectController.m */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -1687,6 +1692,7 @@
 				2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
+				2AA7F2E11B7E1CB900BFC1A1 /* UserStateSelectController.m in Sources */,
 				2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */,
 				2A984ED71B141205004DF4C0 /* UITextField+Addition.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,

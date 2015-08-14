@@ -29,6 +29,7 @@
     [super viewDidLoad];
     self.title=@"活动";
     WEAKSELF
+    
     [self.tableView addPullToRefreshWithActionHandler:^{
         weakSelf.pageIndex=1;
         [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];

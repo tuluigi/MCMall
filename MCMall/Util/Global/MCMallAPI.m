@@ -19,6 +19,9 @@ NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
     return DomainPath;
 }
 #pragma mark - 个人中心
++(NSString *)changeStateAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"choice"];
+}
 +(NSString *)userLoginAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"login"];
 }

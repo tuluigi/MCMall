@@ -65,15 +65,6 @@
     mcNavController.tabBarItem=mallTabbarItem;
 
     
-    /*
-    HealthViewController *healthController=[[HealthViewController alloc]  init];
-    UINavigationController *healthNavController=[[UINavigationController alloc]  initWithRootViewController:healthController];
-    
-    HHTabBarItem *healthTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"健康安全" image:[UIImage imageNamed:@"tabbar_health"] selectedImage:[UIImage   imageNamed:@"tabbar_health_HL"]];
-    healthNavController.tabBarItem=healthTabbarItem;
-    */
-    
-    
     SubjectViewController *subjectViewController=[[SubjectViewController alloc]  init];
     UINavigationController *subjectNavController=[[UINavigationController alloc]  initWithRootViewController:subjectViewController];
     
@@ -96,7 +87,7 @@
     GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
     UINavigationController *goodsNavController=[[UINavigationController alloc]  initWithRootViewController:goodListController];
     HHTabBarItem *goodsTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专享汇" image:[UIImage imageNamed:@"tabbar_vip"] selectedImage:[UIImage   imageNamed:@"tabbar_vip_HL"]];
-    userNavController.tabBarItem=goodsTabbarItem;
+    goodsNavController.tabBarItem=goodsTabbarItem;
     
     NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:mcNavController,activityNavController,userNavController,goodsNavController,subjectNavController, nil];
     self.viewControllers=tabBarControllers;

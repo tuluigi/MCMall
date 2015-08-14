@@ -11,13 +11,13 @@
 @implementation NoteModel
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"noteID":@"date",
-             @"noteImageUrl":@"status",
-             @"noteContent":@"status"};
+             @"noteID":@"memoId",
+             @"noteImageUrl":@"photo",
+             @"noteContent":@"memoData"};
 }
 -(void)setNoteImageUrl:(NSString *)noteImageUrl{
     _noteImageUrl=noteImageUrl;
-    if (![_noteImageUrl hasPrefix:@"http://"]) {
+    if (![_noteImageUrl hasPrefix:@"http://"]&&![_noteImageUrl hasPrefix:NSHomeDirectory()]) {
         _noteImageUrl=[HHGlobalVarTool fullImagePath:_noteImageUrl];
     }
 }
