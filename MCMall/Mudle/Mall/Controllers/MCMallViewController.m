@@ -13,6 +13,8 @@
 #import "GoodsListViewController.h"
 #import "SignUpViewController.h"
 #import "HHFlowView.h"
+#import "HomeMenuContentView.h"
+#import "MotherDiaryViewController.h"
 @interface MCMallViewController ()
 @property(nonatomic,strong)NSArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
@@ -35,8 +37,7 @@
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     // Do any additional setup after loading the view.
     self.title=@"首页";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"签到" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
+   
     self.tableView.tableHeaderView=self.flowView;
     if (!self.catArray.count) {
         [self getCategoryList];
@@ -50,18 +51,7 @@
 -(void)handTimerTask:(NSTimer *)timer{
     [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
 }
--(void)didBarButtonPressed:(UIBarButtonItem *)barButton{
-    if (barButton ==self.navigationItem.rightBarButtonItem) {
-        GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-        goodListController.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:goodListController animated:YES];
-    }else if (barButton==self.navigationItem.leftBarButtonItem){
-        SignUpViewController *signupController=[[SignUpViewController alloc]  init];
-        signupController.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:signupController animated:YES];
-    }
-   
-}
+
 -(void)getCategoryList{
     [self.view showPageLoadingView];
     WEAKSELF
@@ -111,6 +101,29 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 140;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    HomeMenuContentView *contentView=[[HomeMenuContentView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 60)];
+    contentView.itemTouchedBlock=^(HomeMenuViewItem item){
+        if (item==HomeMenuViewItemSign) {
+            SignUpViewController *signupController=[[SignUpViewController alloc]  init];
+            signupController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:signupController animated:YES];
+
+        }else if (item==HomeMenuViewItemGoods){
+            GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
+            goodListController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:goodListController animated:YES];
+        }else if (item==HomeMenuViewItemDiary){
+            MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];
+            diraryController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:diraryController animated:YES];
+        }
+    };
+    return contentView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!self.cellHeight) {
