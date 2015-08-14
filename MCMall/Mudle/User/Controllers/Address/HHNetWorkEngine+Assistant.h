@@ -33,7 +33,7 @@
                                                  atDay:(NSDate *)date
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 /**
- *  用户写日记
+ *  用户写日记 (如果diaryid 不为空，则为修改日记，否则为直接写日记)
  *
  *  @param userID
  *  @param photoPath
@@ -43,7 +43,20 @@
  *  @return
  */
 -(HHNetWorkOperation *)userWriteDiraryhUserID:(NSString *)userID
+                                      diaryID:(NSString *)diaryID
                                     photoPath:(NSString *)photoPath
                                       content:(NSString *)content
+                          onCompletionHandler:(HHResponseResultSucceedBlock)completion;
+/**
+ *  获取日记详情
+ *
+ *  @param userID
+ *  @param date
+ *  @param completion
+ *
+ *  @return <#return value description#>
+ */
+-(HHNetWorkOperation *)getDiaryDetailUserID:(NSString *)userID
+                                       date:(NSString *)date
                           onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 @end

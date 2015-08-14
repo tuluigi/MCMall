@@ -24,6 +24,7 @@
 		2A0645761B7DCDA600C27AD5 /* icon_goods@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0645701B7DCDA600C27AD5 /* icon_goods@3x.png */; };
 		2A0645771B7DCDA600C27AD5 /* icon_sign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0645711B7DCDA600C27AD5 /* icon_sign@2x.png */; };
 		2A0645781B7DCDA600C27AD5 /* icon_sign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0645721B7DCDA600C27AD5 /* icon_sign@3x.png */; };
+		2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06457A1B7DD97000C27AD5 /* NoteModel.m */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930791B79949500BF9368 /* HHNetWorkEngine+Goods.m */; };
 		2A09307E1B79C62C00BF9368 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */; };
@@ -190,6 +191,8 @@
 		2A0645701B7DCDA600C27AD5 /* icon_goods@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_goods@3x.png"; sourceTree = "<group>"; };
 		2A0645711B7DCDA600C27AD5 /* icon_sign@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sign@2x.png"; sourceTree = "<group>"; };
 		2A0645721B7DCDA600C27AD5 /* icon_sign@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sign@3x.png"; sourceTree = "<group>"; };
+		2A0645791B7DD97000C27AD5 /* NoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteModel.h; sourceTree = "<group>"; };
+		2A06457A1B7DD97000C27AD5 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteModel.m; sourceTree = "<group>"; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0930781B79949500BF9368 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Goods.h"; path = "MCMall/Entity/HHNetWorkEngine+Goods.h"; sourceTree = SOURCE_ROOT; };
@@ -741,6 +744,8 @@
 				2A0930761B79926F00BF9368 /* BaseModel.m */,
 				2A0645391B7C7DFF00C27AD5 /* SignInModel.h */,
 				2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */,
+				2A0645791B7DD97000C27AD5 /* NoteModel.h */,
+				2A06457A1B7DD97000C27AD5 /* NoteModel.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1611,6 +1616,7 @@
 				2A984EBB1B141205004DF4C0 /* NSString+NetWork.m in Sources */,
 				2AFFF6931B64A9FF00712317 /* SubjectListCell.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,
+				2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */,
 				2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */,
 				2A984ED31B141205004DF4C0 /* UIColor+Addition.m in Sources */,
 				2AA671751B78EC7100ECC8A3 /* GoodsView.m in Sources */,

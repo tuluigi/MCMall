@@ -112,11 +112,9 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)userPublishDiaryAPI{//写日记
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"diary"];
 }
-+(NSString *)userEditDiaryAPI{//修改日记
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
-}
-+(NSString *)getDiraryListAPI{//获取日记列表
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
+
++(NSString *)getDiraryDetailAPI{//获取日记详情
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getdiaryinfo"];
 }
 #pragma mark- 广告
 +(NSString *)getADListAPI{//获取广告列表

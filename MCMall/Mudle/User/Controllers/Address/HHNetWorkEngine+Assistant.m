@@ -9,6 +9,7 @@
 #import "HHNetWorkEngine+Assistant.h"
 #import "MCMallAPI.h"
 #import "SignInModel.h"
+#import "NoteModel.h"
 @implementation HHNetWorkEngine (Assistant)
 /**
  *  签到
@@ -77,12 +78,35 @@
  *  @return
  */
 -(HHNetWorkOperation *)userWriteDiraryhUserID:(NSString *)userID
+                                      diaryID:(NSString *)diaryID
                                     photoPath:(NSString *)photoPath
                                       content:(NSString *)content
                           onCompletionHandler:(HHResponseResultSucceedBlock)completion{
-    NSString *apiPath=[MCMallAPI getUserSignListAPI];
-    NSDictionary *postDic=@{@"userid":userID,@"photo":photoPath,@"memodata":content};
+    NSString *apiPath=[MCMallAPI  userPublishDiaryAPI];
+    NSDictionary *postDic;
+    
+    if (diaryID&&diaryID.length) {
+        postDic=@{@"userid":userID,@"photo":photoPath,@"memodata":content,@"memoid":diaryID};
+    }else{
+        postDic=@{@"userid":userID,@"photo":photoPath,@"memodata":content};
+    }
+
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+        completion(responseResult);
+    }];
+    return op;
+}
+-(HHNetWorkOperation *)getDiaryDetailUserID:(NSString *)userID
+                                       date:(NSString *)date
+                        onCompletionHandler:(HHResponseResultSucceedBlock)completion{
+    NSString *apiPath=[MCMallAPI getDiraryDetailAPI];
+    NSDictionary *postDic=@{@"userid":userID,@"date":date};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCode100) {
+            NSError *error;
+            NoteModel *noteModel =[MTLJSONAdapter modelOfClass:[NoteModel class] fromJSONDictionary:responseResult.responseData error:&error];
+            responseResult.responseData=noteModel;
+        }
         completion(responseResult);
     }];
     return op;
