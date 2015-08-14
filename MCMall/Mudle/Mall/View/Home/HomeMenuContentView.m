@@ -30,7 +30,7 @@
     CGFloat padding=(CGRectGetWidth(self.bounds)-size.width*colum)/(colum+1);
     for (NSInteger i=0;i<colum; i++) {
         
-       HomeMenuView *menuView= [[HomeMenuView alloc]  initWithFrame:CGRectMake((padding+size.width)*i+padding, 0, size.width, size.height)];
+       HomeMenuView *menuView= [[HomeMenuView alloc]  initWithFrame:CGRectMake((padding+size.width)*i+padding, 0, size.width,self.bounds.size.height)];
         menuView.userInteractionEnabled=YES;
         UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didHomeItemTapGesture:)];
         [menuView addGestureRecognizer:tapGesture];

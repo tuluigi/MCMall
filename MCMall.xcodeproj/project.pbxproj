@@ -26,6 +26,7 @@
 		2A0645781B7DCDA600C27AD5 /* icon_sign@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0645721B7DCDA600C27AD5 /* icon_sign@3x.png */; };
 		2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06457A1B7DD97000C27AD5 /* NoteModel.m */; };
 		2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */; };
+		2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930791B79949500BF9368 /* HHNetWorkEngine+Goods.m */; };
 		2A09307E1B79C62C00BF9368 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */; };
@@ -193,6 +194,7 @@
 		2A0645791B7DD97000C27AD5 /* NoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteModel.h; sourceTree = "<group>"; };
 		2A06457A1B7DD97000C27AD5 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteModel.m; sourceTree = "<group>"; };
 		2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@2x.png"; sourceTree = "<group>"; };
+		2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0930781B79949500BF9368 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Goods.h"; path = "MCMall/Entity/HHNetWorkEngine+Goods.h"; sourceTree = SOURCE_ROOT; };
@@ -830,6 +832,7 @@
 		2A7C4E0B1B14731C00912D53 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */,
 				2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */,
 				2AD019081B14A8D600702BD5 /* loading_Default@3x.png */,
 				2AD019061B14A8C000702BD5 /* loading_Default@2x.png */,
@@ -1455,6 +1458,7 @@
 				2A7EA1F81B56B32B005B04A9 /* icon60@3x.png in Resources */,
 				2A7C4E181B14764200912D53 /* checkbox_normal@2x.png in Resources */,
 				2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */,
+				2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */,
 				2AC28B951B71060000F91760 /* item_babay@3x.png in Resources */,
 				2AC28B941B71060000F91760 /* item_babay@2x.png in Resources */,
 				2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */,
