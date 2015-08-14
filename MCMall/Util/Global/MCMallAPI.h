@@ -58,4 +58,6 @@
 +(NSString *)userPublishDiaryAPI;//写日记
 +(NSString *)userEditDiaryAPI;//修改日记
 +(NSString *)getDiraryListAPI;//获取日记列表
+#pragma mark- 广告
++(NSString *)getADListAPI;//获取广告列表
 @end

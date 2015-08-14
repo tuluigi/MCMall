@@ -12,14 +12,23 @@
 #import "GoodsModel.h"
 #import "GoodsListViewController.h"
 #import "SignUpViewController.h"
+#import "HHFlowView.h"
 @interface MCMallViewController ()
 @property(nonatomic,strong)NSArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
-
+@property(nonatomic,strong)HHFlowView *flowView;
 @end
 
 @implementation MCMallViewController
-
+-(HHFlowView *)flowView{
+    if (nil==_flowView) {
+        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _flowView.flowViewDidSelectedBlock=^(HHFlowModel *flowMode, NSInteger index){
+            
+        };
+    }
+    return _flowView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
@@ -28,6 +37,7 @@
     self.title=@"首页";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"商品列表" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"签到" style:UIBarButtonItemStylePlain target:self action:@selector(didBarButtonPressed:)];
+    self.tableView.tableHeaderView=self.flowView;
     if (!self.catArray.count) {
         [self getCategoryList];
     }

@@ -12,6 +12,9 @@
 		2A0645381B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645371B7C7B8000C27AD5 /* HHNetWorkEngine+Assistant.m */; };
 		2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */; };
 		2A0645401B7C971E00C27AD5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06453F1B7C971E00C27AD5 /* SignUpViewController.m */; };
+		2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645431B7D82FF00C27AD5 /* HHFlowModel.m */; };
+		2A0645471B7D82FF00C27AD5 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
+		2A06454D1B7D863700C27AD5 /* HHNetWorkEngine+AD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06454C1B7D863700C27AD5 /* HHNetWorkEngine+AD.m */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A09307A1B79949500BF9368 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930791B79949500BF9368 /* HHNetWorkEngine+Goods.m */; };
 		2A09307E1B79C62C00BF9368 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A09307D1B79C62C00BF9368 /* GoodsListViewController.m */; };
@@ -160,6 +163,12 @@
 		2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInModel.m; sourceTree = "<group>"; };
 		2A06453E1B7C971E00C27AD5 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = MCMall/Entity/SignUpViewController.h; sourceTree = SOURCE_ROOT; };
 		2A06453F1B7C971E00C27AD5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = MCMall/Entity/SignUpViewController.m; sourceTree = SOURCE_ROOT; };
+		2A0645421B7D82FF00C27AD5 /* HHFlowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFlowModel.h; sourceTree = "<group>"; };
+		2A0645431B7D82FF00C27AD5 /* HHFlowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHFlowModel.m; sourceTree = "<group>"; };
+		2A0645441B7D82FF00C27AD5 /* HHFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFlowView.h; sourceTree = "<group>"; };
+		2A0645451B7D82FF00C27AD5 /* HHFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHFlowView.m; sourceTree = "<group>"; };
+		2A06454B1B7D863700C27AD5 /* HHNetWorkEngine+AD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+AD.h"; sourceTree = "<group>"; };
+		2A06454C1B7D863700C27AD5 /* HHNetWorkEngine+AD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+AD.m"; sourceTree = "<group>"; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0930781B79949500BF9368 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HHNetWorkEngine+Goods.h"; path = "MCMall/Entity/HHNetWorkEngine+Goods.h"; sourceTree = SOURCE_ROOT; };
@@ -460,6 +469,19 @@
 			);
 			name = Diary;
 			path = ../../../../../../../../Desktop/Diary;
+			sourceTree = "<group>";
+		};
+		2A0645411B7D82FF00C27AD5 /* HHFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				2A0645421B7D82FF00C27AD5 /* HHFlowModel.h */,
+				2A0645431B7D82FF00C27AD5 /* HHFlowModel.m */,
+				2A0645441B7D82FF00C27AD5 /* HHFlowView.h */,
+				2A0645451B7D82FF00C27AD5 /* HHFlowView.m */,
+				2A06454B1B7D863700C27AD5 /* HHNetWorkEngine+AD.h */,
+				2A06454C1B7D863700C27AD5 /* HHNetWorkEngine+AD.m */,
+			);
+			path = HHFlowView;
 			sourceTree = "<group>";
 		};
 		2A09307B1B79C61400BF9368 /* Goods */ = {
@@ -1074,6 +1096,7 @@
 		2A984E941B141205004DF4C0 /* HHUtil */ = {
 			isa = PBXGroup;
 			children = (
+				2A0645411B7D82FF00C27AD5 /* HHFlowView */,
 				2AA671661B78CF9000ECC8A3 /* PhotoBroswer */,
 				2A0946F41B7762BF000A205A /* UserManager */,
 				2AFFF67F1B64802600712317 /* NSUserDefault */,
@@ -1467,6 +1490,7 @@
 				2AA6716F1B78E4EC00ECC8A3 /* MallGoodsListCell.m in Sources */,
 				2A984ECF1B141205004DF4C0 /* NSDate+Addition.m in Sources */,
 				2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */,
+				2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */,
 				2A984EC71B141205004DF4C0 /* HHWebView.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
 				2A984ED91B141205004DF4C0 /* UIView+Animation.m in Sources */,
@@ -1513,6 +1537,7 @@
 				2AA671721B78E66B00ECC8A3 /* MallListCell.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
 				2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */,
+				2A0645471B7D82FF00C27AD5 /* HHFlowView.m in Sources */,
 				2A984EBD1B141205004DF4C0 /* HHCollectionView.m in Sources */,
 				2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */,
 				2A7EA1EB1B528229005B04A9 /* HHNetWorkOperation.m in Sources */,
@@ -1543,6 +1568,7 @@
 				2A984ED21B141205004DF4C0 /* NSString+Addition.m in Sources */,
 				2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */,
 				2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */,
+				2A06454D1B7D863700C27AD5 /* HHNetWorkEngine+AD.m in Sources */,
 				2A984ED41B141205004DF4C0 /* UIDevice+DeviceInfo.m in Sources */,
 				2A0645401B7C971E00C27AD5 /* SignUpViewController.m in Sources */,
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,

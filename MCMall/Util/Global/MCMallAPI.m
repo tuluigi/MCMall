@@ -118,4 +118,8 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)getDiraryListAPI{//获取日记列表
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"scheduled"];
 }
+#pragma mark- 广告
++(NSString *)getADListAPI{//获取广告列表
+      return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getadvertlist"];
+}
 @end
