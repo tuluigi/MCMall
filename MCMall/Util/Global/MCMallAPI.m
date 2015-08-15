@@ -29,7 +29,7 @@ NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"register"];
 }
 +(NSString *)userEditPwdAPI{
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"changepassoword"];
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"changepassword"];
 }
 +(NSString *)getUserPhoneVerfiyCodeAPI{
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"sendcode"];

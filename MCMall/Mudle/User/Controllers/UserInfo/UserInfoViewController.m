@@ -10,6 +10,7 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "HHItemModel.h"
 #import "HHImagePickerHelper.h"
+#import "EditPasswordViewController.h"
 @interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 
@@ -90,7 +91,7 @@
         cell=[tableView dequeueReusableCellWithIdentifier:idenfier];
         if (nil==cell) {
             cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfier];
-            cell.textLabel.font=[UIFont boldSystemFontOfSize:14];
+            cell.textLabel.font=[UIFont boldSystemFontOfSize:16];
             cell.textLabel.textColor=[UIColor blackColor];
             cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
             cell.detailTextLabel.textColor=[UIColor darkGrayColor];
@@ -140,6 +141,10 @@
                 cell.detailTextLabel.text=@"产后";
             }
         }break;
+        case HHUserInfoItemTypeEditPwd:{
+            cell.textLabel.text=@"修改密码";
+            cell.detailTextLabel.text=@"";
+        }break;
         default:
             break;
     }
@@ -170,6 +175,9 @@
         UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"备孕中",@"产后", nil];
         actionSheet.tag=100;
         [actionSheet showInView:self.view];
+    }else if(itemModel.itemType==HHUserInfoItemTypeEditPwd){
+        EditPasswordViewController *editUserPwdController=[[EditPasswordViewController alloc]  init];
+        [self.navigationController pushViewController:editUserPwdController animated:YES];
     }
    
 

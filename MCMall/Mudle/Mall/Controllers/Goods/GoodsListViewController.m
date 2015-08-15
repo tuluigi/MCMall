@@ -172,7 +172,7 @@
     GoodsModel *goodsModel0=[self.dataSourceArray objectAtIndex:(row*2)];
     GoodsModel *goodsModel1;
     if ((indexPath.row+1)*2<=self.dataSourceArray.count) {
-        goodsModel1=[self.dataSourceArray objectAtIndex:(indexPath.row+1)];
+        goodsModel1=[self.dataSourceArray objectAtIndex:(indexPath.row*2+1)];
     }
     [cell setGoodsModel0:goodsModel0 goodsModel1:goodsModel1];
     

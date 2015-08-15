@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, HHUserCenterItemType) {
 
 typedef NS_ENUM(NSInteger, HHUserInfoItemType) {
     HHUserInfoItemTypeHeaderImage   ,
-    HHUserInfoItemTypeName          ,
+    HHUserInfoItemTypeEditPwd        ,
     HHUserInfoItemTypeMotherState   ,
 };
 

@@ -211,7 +211,7 @@
                     weakSelf.photoModle.favorCount++;
                     _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
                     [sender setSelected:YES];
-                    [HHProgressHUD dismiss];
+                    [HHProgressHUD showSuccessMessage:@"点赞成功"];
                 }else{
                     [HHProgressHUD makeToast:responseResult.responseMessage];
                 }

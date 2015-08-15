@@ -92,6 +92,7 @@
         cell=[tableView dequeueReusableCellWithIdentifier:identifer0];
         if (nil==cell) {
             cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer0];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         switch (indexPath.row) {
             case 0:{
@@ -99,7 +100,7 @@
                 cell.detailTextLabel.text=self.goodsModel.goodsName;
             }break;
             case 1:{
-                cell.textLabel.text=@"购买数量:";
+                cell.textLabel.text=@"预订数量:";
                 cell.detailTextLabel.text=@"1件";
             }break;
             case 2:{
