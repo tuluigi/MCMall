@@ -17,7 +17,7 @@
 #import "MotherDiaryViewController.h"
 #import "GoodsDetailViewController.h"
 @interface MCMallViewController ()
-@property(nonatomic,strong)NSArray *catArray;
+@property(nonatomic,strong)NSMutableArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)HHFlowView *flowView;
 @end
@@ -32,6 +32,11 @@
     }
     return _flowView;
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+        [self getDataSourse];
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
@@ -40,15 +45,38 @@
     self.title=@"首页";
    
     self.tableView.tableHeaderView=self.flowView;
-    if (!self.catArray.count) {
-        [self getCategoryList];
+    if ([HHUserManager isLogin]) {
+       [self getDataSourse];
     }
+    
+    WEAKSELF
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf getCategoryList];
+    }];
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        weakSelf.pageIndex=1;
+        [weakSelf.catArray removeAllObjects];
+        [weakSelf.dataSourceArray removeAllObjects];
+        [weakSelf.tableView reloadData];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)getDataSourse{
+    if (self.catArray.count==0) {
+        [self getCategoryList];
+    }else{
+        if (self.dataSourceArray.count==0) {
+            CategoryModel *catModel=[self.catArray firstObject];
+            [self getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
+        }
+    }
+}
+
 -(void)handTimerTask:(NSTimer *)timer{
     [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
 }
@@ -58,7 +86,7 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            weakSelf.catArray=[NSArray arrayWithArray:responseResult.responseData];
+            weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
             if (weakSelf.catArray.count) {
                 CategoryModel *catModel=[weakSelf.catArray firstObject];
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];

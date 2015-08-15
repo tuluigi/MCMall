@@ -163,6 +163,7 @@
 		2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B01B75B7AB0063197D /* HHKeyValueView.m */; };
 		2AD321B41B75BEBE0063197D /* HHKeyValueContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */; };
 		2AD38A551B7F59D300BEA56E /* HHClassMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A541B7F59D300BEA56E /* HHClassMenuView.m */; };
+		2AD38A5E1B7F762500BEA56E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A5D1B7F762500BEA56E /* SettingViewController.m */; };
 		2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */; };
 		2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793201B1C40470008E241 /* HHProgressHUD.m */; };
 		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
@@ -447,6 +448,8 @@
 		2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHKeyValueContainerView.m; sourceTree = "<group>"; };
 		2AD38A531B7F59D300BEA56E /* HHClassMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHClassMenuView.h; sourceTree = "<group>"; };
 		2AD38A541B7F59D300BEA56E /* HHClassMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHClassMenuView.m; sourceTree = "<group>"; };
+		2AD38A5C1B7F762500BEA56E /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		2AD38A5D1B7F762500BEA56E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HHKeyboardControl.h"; sourceTree = "<group>"; };
 		2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HHKeyboardControl.m"; sourceTree = "<group>"; };
 		2AE7931F1B1C40470008E241 /* HHProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHProgressHUD.h; sourceTree = "<group>"; };
@@ -659,6 +662,7 @@
 		2A37B0FF1B0CC83B00D0FE88 /* Mudle */ = {
 			isa = PBXGroup;
 			children = (
+				2AD38A561B7F5D1B00BEA56E /* Vip */,
 				2AFFF68A1B64A98600712317 /* Subject */,
 				2A50F6E91B1096B600607723 /* Base */,
 				2A37B1001B0CC83B00D0FE88 /* Activity */,
@@ -748,6 +752,7 @@
 		2A37B10D1B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AD38A5B1B7F761000BEA56E /* Setting */,
 				2A06452C1B7C49B300C27AD5 /* Address */,
 				2A7EA20F1B57F712005B04A9 /* UserInfo */,
 				2AD019051B14A63900702BD5 /* Login */,
@@ -1390,6 +1395,54 @@
 			path = Vip;
 			sourceTree = "<group>";
 		};
+		2AD38A561B7F5D1B00BEA56E /* Vip */ = {
+			isa = PBXGroup;
+			children = (
+				2AD38A571B7F5D1B00BEA56E /* Controller */,
+				2AD38A581B7F5D1B00BEA56E /* Model */,
+				2AD38A5A1B7F5D1B00BEA56E /* View */,
+			);
+			path = Vip;
+			sourceTree = "<group>";
+		};
+		2AD38A571B7F5D1B00BEA56E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2AD38A581B7F5D1B00BEA56E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2AD38A591B7F5D1B00BEA56E /* NetEngine */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AD38A591B7F5D1B00BEA56E /* NetEngine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetEngine;
+			sourceTree = "<group>";
+		};
+		2AD38A5A1B7F5D1B00BEA56E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2AD38A5B1B7F761000BEA56E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2AD38A5C1B7F762500BEA56E /* SettingViewController.h */,
+				2AD38A5D1B7F762500BEA56E /* SettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		2AFFF67F1B64802600712317 /* NSUserDefault */ = {
 			isa = PBXGroup;
 			children = (
@@ -1616,6 +1669,7 @@
 				2A984EB81B141205004DF4C0 /* HHNetWorkTool.m in Sources */,
 				2AA6716F1B78E4EC00ECC8A3 /* MallGoodsListCell.m in Sources */,
 				2A984ECF1B141205004DF4C0 /* NSDate+Addition.m in Sources */,
+				2AD38A5E1B7F762500BEA56E /* SettingViewController.m in Sources */,
 				2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */,
 				2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */,
 				2A984EC71B141205004DF4C0 /* HHWebView.m in Sources */,
@@ -1769,8 +1823,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1790,7 +1844,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
+				PROVISIONING_PROFILE = "e13b148d-d124-48e9-9441-e6a338bcf98e";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1812,8 +1866,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1826,7 +1880,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
+				PROVISIONING_PROFILE = "e13b148d-d124-48e9-9441-e6a338bcf98e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1837,6 +1891,7 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MCMall/PrefixHeader.pch;
 				INFOPLIST_FILE = MCMall/Info.plist;
@@ -1847,6 +1902,7 @@
 					"$(PROJECT_DIR)/MCMall/Util/3Class/LibBPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e13b148d-d124-48e9-9441-e6a338bcf98e";
 			};
 			name = Debug;
 		};
@@ -1855,6 +1911,7 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chen Qitu (A2VFEN6J4J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MCMall/PrefixHeader.pch;
 				INFOPLIST_FILE = MCMall/Info.plist;
@@ -1865,6 +1922,7 @@
 					"$(PROJECT_DIR)/MCMall/Util/3Class/LibBPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e13b148d-d124-48e9-9441-e6a338bcf98e";
 			};
 			name = Release;
 		};

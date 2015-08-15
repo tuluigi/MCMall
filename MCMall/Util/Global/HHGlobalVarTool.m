@@ -28,6 +28,7 @@
     if ([identifier isEqualToString:@"com.MCMall.HaHa"]) {
         shopID=@"D2077d9";
     }
+    shopID=@"D2077d9";
     return shopID;
 }
 

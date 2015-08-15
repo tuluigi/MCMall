@@ -26,6 +26,10 @@ typedef NS_ENUM(NSInteger, HHUserInfoItemType) {
     HHUserInfoItemTypeMotherState   ,
 };
 
+typedef NS_ENUM(NSInteger, HHSettingItemType) {
+    HHSettingItemTypeClearCache   ,
+
+};
 @interface HHItemModel : NSObject
 @property(nonatomic,assign,readonly)NSInteger itemType;
 /**
@@ -42,4 +46,6 @@ typedef NS_ENUM(NSInteger, HHUserInfoItemType) {
 
 +(NSArray *)userCenterItems;
 +(NSArray *)userInfoItemsArray;
+//设置
++(NSArray *)settingItemArray;
 @end

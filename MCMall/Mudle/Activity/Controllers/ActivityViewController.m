@@ -41,6 +41,15 @@
     
     // Do any additional setup after loading the view.
     [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
+    
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
+    }];
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        weakSelf.pageIndex=1;
+        [weakSelf.dataSourceArray removeAllObjects];
+        [weakSelf.tableView reloadData];
+    }];
 
 }
 

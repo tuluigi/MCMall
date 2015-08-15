@@ -60,6 +60,8 @@
                          onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
     NSString *apiPath=[MCMallAPI getGoodsListAPI];
+    catID=[NSString stringByReplaceNullString:catID];
+     userID=[NSString stringByReplaceNullString:userID];
     NSDictionary *postDic=@{@"userid":userID,@"pageno":@(pid),@"records":@(pageSize),@"classify":catID};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf parseGoodsListWithResponseResult:&responseResult];

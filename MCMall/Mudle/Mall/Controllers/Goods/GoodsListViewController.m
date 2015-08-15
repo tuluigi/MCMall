@@ -14,10 +14,14 @@
 #import "GoodsDetailViewController.h"
 #import "HHFlowView.h"
 #import "HHClassMenuView.h"
-@interface GoodsListViewController ()
-@property(nonatomic,strong)NSArray *catArray;
+
+#define HHClassMenuViewHeight  40
+
+@interface GoodsListViewController ()<HHClassMenuViewDelegate>
+@property(nonatomic,strong)NSMutableArray *catArray;
 @property(nonatomic,strong)HHFlowView *flowView;
 @property(nonatomic,strong)HHClassMenuView *classMenuView;
+@property(nonatomic,strong)CategoryModel *selectedCatModel;
 @end
 
 @implementation GoodsListViewController
@@ -32,11 +36,16 @@
 }
 -(HHClassMenuView *)classMenuView{
     if (nil==_classMenuView) {
-        _classMenuView=[[HHClassMenuView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 30)];
+        _classMenuView=[[HHClassMenuView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HHClassMenuViewHeight)];
+        _classMenuView.menuDelegate=self;
     }
     return _classMenuView;
 }
--(void)setCatArray:(NSArray *)catArray{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getDataSourse];
+}
+-(void)setCatArray:(NSMutableArray *)catArray{
     _catArray=catArray;
     self.classMenuView.classDataArry=[NSMutableArray arrayWithArray:_catArray];
 }
@@ -44,23 +53,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"专享汇";
-    self.tableView.tableHeaderView=self.flowView;
+//self.tableView.tableHeaderView=self.flowView;
+    [self.view addSubview:self.classMenuView];
     if (!self.catArray.count) {
         [self getCategoryList];
     }
+    WEAKSELF
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+       // make.removeExisting=YES;
+        make.top.mas_equalTo(HHClassMenuViewHeight);
+    }];
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        weakSelf.pageIndex=1;
+        [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
+    }];
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.pageIndex++;
+        [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
+    }];
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf getCategoryList];
+    }];
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        weakSelf.pageIndex=1;
+        [weakSelf.catArray removeAllObjects];
+        weakSelf.classMenuView.classDataArry=nil;
+        [weakSelf.dataSourceArray removeAllObjects];
+        [weakSelf.tableView reloadData];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)getDataSourse{
+    if (self.catArray.count==0) {
+        [self getCategoryList];
+    }else{
+        if (self.dataSourceArray.count==0) {
+            if (!_selectedCatModel) {
+                _selectedCatModel=[self.catArray firstObject];
+                [self.classMenuView selectClassMenuAtIndex:0];
+            }
+            [self getGoodsListWithCatID:_selectedCatModel.catID userID:[HHUserManager userID]];
+        }
+    }
+}
 -(void)getCategoryList{
     [self.view showPageLoadingView];
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
+        [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCode100) {
-            weakSelf.catArray=[NSArray arrayWithArray:responseResult.responseData];
+            weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
             if (weakSelf.catArray.count) {
                 CategoryModel *catModel=[weakSelf.catArray firstObject];
                 
@@ -73,14 +120,29 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(void)getGoodsListWithCatID:(NSString *)catID userID:(NSString *)userID{
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_catID=%@",catID];
+    NSArray *tempArray=[self.catArray filteredArrayUsingPredicate:predicate];
+    if (tempArray&&tempArray.count) {
+        _selectedCatModel=[tempArray firstObject];
+    }
+    if (_pageIndex==1) {
+        [HHProgressHUD showLoadingState];
+        [self.dataSourceArray removeAllObjects];
+        [self.tableView reloadData];
+    }
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismissPageLoadView];
+        
+        [HHProgressHUD dismiss];
         if (responseResult.responseCode==HHResponseResultCode100) {
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
             }
-            [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            if (((NSArray *)responseResult.responseData).count) {
+                 [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            }else{
+                [HHProgressHUD makeToast:@"没有更多商品喽"];
+            }
         }else{
             [HHProgressHUD makeToast:responseResult.responseMessage];
         }
@@ -116,11 +178,13 @@
     
     return cell;
 }
+/*
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     return self.classMenuView;
 }
+ */
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return CGFLOAT_MIN;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 140;
@@ -133,7 +197,15 @@
         self.cellHeight=size.height;
     }
     return self.cellHeight;
-}/*
+}
+#pragma mark classMenuDelegate
+
+-(void)classMenuSelectIndexChanded:(NSInteger)index classID:(NSString *)classID{
+    _pageIndex=1;
+    [self getGoodsListWithCatID:classID userID:[HHUserManager userID]];
+}
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

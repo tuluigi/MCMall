@@ -12,8 +12,8 @@
 
 #define kClassMenuButtonHeight      25
 
-#define kClassMenuLeftButtonWidth       30.0
-#define kClassMenuTitleButtonFontSize   20//标题字体的大小
+#define kClassMenuLeftButtonWidth       10.0
+#define kClassMenuTitleButtonFontSize   16//标题字体的大小
 @interface HHClassMenuView()
 @property(nonatomic,strong)UIView *lineView;
 @property(nonatomic,assign)NSInteger selectIndex;

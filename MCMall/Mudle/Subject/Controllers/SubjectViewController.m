@@ -16,6 +16,12 @@
 @end
 
 @implementation SubjectViewController
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.dataSourceArray.count==0) {
+        [self getSubjectList];
+    }
+}
 
 -(void)viewDidLoad{
     [super viewDidLoad];

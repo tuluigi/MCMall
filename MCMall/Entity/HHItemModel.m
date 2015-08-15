@@ -56,6 +56,15 @@
     itemsArray=@[sectionArray0,sectionArray1];
     
     return itemsArray;
-
+}
+//设置
++(NSArray *)settingItemArray{
+    NSArray *itemsArray;
+    HHItemModel *cacheImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeClearCache name:@"清理缓存" image:nil];
+   
+    NSArray *sectionArray0=@[cacheImageItem];
+    itemsArray=@[sectionArray0];
+    
+    return itemsArray;
 }
 @end
