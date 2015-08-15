@@ -162,6 +162,7 @@
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
 		2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B01B75B7AB0063197D /* HHKeyValueView.m */; };
 		2AD321B41B75BEBE0063197D /* HHKeyValueContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */; };
+		2AD38A551B7F59D300BEA56E /* HHClassMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A541B7F59D300BEA56E /* HHClassMenuView.m */; };
 		2AE7931E1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */; };
 		2AE793211B1C40470008E241 /* HHProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793201B1C40470008E241 /* HHProgressHUD.m */; };
 		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
@@ -444,6 +445,8 @@
 		2AD321B01B75B7AB0063197D /* HHKeyValueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHKeyValueView.m; sourceTree = "<group>"; };
 		2AD321B21B75BEBE0063197D /* HHKeyValueContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHKeyValueContainerView.h; sourceTree = "<group>"; };
 		2AD321B31B75BEBE0063197D /* HHKeyValueContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHKeyValueContainerView.m; sourceTree = "<group>"; };
+		2AD38A531B7F59D300BEA56E /* HHClassMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHClassMenuView.h; sourceTree = "<group>"; };
+		2AD38A541B7F59D300BEA56E /* HHClassMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHClassMenuView.m; sourceTree = "<group>"; };
 		2AE7931C1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HHKeyboardControl.h"; sourceTree = "<group>"; };
 		2AE7931D1B1C2EBB0008E241 /* UIScrollView+HHKeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HHKeyboardControl.m"; sourceTree = "<group>"; };
 		2AE7931F1B1C40470008E241 /* HHProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHProgressHUD.h; sourceTree = "<group>"; };
@@ -1304,6 +1307,7 @@
 		2AA6716A1B78E4C300ECC8A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2AD38A521B7F59C300BEA56E /* Vip */,
 				2A0645511B7DBD0900C27AD5 /* Home */,
 				2AA6716D1B78E4EC00ECC8A3 /* MallGoodsListCell.h */,
 				2AA6716E1B78E4EC00ECC8A3 /* MallGoodsListCell.m */,
@@ -1375,6 +1379,15 @@
 				2A8DFD141B22751900004035 /* EditPasswordViewController.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2AD38A521B7F59C300BEA56E /* Vip */ = {
+			isa = PBXGroup;
+			children = (
+				2AD38A531B7F59D300BEA56E /* HHClassMenuView.h */,
+				2AD38A541B7F59D300BEA56E /* HHClassMenuView.m */,
+			);
+			path = Vip;
 			sourceTree = "<group>";
 		};
 		2AFFF67F1B64802600712317 /* NSUserDefault */ = {
@@ -1660,6 +1673,7 @@
 				2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */,
 				2AFFF6821B64806E00712317 /* NSUserDefaults+AesEncrypt.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
+				2AD38A551B7F59D300BEA56E /* HHClassMenuView.m in Sources */,
 				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,
 				2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */,
 				2A984EBE1B141205004DF4C0 /* HHDataPicker.m in Sources */,

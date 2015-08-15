@@ -12,16 +12,39 @@
 #import "GoodsModel.h"
 #import "GoodsView.h"
 #import "GoodsDetailViewController.h"
+#import "HHFlowView.h"
+#import "HHClassMenuView.h"
 @interface GoodsListViewController ()
 @property(nonatomic,strong)NSArray *catArray;
+@property(nonatomic,strong)HHFlowView *flowView;
+@property(nonatomic,strong)HHClassMenuView *classMenuView;
 @end
 
 @implementation GoodsListViewController
-
+-(HHFlowView *)flowView{
+    if (nil==_flowView) {
+        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _flowView.flowViewDidSelectedBlock=^(HHFlowModel *flowMode, NSInteger index){
+            
+        };
+    }
+    return _flowView;
+}
+-(HHClassMenuView *)classMenuView{
+    if (nil==_classMenuView) {
+        _classMenuView=[[HHClassMenuView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 30)];
+    }
+    return _classMenuView;
+}
+-(void)setCatArray:(NSArray *)catArray{
+    _catArray=catArray;
+    self.classMenuView.classDataArry=[NSMutableArray arrayWithArray:_catArray];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"专享汇";
+    self.tableView.tableHeaderView=self.flowView;
     if (!self.catArray.count) {
         [self getCategoryList];
     }
@@ -40,6 +63,7 @@
             weakSelf.catArray=[NSArray arrayWithArray:responseResult.responseData];
             if (weakSelf.catArray.count) {
                 CategoryModel *catModel=[weakSelf.catArray firstObject];
+                
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
             }
         }else{
@@ -91,6 +115,12 @@
     [cell setGoodsModel0:goodsModel0 goodsModel1:goodsModel1];
     
     return cell;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return self.classMenuView;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 140;
