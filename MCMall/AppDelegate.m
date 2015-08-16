@@ -10,6 +10,7 @@
 #import "RootTabBarController.h"
 #import "BPush.h"
 #import "UserStateSelectController.h"
+#import "HHShaeTool.h"
 @interface AppDelegate ()
 
 @end
@@ -62,6 +63,7 @@
        
         [ [UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:stateSelectController animated:YES];
     }
+    [HHShaeTool setSharePlatform];
     return YES;
 }
 
@@ -81,13 +83,20 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [HHShaeTool applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return YES;
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    BOOL canOpen=[HHShaeTool application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    return canOpen;
+}
 #pragma mark -PushNotification
 #ifdef __IPHONE_8_0
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings

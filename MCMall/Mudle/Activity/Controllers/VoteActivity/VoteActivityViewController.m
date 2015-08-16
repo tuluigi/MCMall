@@ -16,6 +16,7 @@
 #import "SDImageCache+Store.h"
 #import "HHImagePickerHelper.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "HHShaeTool.h"
 @interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate,UITextViewDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
@@ -102,6 +103,7 @@
     // _headView=self.headView;
     [self.tableView registerClass:[PlayerCell class] forCellReuseIdentifier:@"playeridentifer"];
     self.tableView.tableHeaderView=self.headView;
+    NSMutableArray *rightBarButtonItems=[NSMutableArray new];
     switch (_actType) {
         case ActivityTypeCommon:
         {
@@ -118,12 +120,16 @@
         }break;
         case ActivityTypePicture:{
             self.title=@"图片活动";
-            self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+            UIBarButtonItem *cameraBarbuttonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+            [rightBarButtonItems addObject:cameraBarbuttonItem];
         }
         default:
             break;
     }
+    UIBarButtonItem *shareBarbuttonItem=[[UIBarButtonItem alloc]  initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(didShareBarButtonPressed)];
+    [rightBarButtonItems addObject:shareBarbuttonItem];
     
+    self.navigationItem.rightBarButtonItems=rightBarButtonItems;
     // self.tableView.tableHeaderView=self.headView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
@@ -133,7 +139,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)didShareBarButtonPressed{
+    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:[UIImage imageNamed:@"icon"] url:nil shareType:0];
+}
 
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
