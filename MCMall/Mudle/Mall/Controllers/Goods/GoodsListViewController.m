@@ -37,6 +37,7 @@
 -(HHClassMenuView *)classMenuView{
     if (nil==_classMenuView) {
         _classMenuView=[[HHClassMenuView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HHClassMenuViewHeight)];
+        _classMenuView.backgroundColor=[UIColor whiteColor];
         _classMenuView.menuDelegate=self;
     }
     return _classMenuView;
