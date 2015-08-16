@@ -13,7 +13,6 @@
 #import "HHShareView.h"
 #import "HHShareModel.h"
 #import "SVProgressHUD.h"
-#import "UMSocialSinaHandler.h"
 #import "WXApi.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 @interface HHShaeTool ()<UMSocialUIDelegate>
@@ -179,7 +178,6 @@
         //设置分享到QQ空间的应用Id，和分享url 链接
     [UMSocialQQHandler setQQWithAppId:[HHShaeTool shareQQID] appKey:[HHShaeTool shareQQKey] url:[HHShaeTool shareDownloadUrl]];
     [UMSocialConfig setSnsPlatformNames:[NSArray arrayWithObjects:UMShareToRenren,UMShareToQQ,UMShareToDouban,UMShareToWechatSession,UMShareToSina,UMShareToTencent, nil]];
-        [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
 }
 +(void)applicationDidBecomeActive{
@@ -211,15 +209,15 @@
 }
 #pragma mark -需要提供
 +(NSString *)shareQQKey{
-    return @"c7394704798a158208a74ab60104f0ba";
+    return @"635cBiMwkzcuoDI7";
 }
 +(NSString *)shareQQID{
-    return @"100424468";
+    return @"1104816236";
 }
 +(NSString *)shareWeiXinID{
-    return @"wxd930ea5d5a258f4f";
+    return @"wxa1845c06a60250bd";
 }
 +(NSString *)shareWeiXinSecret{
-    return @"db426a9829e4b49a0dcac7b4162da6b6";
+    return @"890ea614860c63af187e964aec7c0df1";
 }
 @end
