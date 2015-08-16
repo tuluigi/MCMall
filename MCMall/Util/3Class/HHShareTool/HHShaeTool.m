@@ -41,8 +41,10 @@
         NSArray *platArray=[NSArray arrayWithObjects:platName,nil];
         NSString *titleStr=[NSString stringByReplaceNullString:title];
         NSString *urlStr=[NSString stringByReplaceNullString:url];
-       
-        
+        NSString *shareText=text;
+        if (text.length>100) {
+            shareText=[text substringWithRange:NSMakeRange(0, 100)];
+        }
         
         [UMSocialWechatHandler setWXAppId:[HHShaeTool shareWeiXinID] appSecret:[HHShaeTool shareWeiXinSecret] url:urlStr];
         
@@ -60,7 +62,7 @@
          [weakShareView hideShareView];//隐藏分型啊的view
         
         [[UMSocialDataService defaultDataService] postSNSWithTypes:platArray
-                                                           content:[NSString stringByReplaceNullString:text]
+                                                           content:[NSString stringByReplaceNullString:shareText]
                                                              image:img
                                                           location:nil
                                                        urlResource:urlResource
@@ -107,7 +109,10 @@
         NSArray *platArray=[NSArray arrayWithObjects:platName,nil];
         NSString *titleStr=[NSString stringByReplaceNullString:title];
         NSString *urlStr=[NSString stringByReplaceNullString:url];
-        
+        NSString *shareText=text;
+        if (text.length>100) {
+            shareText=[text substringWithRange:NSMakeRange(0, 100)];
+        }
         
         
         [UMSocialWechatHandler setWXAppId:[HHShaeTool shareWeiXinID] appSecret:[HHShaeTool shareWeiXinSecret] url:urlStr];
@@ -126,7 +131,7 @@
         [weakShareView hideShareView];//隐藏分型啊的view
         
         [[UMSocialDataService defaultDataService] postSNSWithTypes:platArray
-                                                           content:[NSString stringByReplaceNullString:text]
+                                                           content:[NSString stringByReplaceNullString:shareText]
                                                              image:img
                                                           location:nil
                                                        urlResource:urlResource
