@@ -14,6 +14,9 @@
 
 @implementation BaseViewController
 -(void)dealloc{
+#ifdef DEBUG
+    NSLog(@"\n%@--is dealloced",self);
+#endif
     [HHProgressHUD dismiss];
     [HHProgressHUD hideToast];
     [[NSNotificationCenter defaultCenter] removeObserver:self];

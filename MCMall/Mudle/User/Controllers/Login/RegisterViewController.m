@@ -9,7 +9,7 @@
 #import "RegisterViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
 #import "UserStateSelectController.h"
-#define TotalTimeDuration 10
+#define TotalTimeDuration 60
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr;

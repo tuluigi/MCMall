@@ -314,7 +314,7 @@
     switch (_actType) {
         case ActivityTypeVote:
         {
-            VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
+           __block VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
             PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
            // height= [PlayerCell playerCellHeightWithPlayerModel:model];
             return [tableView fd_heightForCellWithIdentifier:@"playeridentifer" cacheByIndexPath:indexPath configuration:^(id cell) {

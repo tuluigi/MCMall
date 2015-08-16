@@ -77,10 +77,11 @@
     [self.tableView registerClass:[SubjectAnswerCell class] forCellReuseIdentifier:@"cellidentifer"];
     
     [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.pageIndex++;
         [weakSelf getSubjectAnswerWithSubjectID:weakSelf.subjectID];
     }];
     [self.tableView addPullToRefreshWithActionHandler:^{
-        _pageIndex=1;
+        weakSelf.pageIndex=1;
         [weakSelf getSubjectAnswerWithSubjectID:weakSelf.subjectID];
     }];
     [self getSubjectAnswerWithSubjectID:self.subjectID];
@@ -164,10 +165,12 @@
     return 60;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    
+   __block SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     return [tableView fd_heightForCellWithIdentifier:@"cellidentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
         ((SubjectAnswerCell *)cell).subjectCommentModel=commentModel;
     }];
+    
 }
 #pragma mark textField
 #pragma mark -textFiled delegate

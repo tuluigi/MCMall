@@ -280,7 +280,7 @@
     return 60.0;
 }
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PhotoCommentModel *commentModel=[self.photoModle.commentArray objectAtIndex:indexPath.row];
+  __block  PhotoCommentModel *commentModel=[self.photoModle.commentArray objectAtIndex:indexPath.row];
 
     return [tableView fd_heightForCellWithIdentifier:@"photoIdentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
         ((PhotoCommontCell *)cell).commentModel=commentModel;
