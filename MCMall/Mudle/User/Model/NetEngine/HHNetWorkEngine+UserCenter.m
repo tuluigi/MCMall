@@ -10,6 +10,16 @@
 #import "MCMallAPI.h"
 #import "UserModel.h"
 @implementation HHNetWorkEngine (UserCenter)
+-(HHNetWorkOperation *)userChoseWithUserID:(NSString *)userID
+                                     statu:(NSInteger)statu
+                       onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI changeStateAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(statu),@"status",userID,@"userid", nil];
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 -(HHNetWorkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
@@ -52,11 +62,9 @@
                                        OrignalPwd:(NSString *)orignalPwd
                                           newsPwd:(NSString *)newPwd
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI  userEditPwdAPI];
     NSDictionary *postDic=@{@"userid":userID,@"oldps":orignalPwd,@"newps":newPwd};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
         completionBlcok(responseResult);
     }];
     return op;
@@ -72,7 +80,6 @@
  */
 -(HHNetWorkOperation *)getVerifyPhoneCodeWithPhoneNumber:(NSString *)phoneNumber
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI  getUserPhoneVerfiyCodeAPI];
     NSDictionary *postDic=@{@"phone":phoneNumber};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {

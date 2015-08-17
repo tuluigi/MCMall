@@ -69,6 +69,7 @@
  */
 -(HHNetWorkOperation *)applyActivityWithUserID:(NSString*)userID
                                     ActivityID:(NSString *)activityID
+                                       remarks:(NSString *)remarks
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**

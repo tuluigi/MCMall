@@ -101,10 +101,11 @@
 #pragma mark - 报名
 -(HHNetWorkOperation *)applyActivityWithUserID:(NSString*)userID
                                     ActivityID:(NSString *)activityID
+                                       remarks:(NSString *)remarks
                            onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     //WEAKSELF
     NSString *apiPath=[MCMallAPI applyActivityAPI];
-    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid",remarks,@"remarks", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         // responseResult=[weakSelf parseActivityDetailWithResponseResult:responseResult];
         completionBlcok(responseResult);

@@ -16,7 +16,8 @@
 #import "SDImageCache+Store.h"
 #import "HHImagePickerHelper.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-@interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate>
+#import "HHShaeTool.h"
+@interface VoteActivityViewController ()<UIWebViewDelegate,PlayerCellDelegate,QBImagePickerControllerDelegate,UITextViewDelegate>
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIWebView *detailWebView;
 @property(nonatomic,strong)UIView *headView;
@@ -24,6 +25,7 @@
 @property(nonatomic,strong)ActivityModel *activityModel;
 @property(nonatomic,assign)ActivityType actType;
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
+@property(nonatomic,copy)NSString *applyRemarks;
 @end
 
 @implementation VoteActivityViewController
@@ -76,7 +78,7 @@
 }
 -(UIWebView *)detailWebView{
     if (nil==_detailWebView) {
-        _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds), self.headView.bounds.size.width, 10)];
+        _detailWebView=[[UIWebView alloc]  initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headImageView.frame)+CGRectGetHeight(self.titleLable.bounds)+10, self.headView.bounds.size.width, 10)];
         _detailWebView.delegate=self;
     }
     return _detailWebView;
@@ -101,6 +103,7 @@
     // _headView=self.headView;
     [self.tableView registerClass:[PlayerCell class] forCellReuseIdentifier:@"playeridentifer"];
     self.tableView.tableHeaderView=self.headView;
+    NSMutableArray *rightBarButtonItems=[NSMutableArray new];
     switch (_actType) {
         case ActivityTypeCommon:
         {
@@ -109,18 +112,24 @@
             break;
         case ActivityTypeVote:{
             self.title=@"投票活动";
+            self.tableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+            self.tableView.separatorColor=[UIColor darkGrayColor];
         }break;
         case ActivityTypeApply:{
             self.title=@"报名活动";
         }break;
         case ActivityTypePicture:{
             self.title=@"图片活动";
-            self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+            UIBarButtonItem *cameraBarbuttonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+            [rightBarButtonItems addObject:cameraBarbuttonItem];
         }
         default:
             break;
     }
+    UIBarButtonItem *shareBarbuttonItem=[[UIBarButtonItem alloc]  initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(didShareBarButtonPressed)];
+    [rightBarButtonItems addObject:shareBarbuttonItem];
     
+    self.navigationItem.rightBarButtonItems=rightBarButtonItems;
     // self.tableView.tableHeaderView=self.headView;
     [self getVoteAcitivityWithActivityID:self.activityID];
 }
@@ -130,7 +139,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)didShareBarButtonPressed{
+    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:[UIImage imageNamed:@"icon"] url:nil shareType:0];
+}
 
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
     WEAKSELF
@@ -174,7 +185,11 @@
         VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
         row= voteActivityModel.playersArray.count;
     }else if(self.actType==ActivityTypeApply){
-        row=1;
+        if (((ApplyActivityModel *)self.activityModel).isApplied ) {
+            row=0;
+        }else{
+        row=2;
+        }
     }else if(self.actType==ActivityTypePicture){
         PhotoAcitvityModel * photModel=(PhotoAcitvityModel *)self.activityModel;
         NSInteger totalCount=photModel.photoListArray.count;
@@ -211,6 +226,17 @@
                 cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+                
+                if (indexPath.row==0) {
+                    UITextView *textView=[[UITextView alloc]  initWithFrame:CGRectMake(60, 10, CGRectGetWidth(tableView.bounds)-80, 70)];
+                    //textView.backgroundColor=[UIColor redColor];
+                    textView.delegate=self;
+                    textView.font=[UIFont systemFontOfSize:14];
+                    textView.layer.borderColor=[UIColor lightGrayColor].CGColor;
+                    textView.layer.borderWidth=0.5;
+                    [cell.contentView addSubview:textView];
+                    
+                }else if (indexPath.row==1){
                 UIButton *applyButton=[UIButton buttonWithType:UIButtonTypeCustom];
                 [cell.contentView addSubview:applyButton];
                 [applyButton setTitle:@"报  名" forState:UIControlStateNormal];
@@ -223,9 +249,18 @@
                 [applyButton mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.left.equalTo(@20.0);
                     make.right.equalTo(@(-10));
-                    make.top.bottom.equalTo(@(10));
+                    make.top.mas_equalTo(cell.contentView.mas_top).offset(20);
+                    make.bottom.mas_equalTo(cell.contentView.mas_bottom).offset(-5);
                 }];
+                     cell.backgroundColor=[UIColor red:240 green:240 blue:240 alpha:1];
+                }
+           
             }
+            if (indexPath.row==0) {
+                cell.textLabel.text=@"备注";
+            }else{
+            cell.textLabel.text=@"";
+             }
             return cell;
         }break;
         case ActivityTypePicture:{
@@ -279,7 +314,7 @@
     switch (_actType) {
         case ActivityTypeVote:
         {
-            VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
+           __block VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
             PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
            // height= [PlayerCell playerCellHeightWithPlayerModel:model];
             return [tableView fd_heightForCellWithIdentifier:@"playeridentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
@@ -288,7 +323,11 @@
         }
             break;
         case ActivityTypeApply:{
-            height=55;
+            if (indexPath.row==0) {
+                height=100;
+            }else{
+               height=70;
+            }
         }break;
         case ActivityTypePicture:{
             if (indexPath.row==0) {
@@ -312,9 +351,8 @@
         CGRect headViewFrame=self.headView.frame;
         headViewFrame.size.height=CGRectGetHeight(self.headImageView.bounds)+CGRectGetHeight(self.titleLable.bounds)+sizeHeight;
         self.headView.frame=headViewFrame;
-
-     self.tableView.tableHeaderView=self.headView;
-    webView.scrollView.scrollEnabled=NO;
+        self.tableView.tableHeaderView=self.headView;
+        webView.scrollView.scrollEnabled=NO;
     
     [self.view dismissPageLoadView];
 }
@@ -345,13 +383,17 @@
 #pragma mark -apply button
 -(void)applyButtonPressed{
     [HHProgressHUD showLoadingState];
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID onCompletionHandler:^(HHResponseResult *responseResult) {
+    self.applyRemarks=[NSString stringByReplaceNullString:self.applyRemarks];
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID remarks:self.applyRemarks onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
         }else{
             [HHProgressHUD showErrorMssage:responseResult.responseMessage];
         }
     }];
+}
+-(void)textViewDidChange:(UITextView *)textView{
+    self.applyRemarks=textView.text;
 }
 /*
  #pragma mark - Navigation

@@ -9,7 +9,17 @@
 #import "HHNetWorkEngine.h"
 
 @interface HHNetWorkEngine (UserCenter)
-
+/**
+ *  选择用户状态
+ *
+ *  @param statu
+ *  @param completionBlcok
+ *
+ *  @return
+ */
+-(HHNetWorkOperation *)userChoseWithUserID:(NSString *)userID
+                                     statu:(NSInteger)statu
+                         onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
  *  用户登录
  *

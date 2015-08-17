@@ -8,7 +8,8 @@
 
 #import "RegisterViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
-#define TotalTimeDuration 10
+#import "UserStateSelectController.h"
+#define TotalTimeDuration 60
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr;
@@ -190,11 +191,18 @@
             if (responseResult.responseCode==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
+                UserModel *userModel=[HHUserManager userModel];
+                if (userModel.motherState==MotherStateUnSelected) {
+                    UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
+                    stateSelectController.hidesBottomBarWhenPushed=YES;
+                    [self.navigationController pushViewController:stateSelectController animated:YES];
+                }else{
                 [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
                     if (weakSelf.userLoginCompletionBlock) {
                         weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
                     }
                 }];
+                }
             }else{
                 if (weakSelf.userLoginCompletionBlock) {
                     weakSelf.userLoginCompletionBlock(NO,nil);

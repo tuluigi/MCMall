@@ -16,6 +16,7 @@
 #import "BabeInfoViewController.h"
 #import "HHItemModel.h"
 #import "HHKeyValueContainerView.h"
+#import "SettingViewController.h"
 @interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
@@ -104,7 +105,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)reloadUI{
-    WEAKSELF
+    
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userCenterItems]];
     if ([HHUserManager isLogin]) {
         self.tableView.tableHeaderView=nil;
@@ -121,6 +122,7 @@
 -(void)didLogoutButtonPressed{
     [HHUserManager logout];
     [self reloadUI];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UserLogoutSucceedNotification object:nil];
    // [self verfiyUserLogin];
 }
 -(void)didLoginButtonPressed{
@@ -220,10 +222,12 @@
         case  HHUserCenterItemTypeUserInfo:{
             cell.detailTextLabel.text=userModel.userName;
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
-//          CGRect frame=  cell.frame;
-//            frame.size=CGSizeMake(50, 50);
-//            cell.frame=frame;
             cell.textLabel.text=userModel.userName;
+            if (userModel.motherState==MotherStatePregnant) {
+                cell.detailTextLabel.text=@"备孕中";
+            }else if (userModel.motherState==MotherStateAfterBirth){
+                cell.detailTextLabel.text=@"产后";
+            }
         }break;
         case HHUserCenterItemTypePoint:{
             //cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
@@ -283,7 +287,11 @@
             babeInfoViewController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:babeInfoViewController animated:YES];
         }break;
-            
+        case HHUserCenterItemTypeSetting:{
+            SettingViewController *settinControler=[[SettingViewController alloc]  initWithStyle:UITableViewStyleGrouped];
+            settinControler.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:settinControler animated:YES];
+        }break;
             
         default:
             break;

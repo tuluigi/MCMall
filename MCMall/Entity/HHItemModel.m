@@ -50,12 +50,22 @@
 +(NSArray *)userInfoItemsArray{
     NSArray *itemsArray;
     HHItemModel *userImageItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeHeaderImage name:@"头像" image:nil];
-    HHItemModel *nickeNameItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeName name:@"昵称" image:nil];
-    NSArray *sectionArray0=@[userImageItem,nickeNameItem];
+    HHItemModel *motherStateItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeMotherState name:@"状态" image:nil];
+    HHItemModel *editPwdItem=[[HHItemModel alloc] initWithType:HHUserInfoItemTypeEditPwd name:@"修改密码" image:nil];
+    NSArray *sectionArray0=@[userImageItem];
+     NSArray *sectionArray1=@[motherStateItem,editPwdItem];
+    itemsArray=@[sectionArray0,sectionArray1];
     
+    return itemsArray;
+}
+//设置
++(NSArray *)settingItemArray{
+    NSArray *itemsArray;
+    HHItemModel *cacheImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeClearCache name:@"清理缓存" image:nil];
+   
+    NSArray *sectionArray0=@[cacheImageItem];
     itemsArray=@[sectionArray0];
     
     return itemsArray;
-
 }
 @end

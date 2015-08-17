@@ -12,7 +12,8 @@ static NSString *AesEncryptKEY=@"NO_AESDecrypt_key";
 @implementation NSUserDefaults (AesEncrypt)
 -(void)setAesEncryptValue:(NSString *)value withkey:(NSString *)key{
    // NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
-    NSString *encryptValue=[AESEncryption AESEncrypt:value strKey:[self AESKey]];
+    NSString *base64String=[value base64EncodedString];
+    NSString *encryptValue=[AESEncryption AESEncrypt:base64String strKey:[self AESKey]];
     [self setObject:encryptValue forKey:key];
     [self synchronize];
     
@@ -21,6 +22,7 @@ static NSString *AesEncryptKEY=@"NO_AESDecrypt_key";
    // NSString *encryptKey=[AESEncryption AESEncrypt:key strKey:[self AESKey]];
     NSString *encryptValue=[self objectForKey:key];
     NSString *value=[AESEncryption AESDecrypt:encryptValue strKey:[self AESKey]];
+    value=[value base64DecodedString];
     return value;
 }
 

@@ -40,14 +40,14 @@
     if (nil==_tooBar) {
         _tooBar=[[UIToolbar alloc]  init];
         _tooBar.barStyle=UIBarStyleDefault;
-        UIBarButtonItem *collectBarButton=[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(handlerBarButtonClicked:)];
-        collectBarButton.tag=100;
+//        UIBarButtonItem *collectBarButton=[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStylePlain target:self action:@selector(handlerBarButtonClicked:)];
+//        collectBarButton.tag=100;
         UIBarButtonItem *spaceBarButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
         spaceBarButton.tag=101;
-        UIBarButtonItem *fixSpaceBarButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
-        fixSpaceBarButton.width=30;
+//        UIBarButtonItem *fixSpaceBarButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
+//        fixSpaceBarButton.width=30;
         UIButton *bookButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        bookButton.frame=CGRectMake(0, 0, 100, 30);
+        bookButton.frame=CGRectMake(0, 0, 180, 35);
         bookButton.tag=102;
         [bookButton setTitle:@"我要预订" forState:UIControlStateNormal];
         [bookButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -57,7 +57,7 @@
         [bookButton addTarget:self action:@selector(handlerBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *bookBarButton=[[UIBarButtonItem alloc] initWithCustomView:bookButton];
         
-        _tooBar.items=@[fixSpaceBarButton,collectBarButton,spaceBarButton,bookBarButton,fixSpaceBarButton];
+        _tooBar.items=@[spaceBarButton,bookBarButton,spaceBarButton];
     }
     return _tooBar;
 }
@@ -149,7 +149,7 @@
     }else if (indexPath.row==1){
         cell.textLabel.textColor=MCMallThemeColor;
         cell.textLabel.textAlignment=NSTextAlignmentRight;
-        NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:18 newPrice:_goodsModel.presenPrice newFontSize:14];
+        NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:14 newPrice:_goodsModel.presenPrice newFontSize:18];
         cell.textLabel.attributedText=priceAttrStr;
         cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];

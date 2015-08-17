@@ -27,10 +27,10 @@
         doneButton.layer.masksToBounds=YES;
         doneButton.backgroundColor=MCMallThemeColor;
         [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [doneButton setTitle:@"确定" forState:UIControlStateNormal];
+        [doneButton setTitle:@"预  定" forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(UIEdgeInsetsMake(20, 30, 10, 30));
+            make.edges.mas_equalTo(UIEdgeInsetsMake(20, 30, 10, 40));
         }];
     }
     return _footView;
@@ -48,7 +48,7 @@
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
             [HHProgressHUD dismiss];
             if (responseResult.responseCode==HHResponseResultCode100) {
-                UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以看看其他商品！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
+                UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以再看看其他商品哦！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
                 [alertView show];
             }else{
                 [HHProgressHUD makeToast:responseResult.responseMessage];
@@ -92,6 +92,7 @@
         cell=[tableView dequeueReusableCellWithIdentifier:identifer0];
         if (nil==cell) {
             cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer0];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         switch (indexPath.row) {
             case 0:{
@@ -99,7 +100,7 @@
                 cell.detailTextLabel.text=self.goodsModel.goodsName;
             }break;
             case 1:{
-                cell.textLabel.text=@"购买数量:";
+                cell.textLabel.text=@"预订数量:";
                 cell.detailTextLabel.text=@"1件";
             }break;
             case 2:{

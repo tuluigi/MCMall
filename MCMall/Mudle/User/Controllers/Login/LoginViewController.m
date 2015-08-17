@@ -10,6 +10,7 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "RegisterViewController.h"
 #import "EditPasswordViewController.h"
+#import "UserStateSelectController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
 @property(nonatomic,strong)NSString *userName,*userPwd;
@@ -47,7 +48,7 @@
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         _footView.userInteractionEnabled=YES;
         NSInteger tag=2000;
-        for (NSInteger i=0; i<3; i++) {
+        for (NSInteger i=0; i<2; i++) {
             UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeCustom];
             [_footView addSubview:actionButton];
             actionButton.backgroundColor=[UIColor red:255.0 green:92.0 blue:134.0 alpha:1];
@@ -64,7 +65,7 @@
                     make.right.mas_equalTo(_footView.right).with.offset(-20.0);
                     make.height.equalTo(@40.0);
                 }];
-            }else if(i==1){
+            }else if(i==2){
                 [actionButton setTitle:@"忘记密码" forState:UIControlStateNormal];
                 UIButton *preButton=(UIButton *)[_footView viewWithTag:(actionButton.tag-1)];
                 [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -72,7 +73,7 @@
                     make.left.right.mas_equalTo(preButton);
                     make.height.equalTo(preButton);
                 }];
-            }else if(i==2){
+            }else if(i==1){
                 [actionButton setTitle:@"新用户注册" forState:UIControlStateNormal];
                 UIButton *preButton=(UIButton *)[_footView viewWithTag:(actionButton.tag-1)];
                 [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,11 +92,11 @@
         case 2000:{//登录
             [self userLogin];
         }break;
-        case 2001:{//忘记密码
+        case 2002:{//忘记密码
             EditPasswordViewController *editPasswordController=[[EditPasswordViewController alloc]  initWithStyle:UITableViewStyleGrouped];
             [self.navigationController pushViewController:editPasswordController animated:YES];
         }break;
-        case 2002:{//新用户注册
+        case 2001:{//新用户注册
             WEAKSELF
             RegisterViewController *registerController=[[RegisterViewController alloc]  initWithStyle:UITableViewStylePlain];
             registerController.userLoginCompletionBlock=^(BOOL isSucceed,NSString *userID){
@@ -131,13 +132,19 @@
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCode100) {
                 [HHProgressHUD dismiss];
+                UserModel *userModel=[HHUserManager userModel];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
-                [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                    if (weakSelf.userLoginCompletionBlock) {
-                        weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
-                    }
-
-                }];
+                if (userModel.motherState==MotherStateUnSelected) {
+                    UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
+                    stateSelectController.hidesBottomBarWhenPushed=YES;
+                    [self.navigationController pushViewController:stateSelectController animated:YES];
+                }else{
+                    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                        if (weakSelf.userLoginCompletionBlock) {
+                            weakSelf.userLoginCompletionBlock(YES,[HHUserManager userID]);
+                        }
+                    }];
+                }
             }else{
                 if (weakSelf.userLoginCompletionBlock) {
                     weakSelf.userLoginCompletionBlock(NO,nil);

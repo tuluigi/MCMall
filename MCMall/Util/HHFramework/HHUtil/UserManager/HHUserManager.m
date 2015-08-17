@@ -16,23 +16,31 @@ NSString *const MCMall_UserHeadUrl  =@"MCMall_UserHeadUrl";
 NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
+
+NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
 @implementation HHUserManager
 +(void)storeLoginUserModel:(UserModel *)userModel{
-    NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     [userDefault setAesEncryptValue:userModel.userID withkey:MCMall_UserID];
     [userDefault setAesEncryptValue:userModel.userName withkey:MCMall_UserName];
     [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%.2f",userModel.userAmount] withkey:MCMall_UserAmount];
     [userDefault setAesEncryptValue:userModel.userHeadUrl withkey:MCMall_UserHeadUrl];
     [userDefault setAesEncryptValue:userModel.shopName withkey:MCMall_ShopName];
     [userDefault setAesEncryptValue:userModel.userTel withkey:MCMall_UserTel];
+    [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%ld",userModel.motherState] withkey:MCMall_MotherSatte];
     [userDefault synchronize];
 }
 +(void)setUserHeaderImageUrl:(NSString *)headImagPath{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     [userDefault setAesEncryptValue:headImagPath withkey:MCMall_UserHeadUrl];
 }
++(void)setMotherState:(NSInteger)state{
+    NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+    [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%ld",state] withkey:MCMall_MotherSatte];
+}
 +(UserModel *)userModel{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+    
     UserModel *model=[[UserModel alloc]  init];
     model.userID=[userDefault decryptedValueWithKey:MCMall_UserID];
     model.userName=[userDefault decryptedValueWithKey:MCMall_UserName];
@@ -41,6 +49,7 @@ NSString *const MCMall_ShopName   =@"MCMall_ShopName";
     model.userAmount=[amountStr floatValue];
     model.userTel=[userDefault decryptedValueWithKey:MCMall_UserTel];
     model.shopName=[userDefault decryptedValueWithKey:MCMall_ShopName];
+    model.motherState=[[userDefault decryptedValueWithKey:MCMall_MotherSatte] integerValue];
     return model;
 }
 +(void)logout{

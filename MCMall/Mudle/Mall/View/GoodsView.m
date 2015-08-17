@@ -102,7 +102,7 @@
     _goodsNameLable.text=_goodsModel.goodsName;
     _storeLable.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
     
-    NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:16 newPrice:_goodsModel.presenPrice newFontSize:12];
+    NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:12 newPrice:_goodsModel.presenPrice newFontSize:16];
     _goodsPriceLable.attributedText=priceAttrStr;
     if (_goodsModel) {
         self.hidden=NO;

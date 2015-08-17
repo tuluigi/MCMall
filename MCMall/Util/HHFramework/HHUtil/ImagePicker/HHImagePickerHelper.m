@@ -93,7 +93,7 @@
                     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
                     // app名称
                     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-                    NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许%@访问你的相机",app_Name];
+                    NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许\"%@\"访问你的相机",app_Name];
                     UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
                     alerView.tag=1000;
                     [alerView show];
@@ -111,7 +111,7 @@
                 NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
                 // app名称
                 NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-                NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许%@访问你的相册",app_Name];
+                NSString *message=[NSString stringWithFormat:@"请在iPhone的\"设置-隐私-相机\"选项中,允许\"%@\"访问你的相册",app_Name];
                 UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"提示" message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
                 alerView.tag=1000;
                 [alerView show];

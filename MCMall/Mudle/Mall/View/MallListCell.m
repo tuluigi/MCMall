@@ -60,7 +60,7 @@
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(10);
         make.top.mas_equalTo(_goodsImageView.mas_bottom).offset(5);
-        make.width.mas_lessThanOrEqualTo(100);
+        make.width.mas_lessThanOrEqualTo(120);
         make.height.mas_lessThanOrEqualTo(20);
         make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-10);
     }];

@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseModel.h"
+
+typedef NS_ENUM(NSInteger, MotherState) {
+    MotherStateUnSelected       =0,//未选择
+    MotherStatePregnant            ,//怀孕
+    MotherStateAfterBirth            ,//产后
+};
+
 @interface UserModel : BaseModel
 @property(nonatomic,copy)NSString *userID;
 @property(nonatomic,copy)NSString *userName;
@@ -19,6 +26,7 @@
 @property(nonatomic,copy)NSString *shopName;
 @property(nonatomic,copy)NSString * gender;//0男；1 女
 @property(nonatomic,copy)NSDate *birthday;
+@property(nonatomic,assign)MotherState motherState;
 
 /*
 +(void)storeUserModel:(UserModel *)userModel;

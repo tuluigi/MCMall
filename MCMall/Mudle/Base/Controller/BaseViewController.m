@@ -14,16 +14,24 @@
 
 @implementation BaseViewController
 -(void)dealloc{
+#ifdef DEBUG
+    NSLog(@"\n%@--is dealloced",self);
+#endif
     [HHProgressHUD dismiss];
     [HHProgressHUD hideToast];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  cancleOperationsWithOperationUniqueIdentifers:self.operationsArray];
+    [[SDImageCache sharedImageCache] clearMemory];
 }
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     [HHProgressHUD hideToast];
+    [HHProgressHUD dismiss];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent=NO;
    // self.navigationController.navigationBar.translucent= NO;
     self.view.backgroundColor=[UIColor whiteColor];
     [self setupForDismissKeyboard];

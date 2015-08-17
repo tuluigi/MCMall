@@ -125,6 +125,9 @@ static HHNetWorkEngine *sharedNtWorkManager;
 }
 
 -(HHResponseResult *)handleRequestOperation:(AFHTTPRequestOperation *)operation  error:(NSError *)error{
+    if (operation.isCancelled) {
+        return nil;
+    }
     if (error&&(!operation.responseString)) {
 #ifdef DEBUG
         NSLog(@"\n 网络请求错误:\n%@",error.description);
@@ -142,12 +145,12 @@ static HHNetWorkEngine *sharedNtWorkManager;
         if (error||[operation responseData]==nil) {
             NSString *errorMsg=error.description;
             if (!errorMsg.length) {
-                errorMsg=@"网络连接发生错误";
+                errorMsg=@"网络连接发生异常";
             }
             NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:@"200001",@"code",@"",@"result",errorMsg,@"message", nil];
             responseResult.responseCode=200001;
             responseResult.responseData=dic;
-            responseResult.responseMessage=@"网络连接错误,请检查网络连接...";
+            responseResult.responseMessage=@"网络连接异常,请检查网络连接...";
         }else{
             //解密
             NSError *errorJson=nil;

@@ -29,6 +29,7 @@
     [super viewDidLoad];
     self.title=@"活动";
     WEAKSELF
+    
     [self.tableView addPullToRefreshWithActionHandler:^{
         weakSelf.pageIndex=1;
         [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
@@ -40,6 +41,15 @@
     
     // Do any additional setup after loading the view.
     [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
+    
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
+    }];
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        weakSelf.pageIndex=1;
+        [weakSelf.dataSourceArray removeAllObjects];
+        [weakSelf.tableView reloadData];
+    }];
 
 }
 
