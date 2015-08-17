@@ -51,6 +51,12 @@
         _goodsImageUrl=[HHGlobalVarTool fullImagePath:_goodsImageUrl];
     }
 }
+-(void)setGoodsBigImageUrl:(NSString *)goodsBigImageUrl{
+    _goodsBigImageUrl=goodsBigImageUrl;
+    if (_goodsBigImageUrl&&_goodsBigImageUrl.length&&![_goodsBigImageUrl hasPrefix:@"http"]) {
+        _goodsBigImageUrl=[HHGlobalVarTool fullImagePath:_goodsBigImageUrl];
+    }
+}
 +(MTLValueTransformer *)endTimeJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
         NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
