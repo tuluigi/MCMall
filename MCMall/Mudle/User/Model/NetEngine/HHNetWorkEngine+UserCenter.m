@@ -20,6 +20,16 @@
     }];
     return op;
 }
+-(HHNetWorkOperation *)getUserPointWithUserID:(NSString *)userID
+                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI getUserPointAPI];
+    NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", nil];
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
+        responseResult.responseData=[responseResult.responseData objectForKey:@"point"];
+        completionBlcok(responseResult);
+    }];
+    return op;
+}
 -(HHNetWorkOperation *)userLoginWithUserName:(NSString *)name
                                          pwd:(NSString *)pwd
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{

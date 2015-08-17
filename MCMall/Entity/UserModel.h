@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, MotherState) {
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *userHeadUrl;
 @property(nonatomic,copy)NSString *userTel;
-@property(nonatomic,assign)CGFloat userPoint;
+@property(nonatomic,assign)CGFloat  userPoint;
 @property(nonatomic,assign)CGFloat userAmount;
 @property(nonatomic,copy)NSString *shopID;
 @property(nonatomic,copy)NSString *shopName;
@@ -28,16 +28,7 @@ typedef NS_ENUM(NSInteger, MotherState) {
 @property(nonatomic,copy)NSDate *birthday;
 @property(nonatomic,assign)MotherState motherState;
 
-/*
-+(void)storeUserModel:(UserModel *)userModel;
-+(void)setUserHeaderImageUrl:(NSString *)headImagPath;
 
-+(UserModel *)userModelWithResponseDic:(NSDictionary *)dic shouldSynchronize:(BOOL)synchroniz;
-+(UserModel *)userModel;
-+(void)logout;
-+(NSString *)userID;
-+(BOOL)isLogin;
- */
 @end
 
 

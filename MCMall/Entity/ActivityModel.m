@@ -21,12 +21,13 @@ return _activityDetail.length>0?_activityDetail:@"";
 }
 +(id )activityModelWithResponseDic:(NSDictionary *)dic{
     if ([dic isKindOfClass:[NSDictionary class]]) {
-        ActivityModel *activityModel =[[ActivityModel alloc]  init];
+        ActivityModel *activityModel =[[self alloc]  init];
         activityModel.activityID=[dic objectForKey:@"activeId"];
         activityModel.activityName=[dic objectForKey:@"activeName"];
         activityModel.activityType=[[dic objectForKey:@"type"] integerValue];
         activityModel.activityEndTime=[dic objectForKey:@"endDay"];
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
+        activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
         return activityModel;
     }else{
@@ -45,6 +46,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityType=[[dic objectForKey:@"type"] integerValue];
         activityModel.activityEndTime=[dic objectForKey:@"endDay"];
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
+        activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isApplied=NO;
@@ -69,6 +71,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityType=[[dic objectForKey:@"type"] integerValue];
         activityModel.activityEndTime=[dic objectForKey:@"endDay"];
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
+        activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isVoted=NO;
@@ -115,6 +118,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityType=[[dic objectForKey:@"type"] integerValue];
         activityModel.activityEndTime=[dic objectForKey:@"endDay"];
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
+        activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isFavored=NO;

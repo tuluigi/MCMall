@@ -30,6 +30,7 @@
              @"storeNum":@"stock",
              @"endTime":@"endDay",
              @"goodsDetail":@"synopsis",
+             @"goodsBigImageUrl":@"bigImg",
              };
 }
 + (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {

@@ -17,6 +17,7 @@
 @property(nonatomic,copy)NSString *goodsID;
 @property(nonatomic,copy)NSString *goodsName;
 @property(nonatomic,copy)NSString *goodsImageUrl;
+@property(nonatomic,copy)NSString *goodsBigImageUrl;
 @property(nonatomic,assign)CGFloat orignalPrice;
 @property(nonatomic,assign)CGFloat presenPrice;
 @property(nonatomic,assign)NSInteger storeNum;//库存

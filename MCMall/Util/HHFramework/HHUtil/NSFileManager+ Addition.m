@@ -48,8 +48,8 @@
     return isSuccess;
 }
 +(NSString *)saveImage:(UIImage *)aImage presentation:(CGFloat)presentation{
-  //  UIImage *saveImage=[aImage resizedImageToSize:CGSizeMake(600, 800)];
-    NSData *imgData=UIImageJPEGRepresentation(aImage, presentation);
+   UIImage *saveImage=[aImage resizedImageToSize:CGSizeMake(600, 800)];
+    NSData *imgData=UIImageJPEGRepresentation(saveImage, presentation);
     NSTimeInterval timeInterval=[[NSDate date] timeIntervalSince1970]*1000;
     NSString *fileName = [NSString stringWithFormat:@"%lli.jpg",[@(floor(timeInterval)) longLongValue]];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);

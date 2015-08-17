@@ -87,6 +87,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    [self updateUserPoint];
     
 }
 - (void)viewDidLoad {
@@ -103,6 +104,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)updateUserPoint{
+    if ([HHUserManager isLogin]) {
+        WEAKSELF
+        HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+            if (responseResult.responseCode==HHResponseResultCode100) {
+                [HHUserManager setUserPoint:responseResult.responseData];
+                /*
+                UITableViewCell *cell=[weakSelf tableView:weakSelf.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+                HHKeyValueContainerView *containerView=(HHKeyValueContainerView *)[cell viewWithTag:1000];
+                [containerView updateValue:responseResult.responseData withKeyValueType:HHUserCenterKeyValueViewTypePoint];
+                 */
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+
+            }
+        }];
+        [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+    }
 }
 -(void)reloadUI{
     
@@ -195,7 +214,7 @@
         HHKeyValueContainerView *containerView=(HHKeyValueContainerView *)[cell viewWithTag:1000];
         for (HHKeyValueView *aKeyValuView in containerView.keyValueViewArray) {
             if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
-                aKeyValuView.value=[NSString stringWithFormat:@"%.1f",userModel.userPoint];
+                aKeyValuView.value=[NSString stringWithFormat:@"%.0f",userModel.userPoint];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
                 aKeyValuView.value=[NSString stringWithFormat:@"%.2f元",userModel.userAmount];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){

@@ -12,6 +12,7 @@
 +(void)storeLoginUserModel:(UserModel *)userModel;
 +(void)setUserHeaderImageUrl:(NSString *)headImagPath;
 +(void)setMotherState:(NSInteger)state;
++(void)setUserPoint:(NSString *)point;
 +(void)logout;
 +(UserModel *)userModel;
 +(NSString *)userID;

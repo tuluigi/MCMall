@@ -18,4 +18,8 @@ typedef void(^DidKeyValueViewToucheBlock )(HHKeyValueView *keyValueView,NSIntege
 -(HHKeyValueView *)keyValueViewAtIndex:(NSInteger)index;
 
 -(instancetype)initContainerViewWithKeyValuViews:(NSArray *)array;
+-(void)updateValue:(NSString *)value  atIndex:(NSInteger)index;
+-(void)updateBadgeNumber:(NSInteger )badgeNum  atIndex:(NSInteger)index;
+-(void)updateValue:(NSString *)value  withKeyValueType:(NSInteger)type;
+-(void)updateBadgeNumber:(NSInteger )badgeNum  withKeyValueType:(NSInteger)type;
 @end

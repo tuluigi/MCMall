@@ -88,7 +88,11 @@
     
     
     if (_activityModel) {
-        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
+        NSString *imageUrl=_activityModel.activityBigImageUrl;
+        if (nil==imageUrl) {
+            imageUrl=_activityModel.activityImageUrl;
+        }
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
         
         self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
         [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];

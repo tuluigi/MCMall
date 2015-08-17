@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, ActivitySortType) {
 @property(nonatomic,copy)NSString *activityID;
 @property(nonatomic,copy)NSString *activityName;
 @property(nonatomic,copy)NSString *activityImageUrl;
+@property(nonatomic,copy)NSString *activityBigImageUrl;
 @property(nonatomic,copy)NSString *activityDetail;
 @property(nonatomic,copy)NSString *activityEndTime;
 @property(nonatomic,assign)ActivityType activityType;

@@ -26,7 +26,11 @@
     if (nil==_goodsImageView) {
         _goodsImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         _goodsImageView.userInteractionEnabled=YES;
-        [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:_goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
+        NSString *imageUrl=_goodsModel.goodsBigImageUrl;
+        if (imageUrl==nil) {
+            imageUrl=_goodsModel.goodsImageUrl;
+        }
+        [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
         UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handleGoodsImageViewTaped:)];
         
         [_goodsImageView addGestureRecognizer:tapGesture];
