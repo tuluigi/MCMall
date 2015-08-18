@@ -2107,7 +2107,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6929bd10-5659-429d-91b1-bfa7a0efe8ae";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2143,7 +2143,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6929bd10-5659-429d-91b1-bfa7a0efe8ae";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2173,7 +2173,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6929bd10-5659-429d-91b1-bfa7a0efe8ae";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 			};
 			name = Debug;
 		};
@@ -2201,7 +2201,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6929bd10-5659-429d-91b1-bfa7a0efe8ae";
+				PROVISIONING_PROFILE = "6c10b334-fb37-4255-9d67-cf2466c03c5c";
 			};
 			name = Release;
 		};

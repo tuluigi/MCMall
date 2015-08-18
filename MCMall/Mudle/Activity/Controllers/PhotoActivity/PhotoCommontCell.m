@@ -63,7 +63,7 @@
     
     [_commentsLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_nameLable);
-        make.top.mas_equalTo(_nameLable.mas_bottom);
+        make.top.mas_equalTo(_nameLable.mas_bottom).offset(5);
         make.right.mas_equalTo(weakSelf.contentView.mas_right).offset(-5.0);
         make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-10.0);;
     }];

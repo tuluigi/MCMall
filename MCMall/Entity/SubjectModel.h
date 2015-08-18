@@ -28,6 +28,6 @@ typedef NS_ENUM(NSInteger, SubjectModelState) {
 @property(nonatomic,copy)NSString *commentUserID;
 @property(nonatomic,copy)NSString *commentUserName;
 @property(nonatomic,copy)NSString *commentUserImageUrl;
-@property(nonatomic,copy)NSString *commentTime;
+@property(nonatomic,strong)NSDate *commentTime;
 @property(nonatomic,copy)NSString *commentComment;
 @end

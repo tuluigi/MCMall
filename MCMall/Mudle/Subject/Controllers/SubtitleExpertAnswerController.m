@@ -133,9 +133,9 @@
             commentModel.commentUserID=[HHUserManager userID];
             commentModel.commentUserImageUrl=userModel.userHeadUrl;
             commentModel.commentUserName=userModel.userName;
-            commentModel.commentTime=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
-            [weakSelf.dataSourceArray addObject:commentModel];
-            NSIndexPath *indexPath= [NSIndexPath indexPathForRow:(weakSelf.dataSourceArray.count-1) inSection:0];
+            commentModel.commentTime=[NSDate date];
+            [weakSelf.dataSourceArray insertObject:commentModel atIndex:0];
+            NSIndexPath *indexPath= [NSIndexPath indexPathForRow:0 inSection:0];
             [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             [weakSelf.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
             [HHProgressHUD showSuccessMessage:responseResult.responseMessage];

@@ -48,7 +48,7 @@
     return isSuccess;
 }
 +(NSString *)saveImage:(UIImage *)aImage presentation:(CGFloat)presentation{
-   UIImage *saveImage=[aImage resizedImageToSize:CGSizeMake(600, 800)];
+   UIImage *saveImage=[aImage resizedImageWithMaximumSize:CGSizeMake(800, 600)];
     NSData *imgData=UIImageJPEGRepresentation(saveImage, presentation);
     NSTimeInterval timeInterval=[[NSDate date] timeIntervalSince1970]*1000;
     NSString *fileName = [NSString stringWithFormat:@"%lli.jpg",[@(floor(timeInterval)) longLongValue]];

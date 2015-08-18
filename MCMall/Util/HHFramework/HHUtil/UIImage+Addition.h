@@ -70,8 +70,10 @@
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 
 
--(UIImage*)resizedImageToSize:(CGSize)dstSize;
--(UIImage*)resizedImageToFitInSize:(CGSize)boundingSize scaleIfSmaller:(BOOL)scale;
+- (UIImage *) resizedImageByWidth:  (NSUInteger) width;
+- (UIImage *) resizedImageByHeight: (NSUInteger) height;
+- (UIImage *) resizedImageWithMaximumSize: (CGSize) size;
+- (UIImage *) resizedImageWithMinimumSize: (CGSize) size;
 
 
 @end

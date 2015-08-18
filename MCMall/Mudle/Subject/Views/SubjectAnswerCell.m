@@ -45,7 +45,7 @@
     _contentLable=[UILabel new];
     _contentLable.numberOfLines=0;
     _contentLable.textColor=[UIColor blackColor];
-    _contentLable.font=[UIFont systemFontOfSize:12];
+    _contentLable.font=[UIFont systemFontOfSize:14];
     _contentLable.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_contentLable];
     
@@ -69,9 +69,9 @@
     }];
     [_contentLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_userNameLable);
-        make.right.mas_equalTo(-5);
+        make.right.mas_equalTo(-10);
         make.bottom.mas_equalTo(-10);
-        make.top.mas_equalTo(_userNameLable.mas_bottom);
+        make.top.mas_equalTo(_userNameLable.mas_bottom).offset(10);
     }];
    
 }
@@ -79,7 +79,7 @@
     _subjectCommentModel=subjectCommentModel;
     [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectCommentModel.commentUserImageUrl] placeholderImage:MCMallDefaultImg];
     _userNameLable.text=_subjectCommentModel.commentUserName;
-    _timeLable.text=_subjectCommentModel.commentTime;
+    _timeLable.text=[_subjectCommentModel.commentTime timeIntervalDescription];
     _contentLable.text=_subjectCommentModel.commentComment;
 }
 @end

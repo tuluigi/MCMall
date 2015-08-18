@@ -24,7 +24,7 @@
 
 @implementation PhotoActivityViewController
 -(void)dealloc{
-    [self.tableView disSetupPanGestureControlKeyboardHide:YES];
+   // [self.tableView disSetupPanGestureControlKeyboardHide:YES];
 }
 -(id)initWithActivityID:(NSString *)activityID PhotoID:(NSString *)photoID photoUrl:(NSString *)url{
     if (self=[super init]) {
@@ -121,7 +121,7 @@
     self.title=@"图片详情";
     [self.view addSubview:self.bottomView];
     WEAKSELF
-   
+   // [self.tableView  setupPanGestureControlKeyboardHide:YES];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(weakSelf.view);
         make.height.mas_equalTo(50.0);
@@ -147,7 +147,7 @@
         [weakSelf getPhotoCommontsWithActivityID:weakSelf.activityID photoID:weakSelf.photoModle.photoID];
     }];
     // Do any additional setup after loading the view.
-    [self.tableView  setupPanGestureControlKeyboardHide:YES];
+   // [self.tableView  setupPanGestureControlKeyboardHide:YES];
     self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
         [weakSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
             if (showKeyborad) {

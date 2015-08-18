@@ -50,5 +50,11 @@
         _commentUserImageUrl=[HHGlobalVarTool fullImagePath:_commentUserImageUrl];
     }
 }
-
++(MTLValueTransformer *)commentTimeJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+        NSDate *date=[formatter dateFromString:value];
+        return date;
+    }];
+}
 @end
