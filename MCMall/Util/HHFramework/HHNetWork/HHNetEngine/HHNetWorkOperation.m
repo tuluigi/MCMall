@@ -11,7 +11,7 @@
 
 -(NSString *)uniqueIdentifier{//唯一标示{
     if (self) {
-        NSMutableString *str = [NSMutableString stringWithFormat:@"%@ %@", self.request.HTTPMethod, self.request.URL];
+        NSMutableString *str = [NSMutableString stringWithFormat:@"%@%@%@", self.request.HTTPMethod, self.request.URL,[NSDate date]];
         
         if([self.request.HTTPMethod isEqualToString:@"POST"]) {
             [str appendString:[[NSString alloc]  initWithData:self.request.HTTPBody encoding:4]];

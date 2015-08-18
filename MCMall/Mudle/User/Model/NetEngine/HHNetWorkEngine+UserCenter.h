@@ -20,6 +20,9 @@
 -(HHNetWorkOperation *)userChoseWithUserID:(NSString *)userID
                                      statu:(NSInteger)statu
                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+//获取用户的积分
+-(HHNetWorkOperation *)getUserPointWithUserID:(NSString *)userID
+                       onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
  *  用户登录
  *

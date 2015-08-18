@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface BabeInfoViewController : BaseTableViewController
-
+@property(nonatomic,assign)BOOL isFromStateSelcted;
 @end

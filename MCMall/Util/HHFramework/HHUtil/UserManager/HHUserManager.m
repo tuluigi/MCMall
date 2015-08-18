@@ -16,7 +16,7 @@ NSString *const MCMall_UserHeadUrl  =@"MCMall_UserHeadUrl";
 NSString *const MCMall_UserAmount   =@"MCMall_UserAmount";
 NSString *const MCMall_UserTel      =@"MCMall_UserTel";
 NSString *const MCMall_ShopName   =@"MCMall_ShopName";
-
+NSString *const MCMall_UserPoint   =@"MCMall_UsrPoint";
 NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
 @implementation HHUserManager
 +(void)storeLoginUserModel:(UserModel *)userModel{
@@ -38,6 +38,10 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     [userDefault setAesEncryptValue:[NSString stringWithFormat:@"%ld",state] withkey:MCMall_MotherSatte];
 }
++(void)setUserPoint:(NSString *)point{
+    NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+    [userDefault setAesEncryptValue:point withkey:MCMall_UserPoint];
+}
 +(UserModel *)userModel{
     NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
     
@@ -50,6 +54,7 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
     model.userTel=[userDefault decryptedValueWithKey:MCMall_UserTel];
     model.shopName=[userDefault decryptedValueWithKey:MCMall_ShopName];
     model.motherState=[[userDefault decryptedValueWithKey:MCMall_MotherSatte] integerValue];
+    model.userPoint=[[userDefault decryptedValueWithKey:MCMall_UserPoint] floatValue];
     return model;
 }
 +(void)logout{
@@ -60,6 +65,8 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
     [userDefault setObject:nil forKey:MCMall_UserHeadUrl];
     [userDefault setObject:nil forKey:MCMall_ShopName];
     [userDefault setObject:nil forKey:MCMall_UserTel];
+    [userDefault setObject:nil forKey:MCMall_UserPoint];
+    [userDefault setObject:nil forKey:MCMall_MotherSatte];
     [userDefault synchronize];
     
 }

@@ -8,6 +8,7 @@
 
 #import "UserStateSelectController.h"
 #import "HHNetWorkEngine+UserCenter.h"
+#import "BabeInfoViewController.h"
 @implementation UserStateSelectController
 
 -(void)viewDidLoad{
@@ -22,26 +23,18 @@
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
             [HHUserManager setMotherState:state];
-            
-            if ([[[weakSelf.navigationController viewControllers] firstObject] presentingViewController]) {
-                [(UIViewController *)[[weakSelf.navigationController viewControllers] firstObject] dismissViewControllerAnimated:YES completion:^{
-                    
-                }];
-            }else{
-                NSInteger index=(weakSelf.navigationController.viewControllers.count-3);
-                if (index<0) {
-                    [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-                }else{
-                    UIViewController *controller=[weakSelf.navigationController.viewControllers objectAtIndex:index];
-                    [weakSelf.navigationController popToViewController:controller animated:YES];
-                }
-            }
-            
+            [weakSelf goToBabeInfoController];
         }else{
             [HHProgressHUD makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+}
+-(void)goToBabeInfoController{
+    BabeInfoViewController *babeInfoController=[[BabeInfoViewController alloc]  init];
+      babeInfoController.hidesBottomBarWhenPushed=YES;
+    babeInfoController.isFromStateSelcted=YES;
+    [self.navigationController pushViewController:babeInfoController animated:YES];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 2;

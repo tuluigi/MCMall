@@ -77,4 +77,21 @@
         return nil;
     }
 }
+-(void)updateValue:(NSString *)value  atIndex:(NSInteger)index{
+    HHKeyValueView *keyValueView=[self keyValueViewAtIndex:index];
+    keyValueView.value=value;
+
+}
+-(void)updateBadgeNumber:(NSInteger )badgeNum  atIndex:(NSInteger)index{
+    HHKeyValueView *keyValueView=[self keyValueViewAtIndex:index];
+    keyValueView.badgeValue=badgeNum;
+}
+-(void)updateValue:(NSString *)value  withKeyValueType:(NSInteger)type{
+    HHKeyValueView *keyValueView=[self keyValueViewWithType:type];
+    keyValueView.value=value;
+}
+-(void)updateBadgeNumber:(NSInteger )badgeNum  withKeyValueType:(NSInteger)type{
+    HHKeyValueView *keyValueView=[self keyValueViewWithType:type];
+    keyValueView.badgeValue=badgeNum;
+}
 @end

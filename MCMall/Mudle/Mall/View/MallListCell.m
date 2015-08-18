@@ -80,7 +80,11 @@
 }
 -(void)setGoodsModel:(GoodsModel *)goodsModel{
     _goodsModel=goodsModel;
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
+    NSString *imageUrl=_goodsModel.goodsBigImageUrl;
+    if (imageUrl==nil) {
+        imageUrl=_goodsModel.goodsImageUrl;
+    }
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
     _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f元",goodsModel.presenPrice];
     [self updateTimeLableText];

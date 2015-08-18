@@ -103,13 +103,18 @@
     self.title=@"宝宝信息";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed)];
     [self.view addSubview:self.pickView];
+    if (self.isFromStateSelcted) {
+        [self.navigationItem setHidesBackButton:YES animated:YES];
+    }
     WEAKSELF
     [self.pickView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf.view);
         make.bottom.equalTo(weakSelf.view).offset(300);
     }];
+    if (!self.isFromStateSelcted) {
+       [self getUserInfo];
+    }
     
-    [self getUserInfo];
 }
 #pragma mark- getuserinfo
 -(void)rightBarButtonPressed{
@@ -117,7 +122,24 @@
     [HHProgressHUD showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editBabeInfoWithUserID:[HHUserManager userID] birthday:[self.babeModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.babeModel.bigNickName smallNickeName:self.babeModel.smallNickName gender:self.babeModel.gender onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCode100) {
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+            if (weakSelf.isFromStateSelcted) {
+                if ([[[weakSelf.navigationController viewControllers] firstObject] presentingViewController]) {
+                    [(UIViewController *)[[weakSelf.navigationController viewControllers] firstObject] dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }else{
+                    NSInteger index=(weakSelf.navigationController.viewControllers.count-3);
+                    if (index<0) {
+                        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+                    }else{
+                        UIViewController *controller=[weakSelf.navigationController.viewControllers objectAtIndex:index];
+                        [weakSelf.navigationController popToViewController:controller animated:YES];
+                    }
+                }
+            }else{
+                 [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+           
             [HHProgressHUD dismiss];
         }else{
             [HHProgressHUD showErrorMssage:responseResult.responseMessage];
