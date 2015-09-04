@@ -7,7 +7,6 @@
 //
 #import "HHNetWorkEngine.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "HHNetWorkTool.h"
 #import "HHFrameWorkKitMacro.h"
 #import "MCMallAPI.h"
 NSString *const OCNetGET=@"OCNetWorkRequestMethodGet";
@@ -68,7 +67,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
     }
     NSAssert(hh_path, @"net work resquest url is nil");
 
-    hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+    hh_postDic=[self convertPostDic:hh_postDic];
     HHNetWorkOperation *operation=nil;
     __weak HHNetWorkEngine *weakSelf=self;
     if ([hh_method isEqualToString:HHGET]) {
@@ -90,6 +89,15 @@ static HHNetWorkEngine *sharedNtWorkManager;
     }
     return operation;
 }
+-(NSDictionary *)convertPostDic:(NSDictionary *)postDic{
+    NSMutableDictionary *newPostDic=[NSMutableDictionary dictionaryWithDictionary:postDic];
+    if (!newPostDic){
+        newPostDic=[NSMutableDictionary new];
+    }
+    [newPostDic setObject:[HHGlobalVarTool shopID] forKey:@"shopid"];
+    return newPostDic;
+}
+
 #pragma mark - 上传文件 以path 形式上传
 -(HHNetWorkOperation *)uploadFileWithPath:(NSString *)hh_path
                                  filePath:(NSString *)hh_filePath
@@ -101,7 +109,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
     }
     NSAssert(hh_path, @"net work resquest url is nil");
     
-    hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
+    hh_postDic=[self convertPostDic:hh_postDic];
     HHNetWorkOperation *operation=nil;
     __weak HHNetWorkEngine *weakSelf=self;
     operation=(HHNetWorkOperation *)[[HHNetWorkEngine sharedHHNetWorkEngine] POST:hh_path parameters:hh_postDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -156,6 +164,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
     __weak HHNetWorkEngine *weakSelf=self;
     NSAssert(url, @"net work resquest url is nil");
     HHNetWorkOperation *operation=nil;
+    parmar=[self convertPostDic:parmar];
     if ([method isEqualToString:OCNetGET]) {
         operation= (HHNetWorkOperation *)[sharedNtWorkManager GET:url parameters:parmar success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [weakSelf handleNewResponse:operation error:nil onCompletinBlock:completionBlock];

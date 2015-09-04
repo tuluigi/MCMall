@@ -69,24 +69,6 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
 
 
 /**
- *  上传图片（以data形式上传）
- *
- *  @param hh_path       接口地址
- *  @param hh_fileData   图片data
- *  @param hh_key        key
- *  @param hh_postDic   参数 NsMutableDictory,所有的value必须是string 类型。禁止用NSNumber 类型
-
- *  @param hh_completion 结果
- *  @param hh_errorBlock 网络错误（block）
- *
- *  @return HHNetWorkOperation
- */
--(HHNetWorkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
-                                 fileData:(NSData *)hh_fileData
-                                parmarDic:(NSDictionary *)hh_postDic
-                                      key:(NSString *)hh_key
-                         onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
-/**
  *  下载文件
  *
  *  @param hh_path       地址

@@ -10,7 +10,6 @@
 #import <CoreText/CoreText.h>
 #import "HHAppInfo.h"
 #import "AESEncryption.h"
-#import "NSString+NetWork.h"
 @implementation NSString (NStringNull)
 
 #pragma mark- 判断是否是空字符串
@@ -152,18 +151,12 @@
     NSString *aString=self;
     aString= [aString encryptStringWithKey:@"1862b0deb369e73a"];
     return aString;
-//    NSString *aString=self;
-//    aString=[aString encryptHHSoftNetWorkString];
-//    return aString;
 }
     //公司内部解密
 -(NSString *)hhsoftDecryptString{
     NSString *aString=self;
     aString=[aString decryptStringWithKey:@"1862b0deb369e73a"];
     return aString;
-//    NSString *aString=self;
-//    aString=[aString decryptNetWorkString];
-//    return aString;
 }
 -(NSString *)encryptStringWithKey:(NSString *)key{
     NSString *aString=self;
