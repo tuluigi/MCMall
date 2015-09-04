@@ -39,7 +39,7 @@
     [super viewDidLoad];
     self.pageIndex=1;
      [self setupForDismissKeyboard];
-    self.tableView=[[HHTableView alloc]  initWithFrame:CGRectZero dataSource:self delegate:self style:self.tableViewStyle];
+    self.tableView=[[UITableView alloc]  initWithFrame:CGRectZero  style:self.tableViewStyle];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.showsHorizontalScrollIndicator=NO;

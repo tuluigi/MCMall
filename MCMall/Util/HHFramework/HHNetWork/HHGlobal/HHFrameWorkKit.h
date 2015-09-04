@@ -39,18 +39,7 @@
 #import "HHPhotoBroswer.h"
 
 #pragma mark -UIKit
-#import "HHView.h"
-#import "HHTableView.h"
-#import "HHLable.h"
-#import "HHButton.h"
-#import "HHImageView.h"
-#import "HHTextField.h"
-#import "HHTextView.h"
-#import "HHScrollView.h"
-#import "HHCollectionView.h"
-#import "HHWebView.h"
-#import "HHPickerView.h"
-#import "HHDataPicker.h"
+
 
 #pragma mark classLib
 #import "HHProgressHUD.h"
