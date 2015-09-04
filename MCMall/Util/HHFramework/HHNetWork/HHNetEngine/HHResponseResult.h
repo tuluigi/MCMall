@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 typedef NS_ENUM(NSInteger, HHResponseResultCode) {
-    
+    HHResponseResultCodeSuccess              ,
+    HHResponseResultCodeFailed               ,//请求失败
+    HHResponseResultCodeEmptyData            ,//数据为空
     HHResponseResultCode100         =100,//成功
     HHResponseResultCode101         =101,//数据为空
     HHResponseResultCode102         =102,//参数错误
@@ -27,9 +29,13 @@ typedef NS_ENUM(NSInteger, HHResponseResultCode) {
 };
 @class HHResponseResult;
 typedef void(^HHResponseResultSucceedBlock)(HHResponseResult *responseResult);
+typedef void(^HHResponseResultBlock)(HHResponseResult *responseResult);
+typedef void(^HHResponseObjectBlock)(id responseData, NSError *error);
 typedef void(^HHResponseResultErrorBlock)(NSError *error);
+
 @interface HHResponseResult : NSObject
 @property (nonatomic, strong) id        responseData;
 @property (nonatomic, assign) NSInteger responseCode;
 @property (nonatomic, strong) NSString *responseMessage;
++(HHResponseResult *)responseResultWithResponseObject:(id)responseObject error:(NSError *)aError;
 @end

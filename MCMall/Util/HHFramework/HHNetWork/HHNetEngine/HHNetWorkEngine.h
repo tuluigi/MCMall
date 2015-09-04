@@ -19,7 +19,19 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
 +(id)sharedHHNetWorkEngine;
 
 -(void)cancleOperationsWithOperationUniqueIdentifers:(NSArray *)operationsIdenfiers;
-
+/**
+ *  开始检测网络连接
+ */
++(void)startMonitoring;
+/**
+ *  停止检测网络连接
+ */
++(void)stopMonitoring;
+/**
+ *  是否支持打印信息
+ *  只有再DEBUG情况下才起作用
+ */
+@property(nonatomic,assign)BOOL enableLog;
 /**
  *  网络请求
  *
@@ -89,5 +101,20 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
                                    parmarDic:(NSDictionary *)hh_postDic
                                           method:(NSString *)hh_method
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
+
+/**
+ *  采用Mantel之后的请求方式
+ *
+ *  @param url             接口地址
+ *  @param parmar          参数
+ *  @param method          请求方式
+ *  @param completionBlock
+ *
+ *  @return
+ */
+-(HHNetWorkOperation *)startRequestWithUrl:(NSString *)url
+                                   parmars:(NSDictionary *)parmar
+                                    method:(NSString *)method
+                        onCompletionHander:(HHResponseObjectBlock)completionBlock;
 
 @end

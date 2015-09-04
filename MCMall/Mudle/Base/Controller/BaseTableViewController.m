@@ -50,6 +50,7 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
+    self.tableView.pullToRefreshView.arrowColor=MCMallThemeColor;
     self.tableView.infiniteScrollingView.enabled=NO;
 
     // Uncomment the following line to preserve selection between presentations.
