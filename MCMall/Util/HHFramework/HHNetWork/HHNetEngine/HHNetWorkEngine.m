@@ -73,18 +73,27 @@ static HHNetWorkEngine *sharedNtWorkManager;
     if ([hh_method isEqualToString:HHGET]) {
         operation= (HHNetWorkOperation *)[sharedNtWorkManager GET:hh_path parameters:hh_postDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 hh_completion(responseResult);
+            });
+           
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:error];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         }];
     }else if ([hh_method isEqualToString:HHPOST]){
         operation= (HHNetWorkOperation *)[sharedNtWorkManager POST:hh_path parameters:hh_postDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:error];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         }];
     }
     return operation;

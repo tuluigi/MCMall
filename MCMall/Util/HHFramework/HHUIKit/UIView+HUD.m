@@ -10,7 +10,6 @@
 #import "MBProgressHUD.h"
 @implementation UIView (HUD)
 -(MBProgressHUD *)hudView{
-    [self hideToast];
     MBProgressHUD *hudView=[MBProgressHUD HUDForView:self];
     if (nil==hudView) {
         hudView=[[MBProgressHUD alloc]  initWithView:self];
@@ -36,14 +35,14 @@
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
     HUD.mode = MBProgressHUDModeCustomView;
     HUD.labelText = msg;
-    [HUD hide:YES afterDelay:1.0];
+    [HUD hide:YES afterDelay:1.2];
 }
 -(void)showErrorMssage:(NSString *)msg{
     MBProgressHUD *HUD  =[self hudView];
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
     HUD.mode = MBProgressHUDModeCustomView;
     HUD.labelText = msg;
-    [HUD hide:YES afterDelay:1.0];
+    [HUD hide:YES afterDelay:1.2];
 }
 -(void)showProgressWithMessage:(NSString *)msg{
     
@@ -55,7 +54,7 @@
 }
 
 -(void)dismiss{
-    [MBProgressHUD hideAllHUDsForView:self animated:YES];
+    [MBProgressHUD hideAllHUDsForView:self animated:NO];
 }
 
 -(void)makeToast:(NSString *)aMessage{

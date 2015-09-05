@@ -47,29 +47,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Mall/Controllers/MCMallViewController.m"
-            timestampString = "463138735.614539"
+            filePath = "MCMall/Util/HHFramework/HHUIKit/UIView+HUD.m"
+            timestampString = "463140600.602549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Mall/Controllers/MCMallViewController.m"
-            timestampString = "463138735.614539"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-getGoodsListWithCatID:userID:"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-makeToast:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
