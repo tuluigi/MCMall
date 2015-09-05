@@ -42,8 +42,14 @@
                                                  atDay:(NSDate *)date
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
-    NSString *year=@"2015";
-    NSString *month=@"08";
+    
+    NSString *year=@"";
+    NSString *month=@"";
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]  init];
+    formatter.dateFormat=@"yyyy";
+    year=[formatter stringFromDate:date];
+    formatter.dateFormat=@"MM";
+    month=[formatter stringFromDate:date];
     NSString *apiPath=[MCMallAPI getUserSignListAPI];
     NSDictionary *postDic=@{@"userid":userID,@"y":year,@"m":month};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {

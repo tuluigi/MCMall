@@ -68,7 +68,7 @@
     SubjectViewController *subjectViewController=[[SubjectViewController alloc]  init];
     UINavigationController *subjectNavController=[[UINavigationController alloc]  initWithRootViewController:subjectViewController];
     
-    HHTabBarItem *subjectTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"妈妈帮" image:[UIImage imageNamed:@"tabbar_assistant"] selectedImage:[UIImage   imageNamed:@"tabbar_assistant_HL"]];
+    HHTabBarItem *subjectTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"妈妈帮" image:[UIImage imageNamed:@"tabbar_assistnt"] selectedImage:[UIImage   imageNamed:@"tabbar_assistnt_HL"]];
     subjectNavController.tabBarItem=subjectTabbarItem;
     
     
@@ -76,7 +76,7 @@
     
     ActivityViewController *activityController=[[ActivityViewController alloc]  init];
     UINavigationController *activityNavController=[[UINavigationController alloc]  initWithRootViewController:activityController];
-    HHTabBarItem *activityTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"活动" image:[UIImage imageNamed:@"tabbar_activity"] selectedImage:[UIImage   imageNamed:@"tabbar_activity_HL"]];
+    HHTabBarItem *activityTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"亲子园" image:[UIImage imageNamed:@"tabbar_activity"] selectedImage:[UIImage   imageNamed:@"tabbar_activity_HL"]];
     activityNavController.tabBarItem=activityTabbarItem;
     
     UserCenterViewController *userCenterController=[[UserCenterViewController alloc]  initWithStyle:UITableViewStyleGrouped];
@@ -85,11 +85,11 @@
     userNavController.tabBarItem=userTabbarItem;
     
     GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-    UINavigationController *goodsNavController=[[UINavigationController alloc]  initWithRootViewController:goodListController];
+    UINavigationController *vipNavController=[[UINavigationController alloc]  initWithRootViewController:goodListController];
     HHTabBarItem *goodsTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专享汇" image:[UIImage imageNamed:@"tabbar_vip"] selectedImage:[UIImage   imageNamed:@"tabbar_vip_HL"]];
-    goodsNavController.tabBarItem=goodsTabbarItem;
+    vipNavController.tabBarItem=goodsTabbarItem;
     
-    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:mcNavController,activityNavController,goodsNavController,subjectNavController,userNavController, nil];
+    NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:activityNavController,subjectNavController,mcNavController,vipNavController,userNavController, nil];
     self.viewControllers=tabBarControllers;
 }
 /*

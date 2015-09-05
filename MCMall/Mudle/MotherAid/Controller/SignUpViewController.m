@@ -10,33 +10,49 @@
 #import <JTCalendar/JTCalendar.h>
 #import "HHNetWorkEngine+Assistant.h"
 #import "SignInModel.h"
-#import "HHFlowView.h"
+#import "SignupDayView.h"
+#define  SignUpHeadViewHeight    300
 @interface SignUpViewController ()<JTCalendarDelegate>
 @property (strong, nonatomic)  JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (nonatomic,strong)NSMutableArray *datesSelected;
 @property (nonatomic,strong)UIView *footView;
-@property (nonatomic,strong)HHFlowView *flowView;
+@property (nonatomic,strong)UIButton *signButton;
+@property (nonatomic,strong)UIImageView *headView;
 @end
 @implementation SignUpViewController
 -(void)dealloc{
     
 }
--(HHFlowView *)flowView{
-    if (nil==_flowView) {
-        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        _flowView.flowViewDidSelectedBlock=^(HHFlowModel *flowMode, NSInteger index){
-            
-        };
+-(UIImageView *)headView{
+    if (nil==_headView) {
+        _headView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds),  SignUpHeadViewHeight)];
+        _headView.userInteractionEnabled=YES;
+        _headView.image=[UIImage imageNamed:@"qiandaoBg"];
+        _signButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        _signButton.frame=CGRectMake(0, 0, 100, 100);
+        _signButton.center=CGPointMake(_headView.center.x, _headView.center.y-40);
+        _signButton.layer.cornerRadius=50;
+        _signButton.layer.masksToBounds=YES;
+        _signButton.userInteractionEnabled=YES;
+        _signButton.layer.borderColor=[UIColor red:255 green:236 blue:209 alpha:1].CGColor;
+        _signButton.layer.borderWidth=5.0;
+        _signButton.backgroundColor=[UIColor red:241 green:176 blue:91 alpha:1];
+        [_signButton setTitle:@"立即签到" forState:UIControlStateNormal];
+        [_signButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_signButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+        [_signButton addTarget:self action:@selector(didSignUpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        [_headView addSubview:_signButton];
     }
-    return _flowView;
+    return _headView;
 }
 -(UIView *)footView{
     if (nil==_footView) {
-        CGFloat contentHeight=250.0;
         CGFloat menuHeight=40;
-        CGRect frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), contentHeight+menuHeight);
+        CGFloat contentHeight=CGRectGetHeight(self.view.bounds)-SignUpHeadViewHeight-CGRectGetHeight(self.navigationController.navigationBar.bounds)-menuHeight;
+        
+        CGRect frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), contentHeight);
         _footView=[[UIView alloc]  initWithFrame:frame];
         [_footView addSubview:self.calendarMenuView];
         [_footView addSubview:self.calendarContentView];
@@ -58,12 +74,14 @@
 -(JTCalendarMenuView *)calendarMenuView{
     if (nil==_calendarMenuView) {
         _calendarMenuView=[[JTCalendarMenuView alloc]  init];
+        _calendarMenuView.scrollView.scrollEnabled=NO;
     }
     return _calendarMenuView;
 }
 -(JTHorizontalCalendarView *)calendarContentView{
     if (nil==_calendarContentView) {
         _calendarContentView=[[JTHorizontalCalendarView alloc]  init];
+        _calendarContentView.scrollEnabled=NO;
     }
     return _calendarContentView;
 }
@@ -87,11 +105,14 @@
     [super viewDidLoad];
     self.title=@"有奖签到";
     _calendarManager=self.calendarManager;
-    self.tableView.tableHeaderView=self.flowView;
     self.tableView.tableFooterView=self.footView;
+    self.tableView.tableHeaderView=self.headView;
     // self.tableView.separatorColor=[UIColor clearColor];
     [self getOneMonthySingupListAtDay:[NSDate date]];
     
+}
+-(void)didSignUpButtonPressed{
+    [self didUserSignIn];
 }
 #pragma mark -获取签到列表
 -(void)getOneMonthySingupListAtDay:(NSDate *)date{
@@ -125,7 +146,7 @@
 }
 #pragma mark -tableviewdelegae
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 0;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *idenfier=@"cellidenfier";
@@ -202,78 +223,27 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
     // Today
-    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        if ([self haveEventForDay:dayView.date]) {
-            dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor blueColor ];
-            dayView.dotView.backgroundColor = [UIColor whiteColor];
-            dayView.textLabel.textColor = [UIColor whiteColor];
-        }else{
-            dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor blueColor];
-            dayView.dotView.backgroundColor = [UIColor whiteColor];
-            dayView.textLabel.textColor = [UIColor whiteColor];
+    //  ((SignupDayView *)dayView).imageView.image=nil;
+    if ([_calendarManager.dateHelper date:dayView.date isTheSameMonthThan:[NSDate date]]) {
+        if ([self.calendarManager.dateHelper date:dayView.date isEqualOrBefore:[NSDate date]]) {
+            if([_calendarManager.dateHelper date:dayView.date isTheSameDayThan:[NSDate date]]){
+                dayView.layer.borderColor=[UIColor red:241 green:176 blue:91 alpha:1].CGColor;
+            }
+            if([self haveEventForDay:dayView.date]){
+                ((SignupDayView *)dayView).imageView.image=[UIImage imageNamed:@"ok_icon"];
+            }else{
+                ((SignupDayView *)dayView).imageView.image=[UIImage imageNamed:@"cancel_icon"];
+            }
+        } else{
+            ((SignupDayView *)dayView).imageView.image=nil;
         }
-    }
-    // Selected date
-    //    else if([self haveEventForDay:dayView.date]){
-    //        dayView.circleView.hidden = NO;
-    //        dayView.circleView.backgroundColor = [UIColor redColor];
-    //        dayView.dotView.backgroundColor = [UIColor whiteColor];
-    //        dayView.textLabel.textColor = [UIColor whiteColor];
-    //    }
-    // Other month
-    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    // Another day of the current month
-    else{
-        if([self haveEventForDay:dayView.date]){
-            dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = MCMallThemeColor;
-            dayView.dotView.backgroundColor = [UIColor whiteColor];
-            dayView.textLabel.textColor = [UIColor whiteColor];
-        }else{
-            dayView.circleView.hidden = YES;
-            dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = [UIColor blackColor];
-        }
-    }
-    
-    if([self haveEventForDay:dayView.date]){
-        dayView.dotView.hidden = NO;
-    }
-    else{
-        dayView.dotView.hidden = YES;
+    }else{
+        ((SignupDayView *)dayView).dateLabel.textColor=[UIColor lightGrayColor];
     }
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
 {
-    /*
-     if([self haveEventForDay:dayView.date]){
-     [UIView transitionWithView:dayView
-     duration:.3
-     options:0
-     animations:^{
-     [_calendarManager reload];
-     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-     } completion:nil];
-     }
-     else{
-     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-     [UIView transitionWithView:dayView
-     duration:.3
-     options:0
-     animations:^{
-     [_calendarManager reload];
-     dayView.circleView.transform = CGAffineTransformIdentity;
-     } completion:nil];
-     }
-     */
-    
     // Load the previous or next page if touch a day from another month
     
     if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
@@ -285,7 +255,15 @@
         }
     }
 }
-
+- (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar
+{
+    SignupDayView *view = [SignupDayView new];
+    view.layer.borderWidth=0.4;
+    view.layer.borderColor=[UIColor red:243 green:243 blue:243 alpha:1].CGColor;
+    view.textLabel.frame=CGRectMake(0, 0, 20, 20);
+    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:13];
+    return view;
+}
 #pragma mark - Fake data
 // Used only to have a key for _eventsByDate
 - (NSDateFormatter *)dateFormatter{
@@ -302,6 +280,7 @@
         for (SignInModel *signModel in self.dataSourceArray) {
             if ([self.calendarManager.dateHelper  date:date isTheSameDayThan:signModel.signinDate]) {
                 isHaveEvent= signModel.isSigned;
+                return isHaveEvent;
             }
         }
     }

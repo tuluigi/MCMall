@@ -26,7 +26,6 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.title=@"专家问答";
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
         _pageIndex=1;
