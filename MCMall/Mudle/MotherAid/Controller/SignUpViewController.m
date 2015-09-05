@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import <JTCalendar/JTCalendar.h>
 #import "HHNetWorkEngine+Assistant.h"
+#import "HHNetWorkEngine+UserCenter.h"
 #import "SignInModel.h"
 #import "SignupDayView.h"
 #define  SignUpHeadViewHeight    300
@@ -20,6 +21,8 @@
 @property (nonatomic,strong)UIView *footView;
 @property (nonatomic,strong)UIButton *signButton;
 @property (nonatomic,strong)UIImageView *headView;
+@property (nonatomic,strong)UILabel *pointLable;
+@property (nonatomic,assign)__block BOOL isTodaySign;
 @end
 @implementation SignUpViewController
 -(void)dealloc{
@@ -32,7 +35,7 @@
         _headView.image=[UIImage imageNamed:@"qiandaoBg"];
         _signButton=[UIButton buttonWithType:UIButtonTypeCustom];
         _signButton.frame=CGRectMake(0, 0, 100, 100);
-        _signButton.center=CGPointMake(_headView.center.x, _headView.center.y-40);
+        _signButton.center=CGPointMake(_headView.center.x, _headView.center.y-50);
         _signButton.layer.cornerRadius=50;
         _signButton.layer.masksToBounds=YES;
         _signButton.userInteractionEnabled=YES;
@@ -44,6 +47,15 @@
         [_signButton.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
         [_signButton addTarget:self action:@selector(didSignUpButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         [_headView addSubview:_signButton];
+        
+        _pointLable=[[UILabel alloc]  initWithFrame:CGRectMake(0, 0, 130, 40)];
+        _pointLable.center=CGPointMake(_headView.center.x, _headView.center.y+25);
+        _pointLable.numberOfLines=2;
+        _pointLable.textColor=[UIColor darkGrayColor];
+        _pointLable.font=[UIFont systemFontOfSize:13];
+        _pointLable.textAlignment=NSTextAlignmentCenter;
+        _pointLable.text=@"我的总签到积分0元";
+        [_headView addSubview:_pointLable];
     }
     return _headView;
 }
@@ -109,10 +121,28 @@
     self.tableView.tableHeaderView=self.headView;
     // self.tableView.separatorColor=[UIColor clearColor];
     [self getOneMonthySingupListAtDay:[NSDate date]];
+    [self getUserPoint];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"签到规则" style:UIBarButtonItemStylePlain target:self action:@selector(didRightBarButtonPressed)];
     
+}
+-(void)didRightBarButtonPressed{
+    NSString *rowStr=@"1.签到奖励积分,积分可在会员的'专享汇'按照 1:1 抵扣现金使用。\
+    \n2.每天签到奖励 1 元积分。\
+    \n3.每连续签到满 10 天加赠 5 元积分。\
+    \n4.活动最终解释权归我店所有。";
+    [[[UIAlertView alloc]  initWithTitle:@"签到规则" message:rowStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil] show];
 }
 -(void)didSignUpButtonPressed{
     [self didUserSignIn];
+}
+#pragma mark - 获取用户积分
+-(void)getUserPoint{
+    WEAKSELF
+    [[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+        weakSelf.pointLable.text=[NSString stringWithFormat:@"我的总签到积分%@元,立即兑换",responseResult.responseData];
+        }
+    }];
 }
 #pragma mark -获取签到列表
 -(void)getOneMonthySingupListAtDay:(NSDate *)date{
@@ -122,7 +152,7 @@
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             [weakSelf.calendarManager reload];
         }else{
-            
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -130,16 +160,24 @@
 -(void)didUserSignIn{
     WEAKSELF
     if ([HHUserManager isLogin]) {
+        if (self.isTodaySign) {
+            [self.view makeToast:@"今日已签过到,无需重复签到!"];
+        }else{
         [weakSelf.view showLoadingState];
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] signUpWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                weakSelf.isTodaySign=YES;
+            }
             [weakSelf.view dismiss];
             [weakSelf.view makeToast:responseResult.responseMessage];
         }];
         [weakSelf addOperationUniqueIdentifer:op.uniqueIdentifier];
+        }
     }else{
         [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
             if (isSucceed) {
                 [weakSelf didUserSignIn];
+                [weakSelf getUserPoint];
             }
         }];
     }
@@ -149,72 +187,12 @@
     return 0;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *idenfier=@"cellidenfier";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:idenfier];
-    if (nil==cell) {
-        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:idenfier];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        if (indexPath.row==1) {
-            UISwitch *switcher=[[UISwitch alloc]  init];
-            [switcher setSelected:YES];
-            [cell.contentView addSubview:switcher];
-            
-            UIButton *signButton=[UIButton buttonWithType:UIButtonTypeCustom];
-            [signButton setTitle:@"立即签到" forState:UIControlStateNormal];
-            [signButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            signButton.titleLabel.font=[UIFont boldSystemFontOfSize:22];
-            signButton.backgroundColor=MCMallThemeColor;
-            signButton.layer.cornerRadius=5.0;
-            signButton.layer.masksToBounds=YES;
-            signButton.tag=1000;
-            [signButton addTarget:self action:@selector(didUserSignIn) forControlEvents:UIControlEventTouchUpInside];
-            signButton.hidden=YES;
-            [cell.contentView addSubview:signButton];
-            [signButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.mas_equalTo(cell.contentView.mas_centerX);
-                make.centerY.mas_equalTo(cell.contentView.mas_centerY);
-                make.size.mas_equalTo(CGSizeMake(140, 40));
-            }];
-            
-            [switcher mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.leading.mas_equalTo(signButton.mas_right).offset(15);
-                make.centerY.mas_equalTo(signButton.mas_centerY);
-                make.size.mas_equalTo(CGSizeMake(40, 20));
-            }];
-        }
-    }
-    UIButton *signButton=(UIButton *)[cell.contentView viewWithTag:1000];
-    if (indexPath.row==0) {
-        signButton.hidden=YES;
-        cell.textLabel.text=@"金额";
-        if ([HHUserManager isLogin]) {
-            cell.detailTextLabel.text=@"100";
-        }else{
-            cell.detailTextLabel.text=@"点击登录,查看我的金额";
-        }
-    }else if (indexPath.row==1){
-        signButton.hidden=NO;
-        cell.textLabel.text=@"";
-        cell.detailTextLabel.text=@"";
-    }
-    return cell;
+    return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat height=44;
-    if (indexPath.row==0) {
-        height=44.0;
-    }else{
-        height=60;
-    }
-    return height;
+    return 0;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([HHUserManager isLogin]) {
-        if (indexPath.row==1) {
-            [self didUserSignIn];
-        }
-    }else{
-    }
 }
 #pragma mark - CalendarManager delegate
 
@@ -230,6 +208,9 @@
                 dayView.layer.borderColor=[UIColor red:241 green:176 blue:91 alpha:1].CGColor;
             }
             if([self haveEventForDay:dayView.date]){
+                 if([_calendarManager.dateHelper date:dayView.date isTheSameDayThan:[NSDate date]]){
+                     self.isTodaySign=YES;
+                 }
                 ((SignupDayView *)dayView).imageView.image=[UIImage imageNamed:@"ok_icon"];
             }else{
                 ((SignupDayView *)dayView).imageView.image=[UIImage imageNamed:@"cancel_icon"];
@@ -242,19 +223,6 @@
     }
 }
 
-- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
-{
-    // Load the previous or next page if touch a day from another month
-    
-    if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
-        if([_calendarContentView.date compare:dayView.date] == NSOrderedAscending){
-            [_calendarContentView loadNextPageWithAnimation];
-        }
-        else{
-            [_calendarContentView loadPreviousPageWithAnimation];
-        }
-    }
-}
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar
 {
     SignupDayView *view = [SignupDayView new];
