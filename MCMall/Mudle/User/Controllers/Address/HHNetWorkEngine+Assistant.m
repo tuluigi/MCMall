@@ -54,7 +54,7 @@
 }
 -(void )parseSignupListWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
         NSArray *resultDataArray=[responseResult.responseData objectForKey:@"month"];
         for (NSDictionary *dic in resultDataArray  ) {
@@ -102,7 +102,7 @@
     NSString *apiPath=[MCMallAPI getDiraryDetailAPI];
     NSDictionary *postDic=@{@"userid":userID,@"date":date};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             NSError *error;
             NoteModel *noteModel =[MTLJSONAdapter modelOfClass:[NoteModel class] fromJSONDictionary:responseResult.responseData error:&error];
             responseResult.responseData=noteModel;

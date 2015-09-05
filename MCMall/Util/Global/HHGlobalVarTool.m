@@ -10,10 +10,10 @@
 #import "MCMallAPI.h"
 @implementation HHGlobalVarTool
 +(NSString *)fullImagePath:(NSString *)imgPath{
-    if (imgPath) {
+    if (imgPath&&(![imgPath hasPrefix:NSHomeDirectory()])&&(![imgPath isInternetUrl])) {
          return [NSString stringWithFormat:@"%@/%@",[MCMallAPI  domainPath],imgPath];
     }else{
-        return nil;
+        return imgPath;
     }
 }
 

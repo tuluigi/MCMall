@@ -112,14 +112,15 @@
     
 }
 -(void)getGoodsDetailWithGoodsID:(NSString *)goodsID{
-    [HHProgressHUD showLoadingState];
+    [self.view showLoadingState];
+    WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsDetailWithGoodsID:goodsID userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD dismiss];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        [weakSelf.view dismiss];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             _goodsModel.goodsDetail=((GoodsModel *)responseResult.responseData).goodsDetail;
             [self.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

@@ -147,9 +147,9 @@
     if ([HHUserManager isLogin]) {
         self.noteModel.noteContent=self.textView.text;
         if ([NSString IsNullOrEmptyString:self.noteModel.noteContent]) {
-             [HHProgressHUD makeToast:@"请输入日记内容"];
+             [self.view makeToast:@"请输入日记内容"];
         }else if([NSString IsNullOrEmptyString:self.noteModel.noteImageUrl]){
-            [HHProgressHUD makeToast:@"请上传图片"];
+            [self.view makeToast:@"请上传图片"];
         }else{
             [self addNoteWithUserID:[HHUserManager userID] imagePath:self.noteModel.noteImageUrl content:self.noteModel.noteContent noteID:self.noteModel.noteID];
         }
@@ -175,15 +175,15 @@
     WEAKSELF
     if ([HHUserManager isLogin]) {
         
-        [HHProgressHUD showLoadingState];
+        [weakSelf.view showLoadingState];
         NSString *dateStr=[date convertDateToStringWithFormat:@"yyyy-MM-dd"];
         HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getDiaryDetailUserID:[HHUserManager userID] date:dateStr onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 weakSelf.noteModel=responseResult.responseData;
-                [HHProgressHUD dismiss];
+                [weakSelf.view dismiss];
             }else{
                 weakSelf.noteModel=nil;
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+                [weakSelf.view makeToast:responseResult.responseMessage];
             }
         } ];
         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -196,14 +196,15 @@
     }
   }
 -(void)addNoteWithUserID:(NSString *)userID imagePath:(NSString *)imagePath content:(NSString *)content noteID:(NSString *)noteID{
-    [HHProgressHUD showLoadingState];
+    [self.view showLoadingState];
+    WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userWriteDiraryhUserID:userID diaryID:noteID photoPath:imagePath content:content onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             
         }else{
             
         }
-        [HHProgressHUD makeToast:responseResult.responseMessage];
+        [weakSelf.view makeToast:responseResult.responseMessage];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }

@@ -71,7 +71,7 @@
     WEAKSELF
     [self.tableView showPageLoadingView];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.activityModel=responseResult.responseData;
         }
         [weakSelf.tableView dismissPageLoadView];

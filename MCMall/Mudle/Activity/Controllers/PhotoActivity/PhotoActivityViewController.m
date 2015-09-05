@@ -167,12 +167,12 @@
 }
 -(void)getPhotoCommontsWithActivityID:(NSString *)activityID photoID:(NSString *)photoID{
     if (self.photoModle.commentArray.count==0) {
-         [HHProgressHUD showLoadingState];
+         [self.view showLoadingState];
     }
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[HHUserManager userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD dismiss];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        [weakSelf.view dismiss];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             PhotoModel *model=responseResult.responseData;
             if (_pageIndex==1) {
                 weakSelf.photoModle.isFavor=model.isFavor;
@@ -192,10 +192,10 @@
             [weakSelf.photoModle.commentArray addObjectsFromArray:model.commentArray];
             [weakSelf.tableView reloadData];
             if (model.commentArray.count==0) {
-                [HHProgressHUD makeToast:@"暂时没有更多评论"];
+                [weakSelf.view makeToast:@"暂时没有更多评论"];
             }
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
         [self.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:self.photoModle.commentArray.count];
     }];
@@ -204,16 +204,16 @@
     if ([HHUserManager isLogin]) {
         if (!sender.isSelected) {
             WEAKSELF
-            [HHProgressHUD showLoadingState];
+            [weakSelf.view showLoadingState];
             [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[HHUserManager userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
-                if (responseResult.responseCode==HHResponseResultCode100) {
+                if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                     weakSelf.photoModle.isFavor=YES;
                     weakSelf.photoModle.favorCount++;
                     _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
                     [sender setSelected:YES];
-                    [HHProgressHUD showSuccessMessage:@"点赞成功"];
+                    [weakSelf.view showSuccessMessage:@"点赞成功"];
                 }else{
-                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                    [weakSelf.view makeToast:responseResult.responseMessage];
                 }
             }];
         }
@@ -232,9 +232,9 @@
         if (self.commentTextField.text.length) {
             [self.commentTextField resignFirstResponder];
             WEAKSELF
-            [HHProgressHUD showLoadingState];
+            [weakSelf.view showLoadingState];
             [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[HHUserManager userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
-                if (responseResult.responseCode==HHResponseResultCode100) {
+                if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                     PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
                     UserModel *userModel=[HHUserManager userModel];
                     model.userName=userModel.userName;
@@ -247,9 +247,9 @@
                     [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
                     
                     
-                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                    [weakSelf.view makeToast:responseResult.responseMessage];
                 }else{
-                    [HHProgressHUD makeToast:responseResult.responseMessage];
+                    [weakSelf.view makeToast:responseResult.responseMessage];
                 }
             }];
         }

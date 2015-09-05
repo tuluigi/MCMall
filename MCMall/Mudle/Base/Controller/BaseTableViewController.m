@@ -35,21 +35,27 @@
     }
     return self;
 }
+-(UITableView *)tableView{
+    if (nil==_tableView) {
+        _tableView=[[HHTableView alloc] initWithFrame:self.view.bounds dataSource:self delegate:self style:self.tableViewStyle];
+        _tableView.delegate=self;
+        _tableView.dataSource=self;
+        _tableView.showsHorizontalScrollIndicator=NO;
+        _tableView.showsVerticalScrollIndicator=NO;
+        _tableView.tableFooterView=[UIView new];
+//       _tableView.backgroundColor=[UIColor whiteColor];
+    }
+    return _tableView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pageIndex=1;
-     [self setupForDismissKeyboard];
-    self.tableView=[[UITableView alloc]  initWithFrame:CGRectZero  style:self.tableViewStyle];
-    self.tableView.delegate=self;
-    self.tableView.dataSource=self;
-    self.tableView.showsHorizontalScrollIndicator=NO;
-    self.tableView.showsVerticalScrollIndicator=NO;
-    self.tableView.tableFooterView=[UIView new];
-    self.tableView.backgroundColor=[UIColor red:240.0 green:240.0 blue:240.0 alpha:1];
+   
+   
     [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    }];
+//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(UIEdgeInsetsZero);
+//    }];
     self.tableView.pullToRefreshView.arrowColor=MCMallThemeColor;
     self.tableView.infiniteScrollingView.enabled=NO;
 
@@ -58,7 +64,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-     
 }
 
 - (void)didReceiveMemoryWarning {

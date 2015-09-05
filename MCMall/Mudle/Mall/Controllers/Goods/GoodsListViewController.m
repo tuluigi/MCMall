@@ -107,7 +107,7 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
             if (weakSelf.catArray.count) {
                 CategoryModel *catModel=[weakSelf.catArray firstObject];
@@ -115,7 +115,7 @@
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
             }
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -127,25 +127,25 @@
         _selectedCatModel=[tempArray firstObject];
     }
     if (_pageIndex==1) {
-        [HHProgressHUD showLoadingState];
+        [self.view showLoadingState];
         [self.dataSourceArray removeAllObjects];
         [self.tableView reloadData];
     }
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         
-        [HHProgressHUD dismiss];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        [weakSelf.view dismiss];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
             }
             if (((NSArray *)responseResult.responseData).count) {
                  [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
             }else{
-                [HHProgressHUD makeToast:@"没有更多商品喽"];
+                [weakSelf.view makeToast:@"没有更多商品喽"];
             }
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
         [weakSelf.tableView reloadData];
         [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];

@@ -8,7 +8,7 @@
 
 #import "SubtitleExpertAnswerController.h"
 #import "SubjectModel.h"
-#import "HHNetWorkEngine+Subtitle.h"
+#import "SubjectNetService.h"
 #import "SubjectAnswerCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "UIScrollView+HHKeyboardControl.h"
@@ -92,9 +92,9 @@
         [self.view showPageLoadingView];
     }
     WEAKSELF
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getSubjectDetailWithSubjectID:subjectID userID:[HHUserManager userID]  pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[SubjectNetService  getSubjectDetailWithSubjectID:subjectID userID:[HHUserManager userID]  pageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
@@ -102,20 +102,20 @@
             [weakSelf.tableView reloadData];
             if (weakSelf.dataSourceArray.count==0) {
                 if (_subjectState==SubjectModelStateProcessing) {
-                     [HHProgressHUD makeToast:@"暂时还没有问题,赶紧来提问吧！"];
+                     [weakSelf.view makeToast:@"暂时还没有问题,赶紧来提问吧！"];
                 }else{
-                    [weakSelf.tableView showPageLoadViewWithMessage:@"暂时没有更多内容"];
+                    [weakSelf.tableView showPageLoadedMessage:@"暂时没有更多内容" delegate:nil];
                 }
             }else{
                 if (((NSArray *)responseResult.responseData).count==0) {
-                    [HHProgressHUD makeToast:@"暂时没有更多内容"];
+                    [weakSelf.view makeToast:@"暂时没有更多内容"];
                 }
             }
         }else{
             if (weakSelf.dataSourceArray.count==0) {
-                [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
+                [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
             }else{
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+                [weakSelf.view makeToast:responseResult.responseMessage];
             }
         }
         [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
@@ -124,9 +124,9 @@
 }
 -(void)askQuestionWithSubjectID:(NSString *)subjectID question:(NSString *)question{
     WEAKSELF
-    [HHProgressHUD showLoadingState];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  askSubjectQuestionWithSubjectID:subjectID userID:[HHUserManager userID] questionContent:question onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+    [weakSelf.view showLoadingState];
+    HHNetWorkOperation *op=[SubjectNetService askSubjectQuestionWithSubjectID:subjectID userID:[HHUserManager userID] questionContent:question onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             SubjectCommentModel *commentModel=[[SubjectCommentModel alloc]  init];
             commentModel.commentComment=question;
             UserModel *userModel=[HHUserManager userModel];
@@ -138,10 +138,10 @@
             NSIndexPath *indexPath= [NSIndexPath indexPathForRow:0 inSection:0];
             [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             [weakSelf.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+            [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             weakSelf.commentTextField.text=@"";
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
         
     }];

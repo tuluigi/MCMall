@@ -45,15 +45,15 @@
 #pragma mark- getuserinfo
 -(void)uploadHeaderImageWithImagePath:(NSString *)loaclPath{
     WEAKSELF
-    //[HHProgressHUD showLoadingMessage:@"正在上传..."];
+    //[weakSelf.view showLoadingMessage:@"正在上传..."];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[HHUserManager userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [HHUserManager setUserHeaderImageUrl:responseResult.responseData];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];
             
-            [HHProgressHUD dismiss];
+            [weakSelf.view dismiss];
         }else{
-            [HHProgressHUD showErrorMssage:@"上传失败"];
+            [weakSelf.view showErrorMssage:@"上传失败"];
         }
     }];
    
@@ -62,15 +62,15 @@
 
 -(void)editMotherState:(NSInteger)state{
     WEAKSELF
-    [HHProgressHUD showLoadingState];
+    [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
-        [HHProgressHUD dismiss];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        [weakSelf.view dismiss];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             
             [HHUserManager setMotherState:state];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationFade];
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

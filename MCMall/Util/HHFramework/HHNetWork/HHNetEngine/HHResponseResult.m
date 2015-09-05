@@ -47,6 +47,6 @@ static NSString *OCNetWorkErrorMessage    =@"网络连接异常";
     HHResponseResult *responeResult= *aResponseResult;
     responeResult.responseCode    =[[dic objectForKey:@"code"] integerValue];
     responeResult.responseMessage =[dic objectForKey:@"message"];
-    responeResult.responseData    =[dic objectForKey:@"data"];
+    responeResult.responseData    =[dic objectForKey:@"result"];
 }
 @end

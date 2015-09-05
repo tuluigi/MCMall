@@ -14,7 +14,7 @@
 #import "HHResponseResult.h"
 #import "HHNetWorkEngine.h"
 
-#import "Reachability.h"
+
 
 
 #pragma mark- Category
@@ -27,7 +27,7 @@
 #import "UIImage+Addition.h"
 #import "UIView+Animation.h"
 #import "UIView+Addition.h"
-#import "UIView+LoadingView.h"
+#import "UIView+OCPageLoad.h"
 #import "UITextField+Addition.h"
 #import "Base64Tool.h"
 #import "UIViewController+DismissKeyboard.h"
@@ -36,11 +36,10 @@
 #import "UIScrollView+SVStopAnimation.h"
 #import "NSUserDefaults+AesEncrypt.h"
 #import "HHPhotoBroswer.h"
-
+#import "UIView+HUD.h"
 #pragma mark -UIKit
 
 
 #pragma mark classLib
-#import "HHProgressHUD.h"
 #import "HHUserManager.h"
 #endif

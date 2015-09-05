@@ -75,7 +75,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
             hh_completion(responseResult);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
+            HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:error];
             hh_completion(responseResult);
         }];
     }else if ([hh_method isEqualToString:HHPOST]){
@@ -188,13 +188,15 @@ static HHNetWorkEngine *sharedNtWorkManager;
  */
 -(void)handleDebugMessageWithOperstion:(AFHTTPRequestOperation * )operation error:(NSError *)error{
 #ifdef DEBUG
-    if (self.enableLog) {
+//    if (self.enableLog) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         if ([operation.request.HTTPMethod isEqualToString:@"POST"]) {
             NSLog(@"\n 网络请求接口地址:\n%@\n参数\n%@\n返回值\n%@",operation.response.URL,[[NSString alloc]  initWithData:operation.request.HTTPBody encoding:4],operation.responseString);
         }else{
             NSLog(@"\n网络请求接口地址:\n%@\n返回值\n%@",operation.response.URL,operation.responseString);
         }
-    }
+    });
+       //    }
 #endif
 }
 -(void)handleNewResponse:(AFHTTPRequestOperation *)operation error:(NSError *)error onCompletinBlock:(HHResponseObjectBlock)completionBlock{

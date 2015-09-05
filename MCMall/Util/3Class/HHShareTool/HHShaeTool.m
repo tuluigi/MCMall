@@ -12,9 +12,9 @@
 #import "UMSocialWechatHandler.h"
 #import "HHShareView.h"
 #import "HHShareModel.h"
-#import "SVProgressHUD.h"
 #import "WXApi.h"
 #import <TencentOpenAPI/TencentOAuth.h>
+#import "UIView+HUD.h"
 @interface HHShaeTool ()<UMSocialUIDelegate>
 
 @end
@@ -71,15 +71,15 @@
                                                         completion:^(UMSocialResponseEntity *response) {
                                                             switch (response.responseCode) {
                                                                 case UMSResponseCodeSuccess:{
-                                                                                                                            [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                                                                                                                            [[UIApplication sharedApplication].keyWindow showSuccessMessage:@"分享成功"];
                                                                 
 
                                                                 } break;
                                                                 case UMSResponseCodeCancel:{
-                                                                    [SVProgressHUD showErrorWithStatus:@"您已取消授权"];
+                                                                    [[UIApplication sharedApplication].keyWindow showErrorMssage:@"您已取消授权"];
                                                                 } break;
                                                                 default:{
-                                                                    [SVProgressHUD showErrorWithStatus:@"分享失败"];
+                                                                    [[UIApplication sharedApplication].keyWindow showErrorMssage:@"分享失败"];
                                                                 }
                                                                     break;
                                                             }
@@ -142,15 +142,15 @@
                                                             switch (response.responseCode) {
                                                                 case UMSResponseCodeSuccess:{
                                                                     
-                                                                        [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                                                                        [[UIApplication sharedApplication].keyWindow showSuccessMessage:@"分享成功"];
                                         
                                                                     
                                                                 } break;
                                                                 case UMSResponseCodeCancel:{
-                                                                    [SVProgressHUD showErrorWithStatus:@"您已取消授权"];
+                                                                    [[UIApplication sharedApplication].keyWindow showErrorMssage:@"您已取消授权"];
                                                                 } break;
                                                                 default:{
-                                                                    [SVProgressHUD showErrorWithStatus:@"分享失败"];
+                                                                    [[UIApplication sharedApplication].keyWindow showErrorMssage:@"分享失败"];
                                                                 }
                                                                     break;
                                                             }

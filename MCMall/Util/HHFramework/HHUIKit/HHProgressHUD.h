@@ -9,15 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HHProgressHUD : UIView
-+(void)showLoadingState;
-+(void)showLoadingMessage:(NSString *)msg;
-+(void)showSuccessMessage:(NSString *)msg;
-+(void)showErrorMssage:(NSString *)msg;
-+(void)showProgressWithMessage:(NSString *)msg;
-+(void)showProgress:(CGFloat)progress;
 
-+(void)dismiss;
-
-+(void)makeToast:(NSString *)aMessage;
-+(void)hideToast;
 @end

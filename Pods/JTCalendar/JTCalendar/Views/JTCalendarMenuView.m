@@ -80,6 +80,10 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if(_scrollView.contentSize.width <= 0){
+        return;
+    }
+
     [_manager.scrollManager updateHorizontalContentOffset:(_scrollView.contentOffset.x / _scrollView.contentSize.width)];
 }
 
@@ -105,6 +109,9 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 - (void)repositionViews
 {
+    // Avoid vertical scrolling when the view is in a UINavigationController
+    _scrollView.contentInset = UIEdgeInsetsZero;
+    
     {
         CGFloat width = self.frame.size.width * _contentRatio;
         CGFloat x = (self.frame.size.width - width) / 2.;

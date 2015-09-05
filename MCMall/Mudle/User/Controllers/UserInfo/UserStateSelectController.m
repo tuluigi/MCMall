@@ -19,13 +19,13 @@
 }
 -(void)updateMotherState:(NSInteger)state{
     WEAKSELF
-    [HHProgressHUD showLoadingState];
+    [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [HHUserManager setMotherState:state];
             [weakSelf goToBabeInfoController];
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

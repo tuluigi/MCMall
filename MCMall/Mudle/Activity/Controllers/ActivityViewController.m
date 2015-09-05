@@ -64,7 +64,7 @@
     }
    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[HHUserManager userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
         [self.tableView dismissPageLoadView];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (num==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
                 [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
@@ -73,7 +73,7 @@
             }
             [weakSelf.tableView reloadData];
         }else{
-            [weakSelf.tableView showPageLoadViewWithMessage:responseResult.responseMessage];
+            [weakSelf.tableView showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }
          [weakSelf.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];

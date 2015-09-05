@@ -29,7 +29,7 @@
 }
 -(void )parseCategoryWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
         NSArray *resultDataArray=responseResult.responseData;
         for (NSDictionary *dic in resultDataArray  ) {
@@ -71,7 +71,7 @@
 }
 -(void )parseGoodsListWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
         NSArray *resultDataArray=responseResult.responseData;
         for (NSDictionary *dic in resultDataArray  ) {
@@ -106,7 +106,7 @@
 }
 -(void )parseGoodsDetailWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSError *error;
         GoodsModel *goodsModel=[MTLJSONAdapter modelOfClass:[GoodsModel class] fromJSONDictionary:responseResult.responseData error:&error];
         responseResult.responseData=goodsModel;

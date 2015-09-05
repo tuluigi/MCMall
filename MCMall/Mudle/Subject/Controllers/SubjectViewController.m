@@ -11,6 +11,7 @@
 #import "HHNetWorkEngine+Subtitle.h"
 #import "SubjectModel.h"
 #import "SubtitleExpertAnswerController.h"
+#import "SubjectNetService.h"
 @interface SubjectViewController ()
 
 @end
@@ -42,26 +43,26 @@
         [self.tableView showPageLoadingView];
     }
     WEAKSELF
-    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+    HHNetWorkOperation *op= [SubjectNetService getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             [weakSelf.tableView reloadData];
             if (weakSelf.dataSourceArray.count==0) {
-                [weakSelf.tableView showPageLoadViewWithMessage:@"暂时没有更多内容"];
+                [weakSelf.tableView showPageLoadedMessage:@"暂时没有更多内容" delegate:nil];
             }else{
                 [weakSelf.tableView dismissPageLoadView];
                 if (((NSArray *)responseResult.responseData).count==0) {
-                    [HHProgressHUD makeToast:@"没有更多内容"];
+                    [weakSelf.view makeToast:@"没有更多内容"];
                 }
             }
         }else{
             if (weakSelf.dataSourceArray.count==0) {
-                [weakSelf.view showPageLoadViewWithMessage:responseResult.responseMessage];
+                [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
             }else{
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+                [weakSelf.view makeToast:responseResult.responseMessage];
             }
         }
         [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:self.dataSourceArray.count];
@@ -93,7 +94,7 @@
             [self.navigationController pushViewController:expertViewController animated:YES];
             
         }else if (subjectModel.subjectState==SubjectModelStateUnStart){
-            [HHProgressHUD makeToast:@"专题尚未开始"];
+            [self.view makeToast:@"专题尚未开始"];
         }}else{
             WEAKSELF
             [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID){

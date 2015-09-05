@@ -109,7 +109,7 @@
     if ([HHUserManager isLogin]) {
         WEAKSELF
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 [HHUserManager setUserPoint:responseResult.responseData];
                 /*
                 UITableViewCell *cell=[weakSelf tableView:weakSelf.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];

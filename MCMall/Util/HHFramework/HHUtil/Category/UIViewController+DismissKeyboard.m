@@ -16,20 +16,20 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(tapAnywhereToDismissKeyboard:)];
     
-    __weak UIViewController *weakSelf = self;
+    __weak UIViewController *weakself = self;
     
     NSOperationQueue *mainQuene =[NSOperationQueue mainQueue];
     [nc addObserverForName:UIKeyboardWillShowNotification
                     object:nil
                      queue:mainQuene
                 usingBlock:^(NSNotification *note){
-                    [weakSelf.view addGestureRecognizer:singleTapGR];
+                    [weakself.view addGestureRecognizer:singleTapGR];
                 }];
     [nc addObserverForName:UIKeyboardWillHideNotification
                     object:nil
                      queue:mainQuene
                 usingBlock:^(NSNotification *note){
-                    [weakSelf.view removeGestureRecognizer:singleTapGR];
+                    [weakself.view removeGestureRecognizer:singleTapGR];
                 }];
 }
 

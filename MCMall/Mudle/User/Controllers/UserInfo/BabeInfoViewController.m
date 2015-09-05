@@ -119,9 +119,9 @@
 #pragma mark- getuserinfo
 -(void)rightBarButtonPressed{
     WEAKSELF
-    [HHProgressHUD showLoadingState];
+    [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  editBabeInfoWithUserID:[HHUserManager userID] birthday:[self.babeModel.birthday convertDateToStringWithFormat:@"yyyy-MM-dd"] bigNickName:self.babeModel.bigNickName smallNickeName:self.babeModel.smallNickName gender:self.babeModel.gender onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (weakSelf.isFromStateSelcted) {
                 if ([[[weakSelf.navigationController viewControllers] firstObject] presentingViewController]) {
                     [(UIViewController *)[[weakSelf.navigationController viewControllers] firstObject] dismissViewControllerAnimated:YES completion:^{
@@ -140,23 +140,23 @@
                  [weakSelf.navigationController popViewControllerAnimated:YES];
             }
            
-            [HHProgressHUD dismiss];
+            [weakSelf.view dismiss];
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(void)getUserInfo{
     WEAKSELF
-    [HHProgressHUD showLoadingState];
+    [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getBabeInfoWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             _babeModel=responseResult.responseData;
             [weakSelf.tableView reloadData];
-            [HHProgressHUD dismiss];
+            [weakSelf.view dismiss];
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

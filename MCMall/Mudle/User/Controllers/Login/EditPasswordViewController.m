@@ -29,20 +29,20 @@
 
 -(void)didRightNavBarButtonPressed{
     if (self.orignalPwd.length<6) {
-        [HHProgressHUD showErrorMssage:@"旧密码不能少于6位"];
+        [self.view showErrorMssage:@"旧密码不能少于6位"];
     }else if(self.newsPwd.length<6||self.repeatNewPwd.length<6){
-        [HHProgressHUD showErrorMssage:@"新密码不能少于6位"];
+        [self.view showErrorMssage:@"新密码不能少于6位"];
     }else if(![self.newsPwd isEqualToString:self.repeatNewPwd]){
-        [HHProgressHUD showErrorMssage:@"两次输入的密码不一致"];
+        [self.view showErrorMssage:@"两次输入的密码不一致"];
     }else{
-        [HHProgressHUD showLoadingState];
+        [self.view showLoadingState];
         WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine]  editUserPassWordWithUserID:[HHUserManager userID] OrignalPwd:self.orignalPwd newsPwd:self.newsPwd onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
-                [HHProgressHUD showSuccessMessage:@"密码修改成功"];
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                [weakSelf.view showSuccessMessage:@"密码修改成功"];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }else{
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [weakSelf.view showErrorMssage:responseResult.responseMessage];
             }
         }];
     }

@@ -47,15 +47,11 @@
 }
 -(void)setGoodsImageUrl:(NSString *)goodsImageUrl{
     _goodsImageUrl=goodsImageUrl;
-    if (_goodsImageUrl&&![_goodsImageUrl hasPrefix:@"http"]) {
-        _goodsImageUrl=[HHGlobalVarTool fullImagePath:_goodsImageUrl];
-    }
+    _goodsImageUrl=[HHGlobalVarTool fullImagePath:_goodsImageUrl];
 }
 -(void)setGoodsBigImageUrl:(NSString *)goodsBigImageUrl{
     _goodsBigImageUrl=goodsBigImageUrl;
-    if (_goodsBigImageUrl&&_goodsBigImageUrl.length&&![_goodsBigImageUrl hasPrefix:@"http"]) {
-        _goodsBigImageUrl=[HHGlobalVarTool fullImagePath:_goodsBigImageUrl];
-    }
+    _goodsBigImageUrl=[HHGlobalVarTool fullImagePath:_goodsBigImageUrl];
 }
 +(MTLValueTransformer *)endTimeJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {

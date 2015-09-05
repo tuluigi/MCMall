@@ -97,7 +97,7 @@
 -(void)getOneMonthySingupListAtDay:(NSDate *)date{
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getOneMonthSignupListWithUserID:[HHUserManager userID] atDay:date onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             [weakSelf.calendarManager reload];
         }else{
@@ -109,10 +109,10 @@
 -(void)didUserSignIn{
     WEAKSELF
     if ([HHUserManager isLogin]) {
-        [HHProgressHUD showLoadingState];
+        [weakSelf.view showLoadingState];
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] signUpWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-            [HHProgressHUD dismiss];
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view dismiss];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }];
         [weakSelf addOperationUniqueIdentifer:op.uniqueIdentifier];
     }else{

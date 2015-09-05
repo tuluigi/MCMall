@@ -34,7 +34,7 @@
 -(void )parseSubjectListWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
     NSMutableArray *responseArray=[NSMutableArray new];
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSArray *resultDataArray=responseResult.responseData;
         for (NSDictionary *dic in resultDataArray  ) {
             NSError *error;
@@ -72,7 +72,7 @@
 }
 -(void )parseSubjectDetailWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
         NSArray *resultDataArray=[responseResult.responseData objectForKey:@"list"];
         for (NSDictionary *dic in resultDataArray  ) {

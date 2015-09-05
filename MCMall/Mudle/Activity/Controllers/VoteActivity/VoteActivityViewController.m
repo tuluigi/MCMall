@@ -151,7 +151,7 @@
     WEAKSELF
     [self.view showPageLoadingView];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.activityModel=responseResult.responseData;
         }
         [weakSelf.view dismissPageLoadView];
@@ -166,16 +166,17 @@
     }];
 }
 -(void)uploadImageWithImagePath:(NSString *)imagePath{
+    WEAKSELF
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if ([responseResult.responseData isKindOfClass:[NSString class]]) {
                 [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
                 [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imagePath] forKey:responseResult.responseData];
                 
             }
-            [HHProgressHUD dismiss];
+            [weakSelf.view dismiss];
         }else{
-            [HHProgressHUD showErrorMssage:@"上传失败"];
+            [weakSelf.view showErrorMssage:@"上传失败"];
         }
     }];
     [self addOperationUniqueIdentifer:operation.uniqueIdentifier];
@@ -363,16 +364,16 @@
 #pragma mark playercelldelegate
 -(void)playerCellDidVoteButtonPressedWithPlayer:(PlayerModel *)playerModel{
     WEAKSELF
-    [HHProgressHUD showLoadingMessage:@"正在投票"];
+    [weakSelf.view showLoadingMessage:@"正在投票"];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  voteActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID voteNum:1 onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
-            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             playerModel.isVoted=YES;
             playerModel.totalVotedNum++;
             NSInteger index=[weakSelf.dataSourceArray indexOfObject:playerModel];
             [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
     }];
 }
@@ -386,13 +387,14 @@
 }
 #pragma mark -apply button
 -(void)applyButtonPressed{
-    [HHProgressHUD showLoadingState];
+    WEAKSELF
+    [weakSelf.view showLoadingState];
     self.applyRemarks=[NSString stringByReplaceNullString:self.applyRemarks];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  applyActivityWithUserID:[HHUserManager userID] ActivityID:self.activityID remarks:self.applyRemarks onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
-            [HHProgressHUD showSuccessMessage:responseResult.responseMessage];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view showSuccessMessage:responseResult.responseMessage];
         }else{
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
     }];
 }

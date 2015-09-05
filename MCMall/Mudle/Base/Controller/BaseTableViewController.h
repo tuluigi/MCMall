@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "HHTableView.h"
 @interface BaseTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSUInteger _pageIndex;
 }
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
-@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)HHTableView *tableView;
 @property(nonatomic,assign)NSUInteger pageIndex;
 @property(nonatomic,assign)CGFloat cellHeight;
 
