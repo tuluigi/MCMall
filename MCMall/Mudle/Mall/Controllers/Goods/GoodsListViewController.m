@@ -56,9 +56,7 @@
     self.title=@"专享汇";
 //self.tableView.tableHeaderView=self.flowView;
     [self.view addSubview:self.classMenuView];
-    if (!self.catArray.count) {
-        [self getCategoryList];
-    }
+
     WEAKSELF
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
        // make.removeExisting=YES;

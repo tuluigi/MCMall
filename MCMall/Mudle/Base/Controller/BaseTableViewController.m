@@ -37,13 +37,12 @@
 }
 -(UITableView *)tableView{
     if (nil==_tableView) {
-        _tableView=[[HHTableView alloc] initWithFrame:self.view.bounds dataSource:self delegate:self style:self.tableViewStyle];
+        _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         _tableView.delegate=self;
         _tableView.dataSource=self;
         _tableView.showsHorizontalScrollIndicator=NO;
         _tableView.showsVerticalScrollIndicator=NO;
         _tableView.tableFooterView=[UIView new];
-//       _tableView.backgroundColor=[UIColor whiteColor];
     }
     return _tableView;
 }
@@ -53,9 +52,6 @@
    
    
     [self.view addSubview:self.tableView];
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
     self.tableView.pullToRefreshView.arrowColor=MCMallThemeColor;
     self.tableView.infiniteScrollingView.enabled=NO;
 

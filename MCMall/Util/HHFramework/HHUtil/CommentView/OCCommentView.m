@@ -7,11 +7,12 @@
 //
 
 #import "OCCommentView.h"
-
+#import "OCBlurCommentView.h"
 @interface OCCommentView ()
 @property(nonatomic,strong) UIButton    *sendButton;
 @property(nonatomic,strong) UIButton    *commentButton;
-
+@property(nonatomic,weak)   UIView *parentView;
+@property(nonatomic,strong) OCBlurCommentView *blurCommentView;
 @end
 
 @implementation OCCommentView
@@ -28,6 +29,11 @@
     if (self=[super initWithFrame:frame]) {
         [self onInitUI];
     }
+    return self;
+}
+-(instancetype)initWithFrame:(CGRect)frame parentView:(UIView *)aView{
+    self=[self initWithFrame:frame];
+    _parentView=aView;
     return self;
 }
 -(void)onInitUI{
@@ -91,17 +97,33 @@
     }
     [self.commentButton setTitle:placeholer forState:UIControlStateNormal];
 }
+-(OCBlurCommentView *)blurCommentView{
+    if (nil==_blurCommentView) {
+        _blurCommentView=[OCBlurCommentView blurCommentView];
+    }
+    return _blurCommentView;
+}
+
+
 -(void)handCommentTextFiledValueChagned:(UITextField *)textField{
     self.sendButton.enabled=textField.text.length>0?YES:NO;
 }
 -(void)didPublishCommentButtonPressed:(UIButton *)sender{
     if (sender==_commentButton) {
-        if (self.becomeActiveBlock) {
-            self.becomeActiveBlock(self.commentContent);
-        }
+        WEAKSELF
+        [OCBlurCommentView showOCBlouCommenInView:self.parentView comments:self.commentContent placeholder:self.placeholer title:nil onValueChangedBlock:^(NSString *comments) {
+            if (weakSelf.valueChangedBlock) {
+                weakSelf.valueChangedBlock(comments);
+            }
+            weakSelf.commentContent=comments;
+        } completionBlock:^(NSString *comments, BOOL isCancled) {
+            if (weakSelf.completionBlock ) {
+                weakSelf.completionBlock(comments,isCancled);
+            }
+        }];
     }else if (sender==_sendButton){
-        if (self.publishCommentsBlock) {
-            self.publishCommentsBlock(self.commentContent);
+        if (self.completionBlock ) {
+            self.completionBlock(self.commentContent,NO);
         }
     }
 }

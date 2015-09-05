@@ -12,10 +12,13 @@
 #import "SubjectAnswerCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "UIScrollView+HHKeyboardControl.h"
+#import "OCCommentView.h"
 @interface SubtitleExpertAnswerController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *commentTextField;
 @property(nonatomic,copy)NSString *subjectID,*subjectTitle;
 @property(nonatomic,assign)SubjectModelState subjectState;
+@property(nonatomic,strong)OCCommentView *commentView;
+@property(nonatomic,copy)NSString *commentContent;
 @end
 
 @implementation SubtitleExpertAnswerController
@@ -35,6 +38,22 @@
     }
     return _commentTextField;
 }
+-(OCCommentView *)commentView{
+    if (nil==_commentView) {
+        _commentView=[[OCCommentView alloc]  init];
+        _commentView.placeholer=@"请输入您的问题";
+        WEAKSELF
+        _commentView.valueChangedBlock=^(NSString *comments){
+            weakSelf.commentContent=comments;
+        };
+        _commentView.completionBlock=^(NSString *comments,BOOL isCancled){
+            if (!isCancled) {
+                 [weakSelf askQuestionWithSubjectID:weakSelf.subjectID question:comments];
+            }
+        };
+    }
+    return _commentView;
+}
 -(id)initWithSubjectID:(NSString *)subjectID title:(NSString *)title state:(SubjectModelState)state{
     self=[super init];
     if (self) {
@@ -49,28 +68,28 @@
     
     WEAKSELF
     if (self.subjectState==SubjectModelStateProcessing) {
-        [self.view addSubview:self.commentTextField];
-        [self.commentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.view addSubview:self.commentView];
+        [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.mas_equalTo(weakSelf.view);
-            make.height.mas_equalTo(50.0);
+            make.height.mas_equalTo(40.0);
         }];
         [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(weakSelf.commentTextField.mas_top).priorityHigh();
+            make.bottom.mas_equalTo(weakSelf.commentView.mas_top).priorityHigh();
         }];
     }
     
     [self.tableView  setupPanGestureControlKeyboardHide:YES];
-    self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
-        [weakSelf.commentTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-            if (showKeyborad) {
-                make.bottom.equalTo(@(-(keyboardRect.size.height)));
-            }else{
-                make.bottom.equalTo(weakSelf.view);
-            }
-            
-        }];
-        [weakSelf.commentTextField layoutIfNeeded];
-    };
+//    self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
+//        [weakSelf.commentTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+//            if (showKeyborad) {
+//                make.bottom.equalTo(@(-(keyboardRect.size.height)));
+//            }else{
+//                make.bottom.equalTo(weakSelf.view);
+//            }
+//            
+//        }];
+//        [weakSelf.commentTextField layoutIfNeeded];
+//    };
     
     self.title=_subjectTitle;
     
@@ -140,6 +159,7 @@
             [weakSelf.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
             [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             weakSelf.commentTextField.text=@"";
+            weakSelf.commentContent=nil;
         }else{
             [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }

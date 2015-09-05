@@ -22,7 +22,7 @@
 +(HHNetWorkOperation *)getSubjectListWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger )pageSize onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     NSString *apiPath=[MCMallAPI getSubjectListAPI];
     NSDictionary *postDic=@{@"pageno":@(pageIndex),@"records":@(pageSize)};
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:OCNetGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[SubjectModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
             completion(responseResult);
         }];

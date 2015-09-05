@@ -25,24 +25,36 @@
     NSLog(@"OCBlurView is dealloc");
 #endif
 }
++(OCBlurCommentView *)blurCommentView{
+    return [[OCBlurCommentView alloc]  init];
+}
 +(void)showOCBlouCommenInView:(UIView *)aView
                      comments:(NSString *)comment
                   placeholder:(NSString *)placeholder
                         title:(NSString *)title
           onValueChangedBlock:(OCBlurCommentViewValueChangeBlock)valueChangeBlock
               completionBlock:(OCBlurCommentViewCompletionBlock)completionBlock{
-    OCBlurCommentView *blurView=[[OCBlurCommentView alloc]  init];
+      OCBlurCommentView *blurView=[[OCBlurCommentView alloc]  init];
+    [blurView showOCBlouCommenInView:aView comments:comment placeholder:placeholder title:title onValueChangedBlock:valueChangeBlock completionBlock:completionBlock];
+}
+-(void)showOCBlouCommenInView:(UIView *)aView
+                     comments:(NSString *)comment
+                  placeholder:(NSString *)placeholder
+                        title:(NSString *)title
+          onValueChangedBlock:(OCBlurCommentViewValueChangeBlock)valueChangeBlock
+              completionBlock:(OCBlurCommentViewCompletionBlock)completionBlock{
+    OCBlurCommentView *blurView=self;
     
     blurView.userInteractionEnabled=YES;
     [blurView addEventResponsors];
     blurView.backgroundColor=[UIColor colorWithWhite:0.2 alpha:0.6];
-         blurView.commentTextView.placeholder=placeholder;
+    blurView.commentTextView.placeholder=placeholder;
     if (comment) {
         blurView.commentTextView.text=comment;
     }else{
         blurView.commentTextView.text=@"";
     }
-
+    
     blurView.commentButton.enabled=(comment!=nil)?YES:NO;
     if (title) {
         blurView.titleLabel.text=title;

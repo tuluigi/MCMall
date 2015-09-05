@@ -11,6 +11,8 @@
 typedef void(^OCBlurCommentViewValueChangeBlock)(NSString *comments);
 typedef void(^OCBlurCommentViewCompletionBlock)(NSString *comments,BOOL isCancled);
 @interface OCBlurCommentView : UIImageView
+
++(OCBlurCommentView *)blurCommentView;
 /**
  *  弹出带键盘的评论页面
  *
@@ -21,6 +23,12 @@ typedef void(^OCBlurCommentViewCompletionBlock)(NSString *comments,BOOL isCancle
  *  @param completionBlock  确定 block。isCancled=No 则为点击取消了, 否则为点击确定
  */
 +(void)showOCBlouCommenInView:(UIView *)aView
+                     comments:(NSString *)comment
+                  placeholder:(NSString *)placeholder
+                        title:(NSString *)title
+          onValueChangedBlock:(OCBlurCommentViewValueChangeBlock)valueChangeBlock
+              completionBlock:(OCBlurCommentViewCompletionBlock)completionBlock;
+-(void)showOCBlouCommenInView:(UIView *)aView
                      comments:(NSString *)comment
                   placeholder:(NSString *)placeholder
                         title:(NSString *)title

@@ -9,8 +9,8 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "HHFrameWorkKitMacro.h"
 #import "MCMallAPI.h"
-NSString *const OCNetGET=@"OCNetWorkRequestMethodGet";
-NSString *const OCNetPOST=@"OCNetWorkRequestMethodPost";
+NSString *const OCNetGET=@"GET";
+NSString *const OCNetPOST=@"POST";
 static HHNetWorkEngine *sharedNtWorkManager;
 @implementation HHNetWorkEngine
 +(id)sharedHHNetWorkEngine
@@ -20,8 +20,8 @@ static HHNetWorkEngine *sharedNtWorkManager;
             sharedNtWorkManager=[[HHNetWorkEngine alloc] init];
             sharedNtWorkManager.responseSerializer=[AFHTTPResponseSerializer serializer];
              [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES] ;
-            sharedNtWorkManager.completionQueue= dispatch_queue_create("com.netease.opencourse", NULL);
-            sharedNtWorkManager.completionGroup=dispatch_group_create();
+//            sharedNtWorkManager.completionQueue= dispatch_queue_create("com.netease.opencourse", NULL);
+//            sharedNtWorkManager.completionGroup=dispatch_group_create();
         }
     }
     return sharedNtWorkManager;

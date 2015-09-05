@@ -89,7 +89,6 @@
 		2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFD141B22751900004035 /* EditPasswordViewController.m */; };
 		2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
 		2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
-		2A95FA8B1B9AED6C00962F79 /* HHTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA8A1B9AED6C00962F79 /* HHTableView.m */; };
 		2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
 		2A984EB91B141205004DF4C0 /* HHResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E6C1B141205004DF4C0 /* HHResponseResult.m */; };
@@ -361,8 +360,6 @@
 		2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMallAPI.m; sourceTree = "<group>"; };
 		2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHelper.h; sourceTree = "<group>"; };
 		2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHImagePickerHelper.m; sourceTree = "<group>"; };
-		2A95FA891B9AED6C00962F79 /* HHTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTableView.h; sourceTree = "<group>"; };
-		2A95FA8A1B9AED6C00962F79 /* HHTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTableView.m; sourceTree = "<group>"; };
 		2A984E621B141205004DF4C0 /* AESEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESEncryption.h; sourceTree = "<group>"; };
 		2A984E631B141205004DF4C0 /* AESEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESEncryption.m; sourceTree = "<group>"; };
 		2A984E671B141205004DF4C0 /* HHNetWorkEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHNetWorkEngine.h; sourceTree = "<group>"; };
@@ -896,8 +893,6 @@
 		2A50F6EA1B10970800607723 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2A95FA891B9AED6C00962F79 /* HHTableView.h */,
-				2A95FA8A1B9AED6C00962F79 /* HHTableView.m */,
 				2A50F6EB1B10972300607723 /* BaseViewController.h */,
 				2A50F6EC1B10972300607723 /* BaseViewController.m */,
 				2A50F6F31B10985400607723 /* RootTabBarController.h */,
@@ -1952,7 +1947,6 @@
 				2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */,
 				2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */,
 				2A06454D1B7D863700C27AD5 /* HHNetWorkEngine+AD.m in Sources */,
-				2A95FA8B1B9AED6C00962F79 /* HHTableView.m in Sources */,
 				2A0645401B7C971E00C27AD5 /* SignUpViewController.m in Sources */,
 				2AF5A26C1B99BDF7003F6AB8 /* NSUserDefaults+AesEncrypt.m in Sources */,
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,

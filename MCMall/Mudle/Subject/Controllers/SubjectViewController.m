@@ -35,7 +35,6 @@
     [self.tableView addPullToRefreshWithActionHandler:^{
         [weakSelf getSubjectList];
     }];
-    [self getSubjectList];
 }
 
 -(void)getSubjectList{
