@@ -8,6 +8,9 @@
 
 #import "BaseTableViewController.h"
 @class GoodsModel ;
+@class AddressModel;
 @interface GoodsAddressAddViewController : BaseTableViewController
 @property(nonatomic,strong)GoodsModel *goodsModel;
+
+-(instancetype)initWithAddressModel:(AddressModel *)addresssModel;
 @end

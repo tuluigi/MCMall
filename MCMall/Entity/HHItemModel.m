@@ -61,10 +61,13 @@
 //设置
 +(NSArray *)settingItemArray{
     NSArray *itemsArray;
+    HHItemModel *addressImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeReceiveAddress name:@"收获地址管理" image:nil];
+    
+    NSArray *sectionArray0=@[addressImageItem];
     HHItemModel *cacheImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeClearCache name:@"清理缓存" image:nil];
    
-    NSArray *sectionArray0=@[cacheImageItem];
-    itemsArray=@[sectionArray0];
+    NSArray *sectionArray1=@[cacheImageItem];
+    itemsArray=@[sectionArray0,sectionArray1];
     
     return itemsArray;
 }

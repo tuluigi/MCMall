@@ -9,9 +9,12 @@
 #import "GoodsAddressAddViewController.h"
 #import "HHNetWorkEngine+Goods.h"
 #import "GoodsModel.h"
+#import "HHUserNetService.h"
+#import "AddressModel.h"
 @interface GoodsAddressAddViewController ()<UIAlertViewDelegate>
-@property(nonatomic,copy)NSString *userName,*userTel,*address;
+@property(nonatomic,strong)UISwitch *switchView;
 @property(nonatomic,strong)UIView *footView;
+@property(nonatomic,strong)AddressModel *addresssModel;
 @end
 
 @implementation GoodsAddressAddViewController
@@ -27,7 +30,7 @@
         doneButton.layer.masksToBounds=YES;
         doneButton.backgroundColor=MCMallThemeColor;
         [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [doneButton setTitle:@"预  定" forState:UIControlStateNormal];
+        [doneButton setTitle:@"确  定" forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(UIEdgeInsetsMake(20, 30, 10, 40));
@@ -38,13 +41,14 @@
 -(void)didActionButtonPressed:(UIButton *)sedner{
     [self.view endEditing:YES];
     WEAKSELF
-    if ([NSString IsNullOrEmptyString:self.userName]) {
+    if ([NSString IsNullOrEmptyString:self.addresssModel.receiverName]) {
         [weakSelf.view makeToast:@"请输入收货人名称"];
-    }else if (![self.userTel isPhoneNumber]){
+    }else if (![self.addresssModel.receiverTel isPhoneNumber]){
         [weakSelf.view makeToast:@"请输入正确的电话号码"];
-    }else if ([NSString IsNullOrEmptyString:self.address]){
+    }else if ([NSString IsNullOrEmptyString:self.addresssModel.addressDetail]){
         [weakSelf.view makeToast:@"请输入收货人地址"];
     }else{
+        /*
         [weakSelf.view showLoadingState];
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
             [weakSelf.view dismiss];
@@ -56,12 +60,36 @@
             }
         }];
         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+         */
+        if ([HHUserManager isLogin]) {
+            [self editAddressWithAddressModel:self.addresssModel];
+        }else{
+            [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+                if (isSucceed) {
+                    [weakSelf editAddressWithAddressModel:weakSelf.addresssModel];
+                }
+            }];
+        }
+        
     }
+}
+-(instancetype)initWithAddressModel:(AddressModel *)addresssModel{
+    if (self=[super init]) {
+        _addresssModel=addresssModel;
+        if (nil==_addresssModel) {
+            _addresssModel=[[AddressModel alloc]  init];
+        }
+    }
+    return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"预订信息";
+    if (self.addresssModel) {
+        self.title=@"修改收获地址";
+    }else{
+        self.title=@"添加收获地址";
+    }
     CGRect frame=self.footView.frame;
     CGSize size=[self.footView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     frame.size.height=size.height;
@@ -69,49 +97,31 @@
     self.footView.frame=frame;
     self.tableView.tableFooterView=self.footView;
 }
-
+#pragma mark
+-(void)editAddressWithAddressModel:(AddressModel *)addresssMode{
+    WEAKSELF
+    [self.view showLoadingState];
+    addresssMode.isDefault=self.switchView.isOn;
+    [HHUserNetService addOrEditReceiveAddressWithUserID:[HHUserManager userID] addressID:addresssMode.addressID connecterName:addresssMode.receiverName connecterTel:addresssMode.receiverTel address:addresssMode.addressDetail isDefatul:addresssMode.isDefault onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view showSuccessMessage:responseResult.responseMessage];
+        }else{
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
+        }
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger row=0;
-    if (section==0) {
-        row=3;
-    }else{
-        return 3;
-    }
-    return row;
+    return 4;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
-    if (indexPath.section==0) {
-        NSString *identifer0=@"identifer0";
-        cell=[tableView dequeueReusableCellWithIdentifier:identifer0];
-        if (nil==cell) {
-            cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer0];
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        }
-        switch (indexPath.row) {
-            case 0:{
-                cell.textLabel.text=@"商品名称:";
-                cell.detailTextLabel.text=self.goodsModel.goodsName;
-            }break;
-            case 1:{
-                cell.textLabel.text=@"预订数量:";
-                cell.detailTextLabel.text=@"1件";
-            }break;
-            case 2:{
-                cell.textLabel.text=@"金额";
-                cell.detailTextLabel.text=[NSString stringWithFormat:@"%.2f元",_goodsModel.presenPrice];
-            } break;
-            default:
-                break;
-        }
-    }else{
         NSString *identifer1=@"identifer1";
         cell=[tableView dequeueReusableCellWithIdentifier:identifer1];
         if (nil==cell) {
@@ -130,46 +140,54 @@
             textField.leftViewMode=UITextFieldViewModeAlways;
             
             [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
+           _switchView=[[UISwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(tableView.bounds)-60.0,5, 40, 30)];
+            _switchView.tag=2000;
+            _switchView.hidden=YES;
+            [_switchView setOn:NO];
+            [cell.contentView addSubview:_switchView];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         UITextField *textField=(UITextField *)[cell viewWithTag:1000];
-        
+        UISwitch *switchView=(UISwitch *)[cell viewWithTag:2000];
         UILabel *leftLable=(UILabel *)textField.leftView;
         textField.rightViewMode=UITextFieldViewModeNever;
         textField.keyboardType=UIKeyboardTypeDefault;
-        
+        switchView.hidden=YES;
+         cell.textLabel.text=@"";
         switch (indexPath.row) {
             case 0:{
+                textField.hidden=NO;
+                switchView.hidden=YES;
                 textField.placeholder=@"收货人名称";
                 leftLable.text=@"姓名:";
+                textField.text=self.addresssModel.receiverName;
             } break;
             case 1:{
+                textField.hidden=NO;
+                switchView.hidden=YES;
                 textField.placeholder=@"收货人电话";
                 leftLable.text=@"电话";
+                   textField.text=self.addresssModel.receiverTel;
             }break;
             case 2:{
+                textField.hidden=NO;
+                switchView.hidden=YES;
                 textField.placeholder=@"收货人地址";
                 leftLable.text=@"地址:";
+                   textField.text=self.addresssModel.addressDetail;
+            }break;
+            case 3:{
+                textField.hidden=YES;
+                switchView.hidden=NO;
+                cell.textLabel.text=@"是否默认:";
+                switchView.on=self.addresssModel.isDefault;
             }break;
             default:
                 break;
         }
-    }
     return cell;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UILabel *lable=[[UILabel alloc]  initWithFrame:CGRectMake(15, 0, 100, 20)];
-    lable.textColor=[UIColor darkGrayColor];
-    lable.font=[UIFont systemFontOfSize:14];
-    if (section==0) {
-        lable.text=@"   商品信息";
-    }else{
-        lable.text=@"   完善收货人信息";
-    }
-    return lable;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
-}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return CGFLOAT_MIN;
 }
@@ -179,13 +197,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     switch (indexPath.row) {
         case 0:{
-            self.userName=textFiled.text;
+            self.addresssModel.receiverName=textFiled.text;
         }break;
         case 1:{
-            self.userTel=textFiled.text;
+            self.addresssModel.receiverTel=textFiled.text;
         }break;
         case 2:{
-            self.address=textFiled.text;
+            self.addresssModel.addressDetail=textFiled.text;
         }break;
         default:
             break;

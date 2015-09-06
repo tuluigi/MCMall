@@ -39,8 +39,9 @@
 -(void)onInitUI{
     
     CGFloat sendButtonHeight=30;
-    
+    self.backgroundColor=[UIColor colorWithRed:235.0/255.0 green:235.0/255.0 blue:235.0/255.0 alpha:1];
     _commentButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    _commentButton.backgroundColor=[UIColor whiteColor];
     [_commentButton setTitle:@"添加评论" forState:UIControlStateNormal];
     [_commentButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     _commentButton.titleLabel.font=[UIFont systemFontOfSize:14];
@@ -48,7 +49,7 @@
     [_commentButton addTarget:self action:@selector(didPublishCommentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_commentButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [_commentButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
-    _commentButton.layer.cornerRadius=18;
+    _commentButton.layer.cornerRadius=10;
     _commentButton.layer.masksToBounds=YES;
     _commentButton.layer.borderColor=[UIColor darkGrayColor].CGColor;
     _commentButton.layer.borderWidth=0.5;
@@ -62,9 +63,9 @@
     _sendButton.titleLabel.font=[UIFont systemFontOfSize:14];
     _sendButton.tag=1001;
     _sendButton.enabled=NO;
-    [_sendButton setBackgroundColor:[UIColor colorWithRed:39/255.0 green:109/255.0 blue:66/255.0 alpha:1]];
+    [_sendButton setBackgroundColor:MCMallThemeColor];
     [_sendButton addTarget:self action:@selector(didPublishCommentButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    _sendButton.layer.cornerRadius=sendButtonHeight/2.0;
+    _sendButton.layer.cornerRadius=6;
     _sendButton.layer.masksToBounds=YES;
     [self addSubview:_sendButton];
     WEAKSELF
@@ -84,7 +85,7 @@
 -(void)setCommentContent:(NSString *)commentContent{
     _commentContent=commentContent;
     if (_commentContent) {
-        [self.commentButton setTitle:[NSString stringWithFormat:@"%@:%@",_placeholer,_commentContent] forState:UIControlStateNormal];
+        [self.commentButton setTitle:_commentContent forState:UIControlStateNormal];
     }else{
         [self.commentButton setTitle:_placeholer forState:UIControlStateNormal];
     }

@@ -22,6 +22,11 @@
 +(NSString *)getUserInfoAPI;
 +(NSString *)editUserInfoAPI;
 +(NSString *)uploadUserHeadImageAPI;
+
++(NSString *)newAddressAPI;
++(NSString *)getAddressListAPI;
++(NSString *)deleteAddresssAPI;
++(NSString *)getDefaultAddressAPI;
 #pragma mark -活动
 +(NSString *)getActivityListAPI;
 //获取活动详情

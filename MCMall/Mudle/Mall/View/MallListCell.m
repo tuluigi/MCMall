@@ -86,7 +86,7 @@
     }
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
-    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f元",goodsModel.presenPrice];
+    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f元",goodsModel.sellPrice];
     [self updateTimeLableText];
 }
 -(void)updateTimeLableText{

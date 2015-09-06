@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, HHUserInfoItemType) {
 
 typedef NS_ENUM(NSInteger, HHSettingItemType) {
     HHSettingItemTypeClearCache   ,
+    HHSettingItemTypeReceiveAddress   ,
 
 };
 @interface HHItemModel : NSObject

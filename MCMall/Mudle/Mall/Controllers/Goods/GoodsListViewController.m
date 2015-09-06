@@ -22,6 +22,7 @@
 @property(nonatomic,strong)HHFlowView *flowView;
 @property(nonatomic,strong)HHClassMenuView *classMenuView;
 @property(nonatomic,strong)CategoryModel *selectedCatModel;
+@property(nonatomic,strong)UICollectionView *collectionView;
 @end
 
 @implementation GoodsListViewController
@@ -41,6 +42,12 @@
         _classMenuView.menuDelegate=self;
     }
     return _classMenuView;
+}
+-(UICollectionView *)collectionView{
+    if (nil==_collectionView) {
+        _collectionView=[[UICollectionView alloc]  initWithFrame:CGRectZero];
+    }
+    return _collectionView;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

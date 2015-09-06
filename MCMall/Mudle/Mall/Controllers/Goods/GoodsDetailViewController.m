@@ -154,7 +154,7 @@
     }else if (indexPath.row==1){
         cell.textLabel.textColor=MCMallThemeColor;
         cell.textLabel.textAlignment=NSTextAlignmentRight;
-        NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:14 newPrice:_goodsModel.presenPrice newFontSize:18];
+        NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:14 newPrice:_goodsModel.sellPrice newFontSize:18];
         cell.textLabel.attributedText=priceAttrStr;
         cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];

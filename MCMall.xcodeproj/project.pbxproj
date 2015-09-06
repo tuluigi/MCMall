@@ -172,6 +172,8 @@
 		2AD44C021B889424001B1CDC /* tabbar_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF91B889424001B1CDC /* tabbar_me@2x.png */; };
 		2AD44C031B889424001B1CDC /* tabbar_vip_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */; };
 		2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */; };
+		2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5241B9C86A200F1434F /* HHUserNetService.m */; };
+		2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5271B9C87F600F1434F /* AddressModel.m */; };
 		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2AF0AD5D1B80D2B600BB879B /* beiyun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF0AD5B1B80D2B600BB879B /* beiyun@2x.png */; };
 		2AF0AD5E1B80D2B600BB879B /* chanhou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF0AD5C1B80D2B600BB879B /* chanhou@2x.png */; };
@@ -482,6 +484,10 @@
 		2AD44BF91B889424001B1CDC /* tabbar_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me@2x.png"; sourceTree = "<group>"; };
 		2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip_HL@2x.png"; sourceTree = "<group>"; };
 		2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip@2x.png"; sourceTree = "<group>"; };
+		2AE3C5231B9C86A200F1434F /* HHUserNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUserNetService.h; sourceTree = "<group>"; };
+		2AE3C5241B9C86A200F1434F /* HHUserNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserNetService.m; sourceTree = "<group>"; };
+		2AE3C5261B9C87F600F1434F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		2AE3C5271B9C87F600F1434F /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		2AE793221B1C42180008E241 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		2AE793231B1C42180008E241 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		2AF0AD5B1B80D2B600BB879B /* beiyun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beiyun@2x.png"; sourceTree = "<group>"; };
@@ -839,6 +845,8 @@
 				2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */,
 				2A0645791B7DD97000C27AD5 /* NoteModel.h */,
 				2A06457A1B7DD97000C27AD5 /* NoteModel.m */,
+				2AE3C5261B9C87F600F1434F /* AddressModel.h */,
+				2AE3C5271B9C87F600F1434F /* AddressModel.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1200,6 +1208,8 @@
 			children = (
 				2A984EE21B141375004DF4C0 /* HHNetWorkEngine+UserCenter.h */,
 				2A984EE31B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m */,
+				2AE3C5231B9C86A200F1434F /* HHUserNetService.h */,
+				2AE3C5241B9C86A200F1434F /* HHUserNetService.m */,
 			);
 			path = NetEngine;
 			sourceTree = "<group>";
@@ -1890,6 +1900,7 @@
 				2A7EA2121B57F72D005B04A9 /* UserInfoViewController.m in Sources */,
 				2AF5A26D1B99BDF7003F6AB8 /* UIViewController+DismissKeyboard.m in Sources */,
 				2AF5A24D1B99BD2E003F6AB8 /* NSFileManager+ Addition.m in Sources */,
+				2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */,
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */,
 				2AFFF6901B64A9A500712317 /* SubjectViewController.m in Sources */,
@@ -1960,6 +1971,7 @@
 				2AF5A26C1B99BDF7003F6AB8 /* NSUserDefaults+AesEncrypt.m in Sources */,
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,
 				2AF5A2501B99BD2E003F6AB8 /* UIColor+Addition.m in Sources */,
+				2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
 				2AA7F2E11B7E1CB900BFC1A1 /* UserStateSelectController.m in Sources */,
