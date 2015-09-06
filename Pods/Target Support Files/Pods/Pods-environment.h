@@ -75,8 +75,8 @@
 // JTCalendar
 #define COCOAPODS_POD_AVAILABLE_JTCalendar
 #define COCOAPODS_VERSION_MAJOR_JTCalendar 2
-#define COCOAPODS_VERSION_MINOR_JTCalendar 0
-#define COCOAPODS_VERSION_PATCH_JTCalendar 6
+#define COCOAPODS_VERSION_MINOR_JTCalendar 1
+#define COCOAPODS_VERSION_PATCH_JTCalendar 4
 
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
@@ -86,21 +86,21 @@
 
 // MWPhotoBrowser
 #define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
-#define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 2
-#define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 1
+#define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
+#define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 4
 #define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
 
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 2
 #define COCOAPODS_VERSION_MINOR_Mantle 0
-#define COCOAPODS_VERSION_PATCH_Mantle 2
+#define COCOAPODS_VERSION_PATCH_Mantle 4
 
 // Mantle/extobjc
 #define COCOAPODS_POD_AVAILABLE_Mantle_extobjc
 #define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 2
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 0
-#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 2
+#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 4
 
 // Masonry
 #define COCOAPODS_POD_AVAILABLE_Masonry
@@ -108,17 +108,17 @@
 #define COCOAPODS_VERSION_MINOR_Masonry 6
 #define COCOAPODS_VERSION_PATCH_Masonry 2
 
+// PSTCollectionView
+#define COCOAPODS_POD_AVAILABLE_PSTCollectionView
+#define COCOAPODS_VERSION_MAJOR_PSTCollectionView 1
+#define COCOAPODS_VERSION_MINOR_PSTCollectionView 2
+#define COCOAPODS_VERSION_PATCH_PSTCollectionView 3
+
 // QBImagePickerController
 #define COCOAPODS_POD_AVAILABLE_QBImagePickerController
 #define COCOAPODS_VERSION_MAJOR_QBImagePickerController 2
 #define COCOAPODS_VERSION_MINOR_QBImagePickerController 5
 #define COCOAPODS_VERSION_PATCH_QBImagePickerController 2
-
-// Reachability
-#define COCOAPODS_POD_AVAILABLE_Reachability
-#define COCOAPODS_VERSION_MAJOR_Reachability 3
-#define COCOAPODS_VERSION_MINOR_Reachability 1
-#define COCOAPODS_VERSION_PATCH_Reachability 1
 
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
@@ -131,12 +131,6 @@
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 3
-
-// SVProgressHUD
-#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
-#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
-#define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
-#define COCOAPODS_VERSION_PATCH_SVProgressHUD 3
 
 // SVPullToRefresh
 #define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
@@ -155,12 +149,6 @@
 #define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
 #define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 13
 #define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 4
-
-// Toast
-#define COCOAPODS_POD_AVAILABLE_Toast
-#define COCOAPODS_VERSION_MAJOR_Toast 2
-#define COCOAPODS_VERSION_MINOR_Toast 4
-#define COCOAPODS_VERSION_PATCH_Toast 0
 
 // UITableView+FDTemplateLayoutCell
 #define COCOAPODS_POD_AVAILABLE_UITableView_FDTemplateLayoutCell

@@ -31,9 +31,7 @@
 }
 -(void)setUserHeadUrl:(NSString *)userHeadUrl{
     _userHeadUrl=userHeadUrl;
-    if (_userHeadUrl&&(![_userHeadUrl hasPrefix:@"http://"]&&![_userHeadUrl hasPrefix:NSHomeDirectory()])) {
-        _userHeadUrl=[HHGlobalVarTool fullImagePath:_userHeadUrl];
-    }
+    _userHeadUrl=[HHGlobalVarTool fullImagePath:_userHeadUrl];
 }
 +(NSValueTransformer *)motherStateJSONTransformer{
     return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{

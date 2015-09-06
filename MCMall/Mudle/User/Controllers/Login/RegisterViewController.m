@@ -171,25 +171,25 @@
 }
 -(void)userRegister{
     if (self.userName.length<6) {
-        [HHProgressHUD showErrorMssage:@"登录名长度不能小于6位"];
+        [self.view showErrorMssage:@"登录名长度不能小于6位"];
     }else if (self.userPwd.length<6){
-        [HHProgressHUD showErrorMssage:@"密码不能少于6位"];
+        [self.view showErrorMssage:@"密码不能少于6位"];
     }else if (self.repeatPwd.length<6){
-        [HHProgressHUD showErrorMssage:@"密码不能少于6位"];
+        [self.view showErrorMssage:@"密码不能少于6位"];
     }else if (![self.telPhone isPhoneNumber]){
-        [HHProgressHUD showErrorMssage:@"请输入正确手机号码"];
+        [self.view showErrorMssage:@"请输入正确手机号码"];
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
-        [HHProgressHUD showErrorMssage:@"两次输入的密码不一样"];
+        [self.view showErrorMssage:@"两次输入的密码不一样"];
     }
     //    else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
-    //        [HHProgressHUD showErrorMssage:@"请输入正确的验证码"];
+    //        [weakSelf.view showErrorMssage:@"请输入正确的验证码"];
     //    }
     else{
-        [HHProgressHUD showLoadingState];
+        [self.view showLoadingState];
         WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr  onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
-                [HHProgressHUD dismiss];
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                [weakSelf.view dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 UserModel *userModel=[HHUserManager userModel];
                 if (userModel.motherState==MotherStateUnSelected) {
@@ -207,7 +207,7 @@
                 if (weakSelf.userLoginCompletionBlock) {
                     weakSelf.userLoginCompletionBlock(NO,nil);
                 }
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [weakSelf.view showErrorMssage:responseResult.responseMessage];
             }
         }];
     }
@@ -217,13 +217,13 @@
     WEAKSELF
     sender.enabled=NO;
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getVerifyPhoneCodeWithPhoneNumber:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [self.timer setFireDate:[NSDate date]];
         }else{
             sender.enabled=YES;
             weakSelf.totalTime=TotalTimeDuration;
             [weakSelf.timer setFireDate:[NSDate distantFuture]];
-            [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

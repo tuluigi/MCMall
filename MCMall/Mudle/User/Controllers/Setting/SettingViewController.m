@@ -52,9 +52,9 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
     switch (itemModel.itemType) {
         case HHSettingItemTypeClearCache:{
             WEAKSELF
-            [HHProgressHUD showLoadingMessage:@"正在清理,请稍后..."];
+            [weakSelf.view showLoadingMessage:@"正在清理,请稍后..."];
             [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-                [HHProgressHUD showSuccessMessage:@"清理完毕"];
+                [weakSelf.view showSuccessMessage:@"清理完毕"];
                 [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             }];
         }

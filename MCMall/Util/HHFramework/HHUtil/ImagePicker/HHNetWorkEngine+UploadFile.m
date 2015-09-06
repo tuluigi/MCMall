@@ -29,10 +29,8 @@
                                 onErrorHandler:(HHResponseResultErrorBlock)errorBlock{
     NSString *apiPath=@"";
     NSDictionary *dic=@{};
-    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithUrlPath:apiPath fileData:fileData parmarDic:dic key:@"" onCompletionHandler:^(HHResponseResult *responseResult) {
-        
-    }];
-    return op;
+   
+    return nil;
 
 }
 @end

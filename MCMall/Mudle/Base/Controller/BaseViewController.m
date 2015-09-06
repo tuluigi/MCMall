@@ -17,8 +17,8 @@
 #ifdef DEBUG
     NSLog(@"\n%@--is dealloced",self);
 #endif
-    [HHProgressHUD dismiss];
-    [HHProgressHUD hideToast];
+    [self.view dismiss];
+    [self.view hideToast];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  cancleOperationsWithOperationUniqueIdentifers:self.operationsArray];
     [[SDImageCache sharedImageCache] clearMemory];
@@ -26,8 +26,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [HHProgressHUD hideToast];
-    [HHProgressHUD dismiss];
+    [self.view hideToast];
+    [self.view dismiss];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -27,7 +27,7 @@
     return op;
 }
 -(HHResponseResult *)parseActivityListsWithResponseResult:(HHResponseResult *)responseResult{
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *array=[[NSMutableArray alloc]  init];
         for (NSDictionary *dic in responseResult.responseData) {
             NSInteger activityType=[[dic objectForKey:@"type"] integerValue];
@@ -67,7 +67,7 @@
     return op;
 }
 -(HHResponseResult *)parseActivityDetailWithResponseResult:(HHResponseResult *)responseResult{
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSInteger activityType=[[responseResult.responseData objectForKey:@"atype"] integerValue];
         id activityModel;
         if (activityType==ActivityTypeCommon) {
@@ -155,7 +155,7 @@
     return op;
 }
 -(HHResponseResult *)parsePhotoCommontsListWithResponseResult:(HHResponseResult *)responseResult{
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSDictionary *resultDic=responseResult.responseData;
         NSArray *commentsListArray=[resultDic objectForKey:@"list"];
         PhotoModel *photoModel=[[PhotoModel alloc]  init];
@@ -185,7 +185,7 @@
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
         }
         completionBlcok(responseResult);

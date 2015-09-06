@@ -34,7 +34,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        [self getDataSourse];
+    [self getDataSourse];
 
 }
 - (void)viewDidLoad {
@@ -45,10 +45,7 @@
     self.title=@"首页";
    
     self.tableView.tableHeaderView=self.flowView;
-    if ([HHUserManager isLogin]) {
-       [self getDataSourse];
-    }
-    
+    [self getCategoryList];
     WEAKSELF
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf getCategoryList];
@@ -82,17 +79,17 @@
 }
 
 -(void)getCategoryList{
-    [self.view showPageLoadingView];
+   [self.view showPageLoadingView];
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
             if (weakSelf.catArray.count) {
                 CategoryModel *catModel=[weakSelf.catArray firstObject];
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
             }
         }else{
-             [HHProgressHUD makeToast:responseResult.responseMessage];
+             [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -100,17 +97,18 @@
 -(void)getGoodsListWithCatID:(NSString *)catID userID:(NSString *)userID{
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismissPageLoadView];
-        if (responseResult.responseCode==HHResponseResultCode100) {
+       [weakSelf.view dismissPageLoadView];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
             }
             [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
         }else{
-            [HHProgressHUD makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
-        [weakSelf.tableView reloadData];
+        
         [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
+        [weakSelf.tableView reloadData];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }

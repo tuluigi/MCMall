@@ -19,7 +19,19 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
 +(id)sharedHHNetWorkEngine;
 
 -(void)cancleOperationsWithOperationUniqueIdentifers:(NSArray *)operationsIdenfiers;
-
+/**
+ *  开始检测网络连接
+ */
++(void)startMonitoring;
+/**
+ *  停止检测网络连接
+ */
++(void)stopMonitoring;
+/**
+ *  是否支持打印信息
+ *  只有再DEBUG情况下才起作用
+ */
+@property(nonatomic,assign)BOOL enableLog;
 /**
  *  网络请求
  *
@@ -57,24 +69,6 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
 
 
 /**
- *  上传图片（以data形式上传）
- *
- *  @param hh_path       接口地址
- *  @param hh_fileData   图片data
- *  @param hh_key        key
- *  @param hh_postDic   参数 NsMutableDictory,所有的value必须是string 类型。禁止用NSNumber 类型
-
- *  @param hh_completion 结果
- *  @param hh_errorBlock 网络错误（block）
- *
- *  @return HHNetWorkOperation
- */
--(HHNetWorkOperation *)uploadFileWithUrlPath:(NSString *)hh_path
-                                 fileData:(NSData *)hh_fileData
-                                parmarDic:(NSDictionary *)hh_postDic
-                                      key:(NSString *)hh_key
-                         onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
-/**
  *  下载文件
  *
  *  @param hh_path       地址
@@ -89,5 +83,20 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
                                    parmarDic:(NSDictionary *)hh_postDic
                                           method:(NSString *)hh_method
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
+
+/**
+ *  采用Mantel之后的请求方式
+ *
+ *  @param url             接口地址
+ *  @param parmar          参数
+ *  @param method          请求方式
+ *  @param completionBlock
+ *
+ *  @return
+ */
+-(HHNetWorkOperation *)startRequestWithUrl:(NSString *)url
+                                   parmars:(NSDictionary *)parmar
+                                    method:(NSString *)method
+                        onCompletionHander:(HHResponseObjectBlock)completionBlock;
 
 @end

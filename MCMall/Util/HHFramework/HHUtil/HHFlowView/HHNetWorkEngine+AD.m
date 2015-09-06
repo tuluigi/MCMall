@@ -22,7 +22,7 @@
 }
 -(void )parseFllowWithResponseResult:(HHResponseResult **)aResponseResult{
     HHResponseResult *responseResult=*aResponseResult;
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
         NSArray *resultDataArray=responseResult.responseData;
         for (NSDictionary *dic in resultDataArray  ) {

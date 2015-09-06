@@ -17,8 +17,6 @@
 }
 -(void)setNoteImageUrl:(NSString *)noteImageUrl{
     _noteImageUrl=noteImageUrl;
-    if (![_noteImageUrl hasPrefix:@"http://"]&&![_noteImageUrl hasPrefix:NSHomeDirectory()]) {
-        _noteImageUrl=[HHGlobalVarTool fullImagePath:_noteImageUrl];
-    }
+    _noteImageUrl=[HHGlobalVarTool fullImagePath:_noteImageUrl];
 }
 @end

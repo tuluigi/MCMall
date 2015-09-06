@@ -43,7 +43,7 @@
     return op;
 }
 -(HHResponseResult *)parseUserLoginWithResponseResult:(HHResponseResult *)responseResult{
-    if (responseResult.responseCode==HHResponseResultCode100) {
+    if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSError *error;
         UserModel *userModel=[MTLJSONAdapter modelOfClass:[UserModel class] fromJSONDictionary:responseResult.responseData error:&error];
         [HHUserManager storeLoginUserModel:userModel];
@@ -117,7 +117,7 @@
     NSString *apiPath=[MCMallAPI uploadUserHeadImageAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid",imgPath,@"img", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:imgPath parmarDic:postDic key:@"img" onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCode100) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"img"]];
             [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
             [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imgPath] forKey:responseResult.responseData];
@@ -125,7 +125,7 @@
         completionBlcok(responseResult);
     }];
     [op setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        [HHProgressHUD showProgress:totalBytesWritten/totalBytesExpectedToWrite];
+        [[UIApplication sharedApplication].keyWindow showProgress:totalBytesWritten/totalBytesExpectedToWrite];
     }];
     return op;
 }

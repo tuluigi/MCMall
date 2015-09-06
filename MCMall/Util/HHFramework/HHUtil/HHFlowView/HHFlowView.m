@@ -166,10 +166,13 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         self.dataArry=[NSMutableArray arrayWithArray:array];
 //    }else{
         [[HHNetWorkEngine sharedHHNetWorkEngine] getAdvertisementListOnCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCode100) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 weakSelf.dataArry=responseResult.responseData;
-                NSData *adData=[NSKeyedArchiver archivedDataWithRootObject:weakSelf.dataArry];
-                [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallAdvertismentListKey];
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    NSData *adData=[NSKeyedArchiver archivedDataWithRootObject:weakSelf.dataArry];
+                    [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallAdvertismentListKey];
+                });
+               
             }
         }];
 //    }

@@ -37,21 +37,22 @@
 }
 -(void)didActionButtonPressed:(UIButton *)sedner{
     [self.view endEditing:YES];
+    WEAKSELF
     if ([NSString IsNullOrEmptyString:self.userName]) {
-        [HHProgressHUD makeToast:@"请输入收货人名称"];
+        [weakSelf.view makeToast:@"请输入收货人名称"];
     }else if (![self.userTel isPhoneNumber]){
-        [HHProgressHUD makeToast:@"请输入正确的电话号码"];
+        [weakSelf.view makeToast:@"请输入正确的电话号码"];
     }else if ([NSString IsNullOrEmptyString:self.address]){
-        [HHProgressHUD makeToast:@"请输入收货人地址"];
+        [weakSelf.view makeToast:@"请输入收货人地址"];
     }else{
-        [HHProgressHUD showLoadingState];
+        [weakSelf.view showLoadingState];
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
-            [HHProgressHUD dismiss];
-            if (responseResult.responseCode==HHResponseResultCode100) {
+            [weakSelf.view dismiss];
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以再看看其他商品哦！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
                 [alertView show];
             }else{
-                [HHProgressHUD makeToast:responseResult.responseMessage];
+                [weakSelf.view makeToast:responseResult.responseMessage];
             }
         }];
         [self addOperationUniqueIdentifer:op.uniqueIdentifier];

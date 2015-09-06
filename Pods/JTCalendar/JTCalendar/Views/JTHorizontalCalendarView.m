@@ -89,6 +89,10 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 
 - (void)viewDidScroll
 {
+    if(self.contentSize.width <= 0){
+        return;
+    }
+
     CGSize size = self.frame.size;
     
     switch (_pageMode) {
@@ -286,7 +290,9 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
             _centerView.frame = CGRectMake(size.width, 0, size.width, size.height);
             _rightView.frame = CGRectMake(size.width * 2, 0, size.width, size.height);
 
-            self.contentOffset = CGPointMake(self.contentOffset.x - size.width, 0);
+            if(previousPageMode != JTCalendarPageModeCenterRight){
+                self.contentOffset = CGPointMake(self.contentOffset.x - size.width, 0);
+            }
 
             // Must be set a the end else the scroll freeze
             self.contentSize = CGSizeMake(size.width * 2, size.height);
@@ -391,6 +397,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
 - (void)repositionViews
 {
     CGSize size = self.frame.size;
+    self.contentInset = UIEdgeInsetsZero;
     
     switch (_pageMode) {
         case JTCalendarPageModeFull:

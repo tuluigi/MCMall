@@ -123,15 +123,15 @@
         }
     }
     if ([NSString IsNullOrEmptyString:self.userName]) {
-        [HHProgressHUD showErrorMssage:@"请输入用户名"];
+        [self.view showErrorMssage:@"请输入用户名"];
     }else if([NSString IsNullOrEmptyString:self.userPwd]){
-        [HHProgressHUD showErrorMssage:@"请输入密码"];
+        [self.view showErrorMssage:@"请输入密码"];
     }else{
-                [HHProgressHUD showLoadingState];
+                [self.view showLoadingState];
         WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode ==HHResponseResultCode100) {
-                [HHProgressHUD dismiss];
+            if (responseResult.responseCode ==HHResponseResultCodeSuccess) {
+                [weakSelf.view dismiss];
                 UserModel *userModel=[HHUserManager userModel];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 if (userModel.motherState==MotherStateUnSelected) {
@@ -150,7 +150,7 @@
                     weakSelf.userLoginCompletionBlock(NO,nil);
                 }
 
-                [HHProgressHUD showErrorMssage:responseResult.responseMessage];
+                [weakSelf.view showErrorMssage:responseResult.responseMessage];
             }
         }];
     }

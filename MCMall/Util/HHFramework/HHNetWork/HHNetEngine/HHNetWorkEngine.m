@@ -7,11 +7,10 @@
 //
 #import "HHNetWorkEngine.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "HHNetWorkTool.h"
 #import "HHFrameWorkKitMacro.h"
 #import "MCMallAPI.h"
-NSString *const OCNetGET=@"OCNetWorkRequestMethodGet";
-NSString *const OCNetPOST=@"OCNetWorkRequestMethodPost";
+NSString *const OCNetGET=@"GET";
+NSString *const OCNetPOST=@"POST";
 static HHNetWorkEngine *sharedNtWorkManager;
 @implementation HHNetWorkEngine
 +(id)sharedHHNetWorkEngine
@@ -21,6 +20,8 @@ static HHNetWorkEngine *sharedNtWorkManager;
             sharedNtWorkManager=[[HHNetWorkEngine alloc] init];
             sharedNtWorkManager.responseSerializer=[AFHTTPResponseSerializer serializer];
              [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES] ;
+//            sharedNtWorkManager.completionQueue= dispatch_queue_create("com.netease.opencourse", NULL);
+//            sharedNtWorkManager.completionGroup=dispatch_group_create();
         }
     }
     return sharedNtWorkManager;
@@ -43,7 +44,19 @@ static HHNetWorkEngine *sharedNtWorkManager;
 
     }
 }
-
+/**
+ *  开始检测网络连接
+ */
++(void)startMonitoring{
+    [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+/**
+ *  停止检测网络连接
+ */
++(void)stopMonitoring{
+    [[AFNetworkReachabilityManager sharedManager]stopMonitoring];
+}
 #pragma mark- 网络请求
 -(HHNetWorkOperation *)requestWithUrlPath:(NSString *)hh_path
                                 parmarDic:(NSDictionary *)hh_postDic
@@ -54,32 +67,46 @@ static HHNetWorkEngine *sharedNtWorkManager;
     }
     NSAssert(hh_path, @"net work resquest url is nil");
 
-    hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
-#ifdef DEBUG
-    NSLog(@"接口地址:\n%@",hh_path);
-    NSLog(@"参数:\n%@",hh_postDic);
-#endif
+    hh_postDic=[self convertPostDic:hh_postDic];
     HHNetWorkOperation *operation=nil;
     __weak HHNetWorkEngine *weakSelf=self;
     if ([hh_method isEqualToString:HHGET]) {
         operation= (HHNetWorkOperation *)[sharedNtWorkManager GET:hh_path parameters:hh_postDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 hh_completion(responseResult);
+            });
+           
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
-            hh_completion(responseResult);
+            HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:error];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         }];
     }else if ([hh_method isEqualToString:HHPOST]){
         operation= (HHNetWorkOperation *)[sharedNtWorkManager POST:hh_path parameters:hh_postDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:nil];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             HHResponseResult *responseResult = [weakSelf handleRequestOperation:operation  error:error];
-            hh_completion(responseResult);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                hh_completion(responseResult);
+            });
         }];
     }
     return operation;
 }
+-(NSDictionary *)convertPostDic:(NSDictionary *)postDic{
+    NSMutableDictionary *newPostDic=[NSMutableDictionary dictionaryWithDictionary:postDic];
+    if (!newPostDic){
+        newPostDic=[NSMutableDictionary new];
+    }
+    [newPostDic setObject:[HHGlobalVarTool shopID] forKey:@"shopid"];
+    return newPostDic;
+}
+
 #pragma mark - 上传文件 以path 形式上传
 -(HHNetWorkOperation *)uploadFileWithPath:(NSString *)hh_path
                                  filePath:(NSString *)hh_filePath
@@ -91,11 +118,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
     }
     NSAssert(hh_path, @"net work resquest url is nil");
     
-    hh_postDic=[HHNetWorkTool convertPostDic:hh_postDic];
-#ifdef DEBUG
-    NSLog(@"接口地址:\n%@",hh_path);
-    NSLog(@"参数:\n%@",hh_postDic);
-#endif
+    hh_postDic=[self convertPostDic:hh_postDic];
     HHNetWorkOperation *operation=nil;
     __weak HHNetWorkEngine *weakSelf=self;
     operation=(HHNetWorkOperation *)[[HHNetWorkEngine sharedHHNetWorkEngine] POST:hh_path parameters:hh_postDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -125,53 +148,70 @@ static HHNetWorkEngine *sharedNtWorkManager;
 }
 
 -(HHResponseResult *)handleRequestOperation:(AFHTTPRequestOperation *)operation  error:(NSError *)error{
+     [self handleDebugMessageWithOperstion:operation error:error];
     if (operation.isCancelled) {
         return nil;
     }
-    if (error&&(!operation.responseString)) {
-#ifdef DEBUG
-        NSLog(@"\n 网络请求错误:\n%@",error.description);
-#endif
+    HHResponseResult *responseResult=[HHResponseResult responseResultWithResponseObject:operation.responseObject error:error];
+    return responseResult;
+}
+
+
+
+
+
+
+
+#pragma mark -采用mantle之后的请求方式
+-(HHNetWorkOperation *)startRequestWithUrl:(NSString *)url
+                                   parmars:(NSDictionary *)parmar
+                                    method:(NSString *)method
+                        onCompletionHander:(HHResponseObjectBlock)completionBlock{
+    if (nil==url) {
         return nil;
-    }else{
+    }
+    __weak HHNetWorkEngine *weakSelf=self;
+    NSAssert(url, @"net work resquest url is nil");
+    HHNetWorkOperation *operation=nil;
+    parmar=[self convertPostDic:parmar];
+    if ([method isEqualToString:OCNetGET]) {
+        operation= (HHNetWorkOperation *)[sharedNtWorkManager GET:url parameters:parmar success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [weakSelf handleNewResponse:operation error:nil onCompletinBlock:completionBlock];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [weakSelf handleNewResponse:operation error:error onCompletinBlock:completionBlock];
+        }];
+    }else if ([method isEqualToString:OCNetPOST]){
+        operation= (HHNetWorkOperation *)[sharedNtWorkManager POST:url parameters:parmar success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [weakSelf handleNewResponse:operation error:nil onCompletinBlock:completionBlock];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [weakSelf handleNewResponse:operation error:error onCompletinBlock:completionBlock];
+        }];
+    }
+    return operation;
+}
+/**
+ *  打印请求信息
+ *
+ *  @param operation
+ *  @param error
+ */
+-(void)handleDebugMessageWithOperstion:(AFHTTPRequestOperation * )operation error:(NSError *)error{
 #ifdef DEBUG
+//    if (self.enableLog) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         if ([operation.request.HTTPMethod isEqualToString:@"POST"]) {
             NSLog(@"\n 网络请求接口地址:\n%@\n参数\n%@\n返回值\n%@",operation.response.URL,[[NSString alloc]  initWithData:operation.request.HTTPBody encoding:4],operation.responseString);
         }else{
-            NSLog(@"\n  网络请求接口地址:\n%@\n返回值\n%@",operation.response.URL,operation.responseString);
+            NSLog(@"\n网络请求接口地址:\n%@\n返回值\n%@",operation.response.URL,operation.responseString);
         }
+    });
+       //    }
 #endif
-        HHResponseResult *responseResult=[[HHResponseResult alloc] init];
-        if (error||[operation responseData]==nil) {
-            NSString *errorMsg=error.description;
-            if (!errorMsg.length) {
-                errorMsg=@"网络连接发生异常";
-            }
-            NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:@"200001",@"code",@"",@"result",errorMsg,@"message", nil];
-            responseResult.responseCode=200001;
-            responseResult.responseData=dic;
-            responseResult.responseMessage=@"网络连接异常,请检查网络连接...";
-        }else{
-            //解密
-            NSError *errorJson=nil;
-            
-            NSMutableDictionary *resultDic= [NSJSONSerialization JSONObjectWithData:[operation responseData] options:NSJSONReadingMutableContainers error:&errorJson];
-            
-            if (nil==resultDic&&errorJson) {
-#ifdef DEBUG
-                NSLog(@"接口返回json格式错误");
-#endif
-                responseResult.responseData=resultDic;
-                responseResult.responseMessage=@"json格式错误";
-                responseResult.responseCode=100002;//json 格式错误
-            }else{
-                responseResult.responseData=[resultDic objectForKey:@"result"];
-                responseResult.responseCode=[[resultDic objectForKey:@"code"] integerValue];
-                responseResult.responseMessage=[resultDic objectForKey:@"message"];
-            }
-        }
-        return responseResult;
+}
+-(void)handleNewResponse:(AFHTTPRequestOperation *)operation error:(NSError *)error onCompletinBlock:(HHResponseObjectBlock)completionBlock{
+    [self handleDebugMessageWithOperstion:operation error:error];
+    if (completionBlock) {
+        completionBlock(operation.responseObject,error);
     }
 }
-
 @end
