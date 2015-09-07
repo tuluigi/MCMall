@@ -19,7 +19,11 @@
                 responseResult.responseData=dataModel;
             }
         }else if ([responseResult.responseData isKindOfClass:[NSArray class]]){
-            responseResult.responseData = [MTLJSONAdapter modelsOfClass:modelClass fromJSONArray:responseResult.responseData error:nil];
+            NSError *aError;
+            NSArray *array = [MTLJSONAdapter modelsOfClass:modelClass fromJSONArray:responseResult.responseData error:&aError];
+            if (nil==aError) {
+                responseResult.responseData=array;
+            }
         }else if ([responseResult.responseData isKindOfClass:[NSString class]]){
             //如果是字符串,暂时不做处理
             

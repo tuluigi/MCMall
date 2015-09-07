@@ -76,6 +76,12 @@
 -(instancetype)initWithAddressModel:(AddressModel *)addresssModel{
     if (self=[super init]) {
         _addresssModel=addresssModel;
+        if (self.addresssModel) {
+            self.title=@"修改收获地址";
+        }else{
+            self.title=@"添加收获地址";
+        }
+
         if (nil==_addresssModel) {
             _addresssModel=[[AddressModel alloc]  init];
         }
@@ -85,12 +91,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (self.addresssModel) {
-        self.title=@"修改收获地址";
-    }else{
-        self.title=@"添加收获地址";
-    }
-    CGRect frame=self.footView.frame;
+      CGRect frame=self.footView.frame;
     CGSize size=[self.footView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     frame.size.height=size.height;
     frame.size.width=CGRectGetWidth(self.view.bounds);

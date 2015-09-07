@@ -17,4 +17,12 @@
              @"receiverName":@"contact",
              @"addressID":@"contact",};
 }
++(NSValueTransformer *)JSONTransformerForKey:(NSString *)key{
+    if ([key isEqualToString:@"isDefault"]) {
+        return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            return [NSNumber numberWithBool:[value boolValue]];
+        }];
+    }
+    return nil;
+}
 @end

@@ -42,6 +42,7 @@
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            [weakSelf.tableView reloadData];
         }else{
             [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }

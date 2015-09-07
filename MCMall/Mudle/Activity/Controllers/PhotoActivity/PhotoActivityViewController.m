@@ -10,11 +10,11 @@
 #import "HHNetWorkEngine+Activity.h"
 #import "ActivityModel.h"
 #import "PhotoCommontCell.h"
-#import "UIScrollView+HHKeyboardControl.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "OCCommentView.h"
 @interface PhotoActivityViewController ()<UITextFieldDelegate>
-@property(nonatomic,strong)UITextField *commentTextField;
-@property(nonatomic,strong)UIView *bottomView,*favorBgView;
+@property(nonatomic,strong)OCCommentView *commentView;
+@property(nonatomic,strong)UIView *favorBgView;
 @property(nonatomic,copy)NSString *activityID;
 @property(nonatomic,strong)UIImageView *headImageView;
 @property(nonatomic,strong)UIButton *publishButton,*favorButton;
@@ -35,14 +35,7 @@
     }
     return self;
 }
--(UIView *)bottomView{
-    if (nil==_bottomView) {
-        _bottomView=[[UIView alloc]  init];
-        _bottomView.backgroundColor=[UIColor red:240 green:240 blue:240 alpha:1];
-        [_bottomView addSubview:self.commentTextField];
-    }
-    return _bottomView;
-}
+
 -(UIView *)favorBgView{
     if (nil==_favorBgView) {
         _favorBgView=[[UIView alloc]  init];
@@ -93,45 +86,35 @@
     }
     return _headImageView;
 }
--(UITextField *)commentTextField{
-    if (nil==_commentTextField) {
-        _commentTextField=[[UITextField alloc]  init];
-        _commentTextField.returnKeyType=UIReturnKeyDone;
-        _commentTextField.borderStyle=UITextBorderStyleRoundedRect;
-        _commentTextField.placeholder=@"输入评论内容...";
-        _commentTextField.delegate=self;
-        [_commentTextField addTarget:self action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
-        _publishButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _publishButton.frame=CGRectMake(0, 5, 60, 40);
-        //[publishButton setBackgroundColor:[UIColor redColor]];
-        [_publishButton setTitle:@"发送" forState:UIControlStateNormal];
-        _publishButton.enabled=NO;
-        [_publishButton setTitleColor:MCMallThemeColor forState:UIControlStateNormal];
-        _publishButton.titleLabel.font=[UIFont systemFontOfSize:16];
-        [_publishButton addTarget:self action:@selector(didPublishCommentButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-        _commentTextField.rightView=_publishButton;
-        _commentTextField.rightViewMode=UITextFieldViewModeAlways;
-       // _commentTextField.backgroundColor=[UIColor redColor];
-       
+-(OCCommentView *)commentView{
+    if (nil==_commentView) {
+        _commentView=[[OCCommentView alloc]  init];
+        _commentView.placeholer=@"回复";
+        WEAKSELF
+        _commentView.valueChangedBlock=^(NSString *comments){
+            
+        };
+        _commentView.completionBlock=^(NSString *comments,BOOL isCancled){
+            if (!isCancled) {
+               [weakSelf  didPublishCommentButtonPressed];
+            }
+        };
+
     }
-    return _commentTextField;
+    return _commentView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"图片详情";
-    [self.view addSubview:self.bottomView];
+    [self.view addSubview:self.commentView];
     WEAKSELF
    // [self.tableView  setupPanGestureControlKeyboardHide:YES];
-    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(weakSelf.view);
         make.height.mas_equalTo(50.0);
     }];
-    [self.commentTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(weakSelf.bottomView).offset(5.0);
-        make.right.bottom.mas_equalTo(weakSelf.bottomView).offset(-5.0);
-    }];
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-       make.bottom.equalTo(@(-(weakSelf.bottomView.height)));
+       make.bottom.equalTo(@(-(weakSelf.commentView.height)));
     }];
   
 
@@ -147,20 +130,7 @@
         [weakSelf getPhotoCommontsWithActivityID:weakSelf.activityID photoID:weakSelf.photoModle.photoID];
     }];
     // Do any additional setup after loading the view.
-   // [self.tableView  setupPanGestureControlKeyboardHide:YES];
-    self.tableView.keyboardWillChange=^(CGRect keyboardRect, UIViewAnimationOptions options, double duration, BOOL showKeyborad){
-        [weakSelf.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-            if (showKeyborad) {
-                make.bottom.equalTo(@(-(keyboardRect.size.height)));
-            }else{
-                make.bottom.equalTo(weakSelf.view);
-            }
-            
-        }];
-        [weakSelf.bottomView layoutIfNeeded];
-    };
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -229,19 +199,18 @@
 #pragma mark publishComment
 -(void)didPublishCommentButtonPressed{
     if ([HHUserManager isLogin]) {
-        if (self.commentTextField.text.length) {
-            [self.commentTextField resignFirstResponder];
+        if (self.commentView.commentContent) {
             WEAKSELF
             [weakSelf.view showLoadingState];
-            [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[HHUserManager userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentTextField.text onCompletionHandler:^(HHResponseResult *responseResult) {
+            [[HHNetWorkEngine sharedHHNetWorkEngine]  publishActivityCommentWithUserID:[HHUserManager userID] ActivityID:self.activityID photoID:self.photoModle.photoID comments:self.commentView.commentContent onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                     PhotoCommentModel *model=[[PhotoCommentModel alloc]  init];
                     UserModel *userModel=[HHUserManager userModel];
                     model.userName=userModel.userName;
                     model.userImage=userModel.userHeadUrl;
-                    model.commentContents=weakSelf.commentTextField.text;
+                    model.commentContents= weakSelf.commentView.commentContent;
                     NSString *timeStr=[[NSDate date] convertDateToStringWithFormat:@"yyyy-MM-dd HH:mm"];
-                    weakSelf.commentTextField.text=@"";
+                    weakSelf.commentView.commentContent=@"";
                     model.commentTime=timeStr;
                     [self.photoModle.commentArray insertObject:model atIndex:0];
                     [weakSelf.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -286,18 +255,7 @@
         ((PhotoCommontCell *)cell).commentModel=commentModel;
     }];
 }
-#pragma mark -textFiled delegate
-- (void)textFieldValueDidChange:(UITextField *)textField
-{
-    if (textField == self.commentTextField) {
-        self.publishButton.enabled=textField.text.length;
-    }
-}
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    [self didPublishCommentButtonPressed];
-    return YES;
-}
+
 
 /*
 #pragma mark - Navigation

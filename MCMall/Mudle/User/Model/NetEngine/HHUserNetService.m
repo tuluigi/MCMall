@@ -21,12 +21,9 @@
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI newAddressAPI];
     NSDictionary *postDic;
-    if (addressID&&addressID.length) {
+    addressID=[NSString stringByReplaceNullString:addressID];
         postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(isDefault),@"def",userID,@"userid",addressID,@"addrid",connecterName,@"contact",connecterTel,@"phone",address,@"address", nil];
-    }else{
-        postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(isDefault),@"def",userID,@"userid",connecterName,@"contact",connecterTel,@"phone",address,@"address", nil];
-
-    }
+   
        HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[AddressModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
             if (completionBlcok) {
