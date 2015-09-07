@@ -46,7 +46,10 @@
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
-            [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            for (NSInteger i=0; i<6; i++) {
+                  [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            }
+          
             [weakSelf.tableView reloadData];
             if (weakSelf.dataSourceArray.count==0) {
                 [weakSelf.tableView showPageLoadedMessage:@"暂时没有更多内容" delegate:nil];
