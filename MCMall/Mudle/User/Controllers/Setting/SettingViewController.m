@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 #import "HHItemModel.h"
-#import "GoodsAddressAddViewController.h"
+#import "GoodsAddressViewController.h"
 @implementation SettingViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -71,7 +71,7 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
         }
             break;
         case HHSettingItemTypeReceiveAddress:{
-            GoodsAddressAddViewController *addressController=[[GoodsAddressAddViewController alloc]  init];
+            GoodsAddressViewController *addressController=[[GoodsAddressViewController alloc]  init];
             [self.navigationController pushViewController:addressController animated:YES];
         }break;
         default:

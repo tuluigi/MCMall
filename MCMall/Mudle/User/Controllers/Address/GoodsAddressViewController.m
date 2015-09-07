@@ -1,5 +1,5 @@
 //
-//  GoodsAddressViewController.m
+//  GoodsAddressAddController.m
 //  MCMall
 //
 //  Created by Luigi on 15/8/13.
@@ -7,7 +7,7 @@
 //
 
 #import "GoodsAddressViewController.h"
-#import "GoodsAddressAddViewController.m"
+#import "GoodsAddressAddController.h"
 #import "HHUserNetService.h"
 #import "AddressModel.h"
 #define  AddresssCellIdentifer  @"AddresssCellIdentifer"
@@ -30,7 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)didRighButtonPressed{
-    GoodsAddressAddViewController *addAddresssController=[[GoodsAddressAddViewController alloc]  initWithAddressModel:nil];
+    GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:nil];
     [self.navigationController pushViewController:addAddresssController animated:YES];
 }
 -(void)getAddressList{
@@ -97,7 +97,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    GoodsAddressAddViewController *addAddresssController=[[GoodsAddressAddViewController alloc]  initWithAddressModel:addresssModel];
+    GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
     [self.navigationController pushViewController:addAddresssController animated:YES];
 }
 /*

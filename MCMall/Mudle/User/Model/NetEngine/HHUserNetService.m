@@ -40,7 +40,7 @@
 //获取收获地址列表
 +(HHNetWorkOperation *)getReceiveAddressListWithUserID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=[MCMallAPI getActivityListAPI];
+    NSString *apiPath=[MCMallAPI getAddressListAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid", nil];
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[AddressModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {

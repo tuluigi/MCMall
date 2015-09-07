@@ -9,5 +9,12 @@
 #import "AddressModel.h"
 
 @implementation AddressModel
-
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{@"deliverStr":@"delivery",
+             @"isDefault":@"default",
+             @"addressDetail":@"address",
+             @"receiverTel":@"phone",
+             @"receiverName":@"contact",
+             @"addressID":@"contact",};
+}
 @end

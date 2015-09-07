@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A06452F1B7C49C700C27AD5 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */; };
-		2A0645321B7C49DF00C27AD5 /* GoodsAddressAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */; };
 		2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */; };
 		2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645431B7D82FF00C27AD5 /* HHFlowModel.m */; };
 		2A0645471B7D82FF00C27AD5 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
@@ -90,7 +88,6 @@
 		2A95FA9F1B9B150500962F79 /* qiandaoBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A95FA9E1B9B150500962F79 /* qiandaoBg.png */; };
 		2A95FAA41B9B15F700962F79 /* HHNetWorkEngine+Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA31B9B15F700962F79 /* HHNetWorkEngine+Assistant.m */; };
 		2A95FAA91B9B165800962F79 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
-		2A95FAAC1B9B1FAE00962F79 /* SignupDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAAB1B9B1FAE00962F79 /* SignupDayView.m */; };
 		2A95FABA1B9B21B900962F79 /* cancel_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A95FAB61B9B21B900962F79 /* cancel_icon@2x.png */; };
 		2A95FABB1B9B21B900962F79 /* cancel_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A95FAB71B9B21B900962F79 /* cancel_icon@3x.png */; };
 		2A95FABC1B9B21B900962F79 /* ok_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A95FAB81B9B21B900962F79 /* ok_icon@2x.png */; };
@@ -174,6 +171,9 @@
 		2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */; };
 		2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5241B9C86A200F1434F /* HHUserNetService.m */; };
 		2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5271B9C87F600F1434F /* AddressModel.m */; };
+		2AE3C53F1B9DC87200F1434F /* SignupDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C53E1B9DC87200F1434F /* SignupDayView.m */; };
+		2AE3C5481B9DCA7800F1434F /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
+		2AE3C54C1B9DCD8700F1434F /* GoodsAddressAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C54B1B9DCD8700F1434F /* GoodsAddressAddController.m */; };
 		2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2AF0AD5D1B80D2B600BB879B /* beiyun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF0AD5B1B80D2B600BB879B /* beiyun@2x.png */; };
 		2AF0AD5E1B80D2B600BB879B /* chanhou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF0AD5C1B80D2B600BB879B /* chanhou@2x.png */; };
@@ -214,10 +214,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A06452D1B7C49C700C27AD5 /* GoodsAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressViewController.h; sourceTree = "<group>"; };
-		2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressViewController.m; sourceTree = "<group>"; };
-		2A0645301B7C49DF00C27AD5 /* GoodsAddressAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressAddViewController.h; sourceTree = "<group>"; };
-		2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressAddViewController.m; sourceTree = "<group>"; };
 		2A0645391B7C7DFF00C27AD5 /* SignInModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInModel.h; sourceTree = "<group>"; };
 		2A06453A1B7C7DFF00C27AD5 /* SignInModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInModel.m; sourceTree = "<group>"; };
 		2A0645421B7D82FF00C27AD5 /* HHFlowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHFlowModel.h; sourceTree = "<group>"; };
@@ -369,8 +365,6 @@
 		2A95FAA31B9B15F700962F79 /* HHNetWorkEngine+Assistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+Assistant.m"; sourceTree = "<group>"; };
 		2A95FAA71B9B165800962F79 /* HHNetWorkEngine+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+Goods.h"; sourceTree = "<group>"; };
 		2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+Goods.m"; sourceTree = "<group>"; };
-		2A95FAAA1B9B1FAE00962F79 /* SignupDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignupDayView.h; path = ../../../../../../../SignupDayView.h; sourceTree = "<group>"; };
-		2A95FAAB1B9B1FAE00962F79 /* SignupDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignupDayView.m; path = ../../../../../../../SignupDayView.m; sourceTree = "<group>"; };
 		2A95FAB61B9B21B900962F79 /* cancel_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_icon@2x.png"; sourceTree = "<group>"; };
 		2A95FAB71B9B21B900962F79 /* cancel_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_icon@3x.png"; sourceTree = "<group>"; };
 		2A95FAB81B9B21B900962F79 /* ok_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok_icon@2x.png"; sourceTree = "<group>"; };
@@ -488,6 +482,12 @@
 		2AE3C5241B9C86A200F1434F /* HHUserNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserNetService.m; sourceTree = "<group>"; };
 		2AE3C5261B9C87F600F1434F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		2AE3C5271B9C87F600F1434F /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		2AE3C53D1B9DC87200F1434F /* SignupDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupDayView.h; sourceTree = "<group>"; };
+		2AE3C53E1B9DC87200F1434F /* SignupDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupDayView.m; sourceTree = "<group>"; };
+		2AE3C5451B9DCA7800F1434F /* GoodsAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressViewController.h; sourceTree = "<group>"; };
+		2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressViewController.m; sourceTree = "<group>"; };
+		2AE3C54A1B9DCD7D00F1434F /* GoodsAddressAddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressAddController.h; sourceTree = "<group>"; };
+		2AE3C54B1B9DCD8700F1434F /* GoodsAddressAddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressAddController.m; sourceTree = "<group>"; };
 		2AE793221B1C42180008E241 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		2AE793231B1C42180008E241 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		2AF0AD5B1B80D2B600BB879B /* beiyun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beiyun@2x.png"; sourceTree = "<group>"; };
@@ -605,10 +605,10 @@
 		2A06452C1B7C49B300C27AD5 /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				2A06452D1B7C49C700C27AD5 /* GoodsAddressViewController.h */,
-				2A06452E1B7C49C700C27AD5 /* GoodsAddressViewController.m */,
-				2A0645301B7C49DF00C27AD5 /* GoodsAddressAddViewController.h */,
-				2A0645311B7C49DF00C27AD5 /* GoodsAddressAddViewController.m */,
+				2AE3C54B1B9DCD8700F1434F /* GoodsAddressAddController.m */,
+				2AE3C54A1B9DCD7D00F1434F /* GoodsAddressAddController.h */,
+				2AE3C5451B9DCA7800F1434F /* GoodsAddressViewController.h */,
+				2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -1114,8 +1114,8 @@
 		2A95FA901B9B147600962F79 /* MotherAid */ = {
 			isa = PBXGroup;
 			children = (
+				2AE3C53C1B9DC87200F1434F /* View */,
 				2A95FAA01B9B15E800962F79 /* Model */,
-				2A95FA931B9B14A300962F79 /* View */,
 				2A95FA911B9B148C00962F79 /* Controller */,
 			);
 			path = MotherAid;
@@ -1131,15 +1131,6 @@
 				2A95FA981B9B14D900962F79 /* SignUpViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		2A95FA931B9B14A300962F79 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2A95FAAA1B9B1FAE00962F79 /* SignupDayView.h */,
-				2A95FAAB1B9B1FAE00962F79 /* SignupDayView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2A95FAA01B9B15E800962F79 /* Model */ = {
@@ -1570,6 +1561,15 @@
 			path = Share;
 			sourceTree = "<group>";
 		};
+		2AE3C53C1B9DC87200F1434F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AE3C53D1B9DC87200F1434F /* SignupDayView.h */,
+				2AE3C53E1B9DC87200F1434F /* SignupDayView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2AF5A2271B99BC73003F6AB8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1887,9 +1887,10 @@
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
 				2AF5A2701B99C079003F6AB8 /* SubjectNetService.m in Sources */,
 				2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */,
+				2AE3C5481B9DCA7800F1434F /* GoodsAddressViewController.m in Sources */,
 				2AD38AAA1B801E2400BEA56E /* HHShareView.m in Sources */,
 				2AF5A2531B99BD2E003F6AB8 /* UIResponder+Router.m in Sources */,
-				2A06452F1B7C49C700C27AD5 /* GoodsAddressViewController.m in Sources */,
+				2AE3C54C1B9DCD8700F1434F /* GoodsAddressAddController.m in Sources */,
 				2A95FAA41B9B15F700962F79 /* HHNetWorkEngine+Assistant.m in Sources */,
 				2AC28B841B70F7A600F91760 /* HHItemModel.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
@@ -1938,6 +1939,7 @@
 				2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */,
 				2AF5A28C1B9AD6C9003F6AB8 /* OCPageLoadAnimationView.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
+				2AE3C53F1B9DC87200F1434F /* SignupDayView.m in Sources */,
 				2AF5A28E1B9AD6C9003F6AB8 /* UIView+OCPageLoad.m in Sources */,
 				2AF5A2831B9AD6AA003F6AB8 /* UIPlaceHolderTextView.m in Sources */,
 				2AD38A551B7F59D300BEA56E /* HHClassMenuView.m in Sources */,
@@ -1952,12 +1954,10 @@
 				2AD38AA81B801E2400BEA56E /* HHShareItemView.m in Sources */,
 				2AF5A2511B99BD2E003F6AB8 /* UIDevice+DeviceInfo.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,
-				2A95FAAC1B9B1FAE00962F79 /* SignupDayView.m in Sources */,
 				2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */,
 				2A8DFD151B22751900004035 /* EditPasswordViewController.m in Sources */,
 				2AF5A24E1B99BD2E003F6AB8 /* NSString+Addition.m in Sources */,
 				2AA671751B78EC7100ECC8A3 /* GoodsView.m in Sources */,
-				2A0645321B7C49DF00C27AD5 /* GoodsAddressAddViewController.m in Sources */,
 				2A0645541B7DC00700C27AD5 /* HomeMenuView.m in Sources */,
 				2A7EA2151B57F746005B04A9 /* UserInfoEditViewController.m in Sources */,
 				2A984EE41B141375004DF4C0 /* HHNetWorkEngine+UserCenter.m in Sources */,

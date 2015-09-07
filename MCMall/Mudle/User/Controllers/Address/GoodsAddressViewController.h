@@ -1,5 +1,5 @@
 //
-//  GoodsAddressViewController.h
+//  GoodsAddressAddController.h
 //  MCMall
 //
 //  Created by Luigi on 15/8/13.

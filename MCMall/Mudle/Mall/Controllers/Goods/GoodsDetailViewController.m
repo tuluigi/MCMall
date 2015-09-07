@@ -10,7 +10,6 @@
 #import "HHNetWorkEngine+Goods.h"
 #import "GoodsModel.h"
 #import "HHPhotoBroswer.h"
-#import "GoodsAddressAddViewController.h"
 #import "NSString+MCHtml.h"
 @interface GoodsDetailViewController ()<UIWebViewDelegate>
 @property(nonatomic,strong)UIImageView *goodsImageView;
@@ -74,10 +73,7 @@
     }else if ([sender isKindOfClass:[UIButton class]]){//预订
         UIButton *button=(UIButton *)sender;
         if (button.tag==102) {
-            GoodsAddressAddViewController *addressAddController=[[GoodsAddressAddViewController alloc] initWithStyle:UITableViewStyleGrouped];
-            addressAddController.goodsModel=self.goodsModel;
-            [self.navigationController pushViewController:addressAddController animated:YES];
-        }
+                  }
     }
 }
 -(UIWebView *)footWebView{

@@ -37,7 +37,7 @@
 }
 -(UITableView *)tableView{
     if (nil==_tableView) {
-        _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
+        _tableView=[[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
         _tableView.delegate=self;
         _tableView.dataSource=self;
         _tableView.showsHorizontalScrollIndicator=NO;
@@ -54,7 +54,9 @@
     [self.view addSubview:self.tableView];
     self.tableView.pullToRefreshView.arrowColor=MCMallThemeColor;
     self.tableView.infiniteScrollingView.enabled=NO;
-
+[self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.mas_equalTo(UIEdgeInsetsZero);
+}];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

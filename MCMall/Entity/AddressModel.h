@@ -13,5 +13,6 @@
 @property(nonatomic,copy)NSString *receiverName;
 @property(nonatomic,copy)NSString *receiverTel;
 @property(nonatomic,copy)NSString *addressDetail;
+@property(nonatomic,copy)NSString *deliverStr;
 @property(nonatomic,assign)BOOL isDefault;
 @end

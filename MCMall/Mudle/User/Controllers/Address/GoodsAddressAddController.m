@@ -1,23 +1,23 @@
 //
-//  GoodsAddressAddViewController.m
+//  GoodsAddressAddController.m
 //  MCMall
 //
-//  Created by Luigi on 15/8/13.
+//  Created by Luigi on 15/9/7.
 //  Copyright (c) 2015年 Luigi. All rights reserved.
 //
 
-#import "GoodsAddressAddViewController.h"
-#import "HHNetWorkEngine+Goods.h"
+#import "GoodsAddressAddController.h"
 #import "GoodsModel.h"
 #import "HHUserNetService.h"
 #import "AddressModel.h"
-@interface GoodsAddressAddViewController ()<UIAlertViewDelegate>
+@interface GoodsAddressAddController ()
 @property(nonatomic,strong)UISwitch *switchView;
 @property(nonatomic,strong)UIView *footView;
 @property(nonatomic,strong)AddressModel *addresssModel;
 @end
 
-@implementation GoodsAddressAddViewController
+@implementation GoodsAddressAddController
+
 -(UIView *)footView{
     if (nil==_footView) {
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
@@ -49,17 +49,17 @@
         [weakSelf.view makeToast:@"请输入收货人地址"];
     }else{
         /*
-        [weakSelf.view showLoadingState];
-        HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
-            [weakSelf.view dismiss];
-            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以再看看其他商品哦！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
-                [alertView show];
-            }else{
-                [weakSelf.view makeToast:responseResult.responseMessage];
-            }
-        }];
-        [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+         [weakSelf.view showLoadingState];
+         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
+         [weakSelf.view dismiss];
+         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+         UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以再看看其他商品哦！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
+         [alertView show];
+         }else{
+         [weakSelf.view makeToast:responseResult.responseMessage];
+         }
+         }];
+         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
          */
         if ([HHUserManager isLogin]) {
             [self editAddressWithAddressModel:self.addresssModel];
@@ -122,69 +122,69 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
-        NSString *identifer1=@"identifer1";
-        cell=[tableView dequeueReusableCellWithIdentifier:identifer1];
-        if (nil==cell) {
-            cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer1];
-            UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
-            textField.textAlignment=NSTextAlignmentLeft;
-            textField.tag=1000;
-            cell.contentView.userInteractionEnabled=YES;
-            [cell.contentView addSubview:textField];
-            
-            UILabel *leftLable=[[UILabel alloc]  initWithFrame:CGRectMake(0, 0, 80.0, CGRectGetHeight(textField.bounds))];
-            leftLable.textAlignment=NSTextAlignmentLeft;
-            leftLable.font=[UIFont systemFontOfSize:16.0];
-            leftLable.textColor=[UIColor blackColor];
-            textField.leftView=leftLable;
-            textField.leftViewMode=UITextFieldViewModeAlways;
-            
-            [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
-           _switchView=[[UISwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(tableView.bounds)-60.0,5, 40, 30)];
-            _switchView.tag=2000;
-            _switchView.hidden=YES;
-            [_switchView setOn:NO];
-            [cell.contentView addSubview:_switchView];
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        }
-        UITextField *textField=(UITextField *)[cell viewWithTag:1000];
-        UISwitch *switchView=(UISwitch *)[cell viewWithTag:2000];
-        UILabel *leftLable=(UILabel *)textField.leftView;
-        textField.rightViewMode=UITextFieldViewModeNever;
-        textField.keyboardType=UIKeyboardTypeDefault;
-        switchView.hidden=YES;
-         cell.textLabel.text=@"";
-        switch (indexPath.row) {
-            case 0:{
-                textField.hidden=NO;
-                switchView.hidden=YES;
-                textField.placeholder=@"收货人名称";
-                leftLable.text=@"姓名:";
-                textField.text=self.addresssModel.receiverName;
-            } break;
-            case 1:{
-                textField.hidden=NO;
-                switchView.hidden=YES;
-                textField.placeholder=@"收货人电话";
-                leftLable.text=@"电话";
-                   textField.text=self.addresssModel.receiverTel;
-            }break;
-            case 2:{
-                textField.hidden=NO;
-                switchView.hidden=YES;
-                textField.placeholder=@"收货人地址";
-                leftLable.text=@"地址:";
-                   textField.text=self.addresssModel.addressDetail;
-            }break;
-            case 3:{
-                textField.hidden=YES;
-                switchView.hidden=NO;
-                cell.textLabel.text=@"是否默认:";
-                switchView.on=self.addresssModel.isDefault;
-            }break;
-            default:
-                break;
-        }
+    NSString *identifer1=@"identifer1";
+    cell=[tableView dequeueReusableCellWithIdentifier:identifer1];
+    if (nil==cell) {
+        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer1];
+        UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
+        textField.textAlignment=NSTextAlignmentLeft;
+        textField.tag=1000;
+        cell.contentView.userInteractionEnabled=YES;
+        [cell.contentView addSubview:textField];
+        
+        UILabel *leftLable=[[UILabel alloc]  initWithFrame:CGRectMake(0, 0, 80.0, CGRectGetHeight(textField.bounds))];
+        leftLable.textAlignment=NSTextAlignmentLeft;
+        leftLable.font=[UIFont systemFontOfSize:16.0];
+        leftLable.textColor=[UIColor blackColor];
+        textField.leftView=leftLable;
+        textField.leftViewMode=UITextFieldViewModeAlways;
+        
+        [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
+        _switchView=[[UISwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(tableView.bounds)-60.0,5, 40, 30)];
+        _switchView.tag=2000;
+        _switchView.hidden=YES;
+        [_switchView setOn:NO];
+        [cell.contentView addSubview:_switchView];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    UITextField *textField=(UITextField *)[cell viewWithTag:1000];
+    UISwitch *switchView=(UISwitch *)[cell viewWithTag:2000];
+    UILabel *leftLable=(UILabel *)textField.leftView;
+    textField.rightViewMode=UITextFieldViewModeNever;
+    textField.keyboardType=UIKeyboardTypeDefault;
+    switchView.hidden=YES;
+    cell.textLabel.text=@"";
+    switch (indexPath.row) {
+        case 0:{
+            textField.hidden=NO;
+            switchView.hidden=YES;
+            textField.placeholder=@"收货人名称";
+            leftLable.text=@"姓名:";
+            textField.text=self.addresssModel.receiverName;
+        } break;
+        case 1:{
+            textField.hidden=NO;
+            switchView.hidden=YES;
+            textField.placeholder=@"收货人电话";
+            leftLable.text=@"电话";
+            textField.text=self.addresssModel.receiverTel;
+        }break;
+        case 2:{
+            textField.hidden=NO;
+            switchView.hidden=YES;
+            textField.placeholder=@"收货人地址";
+            leftLable.text=@"地址:";
+            textField.text=self.addresssModel.addressDetail;
+        }break;
+        case 3:{
+            textField.hidden=YES;
+            switchView.hidden=NO;
+            cell.textLabel.text=@"是否默认:";
+            switchView.on=self.addresssModel.isDefault;
+        }break;
+        default:
+            break;
+    }
     return cell;
 }
 
@@ -209,23 +209,15 @@
             break;
     }
 }
-#pragma alertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSInteger index=(self.navigationController.viewControllers.count-3);
-    if (index<0) {
-        index=0;
-    }
-    UIViewController *controller=[self.navigationController.viewControllers objectAtIndex:index];
-    [self.navigationController popToViewController:controller animated:YES];
-}
+
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
