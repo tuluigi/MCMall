@@ -13,6 +13,7 @@
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "UIScrollView+HHKeyboardControl.h"
 #import "OCCommentView.h"
+#define  SubjectTitleCellIdentifer @"SubjectTitleCellIdentifer"
 @interface SubtitleExpertAnswerController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *commentTextField;
 @property(nonatomic,copy)NSString *subjectID,*subjectTitle;
@@ -93,7 +94,7 @@
     
     self.title=_subjectTitle;
     
-    [self.tableView registerClass:[SubjectAnswerCell class] forCellReuseIdentifier:@"cellidentifer"];
+    [self.tableView registerClass:[SubjectAnswerCell class] forCellReuseIdentifier:SubjectTitleCellIdentifer];
     
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         weakSelf.pageIndex++;
@@ -118,7 +119,7 @@
                 [weakSelf.dataSourceArray removeAllObjects];
             }
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
-            [weakSelf.tableView reloadData];
+           
             if (weakSelf.dataSourceArray.count==0) {
                 if (_subjectState==SubjectModelStateProcessing) {
                      [weakSelf.view makeToast:@"暂时还没有问题,赶紧来提问吧！"];
@@ -130,6 +131,7 @@
                     [weakSelf.view makeToast:@"暂时没有更多内容"];
                 }
             }
+             [weakSelf.tableView reloadData];
         }else{
             if (weakSelf.dataSourceArray.count==0) {
                 [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
@@ -168,15 +170,12 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 #pragma mark -tableview
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *idenfier=@"cellidentifer";
-    SubjectAnswerCell *cell=[tableView dequeueReusableCellWithIdentifier:idenfier];
-    if (nil==cell) {
-        cell=[[SubjectAnswerCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfier];
-    }
+    SubjectAnswerCell *cell=[tableView dequeueReusableCellWithIdentifier:SubjectTitleCellIdentifer forIndexPath:indexPath];
     SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.subjectCommentModel=commentModel;
     return cell;
@@ -185,12 +184,10 @@
     return 60;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
    __block SubjectCommentModel *commentModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    return [tableView fd_heightForCellWithIdentifier:@"cellidentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
+    return [tableView fd_heightForCellWithIdentifier:SubjectTitleCellIdentifer cacheByIndexPath:indexPath configuration:^(id cell) {
         ((SubjectAnswerCell *)cell).subjectCommentModel=commentModel;
     }];
-    
 }
 #pragma mark textField
 #pragma mark -textFiled delegate

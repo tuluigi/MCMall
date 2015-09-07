@@ -10,7 +10,7 @@
 #import "OCPageLoadViewHeader.h"
 
 UIKIT_EXTERN NSString *const OCPageLoadViewTexKey;//显示单张图片的时候key
-
+UIKIT_EXTERN NSString *const OCPageLoadViewActivityAnimatingKey;
 @interface OCPageLoadView : UIView
 
 +(OCPageLoadView *)defaultPageLoadView;

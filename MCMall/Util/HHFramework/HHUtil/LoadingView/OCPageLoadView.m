@@ -8,6 +8,7 @@
 
 #import "OCPageLoadView.h"
 NSString *const OCPageLoadViewTexKey =@"OCPageLoadViewTexKey";
+NSString *const OCPageLoadViewActivityAnimatingKey=@"OCPageLoadViewActivityAnimatingKey";
 @interface OCPageLoadView ()
 @property(nonatomic,weak) id<OCPageLoadViewDelegate>delegate;
 

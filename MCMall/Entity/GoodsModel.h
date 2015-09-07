@@ -18,8 +18,10 @@
 @property(nonatomic,copy)NSString *goodsName;
 @property(nonatomic,copy)NSString *goodsImageUrl;
 @property(nonatomic,copy)NSString *goodsBigImageUrl;
-@property(nonatomic,assign)CGFloat orignalPrice;
-@property(nonatomic,assign)CGFloat presenPrice;
+@property(nonatomic,assign)CGFloat orignalPrice;//市场价
+@property(nonatomic,assign)CGFloat sellPrice;//直销价
+@property(nonatomic,assign)CGFloat vipPrice;//专享价格
+@property(nonatomic,assign)CGFloat deductionPoint;//抵扣积分
 @property(nonatomic,assign)NSInteger storeNum;//库存
 @property(nonatomic,strong)NSDate   *endTime;
 @property(nonatomic,copy)NSString *goodsDetail;

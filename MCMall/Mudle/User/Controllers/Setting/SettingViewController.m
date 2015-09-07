@@ -8,14 +8,18 @@
 
 #import "SettingViewController.h"
 #import "HHItemModel.h"
+#import "GoodsAddressAddViewController.h"
 @implementation SettingViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel settingItemArray]];
     self.title=@"设置";
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataSourceArray.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [(NSArray *)[self.dataSourceArray objectAtIndex:section] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
@@ -25,6 +29,8 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:idenfier];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
+    cell.accessoryType=UITableViewCellAccessoryNone;
+   
     switch (itemModel.itemType) {
         case HHSettingItemTypeClearCache:{
             cell.textLabel.text=itemModel.itemName;
@@ -42,6 +48,11 @@
             cell.detailTextLabel.text=cacheStr;
         }
             break;
+        case HHSettingItemTypeReceiveAddress:{
+             cell.textLabel.text=itemModel.itemName;
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text=@"";
+        }break;
         default:
             break;
     }
@@ -59,6 +70,10 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
             }];
         }
             break;
+        case HHSettingItemTypeReceiveAddress:{
+            GoodsAddressAddViewController *addressController=[[GoodsAddressAddViewController alloc]  init];
+            [self.navigationController pushViewController:addressController animated:YES];
+        }break;
         default:
             break;
     }

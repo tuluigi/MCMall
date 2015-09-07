@@ -49,6 +49,22 @@ NSString *const DomainPath  =@"http://120.25.152.224:8080/muying/";
 +(NSString *)uploadUserHeadImageAPI{
 return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"upload"];
 }
+
++(NSString *)newAddressAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"newaddress"];
+}
+
++(NSString *)getAddressListAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getaddress"];
+}
+
++(NSString *)deleteAddresssAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"deladdress"];
+}
+
++(NSString *)getDefaultAddressAPI{
+  return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getdefaddr"];
+}
 #pragma mark -活动
 //活动列表
 +(NSString *)getActivityListAPI{

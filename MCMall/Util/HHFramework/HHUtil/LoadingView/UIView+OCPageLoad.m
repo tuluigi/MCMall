@@ -14,8 +14,8 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
 
 }
 -(void)showOCPageLoadViewData:(NSDictionary *)dic delegate:(id)delegate{
-//     OCPageLoadAnimationView *pageLoadView=[self pageLoadView];
-//     [pageLoadView showLoadingData:dic inView:self delegate:delegate];
+     OCPageLoadAnimationView *pageLoadView=[self pageLoadView];
+     [pageLoadView showLoadingData:dic inView:self delegate:delegate];
 }
 
 /**
@@ -23,7 +23,7 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
  */
 -(void)showPageLoadingView{
 //    NSDictionary *dic=@{OCPageLoadingAnimationImagesKey:@[[UIImage imageNamed:@"loading1_iphone"],[UIImage imageNamed:@"loading2_iphone"],[UIImage imageNamed:@"loading3_iphone"],[UIImage imageNamed:@"loading4_iphone"],[UIImage imageNamed:@"loading5_iphone"],],OCPageLoadingAnimationDurationKey:@(2),OCPageLoadViewTexKey:@"正在努力加载..."};
-    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在努力加载..."};
+    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在加载..."};
     [self showOCPageLoadViewData:dic  delegate:nil];
 }
 /**
@@ -34,7 +34,8 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
  */
 -(void)showPageLoadedMessage:(NSString *)message delegate:(id)delegate{
 //    NSDictionary *dic=@{OCPageLoadViewImageKey:[UIImage imageNamed:@"ico_no_content"],OCPageLoadViewTexKey:@"点击屏幕重新加载"};
-//    [self showOCPageLoadViewData:dic delegate:delegate];
+    NSDictionary *dic=@{OCPageLoadViewTexKey:message};
+    [self showOCPageLoadViewData:dic delegate:delegate];
     
 }
 
