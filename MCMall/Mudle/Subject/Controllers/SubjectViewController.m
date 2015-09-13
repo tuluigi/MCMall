@@ -26,6 +26,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.title=@"妈妈帮";
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
         _pageIndex=1;

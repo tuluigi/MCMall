@@ -11,7 +11,9 @@
 #import "JTCalendarDayView.h"
 @interface SignupDayView : JTCalendarDayView<JTCalendarDay>
 
-@property (nonatomic,strong)UIImageView *imageView;
+@property (nonatomic,strong)UIImage *image;
+
+@property (nonatomic,strong,readonly)UIImageView *imageView;
 @property (nonatomic, readonly) UILabel *dateLabel;
 //- (void)commonInit;
 @end

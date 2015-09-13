@@ -50,7 +50,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - FMDB (~> 2.1)
-  - JTCalendar (~> 2.0)
+  - JTCalendar (~> 2.1.4)
   - Mantle (~> 2.0.2)
   - Masonry (~> 0.6.1)
   - MBProgressHUD (~> 0.9.1)

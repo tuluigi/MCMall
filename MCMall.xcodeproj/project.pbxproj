@@ -670,7 +670,6 @@
 			children = (
 				2A37B0D81B0CC62A00D0FE88 /* MCMall */,
 				2A37B0F21B0CC62A00D0FE88 /* MCMallTests */,
-				2A37B0D71B0CC62A00D0FE88 /* Products */,
 				39B4741562352CC646DDD6C3 /* Pods */,
 				0FE839CC0E61588E5E496E53 /* Frameworks */,
 			);
@@ -1663,6 +1662,7 @@
 		39B4741562352CC646DDD6C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				2A37B0D71B0CC62A00D0FE88 /* Products */,
 				47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */,
 				611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */,
 			);

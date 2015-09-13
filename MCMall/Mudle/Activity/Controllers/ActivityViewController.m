@@ -96,7 +96,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
-    return [ActivityListCell activityCellHeightWithActType:model.activityType];
+    return [ActivityListCell activityCellHeightWithActiveModel:model];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

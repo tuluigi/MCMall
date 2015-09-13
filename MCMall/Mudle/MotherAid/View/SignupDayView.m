@@ -11,6 +11,7 @@
 
 @interface SignupDayView ()
 @property (nonatomic, readwrite) UILabel *dateLabel;
+@property (nonatomic,strong,readwrite)UIImageView *imageView;
 @end
 
 @implementation SignupDayView
@@ -43,7 +44,7 @@
 {
     self.clipsToBounds = YES;
     
-    _imageView = [UIImageView new];
+    _imageView = [[UIImageView alloc]  init];
     [self addSubview:_imageView];
     
     self.userInteractionEnabled = YES;
@@ -56,8 +57,8 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    _imageView.frame=CGRectMake(0, 0, 20, 20);
-   _imageView.center=CGPointMake(self.center.x+5, self.center.y+5);
+    _imageView.frame=CGRectMake((CGRectGetWidth(self.bounds)-10)/2, (CGRectGetHeight(self.bounds)-20)/2, 20, 20);
+//   _imageView.center=CGPointMake(self.center.x+5, self.center.y+5);
 //    _imageView.center=self.center;
     _dateLabel.frame=CGRectMake(0, 0, 20, 20);
     
@@ -82,7 +83,9 @@
     
     [self.manager.delegateManager prepareDayView:self];
 }
-
+-(void)setImage:(UIImage *)image{
+    _imageView.image=image;
+}
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.

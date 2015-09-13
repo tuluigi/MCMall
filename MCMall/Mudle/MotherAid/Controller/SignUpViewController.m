@@ -182,18 +182,7 @@
         }];
     }
 }
-#pragma mark -tableviewdelegae
--(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 0;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-}
+
 #pragma mark - CalendarManager delegate
 
 // Exemple of implementation of prepareDayView method
@@ -201,11 +190,11 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
     // Today
-    //  ((SignupDayView *)dayView).imageView.image=nil;
     if ([_calendarManager.dateHelper date:dayView.date isTheSameMonthThan:[NSDate date]]) {
         if ([self.calendarManager.dateHelper date:dayView.date isEqualOrBefore:[NSDate date]]) {
             if([_calendarManager.dateHelper date:dayView.date isTheSameDayThan:[NSDate date]]){
                 dayView.layer.borderColor=[UIColor red:241 green:176 blue:91 alpha:1].CGColor;
+                dayView.layer.borderWidth=1;
             }
             if([self haveEventForDay:dayView.date]){
                  if([_calendarManager.dateHelper date:dayView.date isTheSameDayThan:[NSDate date]]){
@@ -218,6 +207,7 @@
         } else{
             ((SignupDayView *)dayView).imageView.image=nil;
         }
+        
     }else{
         ((SignupDayView *)dayView).dateLabel.textColor=[UIColor lightGrayColor];
     }

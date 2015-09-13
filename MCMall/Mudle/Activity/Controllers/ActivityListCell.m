@@ -170,14 +170,19 @@
         }
     }
 }
-+(CGFloat)activityCellHeightWithActType:(ActivityType)actType{
++(CGFloat)activityCellHeightWithActiveModel:(ActivityModel *)model{
    CGFloat height=0;
-    switch (actType) {
+    switch (model.activityType) {
         case ActivityTypePicture:
         {
             CGFloat pading=1.0;
             CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)- 15*2-pading*2)/3.0;
-            height=imageViewWidth+50+10*3;
+             PhotoAcitvityModel *photoActivityModel=(PhotoAcitvityModel *)model;
+            if (photoActivityModel.photoListArray.count) {
+                height=imageViewWidth+50+10*3;
+            }else{
+                height=50+10*2;
+            }
         }break;
         case ActivityTypeApply:
         case ActivityTypeCommon:
