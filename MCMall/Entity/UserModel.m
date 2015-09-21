@@ -58,5 +58,13 @@
         return aBirthday;
     }];
 }
+@end
+@implementation SalerModel
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             @"salerID":@"salesId",
+             @"salerName":@"salesName"};
+}
+
 
 @end

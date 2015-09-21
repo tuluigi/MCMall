@@ -32,7 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent=NO;
-   // self.navigationController.navigationBar.translucent= NO;
     self.view.backgroundColor=[UIColor whiteColor];
 //    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
 //        self.edgesForExtendedLayout=NO;

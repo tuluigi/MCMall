@@ -30,4 +30,9 @@
 //获取默认常用收获地址
 +(HHNetWorkOperation *)getDefaultAddressWithUserID:(NSString *)userID
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+//获取配送员列表
++(HHNetWorkOperation *)getSalersOnCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+//获取预定列表
++(HHNetWorkOperation *)getOrderListWithUserID:(NSString *)userID pageIndex:(NSInteger)index pageSize:(NSInteger)pageSize
+                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 @end

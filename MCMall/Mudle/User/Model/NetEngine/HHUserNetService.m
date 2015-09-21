@@ -10,6 +10,7 @@
 #import "HHUserNetService.h"
 #import "MCMallAPI.h"
 #import "AddressModel.h"
+#import "GoodsModel.h"
 @implementation HHUserNetService
 //添加或者修改收获人地址
 +(HHNetWorkOperation *)addOrEditReceiveAddressWithUserID:(NSString *)userID
@@ -76,5 +77,32 @@
         }];
     }];
     return op;   
+}
+//获取配送员列表
++(HHNetWorkOperation *)getSalersOnCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI getSalesListAPI];
+    NSDictionary *postDic=nil;
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
+        [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[SalerModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
+            if (completionBlcok) {
+                completionBlcok(responseResult);
+            }
+        }];
+    }];
+    return op;
+}
+//获取预定列表
++(HHNetWorkOperation *)getOrderListWithUserID:(NSString *)userID pageIndex:(NSInteger)index pageSize:(NSInteger)pageSize
+                          onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
+    NSString *apiPath=[MCMallAPI getOrderListAPI];
+    NSDictionary *postDic=@{@"userid":userID,@"pageno":@(index),@"records":@(pageSize)};
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
+        [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[OrderModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
+            if (completionBlcok) {
+                completionBlcok(responseResult);
+            }
+        }];
+    }];
+    return op;
 }
 @end

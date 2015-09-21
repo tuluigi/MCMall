@@ -42,3 +42,7 @@ typedef NS_ENUM(NSInteger, MotherState) {
 
 @end
 
+@interface SalerModel : BaseModel
+@property(nonatomic,copy)NSString *salerID;
+@property(nonatomic,copy)NSString *saleName;
+@end

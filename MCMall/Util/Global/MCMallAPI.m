@@ -65,6 +65,14 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)getDefaultAddressAPI{
   return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getdefaddr"];
 }
+//获取配送员列表
++(NSString *)getSalesListAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getsaleslist"];
+}
+//获取我的预定列表
++(NSString *)getOrderListAPI{
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"myorder"];
+}
 #pragma mark -活动
 //活动列表
 +(NSString *)getActivityListAPI{

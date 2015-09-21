@@ -203,6 +203,7 @@
 		2AFAC6541BA5A04100C2B131 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2AFAC6551BA5A04100C2B131 /* HHClassMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */; };
 		2AFAC6561BA5A04100C2B131 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
+		2AFAC6591BA5BD3A00C2B131 /* MotherDiaryDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6581BA5BD3A00C2B131 /* MotherDiaryDayView.m */; };
 		2AFFF6881B6492AC00712317 /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF6871B6492AC00712317 /* SubjectModel.m */; };
 		2AFFF6901B64A9A500712317 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
 		2AFFF6931B64A9FF00712317 /* SubjectListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF6921B64A9FF00712317 /* SubjectListCell.m */; };
@@ -544,6 +545,8 @@
 		2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHClassMenuView.m; sourceTree = "<group>"; };
 		2AFAC6521BA5A04100C2B131 /* MallGoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallGoodsListCell.h; sourceTree = "<group>"; };
 		2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallGoodsListCell.m; sourceTree = "<group>"; };
+		2AFAC6571BA5BD3A00C2B131 /* MotherDiaryDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherDiaryDayView.h; sourceTree = "<group>"; };
+		2AFAC6581BA5BD3A00C2B131 /* MotherDiaryDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherDiaryDayView.m; sourceTree = "<group>"; };
 		2AFFF6861B6492AC00712317 /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		2AFFF6871B6492AC00712317 /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
 		2AFFF68E1B64A9A500712317 /* SubjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectViewController.h; sourceTree = "<group>"; };
@@ -1495,6 +1498,8 @@
 			children = (
 				2AE3C53D1B9DC87200F1434F /* SignupDayView.h */,
 				2AE3C53E1B9DC87200F1434F /* SignupDayView.m */,
+				2AFAC6571BA5BD3A00C2B131 /* MotherDiaryDayView.h */,
+				2AFAC6581BA5BD3A00C2B131 /* MotherDiaryDayView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1887,6 +1892,7 @@
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
+				2AFAC6591BA5BD3A00C2B131 /* MotherDiaryDayView.m in Sources */,
 				2AF5A24C1B99BD2E003F6AB8 /* NSDateFormatter+Addititon.m in Sources */,
 				2AF5A2541B99BD2E003F6AB8 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,

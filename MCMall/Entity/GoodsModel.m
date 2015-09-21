@@ -63,3 +63,29 @@
     }];
 }
 @end
+
+@implementation OrderModel
+
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             @"orderID":@"no",
+             @"orderDate":@"time",
+             @"goodsID":@"goodImg",
+             @"goodsName":@"goodsName",
+             @"goodsThumbImageUrl":@"small",
+             @"goodsPrice":@"price",
+             @"goodsNum":@"quantity",
+             @"deductPoints":@"point",
+             @"totalPrice":@"total",
+             };
+}
++(MTLValueTransformer *)orderDateJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+        NSDate *date=[formatter dateFromString:value];
+        return date;
+    }];
+}
+
+
+@end

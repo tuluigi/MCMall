@@ -168,8 +168,15 @@
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 weakSelf.isTodaySign=YES;
             }
+            for (SignInModel *signModel in weakSelf.dataSourceArray) {
+                if (signModel.signinDate==[NSDate date]) {
+                    signModel.isSigned=YES;
+                    break;
+                }
+            }
             [weakSelf.view dismiss];
             [weakSelf.view makeToast:responseResult.responseMessage];
+            [weakSelf.calendarManager reload];
         }];
         [weakSelf addOperationUniqueIdentifer:op.uniqueIdentifier];
         }
@@ -191,6 +198,7 @@
 {
     // Today
     if ([_calendarManager.dateHelper date:dayView.date isTheSameMonthThan:[NSDate date]]) {
+        dayView.hidden=NO;
         if ([self.calendarManager.dateHelper date:dayView.date isEqualOrBefore:[NSDate date]]) {
             if([_calendarManager.dateHelper date:dayView.date isTheSameDayThan:[NSDate date]]){
                 dayView.layer.borderColor=[UIColor red:241 green:176 blue:91 alpha:1].CGColor;
@@ -209,6 +217,7 @@
         }
         
     }else{
+        dayView.hidden=YES;
         ((SignupDayView *)dayView).dateLabel.textColor=[UIColor lightGrayColor];
     }
 }

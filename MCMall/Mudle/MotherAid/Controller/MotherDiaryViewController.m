@@ -11,8 +11,8 @@
 #import "HHNetWorkEngine+Assistant.h"
 #import "NoteModel.h"
 #import "HHImagePickerHelper.h"
+#import "MotherDiaryDayView.h"
 @interface MotherDiaryViewController ()<JTCalendarDelegate,UITextViewDelegate>
-@property (strong, nonatomic)  JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (nonatomic,strong) NSDate *lastSelectedDate;
@@ -26,12 +26,6 @@
 
 @implementation MotherDiaryViewController
 @synthesize noteModel=_noteModel;
--(JTCalendarMenuView *)calendarMenuView{
-    if (nil==_calendarMenuView) {
-        _calendarMenuView=[[JTCalendarMenuView alloc]  init];
-    }
-    return _calendarMenuView;
-}
 -(JTHorizontalCalendarView *)calendarContentView{
     if (nil==_calendarContentView) {
         _calendarContentView=[[JTHorizontalCalendarView alloc]  init];
@@ -42,8 +36,8 @@
     if (nil==_calendarManager) {
         _calendarManager=[[JTCalendarManager alloc]  init];
         _calendarManager.settings.weekModeEnabled =YES;
-        _calendarManager.contentView=self.calendarContentView;
-        _calendarManager.menuView=self.calendarMenuView;
+        _calendarManager.settings.pageViewHaveWeekDaysView=NO;
+        _calendarManager.contentView=self.calendarContentView; 
         _calendarManager.delegate=self;
         [_calendarManager setDate:[NSDate date]];
     }
@@ -102,8 +96,6 @@
     [self.doneButton addTarget:self action:@selector(publishButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.doneButton];
     
-    
-    [self.view addSubview:self.calendarMenuView];
     [self.view addSubview:self.calendarContentView];
     
     [self.view addSubview:_contentImageView];
@@ -128,13 +120,9 @@
         make.height.mas_equalTo(40);
     }];
     [self.calendarContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.calendarMenuView.mas_bottom);
+        make.top.mas_equalTo(weakSelf.view);
         make.left.right.mas_equalTo(weakSelf.view);
-        make.height.mas_equalTo(40);
-    }];
-    [self.calendarMenuView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(weakSelf.view.left);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(60);
     }];
     [self getDiaryDetailAtDate:[NSDate date]];
 }
@@ -215,35 +203,24 @@
 #pragma mark - CalendarManager delegate
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
-    // Today
-    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
-        dayView.dotView.backgroundColor = [UIColor whiteColor];
-        dayView.textLabel.textColor = [UIColor whiteColor];
-    }else if(self.lastSelectedDate==dayView.date){
-        dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
-        dayView.dotView.backgroundColor = [UIColor whiteColor];
-        dayView.textLabel.textColor = [UIColor whiteColor];
-    }
-    // Other month
-    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    // Another day of the current month
-    else{
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor blackColor];
-    }
+   
 }
-
+- (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar
+{
+    MotherDiaryDayView *view = [MotherDiaryDayView new];
+    view.textLabel.font=[UIFont systemFontOfSize:14];
+    view.textLabel.textAlignment=NSTextAlignmentCenter;
+    view.textLabel.textColor=[UIColor whiteColor];
+    view.imageView.backgroundColor=MCMallThemeColor;
+    return view;
+}
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
 {
     _lastSelectedDate=dayView.date;
+    MotherDiaryDayView *view = [MotherDiaryDayView new];
+       CGRect frame= view.imageView.frame;
+        frame.size.height+=10;
+        view.imageView.frame=frame;
     [_calendarManager reload];
     // Load the previous or next page if touch a day from another month
     [self getDiaryDetailAtDate:dayView.date];

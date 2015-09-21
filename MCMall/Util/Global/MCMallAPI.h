@@ -27,6 +27,11 @@
 +(NSString *)getAddressListAPI;
 +(NSString *)deleteAddresssAPI;
 +(NSString *)getDefaultAddressAPI;
+
+//获取配送员列表
++(NSString *)getSalesListAPI;
+//获取我的预定列表
++(NSString *)getOrderListAPI;
 #pragma mark -活动
 +(NSString *)getActivityListAPI;
 //获取活动详情
