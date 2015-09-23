@@ -66,7 +66,7 @@
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -78,6 +78,7 @@
         cell.textLabel.textColor=[UIColor blackColor];
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];
         cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+        cell.detailTextLabel.numberOfLines=2;
     }
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.textLabel.text=[[addresssModel.receiverName stringByAppendingString:@"   "] stringByAppendingString:addresssModel.receiverTel];

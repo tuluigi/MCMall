@@ -50,6 +50,7 @@
                                             pwd:(NSString *)pwd
                                        phoneNum:(NSString *)phoneNum
                                      verfiyCode:(NSString *)verfiyCode
+                                        salerID:(NSString *)salerID
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 /**
  *  用户修改密码

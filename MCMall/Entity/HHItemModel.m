@@ -24,7 +24,7 @@
         HHItemModel *pointeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypePoint name:@"" image:nil];
         NSArray *sectionArray0=@[userInfoItem,pointeItem];
         
-        HHItemModel *consumeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeConsume name:@"消费记录" image:[UIImage imageNamed:@"item_consume"]];
+        HHItemModel *consumeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeOrder name:@"我的预定" image:[UIImage imageNamed:@"item_consume"]];
         NSArray *sectionArray1=@[consumeItem];
         
         HHItemModel *shopItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeShop name:@"所属门店" image:[UIImage imageNamed:@"item_shop"]];

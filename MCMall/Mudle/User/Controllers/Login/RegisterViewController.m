@@ -9,10 +9,11 @@
 #import "RegisterViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
 #import "UserStateSelectController.h"
+#import "SalesViewController.h"
 #define TotalTimeDuration 60
-@interface RegisterViewController ()<UITextFieldDelegate>
+@interface RegisterViewController ()<UITextFieldDelegate,SalesViewControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
-@property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr;
+@property(nonatomic,strong)NSString *userName,*userPwd,*repeatPwd,*telPhone,*verfiCodeStr,*severVerifyCodeStr,*salersID,*salerName;
 @property(nonatomic,assign)BOOL enableUserAgrement,enableCookie;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)UIButton *actionButton;
@@ -180,14 +181,16 @@
         [self.view showErrorMssage:@"请输入正确手机号码"];
     }else if(![self.userPwd isEqualToString:self.repeatPwd]){
         [self.view showErrorMssage:@"两次输入的密码不一样"];
+    }else if ([NSString IsNullOrEmptyString:self.salersID]){
+        [self.view showErrorMssage:@"请选择母婴顾问"];
     }
-    //    else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
-    //        [weakSelf.view showErrorMssage:@"请输入正确的验证码"];
-    //    }
+//        else if (![self.verfiCodeStr isEqualToString:self.severVerifyCodeStr]){
+//            [weakSelf.view showErrorMssage:@"请输入正确的验证码"];
+//        }
     else{
         [self.view showLoadingState];
         WEAKSELF
-        [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr  onCompletionHandler:^(HHResponseResult *responseResult) {
+        [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr salerID:self.salersID  onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 [weakSelf.view dismiss];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
@@ -235,13 +238,13 @@
     return 15.0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 6;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifer=@"identifer";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
-        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
+        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
         UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
         textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
@@ -277,7 +280,9 @@
     UILabel *leftLable=(UILabel *)textField.leftView;
     textField.rightViewMode=UITextFieldViewModeNever;
     textField.secureTextEntry=NO;
+    textField.hidden=NO;
     textField.keyboardType=UIKeyboardTypeDefault;
+     cell.accessoryType=UITableViewCellAccessoryNone;
     switch (indexPath.row) {
         case 0:{
             textField.placeholder=@"请输入登录名";
@@ -304,11 +309,28 @@
             textField.placeholder=@"输入验证码";
             leftLable.text=@"验证码";
         }break;
+        case 5:{
+            textField.hidden=YES;
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            if (self.salerName&&self.salersID) {
+                cell.detailTextLabel.text=self.salerName;
+            }else{
+                 cell.detailTextLabel.text=@"请选择母婴顾问";
+            }
+            cell.textLabel.text=@"母婴顾问";
+        }break;
             
         default:
             break;
     }
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row==5) {
+        SalesViewController *salesController=[[SalesViewController alloc]  init];
+        salesController.delegate=self;
+        [self.navigationController pushViewController:salesController animated:YES];
+    }
 }
 -(void)didTextFiledValueChanged:(UITextField *)textFiled{
     //get cell
@@ -340,5 +362,9 @@
             break;
     }
 }
-
+-(void)didSelectSalesWithSlaerID:(NSString *)salerID salerName:(NSString *)salerName{
+    self.salerName=salerName;
+    self.salersID=salerID;
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 @end

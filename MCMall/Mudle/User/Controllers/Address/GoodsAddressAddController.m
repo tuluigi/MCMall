@@ -106,6 +106,7 @@
     [HHUserNetService addOrEditReceiveAddressWithUserID:[HHUserManager userID] addressID:addresssMode.addressID connecterName:addresssMode.receiverName connecterTel:addresssMode.receiverTel address:addresssMode.addressDetail isDefatul:addresssMode.isDefault onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view showSuccessMessage:responseResult.responseMessage];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }

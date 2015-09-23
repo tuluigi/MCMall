@@ -36,6 +36,9 @@
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
 		2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C651B32BC8E005F5D15 /* GoodsModel.m */; };
 		2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
+		2A4956CF1BB2F4F80036D71C /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956CE1BB2F4F80036D71C /* SalesViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D21BB301DA0036D71C /* OrderListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A4956D61BB301FB0036D71C /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D51BB301FB0036D71C /* OrderListCell.m */; settings = {ASSET_TAGS = (); }; };
 		2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
 		2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
@@ -265,6 +268,12 @@
 		2A468C651B32BC8E005F5D15 /* GoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
 		2A468C6A1B32BDA6005F5D15 /* McMallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McMallCell.h; sourceTree = "<group>"; };
 		2A468C6B1B32BDA6005F5D15 /* McMallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = McMallCell.m; sourceTree = "<group>"; };
+		2A4956CD1BB2F4F80036D71C /* SalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesViewController.h; sourceTree = "<group>"; };
+		2A4956CE1BB2F4F80036D71C /* SalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesViewController.m; sourceTree = "<group>"; };
+		2A4956D11BB301DA0036D71C /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
+		2A4956D21BB301DA0036D71C /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
+		2A4956D41BB301FB0036D71C /* OrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
+		2A4956D51BB301FB0036D71C /* OrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
 		2A50F6EB1B10972300607723 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2A50F6EC1B10972300607723 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		2A50F6F31B10985400607723 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
@@ -803,6 +812,7 @@
 		2A37B10D1B0CC83B00D0FE88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A4956D01BB301CA0036D71C /* Order */,
 				2AD38A5B1B7F761000BEA56E /* Setting */,
 				2A06452C1B7C49B300C27AD5 /* Address */,
 				2A7EA20F1B57F712005B04A9 /* UserInfo */,
@@ -847,6 +857,17 @@
 				2A87EE291B411DEF0051D668 /* CommonActivityController.m */,
 			);
 			path = ApplyActivity;
+			sourceTree = "<group>";
+		};
+		2A4956D01BB301CA0036D71C /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				2A4956D11BB301DA0036D71C /* OrderListViewController.h */,
+				2A4956D21BB301DA0036D71C /* OrderListViewController.m */,
+				2A4956D41BB301FB0036D71C /* OrderListCell.h */,
+				2A4956D51BB301FB0036D71C /* OrderListCell.m */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 		2A50F6E91B1096B600607723 /* Base */ = {
@@ -1445,6 +1466,8 @@
 				2AE793231B1C42180008E241 /* RegisterViewController.m */,
 				2A8DFD131B22751900004035 /* EditPasswordViewController.h */,
 				2A8DFD141B22751900004035 /* EditPasswordViewController.m */,
+				2A4956CD1BB2F4F80036D71C /* SalesViewController.h */,
+				2A4956CE1BB2F4F80036D71C /* SalesViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1865,6 +1888,7 @@
 				2AD38A5E1B7F762500BEA56E /* SettingViewController.m in Sources */,
 				2AF5A2761B9AC5F5003F6AB8 /* HHProgressHUD.m in Sources */,
 				2A9DD3A21B401B200010893F /* NSString+HTML.m in Sources */,
+				2A4956CF1BB2F4F80036D71C /* SalesViewController.m in Sources */,
 				2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */,
 				2A95FAA91B9B165800962F79 /* HHNetWorkEngine+Goods.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
@@ -1913,6 +1937,7 @@
 				2AFFF6991B64B82000712317 /* HHNetWorkEngine+Subtitle.m in Sources */,
 				2A0645571B7DC50500C27AD5 /* HomeMenuContentView.m in Sources */,
 				2A6779DE1B4397FB00144ED2 /* PhotoActListCell.m in Sources */,
+				2A4956D61BB301FB0036D71C /* OrderListCell.m in Sources */,
 				2A99BD5A1B15971B004771C8 /* BaseTableViewController.m in Sources */,
 				2AA671721B78E66B00ECC8A3 /* MallListCell.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
@@ -1955,6 +1980,7 @@
 				2AF5A26C1B99BDF7003F6AB8 /* NSUserDefaults+AesEncrypt.m in Sources */,
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,
 				2AF5A2501B99BD2E003F6AB8 /* UIColor+Addition.m in Sources */,
+				2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */,
 				2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,

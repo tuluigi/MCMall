@@ -10,7 +10,6 @@
 
 @interface BaseTableViewController ()
 @property(nonatomic,assign)UITableViewStyle tableViewStyle;
-@property(nonatomic,copy)NSString *dataSourceArrayKey;
 @end
 
 @implementation BaseTableViewController{
@@ -40,8 +39,8 @@
         _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         _tableView.delegate=self;
         _tableView.dataSource=self;
-        //        _tableView.showsHorizontalScrollIndicator=NO;
-        //        _tableView.showsVerticalScrollIndicator=NO;
+                _tableView.showsHorizontalScrollIndicator=NO;
+                _tableView.showsVerticalScrollIndicator=NO;
         _tableView.tableFooterView=[UIView new];
     }
     return _tableView;
@@ -80,12 +79,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.dataSourceArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifer"];
 }
 
 

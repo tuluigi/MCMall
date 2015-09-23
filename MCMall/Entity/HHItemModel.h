@@ -11,7 +11,7 @@
 typedef NS_ENUM(NSInteger, HHUserCenterItemType) {
     HHUserCenterItemTypeUserInfo   ,
     HHUserCenterItemTypePoint       ,
-    HHUserCenterItemTypeConsume     ,//消费记录
+    HHUserCenterItemTypeOrder     ,//消费记录
     HHUserCenterItemTypeShop        ,
     HHUserCenterItemTypeTel         ,
     HHUserCenterItemTypeBabyInfo    ,

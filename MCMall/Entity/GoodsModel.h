@@ -29,12 +29,12 @@
 
 @interface OrderModel : BaseModel
 @property(nonatomic,copy)NSString *orderID;
-@property(nonatomic,strong)NSDate *orderDate;
+@property(nonatomic,copy)NSString *orderTime;
 @property(nonatomic,copy)NSString *goodsID;
 @property(nonatomic,copy)NSString *goodsName;
 @property(nonatomic,copy)NSString *goodsThumbImageUrl;
 @property(nonatomic,assign)CGFloat goodsPrice;//价钱
-@property(nonatomic,assign)CGFloat goodsNum;//商品数量
+@property(nonatomic,assign)NSInteger goodsNum;//商品数量
 @property(nonatomic,assign)CGFloat deductPoints;//抵扣积分
 @property(nonatomic,assign)CGFloat totalPrice;//总价
 @end

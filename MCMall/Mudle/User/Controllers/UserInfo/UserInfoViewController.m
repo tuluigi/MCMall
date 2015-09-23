@@ -11,6 +11,7 @@
 #import "HHItemModel.h"
 #import "HHImagePickerHelper.h"
 #import "EditPasswordViewController.h"
+
 @interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 

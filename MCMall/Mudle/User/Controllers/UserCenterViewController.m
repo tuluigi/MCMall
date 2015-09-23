@@ -17,6 +17,7 @@
 #import "HHItemModel.h"
 #import "HHKeyValueContainerView.h"
 #import "SettingViewController.h"
+#import "OrderListViewController.h"
 @interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
@@ -251,8 +252,8 @@
         case HHUserCenterItemTypePoint:{
             //cell.detailTextLabel.text=[userModel.userAmount.stringValue stringByAppendingString:@"(去充值)"];
         }break;
-        case HHUserCenterItemTypeConsume:{
-            cell.detailTextLabel.text=@"5";
+        case HHUserCenterItemTypeOrder:{
+            cell.detailTextLabel.text=@"";
         }break;
         case HHUserCenterItemTypeShop:{
             cell.detailTextLabel.text=userModel.shopName;
@@ -311,7 +312,12 @@
             settinControler.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:settinControler animated:YES];
         }break;
-            
+            case HHUserCenterItemTypeOrder:{
+                OrderListViewController *orderListController=[[OrderListViewController alloc]  init];
+                orderListController.hidesBottomBarWhenPushed=YES;
+                [self.navigationController pushViewController:orderListController animated:YES];
+            }
+            break;
         default:
             break;
     }
