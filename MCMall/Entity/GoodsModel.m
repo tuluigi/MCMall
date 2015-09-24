@@ -25,7 +25,7 @@
              @"goodsID":@"goodId",
              @"goodsName":@"goodName",
              @"goodsImageUrl":@"goodImg",
-             @"orignalPrice":@"scprice",
+             @"marketPrice":@"scprice",
              @"sellPrice":@"zxprice",
               @"vipPrice":@"vipprice",
               @"deductionPoint":@"deduction",
@@ -33,10 +33,13 @@
              @"endTime":@"endDay",
              @"goodsDetail":@"synopsis",
              @"goodsBigImageUrl":@"bigImg",
+             @"goodsPoints":@"point",
+             @"deliverNotice":@"notice",
+             @"goodsRemark":@"oneself",
              };
 }
 + (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
-    if ([key isEqualToString:@"oldPrice"]||[key isEqualToString:@"newPrice"]||[key isEqualToString:@"stock"]) {
+    if ([key isEqualToString:@"marketPrice"]||[key isEqualToString:@"sellPrice"]||[key isEqualToString:@"vipPrice"]||[key isEqualToString:@"storeNum"]||[key isEqualToString:@"deductionPoint"]) {
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
                 return [NSNumber numberWithFloat:[value floatValue]];
@@ -77,9 +80,6 @@
              @"goodsPrice":@"price",
              @"goodsNum":@"quantity",
              @"deductPoints":@"point",
-             @"goodsPoints":@"point",
-              @"deliverNotice":@"notice",
-              @"goodsRemark":@"oneself",
              };
 }
 

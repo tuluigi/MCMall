@@ -25,13 +25,13 @@
 +(NSString *)onInitConfig{
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
     if ([identifier isEqualToString:@"com.MCMall.BaiJiaXin"]) {
-        MCMallShopID=@"De716c1";
+        MCMallShopID=@"D664fdc";
         MCMallShopName=@"百家欣";
     }else if ([identifier isEqualToString:@"com.MCMall.YingZiGu"]){
-        MCMallShopID=@"D2077d9";
+        MCMallShopID=@"D6d3e98";
         MCMallShopName=@"婴姿谷";
     }else if ([identifier isEqualToString:@"com.MCMall.BaoBeiEJia"]){
-        MCMallShopID=@"D6d3e98";
+        MCMallShopID=@"De716c1";
         MCMallShopName=@"宝贝e家";
     }else if ([identifier isEqualToString:@"com.MCMall.AiYingBao"]){
         MCMallShopID=@"D396e33";
@@ -40,7 +40,7 @@
         MCMallShopID=@"Dc11375";
         MCMallShopName=@"海豚贝贝";
     }else if ([identifier isEqualToString:@"com.MCMall.HaHa"]){
-        MCMallShopID=@"De716c1";
+        MCMallShopID=@"D664fdc";
         MCMallShopName=@"百家欣";
     }
     return MCMallShopID;

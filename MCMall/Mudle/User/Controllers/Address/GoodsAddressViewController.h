@@ -7,7 +7,14 @@
 //
 
 #import "BaseTableViewController.h"
+@class AddressModel;
+@protocol GoodsAddressViewControllerDelegate <NSObject>
+
+-(void)didSelectUserReceiveAddresss:(AddressModel *)addressModel;
+
+@end
 
 @interface GoodsAddressViewController : BaseTableViewController
-
+@property(nonatomic,assign)BOOL isSelect;
+@property(nonatomic,weak)id<GoodsAddressViewControllerDelegate>delegate;
 @end

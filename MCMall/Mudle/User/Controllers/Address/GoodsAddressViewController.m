@@ -74,7 +74,7 @@
     if (nil==cell) {
         cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifer"];
         cell.selectionStyle=UITableViewCellSelectionStyleGray;
-        cell.textLabel.font=[UIFont systemFontOfSize:14];
+        cell.textLabel.font=[UIFont boldSystemFontOfSize:14];
         cell.textLabel.textColor=[UIColor blackColor];
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];
         cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
@@ -99,8 +99,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    if (self.isSelect) {
+        if (_delegate&&[_delegate respondsToSelector:@selector(didSelectUserReceiveAddresss:)]) {
+            [_delegate didSelectUserReceiveAddresss:addresssModel];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
     GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
     [self.navigationController pushViewController:addAddresssController animated:YES];
+    }
 }
 /*
 #pragma mark - Navigation

@@ -113,8 +113,10 @@
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsDetailWithGoodsID:goodsID userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismiss];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            _goodsModel.goodsDetail=((GoodsModel *)responseResult.responseData).goodsDetail;
+            weakSelf.goodsModel=((GoodsModel *)responseResult.responseData);
+            weakSelf.goodsModel.goodsID=goodsID;
             [self.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
+            [weakSelf.tableView reloadData];
         }else{
             [weakSelf.view makeToast:responseResult.responseMessage];
         }
@@ -124,7 +126,7 @@
 
 #pragma mark-tableview delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 4;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifer=@"cellidentifer";
@@ -147,14 +149,23 @@
             }
             cell.textLabel.text=timeStr;
         }
-    }else if (indexPath.row==1){
-        cell.textLabel.textColor=MCMallThemeColor;
-        cell.textLabel.textAlignment=NSTextAlignmentRight;
-        NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.orignalPrice orignalFontSize:14 newPrice:_goodsModel.sellPrice newFontSize:18];
-        cell.textLabel.attributedText=priceAttrStr;
-        cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
-        cell.detailTextLabel.textColor=[UIColor darkGrayColor];
-        cell.detailTextLabel.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
+    }else{
+        if (indexPath.row==1) {
+            cell.textLabel.textColor=MCMallThemeColor;
+            cell.textLabel.textAlignment=NSTextAlignmentRight;
+            NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.marketPrice orignalFontSize:14 newPrice:_goodsModel.sellPrice newFontSize:18];
+            cell.textLabel.attributedText=priceAttrStr;
+            cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
+            cell.detailTextLabel.textColor=[UIColor darkGrayColor];
+            cell.detailTextLabel.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
+        }else if (indexPath.row==2){
+            cell.textLabel.text=@"商家自荐:";
+            cell.detailTextLabel.text=self.goodsModel.goodsRemark;
+        }else if (indexPath.row==3){
+            cell.textLabel.text=@"发货须知:";
+            cell.detailTextLabel.text=self.goodsModel.deliverNotice;
+        }
+      
     }
     return cell;
 }
