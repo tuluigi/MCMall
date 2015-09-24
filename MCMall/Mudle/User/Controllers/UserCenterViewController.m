@@ -34,7 +34,7 @@
 -(UIView *)headerView{
     if (nil==_headerView) {
         _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160.0)];
-        _logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
+        _logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"icon"]];
         _logoImgView.userInteractionEnabled=YES;
         [_headerView addSubview:_logoImgView];
         [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {

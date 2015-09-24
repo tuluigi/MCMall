@@ -96,6 +96,8 @@
                                           userID:(NSString *)userID
                              onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     WEAKSELF
+    goodsID=[NSString stringByReplaceNullString:goodsID];
+    userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI getGoodsDetailAPI];
     NSDictionary *postDic=@{@"goodid":goodsID,@"userid":userID};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {

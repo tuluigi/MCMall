@@ -25,6 +25,9 @@
 @property(nonatomic,assign)NSInteger storeNum;//库存
 @property(nonatomic,strong)NSDate   *endTime;
 @property(nonatomic,copy)NSString *goodsDetail;
+@property(nonatomic,assign)CGFloat goodsPoints;//可用积分
+@property(nonatomic,copy)NSString *deliverNotice;//发货须知
+@property(nonatomic,copy)NSString *goodsRemark;//商家自荐
 @end
 
 @interface OrderModel : BaseModel

@@ -38,10 +38,11 @@
         
         itemsArray=@[sectionArray0,sectionArray1,sectionArray2,sectionArray3];
     }else{
-        HHItemModel *settingItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeSetting name:@"设置" image:[UIImage imageNamed:@"item_setting"]];
-        NSArray *sectionArray3=@[settingItem];
-        
-        itemsArray=@[sectionArray3];
+//        HHItemModel *settingItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeSetting name:@"设置" image:[UIImage imageNamed:@"item_setting"]];
+//        NSArray *sectionArray3=@[settingItem];
+//        
+//        itemsArray=@[sectionArray3];
+        itemsArray=nil;
     }
   
     

@@ -21,4 +21,7 @@
 #define MCMallTimerTaskNotification @"MCMallTimerTaskNotification"
 
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
+
+ NSString * MCMallShopID;
+ NSString *MCMallShopName;
 #endif

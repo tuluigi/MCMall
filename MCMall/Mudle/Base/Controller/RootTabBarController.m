@@ -61,7 +61,7 @@
     
      MCMallViewController *mcMallController=[[MCMallViewController alloc]  initWithStyle:UITableViewStyleGrouped];
      UINavigationController *mcNavController=[[UINavigationController alloc] initWithRootViewController:mcMallController];
-    HHTabBarItem *mallTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"首页" image:[UIImage imageNamed:@"tabbar_home"] selectedImage:[UIImage   imageNamed:@"tabbar_home_HL"]];
+    HHTabBarItem *mallTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@" " image:[UIImage imageNamed:@"tabbar_home_HL"] selectedImage:[UIImage   imageNamed:@"tabbar_home_HL"]];
     mcNavController.tabBarItem=mallTabbarItem;
 
     
@@ -91,7 +91,9 @@
     
     NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:activityNavController,subjectNavController,mcNavController,vipNavController,userNavController, nil];
     self.viewControllers=tabBarControllers;
+
 }
+
 /*
  #pragma mark - Navigation
  

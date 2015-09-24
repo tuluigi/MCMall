@@ -39,7 +39,7 @@
 
 -(void)getSubjectList{
     if (self.dataSourceArray.count==0) {
-        [self.tableView showPageLoadingView];
+        [self.view showPageLoadingView];
     }
     WEAKSELF
     HHNetWorkOperation *op= [SubjectNetService getSubjectListWithPageIndex:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
@@ -53,9 +53,9 @@
           
             [weakSelf.tableView reloadData];
             if (weakSelf.dataSourceArray.count==0) {
-                [weakSelf.tableView showPageLoadedMessage:@"暂时没有更多内容" delegate:nil];
+                [weakSelf.view showPageLoadedMessage:@"暂时没有更多内容" delegate:nil];
             }else{
-                [weakSelf.tableView dismissPageLoadView];
+                [weakSelf.view dismissPageLoadView];
                 if (((NSArray *)responseResult.responseData).count==0) {
                     [weakSelf.view makeToast:@"没有更多内容"];
                 }

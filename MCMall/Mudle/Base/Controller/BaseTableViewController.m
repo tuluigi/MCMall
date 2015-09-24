@@ -39,8 +39,8 @@
         _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         _tableView.delegate=self;
         _tableView.dataSource=self;
-                _tableView.showsHorizontalScrollIndicator=NO;
-                _tableView.showsVerticalScrollIndicator=NO;
+//                _tableView.showsHorizontalScrollIndicator=NO;
+//                _tableView.showsVerticalScrollIndicator=NO;
         _tableView.tableFooterView=[UIView new];
     }
     return _tableView;

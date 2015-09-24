@@ -24,7 +24,7 @@
     [self onInitData];
 }
 -(void)onInitData{
-    self.title=@"知婴知孕";
+    self.title=MCMallShopName;
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(leftNavigationItemClicked)];
     self.tableView.backgroundColor=[UIColor red:240.0 green:241.0 blue:246.0 alpha:1];
     self.tableView.tableHeaderView=self.headerView;
@@ -34,7 +34,7 @@
 -(UIView *)headerView{
     if (nil==_headerView) {
         _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160)];
-        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"loading_Default"]];
+        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"icon"]];
         [_headerView addSubview:logoImgView];
         [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(_headerView);

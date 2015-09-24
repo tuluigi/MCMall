@@ -33,7 +33,12 @@
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
-            [weakSelf.tableView reloadData];
+            if (weakSelf.dataSourceArray.count) {
+                [weakSelf.tableView reloadData];
+            }else{
+                [weakSelf.view showPageLoadedMessage:@"暂时还没有母婴顾问" delegate:nil];
+            };
+            
         }else{
             [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }

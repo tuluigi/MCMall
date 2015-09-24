@@ -34,7 +34,7 @@
                         title:(NSString *)title
           onValueChangedBlock:(OCBlurCommentViewValueChangeBlock)valueChangeBlock
               completionBlock:(OCBlurCommentViewCompletionBlock)completionBlock{
-      OCBlurCommentView *blurView=[[OCBlurCommentView alloc]  init];
+      OCBlurCommentView *blurView=[OCBlurCommentView blurCommentView];
     [blurView showOCBlouCommenInView:aView comments:comment placeholder:placeholder title:title onValueChangedBlock:valueChangeBlock completionBlock:completionBlock];
 }
 -(void)showOCBlouCommenInView:(UIView *)aView

@@ -13,8 +13,12 @@
     MBProgressHUD *hudView=[MBProgressHUD HUDForView:self];
     if (nil==hudView) {
         hudView=[[MBProgressHUD alloc]  initWithView:self];
+        hudView.removeFromSuperViewOnHide=YES;
         [self addSubview:hudView];
         [hudView show:YES];
+    }else{
+        hudView.alpha=1;
+        hudView.hidden=NO;
     }
     return hudView;
 }

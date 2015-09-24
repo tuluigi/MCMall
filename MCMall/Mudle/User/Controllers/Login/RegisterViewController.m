@@ -70,6 +70,7 @@
     if (nil==_footView) {
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         _footView.userInteractionEnabled=YES;
+        /*
         UIButton *checkLeftButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_footView addSubview:checkLeftButton];
         checkLeftButton.tag=1000;
@@ -117,8 +118,8 @@
             make.top.equalTo(checkRightButton);
             make.size.mas_equalTo(CGSizeMake(120.0, 20.0));
         }];
-        
-        
+        */
+    
         NSInteger tag=2000;
         for (NSInteger i=0; i<3; i++) {
             UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -133,7 +134,7 @@
                 [actionButton setTitle:@"完成注册" forState:UIControlStateNormal];
                 
                 [actionButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.top.mas_equalTo(checkLeftButton.mas_bottom).offset(20.0);
+                    make.top.mas_equalTo(_footView.mas_top).offset(20.0);
                     make.left.mas_equalTo(_footView).with.offset(20.0);
                     make.right.mas_equalTo(_footView.right).with.offset(-20.0);
                     make.height.equalTo(@40.0);
@@ -218,10 +219,14 @@
 #pragma mark 获取验证码
 -(void)didVerifyCodeButtonPressed:(UIButton *)sender{
     WEAKSELF
-    sender.enabled=NO;
+    if (![self.telPhone isPhoneNumber]) {
+        [self.view showErrorMssage:@"请输入正确手机号码"];
+        return;
+    }
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getVerifyPhoneCodeWithPhoneNumber:self.telPhone onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [self.timer setFireDate:[NSDate date]];
+            [weakSelf.view showSuccessMessage:[NSString stringWithFormat:@"验证码已发送到手机%@,请注意查收！",self.telPhone]];
         }else{
             sender.enabled=YES;
             weakSelf.totalTime=TotalTimeDuration;
@@ -245,6 +250,7 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
         cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
         UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
         textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
@@ -263,7 +269,8 @@
         _actionButton.frame=CGRectMake(0, 5.0, 80, 34.0);
         _actionButton.layer.cornerRadius=5.0;
         _actionButton.layer.masksToBounds=YES;
-        _actionButton.enabled=NO;
+//        _actionButton.enabled=NO;
+        _actionButton.userInteractionEnabled=YES;
         [_actionButton setTitle:@"发送验证码" forState:UIControlStateNormal];
         [_actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_actionButton setBackgroundImage:nil forState:UIControlStateSelected|UIControlStateNormal];
@@ -348,11 +355,11 @@
         }break;
         case 3:{
             self.telPhone=textFiled.text;
-            if ([self.telPhone isPhoneNumber]) {
-                self.actionButton.enabled=YES;
-            }else{
-                self.actionButton.enabled=NO;
-            }
+//            if ([self.telPhone isPhoneNumber]) {
+//                self.actionButton.enabled=YES;
+//            }else{
+//                self.actionButton.enabled=NO;
+//            }
         }break;
         case 4:{
             self.verfiCodeStr=textFiled.text;

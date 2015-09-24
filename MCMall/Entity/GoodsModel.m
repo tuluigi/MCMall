@@ -73,10 +73,13 @@
              @"goodsID":@"goodImg",
              @"goodsName":@"goodsName",
              @"goodsThumbImageUrl":@"small",
+             @"goodsBigImageUrl":@"bigImg",
              @"goodsPrice":@"price",
              @"goodsNum":@"quantity",
              @"deductPoints":@"point",
-             @"totalPrice":@"total",
+             @"goodsPoints":@"point",
+              @"deliverNotice":@"notice",
+              @"goodsRemark":@"oneself",
              };
 }
 

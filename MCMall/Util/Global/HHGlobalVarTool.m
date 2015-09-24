@@ -22,16 +22,35 @@
  *
  *  @return
  */
-+(NSString *)shopID{
-    NSString *shopID=@"";
++(NSString *)onInitConfig{
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMall.HaHa"]) {
-        shopID=@"D2077d9";
+    if ([identifier isEqualToString:@"com.MCMall.BaiJiaXin"]) {
+        MCMallShopID=@"De716c1";
+        MCMallShopName=@"百家欣";
+    }else if ([identifier isEqualToString:@"com.MCMall.YingZiGu"]){
+        MCMallShopID=@"D2077d9";
+        MCMallShopName=@"婴姿谷";
+    }else if ([identifier isEqualToString:@"com.MCMall.BaoBeiEJia"]){
+        MCMallShopID=@"D6d3e98";
+        MCMallShopName=@"宝贝e家";
+    }else if ([identifier isEqualToString:@"com.MCMall.AiYingBao"]){
+        MCMallShopID=@"D396e33";
+        MCMallShopName=@"爱婴堡";
+    }else if ([identifier isEqualToString:@"com.MCMall.HaiTunBeiBei"]){
+        MCMallShopID=@"Dc11375";
+        MCMallShopName=@"海豚贝贝";
+    }else if ([identifier isEqualToString:@"com.MCMall.HaHa"]){
+        MCMallShopID=@"De716c1";
+        MCMallShopName=@"百家欣";
     }
-    shopID=@"D2077d9";
-    return shopID;
+    return MCMallShopID;
 }
-
++(NSString *)shopName{
+   return  MCMallShopName;
+}
++(NSString *)shopID{
+    return MCMallShopID;
+}
 #pragma mark- token
 +(NSString *)deviceToken{
     NSString *tokenStr=[[NSUserDefaults standardUserDefaults]  objectForKey:@"__Device_Token__"];

@@ -60,10 +60,10 @@
 -(void)getActivityListWithPageNum:(NSUInteger)num pageSize:(NSInteger)size{
     WEAKSELF
     if (self.dataSourceArray.count==0) {
-        [self.tableView showPageLoadingView];
+        [self.view showPageLoadingView];
     }
    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[HHUserManager userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
-        [self.tableView dismissPageLoadView];
+        [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (num==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
@@ -73,7 +73,7 @@
             }
             [weakSelf.tableView reloadData];
         }else{
-            [weakSelf.tableView showPageLoadedMessage:responseResult.responseMessage delegate:nil];
+            [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }
          [weakSelf.tableView handlerInifitScrollingWithPageIndex:(&_pageIndex) pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];
