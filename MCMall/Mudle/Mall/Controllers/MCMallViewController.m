@@ -16,7 +16,7 @@
 #import "HomeMenuContentView.h"
 #import "MotherDiaryViewController.h"
 #import "GoodsDetailViewController.h"
-@interface MCMallViewController ()
+@interface MCMallViewController ()<UIActionSheetDelegate>
 @property(nonatomic,strong)NSMutableArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)HHFlowView *flowView;
@@ -141,9 +141,13 @@
             [self.navigationController pushViewController:signupController animated:YES];
 
         }else if (item==HomeMenuViewItemGoods){
+           UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"按键卫士" otherButtonTitles:@"防丢神奇", nil];
+            [actionSheet showInView:self.view];
+            /*
             GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
             goodListController.hidesBottomBarWhenPushed=YES;
             [self.navigationController pushViewController:goodListController animated:YES];
+             */
         }else if (item==HomeMenuViewItemDiary){
             MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];
             diraryController.hidesBottomBarWhenPushed=YES;
@@ -173,7 +177,10 @@
     goodsDetailController.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:goodsDetailController animated:YES];
 }
+#pragma mark - actionSheetDeleget
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
 
+}
 /*
 #pragma mark - Navigation
 

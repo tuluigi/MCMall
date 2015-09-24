@@ -11,6 +11,7 @@
 #import "GoodsModel.h"
 #import "HHPhotoBroswer.h"
 #import "NSString+MCHtml.h"
+#import "AddShopCartViewController.h"
 @interface GoodsDetailViewController ()<UIWebViewDelegate>
 @property(nonatomic,strong)UIImageView *goodsImageView;
 @property(nonatomic,strong)UIToolbar *tooBar;
@@ -73,6 +74,9 @@
     }else if ([sender isKindOfClass:[UIButton class]]){//预订
         UIButton *button=(UIButton *)sender;
         if (button.tag==102) {
+            AddShopCartViewController *addShopCarController=[[AddShopCartViewController alloc]  init];
+            addShopCarController.goodsModel=self.goodsModel;
+            [self.navigationController pushViewController:addShopCarController animated:YES];
                   }
     }
 }

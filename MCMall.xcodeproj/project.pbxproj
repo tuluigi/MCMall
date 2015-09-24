@@ -39,6 +39,7 @@
 		2A4956CF1BB2F4F80036D71C /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956CE1BB2F4F80036D71C /* SalesViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D21BB301DA0036D71C /* OrderListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2A4956D61BB301FB0036D71C /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D51BB301FB0036D71C /* OrderListCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A4956DA1BB466930036D71C /* AddShopCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D91BB466930036D71C /* AddShopCartViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F41B10985400607723 /* RootTabBarController.m */; };
 		2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6F81B10987C00607723 /* ActivityViewController.m */; };
@@ -274,6 +275,8 @@
 		2A4956D21BB301DA0036D71C /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
 		2A4956D41BB301FB0036D71C /* OrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
 		2A4956D51BB301FB0036D71C /* OrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
+		2A4956D81BB466930036D71C /* AddShopCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShopCartViewController.h; sourceTree = "<group>"; };
+		2A4956D91BB466930036D71C /* AddShopCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShopCartViewController.m; sourceTree = "<group>"; };
 		2A50F6EB1B10972300607723 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		2A50F6EC1B10972300607723 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		2A50F6F31B10985400607723 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
@@ -868,6 +871,15 @@
 				2A4956D51BB301FB0036D71C /* OrderListCell.m */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		2A4956D71BB4667E0036D71C /* ShopCart */ = {
+			isa = PBXGroup;
+			children = (
+				2A4956D81BB466930036D71C /* AddShopCartViewController.h */,
+				2A4956D91BB466930036D71C /* AddShopCartViewController.m */,
+			);
+			path = ShopCart;
 			sourceTree = "<group>";
 		};
 		2A50F6E91B1096B600607723 /* Base */ = {
@@ -1608,6 +1620,7 @@
 		2AFAC6441BA59FC500C2B131 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A4956D71BB4667E0036D71C /* ShopCart */,
 				2AFAC6481BA59FE200C2B131 /* GoodsDetailViewController.h */,
 				2AFAC6491BA59FE200C2B131 /* GoodsDetailViewController.m */,
 				2AFAC64A1BA59FE200C2B131 /* GoodsListViewController.h */,
@@ -1901,6 +1914,7 @@
 				2A95FAA41B9B15F700962F79 /* HHNetWorkEngine+Assistant.m in Sources */,
 				2AC28B841B70F7A600F91760 /* HHItemModel.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
+				2A4956DA1BB466930036D71C /* AddShopCartViewController.m in Sources */,
 				2AFAC64C1BA59FE200C2B131 /* GoodsDetailViewController.m in Sources */,
 				2AF5A2571B99BD2E003F6AB8 /* UIView+Addition.m in Sources */,
 				2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */,
