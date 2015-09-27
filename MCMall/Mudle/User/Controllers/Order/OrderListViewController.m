@@ -71,13 +71,14 @@
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    OrderListCell *cell=(OrderListCell *)[tableView dequeueReusableCellWithIdentifier:@"" forIndexPath:indexPath];
+    OrderListCell *cell=(OrderListCell *)[tableView dequeueReusableCellWithIdentifier:OrderListCellIdentifer forIndexPath:indexPath];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     OrderModel *orderModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.orderModel=orderModel;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 120;
 }
 /*
 #pragma mark - Navigation

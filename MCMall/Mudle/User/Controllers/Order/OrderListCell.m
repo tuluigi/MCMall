@@ -15,7 +15,12 @@
 @end
 
 @implementation OrderListCell
-
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if ([super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self onInitUI];
+    }
+    return self;
+}
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -48,27 +53,27 @@
     
     _goodsNameLable=[[UILabel alloc]  init];
     _goodsNameLable.textAlignment=NSTextAlignmentLeft;
-    _goodsNameLable.font=[UIFont systemFontOfSize:16];
+    _goodsNameLable.font=[UIFont systemFontOfSize:14];
     _goodsNameLable.textColor=[UIColor blackColor];
     _goodsNameLable.numberOfLines=2;
     [self.contentView addSubview:_goodsNameLable];
     
     _goodsPriceLable=[[UILabel alloc]  init];
     _goodsPriceLable.textAlignment=NSTextAlignmentLeft;
-    _goodsPriceLable.font=[UIFont systemFontOfSize:14];
+    _goodsPriceLable.font=[UIFont systemFontOfSize:13];
     _goodsPriceLable.textColor=[UIColor darkGrayColor];
     [self.contentView addSubview:_goodsPriceLable];
 
     
     _orderCountLable=[[UILabel alloc]  init];
     _orderCountLable.textAlignment=NSTextAlignmentLeft;
-    _orderCountLable.font=[UIFont systemFontOfSize:14];
+    _orderCountLable.font=[UIFont systemFontOfSize:13];
     _orderCountLable.textColor=[UIColor darkGrayColor];
     [self.contentView addSubview:_orderCountLable];
     
     _pointLable=[[UILabel alloc]  init];
     _pointLable.textAlignment=NSTextAlignmentLeft;
-    _pointLable.font=[UIFont systemFontOfSize:14];
+    _pointLable.font=[UIFont systemFontOfSize:13];
     _pointLable.textColor=[UIColor darkGrayColor];
     [self.contentView addSubview:_pointLable];
     
@@ -91,7 +96,7 @@
     [_orderTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.height.mas_equalTo(weakSelf.orderNumLable);
         make.right.mas_equalTo(weakSelf.contentView).offset(-5);
-        make.width.mas_lessThanOrEqualTo(100);
+        make.left.mas_equalTo(weakSelf.orderNumLable.mas_right);
     }];
     [lineLable0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.orderNumLable.mas_bottom);
@@ -101,8 +106,8 @@
     
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(10);
-        make.top.mas_equalTo(lineLable0.mas_bottom);
-        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.top.mas_equalTo(lineLable0.mas_bottom).offset(5);
+        make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.goodsImageView.mas_right).offset(10);
@@ -112,27 +117,27 @@
     }];
     [_goodsPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.goodsNameLable.mas_left);
-        make.top.mas_equalTo(weakSelf.goodsNameLable).offset(5);
+        make.top.mas_equalTo(weakSelf.goodsNameLable.mas_bottom).offset(5);
         make.size.mas_equalTo(CGSizeMake(80, 20));
     }];
   
     [_orderCountLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.goodsPriceLable.mas_left);
+        make.left.mas_equalTo(weakSelf.goodsPriceLable.mas_right);
         make.top.mas_equalTo(weakSelf.goodsPriceLable);
         make.size.mas_equalTo(weakSelf.goodsPriceLable);
     }];
     [_pointLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.orderCountLable.mas_left);
-        make.top.mas_equalTo(weakSelf.goodsNameLable).offset(5);
+        make.left.mas_equalTo(weakSelf.orderCountLable.mas_right);
+        make.top.mas_equalTo(weakSelf.goodsPriceLable);
         make.size.mas_equalTo(CGSizeMake(80, 20));
     }];
     [lineLable1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.goodsImageView.mas_bottom);
+        make.top.mas_equalTo(weakSelf.goodsImageView.mas_bottom).offset(5);
         make.left.right.mas_equalTo(weakSelf.contentView);
-        make.height.mas_equalTo(1);
+        make.height.mas_equalTo(0.5);
     }];
     [_totalPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(lineLable0.mas_bottom);
+        make.top.mas_equalTo(lineLable1.mas_bottom).offset(5);
         make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(10);
         make.right.mas_equalTo(weakSelf.contentView.mas_right).offset(-10);
         make.height.mas_equalTo(20);
@@ -145,7 +150,7 @@
     _orderTimeLable.text=_orderModel.orderTime;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:_orderModel.goodsThumbImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=_orderModel.goodsName;
-    _goodsPriceLable.text=[@"￥" stringByAppendingString:[NSString stringWithFormat:@"%1f",_orderModel.goodsPrice]];
+    _goodsPriceLable.text=[@"￥" stringByAppendingString:[NSString stringWithFormat:@"%.1f",_orderModel.goodsPrice]];
     
     _orderCountLable.text=[@"X" stringByAppendingString:[NSString stringWithFormat:@"%ld",_orderModel.goodsNum]];
     _pointLable.text=[@"积分:" stringByAppendingString:[NSString stringWithFormat:@"%.0f",_orderModel.deductPoints]];

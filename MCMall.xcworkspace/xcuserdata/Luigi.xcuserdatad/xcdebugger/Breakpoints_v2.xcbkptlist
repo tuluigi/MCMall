@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/Login/RegisterViewController.m"
-            timestampString = "464802111.1106"
+            filePath = "MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
+            timestampString = "465047683.497673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "-didVerifyCodeButtonPressed:"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "-didSelectUserReceiveAddresss:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHUIKit/UIView+HUD.m"
-            timestampString = "464801739.251369"
+            filePath = "MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
+            timestampString = "465047683.497673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-showErrorMssage:"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "-didMinusButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Mall/Controllers/MCMallViewController.m"
-            timestampString = "464803934.764383"
+            filePath = "MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
+            timestampString = "465047683.497673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "-didTextFiledValueChanged:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Mall/Model/Net/HHNetWorkEngine+Goods.m"
-            timestampString = "464806829.341194"
+            filePath = "MCMall/Mudle/User/Controllers/Order/OrderListViewController.m"
+            timestampString = "465048052.966502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-parseGoodsDetailWithResponseResult:"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-getOrderListWithUserID:pageID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +83,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Goods/Controller/GoodsDetailViewController.m"
-            timestampString = "464808352.791429"
+            filePath = "MCMall/Mudle/User/Model/NetEngine/HHUserNetService.m"
+            timestampString = "465048112.086017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-getGoodsDetailWithGoodsID:"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "+getOrderListWithUserID:pageIndex:pageSize:onCompletionHandler:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__82+[HHUserNetService getOrderListWithUserID:pageIndex:pageSize:onCompletionHandler:]_block_invoke"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/User/Model/NetEngine/HHUserNetService.m"
+                  timestampString = "465048474.339723"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "82">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__82+[HHUserNetService getOrderListWithUserID:pageIndex:pageSize:onCompletionHandler:]_block_invoke_2"
+                  moduleName = "MCMall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/User/Model/NetEngine/HHUserNetService.m"
+                  timestampString = "465048474.340071"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHBaseNetService.m"
+            timestampString = "465048137.377173"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "+parseMcMallResponseObject:modelClass:error:onCompletionBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,77 +147,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Goods/Controller/GoodsDetailViewController.m"
-            timestampString = "464808352.791429"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHBaseNetService.m"
+            timestampString = "465048165.670859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-getGoodsDetailWithGoodsID:"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "+parseMcMallResponseObject:modelClass:error:onCompletionBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
-            timestampString = "465011643.120088"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHNetEngine/HHResponseResult.m"
+            timestampString = "465048267.829524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-uploadUserImageWithUserID:imagePath:progressHandle:onCompletionHandler:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/UserInfo/UserInfoViewController.m"
-            timestampString = "465011643.120088"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-uploadHeaderImageWithImagePath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/UserInfo/UserInfoViewController.m"
-            timestampString = "465011567.314125"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/UserInfo/BabeInfoViewController.m"
-            timestampString = "465013212.028623"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "-alertView:clickedButtonAtIndex:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "+responseResultWithResponseObject:error:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

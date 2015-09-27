@@ -40,8 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    self.navigationItem.title=[MCMallShopName stringByAppendingString:@"会员系统"];
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
+
     // Do any additional setup after loading the view.
    
     self.tableView.tableHeaderView=self.flowView;
@@ -74,9 +73,7 @@
     }
 }
 
--(void)handTimerTask:(NSTimer *)timer{
-    [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
-}
+
 
 -(void)getCategoryList{
    [self.view showPageLoadingView];

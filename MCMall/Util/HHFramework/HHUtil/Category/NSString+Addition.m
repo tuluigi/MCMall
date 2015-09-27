@@ -376,7 +376,15 @@
 @end
 
 @implementation NSString (Attr)
-
+-(NSAttributedString *)horizontalLineAttrStringWithTextColor:(UIColor *)color font:(UIFont *)font{
+    
+    NSMutableAttributedString *priceAttrStr=[[NSMutableAttributedString alloc]  initWithString:self attributes:@{NSStrikethroughStyleAttributeName: @(NSUnderlineStyleNone)}];
+    NSDictionary *priceDic=@{
+                             NSForegroundColorAttributeName:color,NSFontAttributeName:font,
+                             NSStrikethroughStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+    [priceAttrStr addAttributes:priceDic range:NSMakeRange(0, self.length)];
+    return priceAttrStr;
+}
 +(NSAttributedString *)attributedStringWithOrignalPrice:(CGFloat )orignalPrce orignalFontSize:(CGFloat)orignalFontSize newPrice:(CGFloat)newPrice newFontSize:(CGFloat)newFontSize{
     NSString *orignalPriceStr=[NSString stringWithFormat:@"￥%.1f",orignalPrce];
     NSString *newPriceStr=[NSString stringWithFormat:@"￥%.1f",newPrice];

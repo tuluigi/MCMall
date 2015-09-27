@@ -31,7 +31,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:attrDic];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
-    
+   NSTimer * _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     // iOS8 下需要使用新的 API
     /*
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
@@ -67,7 +68,9 @@
     [HHShaeTool setSharePlatform];
     return YES;
 }
-
+-(void)handTimerTask:(NSTimer *)timer{
+    [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

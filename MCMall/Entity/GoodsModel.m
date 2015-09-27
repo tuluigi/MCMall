@@ -25,7 +25,7 @@
              @"goodsID":@"goodId",
              @"goodsName":@"goodName",
              @"goodsImageUrl":@"goodImg",
-             @"marketPrice":@"scprice",
+             @"orignalPrice":@"scprice",
              @"sellPrice":@"zxprice",
               @"vipPrice":@"vipprice",
               @"deductionPoint":@"deduction",
@@ -39,7 +39,7 @@
              };
 }
 + (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
-    if ([key isEqualToString:@"marketPrice"]||[key isEqualToString:@"sellPrice"]||[key isEqualToString:@"vipPrice"]||[key isEqualToString:@"storeNum"]||[key isEqualToString:@"deductionPoint"]) {
+    if ([key isEqualToString:@"orignalPrice"]||[key isEqualToString:@"sellPrice"]||[key isEqualToString:@"vipPrice"]||[key isEqualToString:@"storeNum"]||[key isEqualToString:@"deductionPoint"]) {
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
                 return [NSNumber numberWithFloat:[value floatValue]];
@@ -73,16 +73,38 @@
     return @{
              @"orderID":@"no",
              @"orderTime":@"time",
-             @"goodsID":@"goodImg",
-             @"goodsName":@"goodsName",
+             @"goodsName":@"goodName",
              @"goodsThumbImageUrl":@"small",
-             @"goodsBigImageUrl":@"bigImg",
-             @"goodsPrice":@"price",
+             @"totalPrice":@"total",
              @"goodsNum":@"quantity",
              @"deductPoints":@"point",
+              @"goodsPrice":@"price",
              };
 }
+-(void)setGoodsThumbImageUrl:(NSString *)goodsThumbImageUrl{
+    _goodsThumbImageUrl=goodsThumbImageUrl;
+    _goodsThumbImageUrl=[HHGlobalVarTool fullImagePath:_goodsThumbImageUrl];
+}
++ (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
+    if ([key isEqualToString:@"totalPrice"]||[key isEqualToString:@"goodsPrice"]) {
+        return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            if ([value isKindOfClass:[NSString class]]) {
+                return [NSNumber numberWithFloat:[value floatValue]];
+            }else{
+                return value;
+            }
+        }];
+    }else  if ([key isEqualToString:@"goodsNum"]||[key isEqualToString:@"deductPoints"]) {
+        return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            if ([value isKindOfClass:[NSString class]]) {
+                return [NSNumber numberWithFloat:[value integerValue]];
+            }else{
+                return value;
+            }
+        }];
+    }
 
-
+    return nil;
+}
 
 @end

@@ -125,6 +125,12 @@
 		2AC28B9C1B71060000F91760 /* item_tel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B901B71060000F91760 /* item_tel@2x.png */; };
 		2AC28B9D1B71060000F91760 /* item_tel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B911B71060000F91760 /* item_tel@3x.png */; };
 		2AC7665D1BB792F300160837 /* GoodsAddressListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7665C1BB792F300160837 /* GoodsAddressListCell.m */; settings = {ASSET_TAGS = (); }; };
+		2AC766621BB79C3D00160837 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7665F1BB79C3D00160837 /* UIButton+Category.m */; settings = {ASSET_TAGS = (); }; };
+		2AC766631BB79C3D00160837 /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC766611BB79C3D00160837 /* UILabel+Category.m */; settings = {ASSET_TAGS = (); }; };
+		2AC766661BB7D1CC00160837 /* GoodsTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC766651BB7D1CC00160837 /* GoodsTimeView.m */; settings = {ASSET_TAGS = (); }; };
+		2AC766691BB7DF1D00160837 /* GoodsDetailPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC766681BB7DF1D00160837 /* GoodsDetailPriceCell.m */; settings = {ASSET_TAGS = (); }; };
+		2AC7666C1BB7EEEC00160837 /* ShopCarGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7666B1BB7EEEC00160837 /* ShopCarGoodsCell.m */; settings = {ASSET_TAGS = (); }; };
+		2AC7666F1BB80BFA00160837 /* GoodsNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7666E1BB80BFA00160837 /* GoodsNetService.m */; settings = {ASSET_TAGS = (); }; };
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
@@ -429,6 +435,18 @@
 		2AC28B911B71060000F91760 /* item_tel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item_tel@3x.png"; sourceTree = "<group>"; };
 		2AC7665B1BB792F300160837 /* GoodsAddressListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressListCell.h; sourceTree = "<group>"; };
 		2AC7665C1BB792F300160837 /* GoodsAddressListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressListCell.m; sourceTree = "<group>"; };
+		2AC7665E1BB79C3D00160837 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		2AC7665F1BB79C3D00160837 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		2AC766601BB79C3D00160837 /* UILabel+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Category.h"; sourceTree = "<group>"; };
+		2AC766611BB79C3D00160837 /* UILabel+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Category.m"; sourceTree = "<group>"; };
+		2AC766641BB7D1CC00160837 /* GoodsTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsTimeView.h; sourceTree = "<group>"; };
+		2AC766651BB7D1CC00160837 /* GoodsTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTimeView.m; sourceTree = "<group>"; };
+		2AC766671BB7DF1D00160837 /* GoodsDetailPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailPriceCell.h; sourceTree = "<group>"; };
+		2AC766681BB7DF1D00160837 /* GoodsDetailPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailPriceCell.m; sourceTree = "<group>"; };
+		2AC7666A1BB7EEEC00160837 /* ShopCarGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarGoodsCell.h; sourceTree = "<group>"; };
+		2AC7666B1BB7EEEC00160837 /* ShopCarGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCarGoodsCell.m; sourceTree = "<group>"; };
+		2AC7666D1BB80BFA00160837 /* GoodsNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsNetService.h; sourceTree = "<group>"; };
+		2AC7666E1BB80BFA00160837 /* GoodsNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsNetService.m; sourceTree = "<group>"; };
 		2AD019061B14A8C000702BD5 /* loading_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@2x.png"; sourceTree = "<group>"; };
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -883,6 +901,8 @@
 			children = (
 				2A4956D81BB466930036D71C /* AddShopCartViewController.h */,
 				2A4956D91BB466930036D71C /* AddShopCartViewController.m */,
+				2AC7666A1BB7EEEC00160837 /* ShopCarGoodsCell.h */,
+				2AC7666B1BB7EEEC00160837 /* ShopCarGoodsCell.m */,
 			);
 			path = ShopCart;
 			sourceTree = "<group>";
@@ -1547,6 +1567,10 @@
 		2AF5A2271B99BC73003F6AB8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7665E1BB79C3D00160837 /* UIButton+Category.h */,
+				2AC7665F1BB79C3D00160837 /* UIButton+Category.m */,
+				2AC766601BB79C3D00160837 /* UILabel+Category.h */,
+				2AC766611BB79C3D00160837 /* UILabel+Category.m */,
 				2AF5A2681B99BDF7003F6AB8 /* NSUserDefaults+AesEncrypt.h */,
 				2AF5A2691B99BDF7003F6AB8 /* NSUserDefaults+AesEncrypt.m */,
 				2AF5A26A1B99BDF7003F6AB8 /* UIViewController+DismissKeyboard.h */,
@@ -1630,6 +1654,8 @@
 				2AFAC6491BA59FE200C2B131 /* GoodsDetailViewController.m */,
 				2AFAC64A1BA59FE200C2B131 /* GoodsListViewController.h */,
 				2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */,
+				2AC766671BB7DF1D00160837 /* GoodsDetailPriceCell.h */,
+				2AC766681BB7DF1D00160837 /* GoodsDetailPriceCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1645,6 +1671,8 @@
 		2AFAC6461BA59FC500C2B131 /* NetEngine */ = {
 			isa = PBXGroup;
 			children = (
+				2AC7666D1BB80BFA00160837 /* GoodsNetService.h */,
+				2AC7666E1BB80BFA00160837 /* GoodsNetService.m */,
 			);
 			path = NetEngine;
 			sourceTree = "<group>";
@@ -1658,6 +1686,8 @@
 				2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */,
 				2AFAC6521BA5A04100C2B131 /* MallGoodsListCell.h */,
 				2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */,
+				2AC766641BB7D1CC00160837 /* GoodsTimeView.h */,
+				2AC766651BB7D1CC00160837 /* GoodsTimeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1916,6 +1946,7 @@
 				2AD38AAA1B801E2400BEA56E /* HHShareView.m in Sources */,
 				2AF5A2531B99BD2E003F6AB8 /* UIResponder+Router.m in Sources */,
 				2AE3C54C1B9DCD8700F1434F /* GoodsAddressAddController.m in Sources */,
+				2AC766661BB7D1CC00160837 /* GoodsTimeView.m in Sources */,
 				2A95FAA41B9B15F700962F79 /* HHNetWorkEngine+Assistant.m in Sources */,
 				2AC28B841B70F7A600F91760 /* HHItemModel.m in Sources */,
 				2A99BD5D1B1597B3004771C8 /* UIViewController+MCMall.m in Sources */,
@@ -1925,8 +1956,10 @@
 				2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */,
 				2A87EE2A1B411DEF0051D668 /* CommonActivityController.m in Sources */,
 				2A9DD3A61B402C390010893F /* PhotoActivityViewController.m in Sources */,
+				2AC766691BB7DF1D00160837 /* GoodsDetailPriceCell.m in Sources */,
 				2A7EA2121B57F72D005B04A9 /* UserInfoViewController.m in Sources */,
 				2AF5A26D1B99BDF7003F6AB8 /* UIViewController+DismissKeyboard.m in Sources */,
+				2AC7666F1BB80BFA00160837 /* GoodsNetService.m in Sources */,
 				2AF5A24D1B99BD2E003F6AB8 /* NSFileManager+ Addition.m in Sources */,
 				2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */,
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
@@ -1974,8 +2007,10 @@
 				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,
 				2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */,
 				2AF5A2261B99A999003F6AB8 /* HHBaseNetService.m in Sources */,
+				2AC766621BB79C3D00160837 /* UIButton+Category.m in Sources */,
 				2AC7665D1BB792F300160837 /* GoodsAddressListCell.m in Sources */,
 				2AF5A27F1B9AD658003F6AB8 /* OCCommentView.m in Sources */,
+				2AC7666C1BB7EEEC00160837 /* ShopCarGoodsCell.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2AFFF6961B64B77700712317 /* SubtitleExpertAnswerController.m in Sources */,
 				2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */,
@@ -2008,6 +2043,7 @@
 				2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */,
 				2AD38AA71B801E2400BEA56E /* HHShareContentView.m in Sources */,
 				2AF5A24B1B99BD2E003F6AB8 /* NSDate+Addition.m in Sources */,
+				2AC766631BB79C3D00160837 /* UILabel+Category.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,
 				2AF5A2551B99BD2E003F6AB8 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2AD38AA91B801E2400BEA56E /* HHShareModel.m in Sources */,

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 @class AddressModel;
 @interface GoodsAddressListCell : UITableViewCell
-@property(nonatomic,strong)AddressModel;
+@property(nonatomic,strong)AddressModel *addressModel;
 @end

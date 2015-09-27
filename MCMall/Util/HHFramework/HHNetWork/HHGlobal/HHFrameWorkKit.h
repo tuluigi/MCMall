@@ -37,6 +37,8 @@
 #import "NSUserDefaults+AesEncrypt.h"
 #import "HHPhotoBroswer.h"
 #import "UIView+HUD.h"
+#import "UIButton+Category.h"
+#import "UILabel+Category.h"
 #pragma mark -UIKit
 
 

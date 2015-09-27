@@ -10,6 +10,7 @@
 #import "GoodsAddressAddController.h"
 #import "HHUserNetService.h"
 #import "AddressModel.h"
+#import "GoodsAddressListCell.h"
 #define  AddresssCellIdentifer  @"AddresssCellIdentifer"
 @interface GoodsAddressViewController ()
 
@@ -76,24 +77,20 @@
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"identifer"];
+    GoodsAddressListCell *cell=[tableView dequeueReusableCellWithIdentifier:@"identifer"];
     if (nil==cell) {
-        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifer"];
-        cell.selectionStyle=UITableViewCellSelectionStyleGray;
-        cell.textLabel.font=[UIFont boldSystemFontOfSize:16];
-        cell.textLabel.textColor=[UIColor blackColor];
-        cell.detailTextLabel.textColor=[UIColor darkGrayColor];
-        cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
-        cell.detailTextLabel.numberOfLines=2;
+        cell=[[GoodsAddressListCell alloc]  initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifer"];
+        
         if (self.isSelect) {
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryType=UITableViewCellAccessoryNone;
         }else{
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
     }
+    
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    cell.textLabel.text=[[addresssModel.receiverName stringByAppendingString:@"   "] stringByAppendingString:addresssModel.receiverTel];
-    cell.detailTextLabel.text=addresssModel.addressDetail;
+    cell.addressModel=addresssModel;
+ 
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

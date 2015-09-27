@@ -143,6 +143,8 @@
  *  @return Yes=需要更新； No= 不需要更新
  */
 -(BOOL)compareCurrentVersionToVersion:(NSString *)newVersion;
+
+
 @end
 
 @interface NSString (HHSoftDateFromatter)
@@ -150,5 +152,6 @@
 -(NSDate *)dateByHHSoftFormate;
 @end
 @interface NSString (Attr)
+-(NSAttributedString *)horizontalLineAttrStringWithTextColor:(UIColor *)color font:(UIFont *)font;
 +(NSAttributedString *)attributedStringWithOrignalPrice:(CGFloat )orignalPrce orignalFontSize:(CGFloat)orignalFontSize newPrice:(CGFloat)newPrice newFontSize:(CGFloat)newFontSize;
 @end

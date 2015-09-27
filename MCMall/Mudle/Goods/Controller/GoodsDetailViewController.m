@@ -12,6 +12,10 @@
 #import "HHPhotoBroswer.h"
 #import "NSString+MCHtml.h"
 #import "AddShopCartViewController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "GoodsDetailPriceCell.h"
+#define GoodsDetialCommonCellIdentifer  @"GoodsDetialCommonCellIdentifer"
+#define GoodsDetialPriceCellIdentifer  @"GoodsDetialPriceCellIdentifer"
 @interface GoodsDetailViewController ()<UIWebViewDelegate>
 @property(nonatomic,strong)UIImageView *goodsImageView;
 @property(nonatomic,strong)UIToolbar *tooBar;
@@ -74,10 +78,18 @@
     }else if ([sender isKindOfClass:[UIButton class]]){//预订
         UIButton *button=(UIButton *)sender;
         if (button.tag==102) {
-            AddShopCartViewController *addShopCarController=[[AddShopCartViewController alloc]  init];
-            addShopCarController.goodsModel=self.goodsModel;
-            [self.navigationController pushViewController:addShopCarController animated:YES];
-                  }
+            if ([HHUserManager isLogin]) {
+                AddShopCartViewController *addShopCarController=[[AddShopCartViewController alloc]  initWithStyle:UITableViewStyleGrouped];
+                addShopCarController.goodsModel=self.goodsModel;
+                [self.navigationController pushViewController:addShopCarController animated:YES];
+            }else{
+                [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+                    if (isSucceed) {
+                        
+                    }
+                }];
+            }
+        }
     }
 }
 -(UIWebView *)footWebView{
@@ -89,11 +101,11 @@
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
-
     [self getGoodsDetailWithGoodsID:self.goodsModel.goodsID];
     self.title=@"商品详情";
     [self.view addSubview:self.tooBar];
     self.tableView.tableHeaderView=self.goodsImageView;
+    
     WEAKSELF
     
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -133,35 +145,30 @@
     return 4;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifer=@"cellidentifer";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
-    if (nil==cell) {
-        cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    }
-    if (indexPath.row==0) {
-        cell.textLabel.textAlignment=NSTextAlignmentCenter;
-        cell.textLabel.font=[UIFont systemFontOfSize:14];
-        cell.textLabel.textColor=[UIColor blackColor];
-        if (_goodsModel.endTime) {
-            NSString *timeStr=@"还有天0小时0分0秒";
-            NSDate *earlyDate=[_goodsModel.endTime  earlierDate:[NSDate date]];
-            if (earlyDate==_goodsModel.endTime) {
-            }else{
-                NSDateComponents *components=[_goodsModel.endTime componentsToDate:[NSDate date]];
-                timeStr=[NSString stringWithFormat:@"还有%ld天%ld小时%ld分%ld秒",components.day,components.hour,components.minute,components.second];
-            }
-            cell.textLabel.text=timeStr;
+    UITableViewCell *cell;
+    if (indexPath.row==1) {
+       cell=(GoodsDetailPriceCell *)[tableView dequeueReusableCellWithIdentifier:GoodsDetialPriceCellIdentifer];
+        if (nil==cell) {
+            cell=[[GoodsDetailPriceCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GoodsDetialPriceCellIdentifer];
         }
+        
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        [(GoodsDetailPriceCell *)cell setOrignalPrice:self.goodsModel.orignalPrice sellPrice:self.goodsModel.sellPrice vipPrice:self.goodsModel.vipPrice goodsPoints:self.goodsModel.goodsPoints endTime:self.goodsModel.endTime storeNum:self.goodsModel.storeNum];
     }else{
-        if (indexPath.row==1) {
+        cell=[tableView dequeueReusableCellWithIdentifier:GoodsDetialCommonCellIdentifer];
+        if (nil==cell) {
+            cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:GoodsDetialCommonCellIdentifer];
+        }
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
+        cell.detailTextLabel.textColor=[UIColor darkGrayColor];
+        cell.detailTextLabel.numberOfLines=0;
+        if (indexPath.row==0) {
+            cell.textLabel.numberOfLines=2;
+            cell.textLabel.textAlignment=NSTextAlignmentCenter;
+            cell.textLabel.font=[UIFont systemFontOfSize:14];
             cell.textLabel.textColor=MCMallThemeColor;
-            cell.textLabel.textAlignment=NSTextAlignmentRight;
-            NSAttributedString *priceAttrStr=[NSString attributedStringWithOrignalPrice:_goodsModel.marketPrice orignalFontSize:14 newPrice:_goodsModel.sellPrice newFontSize:18];
-            cell.textLabel.attributedText=priceAttrStr;
-            cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
-            cell.detailTextLabel.textColor=[UIColor darkGrayColor];
-            cell.detailTextLabel.text=[NSString stringWithFormat:@"剩余%ld件",_goodsModel.storeNum];
+            cell.textLabel.text=self.goodsModel.goodsName;
         }else if (indexPath.row==2){
             cell.textLabel.text=@"商家自荐:";
             cell.detailTextLabel.text=self.goodsModel.goodsRemark;
@@ -169,9 +176,27 @@
             cell.textLabel.text=@"发货须知:";
             cell.detailTextLabel.text=self.goodsModel.deliverNotice;
         }
-      
     }
     return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat heiht=44;
+    if (indexPath.row==0) {
+        heiht=50;
+    }else if (indexPath.row==1) {
+        heiht=[GoodsDetailPriceCell goodsDetailPriceHeight];
+    }else if (indexPath.row==2||indexPath.row==3){
+        
+       __block NSString *detailText=@"";
+        if (indexPath.row==2) {
+            detailText=self.goodsModel.goodsRemark;
+        }else if (indexPath.row==3){
+            detailText=self.goodsModel.deliverNotice;
+        }
+        CGSize size=[detailText boundingRectWithfont:[UIFont systemFontOfSize:14] maxTextSize:CGSizeMake(200, CGFLOAT_MAX)];
+        heiht=MAX(44.0, size.height+10);
+    }
+    return heiht;
 }
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     
