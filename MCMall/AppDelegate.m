@@ -34,7 +34,7 @@
    NSTimer * _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     // iOS8 下需要使用新的 API
-    /*
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
         UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         
@@ -54,7 +54,7 @@
         NSLog(@"从消息启动:%@",userInfo);
         [BPush handleNotification:userInfo];
     }
-    */
+    
    // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
