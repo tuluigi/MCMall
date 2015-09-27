@@ -115,7 +115,7 @@
     [self.view showLoadingState];
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsDetailWithGoodsID:goodsID userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismiss];
+        [weakSelf.view dismissHUD];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.goodsModel=((GoodsModel *)responseResult.responseData);
             weakSelf.goodsModel.goodsID=goodsID;

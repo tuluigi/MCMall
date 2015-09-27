@@ -174,7 +174,7 @@
                 [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imagePath] forKey:responseResult.responseData];
                 
             }
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:@"上传失败"];
         }

@@ -174,7 +174,7 @@
                     break;
                 }
             }
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
             [weakSelf.view makeToast:responseResult.responseMessage];
             [weakSelf.calendarManager reload];
         }];

@@ -193,7 +193,7 @@
         WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine]   userRegisterWithUserName:self.userName pwd:self.userPwd phoneNum:self.telPhone verfiyCode:self.verfiCodeStr salerID:self.salersID  onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                [weakSelf.view dismiss];
+                [weakSelf.view dismissHUD];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 UserModel *userModel=[HHUserManager userModel];
                 if (userModel.motherState==MotherStateUnSelected) {

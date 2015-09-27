@@ -57,7 +57,7 @@
     hudView.square=YES;
 }
 
--(void)dismiss{
+-(void)dismissHUD{
     [MBProgressHUD hideAllHUDsForView:self animated:NO];
 }
 

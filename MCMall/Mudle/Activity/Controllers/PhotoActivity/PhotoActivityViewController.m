@@ -141,7 +141,7 @@
     }
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[HHUserManager userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismiss];
+        [weakSelf.view dismissHUD];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             PhotoModel *model=responseResult.responseData;
             if (_pageIndex==1) {

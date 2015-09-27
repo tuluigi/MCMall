@@ -131,7 +131,7 @@
         WEAKSELF
         [[HHNetWorkEngine sharedHHNetWorkEngine] userLoginWithUserName:self.userName pwd:self.userPwd onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode ==HHResponseResultCodeSuccess) {
-                [weakSelf.view dismiss];
+                [weakSelf.view dismissHUD];
                 UserModel *userModel=[HHUserManager userModel];
                 [[NSNotificationCenter defaultCenter]  postNotificationName:UserLoginSucceedNotification object:nil];
                 if (userModel.motherState==MotherStateUnSelected) {

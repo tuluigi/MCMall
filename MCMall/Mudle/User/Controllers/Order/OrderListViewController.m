@@ -50,7 +50,7 @@
     HHNetWorkOperation *op=[HHUserNetService getOrderListWithUserID:userID pageIndex:pageID pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
             if (pageID==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }

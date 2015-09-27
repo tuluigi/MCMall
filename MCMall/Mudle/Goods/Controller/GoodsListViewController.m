@@ -139,9 +139,9 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         
-       // [weakSelf.view dismiss];
+       // [weakSelf.view dismissHUD];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
             }

@@ -168,7 +168,7 @@
         HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getDiaryDetailUserID:[HHUserManager userID] date:dateStr onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                 weakSelf.noteModel=responseResult.responseData;
-                [weakSelf.view dismiss];
+                [weakSelf.view dismissHUD];
             }else{
                 weakSelf.noteModel=nil;
                 [weakSelf.view makeToast:responseResult.responseMessage];

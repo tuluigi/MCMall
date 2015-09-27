@@ -16,7 +16,7 @@
 -(void)showProgressWithMessage:(NSString *)msg;
 -(void)showProgress:(CGFloat)progress;
 
--(void)dismiss;
+-(void)dismissHUD;
 
 -(void)makeToast:(NSString *)aMessage;
 -(void)hideToast;

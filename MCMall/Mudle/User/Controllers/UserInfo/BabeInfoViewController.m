@@ -146,7 +146,7 @@
                  [weakSelf.navigationController popViewControllerAnimated:YES];
             }
            
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
@@ -160,7 +160,7 @@
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.babeModel=responseResult.responseData;
             [weakSelf.tableView reloadData];
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }

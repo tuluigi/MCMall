@@ -21,7 +21,11 @@
     [super viewDidLoad];
     self.title=@"收获地址列表";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didRighButtonPressed)];
-    [self getAddressList];
+    WEAKSELF
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [weakSelf getAddressList];
+    }];
+    [weakSelf.tableView triggerPullToRefresh];
     // Do any additional setup after loading the view.
 }
 
@@ -34,18 +38,20 @@
     [self.navigationController pushViewController:addAddresssController animated:YES];
 }
 -(void)getAddressList{
-    if (self.dataSourceArray.count==0) {
-        [self.view showPageLoadingView];
-    }
     WEAKSELF
     HHNetWorkOperation *op=[HHUserNetService getReceiveAddressListWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            [weakSelf.view dismissPageLoadView];
+            [weakSelf.dataSourceArray removeAllObjects];
             [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
             [weakSelf.tableView reloadData];
         }else{
+            if (weakSelf.dataSourceArray.count) {
+                [weakSelf.view showErrorMssage:responseResult.responseMessage];
+            }else{
             [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
+            }
         }
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
@@ -59,7 +65,7 @@
             [weakSelf.tableView beginUpdates];
             [weakSelf.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
             [weakSelf.tableView endUpdates];
-            
+            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
@@ -79,6 +85,11 @@
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];
         cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
         cell.detailTextLabel.numberOfLines=2;
+        if (self.isSelect) {
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        }
     }
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.textLabel.text=[[addresssModel.receiverName stringByAppendingString:@"   "] stringByAppendingString:addresssModel.receiverTel];
@@ -89,6 +100,9 @@
     return 60;
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.isSelect) {
+        return NO;
+    }
     return YES;
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

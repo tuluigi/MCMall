@@ -9,7 +9,6 @@
 #import "GoodsAddressListCell.h"
 
 @interface GoodsAddressListCell ()
-@property(nonatomic,strong)
 @end
 
 @implementation GoodsAddressListCell

@@ -54,7 +54,7 @@
             [HHUserManager setUserHeaderImageUrl:responseResult.responseData];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];
             
-            [weakSelf.view dismiss];
+            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:@"上传失败"];
         }
@@ -67,7 +67,7 @@
     WEAKSELF
     [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] userChoseWithUserID:[HHUserManager userID] statu:state onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismiss];
+        [weakSelf.view dismissHUD];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             
             [HHUserManager setMotherState:state];
