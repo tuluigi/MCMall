@@ -124,6 +124,7 @@
         }break;
         case ActivityTypePicture:{
             self.title=@"图片活动";
+            self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
             UIBarButtonItem *cameraBarbuttonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
             [rightBarButtonItems addObject:cameraBarbuttonItem];
         }
@@ -153,8 +154,10 @@
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.activityModel=responseResult.responseData;
+            
+        }else{
+            [weakSelf.view showErrorMssage:responseResult.responseMessage];
         }
-        [weakSelf.view dismissPageLoadView];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
@@ -167,8 +170,11 @@
 }
 -(void)uploadImageWithImagePath:(NSString *)imagePath{
     WEAKSELF
+    [self.view showLoadingState];
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view showSuccessMessage:@"上传成功"];
+            [weakSelf getVoteAcitivityWithActivityID:weakSelf.activityID];
             if ([responseResult.responseData isKindOfClass:[NSString class]]) {
                 [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
                 [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imagePath] forKey:responseResult.responseData];
@@ -294,7 +300,7 @@
             if (indexPath.row<([self.tableView numberOfRowsInSection:0]-1)) {
                 photoArray=[photoModel.photoListArray subarrayWithRange:NSMakeRange((indexPath.row-1)*3, 3)];
             }else if(indexPath.row==([self.tableView numberOfRowsInSection:0]-1)){
-             photoArray=[photoModel.photoListArray subarrayWithRange:NSMakeRange((indexPath.row-1)*3, (photoModel.photoListArray.count-(indexPath.row-1)*3)-1)];
+             photoArray=[photoModel.photoListArray subarrayWithRange:NSMakeRange((indexPath.row-1)*3, (photoModel.photoListArray.count-(indexPath.row-1)*3))];
             }
            
             cell.photoArray=photoArray;

@@ -90,7 +90,7 @@
 }
 -(void)updateTotalPrice{
     UIBarButtonItem *titleBarButton=(UIBarButtonItem *)[self.tooBar.items objectAtIndex:1];
-    self.totalPrice=self.goodsModel.sellPrice*self.goodsNum-self.usePoints;
+    self.totalPrice=self.goodsModel.vipPrice*self.goodsNum-self.usePoints;
     NSString *priceStr=[NSString stringWithFormat:@"￥%.1f",self.totalPrice];
     [titleBarButton setTitle:priceStr];
 }

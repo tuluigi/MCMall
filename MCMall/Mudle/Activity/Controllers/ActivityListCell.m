@@ -45,6 +45,13 @@
     _timeLable.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_timeLable];
     
+    _descLable=[[UILabel alloc]  init];
+    _descLable.font=[UIFont systemFontOfSize:14];
+    _descLable.textColor=[UIColor darkGrayColor];
+    _descLable.numberOfLines=2;
+    _descLable.textAlignment=NSTextAlignmentLeft;
+    [self.contentView addSubview:_descLable];
+    
        _typeLable=[[UILabel alloc]  init];
     _typeLable.font=[UIFont systemFontOfSize:14];
     _typeLable.textColor=[UIColor lightGrayColor];
@@ -58,7 +65,7 @@
         case ActivityTypeApply:{
             [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.top.equalTo(weakSelf.contentView).with.offset(15);
-                make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
+              
                 make.width.mas_equalTo(@80);
             }];
             [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,11 +81,12 @@
                 make.right.equalTo(_titleLable);
             }];
             
-            [_typeLable mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.width.equalTo(_titleLable);
-                make.top.mas_equalTo(_timeLable.mas_bottom).with.offset(5);
-                make.height.equalTo(@15);
-                make.right.equalTo(_titleLable);
+            [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(weakSelf.logoImgView.mas_bottom).with.offset(5);
+                make.height.mas_lessThanOrEqualTo(@40);
+                make.right.equalTo(weakSelf.contentView.mas_right).offset(-10);
+                make.left.equalTo(weakSelf.contentView.mas_left).offset(10);
+                  make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
             }];
         }
             break;
@@ -110,7 +118,13 @@
                 make.height.equalTo(@20);
                 make.right.equalTo(_titleLable);
             }];
-            
+            [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(weakSelf.logoImgView.mas_bottom).with.offset(5);
+                make.height.mas_lessThanOrEqualTo(@40);
+                make.right.equalTo(weakSelf.contentView.mas_right).offset(-10);
+                make.left.equalTo(weakSelf.contentView.mas_left).offset(10);
+            }];
+
             [_typeLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_logoImgView);
                 make.top.mas_equalTo(_logoImgView.mas_bottom).with.offset(5);
@@ -123,7 +137,7 @@
             CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)- 15*2-pading*2)/3.0;
          
             [_imageView0 mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.mas_equalTo(_logoImgView.mas_bottom).offset(10.0);
+                make.top.mas_equalTo(_descLable.mas_bottom).offset(10.0);
                 make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(pading+15.0);
                 make.size.mas_equalTo(CGSizeMake(imageViewWidth, imageViewWidth));
             }];
@@ -146,6 +160,7 @@
     [self.logoImgView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
     self.titleLable.text=_activityModel.activityName;
     self.timeLable.text=_activityModel.activityEndTime;
+    self.descLable.text=_activityModel.activityDetail;
     if(_activityModel.activityType==ActivityTypeCommon){
         self.typeLable.text=@"普通活动";
     }else if (_activityModel.activityType==ActivityTypeApply){
@@ -192,6 +207,7 @@
         default:
             break;
     }
+    height+=40;
     return height;
 
 }

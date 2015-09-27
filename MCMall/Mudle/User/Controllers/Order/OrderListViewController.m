@@ -72,6 +72,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderListCell *cell=(OrderListCell *)[tableView dequeueReusableCellWithIdentifier:OrderListCellIdentifer forIndexPath:indexPath];
+    cell.backgroundColor=[UIColor whiteColor];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     OrderModel *orderModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.orderModel=orderModel;

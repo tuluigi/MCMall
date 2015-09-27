@@ -78,9 +78,12 @@
     self.contentImageView=[[UIImageView alloc]  init];
     self.contentImageView.image=MCMallDefaultImg;
     self.contentImageView.userInteractionEnabled=YES;
+    NSString *headUrl=[[HHUserManager userModel] userHeadUrl];
+    [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:MCMallDefaultImg];
     UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handlerImageViewTap:)];
     [self.contentImageView addGestureRecognizer:tapGesture];
     
+    /*
     self.textView=[[UITextView alloc]  init];
     self.textView.layer.borderColor=[UIColor lightGrayColor].CGColor;
     self.textView.layer.borderWidth=1.0;
@@ -95,30 +98,30 @@
     self.doneButton.backgroundColor=MCMallThemeColor;
     [self.doneButton addTarget:self action:@selector(publishButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.doneButton];
-    
+    */
     [self.view addSubview:self.calendarContentView];
     
     [self.view addSubview:_contentImageView];
-    [self.view addSubview:_textView];
+//    [self.view addSubview:_textView];
     WEAKSELF
-    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.view).offset(10);
-        make.right.mas_equalTo(weakSelf.view).offset(-10);
-        make.top.mas_equalTo(weakSelf.contentImageView.mas_bottom).offset(20);
-        make.height.mas_equalTo(80.0);
-    }];
+//    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.view).offset(10);
+//        make.right.mas_equalTo(weakSelf.view).offset(-10);
+//        make.top.mas_equalTo(weakSelf.contentImageView.mas_bottom).offset(20);
+//        make.height.mas_equalTo(80.0);
+//    }];
     [_contentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.calendarContentView.mas_bottom).offset(20);
         make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(250, 150));
+        make.size.mas_equalTo(CGSizeMake(80, 80));
     }];
     
-    [_doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.view).offset(30);
-        make.right.mas_equalTo(weakSelf.view).offset(-30);
-        make.top.mas_equalTo(_textView.mas_bottom).offset(20);
-        make.height.mas_equalTo(40);
-    }];
+//    [_doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weakSelf.view).offset(30);
+//        make.right.mas_equalTo(weakSelf.view).offset(-30);
+//        make.top.mas_equalTo(_textView.mas_bottom).offset(20);
+//        make.height.mas_equalTo(40);
+//    }];
     [self.calendarContentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view);
         make.left.right.mas_equalTo(weakSelf.view);

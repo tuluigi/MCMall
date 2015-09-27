@@ -96,9 +96,12 @@
             photoModel=[self.photoArray objectAtIndex:2];
         }
     }
-    if (_delegate&&[_delegate respondsToSelector:@selector(photoListCellDidSelectedWithPhotoModel:)]) {
-        [_delegate photoListCellDidSelectedWithPhotoModel:photoModel];
+    if (photoModel) {
+        if (_delegate&&[_delegate respondsToSelector:@selector(photoListCellDidSelectedWithPhotoModel:)]) {
+            [_delegate photoListCellDidSelectedWithPhotoModel:photoModel];
+        }
     }
+
 }
 +(CGFloat)photoListCellHeight{
     CGFloat pading=1.0;

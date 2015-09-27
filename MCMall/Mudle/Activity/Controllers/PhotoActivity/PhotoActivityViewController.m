@@ -111,7 +111,7 @@
    // [self.tableView  setupPanGestureControlKeyboardHide:YES];
     [self.commentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(weakSelf.view);
-        make.height.mas_equalTo(50.0);
+        make.height.mas_equalTo(45.0);
     }];
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
        make.bottom.equalTo(@(-(weakSelf.commentView.height)));

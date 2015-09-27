@@ -57,7 +57,7 @@
         UIButton *bookButton=[UIButton buttonWithType:UIButtonTypeCustom];
         bookButton.frame=CGRectMake(0, 0, 180, 35);
         bookButton.tag=102;
-        [bookButton setTitle:@"我要预订" forState:UIControlStateNormal];
+        [bookButton setTitle:@"我要兑换" forState:UIControlStateNormal];
         [bookButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         bookButton.backgroundColor=MCMallThemeColor;
         bookButton.layer.cornerRadius=4;
@@ -161,13 +161,13 @@
         }
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
-        cell.detailTextLabel.textColor=[UIColor darkGrayColor];
+        cell.textLabel.textColor=MCMallThemeColor;
         cell.detailTextLabel.numberOfLines=0;
         if (indexPath.row==0) {
             cell.textLabel.numberOfLines=2;
             cell.textLabel.textAlignment=NSTextAlignmentCenter;
             cell.textLabel.font=[UIFont systemFontOfSize:14];
-            cell.textLabel.textColor=MCMallThemeColor;
+            
             cell.textLabel.text=self.goodsModel.goodsName;
         }else if (indexPath.row==2){
             cell.textLabel.text=@"商家自荐:";
