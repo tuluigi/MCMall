@@ -9,7 +9,7 @@
 #import "BaseTableViewController.h"
 
 @interface BaseTableViewController ()
-@property(nonatomic,assign)UITableViewStyle tableViewStyle;
+
 @end
 
 @implementation BaseTableViewController{

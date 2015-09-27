@@ -124,6 +124,7 @@
 		2AC28B9B1B71060000F91760 /* item_shop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B8F1B71060000F91760 /* item_shop@3x.png */; };
 		2AC28B9C1B71060000F91760 /* item_tel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B901B71060000F91760 /* item_tel@2x.png */; };
 		2AC28B9D1B71060000F91760 /* item_tel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC28B911B71060000F91760 /* item_tel@3x.png */; };
+		2AC7665D1BB792F300160837 /* GoodsAddressListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC7665C1BB792F300160837 /* GoodsAddressListCell.m */; settings = {ASSET_TAGS = (); }; };
 		2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019061B14A8C000702BD5 /* loading_Default@2x.png */; };
 		2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD019081B14A8D600702BD5 /* loading_Default@3x.png */; };
 		2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0190B1B14A8F600702BD5 /* LoginViewController.m */; };
@@ -426,6 +427,8 @@
 		2AC28B8F1B71060000F91760 /* item_shop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item_shop@3x.png"; sourceTree = "<group>"; };
 		2AC28B901B71060000F91760 /* item_tel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item_tel@2x.png"; sourceTree = "<group>"; };
 		2AC28B911B71060000F91760 /* item_tel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item_tel@3x.png"; sourceTree = "<group>"; };
+		2AC7665B1BB792F300160837 /* GoodsAddressListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsAddressListCell.h; sourceTree = "<group>"; };
+		2AC7665C1BB792F300160837 /* GoodsAddressListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsAddressListCell.m; sourceTree = "<group>"; };
 		2AD019061B14A8C000702BD5 /* loading_Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@2x.png"; sourceTree = "<group>"; };
 		2AD019081B14A8D600702BD5 /* loading_Default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_Default@3x.png"; sourceTree = "<group>"; };
 		2AD0190A1B14A8F600702BD5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -617,10 +620,12 @@
 		2A06452C1B7C49B300C27AD5 /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				2AE3C54B1B9DCD8700F1434F /* GoodsAddressAddController.m */,
 				2AE3C54A1B9DCD7D00F1434F /* GoodsAddressAddController.h */,
+				2AE3C54B1B9DCD8700F1434F /* GoodsAddressAddController.m */,
 				2AE3C5451B9DCA7800F1434F /* GoodsAddressViewController.h */,
 				2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */,
+				2AC7665B1BB792F300160837 /* GoodsAddressListCell.h */,
+				2AC7665C1BB792F300160837 /* GoodsAddressListCell.m */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -1969,6 +1974,7 @@
 				2AD0190C1B14A8F600702BD5 /* LoginViewController.m in Sources */,
 				2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */,
 				2AF5A2261B99A999003F6AB8 /* HHBaseNetService.m in Sources */,
+				2AC7665D1BB792F300160837 /* GoodsAddressListCell.m in Sources */,
 				2AF5A27F1B9AD658003F6AB8 /* OCCommentView.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2AFFF6961B64B77700712317 /* SubtitleExpertAnswerController.m in Sources */,

@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, HHUserInfoItemType) {
 };
 
 typedef NS_ENUM(NSInteger, HHSettingItemType) {
+    HHSettingItemTypeVersionUpdate   ,
     HHSettingItemTypeClearCache   ,
     HHSettingItemTypeReceiveAddress   ,
 

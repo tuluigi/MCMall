@@ -10,7 +10,8 @@
 
 @implementation AddressModel
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
-    return @{@"deliverStr":@"delivery",
+    return @{@"addressID":@"addrId",
+             @"deliverStr":@"delivery",
              @"isDefault":@"default",
              @"addressDetail":@"address",
              @"receiverTel":@"phone",

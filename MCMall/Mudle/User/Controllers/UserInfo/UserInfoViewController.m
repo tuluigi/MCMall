@@ -46,8 +46,10 @@
 #pragma mark- getuserinfo
 -(void)uploadHeaderImageWithImagePath:(NSString *)loaclPath{
     WEAKSELF
-    //[weakSelf.view showLoadingMessage:@"正在上传..."];
-    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[HHUserManager userID] imagePath:loaclPath  onCompletionHandler:^(HHResponseResult *responseResult) {
+    [weakSelf.view showLoadingMessage:@"正在上传..."];
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadUserImageWithUserID:[HHUserManager userID] imagePath:loaclPath progressHandle:^(CGFloat progress) {
+        [weakSelf.view showProgress:progress];
+    } onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [HHUserManager setUserHeaderImageUrl:responseResult.responseData];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[([NSIndexPath indexPathForRow:0 inSection:0])] withRowAnimation:UITableViewRowAnimationAutomatic];

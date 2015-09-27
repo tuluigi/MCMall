@@ -113,6 +113,7 @@
  */
 -(HHNetWorkOperation *)uploadUserImageWithUserID:(NSString *)userID
                                        imagePath:(NSString *)imgPath
+                                  progressHandle:(void(^)(CGFloat progress))progressBlock
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadUserHeadImageAPI];
@@ -126,7 +127,9 @@
         completionBlcok(responseResult);
     }];
     [op setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        [[UIApplication sharedApplication].keyWindow showProgress:totalBytesWritten/totalBytesExpectedToWrite];
+        if (progressBlock) {
+            progressBlock(totalBytesWritten/totalBytesExpectedToWrite);
+        }
     }];
     return op;
 }

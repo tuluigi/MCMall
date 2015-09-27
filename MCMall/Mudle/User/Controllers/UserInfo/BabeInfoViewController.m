@@ -67,6 +67,12 @@
     }
     return _dataPicker;
 }
+-(BabeModel *)babeModel{
+    if (nil==_babeModel) {
+        _babeModel=[[BabeModel alloc]  init];
+    }
+    return _babeModel;
+}
 -(void)dateChanged:(UIDatePicker *)sender{
     NSDate*date= sender.date;
     self.babeModel.birthday=date;
@@ -152,7 +158,7 @@
     [weakSelf.view showLoadingState];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getBabeInfoWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            _babeModel=responseResult.responseData;
+            weakSelf.babeModel=responseResult.responseData;
             [weakSelf.tableView reloadData];
             [weakSelf.view dismiss];
         }else{

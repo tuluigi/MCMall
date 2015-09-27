@@ -16,6 +16,6 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,assign)NSUInteger pageIndex;
 @property(nonatomic,assign)CGFloat cellHeight;
-
+@property(nonatomic,assign)UITableViewStyle tableViewStyle;
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 @end

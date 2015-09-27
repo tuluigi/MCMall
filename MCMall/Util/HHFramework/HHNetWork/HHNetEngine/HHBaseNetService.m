@@ -11,7 +11,7 @@
 @implementation HHBaseNetService
 +(void)parseMcMallResponseObject:(id)responseObject modelClass:(Class )modelClass error:(NSError *)error onCompletionBlock:(HHResponseResultBlock)completionBlock{
     HHResponseResult *responseResult=[HHResponseResult responseResultWithResponseObject:responseObject error:error];
-    if (responseResult.responseData != nil && responseResult.responseData != [NSNull null] ){
+    if (responseResult.responseData != nil && responseResult.responseData != [NSNull null] &&modelClass){
         if ([responseResult.responseData isKindOfClass:[NSDictionary class]]) {
             NSError *aError;
             MTLModel *dataModel=[MTLJSONAdapter modelOfClass:modelClass fromJSONDictionary:responseResult.responseData error:&aError];

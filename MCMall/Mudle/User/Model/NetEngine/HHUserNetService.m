@@ -26,7 +26,8 @@
         postDic=[NSDictionary dictionaryWithObjectsAndKeys:@(isDefault),@"def",userID,@"userid",addressID,@"addrid",connecterName,@"contact",connecterTel,@"phone",address,@"address", nil];
    
        HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
-        [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[AddressModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
+        [HHBaseNetService parseMcMallResponseObject:responseData modelClass:nil error:error onCompletionBlock:^(HHResponseResult *responseResult) {
+            responseResult.responseData=[responseResult.responseData objectForKey:@"addrId"];
             if (completionBlcok) {
                 completionBlcok(responseResult);
             }

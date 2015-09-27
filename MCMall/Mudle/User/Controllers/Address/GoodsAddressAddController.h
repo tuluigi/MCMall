@@ -8,6 +8,9 @@
 
 #import "BaseTableViewController.h"
 @class AddressModel;
+typedef void(^DidAddressModelChangedBlock)(AddressModel *address ,BOOL isAdd);
 @interface GoodsAddressAddController : BaseTableViewController
 -(instancetype)initWithAddressModel:(AddressModel *)addresssModel;
+
+@property(nonatomic,copy)DidAddressModelChangedBlock addressModelChangeBlock;
 @end

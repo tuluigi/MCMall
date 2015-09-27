@@ -18,6 +18,20 @@
 #import "HHKeyValueContainerView.h"
 #import "SettingViewController.h"
 #import "OrderListViewController.h"
+
+@interface HHUserInfoCell : UITableViewCell
+
+@end
+@implementation HHUserInfoCell
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, 60, 60);
+    self.textLabel.frame=CGRectMake(CGRectGetMaxX(self.imageView.frame)+10, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
+}
+
+@end
 @interface UserCenterViewController ()<QBImagePickerControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*loginFootView,*logoutFootView;
 @property(nonatomic,strong)UIImageView *logoImgView;
@@ -46,7 +60,7 @@
 }
 -(UIView *)loginFootView{
     if (nil==_loginFootView) {
-        _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
+        _loginFootView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 80)];
         
         UIButton *loginButton=[UIButton buttonWithType:UIButtonTypeCustom];
         [_loginFootView addSubview:loginButton];
@@ -89,11 +103,10 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     [self updateUserPoint];
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"我";
+    self.navigationItem.title=MCMallShopName;
     self.tableView.backgroundColor=[UIColor red:246 green:242 blue:241 alpha:1];
     [self reloadUI];
     WEAKSELF
@@ -172,16 +185,18 @@
         static NSString *identifer=@"usercentercellIdentifer";
         cell =[tableView dequeueReusableCellWithIdentifier:identifer];
         if (nil==cell) {
-            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+            cell=[[HHUserInfoCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
             cell.imageView.layer.cornerRadius=5;
             cell.imageView.layer.masksToBounds=YES;
+            
             [cell.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(60, 60));
                 make.left.mas_equalTo(15);
                 make.centerY.mas_equalTo(cell.contentView.mas_centerY);
             }];
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            cell.detailTextLabel.textColor=[UIColor lightGrayColor];
+            cell.textLabel.textColor=MCMallThemeColor;
+            cell.detailTextLabel.textColor=MCMallThemeColor;
             cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
@@ -240,6 +255,7 @@
     }
     switch (itemModel.itemType) {
         case  HHUserCenterItemTypeUserInfo:{
+            cell.textLabel.textAlignment=NSTextAlignmentLeft;
             cell.detailTextLabel.text=userModel.userName;
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
             cell.textLabel.text=userModel.userName;

@@ -24,19 +24,21 @@
         HHItemModel *pointeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypePoint name:@"" image:nil];
         NSArray *sectionArray0=@[userInfoItem,pointeItem];
         
-        HHItemModel *consumeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeOrder name:@"我的预定" image:[UIImage imageNamed:@"item_consume"]];
-        NSArray *sectionArray1=@[consumeItem];
         
-        HHItemModel *shopItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeShop name:@"所属门店" image:[UIImage imageNamed:@"item_shop"]];
-        HHItemModel *telItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeTel name:@"联系方式" image:[UIImage imageNamed:@"item_tel"]];
-        HHItemModel *babyItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeBabyInfo name:@"宝宝信息" image:[UIImage imageNamed:@"item_babay"]];
+         HHItemModel *telItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeTel name:@"我的联系方式" image:[UIImage imageNamed:@"item_tel"]];
+         HHItemModel *babyItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeBabyInfo name:@"宝宝信息" image:[UIImage imageNamed:@"item_babay"]];
+     
         HHItemModel *activityItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeMyActivity name:@"我的活动" image:[UIImage imageNamed:@"item_activity"]];
-        NSArray *sectionArray2=@[shopItem,telItem,babyItem,activityItem];
+        HHItemModel *shopItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeShop name:@"所属门店" image:[UIImage imageNamed:@"item_shop"]];
+          HHItemModel *consumeItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeOrder name:@"我的订购" image:[UIImage imageNamed:@"item_consume"]];
+       
+
+        NSArray *sectionArray2=@[telItem,shopItem,babyItem,activityItem,consumeItem];
         
         HHItemModel *settingItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeSetting name:@"设置" image:[UIImage imageNamed:@"item_setting"]];
         NSArray *sectionArray3=@[settingItem];
         
-        itemsArray=@[sectionArray0,sectionArray1,sectionArray2,sectionArray3];
+        itemsArray=@[sectionArray0,sectionArray2,sectionArray3];
     }else{
 //        HHItemModel *settingItem=[[HHItemModel alloc] initWithType:HHUserCenterItemTypeSetting name:@"设置" image:[UIImage imageNamed:@"item_setting"]];
 //        NSArray *sectionArray3=@[settingItem];
@@ -65,8 +67,8 @@
     HHItemModel *addressImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeReceiveAddress name:@"收获地址管理" image:nil];
     
     NSArray *sectionArray0=@[addressImageItem];
+  
     HHItemModel *cacheImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeClearCache name:@"清理缓存" image:nil];
-   
     NSArray *sectionArray1=@[cacheImageItem];
     itemsArray=@[sectionArray0,sectionArray1];
     

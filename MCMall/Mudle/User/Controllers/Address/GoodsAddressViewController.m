@@ -74,10 +74,10 @@
     if (nil==cell) {
         cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"identifer"];
         cell.selectionStyle=UITableViewCellSelectionStyleGray;
-        cell.textLabel.font=[UIFont boldSystemFontOfSize:14];
+        cell.textLabel.font=[UIFont boldSystemFontOfSize:16];
         cell.textLabel.textColor=[UIColor blackColor];
         cell.detailTextLabel.textColor=[UIColor darkGrayColor];
-        cell.detailTextLabel.font=[UIFont systemFontOfSize:13];
+        cell.detailTextLabel.font=[UIFont systemFontOfSize:14];
         cell.detailTextLabel.numberOfLines=2;
     }
     AddressModel *addresssModel=[self.dataSourceArray objectAtIndex:indexPath.row];
@@ -105,18 +105,32 @@
         }
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-    GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
-    [self.navigationController pushViewController:addAddresssController animated:YES];
+        GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
+        WEAKSELF
+        addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
+            if (isAdd) {
+                [weakSelf.dataSourceArray addObject:addresss];
+            }else{
+                NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
+                NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];
+                if (tempArray&&tempArray.count) {
+                    NSInteger index=[weakSelf.dataSourceArray indexOfObject:[tempArray firstObject]];
+                    [weakSelf.dataSourceArray replaceObjectAtIndex:index withObject:addresss];
+                }
+            }
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:addAddresssController animated:YES];
     }
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

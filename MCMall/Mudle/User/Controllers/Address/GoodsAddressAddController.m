@@ -13,7 +13,7 @@
 @interface GoodsAddressAddController ()
 @property(nonatomic,strong)UISwitch *switchView;
 @property(nonatomic,strong)UIView *footView;
-@property(nonatomic,strong)AddressModel *addresssModel;
+@property(nonatomic,copy)__block AddressModel *addresssModel;
 @end
 
 @implementation GoodsAddressAddController
@@ -48,19 +48,6 @@
     }else if ([NSString IsNullOrEmptyString:self.addresssModel.addressDetail]){
         [weakSelf.view makeToast:@"请输入收货人地址"];
     }else{
-        /*
-         [weakSelf.view showLoadingState];
-         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] bookGoodsGoodsID:self.goodsModel.goodsID userID:[HHUserManager userID] phoneNum:self.userTel connact:self.userName address:self.address onCompletionHandler:^(HHResponseResult *responseResult) {
-         [weakSelf.view dismiss];
-         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-         UIAlertView *alertView=  [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您预订成功,可以再看看其他商品哦！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
-         [alertView show];
-         }else{
-         [weakSelf.view makeToast:responseResult.responseMessage];
-         }
-         }];
-         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
-         */
         if ([HHUserManager isLogin]) {
             [self editAddressWithAddressModel:self.addresssModel];
         }else{
@@ -74,7 +61,7 @@
     }
 }
 -(instancetype)initWithAddressModel:(AddressModel *)addresssModel{
-    if (self=[super init]) {
+    if (self=[super initWithStyle:UITableViewStyleGrouped]) {
         _addresssModel=addresssModel;
         if (self.addresssModel) {
             self.title=@"修改收获地址";
@@ -105,6 +92,11 @@
     addresssMode.isDefault=self.switchView.isOn;
     [HHUserNetService addOrEditReceiveAddressWithUserID:[HHUserManager userID] addressID:addresssMode.addressID connecterName:addresssMode.receiverName connecterTel:addresssMode.receiverTel address:addresssMode.addressDetail isDefatul:addresssMode.isDefault onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            BOOL isAdd=[NSString IsNullOrEmptyString:addresssMode.addressID];
+            weakSelf.addresssModel.addressID=responseResult.responseData;
+            if (weakSelf.addressModelChangeBlock) {
+                weakSelf.addressModelChangeBlock(weakSelf.addresssModel,isAdd);
+            }
             [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
@@ -168,7 +160,7 @@
             textField.hidden=NO;
             switchView.hidden=YES;
             textField.placeholder=@"收货人电话";
-            leftLable.text=@"电话";
+            leftLable.text=@"手机:";
             textField.text=self.addresssModel.receiverTel;
         }break;
         case 2:{

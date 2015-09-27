@@ -11,7 +11,7 @@
 @implementation HHGlobalVarTool
 +(NSString *)fullImagePath:(NSString *)imgPath{
     if (imgPath&&[imgPath isKindOfClass:[NSString class]]&&(![imgPath hasPrefix:NSHomeDirectory()])&&(![imgPath isInternetUrl])) {
-         return [NSString stringWithFormat:@"%@/%@",[MCMallAPI  domainPath],imgPath];
+         return [NSString stringWithFormat:@"%@%@",[MCMallAPI  domainPath],imgPath];
     }else{
         return imgPath;
     }
