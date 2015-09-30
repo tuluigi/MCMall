@@ -174,6 +174,7 @@
 		2AD44C021B889424001B1CDC /* tabbar_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF91B889424001B1CDC /* tabbar_me@2x.png */; };
 		2AD44C031B889424001B1CDC /* tabbar_vip_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */; };
 		2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */; };
+		2ADD942E1BBC215500B80497 /* MotherAidNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD942D1BBC215500B80497 /* MotherAidNetService.m */; settings = {ASSET_TAGS = (); }; };
 		2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5241B9C86A200F1434F /* HHUserNetService.m */; };
 		2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5271B9C87F600F1434F /* AddressModel.m */; };
 		2AE3C53F1B9DC87200F1434F /* SignupDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C53E1B9DC87200F1434F /* SignupDayView.m */; };
@@ -499,6 +500,8 @@
 		2AD44BF91B889424001B1CDC /* tabbar_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me@2x.png"; sourceTree = "<group>"; };
 		2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip_HL@2x.png"; sourceTree = "<group>"; };
 		2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip@2x.png"; sourceTree = "<group>"; };
+		2ADD942C1BBC215500B80497 /* MotherAidNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherAidNetService.h; sourceTree = "<group>"; };
+		2ADD942D1BBC215500B80497 /* MotherAidNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherAidNetService.m; sourceTree = "<group>"; };
 		2AE3C5231B9C86A200F1434F /* HHUserNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUserNetService.h; sourceTree = "<group>"; };
 		2AE3C5241B9C86A200F1434F /* HHUserNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserNetService.m; sourceTree = "<group>"; };
 		2AE3C5261B9C87F600F1434F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
@@ -1191,6 +1194,8 @@
 			children = (
 				2A95FAA21B9B15F700962F79 /* HHNetWorkEngine+Assistant.h */,
 				2A95FAA31B9B15F700962F79 /* HHNetWorkEngine+Assistant.m */,
+				2ADD942C1BBC215500B80497 /* MotherAidNetService.h */,
+				2ADD942D1BBC215500B80497 /* MotherAidNetService.m */,
 			);
 			path = Net;
 			sourceTree = "<group>";
@@ -2001,6 +2006,7 @@
 				2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */,
 				2AF5A28C1B9AD6C9003F6AB8 /* OCPageLoadAnimationView.m in Sources */,
 				2A984EE11B14123C004DF4C0 /* HHAppInfo.m in Sources */,
+				2ADD942E1BBC215500B80497 /* MotherAidNetService.m in Sources */,
 				2AE3C53F1B9DC87200F1434F /* SignupDayView.m in Sources */,
 				2AF5A28E1B9AD6C9003F6AB8 /* UIView+OCPageLoad.m in Sources */,
 				2AF5A2831B9AD6AA003F6AB8 /* UIPlaceHolderTextView.m in Sources */,

@@ -46,7 +46,7 @@
         }else if(i==2){
                         menuView.tag=HomeMenuViewItemDiary;
             menuView.imageView.image=[UIImage imageNamed:@"icon_dirary"];
-            menuView.titleLable.text=@"辣妈日记";
+            menuView.titleLable.text=@"宝宝故事";
         }
     }
 }

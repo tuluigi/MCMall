@@ -139,13 +139,21 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 +(NSString *)getUserSignListAPI{//用户签到列表
     return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getsignlist"];
 }
-+(NSString *)userPublishDiaryAPI{//写日记
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"diary"];
+
+
++(NSString *)getBabyPothoListAPI{//获取babay照片列表
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getbabylist"];
+}
++(NSString *)editBabyPhotoAPI{//修改照片
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"moditext"];
+}
++(NSString *)uploadBabyPhotoAPI{//修改照片
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"upbabyphoto"];
+}
++(NSString *)deleteBabyPhotoDiaryAPI{//删除日记
+    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"delbabyphoto"];
 }
 
-+(NSString *)getDiraryDetailAPI{//获取日记详情
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getdiaryinfo"];
-}
 #pragma mark- 广告
 +(NSString *)getADListAPI{//获取广告列表
       return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getadvertlist"];

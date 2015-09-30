@@ -67,8 +67,14 @@
 #pragma mark -日记部分
 +(NSString *)userSignInAPI;//用户签到
 +(NSString *)getUserSignListAPI;//签到列表
-+(NSString *)userPublishDiaryAPI;//写日记
-+(NSString *)getDiraryDetailAPI;//获取日记列表
++(NSString *)getBabyPothoListAPI;//获取babay照片列表
+
++(NSString *)editBabyPhotoAPI;//修改照片
+
++(NSString *)uploadBabyPhotoAPI;//修改照片
+
++(NSString *)deleteBabyPhotoDiaryAPI;//删除日记
+
 #pragma mark- 广告
 +(NSString *)getADListAPI;//获取广告列表
 @end

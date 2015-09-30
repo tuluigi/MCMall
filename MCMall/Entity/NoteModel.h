@@ -10,6 +10,7 @@
 
 @interface NoteModel : BaseModel
 @property(nonatomic,copy)NSString *noteID;
+@property(nonatomic,copy)NSString *lineID;
 @property(nonatomic,copy)NSString *noteImageUrl;
 @property(nonatomic,copy)NSString *noteContent;
 

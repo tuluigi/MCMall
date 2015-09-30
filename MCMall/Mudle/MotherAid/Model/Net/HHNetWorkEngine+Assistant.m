@@ -88,7 +88,7 @@
                                     photoPath:(NSString *)photoPath
                                       content:(NSString *)content
                           onCompletionHandler:(HHResponseResultSucceedBlock)completion{
-    NSString *apiPath=[MCMallAPI  userPublishDiaryAPI];
+    NSString *apiPath=@"";
     NSDictionary *postDic;
     
     if (diaryID&&diaryID.length) {
@@ -105,7 +105,7 @@
 -(HHNetWorkOperation *)getDiaryDetailUserID:(NSString *)userID
                                        date:(NSString *)date
                         onCompletionHandler:(HHResponseResultSucceedBlock)completion{
-    NSString *apiPath=[MCMallAPI getDiraryDetailAPI];
+    NSString *apiPath=@"";
     NSDictionary *postDic=@{@"userid":userID,@"date":date};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {

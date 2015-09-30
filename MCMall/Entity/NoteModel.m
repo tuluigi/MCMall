@@ -13,7 +13,8 @@
     return @{
              @"noteID":@"memoId",
              @"noteImageUrl":@"photo",
-             @"noteContent":@"memoData"};
+             @"noteContent":@"text",
+             @"lineID":@"lineNo"};
 }
 -(void)setNoteImageUrl:(NSString *)noteImageUrl{
     _noteImageUrl=noteImageUrl;

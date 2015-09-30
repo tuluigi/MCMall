@@ -104,6 +104,8 @@
         [self.view showErrorMssage:@"请选择收获地址"];
     }else if (!self.payMethod){
         [self.view showErrorMssage:@"请选择付款方式"];
+    }else if(!self.goodsNum){
+         [self.view showErrorMssage:@"请填写购买数量"];
     }else{
     WEAKSELF
     [weakSelf.view showLoadingState];

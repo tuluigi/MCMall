@@ -12,6 +12,7 @@
 #import "NoteModel.h"
 #import "HHImagePickerHelper.h"
 #import "MotherDiaryDayView.h"
+#import "MotherAidNetService.h"
 @interface MotherDiaryViewController ()<JTCalendarDelegate,UITextViewDelegate>
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
@@ -21,6 +22,8 @@
 @property (nonatomic,strong) NoteModel *noteModel;
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 @property (nonatomic,strong)UIButton *doneButton;
+@property(nonatomic,strong)NSMutableArray *photoArray;
+@property(nonatomic,strong)NSMutableDictionary *photoCacheDic;
 @end
 
 
@@ -71,7 +74,7 @@
     [self onInitUI];
 }
 -(void)onInitUI{
-    self.title=@"辣妈日记";
+    self.title=@"宝宝故事";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"回到今天" style:UIBarButtonItemStylePlain target:self action:@selector(goToday)];
     _calendarManager=[self calendarManager];
 
@@ -167,16 +170,21 @@
     if ([HHUserManager isLogin]) {
         
         [weakSelf.view showLoadingState];
-        NSString *dateStr=[date convertDateToStringWithFormat:@"yyyy-MM-dd"];
-        HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] getDiaryDetailUserID:[HHUserManager userID] date:dateStr onCompletionHandler:^(HHResponseResult *responseResult) {
+        HHNetWorkOperation *op=[MotherAidNetService getBabyPhotoListUserID:[HHUserManager userID] date:[NSDate date] onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                weakSelf.noteModel=responseResult.responseData;
+                if (nil==weakSelf.photoArray) {
+                    weakSelf.photoArray=[[NSMutableArray alloc]  init];
+                }
+                if (nil==weakSelf.photoCacheDic) {
+                    weakSelf.photoCacheDic=[[NSMutableDictionary alloc]  init];
+                }
+                [weakSelf.photoCacheDic setObject:weakSelf.photoArray forKey:date];
                 [weakSelf.view dismissHUD];
             }else{
-                weakSelf.noteModel=nil;
-                [weakSelf.view makeToast:responseResult.responseMessage];
+                [weakSelf.view showErrorMssage:responseResult.responseMessage];
             }
-        } ];
+            
+        }];
         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
     }else{
         [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
