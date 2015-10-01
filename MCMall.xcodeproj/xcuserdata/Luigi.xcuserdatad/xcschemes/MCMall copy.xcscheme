@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A37B0D51B0CC62A00D0FE88"
-               BuildableName = "BaiJiaXin.app"
-               BlueprintName = "BaiJiaXin"
-               ReferencedContainer = "container:MCMall.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A37B0EE1B0CC62A00D0FE88"
-               BuildableName = "MCMallTests.xctest"
-               BlueprintName = "MCMallTests"
+               BlueprintIdentifier = "2ADFB67A1BBDA482000BF698"
+               BuildableName = "BaoBeiEJia.app"
+               BlueprintName = "BaoBeiEJia"
                ReferencedContainer = "container:MCMall.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A37B0EE1B0CC62A00D0FE88"
-               BuildableName = "MCMallTests.xctest"
-               BlueprintName = "MCMallTests"
-               ReferencedContainer = "container:MCMall.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A37B0D51B0CC62A00D0FE88"
-            BuildableName = "BaiJiaXin.app"
-            BlueprintName = "BaiJiaXin"
+            BlueprintIdentifier = "2ADFB67A1BBDA482000BF698"
+            BuildableName = "BaoBeiEJia.app"
+            BlueprintName = "BaoBeiEJia"
             ReferencedContainer = "container:MCMall.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A37B0D51B0CC62A00D0FE88"
-            BuildableName = "BaiJiaXin.app"
-            BlueprintName = "BaiJiaXin"
+            BlueprintIdentifier = "2ADFB67A1BBDA482000BF698"
+            BuildableName = "BaoBeiEJia.app"
+            BlueprintName = "BaoBeiEJia"
             ReferencedContainer = "container:MCMall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -98,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A37B0D51B0CC62A00D0FE88"
-            BuildableName = "BaiJiaXin.app"
-            BlueprintName = "BaiJiaXin"
+            BlueprintIdentifier = "2ADFB67A1BBDA482000BF698"
+            BuildableName = "BaoBeiEJia.app"
+            BlueprintName = "BaoBeiEJia"
             ReferencedContainer = "container:MCMall.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

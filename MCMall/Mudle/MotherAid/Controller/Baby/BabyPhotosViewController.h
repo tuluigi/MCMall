@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+@class NoteModel;
 @interface BabyPhotosViewController : BaseViewController
 
+-(instancetype)initWithNoteModle:(NoteModel *)noteModel;
 @end
+

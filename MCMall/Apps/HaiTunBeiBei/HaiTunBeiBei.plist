@@ -35,13 +35,13 @@
 		</dict>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>百家欣</string>
+	<string>海豚贝贝</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.MCMallE.BaiJiaXin</string>
+	<string>com.MCMallE.HaiTunBeiBei</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

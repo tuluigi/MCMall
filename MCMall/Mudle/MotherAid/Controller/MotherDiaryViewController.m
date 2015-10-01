@@ -13,16 +13,17 @@
 #import "HHImagePickerHelper.h"
 #import "MotherDiaryDayView.h"
 #import "MotherAidNetService.h"
+#import "BabyPhotosViewController.h"
+#import "HHShaeTool.h"
 @interface MotherDiaryViewController ()<JTCalendarDelegate,UITextViewDelegate>
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (nonatomic,strong) NSDate *lastSelectedDate;
 @property (nonatomic,strong) UITextView *textView;
-@property (nonatomic,strong) UIImageView *contentImageView;
+@property (nonatomic,strong) UIImageView *contentImageView,*headImageView,*bgImageView;
 @property (nonatomic,strong) NoteModel *noteModel;
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
-@property (nonatomic,strong)UIButton *doneButton;
-@property(nonatomic,strong)NSMutableArray *photoArray;
+@property (nonatomic,strong)UIButton *editButton,*shareButton;
 @property(nonatomic,strong)NSMutableDictionary *photoCacheDic;
 @end
 
@@ -52,21 +53,18 @@
     }
     return _imagePickerHelper;
 }
--(NoteModel *)noteModel{
-    if (nil==_noteModel) {
-        _noteModel=[[NoteModel alloc]  init];
-    }
-    if (_noteModel.noteID) {
-        [self.doneButton setTitle:@"修改日记" forState:UIControlStateNormal];
-    }else{
-         [self.doneButton setTitle:@"发表日记" forState:UIControlStateNormal];
-    }
-    return _noteModel;
-}
 -(void)setNoteModel:(NoteModel *)noteModel{
     _noteModel=noteModel;
-    self.textView.text=noteModel.noteContent;
-    [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:_noteModel.noteImageUrl] placeholderImage:MCMallDefaultImg];
+    if (nil==self.photoCacheDic) {
+        self.photoCacheDic=[[NSMutableDictionary alloc]  init];
+    }
+    if (_noteModel&&_noteModel.photoArrays&&_noteModel.photoArrays.count) {
+        BabyPhotoModel *photoModel=[[_noteModel photoArrays] firstObject];
+        [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:photoModel.noteImageUrl] placeholderImage:MCMallDefaultImg];
+        [self.photoCacheDic setObject:_noteModel forKey:noteModel.date];
+    }else{
+               [self.contentImageView sd_setImageWithURL:nil placeholderImage:MCMallDefaultImg];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,122 +73,125 @@
 }
 -(void)onInitUI{
     self.title=@"宝宝故事";
+    _lastSelectedDate=[NSDate date];
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"回到今天" style:UIBarButtonItemStylePlain target:self action:@selector(goToday)];
     _calendarManager=[self calendarManager];
 
+     [self.view addSubview:self.calendarContentView];
+    
+    self.bgImageView=[[UIImageView alloc]  init];
+    self.bgImageView.backgroundColor=[UIColor whiteColor];
+    
+    self.bgImageView.userInteractionEnabled=YES;
+    [self.view addSubview:self.bgImageView];
+
+    
+    self.headImageView=[[UIImageView alloc]  init];
+    self.headImageView.image=MCMallDefaultImg;
+    self.headImageView.userInteractionEnabled=YES;
+    _headImageView.layer.cornerRadius=20;
+    _headImageView.layer.masksToBounds=YES;
+    NSString *headUrl=[[HHUserManager userModel] userHeadUrl];
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:MCMallDefaultImg];
+    [self.bgImageView addSubview:self.headImageView];
+    
     self.contentImageView=[[UIImageView alloc]  init];
     self.contentImageView.image=MCMallDefaultImg;
     self.contentImageView.userInteractionEnabled=YES;
-    NSString *headUrl=[[HHUserManager userModel] userHeadUrl];
-    [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:MCMallDefaultImg];
-    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handlerImageViewTap:)];
+
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(didEditButtonPressed)];
     [self.contentImageView addGestureRecognizer:tapGesture];
+     [self.bgImageView addSubview:_contentImageView];
     
-    /*
-    self.textView=[[UITextView alloc]  init];
-    self.textView.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    self.textView.layer.borderWidth=1.0;
-    [self.textView becomeFirstResponder];
-    self.textView.delegate=self;
-    self.doneButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [self.doneButton setTitle:@"发布" forState:UIControlStateNormal];
-    [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.doneButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
-    self.doneButton.layer.cornerRadius=5;
-    self.doneButton.layer.masksToBounds=YES;
-    self.doneButton.backgroundColor=MCMallThemeColor;
-    [self.doneButton addTarget:self action:@selector(publishButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.doneButton];
-    */
-    [self.view addSubview:self.calendarContentView];
+
+    self.editButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.editButton setTitle:@"修改" forState:UIControlStateNormal];
+    [self.editButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.editButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
+    self.editButton.layer.cornerRadius=5;
+    self.editButton.layer.masksToBounds=YES;
+    self.editButton.backgroundColor=MCMallThemeColor;
+    [self.editButton addTarget:self action:@selector(didEditButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.bgImageView addSubview:self.editButton];
     
-    [self.view addSubview:_contentImageView];
-//    [self.view addSubview:_textView];
+    self.shareButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.shareButton setTitle:@"分享" forState:UIControlStateNormal];
+    [self.shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.shareButton.titleLabel.font=[UIFont boldSystemFontOfSize:20];
+    self.shareButton.layer.cornerRadius=5;
+    self.shareButton.layer.masksToBounds=YES;
+    self.shareButton.backgroundColor=MCMallThemeColor;
+    [self.shareButton addTarget:self action:@selector(didShareButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.bgImageView addSubview:self.shareButton];
+
     WEAKSELF
-//    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.view).offset(10);
-//        make.right.mas_equalTo(weakSelf.view).offset(-10);
-//        make.top.mas_equalTo(weakSelf.contentImageView.mas_bottom).offset(20);
-//        make.height.mas_equalTo(80.0);
-//    }];
-    [_contentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.calendarContentView.mas_bottom).offset(20);
-        make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
-    }];
-    
-//    [_doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(weakSelf.view).offset(30);
-//        make.right.mas_equalTo(weakSelf.view).offset(-30);
-//        make.top.mas_equalTo(_textView.mas_bottom).offset(20);
-//        make.height.mas_equalTo(40);
-//    }];
     [self.calendarContentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.view);
         make.left.right.mas_equalTo(weakSelf.view);
         make.height.mas_equalTo(60);
     }];
-    [self getDiaryDetailAtDate:[NSDate date]];
+
+    [self.headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.calendarContentView.mas_bottom).offset(10);
+        make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    
+    [self.bgImageView   mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakSelf.headImageView.mas_bottom).offset(10);
+        make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
+        make.left.mas_equalTo(weakSelf.view.mas_left).offset(20);
+        make.size.mas_equalTo(CGSizeMake(300, 350));
+    }];
+    
+    [_contentImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.mas_equalTo(weakSelf.bgImageView).offset(10);
+        make.right.mas_equalTo(weakSelf.bgImageView.mas_right).offset(-10);
+        make.bottom.mas_equalTo(weakSelf.editButton.mas_top).offset(-20);
+        
+    }];
+    [_editButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(weakSelf.bgImageView.mas_bottom).offset(5);
+        make.left.mas_equalTo(weakSelf.bgImageView.mas_left).offset(20);
+        make.size.mas_equalTo(CGSizeMake(80, 40));
+    }];
+    [_shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(weakSelf.bgImageView.mas_bottom).offset(5);
+        make.right.mas_equalTo(weakSelf.bgImageView.mas_right).offset(-20);
+        make.size.mas_equalTo(CGSizeMake(80, 40));
+    }];
+    [self getDiaryDetailAtDate:_lastSelectedDate];
 }
+-(void)didEditButtonPressed{
+    BabyPhotosViewController *babyPhotoController=[[BabyPhotosViewController alloc] initWithNoteModle:self.noteModel];
+    babyPhotoController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:babyPhotoController animated:YES];
+    
+}
+-(void)didShareButtonPressed{
+    NSString *headUrl=[[HHUserManager userModel] userHeadUrl];
+    UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:headUrl];
+    [HHShaeTool shareOnController:self withTitle:@"宝宝相册" text:@"宝宝故事相册" image:image url:nil shareType:0];
+}
+
 //回到今天
 -(void)goToday{
     self.lastSelectedDate=[NSDate date];
     [self.calendarManager setDate:[NSDate date]];
-}
--(void)publishButtonPressed:(UIButton *)sender{
-    if ([HHUserManager isLogin]) {
-        self.noteModel.noteContent=self.textView.text;
-        if ([NSString IsNullOrEmptyString:self.noteModel.noteContent]) {
-             [self.view makeToast:@"请输入日记内容"];
-        }else if([NSString IsNullOrEmptyString:self.noteModel.noteImageUrl]){
-            [self.view makeToast:@"请上传图片"];
-        }else{
-            [self addNoteWithUserID:[HHUserManager userID] imagePath:self.noteModel.noteImageUrl content:self.noteModel.noteContent noteID:self.noteModel.noteID];
-        }
-        
-    }else{
-        WEAKSELF
-        [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
-            if (isSucceed) {
-                [weakSelf publishButtonPressed:nil];
-            }
-        }];
-    }
-}
--(void)handlerImageViewTap:(UITapGestureRecognizer *)tap{
-    WEAKSELF
-    [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
-        [MotherAidNetService uploadBabayPhotoWithUserID:[HHUserManager userID] noteID:@"Rf8a87d84e" phtoPath:imgPath onCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                
-            }else{
-                
-            }
-        }];
-        UIImage *image=[UIImage imageWithContentsOfFile:imgPath];
-        weakSelf.contentImageView.image=image;
-        weakSelf.noteModel.noteImageUrl=imgPath;
-    }];
 }
 -(void)getDiaryDetailAtDate:(NSDate *)date{
     WEAKSELF
     if ([HHUserManager isLogin]) {
         
         [weakSelf.view showLoadingState];
-        HHNetWorkOperation *op=[MotherAidNetService getBabyPhotoListUserID:[HHUserManager userID] date:[NSDate date] onCompletionHandler:^(HHResponseResult *responseResult) {
+        HHNetWorkOperation *op=[MotherAidNetService getBabyPhotoListUserID:[HHUserManager userID] date:date onCompletionHandler:^(HHResponseResult *responseResult) {
             if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                if (nil==weakSelf.photoArray) {
-                    weakSelf.photoArray=[[NSMutableArray alloc]  init];
-                }
-                if (nil==weakSelf.photoCacheDic) {
-                    weakSelf.photoCacheDic=[[NSMutableDictionary alloc]  init];
-                }
-                [weakSelf.photoCacheDic setObject:weakSelf.photoArray forKey:date];
+                weakSelf.noteModel=responseResult.responseData;
                 [weakSelf.view dismissHUD];
             }else{
+                weakSelf.noteModel=responseResult.responseData;
                 [weakSelf.view showErrorMssage:responseResult.responseMessage];
             }
-            
         }];
         [self addOperationUniqueIdentifer:op.uniqueIdentifier];
     }else{

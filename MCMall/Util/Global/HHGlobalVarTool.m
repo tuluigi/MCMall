@@ -24,24 +24,24 @@
  */
 +(NSString *)onInitConfig{
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMall.BaiJiaXin"]) {
+    if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]) {
         MCMallShopID=@"D664fdc";
         MCMallShopName=@"百家欣";
-    }else if ([identifier isEqualToString:@"com.MCMall.YingZiGu"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]){
         MCMallShopID=@"D6d3e98";
         MCMallShopName=@"婴姿谷";
-    }else if ([identifier isEqualToString:@"com.MCMall.BaoBeiEJia"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]){
         MCMallShopID=@"De716c1";
         MCMallShopName=@"宝贝e家";
-    }else if ([identifier isEqualToString:@"com.MCMall.AiYingBao"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]){
         MCMallShopID=@"D396e33";
         MCMallShopName=@"爱婴堡";
-    }else if ([identifier isEqualToString:@"com.MCMall.HaiTunBeiBei"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]){
         MCMallShopID=@"Dc11375";
         MCMallShopName=@"海豚贝贝";
-    }else if ([identifier isEqualToString:@"com.MCMall.HaHa"]){
-        MCMallShopID=@"D664fdc";
-        MCMallShopName=@"百家欣";
+    }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]){
+        MCMallShopID=@"D966bfe";
+        MCMallShopName=@"奇妙母婴";
     }
     return MCMallShopID;
 }

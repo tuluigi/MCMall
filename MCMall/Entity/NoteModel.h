@@ -9,6 +9,12 @@
 #import "BaseModel.h"
 
 @interface NoteModel : BaseModel
+@property(nonatomic,strong)NSDate *date;
+@property(nonatomic,strong)NSMutableArray *photoArrays;
+@end
+
+
+@interface BabyPhotoModel : BaseModel
 @property(nonatomic,copy)NSString *noteID;
 @property(nonatomic,copy)NSString *lineID;
 @property(nonatomic,copy)NSString *noteImageUrl;

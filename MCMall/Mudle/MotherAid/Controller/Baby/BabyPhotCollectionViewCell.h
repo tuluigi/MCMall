@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BabyPhotoModel;
 @interface BabyPhotCollectionViewCell : UICollectionViewCell
-
+@property(nonatomic,strong) BabyPhotoModel *babyPhotoModel;
 @end

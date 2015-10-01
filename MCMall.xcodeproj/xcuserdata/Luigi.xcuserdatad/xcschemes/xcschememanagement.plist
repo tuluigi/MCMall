@@ -4,6 +4,31 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MCMall copy 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>MCMall copy 4.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>MCMall copy 6.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+		<key>MCMall copy 8.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>MCMall copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>MCMall.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +43,31 @@
 			<true/>
 		</dict>
 		<key>2A37B0EE1B0CC62A00D0FE88</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADFB67A1BBDA482000BF698</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADFB7761BBDA868000BF698</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADFB8611BBDA877000BF698</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADFB94C1BBDA88F000BF698</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2ADFBA371BBDA89B000BF698</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -9,6 +9,17 @@
 #import "NoteModel.h"
 
 @implementation NoteModel
+-(NSMutableArray *)photoArrays{
+    if (nil==_photoArrays) {
+        _photoArrays=[NSMutableArray new];
+    }
+    return _photoArrays;
+}
+@end
+
+
+@implementation BabyPhotoModel
+
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
              @"noteID":@"memoId",
@@ -20,4 +31,5 @@
     _noteImageUrl=noteImageUrl;
     _noteImageUrl=[HHGlobalVarTool fullImagePath:_noteImageUrl];
 }
+
 @end

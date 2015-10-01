@@ -42,7 +42,7 @@
         }else if (i==1){
                         menuView.tag=HomeMenuViewItemGoods;
             menuView.imageView.image=[UIImage imageNamed:@"icon_goods"];
-            menuView.titleLable.text=@"哈哈穿戴";
+            menuView.titleLable.text=@"智能穿戴";
         }else if(i==2){
                         menuView.tag=HomeMenuViewItemDiary;
             menuView.imageView.image=[UIImage imageNamed:@"icon_dirary"];
