@@ -22,7 +22,7 @@
 +(HHNetWorkOperation *)getBabyPhotoListUserID:(NSString *)userID
                                          date:(NSDate *)date
                           onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=[MCMallAPI uploadBabyPhotoAPI];
+    NSString *apiPath=[MCMallAPI getBabyPothoListAPI];
     NSDateFormatter *formatter=[[NSDateFormatter alloc]  init];
     formatter.dateFormat=@"yyyy-MM-dd";
     NSString *dateStr=[formatter stringFromDate:date];
@@ -31,7 +31,7 @@
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[NoteModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
             if (completionBlcok) {
-                completionBlcok(responseData);
+                completionBlcok(responseResult);
             }
         }];
     }];
@@ -52,7 +52,7 @@
                                            noteID:(NSString *)noteID
                                          phtoPath:(NSString *)photoPath
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=@"";
+    NSString *apiPath=[MCMallAPI uploadBabyPhotoAPI];
     NSDictionary *postDic;
     
     if (noteID&&noteID.length) {

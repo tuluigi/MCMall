@@ -175,6 +175,9 @@
 		2AD44C031B889424001B1CDC /* tabbar_vip_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */; };
 		2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */; };
 		2ADD942E1BBC215500B80497 /* MotherAidNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD942D1BBC215500B80497 /* MotherAidNetService.m */; settings = {ASSET_TAGS = (); }; };
+		2ADD94311BBCC11400B80497 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; settings = {ASSET_TAGS = (); }; };
+		2ADD94351BBCC36700B80497 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2ADD94381BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94371BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2AE3C5251B9C86A200F1434F /* HHUserNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5241B9C86A200F1434F /* HHUserNetService.m */; };
 		2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5271B9C87F600F1434F /* AddressModel.m */; };
 		2AE3C53F1B9DC87200F1434F /* SignupDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C53E1B9DC87200F1434F /* SignupDayView.m */; };
@@ -502,6 +505,12 @@
 		2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip@2x.png"; sourceTree = "<group>"; };
 		2ADD942C1BBC215500B80497 /* MotherAidNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherAidNetService.h; sourceTree = "<group>"; };
 		2ADD942D1BBC215500B80497 /* MotherAidNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherAidNetService.m; sourceTree = "<group>"; };
+		2ADD942F1BBCC11400B80497 /* BabyNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyNoteView.h; sourceTree = "<group>"; };
+		2ADD94301BBCC11400B80497 /* BabyNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyNoteView.m; sourceTree = "<group>"; };
+		2ADD94331BBCC36700B80497 /* BabyPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPhotosViewController.h; sourceTree = "<group>"; };
+		2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPhotosViewController.m; sourceTree = "<group>"; };
+		2ADD94361BBCC7AB00B80497 /* BabyPhotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPhotCollectionViewCell.h; sourceTree = "<group>"; };
+		2ADD94371BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPhotCollectionViewCell.m; sourceTree = "<group>"; };
 		2AE3C5231B9C86A200F1434F /* HHUserNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHUserNetService.h; sourceTree = "<group>"; };
 		2AE3C5241B9C86A200F1434F /* HHUserNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserNetService.m; sourceTree = "<group>"; };
 		2AE3C5261B9C87F600F1434F /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
@@ -1172,11 +1181,14 @@
 		2A95FA911B9B148C00962F79 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD94321BBCC33100B80497 /* Baby */,
 				2A95FA9E1B9B150500962F79 /* qiandaoBg.png */,
 				2A95FA951B9B14D900962F79 /* MotherDiaryViewController.h */,
 				2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */,
 				2A95FA971B9B14D900962F79 /* SignUpViewController.h */,
 				2A95FA981B9B14D900962F79 /* SignUpViewController.m */,
+				2ADD942F1BBCC11400B80497 /* BabyNoteView.h */,
+				2ADD94301BBCC11400B80497 /* BabyNoteView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1556,6 +1568,17 @@
 				2AD38AB41B801E6700BEA56E /* btn_share_wechatTimeLine@2x.png */,
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		2ADD94321BBCC33100B80497 /* Baby */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD94331BBCC36700B80497 /* BabyPhotosViewController.h */,
+				2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */,
+				2ADD94361BBCC7AB00B80497 /* BabyPhotCollectionViewCell.h */,
+				2ADD94371BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m */,
+			);
+			path = Baby;
 			sourceTree = "<group>";
 		};
 		2AE3C53C1B9DC87200F1434F /* View */ = {
@@ -1970,6 +1993,7 @@
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */,
 				2AFFF6901B64A9A500712317 /* SubjectViewController.m in Sources */,
+				2ADD94311BBCC11400B80497 /* BabyNoteView.m in Sources */,
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
@@ -1978,6 +2002,7 @@
 				2AF5A2541B99BD2E003F6AB8 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
 				2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */,
+				2ADD94351BBCC36700B80497 /* BabyPhotosViewController.m in Sources */,
 				2AF5A2801B9AD658003F6AB8 /* UIImageEffects.m in Sources */,
 				2AF5A28D1B9AD6C9003F6AB8 /* OCPageLoadView.m in Sources */,
 				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
@@ -2047,6 +2072,7 @@
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
 				2AA7F2E11B7E1CB900BFC1A1 /* UserStateSelectController.m in Sources */,
 				2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */,
+				2ADD94381BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m in Sources */,
 				2AD38AA71B801E2400BEA56E /* HHShareContentView.m in Sources */,
 				2AF5A24B1B99BD2E003F6AB8 /* NSDate+Addition.m in Sources */,
 				2AC766631BB79C3D00160837 /* UILabel+Category.m in Sources */,

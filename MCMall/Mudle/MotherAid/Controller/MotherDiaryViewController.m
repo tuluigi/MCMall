@@ -160,6 +160,13 @@
 -(void)handlerImageViewTap:(UITapGestureRecognizer *)tap{
     WEAKSELF
     [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+        [MotherAidNetService uploadBabayPhotoWithUserID:[HHUserManager userID] noteID:@"Rf8a87d84e" phtoPath:imgPath onCompletionHandler:^(HHResponseResult *responseResult) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                
+            }else{
+                
+            }
+        }];
         UIImage *image=[UIImage imageWithContentsOfFile:imgPath];
         weakSelf.contentImageView.image=image;
         weakSelf.noteModel.noteImageUrl=imgPath;
