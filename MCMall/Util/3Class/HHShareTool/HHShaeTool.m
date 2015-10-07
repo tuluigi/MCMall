@@ -26,10 +26,9 @@
                    image:(UIImage *)img
                      url:(NSString *)url
                shareType:(NSInteger)type{
-    if ( DEBUG) {
-        [UMSocialData openLog:YES];
-    }
-    
+#ifdef DEBUG   
+    [UMSocialData openLog:YES];
+#endif
     typeof(controller) __weak weakController = controller;
     
     
@@ -94,10 +93,9 @@
                      url:(NSString *)url
                shareType:(NSInteger)type
                   itemID:(NSString *)itemID{
-    if ( DEBUG) {
-        [UMSocialData openLog:YES];
-    }
-    
+#ifdef DEBUG
+    [UMSocialData openLog:YES];
+#endif
     typeof(controller) __weak weakController = controller;
     
     

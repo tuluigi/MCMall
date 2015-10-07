@@ -4790,7 +4790,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f327297-5def-4cb8-bf27-ec372c1da3d5";
+				PROVISIONING_PROFILE = "2c06674d-47d3-46cc-8e1b-eadb0d6229ec";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4827,7 +4827,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "6f327297-5def-4cb8-bf27-ec372c1da3d5";
+				PROVISIONING_PROFILE = "2c06674d-47d3-46cc-8e1b-eadb0d6229ec";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4837,7 +4837,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4865,7 +4865,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
