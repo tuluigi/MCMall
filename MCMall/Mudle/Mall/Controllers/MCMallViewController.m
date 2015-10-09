@@ -168,9 +168,9 @@
        return self.cellHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
- GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     GoodsDetailViewController *goodsDetailController=[[GoodsDetailViewController alloc]  init];
-    goodsDetailController.goodsModel=goodsModel;
+    goodsDetailController.goodsID=goodsModel.goodsID;
     goodsDetailController.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:goodsDetailController animated:YES];
 }

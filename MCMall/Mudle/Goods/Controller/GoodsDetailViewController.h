@@ -9,5 +9,6 @@
 #import "BaseTableViewController.h"
 @class GoodsModel;
 @interface GoodsDetailViewController : BaseTableViewController
-@property(nonatomic,strong)__block GoodsModel *goodsModel;
+
+@property(nonatomic,copy)NSString *goodsID;
 @end

@@ -27,21 +27,33 @@
     if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]) {
         MCMallShopID=@"D664fdc";
         MCMallShopName=@"百家欣";
+        APNSKEY=@"2sPzn3eqQ3U3RkUuGpiSu38e";
+        APNSSECRET=@"SiOQTme6cShPoDxaoYeqgad7smNFlrey";
     }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]){
         MCMallShopID=@"D6d3e98";
         MCMallShopName=@"婴姿谷";
+        APNSKEY=@"V3jXzNVB7pmVSgGXHjGsfiSS";
+        APNSSECRET=@"dlVk22FsxSg2ZGcwcLGG75FAKjedIUC7";
     }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]){
         MCMallShopID=@"De716c1";
         MCMallShopName=@"宝贝e家";
+        APNSKEY=@"DoID5hHFsF40vu0CcYqgedtC";
+        APNSSECRET=@"GD7Zm3y5Cm5D62h5OuO4BxR3Gc7lY6FB";
     }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]){
         MCMallShopID=@"D396e33";
         MCMallShopName=@"爱婴堡";
+        APNSKEY=@"BXqQDaXI1vY5OdVRAv1dDcGt";
+        APNSSECRET=@"3rH6WZ1PKSXbLCSKH8R3w8DLlbWNrhZB";
     }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]){
         MCMallShopID=@"Dc11375";
         MCMallShopName=@"海豚贝贝";
+        APNSKEY=@"7HcOsv9H1OpZOaVGTVpky2TO";
+        APNSSECRET=@"e5M2u5NNBZKGQLWfDB2L427eOzCYiShS";
     }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]){
         MCMallShopID=@"D966bfe";
-        MCMallShopName=@"奇妙母婴";
+        MCMallShopName=@"妙奇母婴";
+        APNSKEY=@"ztWLAvee3KsnlxmOXuFOTkxP";
+        APNSSECRET=@"UIXWm9YGz059jMqQb4PegPSwTQl9WPEg";
     }
     return MCMallShopID;
 }
@@ -51,6 +63,7 @@
 +(NSString *)shopID{
     return MCMallShopID;
 }
+
 #pragma mark- token
 +(NSString *)deviceToken{
     NSString *tokenStr=[[NSUserDefaults standardUserDefaults]  objectForKey:@"__Device_Token__"];

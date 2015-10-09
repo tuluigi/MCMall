@@ -22,6 +22,18 @@
 
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 
- NSString * MCMallShopID;
- NSString *MCMallShopName;
+NSString * MCMallShopID;
+NSString *MCMallShopName;
+NSString  *APNSKEY;
+NSString *APNSSECRET;
+
+
+typedef NS_ENUM(NSInteger, MCMallNotificationType) {
+    MCMallNotificationTypeActivityCommon      =1,//普通
+    MCMallNotificationTypeActivityVote        =3 ,//投票
+    MCMallNotificationTypeActivityApply       =2,//报名
+     MCMallNotificationTypeActivityPicture    =4,//图片活动
+    MCMallNotificationTypeGoods               =5,//商品推送
+};
+
 #endif

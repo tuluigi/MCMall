@@ -11,6 +11,8 @@
 #import "BPush.h"
 #import "UserStateSelectController.h"
 #import "HHShaeTool.h"
+#import "GoodsDetailViewController.h"
+#import "VoteActivityViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -33,26 +35,15 @@
     [self.window makeKeyAndVisible];
    NSTimer * _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
-    // iOS8 下需要使用新的 API
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-        
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }else {
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
-    }
-    
-   
+
     // 在 App 启动时注册百度云推送服务，需要提供 Apikey DF0eNG6TNUqEvrVyQhIRU0Ea IcDl7Kx2H3DYzb2TQOqMkohZ
-    [BPush registerChannel:launchOptions apiKey:@"IcDl7Kx2H3DYzb2TQOqMkohZ" pushMode:BPushModeDevelopment withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:YES];
+    [BPush registerChannel:launchOptions apiKey:APNSKEY pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:YES];
     // App 是用户点击推送消息启动
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo) {
         NSLog(@"从消息启动:%@",userInfo);
         [BPush handleNotification:userInfo];
+         [self handleAPNSPushNotification:userInfo];
     }
     
    // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
@@ -66,7 +57,23 @@
         [ [UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:stateSelectController animated:YES];
     }
     [HHShaeTool setSharePlatform];
+    [self registerAPNSNotification];
     return YES;
+}
+-(void)registerAPNSNotification{
+    // iOS8 下需要使用新的 API
+    NSString *tokenStr= [HHGlobalVarTool deviceToken];
+    if ([NSString IsNullOrEmptyString:tokenStr]) {
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+            UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+            
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        }else {
+            UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+        }
+    }
 }
 -(void)handTimerTask:(NSTimer *)timer{
     [[NSNotificationCenter defaultCenter ] postNotificationName:MCMallTimerTaskNotification object:nil userInfo:nil];
@@ -110,6 +117,12 @@
 #endif
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSLog(@"test:%@",deviceToken);
+    NSString* tokenStr = [[[[deviceToken description]
+                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                               stringByReplacingOccurrencesOfString: @">" withString: @""]
+                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
+    
+    [HHGlobalVarTool setDeviceToken:tokenStr];
     [BPush registerDeviceToken:deviceToken];
     [BPush bindChannelWithCompleteHandler:^(id result, NSError *error) {
         NSLog(@"RESLUT%@",result);
@@ -122,11 +135,31 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     [BPush handleNotification:userInfo];
+     [self handleAPNSPushNotification:userInfo];
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
      [BPush handleNotification:userInfo];
+    [self handleAPNSPushNotification:userInfo];
 }
+-(void)handleAPNSPushNotification:(NSDictionary *)userInfo{
+    NSDictionary *contentDic=[userInfo objectForKey:@"content"];
+    NSInteger noteType=[[contentDic objectForKey:@"type"] integerValue];
+    RootTabBarController *rootTabbarController= (RootTabBarController *)[[self.window.subviews objectAtIndex:0] rootViewController];
+    UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
 
+    NSString *valueStr=[contentDic objectForKey:@"id"];
+    if (noteType==MCMallNotificationTypeGoods) {
+        GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
+        goodDetailController.hidesBottomBarWhenPushed=YES;
+        goodDetailController.goodsID=valueStr;
+        [navController pushViewController:goodDetailController animated:YES];
+
+    }else{
+        VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:valueStr type:noteType];
+        voteController.hidesBottomBarWhenPushed=YES;
+        [navController pushViewController:voteController animated:YES];
+    }
+}
 
 @end

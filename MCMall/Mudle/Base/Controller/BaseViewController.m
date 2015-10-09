@@ -36,7 +36,7 @@
 //    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
 //        self.edgesForExtendedLayout=NO;
 //    }
-    [self setupForDismissKeyboard];
+//    [self setupForDismissKeyboard];
     // Do any additional setup after loading the view.
 }
 

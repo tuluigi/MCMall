@@ -171,7 +171,7 @@
         cell.goodsViewClickedBlock=^(GoodsModel *goodsModel){
             GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
             goodDetailController.hidesBottomBarWhenPushed=YES;
-            goodDetailController.goodsModel=goodsModel;
+            goodDetailController.goodsID=goodsModel.goodsID;
             [weakSelf.navigationController pushViewController:goodDetailController animated:YES];
         };
     }

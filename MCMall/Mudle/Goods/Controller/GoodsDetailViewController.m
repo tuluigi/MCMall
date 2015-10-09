@@ -20,6 +20,7 @@
 @property(nonatomic,strong)UIImageView *goodsImageView;
 @property(nonatomic,strong)UIToolbar *tooBar;
 @property(nonatomic,strong)UIWebView *footWebView;
+@property(nonatomic,strong)__block GoodsModel *goodsModel;
 @end
 
 @implementation GoodsDetailViewController
@@ -101,7 +102,7 @@
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self getGoodsDetailWithGoodsID:self.goodsModel.goodsID];
+    [self getGoodsDetailWithGoodsID:self.goodsID];
     self.title=@"商品详情";
     [self.view addSubview:self.tooBar];
     self.tableView.tableHeaderView=self.goodsImageView;
@@ -124,10 +125,10 @@
     
 }
 -(void)getGoodsDetailWithGoodsID:(NSString *)goodsID{
-    [self.view showLoadingState];
+    [self.view showPageLoadingView];
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsDetailWithGoodsID:goodsID userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.view dismissHUD];
+        [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.goodsModel=((GoodsModel *)responseResult.responseData);
             weakSelf.goodsModel.goodsID=goodsID;
