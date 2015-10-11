@@ -42,7 +42,10 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=@"宝宝相册";
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(uploadBabyPhoto)];
+    if (self.enableUpload) {
+          self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(uploadBabyPhoto)];
+    }
+  
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);

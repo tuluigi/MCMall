@@ -22,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [HHGlobalVarTool onInitConfig];
-
+    
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]  initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor=[UIColor whiteColor];
@@ -34,27 +34,27 @@
     [[UINavigationBar appearance] setTitleTextAttributes:attrDic];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
-   NSTimer * _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
+    NSTimer * _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handTimerTask:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
-
+    
     // 在 App 启动时注册百度云推送服务，需要提供 Apikey DF0eNG6TNUqEvrVyQhIRU0Ea IcDl7Kx2H3DYzb2TQOqMkohZ
-    [BPush registerChannel:launchOptions apiKey:APNSKEY pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:YES];
+    [BPush registerChannel:launchOptions apiKey:APNSKEY pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:NO];
     // App 是用户点击推送消息启动
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo) {
         NSLog(@"从消息启动:%@",userInfo);
         [BPush handleNotification:userInfo];
-         [self handleAPNSPushNotification:userInfo];
+        [self handleAPNSPushNotification:userInfo];
     }
     
-   // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
+    // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     UserModel *userModel=[HHUserManager userModel];
     if (userModel.motherState!=MotherStatePregnant||userModel.motherState!=MotherStateAfterBirth) {
         UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
         stateSelectController.hidesBottomBarWhenPushed=YES;
-       
+        
         [ [[UIApplication sharedApplication].windows objectAtIndex:0].rootViewController.navigationController pushViewController:stateSelectController animated:YES];
     }
     [HHShaeTool setSharePlatform];
@@ -118,14 +118,12 @@
 #endif
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSLog(@"test:%@",deviceToken);
-//    NSString* tokenStr = [[[[deviceToken description]
-//                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
-//                               stringByReplacingOccurrencesOfString: @">" withString: @""]
-//                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
+    //    NSString* tokenStr = [[[[deviceToken description]
+    //                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
+    //                               stringByReplacingOccurrencesOfString: @">" withString: @""]
+    //                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
     
     NSString* tokenStr = [NSString stringWithFormat:@"%@",deviceToken];
-//    UIAlertView *alert=[[UIAlertView alloc]  initWithTitle:nil message:tokenStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-//    [alert show];
     [HHGlobalVarTool setDeviceToken:tokenStr];
     [BPush registerDeviceToken:deviceToken];
     [BPush bindChannelWithCompleteHandler:^(id result, NSError *error) {
@@ -139,30 +137,40 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     [BPush handleNotification:userInfo];
-     [self handleAPNSPushNotification:userInfo];
+    [self handleAPNSPushNotification:userInfo];
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-     [BPush handleNotification:userInfo];
+    [BPush handleNotification:userInfo];
     [self handleAPNSPushNotification:userInfo];
 }
 -(void)handleAPNSPushNotification:(NSDictionary *)userInfo{
-    NSDictionary *contentDic=[userInfo objectForKey:@"content"];
-    NSInteger noteType=[[contentDic objectForKey:@"type"] integerValue];
+    //    NSString *pushStr=[NSString stringWithFormat:@"%@",userInfo];
+    //  UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil message:pushStr delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:nil, nil];
+    //    [alert show];
+    
+    NSInteger noteType=[[userInfo objectForKey:@"type"] integerValue];
     RootTabBarController *rootTabbarController= (RootTabBarController *)[[self.window.subviews objectAtIndex:0] rootViewController];
     UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
-
-    NSString *valueStr=[contentDic objectForKey:@"id"];
-    if (noteType==MCMallNotificationTypeGoods) {
-        GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
-        goodDetailController.hidesBottomBarWhenPushed=YES;
-        goodDetailController.goodsID=valueStr;
-        [navController pushViewController:goodDetailController animated:YES];
-
-    }else{
-        VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:valueStr type:noteType];
-        voteController.hidesBottomBarWhenPushed=YES;
-        [navController pushViewController:voteController animated:YES];
+    
+    NSString *valueStr=[userInfo objectForKey:@"id"];
+    switch (noteType) {
+        case MCMallNotificationTypeGoods:{
+            GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
+            goodDetailController.hidesBottomBarWhenPushed=YES;
+            goodDetailController.goodsID=valueStr;
+            [navController pushViewController:goodDetailController animated:YES];
+        }break;
+        case MCMallNotificationTypeActivityCommon:
+        case MCMallNotificationTypeActivityApply:
+        case MCMallNotificationTypeActivityPicture:
+        case MCMallNotificationTypeActivityVote:{
+            VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:valueStr type:noteType];
+            voteController.hidesBottomBarWhenPushed=YES;
+            [navController pushViewController:voteController animated:YES];
+        }break;
+        default:
+            break;
     }
 }
 

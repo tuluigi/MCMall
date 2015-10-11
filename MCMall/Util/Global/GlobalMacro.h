@@ -22,10 +22,6 @@
 
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 
-NSString * MCMallShopID;
-NSString *MCMallShopName;
-NSString  *APNSKEY;
-NSString *APNSSECRET;
 
 
 typedef NS_ENUM(NSInteger, MCMallNotificationType) {
@@ -35,5 +31,17 @@ typedef NS_ENUM(NSInteger, MCMallNotificationType) {
      MCMallNotificationTypeActivityPicture    =4,//图片活动
     MCMallNotificationTypeGoods               =5,//商品推送
 };
+typedef NS_ENUM(NSInteger,MCMallClientType) {
+    MCMallClientTypeBaiJiaXin     =10,
+    MCMallClientTypeBaoBeiEJia    ,
+    MCMallClientTypeAiYingBao     ,
+    MCMallClientTypeHaiTunBeiBei   ,
+    MCMallClientTypeYingZiGu       ,
+    MCMallClientTypeMiaoQiMuYing    ,
+};
 
+NSString * MCMallShopID;
+NSString *MCMallShopName;
+NSString  *APNSKEY;
+NSString *APNSSECRET;
 #endif

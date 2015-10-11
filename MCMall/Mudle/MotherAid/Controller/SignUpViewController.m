@@ -169,7 +169,7 @@
                 weakSelf.isTodaySign=YES;
             }
             for (SignInModel *signModel in weakSelf.dataSourceArray) {
-                if (signModel.signinDate==[NSDate date]) {
+                if ([weakSelf.calendarManager.dateHelper date:signModel.signinDate isTheSameDayThan:[NSDate date]]) {
                     signModel.isSigned=YES;
                     break;
                 }

@@ -57,6 +57,24 @@
     }
     return MCMallShopID;
 }
++(MCMallClientType)mcMallClientType{
+    MCMallClientType mallType;
+    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
+    if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]) {
+        mallType=MCMallClientTypeBaiJiaXin;
+    }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]){
+       mallType=MCMallClientTypeYingZiGu;
+    }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]){
+       mallType=MCMallClientTypeBaoBeiEJia;
+    }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]){
+       mallType=MCMallClientTypeAiYingBao;
+    }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]){
+        mallType=MCMallClientTypeHaiTunBeiBei;
+    }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]){
+        mallType=MCMallClientTypeMiaoQiMuYing;
+    }
+    return mallType;
+}
 +(NSString *)shopName{
    return  MCMallShopName;
 }
@@ -72,5 +90,253 @@
 +(void)setDeviceToken:(NSString *)deviceToken{
     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"__Device_Token__"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSString *)shareQQID{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+              str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+              str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+              str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+              str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+              str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareQQKey{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareWeXinKey{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareWeXinSecret{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareSinaWeiBoID{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareSinaWeiBoKey{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
+
++(NSString *)shareUMKey{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"55cfe978e0f55a1bfc002686";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareBDPushKey{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
+}
++(NSString *)shareDownloadUrl{
+    NSString *str=[NSString stringWithFormat:@"http://120.25.152.224:8080/muying/h5_download.html?shopid=%@",[HHGlobalVarTool shopID]];
+    return str;
+}
++(NSString *)shareAppstoreUrl{
+    NSString *str=@"";
+    MCMallClientType type;
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"";
+        }break;
+        default:
+            break;
+    }
+    return str;
 }
 @end

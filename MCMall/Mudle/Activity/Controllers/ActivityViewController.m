@@ -25,7 +25,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   }
+    if (self.dataSourceArray.count==0) {
+         [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"活动";
@@ -43,7 +46,7 @@
     }];
     
     // Do any additional setup after loading the view.
-    [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
+//    [self getActivityListWithPageNum:self.pageIndex pageSize:MCMallPageSize];
     
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];

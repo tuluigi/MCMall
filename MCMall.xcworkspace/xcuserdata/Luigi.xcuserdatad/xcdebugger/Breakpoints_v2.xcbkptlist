@@ -57,13 +57,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Entity/ActivityModel.m"
-            timestampString = "466251386.339838"
+            filePath = "MCMall/Mudle/MotherAid/Controller/MotherDiaryViewController.m"
+            timestampString = "466254933.499629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "+activityModelWithResponseDic:"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "-calendar:prepareDayView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
+            timestampString = "466254352.365681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "+uploadBabayPhotoWithUserID:noteID:phtoPath:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Controller/MotherDiaryViewController.m"
+            timestampString = "466254912.599034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "-didEditButtonPressed"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -163,7 +163,22 @@
     [self getDiaryDetailAtDate:_lastSelectedDate];
 }
 -(void)didEditButtonPressed{
+    BOOL enableUpload=NO;
+     if([self.calendarManager.dateHelper date:_lastSelectedDate isEqualOrBefore:[NSDate date]]){
+        if ([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:_lastSelectedDate]) {
+            enableUpload=YES;
+        }else{
+            if (!self.noteModel.photoArrays.count ) {
+               [self.view showErrorMssage:@"当天暂无宝宝故事"];
+                return;
+            }
+        }
+     }else{
+         [self.view showErrorMssage:@"当天暂无宝宝故事"];
+         return;
+     }
     BabyPhotosViewController *babyPhotoController=[[BabyPhotosViewController alloc] initWithNoteModle:self.noteModel];
+    babyPhotoController.enableUpload=enableUpload;
     babyPhotoController.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:babyPhotoController animated:YES];
     
@@ -222,7 +237,11 @@
 #pragma mark - CalendarManager delegate
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
-   
+    if ([self.calendarManager.dateHelper date:_lastSelectedDate isTheSameDayThan:dayView.date]) {
+        dayView.circleView.hidden=NO;
+    }else{
+        dayView.circleView.hidden=YES;
+    }
 }
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar
 {

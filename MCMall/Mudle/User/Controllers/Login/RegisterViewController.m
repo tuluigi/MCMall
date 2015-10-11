@@ -288,6 +288,7 @@
     textField.rightViewMode=UITextFieldViewModeNever;
     textField.secureTextEntry=NO;
     textField.hidden=NO;
+    textField.delegate=self;
     textField.keyboardType=UIKeyboardTypeDefault;
      cell.accessoryType=UITableViewCellAccessoryNone;
     switch (indexPath.row) {
@@ -373,5 +374,9 @@
     self.salerName=salerName;
     self.salersID=salerID;
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
 }
 @end

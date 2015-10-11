@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 @class NoteModel;
 @interface BabyPhotosViewController : BaseViewController
-
+@property(nonatomic,assign)BOOL enableUpload;
 -(instancetype)initWithNoteModle:(NoteModel *)noteModel;
 @end
 

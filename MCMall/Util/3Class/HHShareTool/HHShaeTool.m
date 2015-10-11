@@ -191,24 +191,17 @@
     return canOpen;
 }
 #pragma mark- share
-+(NSString *)shareUrlWithType:(NSInteger)type objectID:(NSString *)objectID{
-    NSString *shareUrl=@"http://203.171.237.66:8007/Share/";
-    NSString *sufferName=@"";
-    
-    shareUrl=[[shareUrl stringByAppendingString:sufferName] stringByAppendingFormat:@"?id=%@",objectID];
-    return shareUrl;
-}
 +(NSString *)shareDownloadUrl{
-    return @"http://120.25.152.224:8080/muying";
+    return [HHGlobalVarTool shareDownloadUrl];
 }
 +(NSString *)shareUMKey{
-    return @"55cfe978e0f55a1bfc002686";
+    return [HHGlobalVarTool shareUMKey];
 }
 +(NSString *)shareWeiboID{
-    return @"1322087084";
+    return [HHGlobalVarTool shareSinaWeiBoID];
 }
 +(NSString *)shareWeiboKey{
-    return @"9ce5fc83ce399a4b245d479d17869301";
+    return [HHGlobalVarTool shareSinaWeiBoKey];
 }
 #pragma mark -需要提供
 +(NSString *)shareQQKey{

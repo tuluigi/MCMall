@@ -22,4 +22,18 @@
 #pragma mark- token
 +(NSString *)deviceToken;
 +(void)setDeviceToken:(NSString *)deviceToken;
+
++(MCMallClientType)mcMallClientType;
++(NSString *)shareQQID;
++(NSString *)shareQQKey;
++(NSString *)shareWeXinKey;
++(NSString *)shareWeXinSecret;
++(NSString *)shareSinaWeiBoID;
++(NSString *)shareSinaWeiBoKey;
+
++(NSString *)shareUMKey;
++(NSString *)shareBDPushKey;
++(NSString *)shareDownloadUrl;
++(NSString *)shareAppstoreUrl;
+
 @end

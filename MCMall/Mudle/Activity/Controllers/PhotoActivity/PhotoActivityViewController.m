@@ -207,10 +207,8 @@
     if ([HHUserManager isLogin]) {
         if (!sender.isSelected) {
             WEAKSELF
-            [weakSelf.view showLoadingState];
             [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[HHUserManager userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                    [weakSelf.view dismissHUD];
                     weakSelf.photoModle.isFavor=YES;
                     weakSelf.photoModle.favorCount++;
                     _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
