@@ -33,6 +33,12 @@
 		2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D4D1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D4E1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D4F1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -41,7 +47,6 @@
 		2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
 		2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C651B32BC8E005F5D15 /* GoodsModel.m */; };
-		2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2A4956CF1BB2F4F80036D71C /* SalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956CE1BB2F4F80036D71C /* SalesViewController.m */; };
 		2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D21BB301DA0036D71C /* OrderListViewController.m */; };
 		2A4956D61BB301FB0036D71C /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4956D51BB301FB0036D71C /* OrderListCell.m */; };
@@ -192,7 +197,6 @@
 		2ADFB6861BBDA482000BF698 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
 		2ADFB6871BBDA482000BF698 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2ADFB6881BBDA482000BF698 /* SubjectNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A26F1B99C079003F6AB8 /* SubjectNetService.m */; };
-		2ADFB6891BBDA482000BF698 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2ADFB68A1BBDA482000BF698 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
 		2ADFB68B1BBDA482000BF698 /* HHShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38AA51B801E2400BEA56E /* HHShareView.m */; };
 		2ADFB68C1BBDA482000BF698 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2401B99BD2E003F6AB8 /* UIResponder+Router.m */; };
@@ -235,7 +239,6 @@
 		2ADFB6B11BBDA482000BF698 /* HHShaeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A9C1B801E2400BEA56E /* HHShaeTool.m */; };
 		2ADFB6B21BBDA482000BF698 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2ADFB6B31BBDA482000BF698 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
-		2ADFB6B41BBDA482000BF698 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2ADFB6B51BBDA482000BF698 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2721B99C72E003F6AB8 /* UIView+HUD.m */; };
 		2ADFB6B61BBDA482000BF698 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A23E1B99BD2E003F6AB8 /* UIImage+Addition.m */; };
 		2ADFB6B71BBDA482000BF698 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -247,7 +250,6 @@
 		2ADFB6BD1BBDA482000BF698 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2ADFB6BE1BBDA482000BF698 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2ADFB6BF1BBDA482000BF698 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
-		2ADFB6C01BBDA482000BF698 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2ADFB6C11BBDA482000BF698 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2ADFB6C21BBDA482000BF698 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
 		2ADFB6C31BBDA482000BF698 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
@@ -409,7 +411,6 @@
 		2ADFB7821BBDA868000BF698 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
 		2ADFB7831BBDA868000BF698 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2ADFB7841BBDA868000BF698 /* SubjectNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A26F1B99C079003F6AB8 /* SubjectNetService.m */; };
-		2ADFB7851BBDA868000BF698 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2ADFB7861BBDA868000BF698 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
 		2ADFB7871BBDA868000BF698 /* HHShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38AA51B801E2400BEA56E /* HHShareView.m */; };
 		2ADFB7881BBDA868000BF698 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2401B99BD2E003F6AB8 /* UIResponder+Router.m */; };
@@ -452,7 +453,6 @@
 		2ADFB7AD1BBDA868000BF698 /* HHShaeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A9C1B801E2400BEA56E /* HHShaeTool.m */; };
 		2ADFB7AE1BBDA868000BF698 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2ADFB7AF1BBDA868000BF698 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
-		2ADFB7B01BBDA868000BF698 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2ADFB7B11BBDA868000BF698 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2721B99C72E003F6AB8 /* UIView+HUD.m */; };
 		2ADFB7B21BBDA868000BF698 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A23E1B99BD2E003F6AB8 /* UIImage+Addition.m */; };
 		2ADFB7B31BBDA868000BF698 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -464,7 +464,6 @@
 		2ADFB7B91BBDA868000BF698 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2ADFB7BA1BBDA868000BF698 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2ADFB7BB1BBDA868000BF698 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
-		2ADFB7BC1BBDA868000BF698 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2ADFB7BD1BBDA868000BF698 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2ADFB7BE1BBDA868000BF698 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
 		2ADFB7BF1BBDA868000BF698 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
@@ -625,7 +624,6 @@
 		2ADFB86D1BBDA877000BF698 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
 		2ADFB86E1BBDA877000BF698 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2ADFB86F1BBDA877000BF698 /* SubjectNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A26F1B99C079003F6AB8 /* SubjectNetService.m */; };
-		2ADFB8701BBDA877000BF698 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2ADFB8711BBDA877000BF698 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
 		2ADFB8721BBDA877000BF698 /* HHShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38AA51B801E2400BEA56E /* HHShareView.m */; };
 		2ADFB8731BBDA877000BF698 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2401B99BD2E003F6AB8 /* UIResponder+Router.m */; };
@@ -668,7 +666,6 @@
 		2ADFB8981BBDA877000BF698 /* HHShaeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A9C1B801E2400BEA56E /* HHShaeTool.m */; };
 		2ADFB8991BBDA877000BF698 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2ADFB89A1BBDA877000BF698 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
-		2ADFB89B1BBDA877000BF698 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2ADFB89C1BBDA877000BF698 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2721B99C72E003F6AB8 /* UIView+HUD.m */; };
 		2ADFB89D1BBDA877000BF698 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A23E1B99BD2E003F6AB8 /* UIImage+Addition.m */; };
 		2ADFB89E1BBDA877000BF698 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -680,7 +677,6 @@
 		2ADFB8A41BBDA877000BF698 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2ADFB8A51BBDA877000BF698 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2ADFB8A61BBDA877000BF698 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
-		2ADFB8A71BBDA877000BF698 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2ADFB8A81BBDA877000BF698 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2ADFB8A91BBDA877000BF698 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
 		2ADFB8AA1BBDA877000BF698 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
@@ -841,7 +837,6 @@
 		2ADFB9581BBDA88F000BF698 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
 		2ADFB9591BBDA88F000BF698 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2ADFB95A1BBDA88F000BF698 /* SubjectNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A26F1B99C079003F6AB8 /* SubjectNetService.m */; };
-		2ADFB95B1BBDA88F000BF698 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2ADFB95C1BBDA88F000BF698 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
 		2ADFB95D1BBDA88F000BF698 /* HHShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38AA51B801E2400BEA56E /* HHShareView.m */; };
 		2ADFB95E1BBDA88F000BF698 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2401B99BD2E003F6AB8 /* UIResponder+Router.m */; };
@@ -884,7 +879,6 @@
 		2ADFB9831BBDA88F000BF698 /* HHShaeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A9C1B801E2400BEA56E /* HHShaeTool.m */; };
 		2ADFB9841BBDA88F000BF698 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2ADFB9851BBDA88F000BF698 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
-		2ADFB9861BBDA88F000BF698 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2ADFB9871BBDA88F000BF698 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2721B99C72E003F6AB8 /* UIView+HUD.m */; };
 		2ADFB9881BBDA88F000BF698 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A23E1B99BD2E003F6AB8 /* UIImage+Addition.m */; };
 		2ADFB9891BBDA88F000BF698 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -896,7 +890,6 @@
 		2ADFB98F1BBDA88F000BF698 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2ADFB9901BBDA88F000BF698 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2ADFB9911BBDA88F000BF698 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
-		2ADFB9921BBDA88F000BF698 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2ADFB9931BBDA88F000BF698 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2ADFB9941BBDA88F000BF698 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
 		2ADFB9951BBDA88F000BF698 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
@@ -1057,7 +1050,6 @@
 		2ADFBA431BBDA89B000BF698 /* HHNetWorkEngine+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FAA81B9B165800962F79 /* HHNetWorkEngine+Goods.m */; };
 		2ADFBA441BBDA89B000BF698 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2ADFBA451BBDA89B000BF698 /* SubjectNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A26F1B99C079003F6AB8 /* SubjectNetService.m */; };
-		2ADFBA461BBDA89B000BF698 /* McMallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C6B1B32BDA6005F5D15 /* McMallCell.m */; };
 		2ADFBA471BBDA89B000BF698 /* GoodsAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3C5461B9DCA7800F1434F /* GoodsAddressViewController.m */; };
 		2ADFBA481BBDA89B000BF698 /* HHShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38AA51B801E2400BEA56E /* HHShareView.m */; };
 		2ADFBA491BBDA89B000BF698 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2401B99BD2E003F6AB8 /* UIResponder+Router.m */; };
@@ -1100,7 +1092,6 @@
 		2ADFBA6E1BBDA89B000BF698 /* HHShaeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD38A9C1B801E2400BEA56E /* HHShaeTool.m */; };
 		2ADFBA6F1BBDA89B000BF698 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2ADFBA701BBDA89B000BF698 /* HHNetWorkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E681B141205004DF4C0 /* HHNetWorkEngine.m */; };
-		2ADFBA711BBDA89B000BF698 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2ADFBA721BBDA89B000BF698 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2721B99C72E003F6AB8 /* UIView+HUD.m */; };
 		2ADFBA731BBDA89B000BF698 /* UIImage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A23E1B99BD2E003F6AB8 /* UIImage+Addition.m */; };
 		2ADFBA741BBDA89B000BF698 /* HHImagePickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */; };
@@ -1112,7 +1103,6 @@
 		2ADFBA7A1BBDA89B000BF698 /* MallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA671711B78E66B00ECC8A3 /* MallListCell.m */; };
 		2ADFBA7B1BBDA89B000BF698 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F6EC1B10972300607723 /* BaseViewController.m */; };
 		2ADFBA7C1BBDA89B000BF698 /* HHFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0645451B7D82FF00C27AD5 /* HHFlowView.m */; };
-		2ADFBA7D1BBDA89B000BF698 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2ADFBA7E1BBDA89B000BF698 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE793231B1C42180008E241 /* RegisterViewController.m */; };
 		2ADFBA7F1BBDA89B000BF698 /* HHNetWorkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EA1EA1B528229005B04A9 /* HHNetWorkOperation.m */; };
 		2ADFBA801BBDA89B000BF698 /* HHNetWorkEngine+Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E081B146E0200912D53 /* HHNetWorkEngine+Activity.m */; };
@@ -1314,9 +1304,7 @@
 		2AF5A28E1B9AD6C9003F6AB8 /* UIView+OCPageLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A28B1B9AD6C9003F6AB8 /* UIView+OCPageLoad.m */; };
 		2AFAC64C1BA59FE200C2B131 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6491BA59FE200C2B131 /* GoodsDetailViewController.m */; };
 		2AFAC64D1BA59FE200C2B131 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
-		2AFAC6541BA5A04100C2B131 /* GoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64F1BA5A04100C2B131 /* GoodsView.m */; };
 		2AFAC6551BA5A04100C2B131 /* HHClassMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */; };
-		2AFAC6561BA5A04100C2B131 /* MallGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */; };
 		2AFAC6591BA5BD3A00C2B131 /* MotherDiaryDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC6581BA5BD3A00C2B131 /* MotherDiaryDayView.m */; };
 		2AFFF6881B6492AC00712317 /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF6871B6492AC00712317 /* SubjectModel.m */; };
 		2AFFF6901B64A9A500712317 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
@@ -1361,6 +1349,8 @@
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_plus1Effect@2x.png"; sourceTree = "<group>"; };
+		2A217D4B1BCA3B0200B72304 /* GoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* BaiJiaXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiJiaXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1377,8 +1367,6 @@
 		2A468C621B32AF4A005F5D15 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		2A468C641B32BC8E005F5D15 /* GoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
 		2A468C651B32BC8E005F5D15 /* GoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
-		2A468C6A1B32BDA6005F5D15 /* McMallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McMallCell.h; sourceTree = "<group>"; };
-		2A468C6B1B32BDA6005F5D15 /* McMallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = McMallCell.m; sourceTree = "<group>"; };
 		2A4956CD1BB2F4F80036D71C /* SalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesViewController.h; sourceTree = "<group>"; };
 		2A4956CE1BB2F4F80036D71C /* SalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesViewController.m; sourceTree = "<group>"; };
 		2A4956D11BB301DA0036D71C /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
@@ -1697,12 +1685,8 @@
 		2AFAC6491BA59FE200C2B131 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		2AFAC64A1BA59FE200C2B131 /* GoodsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsListViewController.h; sourceTree = "<group>"; };
 		2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsListViewController.m; sourceTree = "<group>"; };
-		2AFAC64E1BA5A04100C2B131 /* GoodsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsView.h; sourceTree = "<group>"; };
-		2AFAC64F1BA5A04100C2B131 /* GoodsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsView.m; sourceTree = "<group>"; };
 		2AFAC6501BA5A04100C2B131 /* HHClassMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHClassMenuView.h; sourceTree = "<group>"; };
 		2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHClassMenuView.m; sourceTree = "<group>"; };
-		2AFAC6521BA5A04100C2B131 /* MallGoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallGoodsListCell.h; sourceTree = "<group>"; };
-		2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallGoodsListCell.m; sourceTree = "<group>"; };
 		2AFAC6571BA5BD3A00C2B131 /* MotherDiaryDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherDiaryDayView.h; sourceTree = "<group>"; };
 		2AFAC6581BA5BD3A00C2B131 /* MotherDiaryDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherDiaryDayView.m; sourceTree = "<group>"; };
 		2AFFF6861B6492AC00712317 /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
@@ -2047,8 +2031,6 @@
 			children = (
 				2A50F6FF1B1099E300607723 /* MCMallViewController.h */,
 				2A50F7001B1099E300607723 /* MCMallViewController.m */,
-				2A468C6A1B32BDA6005F5D15 /* McMallCell.h */,
-				2A468C6B1B32BDA6005F5D15 /* McMallCell.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2991,14 +2973,12 @@
 		2AFAC6471BA59FC500C2B131 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2AFAC64E1BA5A04100C2B131 /* GoodsView.h */,
-				2AFAC64F1BA5A04100C2B131 /* GoodsView.m */,
 				2AFAC6501BA5A04100C2B131 /* HHClassMenuView.h */,
 				2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */,
-				2AFAC6521BA5A04100C2B131 /* MallGoodsListCell.h */,
-				2AFAC6531BA5A04100C2B131 /* MallGoodsListCell.m */,
 				2AC766641BB7D1CC00160837 /* GoodsTimeView.h */,
 				2AC766651BB7D1CC00160837 /* GoodsTimeView.m */,
+				2A217D4B1BCA3B0200B72304 /* GoodsCollectionViewCell.h */,
+				2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3938,7 +3918,6 @@
 				2A95FAA91B9B165800962F79 /* HHNetWorkEngine+Goods.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
 				2AF5A2701B99C079003F6AB8 /* SubjectNetService.m in Sources */,
-				2A468C6C1B32BDA6005F5D15 /* McMallCell.m in Sources */,
 				2AE3C5481B9DCA7800F1434F /* GoodsAddressViewController.m in Sources */,
 				2AD38AAA1B801E2400BEA56E /* HHShareView.m in Sources */,
 				2AF5A2531B99BD2E003F6AB8 /* UIResponder+Router.m in Sources */,
@@ -3981,7 +3960,6 @@
 				2AD38AA61B801E2400BEA56E /* HHShaeTool.m in Sources */,
 				2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */,
 				2A984EB71B141205004DF4C0 /* HHNetWorkEngine.m in Sources */,
-				2AFAC6541BA5A04100C2B131 /* GoodsView.m in Sources */,
 				2AF5A2731B99C72E003F6AB8 /* UIView+HUD.m in Sources */,
 				2AF5A2521B99BD2E003F6AB8 /* UIImage+Addition.m in Sources */,
 				2A8DFFE41B2062B70060CA76 /* HHImagePickerHelper.m in Sources */,
@@ -3993,7 +3971,6 @@
 				2AA671721B78E66B00ECC8A3 /* MallListCell.m in Sources */,
 				2A50F6ED1B10972300607723 /* BaseViewController.m in Sources */,
 				2A0645471B7D82FF00C27AD5 /* HHFlowView.m in Sources */,
-				2AFAC6561BA5A04100C2B131 /* MallGoodsListCell.m in Sources */,
 				2AE793241B1C42180008E241 /* RegisterViewController.m in Sources */,
 				2A7EA1EB1B528229005B04A9 /* HHNetWorkOperation.m in Sources */,
 				2A7C4E091B146E0200912D53 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4013,6 +3990,7 @@
 				2AF5A27F1B9AD658003F6AB8 /* OCCommentView.m in Sources */,
 				2AC7666C1BB7EEEC00160837 /* ShopCarGoodsCell.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
+				2A217D4D1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2AFFF6961B64B77700712317 /* SubtitleExpertAnswerController.m in Sources */,
 				2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */,
 				2AFFF6931B64A9FF00712317 /* SubjectListCell.m in Sources */,
@@ -4072,7 +4050,6 @@
 				2ADFB6861BBDA482000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB6871BBDA482000BF698 /* ApplyActivityViewController.m in Sources */,
 				2ADFB6881BBDA482000BF698 /* SubjectNetService.m in Sources */,
-				2ADFB6891BBDA482000BF698 /* McMallCell.m in Sources */,
 				2ADFB68A1BBDA482000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB68B1BBDA482000BF698 /* HHShareView.m in Sources */,
 				2ADFB68C1BBDA482000BF698 /* UIResponder+Router.m in Sources */,
@@ -4115,7 +4092,6 @@
 				2ADFB6B11BBDA482000BF698 /* HHShaeTool.m in Sources */,
 				2ADFB6B21BBDA482000BF698 /* UserCenterViewController.m in Sources */,
 				2ADFB6B31BBDA482000BF698 /* HHNetWorkEngine.m in Sources */,
-				2ADFB6B41BBDA482000BF698 /* GoodsView.m in Sources */,
 				2ADFB6B51BBDA482000BF698 /* UIView+HUD.m in Sources */,
 				2ADFB6B61BBDA482000BF698 /* UIImage+Addition.m in Sources */,
 				2ADFB6B71BBDA482000BF698 /* HHImagePickerHelper.m in Sources */,
@@ -4127,7 +4103,6 @@
 				2ADFB6BD1BBDA482000BF698 /* MallListCell.m in Sources */,
 				2ADFB6BE1BBDA482000BF698 /* BaseViewController.m in Sources */,
 				2ADFB6BF1BBDA482000BF698 /* HHFlowView.m in Sources */,
-				2ADFB6C01BBDA482000BF698 /* MallGoodsListCell.m in Sources */,
 				2ADFB6C11BBDA482000BF698 /* RegisterViewController.m in Sources */,
 				2ADFB6C21BBDA482000BF698 /* HHNetWorkOperation.m in Sources */,
 				2ADFB6C31BBDA482000BF698 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4147,6 +4122,7 @@
 				2ADFB6D11BBDA482000BF698 /* OCCommentView.m in Sources */,
 				2ADFB6D21BBDA482000BF698 /* ShopCarGoodsCell.m in Sources */,
 				2ADFB6D31BBDA482000BF698 /* AppDelegate.m in Sources */,
+				2A217D4E1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB6D41BBDA482000BF698 /* SubtitleExpertAnswerController.m in Sources */,
 				2ADFB6D51BBDA482000BF698 /* HHUserManager.m in Sources */,
 				2ADFB6D61BBDA482000BF698 /* SubjectListCell.m in Sources */,
@@ -4206,7 +4182,6 @@
 				2ADFB7821BBDA868000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB7831BBDA868000BF698 /* ApplyActivityViewController.m in Sources */,
 				2ADFB7841BBDA868000BF698 /* SubjectNetService.m in Sources */,
-				2ADFB7851BBDA868000BF698 /* McMallCell.m in Sources */,
 				2ADFB7861BBDA868000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB7871BBDA868000BF698 /* HHShareView.m in Sources */,
 				2ADFB7881BBDA868000BF698 /* UIResponder+Router.m in Sources */,
@@ -4249,7 +4224,6 @@
 				2ADFB7AD1BBDA868000BF698 /* HHShaeTool.m in Sources */,
 				2ADFB7AE1BBDA868000BF698 /* UserCenterViewController.m in Sources */,
 				2ADFB7AF1BBDA868000BF698 /* HHNetWorkEngine.m in Sources */,
-				2ADFB7B01BBDA868000BF698 /* GoodsView.m in Sources */,
 				2ADFB7B11BBDA868000BF698 /* UIView+HUD.m in Sources */,
 				2ADFB7B21BBDA868000BF698 /* UIImage+Addition.m in Sources */,
 				2ADFB7B31BBDA868000BF698 /* HHImagePickerHelper.m in Sources */,
@@ -4261,7 +4235,6 @@
 				2ADFB7B91BBDA868000BF698 /* MallListCell.m in Sources */,
 				2ADFB7BA1BBDA868000BF698 /* BaseViewController.m in Sources */,
 				2ADFB7BB1BBDA868000BF698 /* HHFlowView.m in Sources */,
-				2ADFB7BC1BBDA868000BF698 /* MallGoodsListCell.m in Sources */,
 				2ADFB7BD1BBDA868000BF698 /* RegisterViewController.m in Sources */,
 				2ADFB7BE1BBDA868000BF698 /* HHNetWorkOperation.m in Sources */,
 				2ADFB7BF1BBDA868000BF698 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4281,6 +4254,7 @@
 				2ADFB7CD1BBDA868000BF698 /* OCCommentView.m in Sources */,
 				2ADFB7CE1BBDA868000BF698 /* ShopCarGoodsCell.m in Sources */,
 				2ADFB7CF1BBDA868000BF698 /* AppDelegate.m in Sources */,
+				2A217D4F1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB7D01BBDA868000BF698 /* SubtitleExpertAnswerController.m in Sources */,
 				2ADFB7D11BBDA868000BF698 /* HHUserManager.m in Sources */,
 				2ADFB7D21BBDA868000BF698 /* SubjectListCell.m in Sources */,
@@ -4340,7 +4314,6 @@
 				2ADFB86D1BBDA877000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB86E1BBDA877000BF698 /* ApplyActivityViewController.m in Sources */,
 				2ADFB86F1BBDA877000BF698 /* SubjectNetService.m in Sources */,
-				2ADFB8701BBDA877000BF698 /* McMallCell.m in Sources */,
 				2ADFB8711BBDA877000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB8721BBDA877000BF698 /* HHShareView.m in Sources */,
 				2ADFB8731BBDA877000BF698 /* UIResponder+Router.m in Sources */,
@@ -4383,7 +4356,6 @@
 				2ADFB8981BBDA877000BF698 /* HHShaeTool.m in Sources */,
 				2ADFB8991BBDA877000BF698 /* UserCenterViewController.m in Sources */,
 				2ADFB89A1BBDA877000BF698 /* HHNetWorkEngine.m in Sources */,
-				2ADFB89B1BBDA877000BF698 /* GoodsView.m in Sources */,
 				2ADFB89C1BBDA877000BF698 /* UIView+HUD.m in Sources */,
 				2ADFB89D1BBDA877000BF698 /* UIImage+Addition.m in Sources */,
 				2ADFB89E1BBDA877000BF698 /* HHImagePickerHelper.m in Sources */,
@@ -4395,7 +4367,6 @@
 				2ADFB8A41BBDA877000BF698 /* MallListCell.m in Sources */,
 				2ADFB8A51BBDA877000BF698 /* BaseViewController.m in Sources */,
 				2ADFB8A61BBDA877000BF698 /* HHFlowView.m in Sources */,
-				2ADFB8A71BBDA877000BF698 /* MallGoodsListCell.m in Sources */,
 				2ADFB8A81BBDA877000BF698 /* RegisterViewController.m in Sources */,
 				2ADFB8A91BBDA877000BF698 /* HHNetWorkOperation.m in Sources */,
 				2ADFB8AA1BBDA877000BF698 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4415,6 +4386,7 @@
 				2ADFB8B81BBDA877000BF698 /* OCCommentView.m in Sources */,
 				2ADFB8B91BBDA877000BF698 /* ShopCarGoodsCell.m in Sources */,
 				2ADFB8BA1BBDA877000BF698 /* AppDelegate.m in Sources */,
+				2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB8BB1BBDA877000BF698 /* SubtitleExpertAnswerController.m in Sources */,
 				2ADFB8BC1BBDA877000BF698 /* HHUserManager.m in Sources */,
 				2ADFB8BD1BBDA877000BF698 /* SubjectListCell.m in Sources */,
@@ -4474,7 +4446,6 @@
 				2ADFB9581BBDA88F000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB9591BBDA88F000BF698 /* ApplyActivityViewController.m in Sources */,
 				2ADFB95A1BBDA88F000BF698 /* SubjectNetService.m in Sources */,
-				2ADFB95B1BBDA88F000BF698 /* McMallCell.m in Sources */,
 				2ADFB95C1BBDA88F000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB95D1BBDA88F000BF698 /* HHShareView.m in Sources */,
 				2ADFB95E1BBDA88F000BF698 /* UIResponder+Router.m in Sources */,
@@ -4517,7 +4488,6 @@
 				2ADFB9831BBDA88F000BF698 /* HHShaeTool.m in Sources */,
 				2ADFB9841BBDA88F000BF698 /* UserCenterViewController.m in Sources */,
 				2ADFB9851BBDA88F000BF698 /* HHNetWorkEngine.m in Sources */,
-				2ADFB9861BBDA88F000BF698 /* GoodsView.m in Sources */,
 				2ADFB9871BBDA88F000BF698 /* UIView+HUD.m in Sources */,
 				2ADFB9881BBDA88F000BF698 /* UIImage+Addition.m in Sources */,
 				2ADFB9891BBDA88F000BF698 /* HHImagePickerHelper.m in Sources */,
@@ -4529,7 +4499,6 @@
 				2ADFB98F1BBDA88F000BF698 /* MallListCell.m in Sources */,
 				2ADFB9901BBDA88F000BF698 /* BaseViewController.m in Sources */,
 				2ADFB9911BBDA88F000BF698 /* HHFlowView.m in Sources */,
-				2ADFB9921BBDA88F000BF698 /* MallGoodsListCell.m in Sources */,
 				2ADFB9931BBDA88F000BF698 /* RegisterViewController.m in Sources */,
 				2ADFB9941BBDA88F000BF698 /* HHNetWorkOperation.m in Sources */,
 				2ADFB9951BBDA88F000BF698 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4549,6 +4518,7 @@
 				2ADFB9A31BBDA88F000BF698 /* OCCommentView.m in Sources */,
 				2ADFB9A41BBDA88F000BF698 /* ShopCarGoodsCell.m in Sources */,
 				2ADFB9A51BBDA88F000BF698 /* AppDelegate.m in Sources */,
+				2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB9A61BBDA88F000BF698 /* SubtitleExpertAnswerController.m in Sources */,
 				2ADFB9A71BBDA88F000BF698 /* HHUserManager.m in Sources */,
 				2ADFB9A81BBDA88F000BF698 /* SubjectListCell.m in Sources */,
@@ -4608,7 +4578,6 @@
 				2ADFBA431BBDA89B000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFBA441BBDA89B000BF698 /* ApplyActivityViewController.m in Sources */,
 				2ADFBA451BBDA89B000BF698 /* SubjectNetService.m in Sources */,
-				2ADFBA461BBDA89B000BF698 /* McMallCell.m in Sources */,
 				2ADFBA471BBDA89B000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFBA481BBDA89B000BF698 /* HHShareView.m in Sources */,
 				2ADFBA491BBDA89B000BF698 /* UIResponder+Router.m in Sources */,
@@ -4651,7 +4620,6 @@
 				2ADFBA6E1BBDA89B000BF698 /* HHShaeTool.m in Sources */,
 				2ADFBA6F1BBDA89B000BF698 /* UserCenterViewController.m in Sources */,
 				2ADFBA701BBDA89B000BF698 /* HHNetWorkEngine.m in Sources */,
-				2ADFBA711BBDA89B000BF698 /* GoodsView.m in Sources */,
 				2ADFBA721BBDA89B000BF698 /* UIView+HUD.m in Sources */,
 				2ADFBA731BBDA89B000BF698 /* UIImage+Addition.m in Sources */,
 				2ADFBA741BBDA89B000BF698 /* HHImagePickerHelper.m in Sources */,
@@ -4663,7 +4631,6 @@
 				2ADFBA7A1BBDA89B000BF698 /* MallListCell.m in Sources */,
 				2ADFBA7B1BBDA89B000BF698 /* BaseViewController.m in Sources */,
 				2ADFBA7C1BBDA89B000BF698 /* HHFlowView.m in Sources */,
-				2ADFBA7D1BBDA89B000BF698 /* MallGoodsListCell.m in Sources */,
 				2ADFBA7E1BBDA89B000BF698 /* RegisterViewController.m in Sources */,
 				2ADFBA7F1BBDA89B000BF698 /* HHNetWorkOperation.m in Sources */,
 				2ADFBA801BBDA89B000BF698 /* HHNetWorkEngine+Activity.m in Sources */,
@@ -4683,6 +4650,7 @@
 				2ADFBA8E1BBDA89B000BF698 /* OCCommentView.m in Sources */,
 				2ADFBA8F1BBDA89B000BF698 /* ShopCarGoodsCell.m in Sources */,
 				2ADFBA901BBDA89B000BF698 /* AppDelegate.m in Sources */,
+				2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFBA911BBDA89B000BF698 /* SubtitleExpertAnswerController.m in Sources */,
 				2ADFBA921BBDA89B000BF698 /* HHUserManager.m in Sources */,
 				2ADFBA931BBDA89B000BF698 /* SubjectListCell.m in Sources */,

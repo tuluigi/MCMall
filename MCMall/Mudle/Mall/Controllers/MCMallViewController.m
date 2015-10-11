@@ -16,6 +16,8 @@
 #import "HomeMenuContentView.h"
 #import "MotherDiaryViewController.h"
 #import "GoodsDetailViewController.h"
+#define McMallCellIdenfier  @"McMallCellIdenfier"
+
 @interface MCMallViewController ()<UIActionSheetDelegate>
 @property(nonatomic,strong)NSMutableArray *catArray;
 @property(nonatomic,strong)NSTimer *timer;
@@ -42,7 +44,7 @@
    self.navigationItem.title=[MCMallShopName stringByAppendingString:@"会员系统"];
 
     // Do any additional setup after loading the view.
-   
+    [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];
     self.tableView.tableHeaderView=self.flowView;
     [self getCategoryList];
     WEAKSELF
@@ -55,7 +57,6 @@
         [weakSelf.dataSourceArray removeAllObjects];
         [weakSelf.tableView reloadData];
     }];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,12 +114,8 @@
     return [self.dataSourceArray count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifer=@"identifer";
-    MallListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
-    if (nil==cell) {
-        cell=[[MallListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    }
+    MallListCell *cell=[tableView dequeueReusableCellWithIdentifier:McMallCellIdenfier forIndexPath:indexPath];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.goodsModel=goodsModel;
     return cell;
@@ -140,11 +137,6 @@
         }else if (item==HomeMenuViewItemGoods){
            UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"按键卫士" otherButtonTitles:@"防丢神奇", nil];
             [actionSheet showInView:self.view];
-            /*
-            GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-            goodListController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:goodListController animated:YES];
-             */
         }else if (item==HomeMenuViewItemDiary){
             MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];
             diraryController.hidesBottomBarWhenPushed=YES;
@@ -154,18 +146,11 @@
     return contentView;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (!self.cellHeight) {
-        MallListCell *cell=(MallListCell *)[tableView cellForRowAtIndexPath:0];
-        if (!cell) {
-            cell=[[MallListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"identifer"];
-            GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-            cell.goodsModel=goodsModel;
-        }
-        CGSize size= [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize ];
-        self.cellHeight=size.height+1;
- 
-    }
-       return self.cellHeight;
+    __block GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    CGFloat height=[tableView fd_heightForCellWithIdentifier:McMallCellIdenfier configuration:^(id cell) {
+        ((MallListCell *)cell).goodsModel=goodsModel;
+    }];
+       return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];

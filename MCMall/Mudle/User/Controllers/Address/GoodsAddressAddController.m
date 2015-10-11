@@ -97,9 +97,6 @@
             if (weakSelf.addressModelChangeBlock) {
                 weakSelf.addressModelChangeBlock(weakSelf.addresssModel,isAdd);
             }
-            if (_delegate&&[_delegate respondsToSelector:@selector(didChangedAddressModel:isAdd:)]) {
-                [_delegate didChangedAddressModel:weakSelf.addresssModel isAdd:isAdd];
-            }
             [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
@@ -176,7 +173,7 @@
         case 3:{
             textField.hidden=YES;
             switchView.hidden=NO;
-            cell.textLabel.text=@"是否默认:";
+            cell.textLabel.text=@"默认地址:";
             switchView.on=self.addresssModel.isDefault;
         }break;
         default:

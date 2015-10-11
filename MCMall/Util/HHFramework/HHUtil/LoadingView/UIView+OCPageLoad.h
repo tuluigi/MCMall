@@ -20,7 +20,8 @@
  *  @param delegate delegate
  */
 -(void)showPageLoadedMessage:(NSString *)message delegate:(id)delegate;
-
+-(void)showPageLoadingView:(CGRect)frame;
+-(void)showPageLoadedMessage:(NSString *)message frame:(CGRect)frame delegate:(id)delegate;
 /**
  *  隐藏delegate
  */

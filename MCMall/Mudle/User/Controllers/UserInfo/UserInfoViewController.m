@@ -18,20 +18,20 @@
 @end
 
 @implementation UserInfoViewController
+
+-(instancetype)init{
+    self=[super init];
+    if (self) {
+        self.tableViewStyle=UITableViewStyleGrouped;
+    }
+    return self;
+}
 -(HHImagePickerHelper *)imagePickerHelper{
     if (nil==_imagePickerHelper) {
         _imagePickerHelper=[[HHImagePickerHelper alloc]  init];
     }
     return _imagePickerHelper;
 }
--(void)rightBarButtonPressed:(UIBarButtonItem *)sender{
-    
-}
--(void)cancelButtonPressed:(UIBarButtonItem *)sender{
-    
-    
-}
-
 -(void)handleTapGesture:(UITapGestureRecognizer *)gesture{
     UserModel *userModel=[HHUserManager userModel];
     [[HHPhotoBroswer sharedPhotoBroswer]  showBrowserWithImages:@[userModel.userHeadUrl] atIndex:0];
@@ -40,7 +40,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=@"个人信息";
-//    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonPressed:)];
     self.dataSourceArray=[NSMutableArray arrayWithArray:[HHItemModel userInfoItemsArray]];
 }
 #pragma mark- getuserinfo

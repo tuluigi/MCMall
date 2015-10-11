@@ -35,7 +35,7 @@
         if (imageUrl==nil) {
             imageUrl=_goodsModel.goodsImageUrl;
         }
-        [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
+       
         UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handleGoodsImageViewTaped:)];
         
         [_goodsImageView addGestureRecognizer:tapGesture];
@@ -79,7 +79,7 @@
     }else if ([sender isKindOfClass:[UIButton class]]){//预订
         UIButton *button=(UIButton *)sender;
         if (button.tag==102) {
-            if ([HHUserManager isLogin]) {
+            if ([HHUserManager isLogin]&&self.goodsModel) {
                 AddShopCartViewController *addShopCarController=[[AddShopCartViewController alloc]  initWithStyle:UITableViewStyleGrouped];
                 addShopCarController.goodsModel=self.goodsModel;
                 [self.navigationController pushViewController:addShopCarController animated:YES];
@@ -105,18 +105,18 @@
     [self getGoodsDetailWithGoodsID:self.goodsID];
     self.title=@"商品详情";
     [self.view addSubview:self.tooBar];
+    self.tooBar.hidden=YES;
     self.tableView.tableHeaderView=self.goodsImageView;
     
     WEAKSELF
-    
+    [self.tooBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(weakSelf.view );
+        make.height.mas_equalTo(50);
+    }];
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.removeExisting=YES;
         make.top.left.right.mas_equalTo(weakSelf.view);
         make.bottom.mas_equalTo(weakSelf.tooBar.mas_top);
-    }];
-    [self.tooBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.mas_equalTo(weakSelf.view );
-        make.height.mas_equalTo(50);
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:MCMallTimerTaskNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         
@@ -129,13 +129,15 @@
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsDetailWithGoodsID:goodsID userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
+        weakSelf.tooBar.hidden=NO;
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.goodsModel=((GoodsModel *)responseResult.responseData);
             weakSelf.goodsModel.goodsID=goodsID;
-            [self.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
+             [weakSelf.goodsImageView sd_setImageWithURL:[NSURL URLWithString:weakSelf.goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg];
+            [weakSelf.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
             [weakSelf.tableView reloadData];
         }else{
-            [weakSelf.view makeToast:responseResult.responseMessage];
+            [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

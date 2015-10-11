@@ -8,21 +8,24 @@
 
 #import "GoodsListViewController.h"
 #import "HHNetWorkEngine+Goods.h"
-#import "MallGoodsListCell.h"
 #import "GoodsModel.h"
-#import "GoodsView.h"
 #import "GoodsDetailViewController.h"
 #import "HHFlowView.h"
 #import "HHClassMenuView.h"
-
+#import "GoodsCollectionViewCell.h"
 #define HHClassMenuViewHeight  40
-
-@interface GoodsListViewController ()<HHClassMenuViewDelegate>
-@property(nonatomic,strong)NSMutableArray *catArray;
+#define kCollectionViewColum  2
+#define     kGoodsCollectionCellIdedtifer   @"kGoodsCollectionCellIdedtifer"
+@interface GoodsListViewController ()<HHClassMenuViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
+ __block  NSUInteger _pageIndex;
+}
+@property(nonatomic,strong)NSMutableArray *catArray,*dataSourceArray;
 @property(nonatomic,strong)HHFlowView *flowView;
 @property(nonatomic,strong)HHClassMenuView *classMenuView;
 @property(nonatomic,strong)CategoryModel *selectedCatModel;
 @property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,assign)__block NSUInteger pageIndex;
+@property(nonatomic,assign)CGFloat cellHeight;
 @end
 
 @implementation GoodsListViewController
@@ -35,6 +38,12 @@
     }
     return _flowView;
 }
+-(NSMutableArray *)dataSourceArray{
+    if (nil==_dataSourceArray) {
+        _dataSourceArray=[NSMutableArray new];
+    }
+    return _dataSourceArray;
+}
 -(HHClassMenuView *)classMenuView{
     if (nil==_classMenuView) {
         _classMenuView=[[HHClassMenuView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), HHClassMenuViewHeight)];
@@ -45,7 +54,15 @@
 }
 -(UICollectionView *)collectionView{
     if (nil==_collectionView) {
-        _collectionView=[[UICollectionView alloc]  initWithFrame:CGRectZero];
+        UICollectionViewFlowLayout *collectionViewLayout=[[UICollectionViewFlowLayout alloc] init];
+        
+        _collectionView=[[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewLayout];
+        _collectionView.delegate=self;
+        _collectionView.dataSource=self;
+        
+        [_collectionView registerClass:[GoodsCollectionViewCell class] forCellWithReuseIdentifier:kGoodsCollectionCellIdedtifer];
+        [_collectionView reloadData];
+        _collectionView.backgroundColor=[UIColor clearColor];
     }
     return _collectionView;
 }
@@ -63,18 +80,19 @@
     self.title=@"专享汇";
 //self.tableView.tableHeaderView=self.flowView;
     [self.view addSubview:self.classMenuView];
-
+    [self.view addSubview:self.collectionView];
     WEAKSELF
-    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
        // make.removeExisting=YES;
         make.top.mas_equalTo(HHClassMenuViewHeight);
+        make.left.right.bottom.mas_equalTo(weakSelf.view);
     }];
-    [self.tableView addPullToRefreshWithActionHandler:^{
+    [self.collectionView addPullToRefreshWithActionHandler:^{
         weakSelf.pageIndex=1;
         [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
     }];
-    [self.tableView addInfiniteScrollingWithActionHandler:^{
-        weakSelf.pageIndex++;
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+//        weakSelf.pageIndex++;
         [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
     }];
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
@@ -85,7 +103,7 @@
         [weakSelf.catArray removeAllObjects];
         weakSelf.classMenuView.classDataArry=nil;
         [weakSelf.dataSourceArray removeAllObjects];
-        [weakSelf.tableView reloadData];
+        [weakSelf.collectionView reloadData];
     }];
 
 }
@@ -134,7 +152,7 @@
     if (_pageIndex==1) {
         [self.view showLoadingState];
         [self.dataSourceArray removeAllObjects];
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     }
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
@@ -153,11 +171,61 @@
         }else{
             [weakSelf.view makeToast:responseResult.responseMessage];
         }
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
+
+#pragma mark- collectionViewDelegate
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSInteger row=self.dataSourceArray.count;
+    return row;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    GoodsCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:kGoodsCollectionCellIdedtifer forIndexPath:indexPath];
+    cell.backgroundColor=[UIColor whiteColor];
+    cell.goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    return cell;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGFloat width=(CGRectGetWidth([[UIScreen mainScreen] bounds])/kCollectionViewColum);
+    if (!self.cellHeight) {
+//        GoodsView *goodsView=[[GoodsView alloc]  init];
+//        goodsView.goodsModel=[self.dataSourceArray objectAtIndex:0];
+//        CGSize size= [goodsView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize ];
+//        self.cellHeight=size.height;
+        //cell高度计算
+        self.cellHeight=338.0;
+    }
+    return CGSizeMake(width, self.cellHeight);
+}
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsZero;
+}
+
+ - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+ return 0;
+ }
+ - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+ return 0;
+ }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
+    goodDetailController.hidesBottomBarWhenPushed=YES;
+    goodDetailController.goodsID=goodsModel.goodsID;
+    [self.navigationController pushViewController:goodDetailController animated:YES];
+}
+
+
+/*
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.dataSourceArray count]/2+(self.dataSourceArray.count%2>0?1:0);
 }
@@ -190,6 +258,7 @@
     return self.classMenuView;
 }
  */
+/*
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return CGFLOAT_MIN;
 }
@@ -205,6 +274,7 @@
     }
     return self.cellHeight;
 }
+*/
 #pragma mark classMenuDelegate
 
 -(void)classMenuSelectIndexChanded:(NSInteger)index classID:(NSString *)classID{

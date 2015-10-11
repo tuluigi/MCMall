@@ -13,6 +13,7 @@ NSString *const OCPageLoadingAnimationDurationKey  =@"OCPageLoadingAnimationDura
 @interface OCPageLoadAnimationView ()
 @property(nonatomic,strong)UIImageView *imageView;
 @property(nonatomic,strong)UILabel      *textLable;
+@property(nonatomic,strong)UIActivityIndicatorView *indecatorView;
 @end
 
 @implementation OCPageLoadAnimationView
@@ -22,23 +23,30 @@ NSString *const OCPageLoadingAnimationDurationKey  =@"OCPageLoadingAnimationDura
 }
 -(void)onInitUI{
     [super onInitUI];
-    _imageView=[UIImageView new];
-    [self addSubview:_imageView];
-    
+//    _imageView=[UIImageView new];
+//    [self addSubview:_imageView];
+    _indecatorView=[[UIActivityIndicatorView alloc]  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indecatorView.hidesWhenStopped=YES;
+    [self addSubview:_indecatorView];
     _textLable=[[UILabel alloc]  init];
     _textLable.textAlignment=NSTextAlignmentCenter;
     _textLable.font=[UIFont systemFontOfSize:14];
-    _textLable.textColor=[UIColor blackColor];
+    _textLable.textColor=[UIColor colorWithRed:138/255.0 green:138/255.0 blue:138/255.0 alpha:1];
     [self addSubview:_textLable];
     __weak OCPageLoadAnimationView *weakSelf=self;
-    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+//    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.bottom.mas_equalTo(weakSelf.mas_centerY).offset(-20);
+//        make.centerX.mas_equalTo(weakSelf.mas_centerX);
+//        make.size.mas_lessThanOrEqualTo(CGSizeMake(200, 200));
+//    }];
+    [_indecatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(weakSelf.mas_centerY).offset(-20);
         make.centerX.mas_equalTo(weakSelf.mas_centerX);
-        make.size.mas_lessThanOrEqualTo(CGSizeMake(200, 200));
+        make.size.mas_lessThanOrEqualTo(CGSizeMake(30, 30));
     }];
     [_textLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_imageView.mas_bottom).offset(10);
+        make.top.mas_equalTo(_indecatorView.mas_bottom).offset(10);
         make.centerX.mas_equalTo(weakSelf.mas_centerX);
         make.height.mas_equalTo(20);
     }];
@@ -57,10 +65,12 @@ NSString *const OCPageLoadingAnimationDurationKey  =@"OCPageLoadingAnimationDura
             [self.imageView stopAnimating];
             self.imageView.image=[dic objectForKey:OCPageLoadViewImageKey];
         }
+        [self.indecatorView startAnimating];
         self.textLable.text=[dic objectForKey:OCPageLoadViewTexKey];
     }
 }
 -(void)dismiss{
+    [self.indecatorView stopAnimating];
     [self.imageView stopAnimating];
     [super dismiss];
 }

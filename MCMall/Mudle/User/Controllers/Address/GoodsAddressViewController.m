@@ -12,7 +12,7 @@
 #import "AddressModel.h"
 #import "GoodsAddressListCell.h"
 #define  AddresssCellIdentifer  @"AddresssCellIdentifer"
-@interface GoodsAddressViewController ()<GoodsAddressAddControllerDelegate>
+@interface GoodsAddressViewController ()
 
 @end
 
@@ -35,8 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)didRighButtonPressed{
-    GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:nil];
-    [self.navigationController pushViewController:addAddresssController animated:YES];
+    [self gotoGoodAddressAddController:nil];
 }
 -(void)getAddressList{
     WEAKSELF
@@ -119,39 +118,33 @@
         }
         [self.navigationController popViewControllerAnimated:YES];
     }else{
-        GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
-        addAddresssController.delegate=self;
-        WEAKSELF
-        addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
-            if (isAdd) {
-                [weakSelf.dataSourceArray addObject:addresss];
-            }else{
-                NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
-                NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];
-                if (tempArray&&tempArray.count) {
-                    NSInteger index=[weakSelf.dataSourceArray indexOfObject:[tempArray firstObject]];
-                    [weakSelf.dataSourceArray replaceObjectAtIndex:index withObject:addresss];
-                }
-            }
-            [weakSelf.tableView reloadData];
-        };
-        [self.navigationController pushViewController:addAddresssController animated:YES];
+        [self gotoGoodAddressAddController:addresssModel];
     }
 }
--(void)didChangedAddressModel:(AddressModel *)addresss isAdd:(BOOL)isAdd{
+
+-(void)gotoGoodAddressAddController:(AddressModel *)addresssModel{
+    GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
     WEAKSELF
-    if (isAdd) {
-        [weakSelf.dataSourceArray addObject:addresss];
-    }else{
-        NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
-        NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];
-        if (tempArray&&tempArray.count) {
-            NSInteger index=[weakSelf.dataSourceArray indexOfObject:[tempArray firstObject]];
-            [weakSelf.dataSourceArray replaceObjectAtIndex:index withObject:addresss];
+    addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
+        if (isAdd) {
+            if (weakSelf.dataSourceArray.count>1) {
+                [weakSelf.dataSourceArray insertObject:addresssModel atIndex:1];
+            }else{
+                [weakSelf.dataSourceArray addObject:addresss];
+            }
+        }else{
+            NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
+            NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];
+            if (tempArray&&tempArray.count) {
+                NSInteger index=[weakSelf.dataSourceArray indexOfObject:[tempArray firstObject]];
+                [weakSelf.dataSourceArray replaceObjectAtIndex:index withObject:addresss];
+            }
         }
-    }
-    [weakSelf.tableView reloadData];
+        [weakSelf.tableView reloadData];
+    };
+    [self.navigationController pushViewController:addAddresssController animated:YES];
 }
+
 /*
  #pragma mark - Navigation
  

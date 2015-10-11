@@ -34,7 +34,11 @@
 }
 -(void)setAddressModel:(AddressModel *)addressModel{
     _addressModel=addressModel;
-    self.textLabel.text=[[_addressModel.receiverName stringByAppendingString:@"   "] stringByAppendingString:_addressModel.receiverTel];
+    NSString *defatultStr=@"";
+    if (addressModel.isDefault) {
+        defatultStr=@"默认地址";
+    }
+    self.textLabel.text=[[[[_addressModel.receiverName stringByAppendingString:@"   "] stringByAppendingString:_addressModel.receiverTel] stringByAppendingString:@"   "] stringByAppendingString:defatultStr];
     self.detailTextLabel.text=_addressModel.addressDetail;
 }
 @end

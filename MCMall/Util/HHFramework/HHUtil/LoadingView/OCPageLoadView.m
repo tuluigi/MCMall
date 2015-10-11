@@ -35,17 +35,19 @@ NSString *const OCPageLoadViewActivityAnimatingKey=@"OCPageLoadViewActivityAnima
 -(void)didMoveToSuperview{
     [super didMoveToSuperview];
     if (self.superview) {
-        if (CGSizeEqualToSize(CGSizeZero, self.superview.bounds.size)) {
-            self.frame=CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds));
+        if (self.superview.bounds.size.width>0&&self.superview.bounds.size.height>0) {
+            if (CGRectIsEmpty(self.frame)||CGRectEqualToRect(CGRectZero, self.frame)) {
+                self.frame=CGRectMake(0, 0, CGRectGetWidth(self.superview.bounds), CGRectGetHeight(self.superview.bounds));
+            }
         }else{
-            [self mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.mas_equalTo(UIEdgeInsetsZero);
-            }];
+            if (CGRectIsEmpty(self.frame)||CGRectEqualToRect(CGRectZero, self.frame)) {
+                self.frame=CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
+            }
         }
+         [self.superview bringSubviewToFront:self];
         if (_delegate&&[_delegate respondsToSelector:@selector(ocPageLoadView:didMoveToSuperView:)]) {
             [_delegate ocPageLoadView:self didMoveToSuperView:self.superview];
         }
-        [[self superview] bringSubviewToFront:self];
     }
 }
 -(void)layoutSubviews{

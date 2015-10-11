@@ -13,18 +13,22 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
 -(void)showPageLoadingData:(NSDictionary  *)dic{
 
 }
--(void)showOCPageLoadViewData:(NSDictionary *)dic delegate:(id)delegate{
-     OCPageLoadAnimationView *pageLoadView=[self pageLoadView];
-     [pageLoadView showLoadingData:dic inView:self delegate:delegate];
+-(void)showOCPageLoadViewData:(NSDictionary *)dic frame:(CGRect)frame delegate:(id)delegate{
+    OCPageLoadAnimationView *pageLoadView=[self pageLoadView];
+    if (CGRectIsEmpty(frame)||CGRectEqualToRect(CGRectZero, frame)) {
+        if (pageLoadView.superview) {
+            pageLoadView.frame=pageLoadView.superview.bounds;
+        }
+    }else{
+        pageLoadView.frame=frame;
+    }
+    [pageLoadView showLoadingData:dic inView:self delegate:delegate];
 }
-
 /**
  *  显示默认的加载动画页面
  */
 -(void)showPageLoadingView{
-//    NSDictionary *dic=@{OCPageLoadingAnimationImagesKey:@[[UIImage imageNamed:@"loading1_iphone"],[UIImage imageNamed:@"loading2_iphone"],[UIImage imageNamed:@"loading3_iphone"],[UIImage imageNamed:@"loading4_iphone"],[UIImage imageNamed:@"loading5_iphone"],],OCPageLoadingAnimationDurationKey:@(2),OCPageLoadViewTexKey:@"正在努力加载..."};
-    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在加载..."};
-    [self showOCPageLoadViewData:dic  delegate:nil];
+    [self showPageLoadingView:CGRectZero];
 }
 /**
  *  带有提示的页面
@@ -33,12 +37,16 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
  *  @param delegate delegate
  */
 -(void)showPageLoadedMessage:(NSString *)message delegate:(id)delegate{
-//    NSDictionary *dic=@{OCPageLoadViewImageKey:[UIImage imageNamed:@"ico_no_content"],OCPageLoadViewTexKey:@"点击屏幕重新加载"};
-    NSDictionary *dic=@{OCPageLoadViewTexKey:message};
-    [self showOCPageLoadViewData:dic delegate:delegate];
-    
+    [self showPageLoadedMessage:message frame:CGRectZero delegate:delegate];
 }
-
+-(void)showPageLoadingView:(CGRect)frame{
+    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在加载..."};
+    [self showOCPageLoadViewData:dic frame:CGRectZero  delegate:nil];
+}
+-(void)showPageLoadedMessage:(NSString *)message frame:(CGRect)frame delegate:(id)delegate{
+    NSDictionary *dic=@{OCPageLoadViewTexKey:message};
+    [self showOCPageLoadViewData:dic frame:frame delegate:delegate];
+}
 /**
  *  隐藏delegate
  */
