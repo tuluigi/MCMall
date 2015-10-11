@@ -37,12 +37,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self getDataSourse];
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   self.navigationItem.title=[MCMallShopName stringByAppendingString:@"会员系统"];
-
+    self.navigationItem.title=[MCMallShopName stringByAppendingString:@"会员系统"];
+    
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];
     self.tableView.tableHeaderView=self.flowView;
@@ -77,7 +77,7 @@
 
 
 -(void)getCategoryList{
-   [self.view showPageLoadingView];
+    [self.view showPageLoadingView];
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
@@ -87,7 +87,7 @@
                 [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
             }
         }else{
-             [weakSelf.view makeToast:responseResult.responseMessage];
+            [weakSelf.view makeToast:responseResult.responseMessage];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
@@ -95,7 +95,7 @@
 -(void)getGoodsListWithCatID:(NSString *)catID userID:(NSString *)userID{
     WEAKSELF
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-       [weakSelf.view dismissPageLoadView];
+        [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
@@ -128,19 +128,29 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     HomeMenuContentView *contentView=[[HomeMenuContentView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 60)];
+    WEAKSELF
     contentView.itemTouchedBlock=^(HomeMenuViewItem item){
-        if (item==HomeMenuViewItemSign) {
-            SignUpViewController *signupController=[[SignUpViewController alloc]  init];
-            signupController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:signupController animated:YES];
-
-        }else if (item==HomeMenuViewItemGoods){
-           UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"按键卫士" otherButtonTitles:@"防丢神奇", nil];
-            [actionSheet showInView:self.view];
-        }else if (item==HomeMenuViewItemDiary){
-            MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];
-            diraryController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:diraryController animated:YES];
+        if ([HHUserManager isLogin]) {
+            if (item==HomeMenuViewItemSign) {
+                SignUpViewController *signupController=[[SignUpViewController alloc]  init];
+                signupController.hidesBottomBarWhenPushed=YES;
+                [weakSelf.navigationController pushViewController:signupController animated:YES];
+                
+            }else if (item==HomeMenuViewItemGoods){
+                UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"按键卫士" otherButtonTitles:@"防丢神奇", nil];
+                [actionSheet showInView:self.view];
+            }else if (item==HomeMenuViewItemDiary){
+                MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];
+                diraryController.hidesBottomBarWhenPushed=YES;
+                [weakSelf.navigationController pushViewController:diraryController animated:YES];
+            }
+            
+        }else{
+            [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+                if (isSucceed) {
+                    
+                }
+            }];
         }
     };
     return contentView;
@@ -150,7 +160,7 @@
     CGFloat height=[tableView fd_heightForCellWithIdentifier:McMallCellIdenfier configuration:^(id cell) {
         ((MallListCell *)cell).goodsModel=goodsModel;
     }];
-       return height;
+    return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
@@ -161,16 +171,16 @@
 }
 #pragma mark - actionSheetDeleget
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-
+    
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

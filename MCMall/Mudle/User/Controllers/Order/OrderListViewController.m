@@ -42,15 +42,12 @@
 }
 -(void)getOrderListWithUserID:(NSString *)userID pageID:(NSInteger)pageID{
     WEAKSELF
-    if (pageID==1) {
+    if (!self.dataSourceArray.count) {
         [self.view showPageLoadingView];
-    }else{
-        [self.view showLoadingState];
     }
     HHNetWorkOperation *op=[HHUserNetService getOrderListWithUserID:userID pageIndex:pageID pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
-            [weakSelf.view dismissHUD];
             if (pageID==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
