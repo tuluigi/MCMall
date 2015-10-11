@@ -64,7 +64,7 @@
 //设置
 +(NSArray *)settingItemArray{
     NSArray *itemsArray;
-    HHItemModel *addressImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeReceiveAddress name:@"收获地址管理" image:nil];
+    HHItemModel *addressImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeReceiveAddress name:@"收货地址管理" image:nil];
     
     NSArray *sectionArray0=@[addressImageItem];
   

@@ -12,7 +12,7 @@
 #import "AddressModel.h"
 #import "GoodsAddressListCell.h"
 #define  AddresssCellIdentifer  @"AddresssCellIdentifer"
-@interface GoodsAddressViewController ()
+@interface GoodsAddressViewController ()<GoodsAddressAddControllerDelegate>
 
 @end
 
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"收获地址列表";
+    self.title=@"收货地址列表";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didRighButtonPressed)];
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -102,6 +102,9 @@
     }
     return YES;
 }
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
+}
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         [self deleteAddressWithAddresssModel:[self.dataSourceArray objectAtIndex:indexPath.row]];
@@ -117,6 +120,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }else{
         GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
+        addAddresssController.delegate=self;
         WEAKSELF
         addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
             if (isAdd) {
@@ -133,6 +137,20 @@
         };
         [self.navigationController pushViewController:addAddresssController animated:YES];
     }
+}
+-(void)didChangedAddressModel:(AddressModel *)addresss isAdd:(BOOL)isAdd{
+    WEAKSELF
+    if (isAdd) {
+        [weakSelf.dataSourceArray addObject:addresss];
+    }else{
+        NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
+        NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];
+        if (tempArray&&tempArray.count) {
+            NSInteger index=[weakSelf.dataSourceArray indexOfObject:[tempArray firstObject]];
+            [weakSelf.dataSourceArray replaceObjectAtIndex:index withObject:addresss];
+        }
+    }
+    [weakSelf.tableView reloadData];
 }
 /*
  #pragma mark - Navigation

@@ -26,7 +26,7 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.contentMode = UIViewContentModeScaleToFill;
     self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, 60, 60);
     self.textLabel.frame=CGRectMake(CGRectGetMaxX(self.imageView.frame)+10, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
 }

@@ -12,7 +12,7 @@
 {
     NSUInteger _pageIndex;
 }
-@property(nonatomic,strong)NSMutableArray *dataSourceArray;
+@property(nonatomic,strong)__block NSMutableArray *dataSourceArray;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,assign)NSUInteger pageIndex;
 @property(nonatomic,assign)CGFloat cellHeight;

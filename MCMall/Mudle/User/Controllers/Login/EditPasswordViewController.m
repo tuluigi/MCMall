@@ -13,7 +13,13 @@
 @end
 
 @implementation EditPasswordViewController
-
+-(instancetype)init{
+    self=[super init];
+    if (self) {
+        self.tableViewStyle=UITableViewStyleGrouped;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

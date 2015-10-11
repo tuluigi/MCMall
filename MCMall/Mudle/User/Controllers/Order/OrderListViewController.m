@@ -10,6 +10,7 @@
 #import "HHUserNetService.h"
 #import "GoodsModel.h"
 #import "OrderListCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 #define  OrderListCellIdentifer @"OrderListCellIdentifer"
 @interface OrderListViewController ()
 
@@ -21,14 +22,13 @@
     [super viewDidLoad];
     [self.tableView registerClass:[OrderListCell class] forCellReuseIdentifier:OrderListCellIdentifer];
     self.title=@"我的预定";
-   
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
         weakSelf.pageIndex=1;
          [weakSelf getOrderListWithUserID:[HHUserManager userID] pageID:weakSelf.pageIndex];
     }];
     [self.tableView addInfiniteScrollingWithActionHandler:^{
-        weakSelf.pageIndex++;
         [weakSelf getOrderListWithUserID:[HHUserManager userID] pageID:weakSelf.pageIndex];
     }];
     [weakSelf getOrderListWithUserID:[HHUserManager userID] pageID:weakSelf.pageIndex];
@@ -79,7 +79,11 @@
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+   __block OrderModel *orderModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    CGFloat height=[tableView fd_heightForCellWithIdentifier:OrderListCellIdentifer configuration:^(id cell) {
+        ((OrderListCell *)cell).orderModel=orderModel;
+    }];
+    return height;
 }
 /*
 #pragma mark - Navigation

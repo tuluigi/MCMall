@@ -83,7 +83,7 @@
             
             [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(weakSelf.logoImgView.mas_bottom).with.offset(5);
-                make.height.mas_lessThanOrEqualTo(@40);
+                make.height.mas_lessThanOrEqualTo(@40).priorityHigh();
                 make.right.equalTo(weakSelf.contentView.mas_right).offset(-10);
                 make.left.equalTo(weakSelf.contentView.mas_left).offset(10);
                   make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
@@ -92,10 +92,13 @@
             break;
         case ActivityTypePicture:{
             _imageView0=[[UIImageView alloc]  init];
+            _imageView0.contentMode=UIViewContentModeScaleToFill;
             [self.contentView addSubview:_imageView0];
             _imageView1=[[UIImageView alloc]  init];
+            _imageView1.contentMode=UIViewContentModeScaleToFill;
             [self.contentView addSubview:_imageView1];
             _imageView2=[[UIImageView alloc]  init];
+            _imageView2.contentMode=UIViewContentModeScaleToFill;
             [self.contentView addSubview:_imageView2];
             
             
@@ -160,7 +163,7 @@
     [self.logoImgView sd_setImageWithURL:[NSURL URLWithString:_activityModel.activityImageUrl] placeholderImage:MCMallDefaultImg];
     self.titleLable.text=_activityModel.activityName;
     self.timeLable.text=_activityModel.activityEndTime;
-    self.descLable.text=_activityModel.activityDetail;
+    self.descLable.text=_activityModel.activityBrief;
     if(_activityModel.activityType==ActivityTypeCommon){
         self.typeLable.text=@"普通活动";
     }else if (_activityModel.activityType==ActivityTypeApply){

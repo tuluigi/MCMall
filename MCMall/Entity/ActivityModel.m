@@ -29,6 +29,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
         activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
+        activityModel.activityBrief=[NSString stringByReplaceNullString:[dic objectForKey:@"brief"]];[dic objectForKey:@"brief"];
         return activityModel;
     }else{
         return nil;
@@ -48,6 +49,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
         activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
+        activityModel.activityBrief=[NSString stringByReplaceNullString:[dic objectForKey:@"brief"]];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isApplied=NO;
         }else{
@@ -73,6 +75,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
         activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
+        activityModel.activityBrief=[NSString stringByReplaceNullString:[dic objectForKey:@"brief"]];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isVoted=NO;
         }else{
@@ -120,6 +123,7 @@ return _activityDetail.length>0?_activityDetail:@"";
         activityModel.activityImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"image"]];
         activityModel.activityBigImageUrl=[HHGlobalVarTool fullImagePath:[dic objectForKey:@"bigImg"]];
         activityModel.activityDetail=[dic objectForKey:@"explain"];
+        activityModel.activityBrief=[NSString stringByReplaceNullString:[dic objectForKey:@"brief"]];
         if ([[dic objectForKey:@"already"] isEqualToString:@"false"]) {
             activityModel.isFavored=NO;
         }else{

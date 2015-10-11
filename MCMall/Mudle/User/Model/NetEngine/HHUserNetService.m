@@ -12,7 +12,7 @@
 #import "AddressModel.h"
 #import "GoodsModel.h"
 @implementation HHUserNetService
-//添加或者修改收获人地址
+//添加或者修改收货人地址
 +(HHNetWorkOperation *)addOrEditReceiveAddressWithUserID:(NSString *)userID
                                                addressID:(NSString *)addressID
                                            connecterName:(NSString *)connecterName
@@ -39,7 +39,7 @@
     return op;
 }
 
-//获取收获地址列表
+//获取收货地址列表
 +(HHNetWorkOperation *)getReceiveAddressListWithUserID:(NSString *)userID
                                    onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI getAddressListAPI];
@@ -54,7 +54,7 @@
     return op;
 }
 
-//删除收获地址
+//删除收货地址
 +(HHNetWorkOperation *)deleteReceiveAddressWithUserID:(NSString *)userID
                                             addressID:(NSString *)addressID
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{

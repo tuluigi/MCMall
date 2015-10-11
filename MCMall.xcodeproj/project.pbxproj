@@ -27,6 +27,12 @@
 		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
 		2A0C5F941BBD0EA30000F313 /* AddBabPhotoMemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
+		2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D471BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -1354,6 +1360,7 @@
 		2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabPhotoMemoController.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
+		2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_plus1Effect@2x.png"; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* BaiJiaXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiJiaXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2639,6 +2646,7 @@
 		2A9B9E401B56323E0052B640 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */,
 				2A9B9E431B56325E0052B640 /* favorButton_HL@2x.png */,
 				2A9B9E441B56325E0052B640 /* favorButton@2x.png */,
 			);
@@ -3179,7 +3187,7 @@
 						DevelopmentTeam = 9NHHN3L5YR;
 					};
 					2ADFB94C1BBDA88F000BF698 = {
-						DevelopmentTeam = N44WLE73M4;
+						DevelopmentTeam = 77RUA6D4D8;
 					};
 				};
 			};
@@ -3260,6 +3268,7 @@
 				2AC28B921B71060000F91760 /* item_activity@2x.png in Resources */,
 				2A95FABA1B9B21B900962F79 /* cancel_icon@2x.png in Resources */,
 				2AC28B991B71060000F91760 /* item_setting@3x.png in Resources */,
+				2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2AD44C031B889424001B1CDC /* tabbar_vip_HL@2x.png in Resources */,
 				2AD44BEB1B889418001B1CDC /* tabbar_activity@3x.png in Resources */,
 				2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */,
@@ -3345,6 +3354,7 @@
 				2ADFB7391BBDA482000BF698 /* item_tel@3x.png in Resources */,
 				2AE280B51BC50A0D00752CD8 /* BaoBeiEJia.xcassets in Resources */,
 				2ADFB73A1BBDA482000BF698 /* item_activity@2x.png in Resources */,
+				2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2ADFB73B1BBDA482000BF698 /* cancel_icon@2x.png in Resources */,
 				2ADFB73C1BBDA482000BF698 /* item_setting@3x.png in Resources */,
 				2ADFB73D1BBDA482000BF698 /* tabbar_vip_HL@2x.png in Resources */,
@@ -3410,6 +3420,7 @@
 				2ADFB8231BBDA868000BF698 /* UMSocialLocalizable.strings in Resources */,
 				2ADFB8241BBDA868000BF698 /* icon_sign@2x.png in Resources */,
 				2ADFB8251BBDA868000BF698 /* UMSnsAccountViewController.xib in Resources */,
+				2A217D471BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2ADFB8261BBDA868000BF698 /* btn_search@2x.png in Resources */,
 				2AE280B31BC509F300752CD8 /* AiYingBao.xcassets in Resources */,
 				2ADFB8271BBDA868000BF698 /* item_consume@2x.png in Resources */,
@@ -3496,6 +3507,7 @@
 				2ADFB90F1BBDA877000BF698 /* icon_sign@2x.png in Resources */,
 				2ADFB9101BBDA877000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFB9111BBDA877000BF698 /* btn_search@2x.png in Resources */,
+				2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2ADFB9121BBDA877000BF698 /* item_consume@2x.png in Resources */,
 				2ADFB9131BBDA877000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB9141BBDA877000BF698 /* btn_share_qq@2x.png in Resources */,
@@ -3582,6 +3594,7 @@
 				2ADFB9FA1BBDA88F000BF698 /* icon_sign@2x.png in Resources */,
 				2ADFB9FB1BBDA88F000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFB9FC1BBDA88F000BF698 /* btn_search@2x.png in Resources */,
+				2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2ADFB9FD1BBDA88F000BF698 /* item_consume@2x.png in Resources */,
 				2ADFB9FE1BBDA88F000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB9FF1BBDA88F000BF698 /* btn_share_qq@2x.png in Resources */,
@@ -3668,6 +3681,7 @@
 				2ADFBAE31BBDA89B000BF698 /* btn_share_email@2x.png in Resources */,
 				2ADFBAE41BBDA89B000BF698 /* UMSocialLocalizable.strings in Resources */,
 				2ADFBAE51BBDA89B000BF698 /* icon_sign@2x.png in Resources */,
+				2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
 				2ADFBAE61BBDA89B000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFBAE71BBDA89B000BF698 /* btn_search@2x.png in Resources */,
 				2ADFBAE81BBDA89B000BF698 /* item_consume@2x.png in Resources */,
@@ -4860,7 +4874,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f327297-5def-4cb8-bf27-ec372c1da3d5";
+				PROVISIONING_PROFILE = "a83c83a6-1d3b-43a5-9874-acbc1e2c22d5";
 			};
 			name = Debug;
 		};
@@ -4888,7 +4902,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f327297-5def-4cb8-bf27-ec372c1da3d5";
+				PROVISIONING_PROFILE = "a83c83a6-1d3b-43a5-9874-acbc1e2c22d5";
 			};
 			name = Release;
 		};
@@ -4917,7 +4931,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MCMallE.BaoBeiEJia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "896db6e2-2517-4ebd-ac54-52ac063a05ce";
+				PROVISIONING_PROFILE = "0db4cb75-df1c-420b-af7d-ceb0cc89288c";
 			};
 			name = Debug;
 		};
@@ -4946,7 +4960,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MCMallE.BaoBeiEJia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "896db6e2-2517-4ebd-ac54-52ac063a05ce";
+				PROVISIONING_PROFILE = "0db4cb75-df1c-420b-af7d-ceb0cc89288c";
 			};
 			name = Release;
 		};
@@ -4975,7 +4989,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MCMallE.AiYingBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "736680e5-0fd0-4bbd-a756-2b25cdd3ebe4";
+				PROVISIONING_PROFILE = "e112ff42-a6bf-4e48-9644-d830a5890d23";
 			};
 			name = Debug;
 		};
@@ -5004,7 +5018,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MCMallE.AiYingBao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "736680e5-0fd0-4bbd-a756-2b25cdd3ebe4";
+				PROVISIONING_PROFILE = "e112ff42-a6bf-4e48-9644-d830a5890d23";
 			};
 			name = Release;
 		};
@@ -5032,7 +5046,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58640870-5253-4850-898d-f5111ea5749d";
+				PROVISIONING_PROFILE = "1567be38-225b-4654-ab9a-d3de5f252185";
 			};
 			name = Debug;
 		};
@@ -5060,7 +5074,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58640870-5253-4850-898d-f5111ea5749d";
+				PROVISIONING_PROFILE = "1567be38-225b-4654-ab9a-d3de5f252185";
 			};
 			name = Release;
 		};
@@ -5069,8 +5083,8 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tianmin Fan (ZFMZ922898)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tianmin Fan (ZFMZ922898)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5088,7 +5102,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
+				PROVISIONING_PROFILE = "5e333bfc-ec8a-44e2-aecc-2de2d88742fb";
 			};
 			name = Debug;
 		};
@@ -5097,8 +5111,8 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5116,7 +5130,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
+				PROVISIONING_PROFILE = "5e333bfc-ec8a-44e2-aecc-2de2d88742fb";
 			};
 			name = Release;
 		};
@@ -5144,7 +5158,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "41815e2b-fe47-4cf6-9ed6-553333c0a82f";
+				PROVISIONING_PROFILE = "a877a002-f612-4e13-8c40-9e3c4eb10883";
 			};
 			name = Debug;
 		};
@@ -5172,7 +5186,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "41815e2b-fe47-4cf6-9ed6-553333c0a82f";
+				PROVISIONING_PROFILE = "a877a002-f612-4e13-8c40-9e3c4eb10883";
 			};
 			name = Release;
 		};

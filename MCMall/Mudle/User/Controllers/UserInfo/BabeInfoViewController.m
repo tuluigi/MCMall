@@ -16,6 +16,13 @@
 @end
 
 @implementation BabeInfoViewController
+-(instancetype)init{
+    self=[super init];
+    if (self) {
+        self.tableViewStyle=UITableViewStyleGrouped;
+    }
+    return self;
+}
 -(UIView *)pickView{
     if (nil==_pickView) {
         _pickView=[[UIView alloc]  init];

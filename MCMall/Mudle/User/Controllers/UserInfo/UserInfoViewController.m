@@ -12,7 +12,7 @@
 #import "HHImagePickerHelper.h"
 #import "EditPasswordViewController.h"
 
-@interface UserInfoViewController ()<UIAlertViewDelegate,UIActionSheetDelegate>
+@interface UserInfoViewController ()<UIActionSheetDelegate>
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 
 @end
@@ -182,27 +182,11 @@
         EditPasswordViewController *editUserPwdController=[[EditPasswordViewController alloc]  init];
         [self.navigationController pushViewController:editUserPwdController animated:YES];
     }
-   
 
-    /*
-    NSString *titleStr=@"";
-    NSString *messageStr=@"";
-    
-    UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:titleStr message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alerView.alertViewStyle=UIAlertViewStylePlainTextInput;
-    UITextField *textFiled=[alerView textFieldAtIndex:0];
-    textFiled.text=messageStr;
-    alerView.tag=indexPath.row;
-    [alerView show];
-     */
-}
-
-#pragma mark alertViewDelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UITextField *textFiled=[alertView textFieldAtIndex:0];
-    
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex!=actionSheet.cancelButtonIndex) {
     [self editMotherState:(buttonIndex+1)];
+    }
 }
 @end

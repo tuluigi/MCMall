@@ -117,11 +117,14 @@
 #endif
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSLog(@"test:%@",deviceToken);
-    NSString* tokenStr = [[[[deviceToken description]
-                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                               stringByReplacingOccurrencesOfString: @">" withString: @""]
-                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
+//    NSString* tokenStr = [[[[deviceToken description]
+//                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
+//                               stringByReplacingOccurrencesOfString: @">" withString: @""]
+//                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
     
+    NSString* tokenStr = [NSString stringWithFormat:@"%@",deviceToken];
+//    UIAlertView *alert=[[UIAlertView alloc]  initWithTitle:nil message:tokenStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
+//    [alert show];
     [HHGlobalVarTool setDeviceToken:tokenStr];
     [BPush registerDeviceToken:deviceToken];
     [BPush bindChannelWithCompleteHandler:^(id result, NSError *error) {

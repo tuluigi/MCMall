@@ -20,6 +20,7 @@
 @property(nonatomic,strong)UIButton *publishButton,*favorButton;
 @property(nonatomic,strong)UILabel *favorCountLable;
 @property(nonatomic,strong)PhotoModel *photoModle;
+@property(nonatomic,strong)UIImageView *plusImageView;
 @end
 
 @implementation PhotoActivityViewController
@@ -85,6 +86,38 @@
         }];
     }
     return _headImageView;
+}
+
+-(UIImageView *)plusImageView{
+    if (nil==_plusImageView) {
+        _plusImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, 25, 16)];
+        _plusImageView.image=[UIImage imageNamed:@"bg_plus1Effect"];
+        [self.headImageView addSubview:_plusImageView];
+        _plusImageView.hidden=YES;
+    }
+    return _plusImageView;
+}
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    self.plusImageView.hidden=YES;
+}
+- (void)plusEffect
+{
+    self.plusImageView.hidden=NO;
+    CGPoint center=self.favorBgView.center;
+    center.x-=10;
+    self.plusImageView.center=center;
+    CABasicAnimation *animation=(CABasicAnimation *)[self.plusImageView.layer animationForKey:@"PlusAnimation"];
+    if (!animation) {
+        animation = [CABasicAnimation animation];
+        animation.keyPath = @"position.y";
+        animation.fromValue =@(self.favorBgView.center.y);
+        animation.toValue = @(self.favorBgView.center.y-30);
+        animation.duration = 0.6;
+        animation.removedOnCompletion=YES;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        animation.delegate=self;
+    }
+    [_plusImageView.layer addAnimation:animation forKey:@"PlusAnimation"];
 }
 -(OCCommentView *)commentView{
     if (nil==_commentView) {
@@ -177,11 +210,12 @@
             [weakSelf.view showLoadingState];
             [[HHNetWorkEngine sharedHHNetWorkEngine] favorPhotoActivitWithUserID:[HHUserManager userID] activityID:self.activityID photoID:self.photoModle.photoID onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                    [weakSelf.view dismissHUD];
                     weakSelf.photoModle.isFavor=YES;
                     weakSelf.photoModle.favorCount++;
                     _favorCountLable.text=[NSString stringWithFormat:@"%ld 赞",weakSelf.photoModle.favorCount];
                     [sender setSelected:YES];
-                    [weakSelf.view showSuccessMessage:@"点赞成功"];
+                    [weakSelf plusEffect];
                 }else{
                     [weakSelf.view makeToast:responseResult.responseMessage];
                 }

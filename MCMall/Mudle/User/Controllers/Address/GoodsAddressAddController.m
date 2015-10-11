@@ -64,9 +64,9 @@
     if (self=[super initWithStyle:UITableViewStyleGrouped]) {
         _addresssModel=addresssModel;
         if (self.addresssModel) {
-            self.title=@"修改收获地址";
+            self.title=@"修改收货地址";
         }else{
-            self.title=@"添加收获地址";
+            self.title=@"添加收货地址";
         }
 
         if (nil==_addresssModel) {
@@ -96,6 +96,9 @@
             weakSelf.addresssModel.addressID=responseResult.responseData;
             if (weakSelf.addressModelChangeBlock) {
                 weakSelf.addressModelChangeBlock(weakSelf.addresssModel,isAdd);
+            }
+            if (_delegate&&[_delegate respondsToSelector:@selector(didChangedAddressModel:isAdd:)]) {
+                [_delegate didChangedAddressModel:weakSelf.addresssModel isAdd:isAdd];
             }
             [weakSelf.view showSuccessMessage:responseResult.responseMessage];
             [weakSelf.navigationController popViewControllerAnimated:YES];

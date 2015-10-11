@@ -101,7 +101,7 @@
 
 -(void)didBookButtonPressed{
     if (!self.selectAddrsssModel.addressID) {
-        [self.view showErrorMssage:@"请选择收获地址"];
+        [self.view showErrorMssage:@"请选择收货地址"];
     }else if (!self.payMethod){
         [self.view showErrorMssage:@"请选择付款方式"];
     }else if(!self.goodsNum){
@@ -112,7 +112,7 @@
     HHNetWorkOperation *op=[GoodsNetService addOrderWithUserID:[HHUserManager userID] goodsID:self.goodsModel.goodsID addressID:self.selectAddrsssModel.addressID buyNum:self.goodsNum totalPrice:self.totalPrice points:self.usePoints payMethod:self.payMethod onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissHUD];
-            UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:nil message:@"兑换成功,再看看其他商品吧。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
+            UIAlertView *alerView=[[UIAlertView alloc]  initWithTitle:@"温馨提示" message:@"兑换成功,再看看其他商品吧。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
             alerView.tag=2000;
             [alerView show];
 
@@ -164,11 +164,12 @@
         if (nil==cell) {
             cell=[[GoodsAddressListCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         if (self.selectAddrsssModel) {
             ((GoodsAddressListCell *)cell).addressModel=self.selectAddrsssModel;
         }else{
-            cell.textLabel.text=@"请选择收获地址";
+            cell.textLabel.text=@"请选择收货地址";
         }
     }else{
         if (indexPath.row==1) {
@@ -232,8 +233,8 @@
                 minusButton.userInteractionEnabled=YES;
                 _goodsNumTextField.rightViewMode=UITextFieldViewModeAlways;
                   _goodsNumTextField.leftViewMode=UITextFieldViewModeAlways;
-                _goodsNumTextField.rightView=minusButton;
-                _goodsNumTextField.leftView=plusButton;
+                _goodsNumTextField.leftView=minusButton;
+                _goodsNumTextField.rightView=plusButton;
                 [_goodsNumTextField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
 
             }
@@ -384,8 +385,10 @@
     }
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    self.payMethod=[actionSheet buttonTitleAtIndex:buttonIndex];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (buttonIndex!=actionSheet.cancelButtonIndex) {
+        self.payMethod=[actionSheet buttonTitleAtIndex:buttonIndex];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:5 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 /*
  #pragma mark - Navigation

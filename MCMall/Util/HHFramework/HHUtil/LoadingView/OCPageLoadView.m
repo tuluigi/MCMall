@@ -45,6 +45,7 @@ NSString *const OCPageLoadViewActivityAnimatingKey=@"OCPageLoadViewActivityAnima
         if (_delegate&&[_delegate respondsToSelector:@selector(ocPageLoadView:didMoveToSuperView:)]) {
             [_delegate ocPageLoadView:self didMoveToSuperView:self.superview];
         }
+        [[self superview] bringSubviewToFront:self];
     }
 }
 -(void)layoutSubviews{

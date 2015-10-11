@@ -43,7 +43,7 @@
     return _goodsImageView;
 }
 -(void)handleGoodsImageViewTaped:(UITapGestureRecognizer *)tap{
-    [[HHPhotoBroswer sharedPhotoBroswer] showBrowserWithImages:[NSArray arrayWithObject:_goodsModel.goodsImageUrl] atIndex:0];
+    [[HHPhotoBroswer sharedPhotoBroswer] showBrowserWithImages:[NSArray arrayWithObject:_goodsModel.goodsBigImageUrl] atIndex:0];
 }
 -(UIToolbar *)tooBar{
     if (nil==_tooBar) {
@@ -171,7 +171,7 @@
             
             cell.textLabel.text=self.goodsModel.goodsName;
         }else if (indexPath.row==2){
-            cell.textLabel.text=@"商家自荐:";
+            cell.textLabel.text=@"顾问推荐:";
             cell.detailTextLabel.text=self.goodsModel.goodsRemark;
         }else if (indexPath.row==3){
             cell.textLabel.text=@"发货须知:";
