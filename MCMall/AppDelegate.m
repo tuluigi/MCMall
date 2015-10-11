@@ -148,9 +148,8 @@
     //    NSString *pushStr=[NSString stringWithFormat:@"%@",userInfo];
     //  UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil message:pushStr delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:nil, nil];
     //    [alert show];
-    
     NSInteger noteType=[[userInfo objectForKey:@"type"] integerValue];
-    RootTabBarController *rootTabbarController= (RootTabBarController *)[[self.window.subviews objectAtIndex:0] rootViewController];
+    RootTabBarController *rootTabbarController= (RootTabBarController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
     
     NSString *valueStr=[userInfo objectForKey:@"id"];
