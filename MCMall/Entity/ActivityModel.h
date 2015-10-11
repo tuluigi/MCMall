@@ -65,6 +65,11 @@ typedef NS_ENUM(NSInteger, ActivitySortType) {
 @property(nonatomic,copy)NSString *playerDetail;
 @property(nonatomic,assign)CGFloat totalHeight;//高度
 @property(nonatomic,assign)BOOL isVoted;//是否投过了
+
+@property(nonatomic,assign)CGSize contentSize;
+@property(nonatomic,assign)BOOL isExpanded;//UI用,是否展开
+@property(nonatomic,assign)CGFloat cellExpandHeight;//UI用，缓存高度
+@property(nonatomic,assign)CGFloat cellUnExpandHeight;//UI用，缓存高度
 @end
 @interface PhotoModel : NSObject
 @property(nonatomic,copy)NSString *photoID;

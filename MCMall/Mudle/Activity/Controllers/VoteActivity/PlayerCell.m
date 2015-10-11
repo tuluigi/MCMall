@@ -8,6 +8,7 @@
 
 #import "PlayerCell.h"
 #import "ActivityModel.h"
+#define  QuestionContentMaxHeight   50
 @interface PlayerCell ()
 @property(nonatomic,strong)UIImageView *logoImgView;
 @property(nonatomic,strong)UILabel *titleLable,*descLable,*totalNum;
@@ -33,7 +34,7 @@
 }
 -(void)initUI{
     WEAKSELF
-    
+    self.contentView.userInteractionEnabled=YES;
     _logoImgView=[[UIImageView alloc]  init];
     [self.contentView addSubview:_logoImgView];
    
@@ -45,7 +46,7 @@
     _descLable=[[UILabel alloc]  init];
     _descLable.font=[UIFont systemFontOfSize:14];
     _descLable.textColor=[UIColor lightGrayColor];
-    _descLable.numberOfLines=3;
+    _descLable.numberOfLines=0;
     _descLable.textAlignment=NSTextAlignmentLeft;
     [self.contentView addSubview:_descLable];
   
@@ -53,6 +54,7 @@
     _voteButton.backgroundColor=MCMallThemeColor;
     _voteButton.layer.cornerRadius=5.0;
     _voteButton.layer.masksToBounds=YES;
+    _voteButton.userInteractionEnabled=YES;
     [_voteButton addTarget:self action:@selector(voteButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [_voteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_voteButton setTitle:@"投票" forState:UIControlStateNormal];
@@ -65,6 +67,7 @@
     [_moreButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_moreButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_moreButton setTitle:@"更多介绍>>" forState:UIControlStateNormal];
+    _moreButton.hidden=YES;
     [self.contentView addSubview:_moreButton];
     
     _totalNum=[[UILabel alloc]  init];
@@ -76,15 +79,15 @@
     
     
     [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.contentView).with.offset(15);
+        make.left.equalTo(weakSelf.contentView).offset(15);
         make.top.equalTo(weakSelf.contentView.mas_top).offset(10);
         make.size.mas_equalTo(CGSizeMake(80, 80));
     }];
     
     
     [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_logoImgView.mas_right).with.offset(10);
-        make.top.mas_equalTo(weakSelf.contentView.mas_top).with.offset(10);
+        make.left.mas_equalTo(weakSelf.logoImgView.mas_right).offset(10);
+        make.top.mas_equalTo(weakSelf.contentView.mas_top).offset(10);
         make.right.mas_equalTo(weakSelf.contentView.right).offset(-50);
         make.height.equalTo(@(20));
     }];
@@ -93,7 +96,7 @@
         make.left.equalTo(_titleLable);
         make.top.mas_equalTo(_titleLable.mas_bottom).offset(3);
         make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
-        make.bottom.mas_equalTo(_moreButton.mas_top);
+        make.height.mas_lessThanOrEqualTo(QuestionContentMaxHeight);
     }];
     [_voteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_logoImgView);
@@ -105,13 +108,14 @@
     [_moreButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_descLable);
         make.width.equalTo(@(80));
-        make.top.mas_equalTo(_descLable.mas_bottom).with.offset(10);
+        make.top.mas_equalTo(_descLable.mas_bottom).with.offset(10).priorityHigh();
         make.height.equalTo(_voteButton);
-        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-10);
+        make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-10).priorityHigh();
     }];
 
     [_totalNum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.top.equalTo(_moreButton);
+        make.height.equalTo(_moreButton);
+        make.top.mas_equalTo(weakSelf.voteButton.mas_top);
         make.right.mas_equalTo(weakSelf.contentView.right).offset(-5.0);
         make.width.equalTo(@100);
     }];
@@ -121,14 +125,17 @@
 -(void)setPlayerModel:(PlayerModel *)playerModel{
     _playerModel=playerModel;
     [_logoImgView sd_setImageWithURL:[NSURL URLWithString:_playerModel.playerImageUrl] placeholderImage:MCMallDefaultImg];
+    if (CGSizeEqualToSize(CGSizeZero, _playerModel.contentSize) ) {
+        CGSize fontSize=[_playerModel.playerDetail boundingRectWithfont:[UIFont systemFontOfSize:14] maxTextSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds])-120, CGFLOAT_MAX)];
+        _playerModel.contentSize=fontSize;
+    }
+    if (_playerModel.contentSize.height>QuestionContentMaxHeight) {
+    
+    }
+    [self reLayoutFittingCompressedUI];
     _descLable.text=_playerModel.playerDetail;
     _titleLable.text=_playerModel.playerName;
     _totalNum.text=[NSString stringWithFormat:@"目前票数:%ld票",_playerModel.totalVotedNum];
-    if (_playerModel.totalHeight) {
-        _moreButton.hidden=YES;
-    }else{
-        _moreButton.hidden=NO;
-    }
     _voteButton.hidden=playerModel.isVoted;
 }
 -(void)voteButtonPressed{
@@ -137,8 +144,7 @@
     }
 }
 -(void)moreButtonPressed:(UIButton *)sender{
-    _descLable.numberOfLines=0;
-
+ _playerModel.isExpanded=!_playerModel.isExpanded;
     if (_delegate &&[_delegate respondsToSelector: @selector(playerCellDidMoreButtonPressedWithPlayer:)]) {
         [_delegate playerCellDidMoreButtonPressedWithPlayer:self.playerModel];
     }
@@ -147,5 +153,17 @@
 -(void)updateConstraints{
     [super updateConstraints];
 }
-
+-(void)reLayoutFittingCompressedUI{
+    if (self.playerModel.isExpanded==YES) {
+        [_moreButton setTitle:@"收起" forState:UIControlStateNormal];
+        [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_lessThanOrEqualTo(99999);//用CGFLOAT_MAX会出错
+        }];
+    }else{
+        [_moreButton setTitle:@"更多介绍>>" forState:UIControlStateNormal];
+        [_descLable mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_lessThanOrEqualTo(QuestionContentMaxHeight);
+        }];
+    }
+}
 @end

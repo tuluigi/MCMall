@@ -219,10 +219,12 @@
             PlayerCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
             if (nil==cell) {
                 cell=[[PlayerCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-                cell.selectionStyle=UITableViewCellSelectionStyleNone;
-                cell.delegate=self;
-                cell.backgroundColor=[UIColor whiteColor];
+               
             }
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            
+            cell.backgroundColor=[UIColor whiteColor];
+             cell.delegate=self;
             VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
             PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
             cell.playerModel=model;
@@ -270,7 +272,7 @@
             if (indexPath.row==0) {
                 cell.textLabel.text=@"备注";
             }else{
-            cell.textLabel.text=@"";
+                cell.textLabel.text=@"";
              }
             return cell;
         }break;
@@ -321,16 +323,28 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat height=0;
+   __block CGFloat height=0;
     switch (_actType) {
         case ActivityTypeVote:
         {
-           __block VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
-            PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
-           // height= [PlayerCell playerCellHeightWithPlayerModel:model];
-            return [tableView fd_heightForCellWithIdentifier:@"playeridentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
-                ((PlayerCell *)cell).playerModel=model;
-            }];
+            VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
+           __block PlayerModel *model=[voteActivityModel.playersArray objectAtIndex:indexPath.row];
+            if (model.isExpanded) {
+                height=model.cellExpandHeight;
+            }else{
+                height=model.cellUnExpandHeight;
+            }
+            if (!height) {
+                height=[tableView fd_heightForCellWithIdentifier:@"playeridentifer" cacheByIndexPath:indexPath configuration:^(id cell) {
+                    ((PlayerCell *)cell).playerModel=model;
+                }];
+                if (model.isExpanded) {
+                    model.cellExpandHeight=height;
+                }else{
+                    model.cellUnExpandHeight=height;
+                }
+            }
+
         }
             break;
         case ActivityTypeApply:{
@@ -384,8 +398,18 @@
     }];
 }
 -(void)playerCellDidMoreButtonPressedWithPlayer:(PlayerModel *)playerModel{
+    VoteActivityModel * voteActivityModel=(VoteActivityModel *)self.activityModel;
+    NSInteger index=[voteActivityModel.playersArray indexOfObject:playerModel];
+    PlayerCell *cell=(PlayerCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    __weak PlayerCell *weakCell=cell;
+    [CATransaction begin];
     [self.tableView beginUpdates];
+    [CATransaction setCompletionBlock:^{
+        [weakCell reLayoutFittingCompressedUI];
+    }];
     [self.tableView endUpdates];
+    [CATransaction commit];
+
 }
 -(void)photoListCellDidSelectedWithPhotoModel:(PhotoModel *)photoModel{
     PhotoActivityViewController *photoActivitController=   [[PhotoActivityViewController alloc]  initWithActivityID:self.activityID PhotoID:photoModel.photoID photoUrl:photoModel.photoUrl   ];

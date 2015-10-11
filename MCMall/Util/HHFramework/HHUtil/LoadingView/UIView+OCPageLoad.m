@@ -40,7 +40,7 @@ static NSString * const OCPageLoadingViewPropertyKey = @"__OCPageLoadingViewProp
     [self showPageLoadedMessage:message frame:CGRectZero delegate:delegate];
 }
 -(void)showPageLoadingView:(CGRect)frame{
-    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在加载..."};
+    NSDictionary *dic=@{OCPageLoadViewTexKey:@"正在加载...",OCPageLoadViewIsLoadingKey:@(YES)};
     [self showOCPageLoadViewData:dic frame:CGRectZero  delegate:nil];
 }
 -(void)showPageLoadedMessage:(NSString *)message frame:(CGRect)frame delegate:(id)delegate{

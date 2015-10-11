@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OCPageLoadViewHeader.h"
-
+UIKIT_EXTERN NSString *const OCPageLoadViewIsLoadingKey;//是否正在加载中
 UIKIT_EXTERN NSString *const OCPageLoadViewTexKey;//显示单张图片的时候key
 UIKIT_EXTERN NSString *const OCPageLoadViewActivityAnimatingKey;
 @interface OCPageLoadView : UIView

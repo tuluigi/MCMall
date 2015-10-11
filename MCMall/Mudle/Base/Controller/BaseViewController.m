@@ -31,12 +31,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent=NO;
+//    self.navigationController.navigationBar.translucent=NO;
     self.view.backgroundColor=[UIColor whiteColor];
-//    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
-//        self.edgesForExtendedLayout=NO;
-//    }
-//    [self setupForDismissKeyboard];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
+        self.edgesForExtendedLayout=NO;
+    }
+    [self setupForDismissKeyboard];
     // Do any additional setup after loading the view.
 }
 
@@ -56,6 +56,9 @@
     if (uniqueOperaionIdentfer) {
         [self.operationsArray addObject:uniqueOperaionIdentfer];
     }
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    [self.view endEditing:YES];
 }
 //-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 //    [[UIApplication sharedApplication].keyWindow endEditing:YES];

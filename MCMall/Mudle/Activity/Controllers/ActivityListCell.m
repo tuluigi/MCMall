@@ -15,9 +15,22 @@
 
 @implementation ActivityListCell
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier activityType:(ActivityType)actType{
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self=[self initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self initUIWithType:actType];
+    }
+    return self;
+}
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        NSString *identiferCommon=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypeCommon];
+          NSString *identiferPicture=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypePicture];
+        if ([identiferCommon isEqualToString:reuseIdentifier]) {
+            [self initUIWithType:ActivityTypeCommon];
+        }else if([identiferPicture isEqualToString:reuseIdentifier]){
+            [self initUIWithType:ActivityTypePicture];
+        }
     }
     return self;
 }
@@ -65,8 +78,7 @@
         case ActivityTypeApply:{
             [_logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.top.equalTo(weakSelf.contentView).with.offset(15);
-              
-                make.width.mas_equalTo(@80);
+                make.size.mas_equalTo(CGSizeMake(50, 50));
             }];
             [_titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(_logoImgView.mas_right).with.offset(10);
@@ -86,7 +98,7 @@
                 make.height.mas_lessThanOrEqualTo(@40).priorityHigh();
                 make.right.equalTo(weakSelf.contentView.mas_right).offset(-10);
                 make.left.equalTo(weakSelf.contentView.mas_left).offset(10);
-                  make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
+                make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).with.offset(-15);
             }];
         }
             break;
@@ -123,7 +135,7 @@
             }];
             [_descLable mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.top.mas_equalTo(weakSelf.logoImgView.mas_bottom).with.offset(5);
-                make.height.mas_lessThanOrEqualTo(@40);
+                make.height.mas_lessThanOrEqualTo(@40).priorityHigh();
                 make.right.equalTo(weakSelf.contentView.mas_right).offset(-10);
                 make.left.equalTo(weakSelf.contentView.mas_left).offset(10);
             }];
@@ -143,6 +155,7 @@
                 make.top.mas_equalTo(_descLable.mas_bottom).offset(10.0);
                 make.left.mas_equalTo(weakSelf.contentView.mas_left).offset(pading+15.0);
                 make.size.mas_equalTo(CGSizeMake(imageViewWidth, imageViewWidth));
+                make.bottom.mas_equalTo(weakSelf.contentView.mas_bottom).offset(-15);
             }];
             [_imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(_imageView0.mas_right).offset(pading);
@@ -175,6 +188,7 @@
         _imageView0.image=nil;
         _imageView1.image=nil;
         _imageView2.image=nil;
+        
         for (NSInteger i=0; i<photoActivityModel.photoListArray.count; i++) {
            PhotoModel *photoModle =[photoActivityModel.photoListArray objectAtIndex:i];
              NSString *imageUrl =photoModle.photoUrl;
@@ -186,34 +200,20 @@
                 [_imageView2 sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
             }
         }
-    }
-}
-+(CGFloat)activityCellHeightWithActiveModel:(ActivityModel *)model{
-   CGFloat height=0;
-    switch (model.activityType) {
-        case ActivityTypePicture:
-        {
+        if (photoActivityModel.photoListArray.count==0) {
+            [_imageView0 mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(0);
+            }];
+        }else{
             CGFloat pading=1.0;
             CGFloat imageViewWidth=(CGRectGetWidth([UIScreen mainScreen].bounds)- 15*2-pading*2)/3.0;
-             PhotoAcitvityModel *photoActivityModel=(PhotoAcitvityModel *)model;
-            if (photoActivityModel.photoListArray.count) {
-                height=imageViewWidth+50+10*3;
-            }else{
-                height=50+10*2;
-            }
-        }break;
-        case ActivityTypeApply:
-        case ActivityTypeCommon:
-        case ActivityTypeVote:{
-            height=100;
-        }break;
-        default:
-            break;
+            [_imageView0 mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(imageViewWidth);
+            }];
+        }
     }
-    height+=40;
-    return height;
-
 }
+
 +(NSString *)activityListCellIdentiferWithActType:(ActivityType)actType{
     NSString *identifer=@"activityIdenfier";
     switch (actType) {

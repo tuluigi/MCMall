@@ -127,11 +127,12 @@
     WEAKSELF
     addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
         if (isAdd) {
-            if (weakSelf.dataSourceArray.count>1) {
-                [weakSelf.dataSourceArray insertObject:addresssModel atIndex:1];
-            }else{
-                [weakSelf.dataSourceArray addObject:addresss];
-            }
+//            if (weakSelf.dataSourceArray.count>1) {
+//                [weakSelf.dataSourceArray insertObject:addresssModel atIndex:1];
+//            }else{
+//                [weakSelf.dataSourceArray addObject:addresss];
+//            }
+            [weakSelf.dataSourceArray addObject:addresss];
         }else{
             NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
             NSArray *tempArray=[weakSelf.dataSourceArray filteredArrayUsingPredicate:predicate];

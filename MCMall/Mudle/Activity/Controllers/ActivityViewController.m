@@ -30,13 +30,15 @@
     [super viewDidLoad];
     self.title=@"活动";
     WEAKSELF
-    
+    NSString *commonIdenfierStr=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypeCommon];
+    NSString *photoIdenfierStr=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypePicture];
+    [self.tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:commonIdenfierStr];
+    [self.tableView registerClass:[ActivityListCell class] forCellReuseIdentifier:photoIdenfierStr];
     [self.tableView addPullToRefreshWithActionHandler:^{
         weakSelf.pageIndex=1;
         [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
     }];
     [self.tableView addInfiniteScrollingWithActionHandler:^{
-        weakSelf.pageIndex++;
         [weakSelf getActivityListWithPageNum:weakSelf.pageIndex pageSize:MCMallPageSize];
     }];
     
@@ -86,18 +88,20 @@
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
+    ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row ];
     NSString *idenfierStr=[ActivityListCell activityListCellIdentiferWithActType:model.activityType];
-    ActivityListCell *cell=(ActivityListCell *)[tableView dequeueReusableCellWithIdentifier:idenfierStr];
-    if (nil==cell) {
-        cell=[[ActivityListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:idenfierStr activityType:model.activityType];
-    }
+    ActivityListCell *cell=(ActivityListCell *)[tableView dequeueReusableCellWithIdentifier:idenfierStr forIndexPath:indexPath];
     cell.activityModel=model;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityModel *model=[self.dataSourceArray objectAtIndex:indexPath.row];
-    return [ActivityListCell activityCellHeightWithActiveModel:model];
+    CGFloat height=0;
+     NSString *idenfierStr=[ActivityListCell activityListCellIdentiferWithActType:model.activityType];
+    height=[tableView fd_heightForCellWithIdentifier:idenfierStr  configuration:^(id cell) {
+        ((ActivityListCell *)cell).activityModel=model;
+    }];
+    return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -106,34 +110,6 @@
     voteController.activityID=model.activityID;
     voteController.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:voteController animated:YES];
-    
-/*
-    switch (model.activityType) {
-        case ActivityTypeVote:{
-            VoteActivityViewController *voteController=[[VoteActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
-            voteController.activityID=model.activityID;
-            voteController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:voteController animated:YES];
-        }break;
-        case ActivityTypeApply:{
-            ApplyActivityViewController *applyActivityController=[[ApplyActivityViewController alloc]  initWithActivityID:model.activityID type:model.activityType];
-            applyActivityController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:applyActivityController animated:YES];
-        }break;
-        case ActivityTypeCommon:{
-            CommonActivityController *commonActivityController=[[CommonActivityController alloc]  initWithActivityID:model.activityID];
-            commonActivityController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:commonActivityController animated:YES];
-          }break;
-        case ActivityTypePicture:{
-            PhotoActivityViewController *photoActivitController=[[PhotoActivityViewController alloc]  initWithActivityID:model.activityID];
-            photoActivitController.hidesBottomBarWhenPushed=YES;
-            [self.navigationController pushViewController:photoActivitController animated:YES];
-        }break;
-        default:
-            break;
-    }
- */
 }
 
 /*

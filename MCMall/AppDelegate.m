@@ -22,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [HHGlobalVarTool onInitConfig];
+
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]  initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor=[UIColor whiteColor];
@@ -50,11 +51,11 @@
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     UserModel *userModel=[HHUserManager userModel];
-    if (userModel.motherState==MotherStateUnSelected) {
+    if (userModel.motherState!=MotherStatePregnant||userModel.motherState!=MotherStateAfterBirth) {
         UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
         stateSelectController.hidesBottomBarWhenPushed=YES;
        
-        [ [UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:stateSelectController animated:YES];
+        [ [[UIApplication sharedApplication].windows objectAtIndex:0].rootViewController.navigationController pushViewController:stateSelectController animated:YES];
     }
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];

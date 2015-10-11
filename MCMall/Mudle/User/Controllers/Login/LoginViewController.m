@@ -23,6 +23,13 @@
     // Do any additional setup after loading the view.
     [self onInitData];
 }
+-(instancetype)init{
+    self=[super init];
+    if (self) {
+        self.tableViewStyle=UITableViewStyleGrouped;
+    }
+    return self;
+}
 -(void)onInitData{
     self.title=MCMallShopName;
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(leftNavigationItemClicked)];
@@ -33,13 +40,13 @@
 }
 -(UIView *)headerView{
     if (nil==_headerView) {
-        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 160)];
-        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"icon"]];
-        [_headerView addSubview:logoImgView];
-        [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(_headerView);
-            make.size.mas_equalTo(CGSizeMake(100.0, 100.0));
-        }];
+        _headerView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40)];
+//        UIImageView *logoImgView=[[UIImageView alloc]  initWithImage:[UIImage imageNamed:@"icon"]];
+//        [_headerView addSubview:logoImgView];
+//        [logoImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.center.equalTo(_headerView);
+//            make.size.mas_equalTo(CGSizeMake(100.0, 100.0));
+//        }];
     }
     return _headerView;
 }
@@ -198,6 +205,7 @@
     }
     return cell;
 }
+
 #pragma mark -UITextFieldDelegate
 -(BOOL)textFieldShouldClear:(UITextField *)textField{
     return YES;

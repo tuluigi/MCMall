@@ -68,7 +68,9 @@
                 if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                     [weakSelf getDiaryDetailAtDate:weakSelf.noteModel.date];
                 }
-                [weakSelf.view showSuccessMessage:responseResult.responseMessage];
+                if (responseResult.responseCode!=HHResponseResultCodeSuccess) {
+                   [weakSelf.view showSuccessMessage:responseResult.responseMessage];
+                }
             }];
         }];
 }

@@ -65,7 +65,13 @@ NSString *const OCPageLoadingAnimationDurationKey  =@"OCPageLoadingAnimationDura
             [self.imageView stopAnimating];
             self.imageView.image=[dic objectForKey:OCPageLoadViewImageKey];
         }
-        [self.indecatorView startAnimating];
+        BOOL isLoading=[[dic objectForKey:OCPageLoadViewIsLoadingKey] boolValue];
+        if (isLoading) {
+            [self.indecatorView startAnimating];
+        }else{
+            [self.indecatorView stopAnimating];
+        }
+        
         self.textLable.text=[dic objectForKey:OCPageLoadViewTexKey];
     }
 }
