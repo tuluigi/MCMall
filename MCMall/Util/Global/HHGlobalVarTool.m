@@ -54,6 +54,11 @@
         MCMallShopName=@"妙奇母婴";
         APNSKEY=@"ztWLAvee3KsnlxmOXuFOTkxP";
         APNSSECRET=@"UIXWm9YGz059jMqQb4PegPSwTQl9WPEg";
+    }else{
+        MCMallShopID=@"D6d3e98";
+        MCMallShopName=@"婴姿谷";
+        APNSKEY=@"V3jXzNVB7pmVSgGXHjGsfiSS";
+        APNSSECRET=@"dlVk22FsxSg2ZGcwcLGG75FAKjedIUC7";
     }
     return MCMallShopID;
 }

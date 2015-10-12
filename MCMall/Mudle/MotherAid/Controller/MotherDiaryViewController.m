@@ -186,7 +186,7 @@
 -(void)didShareButtonPressed{
     NSString *headUrl=[[HHUserManager userModel] userHeadUrl];
     UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:headUrl];
-    [HHShaeTool shareOnController:self withTitle:@"宝宝相册" text:@"宝宝故事相册" image:image url:nil shareType:0];
+    [HHShaeTool shareOnController:self withTitle:@"宝宝相册" text:@"宝宝故事相册" image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
 }
 
 //回到今天

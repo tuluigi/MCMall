@@ -145,7 +145,8 @@
 }
 
 -(void)didShareBarButtonPressed{
-    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:[UIImage imageNamed:@"icon"] url:nil shareType:0];
+    UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:self.activityModel.activityImageUrl];
+    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
 }
 
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
