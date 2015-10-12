@@ -51,12 +51,11 @@
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     UserModel *userModel=[HHUserManager userModel];
-    if (userModel.motherState!=MotherStatePregnant||userModel.motherState!=MotherStateAfterBirth) {
-        UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
-        stateSelectController.hidesBottomBarWhenPushed=YES;
-        
-        [ [[UIApplication sharedApplication].windows objectAtIndex:0].rootViewController.navigationController pushViewController:stateSelectController animated:YES];
-    }
+//    if (userModel.motherState!=MotherStatePregnant||userModel.motherState!=MotherStateAfterBirth) {
+//        UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
+//        stateSelectController.hidesBottomBarWhenPushed=YES;
+//        [[self currentSelectedNavigationController] pushViewController:stateSelectController animated:YES];
+//    }
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
     return YES;
@@ -145,9 +144,6 @@
     [self handleAPNSPushNotification:userInfo];
 }
 -(void)handleAPNSPushNotification:(NSDictionary *)userInfo{
-    //    NSString *pushStr=[NSString stringWithFormat:@"%@",userInfo];
-    //  UIAlertView *alert=[[UIAlertView alloc] initWithTitle:nil message:pushStr delegate:nil cancelButtonTitle:@"cancle" otherButtonTitles:nil, nil];
-    //    [alert show];
     NSInteger noteType=[[userInfo objectForKey:@"type"] integerValue];
     RootTabBarController *rootTabbarController= (RootTabBarController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
@@ -172,5 +168,9 @@
             break;
     }
 }
-
+-(UINavigationController *)currentSelectedNavigationController{
+    RootTabBarController *rootTabbarController= (RootTabBarController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
+    UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
+    return navController;
+}
 @end
