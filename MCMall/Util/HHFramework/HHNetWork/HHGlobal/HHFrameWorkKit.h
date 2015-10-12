@@ -10,6 +10,7 @@
 #define HHFrameWorkKit_HHFrameWorkKit_h
 
 #import "HHFrameWorkKitMacro.h"
+#import "HHAppInfo.h"
 #pragma mark- NetWork
 #import "HHResponseResult.h"
 #import "HHNetWorkEngine.h"

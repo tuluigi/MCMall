@@ -40,8 +40,4 @@ typedef NS_ENUM(NSInteger,MCMallClientType) {
     MCMallClientTypeMiaoQiMuYing    ,
 };
 
-NSString * MCMallShopID;
-NSString *MCMallShopName;
-NSString  *APNSKEY;
-NSString *APNSSECRET;
 #endif

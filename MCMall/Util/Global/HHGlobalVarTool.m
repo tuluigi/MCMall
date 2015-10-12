@@ -17,74 +17,50 @@
     }
 }
 
-/**
- *  当前appMerchangID
- *
- *  @return
- */
-+(NSString *)onInitConfig{
-    NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]) {
-        MCMallShopID=@"D664fdc";
-        MCMallShopName=@"百家欣";
-        APNSKEY=@"2sPzn3eqQ3U3RkUuGpiSu38e";
-        APNSSECRET=@"SiOQTme6cShPoDxaoYeqgad7smNFlrey";
-    }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]){
-        MCMallShopID=@"D6d3e98";
-        MCMallShopName=@"婴姿谷";
-        APNSKEY=@"V3jXzNVB7pmVSgGXHjGsfiSS";
-        APNSSECRET=@"dlVk22FsxSg2ZGcwcLGG75FAKjedIUC7";
-    }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]){
-        MCMallShopID=@"De716c1";
-        MCMallShopName=@"宝贝e家";
-        APNSKEY=@"DoID5hHFsF40vu0CcYqgedtC";
-        APNSSECRET=@"GD7Zm3y5Cm5D62h5OuO4BxR3Gc7lY6FB";
-    }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]){
-        MCMallShopID=@"D396e33";
-        MCMallShopName=@"爱婴堡";
-        APNSKEY=@"BXqQDaXI1vY5OdVRAv1dDcGt";
-        APNSSECRET=@"3rH6WZ1PKSXbLCSKH8R3w8DLlbWNrhZB";
-    }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]){
-        MCMallShopID=@"Dc11375";
-        MCMallShopName=@"海豚贝贝";
-        APNSKEY=@"7HcOsv9H1OpZOaVGTVpky2TO";
-        APNSSECRET=@"e5M2u5NNBZKGQLWfDB2L427eOzCYiShS";
-    }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]){
-        MCMallShopID=@"D966bfe";
-        MCMallShopName=@"妙奇母婴";
-        APNSKEY=@"ztWLAvee3KsnlxmOXuFOTkxP";
-        APNSSECRET=@"UIXWm9YGz059jMqQb4PegPSwTQl9WPEg";
-    }else{
-        MCMallShopID=@"D6d3e98";
-        MCMallShopName=@"婴姿谷";
-        APNSKEY=@"V3jXzNVB7pmVSgGXHjGsfiSS";
-        APNSSECRET=@"dlVk22FsxSg2ZGcwcLGG75FAKjedIUC7";
-    }
-    return MCMallShopID;
-}
 +(MCMallClientType)mcMallClientType{
     MCMallClientType mallType;
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]) {
+    if ([identifier isEqualToString:@"com.MCMallE.BaiJiaXin"]||[identifier isEqualToString:@"com.MCMall.BaiJiaXin"]) {
         mallType=MCMallClientTypeBaiJiaXin;
-    }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.YingZiGu"]||[identifier isEqualToString:@"com.MCMall.YingZiGu"]){
        mallType=MCMallClientTypeYingZiGu;
-    }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.BaoBeiEJia"]||[identifier isEqualToString:@"com.MCMall.BaoBeiEJia"]){
        mallType=MCMallClientTypeBaoBeiEJia;
-    }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.AiYingBao"]||[identifier isEqualToString:@"com.MCMall.AiYingBao"]){
        mallType=MCMallClientTypeAiYingBao;
-    }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.HaiTunBeiBei"]||[identifier isEqualToString:@"com.MCMall.HaiTunBeiBei"]){
         mallType=MCMallClientTypeHaiTunBeiBei;
-    }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]){
+    }else if ([identifier isEqualToString:@"com.MCMallE.QiMiaoMuYing"]||[identifier isEqualToString:@"com.MCMall.QiMiaoMuYing"]){
         mallType=MCMallClientTypeMiaoQiMuYing;
     }
     return mallType;
 }
-+(NSString *)shopName{
-   return  MCMallShopName;
-}
 +(NSString *)shopID{
-    return MCMallShopID;
+    NSString *str=@"";
+    MCMallClientType type=[HHGlobalVarTool mcMallClientType];
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"D396e33";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"De716c1";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"D664fdc";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"D6d3e98";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"D966bfe";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"Dc11375";
+        }break;
+        default:
+            break;
+    }
+    return str;
 }
 
 #pragma mark- token
@@ -98,7 +74,7 @@
 }
 +(NSString *)shareQQID{
     NSString *str=@"";
-    MCMallClientType type;
+     MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -126,7 +102,7 @@
 }
 +(NSString *)shareQQKey{
     NSString *str=@"";
-    MCMallClientType type;
+      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -154,7 +130,7 @@
 }
 +(NSString *)shareWeXinKey{
     NSString *str=@"";
-    MCMallClientType type;
+    MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -182,7 +158,7 @@
 }
 +(NSString *)shareWeXinSecret{
     NSString *str=@"";
-    MCMallClientType type;
+     MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -210,7 +186,7 @@
 }
 +(NSString *)shareSinaWeiBoID{
     NSString *str=@"";
-    MCMallClientType type;
+     MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -238,7 +214,7 @@
 }
 +(NSString *)shareSinaWeiBoKey{
     NSString *str=@"";
-    MCMallClientType type;
+      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -267,7 +243,7 @@
 
 +(NSString *)shareUMKey{
     NSString *str=@"";
-    MCMallClientType type;
+      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";
@@ -295,25 +271,25 @@
 }
 +(NSString *)shareBDPushKey{
     NSString *str=@"";
-    MCMallClientType type;
+      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
-            str=@"";
+            str=@"BXqQDaXI1vY5OdVRAv1dDcGt";
         }break;
         case MCMallClientTypeBaoBeiEJia:{
-            str=@"";
+            str=@"DoID5hHFsF40vu0CcYqgedtC";
         }break;
         case MCMallClientTypeBaiJiaXin:{
-            str=@"";
+            str=@"2sPzn3eqQ3U3RkUuGpiSu38e";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"";
+            str=@"V3jXzNVB7pmVSgGXHjGsfiSS";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
-            str=@"";
+            str=@"ztWLAvee3KsnlxmOXuFOTkxP";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
-            str=@"";
+            str=@"7HcOsv9H1OpZOaVGTVpky2TO";
         }break;
         default:
             break;
@@ -326,7 +302,7 @@
 }
 +(NSString *)shareAppstoreUrl{
     NSString *str=@"";
-    MCMallClientType type;
+      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
             str=@"";

@@ -37,7 +37,7 @@
     [_bgView addSubview:_doctorLogoImageView];
     
     _doctorNameLable=[UILabel new];
-    _doctorNameLable.textColor=[UIColor darkGrayColor];
+    _doctorNameLable.textColor=[UIColor blackColor];
     _doctorNameLable.font=[UIFont systemFontOfSize:11];
     _doctorNameLable.textAlignment=NSTextAlignmentCenter;
     [_bgView addSubview:_doctorNameLable];
@@ -59,19 +59,19 @@
     
     _doctorDescLable=[UILabel new];
     _doctorDescLable.numberOfLines=3;
-    _doctorDescLable.textColor=[UIColor darkGrayColor];
-    _doctorDescLable.font=[UIFont systemFontOfSize:13];
+    _doctorDescLable.textColor=[UIColor blackColor];
+    _doctorDescLable.font=[UIFont boldSystemFontOfSize:14];
     _doctorDescLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_doctorDescLable];
 
     _subjectTimeLable=[UILabel new];
-    _subjectTimeLable.textColor=MCMallThemeColor;
+    _subjectTimeLable.textColor=[UIColor lightGrayColor];
     _subjectTimeLable.font=[UIFont systemFontOfSize:14];
     _subjectTimeLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_subjectTimeLable];
     
     _subjectTitleLable=[UILabel new];
-    _subjectTitleLable.textColor=[UIColor red:64 green:213.0 blue:234.0 alpha:1];
+    _subjectTitleLable.textColor=[UIColor darkGrayColor];
     _subjectTitleLable.font=[UIFont systemFontOfSize:14];
     _subjectTitleLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_subjectTitleLable];
@@ -90,7 +90,8 @@
         make.edges.equalTo(weakSelf.contentView);
     }];
     [_doctorLogoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(_bgView).offset(10.0);
+        make.left.equalTo(_bgView).offset(10.0);
+        make.top.mas_equalTo(_bgView).offset(15);
         make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     [_doctorNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,21 +104,21 @@
     
     [_doctorDescLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorLogoImageView.mas_right).offset(10);
-        make.top.mas_equalTo(_bgView.mas_top).offset(10);
+        make.top.mas_equalTo(weakSelf.doctorLogoImageView);
         make.right.equalTo(_bgView.mas_right).offset(-10);
-        make.height.mas_lessThanOrEqualTo(@60);
+        make.height.mas_lessThanOrEqualTo(@40);
     }];
     [_subjectTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorDescLable);
-        make.right.mas_equalTo(_doctorDescLable);
-        make.top.mas_equalTo(_doctorDescLable.mas_bottom).offset(5);
+        make.top.mas_equalTo(_subjectTitleLable.mas_bottom).offset(5);
+        make.bottom.equalTo(_bgView.mas_bottom).offset(-15);
+        make.right.equalTo(_entranceButton.mas_left).offset(-5);
         make.height.mas_lessThanOrEqualTo(20);
     }];
     [_subjectTitleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_doctorDescLable);
-        make.top.mas_equalTo(_subjectTimeLable.mas_bottom).offset(5);
-        make.bottom.equalTo(_bgView.mas_bottom).offset(-10);
-        make.right.equalTo(_entranceButton.mas_left).offset(-5);
+        make.right.mas_equalTo(_doctorDescLable);
+        make.top.mas_equalTo(_doctorDescLable.mas_bottom).offset(5);
         make.height.mas_lessThanOrEqualTo(20);
     }];
     [_entranceButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,7 +126,6 @@
         make.bottom.mas_equalTo(_subjectTitleLable);
         make.width.mas_lessThanOrEqualTo(65);
         make.right.mas_equalTo(_bgView.mas_right).offset(-10);
-        
     }];
     
 }

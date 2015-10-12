@@ -11,6 +11,10 @@
 #import "MCMallAPI.h"
 NSString *const OCNetGET=@"GET";
 NSString *const OCNetPOST=@"POST";
+@interface HHNetWorkEngine ()
+@property(nonatomic,copy)NSString *shopID;
+@end
+
 static HHNetWorkEngine *sharedNtWorkManager;
 @implementation HHNetWorkEngine
 +(id)sharedHHNetWorkEngine
@@ -103,7 +107,12 @@ static HHNetWorkEngine *sharedNtWorkManager;
     if (!newPostDic){
         newPostDic=[NSMutableDictionary new];
     }
-    [newPostDic setObject:[HHGlobalVarTool shopID] forKey:@"shopid"];
+    NSString *shopID=self.shopID;
+    if (nil==shopID||[shopID isEqualToString:@""]) {
+        shopID=[HHGlobalVarTool shopID];
+        self.shopID=shopID;
+    }
+    [newPostDic setObject:shopID forKey:@"shopid"];
     return newPostDic;
 }
 

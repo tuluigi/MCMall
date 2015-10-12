@@ -106,7 +106,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title=MCMallShopName;
+    self.navigationItem.title=[HHAppInfo appName];
     self.tableView.backgroundColor=[UIColor red:246 green:242 blue:241 alpha:1];
     [self reloadUI];
     WEAKSELF

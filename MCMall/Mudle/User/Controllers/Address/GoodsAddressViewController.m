@@ -126,12 +126,8 @@
     GoodsAddressAddController *addAddresssController=[[GoodsAddressAddController alloc]  initWithAddressModel:addresssModel];
     WEAKSELF
     addAddresssController.addressModelChangeBlock=^(AddressModel *addresss,BOOL isAdd){
+        /*
         if (isAdd) {
-//            if (weakSelf.dataSourceArray.count>1) {
-//                [weakSelf.dataSourceArray insertObject:addresssModel atIndex:1];
-//            }else{
-//                [weakSelf.dataSourceArray addObject:addresss];
-//            }
             [weakSelf.dataSourceArray addObject:addresss];
         }else{
             NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_addressID=%@",addresss.addressID];
@@ -142,6 +138,8 @@
             }
         }
         [weakSelf.tableView reloadData];
+         */
+        [weakSelf getAddressList];
     };
     [self.navigationController pushViewController:addAddresssController animated:YES];
 }

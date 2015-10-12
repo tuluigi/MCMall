@@ -47,13 +47,14 @@
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
         _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        
         [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoModle.photoUrl] placeholderImage:MCMallDefaultImg];
         [_headImageView addSubview:self.favorBgView];
     
         [_favorBgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(@(-10));
             make.bottom.mas_equalTo(-10);
-           // make.size.mas_equalTo(CGSizeMake(100, 30));
+            make.size.mas_equalTo(CGSizeMake(100, 30));
         }];
         _favorButton=[UIButton buttonWithType:UIButtonTypeCustom];
         
@@ -65,10 +66,12 @@
         [_favorButton setBackgroundImage:[UIImage imageNamed:@"favorButton"] forState:UIControlStateNormal];
         [_favorButton setBackgroundImage:[UIImage imageNamed:@"favorButton_HL"] forState:UIControlStateSelected];
         [self.favorBgView addSubview:_favorButton];
+        self.favorBgView.userInteractionEnabled=YES;
+        _favorButton.userInteractionEnabled=YES;
+        WEAKSELF
         [_favorButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(@8);
-            make.top.equalTo(@5);
-            make.bottom.mas_equalTo(@(-5));
+            make.left.top.equalTo(weakSelf.favorBgView).offset(5);
+            make.bottom.mas_equalTo(weakSelf.favorBgView.mas_bottom).offset(-5);
             make.size.mas_equalTo(CGSizeMake(20, 20));
         }];
         
@@ -76,12 +79,12 @@
         _favorCountLable.backgroundColor=[UIColor clearColor];
         _favorCountLable.textColor=MCMallThemeColor;
         _favorCountLable.font=[UIFont systemFontOfSize:13];
+        _favorCountLable.textAlignment=NSTextAlignmentCenter;
         [self.favorBgView addSubview:_favorCountLable];
         [_favorCountLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_favorButton.mas_right).offset(10);
             make.top.mas_equalTo(_favorButton);
-            make.size.mas_equalTo(CGSizeMake(30, 20));
-            make.right.mas_equalTo(-8);
+            make.right.mas_equalTo(weakSelf.favorBgView.mas_right).offset(-5);
             make.bottom.mas_equalTo(_favorButton.mas_bottom);
         }];
     }
@@ -271,8 +274,9 @@
     PhotoCommontCell *cell=[tableView dequeueReusableCellWithIdentifier:Identifer];
     if (nil==cell) {
         cell=[[PhotoCommontCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
     }
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     PhotoCommentModel *commentModel=[self.photoModle.commentArray objectAtIndex:indexPath.row];
     cell.commentModel=commentModel;
     return cell;

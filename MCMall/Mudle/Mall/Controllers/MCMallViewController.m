@@ -41,7 +41,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title=[MCMallShopName stringByAppendingString:@"会员系统"];
+    self.navigationItem.title=[[HHAppInfo appName] stringByAppendingString:@"会员系统"];
     
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];

@@ -15,11 +15,12 @@
 }
 +(NSString *)appVersion{
     NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];
-    return [dic objectForKey:(NSString*)kCFBundleVersionKey];
-}
-+(NSString *)appShortVersion{
-    NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];
     return [dic objectForKey:@"CFBundleShortVersionString"];
+    
+}
++(NSString *)appBulidVersion{
+    NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];
+    return [dic objectForKey:(NSString*)kCFBundleVersionKey];
 }
 +(NSString *)appBundleIdentifer{
     NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];

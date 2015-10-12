@@ -11,6 +11,6 @@
 @interface HHAppInfo : NSObject
 +(NSString *)appName;
 +(NSString *)appVersion;
-+(NSString *)appShortVersion;
++(NSString *)appBulidVersion;
 +(NSString *)appBundleIdentifer;
 @end

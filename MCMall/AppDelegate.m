@@ -21,8 +21,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [HHGlobalVarTool onInitConfig];
-    
+    UserModel *userModel=[HHUserManager userModel];
+    if (userModel.motherState==MotherStateUnSelected) {
+        [HHUserManager logout];
+    }
     // Override point for customization after application launch.
     self.window=[[UIWindow alloc]  initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor=[UIColor whiteColor];
@@ -38,7 +40,7 @@
     [[NSRunLoop currentRunLoop]  addTimer:_timer forMode:NSRunLoopCommonModes];
     
     // 在 App 启动时注册百度云推送服务，需要提供 Apikey DF0eNG6TNUqEvrVyQhIRU0Ea IcDl7Kx2H3DYzb2TQOqMkohZ
-    [BPush registerChannel:launchOptions apiKey:APNSKEY pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:NO];
+    [BPush registerChannel:launchOptions apiKey:[HHGlobalVarTool shareBDPushKey] pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:NO];
     // App 是用户点击推送消息启动
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo) {
@@ -50,12 +52,7 @@
     // [SVProgressHUD setBackgroundColor:[UIColor colorWithWhite:0.6 alpha:0.4]];
     //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    UserModel *userModel=[HHUserManager userModel];
-//    if (userModel.motherState!=MotherStatePregnant||userModel.motherState!=MotherStateAfterBirth) {
-//        UserStateSelectController *stateSelectController=[[UserStateSelectController alloc]  init];
-//        stateSelectController.hidesBottomBarWhenPushed=YES;
-//        [[self currentSelectedNavigationController] pushViewController:stateSelectController animated:YES];
-//    }
+   
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
     return YES;

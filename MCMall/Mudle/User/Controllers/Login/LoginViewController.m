@@ -31,7 +31,7 @@
     return self;
 }
 -(void)onInitData{
-    self.title=MCMallShopName;
+    self.title=[HHAppInfo appName];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]  initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(leftNavigationItemClicked)];
     self.tableView.backgroundColor=[UIColor red:240.0 green:241.0 blue:246.0 alpha:1];
     self.tableView.tableHeaderView=self.headerView;

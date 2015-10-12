@@ -12,6 +12,7 @@
 #import "SubjectModel.h"
 #import "SubtitleExpertAnswerController.h"
 #import "SubjectNetService.h"
+NSString *const SubjectCellIdenfier =@"SubjectCellIdenfier";
 @interface SubjectViewController ()
 
 @end
@@ -27,6 +28,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title=@"妈妈帮";
+    [self.tableView registerClass:[SubjectListCell class] forCellReuseIdentifier:SubjectCellIdenfier];
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
         _pageIndex=1;
@@ -77,12 +79,8 @@
     return self.dataSourceArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *identifer=@"idenfier";
-    SubjectListCell *cell=(SubjectListCell *)[tableView dequeueReusableCellWithIdentifier:identifer];
-    if (nil==cell) {
-        cell=[[SubjectListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    }
+    SubjectListCell *cell=(SubjectListCell *)[tableView dequeueReusableCellWithIdentifier:SubjectCellIdenfier forIndexPath:indexPath];
+     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
     cell.subjectModel=subjectModel;
     return cell;
@@ -107,9 +105,14 @@
         }
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
+    return 100;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    __block SubjectModel *subjectModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    CGFloat height=0;
+    height=[tableView fd_heightForCellWithIdentifier:SubjectCellIdenfier configuration:^(id cell) {
+        ((SubjectListCell *)cell).subjectModel=subjectModel;
+    }];
+    return height;
 }
 @end

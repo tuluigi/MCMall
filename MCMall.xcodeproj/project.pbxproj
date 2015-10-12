@@ -4814,7 +4814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BaiJiaXinIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4842,7 +4842,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BaiJiaXinIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tianmin Fan (ZFMZ922898)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4870,7 +4870,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BaoBeiEJiaIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4899,7 +4899,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BaoBeiEJiaIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4928,7 +4928,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AiYingBaoIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = AiYingBaoLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4957,7 +4958,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AiYingBaoIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = AiYingBaoLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4986,7 +4988,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = HaiTunBeiBeiIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = HiTunBeiBeiLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5014,7 +5017,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = HaiTunBeiBeiIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = HiTunBeiBeiLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5042,9 +5046,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5062,7 +5066,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d8f9c03-ee8a-43ac-b186-737b12d0d84e";
+				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
 			};
 			name = Debug;
 		};
@@ -5070,9 +5074,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5090,7 +5094,7 @@
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d8f9c03-ee8a-43ac-b186-737b12d0d84e";
+				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
 			};
 			name = Release;
 		};
@@ -5098,7 +5102,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MiaoQiMuYingIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = MiaoQIMuYingLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5126,7 +5131,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MiaoQiMuYingIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = MiaoQIMuYingLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (

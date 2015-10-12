@@ -104,13 +104,16 @@
             break;
         case ActivityTypePicture:{
             _imageView0=[[UIImageView alloc]  init];
-            _imageView0.contentMode=UIViewContentModeScaleToFill;
+            _imageView0.contentMode=UIViewContentModeScaleAspectFill;
+            _imageView0.clipsToBounds=YES;
             [self.contentView addSubview:_imageView0];
             _imageView1=[[UIImageView alloc]  init];
-            _imageView1.contentMode=UIViewContentModeScaleToFill;
+            _imageView1.contentMode=UIViewContentModeScaleAspectFill;
+            _imageView1.clipsToBounds=YES;
             [self.contentView addSubview:_imageView1];
             _imageView2=[[UIImageView alloc]  init];
-            _imageView2.contentMode=UIViewContentModeScaleToFill;
+            _imageView2.contentMode=UIViewContentModeScaleAspectFill;
+            _imageView2.clipsToBounds=YES;
             [self.contentView addSubview:_imageView2];
             
             

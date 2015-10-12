@@ -29,7 +29,8 @@
 -(void)onInitUI{
     WEAKSELF
     _goodsImageView=[UIImageView new];
-    _goodsImageView.contentMode=UIViewContentModeScaleToFill;
+    _goodsImageView.contentMode=UIViewContentModeScaleAspectFill;
+    _goodsImageView.clipsToBounds=YES;
     [self.contentView addSubview:_goodsImageView];
     
     _goodsNameLable=[[UILabel alloc]  init];
