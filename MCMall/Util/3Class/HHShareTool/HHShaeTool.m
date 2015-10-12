@@ -205,15 +205,15 @@
 }
 #pragma mark -需要提供
 +(NSString *)shareQQKey{
-    return @"635cBiMwkzcuoDI7";
+    return [HHGlobalVarTool shareQQKey];
 }
 +(NSString *)shareQQID{
-    return @"1104816236";
+    return [HHGlobalVarTool shareQQID];
 }
 +(NSString *)shareWeiXinID{
-    return @"wxa1845c06a60250bd";
+    return [HHGlobalVarTool shareWeXinKey];
 }
 +(NSString *)shareWeiXinSecret{
-    return @"890ea614860c63af187e964aec7c0df1";
+    return [HHGlobalVarTool shareWeXinSecret];
 }
 @end

@@ -116,6 +116,7 @@
         default:
             break;
     }
+      str=@"1104816236";
     return str;
 }
 +(NSString *)shareQQKey{
@@ -143,6 +144,7 @@
         default:
             break;
     }
+    str=@"635cBiMwkzcuoDI7";
     return str;
 }
 +(NSString *)shareWeXinKey{
@@ -170,6 +172,7 @@
         default:
             break;
     }
+    str=@"wxa1845c06a60250bd";
     return str;
 }
 +(NSString *)shareWeXinSecret{
@@ -197,6 +200,7 @@
         default:
             break;
     }
+    str=@"890ea614860c63af187e964aec7c0df1";
     return str;
 }
 +(NSString *)shareSinaWeiBoID{
@@ -224,6 +228,7 @@
         default:
             break;
     }
+    str=@"1322087084";
     return str;
 }
 +(NSString *)shareSinaWeiBoKey{
@@ -251,6 +256,7 @@
         default:
             break;
     }
+     str=@"9ce5fc83ce399a4b245d479d17869301";
     return str;
 }
 
@@ -268,7 +274,7 @@
             str=@"";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"55cfe978e0f55a1bfc002686";
+            str=@"";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
             str=@"";
@@ -279,6 +285,7 @@
         default:
             break;
     }
+    str=@"55cfe978e0f55a1bfc002686";
     return str;
 }
 +(NSString *)shareBDPushKey{
