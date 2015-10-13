@@ -133,19 +133,19 @@
     MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
-            str=@"";
+            str=@"wxf51a3036ecc06964";
         }break;
         case MCMallClientTypeBaoBeiEJia:{
-            str=@"";
+            str=@"wx8677bac466de81e9";
         }break;
         case MCMallClientTypeBaiJiaXin:{
-            str=@"";
+            str=@"wx2d3324844c21ceda";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"";
+            str=@"wx4009f9de29fc343e";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
-            str=@"";
+            str=@"wxb0133ac939832b5d";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
             str=@"";
@@ -153,7 +153,6 @@
         default:
             break;
     }
-    str=@"wxa1845c06a60250bd";
     return str;
 }
 +(NSString *)shareWeXinSecret{
@@ -161,19 +160,19 @@
      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
-            str=@"";
+            str=@"edaa83aacae9120797165d4727b1bc70";
         }break;
         case MCMallClientTypeBaoBeiEJia:{
-            str=@"";
+            str=@"e20dac2639a6a24660a7778c56ea42b6";
         }break;
         case MCMallClientTypeBaiJiaXin:{
-            str=@"";
+            str=@"1a52779be1f34d5da06c1cc596ad2ef0";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"";
+            str=@"083c45fdad1df350e9846a53f1e46260";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
-            str=@"";
+            str=@"63639d06ea29ada85c557cb5976ded70";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
             str=@"";
@@ -181,7 +180,6 @@
         default:
             break;
     }
-    str=@"890ea614860c63af187e964aec7c0df1";
     return str;
 }
 +(NSString *)shareSinaWeiBoID{
@@ -189,22 +187,22 @@
      MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
-            str=@"";
+            str=@"2711530358";
         }break;
         case MCMallClientTypeBaoBeiEJia:{
-            str=@"";
+            str=@"983854887";
         }break;
         case MCMallClientTypeBaiJiaXin:{
-            str=@"";
+            str=@"3852954196";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"";
+            str=@"3452197808";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
-            str=@"";
+            str=@"1783685107";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
-            str=@"";
+            str=@"701184056";
         }break;
         default:
             break;
@@ -217,22 +215,22 @@
       MCMallClientType type=[HHGlobalVarTool mcMallClientType];
     switch (type) {
         case MCMallClientTypeAiYingBao:{
-            str=@"";
+            str=@"01347eb8fa71f91c9f50b6c572a9ed53";
         }break;
         case MCMallClientTypeBaoBeiEJia:{
-            str=@"";
+            str=@"af816c13045d8f701236a9b50fa7d71c";
         }break;
         case MCMallClientTypeBaiJiaXin:{
-            str=@"";
+            str=@"8af373fc8265f84a323a2cad54e2864c";
         }break;
         case MCMallClientTypeYingZiGu:{
-            str=@"";
+            str=@"c466d7692e3fe1d322a7704467bede3b";
         }break;
         case MCMallClientTypeMiaoQiMuYing:{
-            str=@"";
+            str=@"7781de80988ef680199a25de9a20b18d";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
-            str=@"";
+            str=@"adf56b899df72da87786fb921aa1617b";
         }break;
         default:
             break;

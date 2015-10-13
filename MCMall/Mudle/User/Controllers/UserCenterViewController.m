@@ -155,8 +155,7 @@
 -(void)didLogoutButtonPressed{
     [HHUserManager logout];
     [self reloadUI];
-    [[NSNotificationCenter defaultCenter] postNotificationName:UserLogoutSucceedNotification object:nil];
-   // [self verfiyUserLogin];
+     // [self verfiyUserLogin];
 }
 -(void)didLoginButtonPressed{
     LoginViewController *loginController=[[LoginViewController alloc]  initWithStyle:UITableViewStylePlain];

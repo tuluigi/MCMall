@@ -13,8 +13,9 @@
 #import "HHShaeTool.h"
 #import "GoodsDetailViewController.h"
 #import "VoteActivityViewController.h"
-@interface AppDelegate ()
-
+static const NSInteger kAlertCheckVersionUpdate = 100;
+@interface AppDelegate ()<UIAlertViewDelegate>
+@property(nonatomic,copy)NSString *downLoadStr;
 @end
 
 @implementation AppDelegate
@@ -55,8 +56,17 @@
    
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
+    
+    [HHAppInfo checkVersionUpdateOnCompletionBlock:^(BOOL isNeddUpdate, NSString *downUrl) {
+        if (isNeddUpdate&&downUrl) {
+            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
+            alert.tag=kAlertCheckVersionUpdate;
+            [alert show];
+        }
+    }];
     return YES;
 }
+
 -(void)registerAPNSNotification{
     // iOS8 下需要使用新的 API
     NSString *tokenStr= [HHGlobalVarTool deviceToken];
@@ -113,12 +123,6 @@
 }
 #endif
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSLog(@"test:%@",deviceToken);
-    //    NSString* tokenStr = [[[[deviceToken description]
-    //                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
-    //                               stringByReplacingOccurrencesOfString: @">" withString: @""]
-    //                              stringByReplacingOccurrencesOfString: @" " withString: @""] ;
-    
     NSString* tokenStr = [NSString stringWithFormat:@"%@",deviceToken];
     [HHGlobalVarTool setDeviceToken:tokenStr];
     [BPush registerDeviceToken:deviceToken];
@@ -169,5 +173,21 @@
     RootTabBarController *rootTabbarController= (RootTabBarController *)[[[UIApplication sharedApplication] keyWindow] rootViewController];
     UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
     return navController;
+}
+
+#pragma mark -AlertViewController
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag==kAlertCheckVersionUpdate) {
+        if (alertView.cancelButtonIndex==buttonIndex) {
+            
+        }else{
+            if (self.downLoadStr&&self.downLoadStr.length) {
+                BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
+                if (canOpen) {
+                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
+                }
+            }
+        }
+    }
 }
 @end

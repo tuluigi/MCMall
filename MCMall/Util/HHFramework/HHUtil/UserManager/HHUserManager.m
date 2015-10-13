@@ -68,7 +68,8 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
     [userDefault setObject:nil forKey:MCMall_UserPoint];
     [userDefault setObject:nil forKey:MCMall_MotherSatte];
     [userDefault synchronize];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:UserLogoutSucceedNotification object:nil];
+
 }
 +(NSString *)userID{
     NSString *userID=[[NSUserDefaults standardUserDefaults]  decryptedValueWithKey:MCMall_UserID];

@@ -7,6 +7,11 @@
 //
 
 #import "HHAppInfo.h"
+#import "HHNetWorkEngine+UserCenter.h"
+
+@interface HHAppInfo ()<UIAlertViewDelegate>
+@property(nonatomic,copy)__block NSString *downLoadStr;
+@end
 
 @implementation HHAppInfo
 +(NSString *)appName{
@@ -26,4 +31,16 @@
     NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];
     return [dic objectForKey:(NSString*)kCFBundleIdentifierKey];
 }
++(void)checkVersionUpdateOnCompletionBlock:(void(^)(BOOL isNeddUpdate, NSString *downUrl))completionBlock{
+    [[HHNetWorkEngine sharedHHNetWorkEngine] checkVersionUpdateWithVersion:[HHAppInfo appVersion] onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            NSString *downloadUrl=(NSString *)responseResult.responseData;
+            BOOL needUpdate=[NSString IsNullOrEmptyString:downloadUrl];
+            if (completionBlock) {
+                completionBlock(needUpdate,downloadUrl);
+            }
+        }
+    }];
+}
+
 @end

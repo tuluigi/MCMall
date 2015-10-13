@@ -42,7 +42,14 @@
     if ([key isEqualToString:@"orignalPrice"]||[key isEqualToString:@"sellPrice"]||[key isEqualToString:@"vipPrice"]||[key isEqualToString:@"storeNum"]||[key isEqualToString:@"deductionPoint"]) {
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
-                return [NSNumber numberWithFloat:[value floatValue]];
+                NSNumberFormatter *numberFormatter=[[NSNumberFormatter alloc]  init];
+                numberFormatter.numberStyle=kCFNumberFormatterDecimalStyle;
+                NSNumber *number=[numberFormatter numberFromString:(NSString *)value];;
+                if (!number) {
+                    number=[NSNumber numberWithFloat:0];
+                }
+                return number;
+
             }else{
                 return value;
             }
@@ -90,6 +97,7 @@
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
                 NSNumberFormatter *numberFormatter=[[NSNumberFormatter alloc]  init];
+                numberFormatter.numberStyle=kCFNumberFormatterDecimalStyle;
                 NSNumber *number=[numberFormatter numberFromString:(NSString *)value];;
                 if (!number) {
                     number=[NSNumber numberWithFloat:0];

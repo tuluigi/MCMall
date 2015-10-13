@@ -195,11 +195,12 @@
  */
 -(HHNetWorkOperation *)checkVersionUpdateWithVersion:(NSString *)version
                                  onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    WEAKSELF
     NSString *apiPath=[MCMallAPI  checkVersionUpdateAPI];
-    NSDictionary *postDic=@{@"version":version,@"1":@"type"};
+    NSDictionary *postDic=@{@"version":version,@"type":@"1"};
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] requestWithUrlPath:apiPath parmarDic:postDic method:HHGET onCompletionHandler:^(HHResponseResult *responseResult) {
-        //responseResult=[weakSelf parseUserLoginWithResponseResult:responseResult];
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            responseResult.responseData=[responseResult.responseData objectForKey:@"url"];
+        }
         completionBlcok(responseResult);
     }];
     return op;

@@ -21,6 +21,8 @@
             continueAfterRunningActions = "No"
             symbolName = ""
             moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,11 +64,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Entity/GoodsModel.m"
-            timestampString = "466387791.471406"
+            timestampString = "466436338.028364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "+JSONTransformerForKey:"
             landmarkType = "5">
          </BreakpointContent>

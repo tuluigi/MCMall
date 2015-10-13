@@ -13,4 +13,5 @@
 +(NSString *)appVersion;
 +(NSString *)appBulidVersion;
 +(NSString *)appBundleIdentifer;
++(void)checkVersionUpdateOnCompletionBlock:(void(^)(BOOL isNeddUpdate, NSString *downUrl))completionBlock;
 @end

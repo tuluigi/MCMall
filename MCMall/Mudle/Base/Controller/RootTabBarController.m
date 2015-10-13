@@ -36,11 +36,14 @@
 @end
 
 
-@interface RootTabBarController ()
+@interface RootTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
 @implementation RootTabBarController
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 -(id)init{
     if (self=[super init]) {
         [self onInitTabrControllers];
@@ -91,7 +94,30 @@
     
     NSMutableArray *tabBarControllers=[[NSMutableArray alloc]  initWithObjects:activityNavController,subjectNavController,mcNavController,vipNavController,userNavController, nil];
     self.viewControllers=tabBarControllers;
-
+    self.selectedViewController=mcNavController;
+    self.delegate=self;
+    
+    WEAKSELF
+    [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        weakSelf.selectedViewController=mcNavController;
+    }];
+}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([HHUserManager isLogin]) {
+        return YES;
+    }else{
+        UIViewController *selectController=[((UINavigationController *)viewController) topViewController];
+        if ([selectController isKindOfClass:[UserCenterViewController class]]||[selectController isKindOfClass:[ActivityViewController class]]) {
+            [HHUserManager shouldUserLoginOnCompletionBlock:^(BOOL isSucceed, NSString *userID) {
+                if (isSucceed) {
+                    tabBarController.selectedViewController=viewController;
+                }
+            }];
+            return NO;
+        }else{
+            return YES;
+        }
+    }
 }
 
 /*
