@@ -57,8 +57,8 @@
         [self.operationsArray addObject:uniqueOperaionIdentfer];
     }
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
-    [self.view endEditing:YES];
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 //-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 //    [[UIApplication sharedApplication].keyWindow endEditing:YES];
