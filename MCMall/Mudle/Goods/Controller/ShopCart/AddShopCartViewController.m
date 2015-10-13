@@ -265,7 +265,7 @@
                     cell.detailTextLabel.text=@"";
                 }break;
                 case 2:{
-                    cell.textLabel.text=@"商品金额";
+                    cell.textLabel.text=@"单价";
                     cell.detailTextLabel.text=[NSString stringWithFormat:@"￥%.1f",self.goodsModel.vipPrice];
                 }break;
                 case 3:{

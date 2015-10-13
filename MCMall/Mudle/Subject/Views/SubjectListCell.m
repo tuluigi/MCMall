@@ -133,7 +133,7 @@
     _subjectModel=subjectModel;
     [_doctorLogoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectModel.doctorLogo] placeholderImage:MCMallDefaultImg];
     _doctorNameLable.text=_subjectModel.doctorName;
-    _doctorDescLable.text=[@"简介:" stringByAppendingString:_subjectModel.doctorDesc];
+    _doctorDescLable.text=[@"" stringByAppendingString:_subjectModel.doctorDesc];
     //_doctorJobLable.text=@"";
     _subjectTimeLable.text=[@"时间:" stringByAppendingString:_subjectModel.subjectTime];
     _subjectTitleLable.text=[@"主题:" stringByAppendingString:_subjectModel.subjectTitle];

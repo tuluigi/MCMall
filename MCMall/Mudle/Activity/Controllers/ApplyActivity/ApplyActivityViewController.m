@@ -72,9 +72,12 @@
     [self.tableView showPageLoadingView];
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.tableView dismissPageLoadView];
             weakSelf.activityModel=responseResult.responseData;
+        }else{
+            [weakSelf.tableView showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }
-        [weakSelf.tableView dismissPageLoadView];
+        
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

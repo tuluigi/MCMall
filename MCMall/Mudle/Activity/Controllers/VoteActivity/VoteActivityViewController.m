@@ -154,10 +154,11 @@
     [self.view showPageLoadingView];
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view dismissPageLoadView];
             weakSelf.activityModel=responseResult.responseData;
             
         }else{
-            [weakSelf.view showErrorMssage:responseResult.responseMessage];
+            [weakSelf.view showPageLoadedMessage:responseResult.responseMessage delegate:nil];
         }
     }];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];

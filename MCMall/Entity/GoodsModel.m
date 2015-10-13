@@ -89,7 +89,12 @@
     if ([key isEqualToString:@"totalPrice"]||[key isEqualToString:@"goodsPrice"]) {
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
-                return [NSNumber numberWithFloat:[value floatValue]];
+                NSNumberFormatter *numberFormatter=[[NSNumberFormatter alloc]  init];
+                NSNumber *number=[numberFormatter numberFromString:(NSString *)value];;
+                if (!number) {
+                    number=[NSNumber numberWithFloat:0];
+                }
+                return number;
             }else{
                 return value;
             }

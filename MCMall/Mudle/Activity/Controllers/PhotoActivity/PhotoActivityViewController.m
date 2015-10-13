@@ -47,7 +47,10 @@
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
         _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        
+        _headImageView.contentMode=UIViewContentModeScaleAspectFill;
+        _headImageView.clipsToBounds=YES;
+        UITapGestureRecognizer *tapgesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handlerHeadImageViewTap)];
+        [_headImageView addGestureRecognizer:tapgesture];
         [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoModle.photoUrl] placeholderImage:MCMallDefaultImg];
         [_headImageView addSubview:self.favorBgView];
     
@@ -90,7 +93,12 @@
     }
     return _headImageView;
 }
+-(void)handlerHeadImageViewTap{
+    if (self.photoModle.photoUrl) {
+        [[HHPhotoBroswer sharedPhotoBroswer]  showBrowserWithImages:@[self.photoModle.photoUrl] atIndex:0];
+    }
 
+}
 -(UIImageView *)plusImageView{
     if (nil==_plusImageView) {
         _plusImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, 25, 16)];

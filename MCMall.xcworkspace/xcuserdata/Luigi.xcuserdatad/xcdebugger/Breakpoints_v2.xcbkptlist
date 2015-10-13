@@ -63,29 +63,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/AppDelegate.m"
-            timestampString = "466351128.115173"
+            filePath = "MCMall/Entity/GoodsModel.m"
+            timestampString = "466387791.471406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHUtil/UserManager/HHUserManager.m"
-            timestampString = "466351236.363644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "+userModel"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "+JSONTransformerForKey:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

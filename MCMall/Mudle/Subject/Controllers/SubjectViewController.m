@@ -49,9 +49,7 @@ NSString *const SubjectCellIdenfier =@"SubjectCellIdenfier";
             if (_pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
             }
-            for (NSInteger i=0; i<6; i++) {
-                  [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
-            }
+            [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
           
             [weakSelf.tableView reloadData];
             if (weakSelf.dataSourceArray.count==0) {
