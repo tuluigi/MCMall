@@ -19,8 +19,6 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UserModel *userModel=[HHUserManager userModel];
     if (userModel.motherState==MotherStateUnSelected) {
@@ -141,13 +139,7 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
 {
     
 }
-
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
-    [BPush handleNotification:userInfo];
-    [self handleAPNSPushNotification:userInfo];
-}
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
     [BPush handleNotification:userInfo];
     [self handleAPNSPushNotification:userInfo];
 }

@@ -60,37 +60,44 @@
         make.left.mas_greaterThanOrEqualTo(weakSelf.mas_left).offset(5);
         make.top.mas_equalTo(weakSelf).offset(2);
         make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(-2);
-        make.width.mas_equalTo(17);
+        make.width.mas_greaterThanOrEqualTo(17);
     }];
     [dayLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_greaterThanOrEqualTo(weakSelf.dayValueLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
+        make.width.mas_equalTo(17);
     }];
     [_hourValueLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(dayLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
+        make.width.mas_equalTo(dayLable);
     }];
     [hourLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.hourValueLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
         make.right.mas_equalTo(weakSelf.mas_centerX).priorityHigh();
+        make.width.mas_equalTo(dayLable);
     }];
     [_minuteValueLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(hourLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
+        make.width.mas_equalTo(dayLable);
     }];
     [minuteLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.minuteValueLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
+        make.width.mas_equalTo(dayLable);
     }];
     [_secondsValueLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(minuteLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
+        make.width.mas_equalTo(dayLable);
     }];
     [secondLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.secondsValueLable.mas_right);
-        make.top.width.height.mas_equalTo(weakSelf.dayValueLable);
+        make.top.height.mas_equalTo(weakSelf.dayValueLable);
         make.right.mas_lessThanOrEqualTo(weakSelf.mas_right).offset(-5);
+        make.width.mas_equalTo(dayLable);
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:MCMallTimerTaskNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf updateTimeLableText];

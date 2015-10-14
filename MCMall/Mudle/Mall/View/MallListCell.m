@@ -68,8 +68,8 @@
     [_goodsTimeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_goodsPriceLable.mas_right);
         make.top.height.mas_equalTo(_goodsNameLable);
-       make.width.mas_equalTo(150);
-        make.right.mas_equalTo(weakSelf.contentView).offset(-10);
+       make.width.mas_equalTo(175);
+        make.right.mas_equalTo(weakSelf.contentView).offset(-5);
     }];
     
 }

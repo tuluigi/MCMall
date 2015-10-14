@@ -93,9 +93,9 @@
     NSCalendar *systemCalenday=[NSCalendar currentCalendar];
     unsigned int unitFlags;
     if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
-        unitFlags=NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+        unitFlags=NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
     }else{
-        unitFlags=NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
+        unitFlags=NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit;
     }
     NSDateComponents *components=[systemCalenday components:unitFlags fromDate:date toDate:self options:NSWrapCalendarComponents];
     return components;
