@@ -12,7 +12,7 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "SignInModel.h"
 #import "SignupDayView.h"
-#define  SignUpHeadViewHeight    300
+#define  SignUpHeadViewHeight    (300*OCCOMMONSCALE)
 @interface SignUpViewController ()<JTCalendarDelegate>
 @property (strong, nonatomic)  JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic)  JTHorizontalCalendarView *calendarContentView;
@@ -63,7 +63,7 @@
     if (nil==_footView) {
         CGFloat menuHeight=40;
         CGFloat contentHeight=CGRectGetHeight(self.view.bounds)-SignUpHeadViewHeight-CGRectGetHeight(self.navigationController.navigationBar.bounds)-menuHeight;
-        
+        contentHeight=MAX(contentHeight, 280);
         CGRect frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), contentHeight);
         _footView=[[UIView alloc]  initWithFrame:frame];
         [_footView addSubview:self.calendarMenuView];

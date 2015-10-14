@@ -22,7 +22,7 @@
 
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 
-
+#define OCCOMMONSCALE (([UIScreen mainScreen].bounds.size.width)/375.0f) 
 
 typedef NS_ENUM(NSInteger, MCMallNotificationType) {
     MCMallNotificationTypeActivityCommon      =1,//普通

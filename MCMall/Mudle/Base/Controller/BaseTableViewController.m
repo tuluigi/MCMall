@@ -36,7 +36,7 @@
 }
 -(UITableView *)tableView{
     if (nil==_tableView) {
-        _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
+        _tableView=[[TPKeyboardAvoidingTableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         _tableView.delegate=self;
         _tableView.dataSource=self;
 //                _tableView.showsHorizontalScrollIndicator=NO;

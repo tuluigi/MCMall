@@ -55,7 +55,6 @@
     imagePickerController.delegate = self;
     imagePickerController.allowsMultipleSelection = NO;
     imagePickerController.showsNumberOfSelectedAssets = NO;
-    
     [[self parentController] presentViewController:imagePickerController animated:YES completion:NULL];
 }
 #pragma mark - qbimagecontroller delegate
@@ -82,6 +81,7 @@
         BOOL isAvable=[UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
         if (isAvable) {
             self.imagePickerController.sourceType=UIImagePickerControllerSourceTypeCamera;
+//            self.imagePickerController.allowsEditing=YES;
             _imagePickerController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
 
             [rootController presentViewController:self.imagePickerController animated:YES completion:^{

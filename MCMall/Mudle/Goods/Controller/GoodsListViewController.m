@@ -224,57 +224,6 @@
     [self.navigationController pushViewController:goodDetailController animated:YES];
 }
 
-
-/*
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.dataSourceArray count]/2+(self.dataSourceArray.count%2>0?1:0);
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifer=@"identifer";
-    MallGoodsListCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
-    if (nil==cell) {
-        cell=[[MallGoodsListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        WEAKSELF
-        cell.goodsViewClickedBlock=^(GoodsModel *goodsModel){
-            GoodsDetailViewController *goodDetailController=[[GoodsDetailViewController alloc]  init];
-            goodDetailController.hidesBottomBarWhenPushed=YES;
-            goodDetailController.goodsID=goodsModel.goodsID;
-            [weakSelf.navigationController pushViewController:goodDetailController animated:YES];
-        };
-    }
-    NSInteger row=indexPath.row;
-    GoodsModel *goodsModel0=[self.dataSourceArray objectAtIndex:(row*2)];
-    GoodsModel *goodsModel1;
-    if ((indexPath.row+1)*2<=self.dataSourceArray.count) {
-        goodsModel1=[self.dataSourceArray objectAtIndex:(indexPath.row*2+1)];
-    }
-    [cell setGoodsModel0:goodsModel0 goodsModel1:goodsModel1];
-    
-    return cell;
-}
-/*
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return self.classMenuView;
-}
- */
-/*
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return CGFLOAT_MIN;
-}
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (!self.cellHeight) {
-        GoodsView *goodsView=[[GoodsView alloc]  init];
-        goodsView.goodsModel=[self.dataSourceArray objectAtIndex:0];
-        CGSize size= [goodsView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize ];
-        self.cellHeight=size.height;
-    }
-    return self.cellHeight;
-}
-*/
 #pragma mark classMenuDelegate
 
 -(void)classMenuSelectIndexChanded:(NSInteger)index classID:(NSString *)classID{

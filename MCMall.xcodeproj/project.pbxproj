@@ -27,18 +27,18 @@
 		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
 		2A0C5F941BBD0EA30000F313 /* AddBabPhotoMemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
-		2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D471BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2A217D4D1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2A217D4E1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2A217D4F1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D471BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
+		2A217D4D1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
+		2A217D4E1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
+		2A217D4F1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
+		2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
+		2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
+		2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -182,7 +182,6 @@
 		2AD44C031B889424001B1CDC /* tabbar_vip_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFA1B889424001B1CDC /* tabbar_vip_HL@2x.png */; };
 		2AD44C041B889424001B1CDC /* tabbar_vip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */; };
 		2ADD942E1BBC215500B80497 /* MotherAidNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD942D1BBC215500B80497 /* MotherAidNetService.m */; };
-		2ADD94311BBCC11400B80497 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADD94351BBCC36700B80497 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADD94381BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94371BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m */; };
 		2ADFB67D1BBDA482000BF698 /* HHGlobalVarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1E1B147FBA00912D53 /* HHGlobalVarTool.m */; };
@@ -220,7 +219,6 @@
 		2ADFB69E1BBDA482000BF698 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2ADFB69F1BBDA482000BF698 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2ADFB6A01BBDA482000BF698 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
-		2ADFB6A11BBDA482000BF698 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADFB6A21BBDA482000BF698 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2ADFB6A31BBDA482000BF698 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2ADFB6A41BBDA482000BF698 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
@@ -434,7 +432,6 @@
 		2ADFB79A1BBDA868000BF698 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2ADFB79B1BBDA868000BF698 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2ADFB79C1BBDA868000BF698 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
-		2ADFB79D1BBDA868000BF698 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADFB79E1BBDA868000BF698 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2ADFB79F1BBDA868000BF698 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2ADFB7A01BBDA868000BF698 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
@@ -646,7 +643,6 @@
 		2ADFB8851BBDA877000BF698 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2ADFB8861BBDA877000BF698 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2ADFB8871BBDA877000BF698 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
-		2ADFB8881BBDA877000BF698 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADFB8891BBDA877000BF698 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2ADFB88A1BBDA877000BF698 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2ADFB88B1BBDA877000BF698 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
@@ -858,7 +854,6 @@
 		2ADFB9701BBDA88F000BF698 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2ADFB9711BBDA88F000BF698 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2ADFB9721BBDA88F000BF698 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
-		2ADFB9731BBDA88F000BF698 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADFB9741BBDA88F000BF698 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2ADFB9751BBDA88F000BF698 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2ADFB9761BBDA88F000BF698 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
@@ -1070,7 +1065,6 @@
 		2ADFBA5B1BBDA89B000BF698 /* Base64Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E961B141205004DF4C0 /* Base64Tool.m */; };
 		2ADFBA5C1BBDA89B000BF698 /* NSString+MCHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A87EE1E1B40F8440051D668 /* NSString+MCHtml.m */; };
 		2ADFBA5D1BBDA89B000BF698 /* SubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFF68F1B64A9A500712317 /* SubjectViewController.m */; };
-		2ADFBA5E1BBDA89B000BF698 /* BabyNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94301BBCC11400B80497 /* BabyNoteView.m */; };
 		2ADFBA5F1BBDA89B000BF698 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7C4E1A1B147A2B00912D53 /* ActivityModel.m */; };
 		2ADFBA601BBDA89B000BF698 /* AESEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A984E631B141205004DF4C0 /* AESEncryption.m */; };
 		2ADFBA611BBDA89B000BF698 /* MCMallAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DFFDF1B2052750060CA76 /* MCMallAPI.m */; };
@@ -1584,8 +1578,6 @@
 		2AD44BFB1B889424001B1CDC /* tabbar_vip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_vip@2x.png"; sourceTree = "<group>"; };
 		2ADD942C1BBC215500B80497 /* MotherAidNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotherAidNetService.h; sourceTree = "<group>"; };
 		2ADD942D1BBC215500B80497 /* MotherAidNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotherAidNetService.m; sourceTree = "<group>"; };
-		2ADD942F1BBCC11400B80497 /* BabyNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyNoteView.h; sourceTree = "<group>"; };
-		2ADD94301BBCC11400B80497 /* BabyNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyNoteView.m; sourceTree = "<group>"; };
 		2ADD94331BBCC36700B80497 /* BabyPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPhotosViewController.h; sourceTree = "<group>"; };
 		2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPhotosViewController.m; sourceTree = "<group>"; };
 		2ADD94361BBCC7AB00B80497 /* BabyPhotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPhotCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2378,8 +2370,6 @@
 				2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */,
 				2A95FA971B9B14D900962F79 /* SignUpViewController.h */,
 				2A95FA981B9B14D900962F79 /* SignUpViewController.m */,
-				2ADD942F1BBCC11400B80497 /* BabyNoteView.h */,
-				2ADD94301BBCC11400B80497 /* BabyNoteView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3933,7 +3923,6 @@
 				2A984ECC1B141205004DF4C0 /* Base64Tool.m in Sources */,
 				2A87EE1F1B40F8440051D668 /* NSString+MCHtml.m in Sources */,
 				2AFFF6901B64A9A500712317 /* SubjectViewController.m in Sources */,
-				2ADD94311BBCC11400B80497 /* BabyNoteView.m in Sources */,
 				2A7C4E1B1B147A2B00912D53 /* ActivityModel.m in Sources */,
 				2A984EB51B141205004DF4C0 /* AESEncryption.m in Sources */,
 				2A8DFFE01B2052750060CA76 /* MCMallAPI.m in Sources */,
@@ -4065,7 +4054,6 @@
 				2ADFB69E1BBDA482000BF698 /* Base64Tool.m in Sources */,
 				2ADFB69F1BBDA482000BF698 /* NSString+MCHtml.m in Sources */,
 				2ADFB6A01BBDA482000BF698 /* SubjectViewController.m in Sources */,
-				2ADFB6A11BBDA482000BF698 /* BabyNoteView.m in Sources */,
 				2ADFB6A21BBDA482000BF698 /* ActivityModel.m in Sources */,
 				2ADFB6A31BBDA482000BF698 /* AESEncryption.m in Sources */,
 				2ADFB6A41BBDA482000BF698 /* MCMallAPI.m in Sources */,
@@ -4197,7 +4185,6 @@
 				2ADFB79A1BBDA868000BF698 /* Base64Tool.m in Sources */,
 				2ADFB79B1BBDA868000BF698 /* NSString+MCHtml.m in Sources */,
 				2ADFB79C1BBDA868000BF698 /* SubjectViewController.m in Sources */,
-				2ADFB79D1BBDA868000BF698 /* BabyNoteView.m in Sources */,
 				2ADFB79E1BBDA868000BF698 /* ActivityModel.m in Sources */,
 				2ADFB79F1BBDA868000BF698 /* AESEncryption.m in Sources */,
 				2ADFB7A01BBDA868000BF698 /* MCMallAPI.m in Sources */,
@@ -4329,7 +4316,6 @@
 				2ADFB8851BBDA877000BF698 /* Base64Tool.m in Sources */,
 				2ADFB8861BBDA877000BF698 /* NSString+MCHtml.m in Sources */,
 				2ADFB8871BBDA877000BF698 /* SubjectViewController.m in Sources */,
-				2ADFB8881BBDA877000BF698 /* BabyNoteView.m in Sources */,
 				2ADFB8891BBDA877000BF698 /* ActivityModel.m in Sources */,
 				2ADFB88A1BBDA877000BF698 /* AESEncryption.m in Sources */,
 				2ADFB88B1BBDA877000BF698 /* MCMallAPI.m in Sources */,
@@ -4461,7 +4447,6 @@
 				2ADFB9701BBDA88F000BF698 /* Base64Tool.m in Sources */,
 				2ADFB9711BBDA88F000BF698 /* NSString+MCHtml.m in Sources */,
 				2ADFB9721BBDA88F000BF698 /* SubjectViewController.m in Sources */,
-				2ADFB9731BBDA88F000BF698 /* BabyNoteView.m in Sources */,
 				2ADFB9741BBDA88F000BF698 /* ActivityModel.m in Sources */,
 				2ADFB9751BBDA88F000BF698 /* AESEncryption.m in Sources */,
 				2ADFB9761BBDA88F000BF698 /* MCMallAPI.m in Sources */,
@@ -4593,7 +4578,6 @@
 				2ADFBA5B1BBDA89B000BF698 /* Base64Tool.m in Sources */,
 				2ADFBA5C1BBDA89B000BF698 /* NSString+MCHtml.m in Sources */,
 				2ADFBA5D1BBDA89B000BF698 /* SubjectViewController.m in Sources */,
-				2ADFBA5E1BBDA89B000BF698 /* BabyNoteView.m in Sources */,
 				2ADFBA5F1BBDA89B000BF698 /* ActivityModel.m in Sources */,
 				2ADFBA601BBDA89B000BF698 /* AESEncryption.m in Sources */,
 				2ADFBA611BBDA89B000BF698 /* MCMallAPI.m in Sources */,

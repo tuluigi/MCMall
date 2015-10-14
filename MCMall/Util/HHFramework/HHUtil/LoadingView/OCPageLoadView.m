@@ -51,10 +51,6 @@ NSString *const OCPageLoadViewActivityAnimatingKey=@"OCPageLoadViewActivityAnima
         }
     }
 }
--(void)layoutSubviews{
-    [super layoutSubviews];
-    [self setNeedsLayout];
-}
 
 #pragma mark publick method
 +(OCPageLoadView *)defaultPageLoadView{
