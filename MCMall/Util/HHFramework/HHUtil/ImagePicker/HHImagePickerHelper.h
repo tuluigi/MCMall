@@ -10,5 +10,5 @@
 #import "HHImagePickerHeader.h"
 typedef void(^DidFinishMediaOnCompledBlock)( NSString *imgPath);
 @interface HHImagePickerHelper : NSObject
--(void)showImagePickerWithType:(HHImagePickType)type onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock;
+-(void)showImagePickerWithType:(HHImagePickType)type enableEdit:(BOOL)enableEdit onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock;
 @end

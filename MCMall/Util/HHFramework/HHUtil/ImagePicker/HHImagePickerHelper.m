@@ -15,6 +15,7 @@
 @property(nonatomic,strong)QBImagePickerController *qbImagePickerController;
 @property(nonatomic,assign)HHImagePickType pickType;
 @property(nonatomic,copy)DidFinishMediaOnCompledBlock completionBlock;
+@property(nonatomic,assign)BOOL enableEdit;
 @end
 
 @implementation HHImagePickerHelper
@@ -61,6 +62,7 @@
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset{
     CGImageRef ciimage=[[asset defaultRepresentation] fullResolutionImage];
     NSString *loaclPath=[NSFileManager saveImage:[[UIImage alloc]  initWithCGImage:ciimage] presentation:0.5];
+    self.enableEdit=NO;
     if (self.completionBlock) {
         self.completionBlock(loaclPath);
     }
@@ -70,8 +72,9 @@
     [[self parentController] dismissViewControllerAnimated:YES completion:NULL];
 }
 
--(void)showImagePickerWithType:(HHImagePickType)type onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock{
+-(void)showImagePickerWithType:(HHImagePickType)type enableEdit:(BOOL)enableEdit onCompletionHandler:(DidFinishMediaOnCompledBlock)completionBlock{
     self.completionBlock=completionBlock;
+    self.enableEdit=enableEdit;
     [self showImagePickerWithType:type];
 }
 -(void)showImagePickerWithType:(HHImagePickType)type{
@@ -81,7 +84,7 @@
         BOOL isAvable=[UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
         if (isAvable) {
             self.imagePickerController.sourceType=UIImagePickerControllerSourceTypeCamera;
-//            self.imagePickerController.allowsEditing=YES;
+            self.imagePickerController.allowsEditing=self.enableEdit;
             _imagePickerController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
 
             [rootController presentViewController:self.imagePickerController animated:YES completion:^{
@@ -128,6 +131,7 @@
 {
     UIImage *orignalImage=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
     NSString *loaclPath=[NSFileManager saveImage:orignalImage presentation:0.5];
+    self.enableEdit=NO;
     if (self.completionBlock) {
         self.completionBlock(loaclPath);
     }

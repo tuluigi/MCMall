@@ -166,7 +166,7 @@
 #pragma mark - select iamge
 -(void)imagePickerButtonPressed{
     WEAKSELF
-    [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+    [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll enableEdit:YES  onCompletionHandler:^(NSString *imgPath) {
         [weakSelf uploadImageWithImagePath:imgPath];
     }];
 }

@@ -170,7 +170,7 @@
     HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (itemModel.itemType==HHUserInfoItemTypeHeaderImage) {
         WEAKSELF
-        [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+        [self.imagePickerHelper  showImagePickerWithType:HHImagePickTypeAll enableEdit:YES onCompletionHandler:^(NSString *imgPath) {
             [weakSelf uploadHeaderImageWithImagePath:imgPath];
         }];
     }else if (itemModel.itemType==HHUserInfoItemTypeMotherState){

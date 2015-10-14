@@ -66,7 +66,7 @@
 }
 -(void)uploadBabyPhoto{
         WEAKSELF
-        [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll onCompletionHandler:^(NSString *imgPath) {
+        [self.imagePickerHelper showImagePickerWithType:HHImagePickTypeAll enableEdit:NO  onCompletionHandler:^(NSString *imgPath) {
             [MotherAidNetService uploadBabayPhotoWithUserID:[HHUserManager userID] noteID:nil phtoPath:imgPath onCompletionHandler:^(HHResponseResult *responseResult) {
                 if (responseResult.responseCode==HHResponseResultCodeSuccess) {
                     [weakSelf getDiaryDetailAtDate:weakSelf.noteModel.date];
