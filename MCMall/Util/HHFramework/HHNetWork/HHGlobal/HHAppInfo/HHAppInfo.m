@@ -37,7 +37,7 @@
             NSString *downloadUrl=(NSString *)responseResult.responseData;
             BOOL needUpdate=[NSString IsNullOrEmptyString:downloadUrl];
             if (completionBlock) {
-                completionBlock(needUpdate,downloadUrl);
+                completionBlock(!needUpdate,downloadUrl);
             }
         }
     }];

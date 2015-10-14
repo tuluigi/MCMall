@@ -30,8 +30,8 @@
 -(UIImageView *)goodsImageView{
     if (nil==_goodsImageView) {
         _goodsImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        _goodsImageView.contentMode=UIViewContentModeScaleAspectFill;
-        _goodsImageView.clipsToBounds=YES;
+        _goodsImageView.contentMode=UIViewContentModeScaleAspectFit;
+//        _goodsImageView.clipsToBounds=YES;
         _goodsImageView.userInteractionEnabled=YES;
         NSString *imageUrl=_goodsModel.goodsBigImageUrl;
         if (imageUrl==nil) {
@@ -146,7 +146,18 @@
                 weakSelf.goodsImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
             }
             weakSelf.tableView.tableHeaderView=self.goodsImageView;
-             [weakSelf.goodsImageView sd_setImageWithURL:[NSURL URLWithString:weakSelf.goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg];
+             [weakSelf.goodsImageView sd_setImageWithURL:[NSURL URLWithString:weakSelf.goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                 if (cacheType==SDImageCacheTypeNone) {
+                     CGSize size=image.size;
+                     CGFloat scale=CGRectGetWidth(weakSelf.goodsImageView.bounds)/size.width;
+                     CGFloat height=size.height;
+                     if (scale<1) {
+                         height=size.height*scale;
+                     }
+                     weakSelf.goodsImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
+                      weakSelf.tableView.tableHeaderView=self.goodsImageView;
+                 }
+             }];
             [weakSelf.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
             [weakSelf.tableView reloadData];
         }else{

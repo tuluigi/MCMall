@@ -40,7 +40,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>百家欣</string>
 	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
+	<string>BaiJiaXin</string>
 	<key>CFBundleIcons</key>
 	<dict/>
 	<key>CFBundleIcons~ipad</key>

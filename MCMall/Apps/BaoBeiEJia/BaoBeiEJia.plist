@@ -40,7 +40,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>宝贝E家</string>
 	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
+	<string>BaoBeiEJia</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.MCMallE.BaoBeiEJia</string>
 	<key>CFBundleInfoDictionaryVersion</key>

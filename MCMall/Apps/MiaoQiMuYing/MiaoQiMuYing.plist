@@ -40,7 +40,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>秒奇母婴</string>
 	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
+	<string>秒奇母婴</string>
 	<key>CFBundleIcons</key>
 	<dict/>
 	<key>CFBundleIcons~ipad</key>

@@ -135,7 +135,10 @@
 #pragma mark -选取照片并上传
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *orignalImage=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    UIImage *orignalImage=[info objectForKey:@"UIImagePickerControllerEditedImage"];
+    if (!orignalImage) {
+        orignalImage=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    }
     NSString *loaclPath=[NSFileManager saveImage:orignalImage presentation:0.5];
     self.enableEdit=NO;
     if (self.completionBlock) {

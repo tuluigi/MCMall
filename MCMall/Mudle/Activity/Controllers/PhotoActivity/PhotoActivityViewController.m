@@ -61,7 +61,19 @@
             }
             _headImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
         }
-        [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoModle.photoUrl] placeholderImage:MCMallDefaultImg];
+        WEAKSELF
+        __weak UIImageView *weakHeadImageView=_headImageView;
+        [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoModle.photoUrl] placeholderImage:MCMallDefaultImg options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (cacheType==SDImageCacheTypeNone) {
+                CGSize size=image.size;
+                CGFloat scale=CGRectGetWidth(weakHeadImageView.bounds)/size.width;
+                CGFloat height=size.height;
+                if (scale<1) {
+                    height=size.height*scale;
+                }
+                weakHeadImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
+            }
+        }];
         [_headImageView addSubview:self.favorBgView];
     
         [_favorBgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -81,7 +93,7 @@
         [self.favorBgView addSubview:_favorButton];
         self.favorBgView.userInteractionEnabled=YES;
         _favorButton.userInteractionEnabled=YES;
-        WEAKSELF
+        
         [_favorButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.equalTo(weakSelf.favorBgView).offset(5);
             make.bottom.mas_equalTo(weakSelf.favorBgView.mas_bottom).offset(-5);
@@ -191,7 +203,7 @@
 }
 -(void)getPhotoCommontsWithActivityID:(NSString *)activityID photoID:(NSString *)photoID{
     if (self.photoModle.commentArray.count==0) {
-         [self.view showLoadingState];
+//         [self.view showLoadingState];
     }
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getPhotoCommontsWithActivityID:activityID photoID:photoID userID:[HHUserManager userID]  pageIndex:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
@@ -215,9 +227,6 @@
             }
             [weakSelf.photoModle.commentArray addObjectsFromArray:model.commentArray];
             [weakSelf.tableView reloadData];
-            if (model.commentArray.count==0) {
-                [weakSelf.view makeToast:@"暂时没有更多评论"];
-            }
         }else{
             [weakSelf.view makeToast:responseResult.responseMessage];
         }

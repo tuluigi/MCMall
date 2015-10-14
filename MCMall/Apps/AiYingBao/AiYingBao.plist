@@ -7,7 +7,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>爱婴堡</string>
 	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
+	<string>AiYingBao</string>
 	<key>CFBundleIcons</key>
 	<dict/>
 	<key>CFBundleIcons~ipad</key>

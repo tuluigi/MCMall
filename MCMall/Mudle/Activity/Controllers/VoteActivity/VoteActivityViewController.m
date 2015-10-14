@@ -85,9 +85,10 @@
 }
 -(void)setActivityModel:(VoteActivityModel *)activityModel{
     _activityModel=activityModel;
-    
-    
     if (_activityModel) {
+        for (UIBarButtonItem *item in self.navigationItem.rightBarButtonItems) {
+            item.enabled=YES;
+        }
         NSString *imageUrl=_activityModel.activityBigImageUrl;
         if (nil==imageUrl) {
             imageUrl=_activityModel.activityImageUrl;
@@ -126,12 +127,14 @@
             self.title=@"图片活动";
             self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
             UIBarButtonItem *cameraBarbuttonItem=[[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(imagePickerButtonPressed)];
+            cameraBarbuttonItem.enabled=NO;
             [rightBarButtonItems addObject:cameraBarbuttonItem];
         }
         default:
             break;
     }
     UIBarButtonItem *shareBarbuttonItem=[[UIBarButtonItem alloc]  initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(didShareBarButtonPressed)];
+    shareBarbuttonItem.enabled=NO;
     [rightBarButtonItems addObject:shareBarbuttonItem];
     
     self.navigationItem.rightBarButtonItems=rightBarButtonItems;

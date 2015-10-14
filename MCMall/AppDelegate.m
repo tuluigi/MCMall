@@ -15,7 +15,7 @@
 #import "VoteActivityViewController.h"
 static const NSInteger kAlertCheckVersionUpdate = 100;
 @interface AppDelegate ()<UIAlertViewDelegate>
-@property(nonatomic,copy)NSString *downLoadStr;
+@property(nonatomic,copy)__block NSString *downLoadStr;
 @end
 
 @implementation AppDelegate
@@ -54,9 +54,10 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
    
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
-    
+    WEAKSELF
     [HHAppInfo checkVersionUpdateOnCompletionBlock:^(BOOL isNeddUpdate, NSString *downUrl) {
         if (isNeddUpdate&&downUrl) {
+            weakSelf.downLoadStr=downUrl;
             UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
             alert.tag=kAlertCheckVersionUpdate;
             [alert show];
@@ -183,7 +184,7 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
             if (self.downLoadStr&&self.downLoadStr.length) {
                 BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
                 if (canOpen) {
-                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:[HHGlobalVarTool shareDownloadUrl]]];
+                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
                 }
             }
         }

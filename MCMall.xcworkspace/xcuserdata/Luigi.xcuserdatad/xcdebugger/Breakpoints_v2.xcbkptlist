@@ -21,6 +21,8 @@
             continueAfterRunningActions = "No"
             symbolName = ""
             moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -107,10 +109,10 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[AddShopCartViewController didBookButtonPressed]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luigi/Documents/Luigi/MCMall/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466502023.592446"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
+                  timestampString = "466522420.349551"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -122,10 +124,10 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__49-[AddShopCartViewController didBookButtonPressed]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luigi/Documents/Luigi/MCMall/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466502023.592545"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
+                  timestampString = "466522420.349885"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "112"
@@ -155,10 +157,10 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luigi/Documents/Luigi/MCMall/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466502023.593042"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
+                  timestampString = "466522420.351291"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -170,10 +172,10 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__111+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luigi/Documents/Luigi/MCMall/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466502023.593129"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
+                  timestampString = "466522420.351567"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -205,13 +207,109 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Goods/View/GoodsTimeView.m"
-            timestampString = "466502584.698957"
+            filePath = "MCMall/Util/HHFramework/HHUtil/ImagePicker/HHImagePickerHelper.m"
+            timestampString = "466519322.534087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-updateTimeLableText"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
+            timestampString = "466522292.182245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-checkVersionUpdateWithVersion:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
+            timestampString = "466522341.589235"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "+checkVersionUpdateOnCompletionBlock:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[HHAppInfo checkVersionUpdateOnCompletionBlock:]"
+                  moduleName = "AiYingBao"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
+                  timestampString = "466522420.355471"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49+[HHAppInfo checkVersionUpdateOnCompletionBlock:]_block_invoke"
+                  moduleName = "AiYingBao"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
+                  timestampString = "466522420.355682"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
+            timestampString = "466522350.132732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-checkVersionUpdateWithVersion:onCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
+            timestampString = "466522368.941805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "+checkVersionUpdateOnCompletionBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
