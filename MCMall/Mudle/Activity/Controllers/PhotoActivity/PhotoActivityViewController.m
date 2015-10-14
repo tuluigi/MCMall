@@ -46,11 +46,21 @@
 }
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
-        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 300)];
         _headImageView.contentMode=UIViewContentModeScaleAspectFill;
         _headImageView.clipsToBounds=YES;
         UITapGestureRecognizer *tapgesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handlerHeadImageViewTap)];
         [_headImageView addGestureRecognizer:tapgesture];
+        UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:_photoModle.photoUrl];
+        if (image) {
+            CGSize size=image.size;
+            CGFloat scale=CGRectGetWidth(_headImageView.bounds)/size.width;
+            CGFloat height=size.height;
+            if (scale<1) {
+                height=size.height*scale;
+            }
+            _headImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
+        }
         [_headImageView sd_setImageWithURL:[NSURL URLWithString:_photoModle.photoUrl] placeholderImage:MCMallDefaultImg];
         [_headImageView addSubview:self.favorBgView];
     

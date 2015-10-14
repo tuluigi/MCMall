@@ -14,10 +14,9 @@
 #import "ApplyActivityViewController.h"
 #import "PhotoActivityViewController.h"
 #import "CommonActivityController.h"
-#import "QBImagePickerController.h"
 #import "HHNetWorkEngine+Activity.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-@interface ActivityViewController ()<QBImagePickerControllerDelegate>
+@interface ActivityViewController ()
 
 @end
 

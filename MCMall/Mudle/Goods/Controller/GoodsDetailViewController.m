@@ -108,7 +108,7 @@
     self.title=@"商品详情";
     [self.view addSubview:self.tooBar];
     self.tooBar.hidden=YES;
-    self.tableView.tableHeaderView=self.goodsImageView;
+   
     
     WEAKSELF
     [self.tooBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,6 +135,17 @@
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             weakSelf.goodsModel=((GoodsModel *)responseResult.responseData);
             weakSelf.goodsModel.goodsID=goodsID;
+            UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:weakSelf.goodsModel.goodsBigImageUrl];
+            if (image) {
+                CGSize size=image.size;
+                CGFloat scale=CGRectGetWidth(weakSelf.goodsImageView.bounds)/size.width;
+                CGFloat height=size.height;
+                if (scale<1) {
+                    height=size.height*scale;
+                }
+                weakSelf.goodsImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
+            }
+            weakSelf.tableView.tableHeaderView=self.goodsImageView;
              [weakSelf.goodsImageView sd_setImageWithURL:[NSURL URLWithString:weakSelf.goodsModel.goodsBigImageUrl] placeholderImage:MCMallDefaultImg];
             [weakSelf.footWebView loadHTMLString:_goodsModel.goodsDetail baseURL:nil];
             [weakSelf.tableView reloadData];
@@ -174,6 +185,7 @@
             cell.textLabel.font=[UIFont systemFontOfSize:14];
             
             cell.textLabel.text=self.goodsModel.goodsName;
+            cell.detailTextLabel.text=@"";
         }else if (indexPath.row==2){
             cell.textLabel.text=@"顾问推荐:";
             cell.detailTextLabel.text=self.goodsModel.goodsRemark;

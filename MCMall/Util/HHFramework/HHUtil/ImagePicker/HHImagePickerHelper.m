@@ -107,7 +107,13 @@
             [alerView show];
         }
     }else if (_pickType==HHImagePickTypeAblum){//相册
-        [[self parentController] presentViewController:self.qbImagePickerController animated:YES completion:nil];
+//        [[self parentController] presentViewController:self.qbImagePickerController animated:YES completion:nil];
+        self.imagePickerController.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        self.imagePickerController.allowsEditing=self.enableEdit;
+        _imagePickerController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        [rootController presentViewController:self.imagePickerController animated:YES completion:^{
+            
+        }];
         if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
             ALAuthorizationStatus authoStatus = [ALAssetsLibrary authorizationStatus];
             if (([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) && (authoStatus==ALAuthorizationStatusDenied)) {
