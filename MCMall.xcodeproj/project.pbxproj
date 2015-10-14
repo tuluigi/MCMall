@@ -42,7 +42,6 @@
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
-		2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
 		2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
@@ -354,7 +353,6 @@
 		2ADFB72C1BBDA482000BF698 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A83592E1B8030B900832964 /* UMSCommentInputController.xib */; };
 		2ADFB72D1BBDA482000BF698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2ADFB72E1BBDA482000BF698 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
-		2ADFB72F1BBDA482000BF698 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2ADFB7301BBDA482000BF698 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8359321B8030B900832964 /* UMSLoginViewController.xib */; };
 		2ADFB7311BBDA482000BF698 /* tabbar_activity_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BE11B889418001B1CDC /* tabbar_activity_HL@3x.png */; };
 		2ADFB7321BBDA482000BF698 /* tabbar_assistnt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF71B889424001B1CDC /* tabbar_assistnt@2x.png */; };
@@ -567,7 +565,6 @@
 		2ADFB82A1BBDA868000BF698 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A83592E1B8030B900832964 /* UMSCommentInputController.xib */; };
 		2ADFB82B1BBDA868000BF698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2ADFB82C1BBDA868000BF698 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
-		2ADFB82D1BBDA868000BF698 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2ADFB82E1BBDA868000BF698 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8359321B8030B900832964 /* UMSLoginViewController.xib */; };
 		2ADFB82F1BBDA868000BF698 /* tabbar_activity_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BE11B889418001B1CDC /* tabbar_activity_HL@3x.png */; };
 		2ADFB8301BBDA868000BF698 /* tabbar_assistnt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF71B889424001B1CDC /* tabbar_assistnt@2x.png */; };
@@ -778,7 +775,6 @@
 		2ADFB9151BBDA877000BF698 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A83592E1B8030B900832964 /* UMSCommentInputController.xib */; };
 		2ADFB9161BBDA877000BF698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2ADFB9171BBDA877000BF698 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
-		2ADFB9181BBDA877000BF698 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2ADFB9191BBDA877000BF698 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8359321B8030B900832964 /* UMSLoginViewController.xib */; };
 		2ADFB91A1BBDA877000BF698 /* tabbar_activity_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BE11B889418001B1CDC /* tabbar_activity_HL@3x.png */; };
 		2ADFB91B1BBDA877000BF698 /* tabbar_assistnt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF71B889424001B1CDC /* tabbar_assistnt@2x.png */; };
@@ -989,7 +985,6 @@
 		2ADFBA001BBDA88F000BF698 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A83592E1B8030B900832964 /* UMSCommentInputController.xib */; };
 		2ADFBA011BBDA88F000BF698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2ADFBA021BBDA88F000BF698 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
-		2ADFBA031BBDA88F000BF698 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2ADFBA041BBDA88F000BF698 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8359321B8030B900832964 /* UMSLoginViewController.xib */; };
 		2ADFBA051BBDA88F000BF698 /* tabbar_activity_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BE11B889418001B1CDC /* tabbar_activity_HL@3x.png */; };
 		2ADFBA061BBDA88F000BF698 /* tabbar_assistnt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF71B889424001B1CDC /* tabbar_assistnt@2x.png */; };
@@ -1200,7 +1195,6 @@
 		2ADFBAEB1BBDA89B000BF698 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A83592E1B8030B900832964 /* UMSCommentInputController.xib */; };
 		2ADFBAEC1BBDA89B000BF698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2ADFBAED1BBDA89B000BF698 /* jquery-1.9.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A87EE241B4114770051D668 /* jquery-1.9.1.min.js */; };
-		2ADFBAEE1BBDA89B000BF698 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */; };
 		2ADFBAEF1BBDA89B000BF698 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8359321B8030B900832964 /* UMSLoginViewController.xib */; };
 		2ADFBAF01BBDA89B000BF698 /* tabbar_activity_HL@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BE11B889418001B1CDC /* tabbar_activity_HL@3x.png */; };
 		2ADFBAF11BBDA89B000BF698 /* tabbar_assistnt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD44BF71B889424001B1CDC /* tabbar_assistnt@2x.png */; };
@@ -1347,7 +1341,6 @@
 		2A37B0DD1B0CC62A00D0FE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2A37B0E41B0CC62A00D0FE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2A37B0E91B0CC62A00D0FE88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2A37B0F51B0CC62A00D0FE88 /* MCMallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCMallTests.m; sourceTree = "<group>"; };
 		2A37B1271B0CCB1800D0FE88 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		2A37B1281B0CCB1800D0FE88 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
@@ -1404,7 +1397,6 @@
 		2A7EA2131B57F746005B04A9 /* UserInfoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoEditViewController.h; sourceTree = "<group>"; };
 		2A7EA2141B57F746005B04A9 /* UserInfoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditViewController.m; sourceTree = "<group>"; };
 		2A816DE01B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		2A816DE11B2FBAA30007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		2A816DE61B2FBC1D0007862B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2A816DE81B2FBC220007862B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A83591E1B8030B900832964 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
@@ -1933,7 +1925,6 @@
 				2A37B0DD1B0CC62A00D0FE88 /* AppDelegate.h */,
 				2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */,
 				2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */,
-				2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */,
 				2A37B0D91B0CC62A00D0FE88 /* Supporting Files */,
 			);
 			path = MCMall;
@@ -3220,7 +3211,6 @@
 				2A83593A1B8030B900832964 /* UMSCommentInputController.xib in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
 				2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */,
-				2A37B0EA1B0CC62A00D0FE88 /* LaunchScreen.xib in Resources */,
 				2A83593E1B8030B900832964 /* UMSLoginViewController.xib in Resources */,
 				2AD44BEA1B889418001B1CDC /* tabbar_activity_HL@3x.png in Resources */,
 				2AD44C001B889424001B1CDC /* tabbar_assistnt@2x.png in Resources */,
@@ -3307,7 +3297,6 @@
 				2ADFB72C1BBDA482000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFB72D1BBDA482000BF698 /* Main.storyboard in Resources */,
 				2ADFB72E1BBDA482000BF698 /* jquery-1.9.1.min.js in Resources */,
-				2ADFB72F1BBDA482000BF698 /* LaunchScreen.xib in Resources */,
 				2ADFB7301BBDA482000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFB7311BBDA482000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFB7321BBDA482000BF698 /* tabbar_assistnt@2x.png in Resources */,
@@ -3395,7 +3384,6 @@
 				2ADFB82A1BBDA868000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFB82B1BBDA868000BF698 /* Main.storyboard in Resources */,
 				2ADFB82C1BBDA868000BF698 /* jquery-1.9.1.min.js in Resources */,
-				2ADFB82D1BBDA868000BF698 /* LaunchScreen.xib in Resources */,
 				2ADFB82E1BBDA868000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFB82F1BBDA868000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFB8301BBDA868000BF698 /* tabbar_assistnt@2x.png in Resources */,
@@ -3479,7 +3467,6 @@
 				2ADFB9151BBDA877000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFB9161BBDA877000BF698 /* Main.storyboard in Resources */,
 				2ADFB9171BBDA877000BF698 /* jquery-1.9.1.min.js in Resources */,
-				2ADFB9181BBDA877000BF698 /* LaunchScreen.xib in Resources */,
 				2ADFB9191BBDA877000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFB91A1BBDA877000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFB91B1BBDA877000BF698 /* tabbar_assistnt@2x.png in Resources */,
@@ -3565,7 +3552,6 @@
 				2ADFBA001BBDA88F000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFBA011BBDA88F000BF698 /* Main.storyboard in Resources */,
 				2ADFBA021BBDA88F000BF698 /* jquery-1.9.1.min.js in Resources */,
-				2ADFBA031BBDA88F000BF698 /* LaunchScreen.xib in Resources */,
 				2ADFBA041BBDA88F000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFBA051BBDA88F000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFBA061BBDA88F000BF698 /* tabbar_assistnt@2x.png in Resources */,
@@ -3653,7 +3639,6 @@
 				2ADFBAEB1BBDA89B000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFBAEC1BBDA89B000BF698 /* Main.storyboard in Resources */,
 				2ADFBAED1BBDA89B000BF698 /* jquery-1.9.1.min.js in Resources */,
-				2ADFBAEE1BBDA89B000BF698 /* LaunchScreen.xib in Resources */,
 				2ADFBAEF1BBDA89B000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFBAF01BBDA89B000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFBAF11BBDA89B000BF698 /* tabbar_assistnt@2x.png in Resources */,
@@ -4682,15 +4667,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		2A37B0E81B0CC62A00D0FE88 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A37B0E91B0CC62A00D0FE88 /* Base */,
-				2A816DE11B2FBAA30007862B /* zh-Hans */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 		2A816DE71B2FBC1D0007862B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -4799,6 +4775,7 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = BaiJiaXinIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BaiJiaXinLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4827,6 +4804,7 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = BaiJiaXinIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BaiJiaXinLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tianmin Fan (ZFMZ922898)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4855,6 +4833,7 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = BaoBeiEJiaIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BaoBeiEJiaLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4884,6 +4863,7 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = BaoBeiEJiaIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BaoBeiEJiaLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5031,6 +5011,7 @@
 			baseConfigurationReference = 47687B27A47EBE0BADFC4E01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = YingZiGuLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5059,6 +5040,7 @@
 			baseConfigurationReference = 611C7E38F674950F39C9EE78 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = YingZiGuLaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (

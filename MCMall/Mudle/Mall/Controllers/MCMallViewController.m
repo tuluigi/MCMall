@@ -27,7 +27,7 @@
 @implementation MCMallViewController
 -(HHFlowView *)flowView{
     if (nil==_flowView) {
-        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
+        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200*OCCOMMONSCALE)];
         _flowView.flowViewDidSelectedBlock=^(HHFlowModel *flowMode, NSInteger index){
             
         };

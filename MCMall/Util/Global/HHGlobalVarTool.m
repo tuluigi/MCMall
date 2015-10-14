@@ -148,7 +148,7 @@
             str=@"wxb0133ac939832b5d";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
-            str=@"";
+            str=@"wx62a1c65a4d5f572c";
         }break;
         default:
             break;
@@ -175,7 +175,7 @@
             str=@"63639d06ea29ada85c557cb5976ded70";
         }break;
         case MCMallClientTypeHaiTunBeiBei:{
-            str=@"";
+            str=@"7b53e2cddefc6029389d5137831cff80";
         }break;
         default:
             break;
@@ -207,7 +207,6 @@
         default:
             break;
     }
-    str=@"1322087084";
     return str;
 }
 +(NSString *)shareSinaWeiBoKey{
@@ -235,7 +234,6 @@
         default:
             break;
     }
-     str=@"9ce5fc83ce399a4b245d479d17869301";
     return str;
 }
 

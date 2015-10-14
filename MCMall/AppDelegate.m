@@ -191,7 +191,7 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
             if (self.downLoadStr&&self.downLoadStr.length) {
                 BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
                 if (canOpen) {
-                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
+                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:[HHGlobalVarTool shareDownloadUrl]]];
                 }
             }
         }

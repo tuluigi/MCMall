@@ -54,7 +54,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -64,7 +64,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wb1322087084</string>
+				<string>wb701184056</string>
 			</array>
 		</dict>
 		<dict>
@@ -80,7 +80,7 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxa1845c06a60250bd</string>
+				<string>wx62a1c65a4d5f572c</string>
 			</array>
 		</dict>
 	</array>
