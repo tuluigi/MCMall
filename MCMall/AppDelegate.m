@@ -108,13 +108,20 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return YES;
+
+#ifdef __IPHONE_9_0
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
+    BOOL canOpen=[HHShaeTool application:app openURL:url sourceApplication:nil annotation:nil];
+    return canOpen;
 }
+#else
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     BOOL canOpen=[HHShaeTool application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     return canOpen;
 }
+#endif
+
+
 #pragma mark -PushNotification
 #ifdef __IPHONE_8_0
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
