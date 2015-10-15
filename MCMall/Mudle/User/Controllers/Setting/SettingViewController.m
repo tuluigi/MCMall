@@ -88,6 +88,7 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
                     alert.tag=kAlertCheckVersionUpdate;
                     [alert show];
                 }else{
+                    [weakSelf.view showErrorMssage:@"当前已是最新版本"];
                 }
             }];
         }break;
