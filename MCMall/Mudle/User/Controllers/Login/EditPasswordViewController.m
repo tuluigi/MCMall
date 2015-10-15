@@ -8,6 +8,7 @@
 
 #import "EditPasswordViewController.h"
 #import "HHNetWorkEngine+UserCenter.h"
+#import "HHTextField.h"
 @interface EditPasswordViewController ()<UITextFieldDelegate>
 @property(nonatomic,copy)NSString *orignalPwd,*newsPwd,*repeatNewPwd;
 @end
@@ -66,7 +67,7 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:identifer];
     if (nil==cell) {
         cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
-        UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
+        HHTextField *textField=[[HHTextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
         textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
         textField.tag=1000;
@@ -80,8 +81,8 @@
         textField.leftViewMode=UITextFieldViewModeAlways;
         [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
     }
-    UITextField *textField=(UITextField *)[cell viewWithTag:1000];
-    
+    HHTextField *textField=(HHTextField *)[cell viewWithTag:1000];
+    textField.indexPath=indexPath;
     UILabel *leftLable=(UILabel *)textField.leftView;
     textField.rightViewMode=UITextFieldViewModeNever;
     textField.secureTextEntry=YES;
@@ -105,8 +106,7 @@
 }
 -(void)didTextFiledValueChanged:(UITextField *)textFiled{
     //get cell
-    UITableViewCell *cell = (UITableViewCell *)[[textFiled superview] superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSIndexPath *indexPath = ((HHTextField *)textFiled).indexPath;
     switch (indexPath.row) {
         case 0:{
             self.orignalPwd=textFiled.text;

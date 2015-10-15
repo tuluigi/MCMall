@@ -10,7 +10,7 @@
 #import "GoodsModel.h"
 #import "HHUserNetService.h"
 #import "AddressModel.h"
-@interface GoodsAddressAddController ()
+@interface GoodsAddressAddController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UISwitch *switchView;
 @property(nonatomic,strong)UIView *footView;
 @property(nonatomic,copy)__block AddressModel *addresssModel;
@@ -203,7 +203,6 @@
             break;
     }
 }
-
 /*
 #pragma mark - Navigation
 

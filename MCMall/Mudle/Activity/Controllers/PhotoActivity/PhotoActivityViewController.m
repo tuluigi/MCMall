@@ -147,6 +147,7 @@
         animation.toValue = @(self.favorBgView.center.y-30);
         animation.duration = 0.6;
         animation.removedOnCompletion=YES;
+        animation.fillMode = kCAFillModeForwards;
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         animation.delegate=self;
     }

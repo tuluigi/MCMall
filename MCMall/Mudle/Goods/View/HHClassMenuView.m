@@ -123,11 +123,11 @@
     }
 }
 -(void)leftButtonPressed{
-    NSNotificationCenter *notificationCenter=[NSNotificationCenter defaultCenter];
+//    NSNotificationCenter *notificationCenter=[NSNotificationCenter defaultCenter];
    // [notificationCenter postNotificationName:HHNotification_ClassView_LefButtonPressed object:nil];
 }
 -(void)rightButtonPressed{
-    NSNotificationCenter *notificationCenter=[NSNotificationCenter defaultCenter];
+//    NSNotificationCenter *notificationCenter=[NSNotificationCenter defaultCenter];
     //[notificationCenter postNotificationName:HHNotification_ClassView_RightButtonPressed object:nil];
 }
 -(void)selectClassMenuAtIndex:(NSInteger)index

@@ -10,6 +10,7 @@
 #import "HHNetWorkEngine+UserCenter.h"
 #import "UserStateSelectController.h"
 #import "SalesViewController.h"
+#import "HHTextField.h"
 #define TotalTimeDuration 60
 @interface RegisterViewController ()<UITextFieldDelegate,SalesViewControllerDelegate>
 @property(nonatomic,strong)UIView *headerView,*footView;
@@ -70,56 +71,6 @@
     if (nil==_footView) {
         _footView=[[UIView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         _footView.userInteractionEnabled=YES;
-        /*
-        UIButton *checkLeftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [_footView addSubview:checkLeftButton];
-        checkLeftButton.tag=1000;
-        checkLeftButton.userInteractionEnabled=YES;
-        [checkLeftButton setBackgroundImage:[UIImage imageNamed:@"checkbox_normal"] forState:UIControlStateNormal];
-        [checkLeftButton setBackgroundImage:[UIImage imageNamed:@"checkbox_Select"] forState:UIControlStateSelected];
-        [checkLeftButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [checkLeftButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(_footView.top).offset(10.0);
-            make.left.mas_equalTo(_footView.left).offset(30.0);
-            make.size.mas_equalTo(CGSizeMake(20.0, 20.0));
-        }];
-        UILabel *agreementLable=[[UILabel alloc]  init];
-        agreementLable.textAlignment=NSTextAlignmentLeft;
-        agreementLable.text=@"《用户协议》";
-        agreementLable.textColor=[UIColor lightGrayColor];
-        agreementLable.font=[UIFont systemFontOfSize:15.0];
-        [_footView addSubview:agreementLable];
-        [agreementLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(checkLeftButton.mas_right).offset(2.0);
-            make.top.equalTo(checkLeftButton);
-            make.size.mas_equalTo(CGSizeMake(100.0, 20.0));
-        }];
-        
-        UIButton *checkRightButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        checkRightButton.userInteractionEnabled=YES;
-        checkRightButton.tag=1001;
-        [_footView addSubview:checkRightButton];
-         [checkRightButton addTarget:self action:@selector(didActionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [checkRightButton setBackgroundImage:[UIImage imageNamed:@"checkbox_normal"] forState:UIControlStateNormal];
-        [checkRightButton setBackgroundImage:[UIImage imageNamed:@"checkbox_Select"] forState:UIControlStateSelected];
-        [checkRightButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(_footView.top).offset(10.0);
-            make.left.mas_equalTo(_footView.center.x);
-            make.size.mas_equalTo(CGSizeMake(20.0, 20.0));
-        }];
-        UILabel *rightLable=[[UILabel alloc]  init];
-        rightLable.textAlignment=NSTextAlignmentLeft;
-        rightLable.text=@"是否下次直接登录";
-        rightLable.textColor=[UIColor lightGrayColor];
-        rightLable.font=[UIFont systemFontOfSize:15.0];
-        [_footView addSubview:rightLable];
-        [rightLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(checkRightButton.mas_right).offset(2.0);
-            make.top.equalTo(checkRightButton);
-            make.size.mas_equalTo(CGSizeMake(120.0, 20.0));
-        }];
-        */
-    
         NSInteger tag=2000;
         for (NSInteger i=0; i<3; i++) {
             UIButton *actionButton=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -251,7 +202,7 @@
     if (nil==cell) {
         cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        UITextField *textField=[[UITextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
+        HHTextField *textField=[[HHTextField alloc]  initWithFrame:CGRectMake(15.0, 0, CGRectGetWidth(tableView.bounds)-30.0, 44.0)];
         textField.delegate=self;
         textField.textAlignment=NSTextAlignmentLeft;
         textField.tag=1000;
@@ -282,8 +233,8 @@
         textField.rightView=_actionButton;
         [textField addTarget:self action:@selector(didTextFiledValueChanged:) forControlEvents:UIControlEventEditingChanged];
     }
-    UITextField *textField=(UITextField *)[cell viewWithTag:1000];
-    
+    HHTextField *textField=(HHTextField *)[cell viewWithTag:1000];
+    textField.indexPath=indexPath;
     UILabel *leftLable=(UILabel *)textField.leftView;
     textField.rightViewMode=UITextFieldViewModeNever;
     textField.secureTextEntry=NO;
@@ -308,7 +259,7 @@
         }break;
             
         case 3:{
-            textField.keyboardType=UIKeyboardTypeNamePhonePad;
+            textField.keyboardType=UIKeyboardTypeNumberPad;
             textField.placeholder=@"请输入您的手机号";
             leftLable.text=@"手机号";
         }break;
@@ -341,9 +292,7 @@
     }
 }
 -(void)didTextFiledValueChanged:(UITextField *)textFiled{
-    //get cell
-    UITableViewCell *cell = (UITableViewCell *)[[textFiled superview] superview];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSIndexPath *indexPath = ((HHTextField *)textFiled).indexPath;
     switch (indexPath.row) {
         case 0:{
             self.userName=textFiled.text;

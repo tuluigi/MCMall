@@ -10,6 +10,7 @@
 #import "UMSocial.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
+//#import "UMSocialSinaHandler.h"
 #import "HHShareView.h"
 #import "HHShareModel.h"
 #import "WXApi.h"
@@ -174,8 +175,10 @@
 }
 
 +(void)setSharePlatform{
+   
         //分享
     [UMSocialData setAppKey:[HHShaeTool shareUMKey]];
+    
     [UMSocialWechatHandler setWXAppId:[HHShaeTool shareWeiXinID] appSecret:[HHShaeTool shareWeiXinSecret] url:[HHShaeTool shareDownloadUrl]];
     
         //设置分享到QQ空间的应用Id，和分享url 链接

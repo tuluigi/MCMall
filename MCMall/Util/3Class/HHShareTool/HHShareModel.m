@@ -8,6 +8,8 @@
 
 #import "HHShareModel.h"
 #import "UMSocialSnsPlatformManager.h"
+#import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 @implementation HHShareModel
 -(id)initWithShareType:(HHShareType)type image:(UIImage *)img name:(NSString *)name{
     self=[super init];
@@ -32,6 +34,13 @@
      HHShareModel *weichatSessionShareModel=[[HHShareModel alloc]  initWithShareType:HHShareTypeWeChatSession image: [UIImage imageNamed:@"btn_share_wechatSession"] name:@"微信好友" umPlatfrom:UMShareToWechatSession];
       HHShareModel *weichatTimeLineShareModel=[[HHShareModel alloc]  initWithShareType:HHShareTypeWeChatSession image: [UIImage imageNamed:@"btn_share_wechatTimeLine"] name:@"朋友圈" umPlatfrom:UMShareToWechatTimeline];
     NSMutableArray *platforms=[[NSMutableArray alloc]  initWithObjects:weichatSessionShareModel,weichatTimeLineShareModel,qqShareModel,sinaShareModel,emailShareModel,smsShareModel,nil];
+    if (![WXApi isWXAppInstalled]) {
+        [platforms removeObject:weichatSessionShareModel];
+        [platforms removeObject:weichatTimeLineShareModel];
+    }
+    if (![TencentOAuth iphoneQQInstalled]) {
+        [platforms removeObject:qqShareModel];
+    }
     return platforms;
 }
 @end
