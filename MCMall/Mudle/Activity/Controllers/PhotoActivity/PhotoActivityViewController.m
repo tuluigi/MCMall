@@ -47,7 +47,7 @@
 -(UIImageView *)headImageView{
     if (nil==_headImageView) {
         _headImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 300)];
-        _headImageView.contentMode=UIViewContentModeScaleAspectFill;
+        _headImageView.contentMode=UIViewContentModeScaleAspectFit;
         _headImageView.clipsToBounds=YES;
         UITapGestureRecognizer *tapgesture=[[UITapGestureRecognizer alloc]  initWithTarget:self action:@selector(handlerHeadImageViewTap)];
         [_headImageView addGestureRecognizer:tapgesture];
@@ -56,9 +56,9 @@
             CGSize size=image.size;
             CGFloat scale=CGRectGetWidth(_headImageView.bounds)/size.width;
             CGFloat height=size.height;
-            if (scale<1) {
+//            if (scale<1) {
                 height=size.height*scale;
-            }
+//            }
             _headImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
         }
         WEAKSELF
