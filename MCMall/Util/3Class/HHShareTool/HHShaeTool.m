@@ -10,7 +10,7 @@
 #import "UMSocial.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
-//#import "UMSocialSinaHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 #import "HHShareView.h"
 #import "HHShareModel.h"
 #import "WXApi.h"
@@ -183,6 +183,8 @@
     
         //设置分享到QQ空间的应用Id，和分享url 链接
     [UMSocialQQHandler setQQWithAppId:[HHShaeTool shareQQID] appKey:[HHShaeTool shareQQKey] url:[HHShaeTool shareDownloadUrl]];
+//    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:nil];
     [UMSocialConfig setSnsPlatformNames:[NSArray arrayWithObjects:UMShareToRenren,UMShareToQQ,UMShareToDouban,UMShareToWechatSession,UMShareToSina,UMShareToTencent, nil]];
     
 }

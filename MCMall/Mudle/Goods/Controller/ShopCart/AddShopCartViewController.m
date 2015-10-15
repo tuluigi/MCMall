@@ -91,7 +91,11 @@
 -(void)updateTotalPrice{
     UIBarButtonItem *titleBarButton=(UIBarButtonItem *)[self.tooBar.items objectAtIndex:1];
     self.totalPrice=self.goodsModel.vipPrice*self.goodsNum;
+    
     NSString *priceStr=[NSString stringWithFormat:@"￥%.1f",(self.totalPrice-self.usePoints)];
+    if (self.usePoints) {
+        priceStr=[priceStr stringByAppendingString:[NSString stringWithFormat:@"+%ld积分",self.usePoints]];
+    }
     [titleBarButton setTitle:priceStr];
 }
 - (void)didReceiveMemoryWarning {

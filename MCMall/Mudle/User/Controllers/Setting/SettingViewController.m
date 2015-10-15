@@ -9,6 +9,11 @@
 #import "SettingViewController.h"
 #import "HHItemModel.h"
 #import "GoodsAddressViewController.h"
+static const NSInteger kAlertCheckVersionUpdate = 100;
+@interface SettingViewController ()<UIAlertViewDelegate>
+@property(nonatomic,copy)NSString * downLoadStr;
+@end
+
 @implementation SettingViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -74,9 +79,36 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
             GoodsAddressViewController *addressController=[[GoodsAddressViewController alloc]  init];
             [self.navigationController pushViewController:addressController animated:YES];
         }break;
+        case HHSettingItemTypeVersionUpdate:{
+            WEAKSELF
+            [HHAppInfo checkVersionUpdateOnCompletionBlock:^(BOOL isNeddUpdate, NSString *downUrl) {
+                if (isNeddUpdate&&downUrl) {
+                    weakSelf.downLoadStr=downUrl;
+                    UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
+                    alert.tag=kAlertCheckVersionUpdate;
+                    [alert show];
+                }else{
+                }
+            }];
+        }break;
         default:
             break;
     }
 
+}
+#pragma mark -AlertViewController
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag==kAlertCheckVersionUpdate) {
+        if (alertView.cancelButtonIndex==buttonIndex) {
+            
+        }else{
+            if (self.downLoadStr&&self.downLoadStr.length) {
+                BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
+                if (canOpen) {
+                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
+                }
+            }
+        }
+    }
 }
 @end

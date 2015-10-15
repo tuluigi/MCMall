@@ -30,7 +30,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"活动";
+    if (self.isUserJoined) {
+        self.navigationController.title=@"我的活动";
+    }else{
+        self.navigationController.title=@"活动";
+    }
+    
     WEAKSELF
     NSString *commonIdenfierStr=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypeCommon];
     NSString *photoIdenfierStr=[ActivityListCell activityListCellIdentiferWithActType:ActivityTypePicture];
@@ -67,7 +72,7 @@
     if (self.dataSourceArray.count==0) {
         [self.view showPageLoadingView];
     }
-   HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[HHUserManager userID]  pageNum:num pageSize:size onCompletionHandler:^(HHResponseResult *responseResult) {
+   HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityListWithUserID:[HHUserManager userID]  pageNum:num pageSize:size isSelf:self.isUserJoined onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (num==1) {

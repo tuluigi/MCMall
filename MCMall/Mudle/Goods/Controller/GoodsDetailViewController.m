@@ -180,7 +180,7 @@
         }
         
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        [(GoodsDetailPriceCell *)cell setOrignalPrice:self.goodsModel.orignalPrice sellPrice:self.goodsModel.sellPrice vipPrice:self.goodsModel.vipPrice goodsPoints:self.goodsModel.goodsPoints endTime:self.goodsModel.endTime storeNum:self.goodsModel.storeNum];
+        [(GoodsDetailPriceCell *)cell setOrignalPrice:self.goodsModel.orignalPrice sellPrice:self.goodsModel.sellPrice vipPrice:self.goodsModel.vipPrice goodsPoints:self.goodsModel.deductionPoint endTime:self.goodsModel.endTime storeNum:self.goodsModel.storeNum];
     }else{
         cell=[tableView dequeueReusableCellWithIdentifier:GoodsDetialCommonCellIdentifer];
         if (nil==cell) {

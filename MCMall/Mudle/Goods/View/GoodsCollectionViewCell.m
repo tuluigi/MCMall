@@ -135,7 +135,7 @@
 }
 -(NSAttributedString *)vipAttrstring{
     NSString *nameStr=@"专享价:";
-    NSString *valueStr=[NSString stringWithFormat:@"%.1f积分+%.1f元",self.goodsModel.goodsPoints,self.goodsModel.vipPrice];
+    NSString *valueStr=[NSString stringWithFormat:@"%.1f积分+%.1f元",self.goodsModel.deductionPoint,self.goodsModel.vipPrice];
     NSMutableAttributedString *attrString=[[NSMutableAttributedString alloc]  initWithString:[nameStr stringByAppendingString:valueStr]]
     ;
     [attrString addAttributes:@{NSForegroundColorAttributeName:MCMallThemeColor,NSFontAttributeName:[UIFont systemFontOfSize:13]} range:[attrString.string rangeOfString:nameStr]];

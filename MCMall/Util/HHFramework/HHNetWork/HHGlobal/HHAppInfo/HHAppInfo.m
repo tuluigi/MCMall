@@ -31,6 +31,13 @@
     NSDictionary *dic=[[NSBundle mainBundle]   infoDictionary];
     return [dic objectForKey:(NSString*)kCFBundleIdentifierKey];
 }
++(UIImage *)appIconImage{
+    NSArray *iconFilesArray=[[[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIcons"] objectForKey:@"CFBundlePrimaryIcon"] objectForKey:@"CFBundleIconFiles"];
+    if (iconFilesArray&&iconFilesArray.count) {
+        return [UIImage imageNamed:[iconFilesArray firstObject]];
+    }
+    return nil;
+}
 +(void)checkVersionUpdateOnCompletionBlock:(void(^)(BOOL isNeddUpdate, NSString *downUrl))completionBlock{
     [[HHNetWorkEngine sharedHHNetWorkEngine] checkVersionUpdateWithVersion:[HHAppInfo appVersion] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {

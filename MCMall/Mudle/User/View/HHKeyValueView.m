@@ -169,9 +169,12 @@
     UIColor *valueColor=MCMallThemeColor;
     
     HHKeyValueView *pointView=[[HHKeyValueView alloc] initWithKeyValueViewStyle:HHKeyValueViewStyleValueTop type:HHUserCenterKeyValueViewTypePoint  name:@"积分" nameFont:textFont nameColor:textCorlo value:@"0" valueFont:textFont valueColor:valueColor];
-
+/*
     HHKeyValueView *moneyView=[[HHKeyValueView alloc] initWithKeyValueViewStyle:HHKeyValueViewStyleValueTop type:HHUserCenterKeyValueViewTypeMoney name:@"立即充值" nameFont:textFont nameColor:textCorlo value:@"0" valueFont:textFont valueColor:valueColor];
      HHKeyValueView *pushMsgView=[[HHKeyValueView alloc] initWithKeyValueViewStyle:HHKeyValueViewStyleValueTop type:HHUserCenterKeyValueViewTypePushMsg name:@"未读消息" nameFont:textFont nameColor:textCorlo value:@"0" valueFont:textFont valueColor:valueColor];
+ */
+    HHKeyValueView *moneyView=[[HHKeyValueView alloc] initWithKeyValueViewStyle:HHKeyValueViewStyleValueTop type:HHUserCenterKeyValueViewTypeMoney name:@"" nameFont:textFont nameColor:textCorlo value:@"" valueFont:textFont valueColor:valueColor];
+    HHKeyValueView *pushMsgView=[[HHKeyValueView alloc] initWithKeyValueViewStyle:HHKeyValueViewStyleValueTop type:HHUserCenterKeyValueViewTypePushMsg name:@"" nameFont:textFont nameColor:textCorlo value:@"" valueFont:textFont valueColor:valueColor];
      NSArray *keyValuesArray=@[pointView,moneyView,pushMsgView];
     return keyValuesArray;
 }

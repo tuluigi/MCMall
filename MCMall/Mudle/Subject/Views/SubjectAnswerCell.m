@@ -77,7 +77,7 @@
 }
 -(void)setSubjectCommentModel:(SubjectCommentModel *)subjectCommentModel{
     _subjectCommentModel=subjectCommentModel;
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectCommentModel.commentUserImageUrl] placeholderImage:MCMallDefaultImg];
+    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectCommentModel.commentUserImageUrl] placeholderImage:[HHAppInfo appIconImage]];
     _userNameLable.text=_subjectCommentModel.commentUserName;
     _timeLable.text=[_subjectCommentModel.commentTime timeIntervalDescription];
     _contentLable.text=_subjectCommentModel.commentComment;

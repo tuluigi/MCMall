@@ -17,6 +17,7 @@
  *  @return 
  */
 +(NSString *)shopID;
+
 #pragma mark- token
 +(NSString *)deviceToken;
 +(void)setDeviceToken:(NSString *)deviceToken;

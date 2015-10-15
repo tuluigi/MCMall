@@ -133,7 +133,7 @@
         case HHUserInfoItemTypeHeaderImage:
         {
             UIImageView *headImageView=(UIImageView *)[cell.contentView viewWithTag:1000];
-            [headImageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+            [headImageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:[HHAppInfo appIconImage]];
 
         }break;
         case HHUserInfoItemTypeMotherState:{

@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[OrderListCell class] forCellReuseIdentifier:OrderListCellIdentifer];
-    self.title=@"我的预定";
+    self.title=@"我的订购";
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{

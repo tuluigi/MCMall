@@ -33,7 +33,7 @@
 //获取我的预定列表
 +(NSString *)getOrderListAPI;
 #pragma mark -活动
-+(NSString *)getActivityListAPI;
++(NSString *)getActivityListAPI:(BOOL)isSelf;
 //获取活动详情
 +(NSString *)getActivityDetailAPI;
 //投票

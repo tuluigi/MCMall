@@ -41,7 +41,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title=[[HHAppInfo appName] stringByAppendingString:@"会员系统"];
+    self.navigationItem.title=[[HHAppInfo appName] stringByAppendingString:@"会员服务系统"];
     
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];
@@ -137,7 +137,7 @@
                 [weakSelf.navigationController pushViewController:signupController animated:YES];
                 
             }else if (item==HomeMenuViewItemGoods){
-                UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"按键卫士" otherButtonTitles:@"防丢神奇", nil];
+                UIActionSheet *actionSheet=[[UIActionSheet alloc]  initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"安健卫士" otherButtonTitles:@"防丢神奇", nil];
                 [actionSheet showInView:self.view];
             }else if (item==HomeMenuViewItemDiary){
                 MotherDiaryViewController *diraryController=[[MotherDiaryViewController alloc]  init];

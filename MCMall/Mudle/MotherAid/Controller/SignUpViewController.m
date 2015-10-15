@@ -140,7 +140,7 @@
     WEAKSELF
     [[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-        weakSelf.pointLable.text=[NSString stringWithFormat:@"我的总签到积分%@元,立即兑换",responseResult.responseData];
+        weakSelf.pointLable.text=[NSString stringWithFormat:@"我的总签到积分%@元",responseResult.responseData];
         }
     }];
 }

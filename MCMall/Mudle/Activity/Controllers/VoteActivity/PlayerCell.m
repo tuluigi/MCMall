@@ -124,7 +124,7 @@
 
 -(void)setPlayerModel:(PlayerModel *)playerModel{
     _playerModel=playerModel;
-    [_logoImgView sd_setImageWithURL:[NSURL URLWithString:_playerModel.playerImageUrl] placeholderImage:MCMallDefaultImg];
+    [_logoImgView sd_setImageWithURL:[NSURL URLWithString:_playerModel.playerImageUrl] placeholderImage:[HHAppInfo appIconImage]];
     if (CGSizeEqualToSize(CGSizeZero, _playerModel.contentSize) ) {
         CGSize fontSize=[_playerModel.playerDetail boundingRectWithfont:[UIFont systemFontOfSize:14] maxTextSize:CGSizeMake(CGRectGetWidth([[UIScreen mainScreen] bounds])-120, CGFLOAT_MAX)];
         _playerModel.contentSize=fontSize;

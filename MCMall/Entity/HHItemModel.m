@@ -67,9 +67,9 @@
     HHItemModel *addressImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeReceiveAddress name:@"收货地址管理" image:nil];
     
     NSArray *sectionArray0=@[addressImageItem];
-  
+    HHItemModel *versionItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeVersionUpdate name:@"版本更新" image:nil];
     HHItemModel *cacheImageItem=[[HHItemModel alloc] initWithType:HHSettingItemTypeClearCache name:@"清理缓存" image:nil];
-    NSArray *sectionArray1=@[cacheImageItem];
+    NSArray *sectionArray1=@[versionItem,cacheImageItem];
     itemsArray=@[sectionArray0,sectionArray1];
     
     return itemsArray;

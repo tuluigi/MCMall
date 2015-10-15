@@ -75,8 +75,12 @@ return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:
 }
 #pragma mark -活动
 //活动列表
-+(NSString *)getActivityListAPI{
-    return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getactivitylist"];
++(NSString *)getActivityListAPI:(BOOL)isSelf{
+    if (isSelf) {
+        return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getselfactivitylist"];
+    }else{
+        return [[DomainPath stringByAppendingString:SufferName] stringByAppendingString:@"getactivitylist"];
+    }
 }
 //获取活动详情
 +(NSString *)getActivityDetailAPI{

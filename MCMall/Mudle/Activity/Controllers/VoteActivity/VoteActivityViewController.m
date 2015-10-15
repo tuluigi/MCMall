@@ -139,7 +139,7 @@
     
     self.navigationItem.rightBarButtonItems=rightBarButtonItems;
     // self.tableView.tableHeaderView=self.headView;
-    [self getVoteAcitivityWithActivityID:self.activityID];
+    [self getVoteAcitivityWithActivityID:self.activityID sort:@"0"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,11 +151,16 @@
     UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:self.activityModel.activityImageUrl];
     [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
 }
-
--(void)getVoteAcitivityWithActivityID:(NSString *)activityID{
+-(void)getHotActivity{
+ [self getVoteAcitivityWithActivityID:self.activityID sort:@"0"];
+}
+-(void)getNewActivity{
+     [self getVoteAcitivityWithActivityID:self.activityID sort:@"1"];
+}
+-(void)getVoteAcitivityWithActivityID:(NSString *)activityID sort:(NSString *)sort{
     WEAKSELF
     [self.view showPageLoadingView];
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:@"0"  onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:sort  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
             weakSelf.activityModel=responseResult.responseData;
@@ -179,7 +184,7 @@
     HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view showSuccessMessage:@"上传成功"];
-            [weakSelf getVoteAcitivityWithActivityID:weakSelf.activityID];
+            [weakSelf getVoteAcitivityWithActivityID:weakSelf.activityID sort:@"0"];
             if ([responseResult.responseData isKindOfClass:[NSString class]]) {
                 [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
                 [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imagePath] forKey:responseResult.responseData];
@@ -289,10 +294,31 @@
                 if (nil==cell) {
                     cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
                     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+                    
+                    UIButton *hotButton=[UIButton buttonWithTitle:@"最热" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(getHotActivity )];
+                    [cell.contentView addSubview:hotButton];
+                    
+                    UIButton *newButton=[UIButton buttonWithTitle:@"最新" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(getNewActivity )];
+                    [cell.contentView addSubview:newButton];
+                    
+                    __weak UITableViewCell *weakCell=cell;
+                    [hotButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.right.mas_equalTo(weakCell.contentView.mas_right).offset(-10);
+                        make.centerY.mas_equalTo(weakCell.contentView);
+                        make.size.mas_equalTo(CGSizeMake(40, 30));
+                    }];
+                    [newButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.right.mas_equalTo(hotButton.mas_left).offset(-5);
+                        make.centerY.mas_equalTo(weakCell.contentView);
+                        make.size.mas_equalTo(hotButton);
+                    }];
+
                 }
                 cell.textLabel.font=[UIFont systemFontOfSize:13];
                 cell.textLabel.textColor=[UIColor darkGrayColor];
                 cell.textLabel.text=[photoModel.activityEndTime stringByAppendingString:@"结束"];
+                
+                
                 return cell;
             }else{
             NSString *identifer=@"identifer";

@@ -131,7 +131,7 @@
 }
 -(void)setSubjectModel:(SubjectModel *)subjectModel{
     _subjectModel=subjectModel;
-    [_doctorLogoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectModel.doctorLogo] placeholderImage:MCMallDefaultImg];
+    [_doctorLogoImageView sd_setImageWithURL:[NSURL URLWithString:_subjectModel.doctorLogo] placeholderImage:[HHAppInfo appIconImage]];
     _doctorNameLable.text=_subjectModel.doctorName;
     _doctorDescLable.text=[@"" stringByAppendingString:_subjectModel.doctorDesc];
     //_doctorJobLable.text=@"";

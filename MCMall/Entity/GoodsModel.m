@@ -33,7 +33,6 @@
              @"endTime":@"endDay",
              @"goodsDetail":@"synopsis",
              @"goodsBigImageUrl":@"bigImg",
-             @"goodsPoints":@"point",
              @"deliverNotice":@"notice",
              @"goodsRemark":@"oneself",
              };

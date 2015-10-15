@@ -13,9 +13,10 @@
 -(HHNetWorkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
                                         pageSize:(NSInteger)pageSize
+                                          isSelf:(BOOL)isSelf
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     WEAKSELF
-    NSString *apiPath=[MCMallAPI getActivityListAPI];
+    NSString *apiPath=[MCMallAPI getActivityListAPI:isSelf];
     if (nil==userID) {
         userID=@"";
     }

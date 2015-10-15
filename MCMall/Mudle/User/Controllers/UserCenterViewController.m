@@ -18,7 +18,7 @@
 #import "HHKeyValueContainerView.h"
 #import "SettingViewController.h"
 #import "OrderListViewController.h"
-
+#import "ActivityViewController.h"
 @interface HHUserInfoCell : UITableViewCell
 
 @end
@@ -99,6 +99,13 @@
     }
     return _logoutFootView;
 }
+-(void)showSignUpRowAlertView{
+    NSString *rowStr=@"1.签到奖励积分,积分可在会员的'专享汇'按照 1:1 抵扣现金使用。\
+    \n2.每天签到奖励 1 元积分。\
+    \n3.每连续签到满 10 天加赠 5 元积分。\
+    \n4.活动最终解释权归我店所有。";
+    [[[UIAlertView alloc]  initWithTitle:@"签到规则" message:rowStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil] show];
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView reloadData];
@@ -148,7 +155,7 @@
         self.tableView.tableFooterView=self.loginFootView;
     }
     UserModel *userModel=[HHUserManager userModel];
-    [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+    [_logoImgView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:[HHAppInfo appIconImage]];
     [self.tableView reloadData];
 }
 
@@ -212,13 +219,14 @@
             HHKeyValueContainerView *containerView=[[HHKeyValueContainerView alloc]  initContainerViewWithKeyValuViews:[HHKeyValueView userCenterKeyValueViews]];
             containerView.tag=1000;
             [cell.contentView addSubview:containerView];
-            __weak UITableViewCell *weakSelf=cell;
+            __weak UITableViewCell *weakCell=cell;
+            WEAKSELF
             [containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(weakSelf.contentView);
+                make.edges.equalTo(weakCell.contentView);
             }];
             containerView.didKeyValueTouchedBlock=^(HHKeyValueView *aKeyValuView,NSInteger index){
                 if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
-                    
+                    [weakSelf showSignUpRowAlertView];
                 }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
                 
                 }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){
@@ -231,10 +239,10 @@
             if (aKeyValuView.type==HHUserCenterKeyValueViewTypePoint) {
                 aKeyValuView.value=[NSString stringWithFormat:@"%.0f",userModel.userPoint];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypeMoney){
-                aKeyValuView.value=[NSString stringWithFormat:@"%.2f元",userModel.userAmount];
+//                aKeyValuView.value=[NSString stringWithFormat:@"%.2f元",userModel.userAmount];
             }else if (aKeyValuView.type==HHUserCenterKeyValueViewTypePushMsg){
-                aKeyValuView.value=@"5条";
-                aKeyValuView.badgeValue=5;
+//                aKeyValuView.value=@"5条";
+//                aKeyValuView.badgeValue=5;
             }
         }
     }else{
@@ -256,7 +264,7 @@
         case  HHUserCenterItemTypeUserInfo:{
             cell.textLabel.textAlignment=NSTextAlignmentLeft;
             cell.detailTextLabel.text=userModel.userName;
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:MCMallDefaultImg];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.userHeadUrl] placeholderImage:[HHAppInfo appIconImage]];
             cell.textLabel.text=userModel.userName;
             if (userModel.motherState==MotherStatePregnant) {
                 cell.detailTextLabel.text=@"备孕中";
@@ -333,6 +341,12 @@
                 [self.navigationController pushViewController:orderListController animated:YES];
             }
             break;
+        case HHUserCenterItemTypeMyActivity:{
+            ActivityViewController *activityController=[[ActivityViewController alloc]  init];
+            activityController.isUserJoined=YES;
+            activityController.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:activityController animated:YES];
+        }break;
         default:
             break;
     }

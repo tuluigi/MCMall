@@ -22,6 +22,7 @@
 -(HHNetWorkOperation *)getActivityListWithUserID:(NSString *)userID
                                          pageNum:(NSInteger)pageNum
                                         pageSize:(NSInteger)pageSize
+                                          isSelf:(BOOL)isSelf
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 
