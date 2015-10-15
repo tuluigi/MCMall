@@ -21,7 +21,7 @@
     }];
 }
 + (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
-    if ([key isEqualToString:@"status"]) {
+    if ([key isEqualToString:@"isSigned"]) {
         return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
             if ([value isKindOfClass:[NSString class]]) {
                 return [NSNumber numberWithFloat:[value floatValue]];
