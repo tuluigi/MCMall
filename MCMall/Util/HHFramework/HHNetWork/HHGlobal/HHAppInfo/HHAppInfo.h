@@ -16,5 +16,5 @@
 +(UIImage *)appIconImage;
 
 
-+(void)checkVersionUpdateOnCompletionBlock:(void(^)(BOOL isNeddUpdate, NSString *downUrl))completionBlock;
++(void)checkVersionUpdateOnCompletionBlock:(void(^)(NSString *downUrl,NSString *errorMessage))completionBlock;
 @end

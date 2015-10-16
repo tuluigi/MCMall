@@ -109,30 +109,30 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[AddShopCartViewController didBookButtonPressed]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466612437.270531"
+                  timestampString = "466656973.897024"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
                   endingLineNumber = "116"
-                  offsetFromSymbolStart = "616">
+                  offsetFromSymbolStart = "756">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__49-[AddShopCartViewController didBookButtonPressed]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466612437.27074"
+                  timestampString = "466656973.897353"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
                   endingLineNumber = "116"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -157,30 +157,30 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466612437.272004"
+                  timestampString = "466656973.899034"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "636">
+                  offsetFromSymbolStart = "768">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__111+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466612437.272216"
+                  timestampString = "466656973.899349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "112">
+                  offsetFromSymbolStart = "95">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -240,7 +240,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
-            timestampString = "466610119.215971"
+            timestampString = "466657787.740991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -253,30 +253,30 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[HHAppInfo checkVersionUpdateOnCompletionBlock:]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
-                  timestampString = "466612437.276309"
+                  timestampString = "466656973.902566"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "43">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__49+[HHAppInfo checkVersionUpdateOnCompletionBlock:]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
-                  timestampString = "466612437.276843"
+                  timestampString = "466656973.902766"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -294,22 +294,6 @@
             startingLineNumber = "199"
             endingLineNumber = "199"
             landmarkName = "-checkVersionUpdateWithVersion:onCompletionHandler:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHNetWork/HHGlobal/HHAppInfo/HHAppInfo.m"
-            timestampString = "466610119.215971"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "+checkVersionUpdateOnCompletionBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -368,11 +352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/AppDelegate.m"
-            timestampString = "466612437.009698"
+            timestampString = "466657902.708875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>

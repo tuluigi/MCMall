@@ -9,7 +9,7 @@
 #import "SettingViewController.h"
 #import "HHItemModel.h"
 #import "GoodsAddressViewController.h"
-static const NSInteger kAlertCheckVersionUpdate = 100;
+#import "AppDelegate.h"
 @interface SettingViewController ()<UIAlertViewDelegate>
 @property(nonatomic,copy)NSString * downLoadStr;
 @end
@@ -39,7 +39,7 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
     switch (itemModel.itemType) {
         case HHSettingItemTypeClearCache:{
             cell.textLabel.text=itemModel.itemName;
-           NSUInteger cacheSize= [[SDImageCache sharedImageCache] getDiskCount];
+           NSUInteger cacheSize= [[SDImageCache sharedImageCache] getSize];
             NSString *cacheStr=@"";
             if (cacheSize<5*1024*1024) {
                 if (cacheSize>1024*1024) {
@@ -53,7 +53,8 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
             cell.detailTextLabel.text=cacheStr;
         }
             break;
-        case HHSettingItemTypeReceiveAddress:{
+        case HHSettingItemTypeReceiveAddress:
+        case HHSettingItemTypeVersionUpdate:{
              cell.textLabel.text=itemModel.itemName;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
             cell.detailTextLabel.text=@"";
@@ -80,36 +81,12 @@ HHItemModel *itemModel=[[self.dataSourceArray objectAtIndex:indexPath.section] o
             [self.navigationController pushViewController:addressController animated:YES];
         }break;
         case HHSettingItemTypeVersionUpdate:{
-            WEAKSELF
-            [HHAppInfo checkVersionUpdateOnCompletionBlock:^(BOOL isNeddUpdate, NSString *downUrl) {
-                if (isNeddUpdate&&downUrl) {
-                    weakSelf.downLoadStr=downUrl;
-                    UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
-                    alert.tag=kAlertCheckVersionUpdate;
-                    [alert show];
-                }else{
-                    [weakSelf.view showErrorMssage:@"当前已是最新版本"];
-                }
-            }];
+            [(AppDelegate *)[[UIApplication sharedApplication] delegate] checkVersionUpdateShowErrorMessage:YES];
         }break;
         default:
             break;
     }
 
 }
-#pragma mark -AlertViewController
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (alertView.tag==kAlertCheckVersionUpdate) {
-        if (alertView.cancelButtonIndex==buttonIndex) {
-            
-        }else{
-            if (self.downLoadStr&&self.downLoadStr.length) {
-                BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
-                if (canOpen) {
-                    [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
-                }
-            }
-        }
-    }
-}
+
 @end

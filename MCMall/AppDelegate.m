@@ -54,15 +54,7 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
    
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
-    WEAKSELF
-    [HHAppInfo checkVersionUpdateOnCompletionBlock:^(BOOL isNeddUpdate, NSString *downUrl) {
-        if (isNeddUpdate&&downUrl) {
-            weakSelf.downLoadStr=downUrl;
-            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
-            alert.tag=kAlertCheckVersionUpdate;
-            [alert show];
-        }
-    }];
+    [self checkVersionUpdateShowErrorMessage:NO];
     return YES;
 }
 
@@ -106,7 +98,9 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    [[SDImageCache sharedImageCache] clearMemory];
+}
 
 #ifdef __IPHONE_9_0
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options{
@@ -174,7 +168,28 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
     UINavigationController *navController=(UINavigationController *)[rootTabbarController.viewControllers objectAtIndex:rootTabbarController.selectedIndex];
     return navController;
 }
-
+#pragma mark - 检测版本更新
+-(void)checkVersionUpdateShowErrorMessage:(BOOL)show{
+    WEAKSELF
+    [HHAppInfo checkVersionUpdateOnCompletionBlock:^( NSString *downUrl,NSString *errorMessage) {
+        BOOL isNeddUpdate=![NSString IsNullOrEmptyString:downUrl];
+        if (isNeddUpdate&&downUrl) {
+            weakSelf.downLoadStr=downUrl;
+            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:@"发现新版本,是否更新？" delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
+            alert.tag=kAlertCheckVersionUpdate;
+            [alert show];
+        }else{
+            if (show) {
+                NSString *message=errorMessage;
+                if (nil==errorMessage||(!errorMessage)) {
+                    errorMessage=@"当前已是最新版本！";
+                }
+                UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil];
+                [alert show];
+            }
+        }
+    }];
+}
 #pragma mark -AlertViewController
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag==kAlertCheckVersionUpdate) {

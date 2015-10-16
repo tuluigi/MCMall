@@ -31,9 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.isUserJoined) {
-        self.navigationController.title=@"我的活动";
+        self.navigationItem.title=@"我的活动";
     }else{
-        self.navigationController.title=@"活动";
+        self.navigationItem.title=@"活动";
     }
     
     WEAKSELF

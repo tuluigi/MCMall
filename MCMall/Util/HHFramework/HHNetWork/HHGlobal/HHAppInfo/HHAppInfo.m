@@ -38,14 +38,14 @@
     }
     return nil;
 }
-+(void)checkVersionUpdateOnCompletionBlock:(void(^)(BOOL isNeddUpdate, NSString *downUrl))completionBlock{
++(void)checkVersionUpdateOnCompletionBlock:(void(^)(NSString *downUrl,NSString *errorMessage))completionBlock{
     [[HHNetWorkEngine sharedHHNetWorkEngine] checkVersionUpdateWithVersion:[HHAppInfo appVersion] onCompletionHandler:^(HHResponseResult *responseResult) {
+        NSString *updateDownloadUrl=nil;
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            NSString *downloadUrl=(NSString *)responseResult.responseData;
-            BOOL needUpdate=[NSString IsNullOrEmptyString:downloadUrl];
-            if (completionBlock) {
-                completionBlock(!needUpdate,downloadUrl);
-            }
+            updateDownloadUrl=(NSString *)responseResult.responseData;
+        }
+        if (completionBlock) {
+            completionBlock(updateDownloadUrl,responseResult.responseMessage);
         }
     }];
 }
