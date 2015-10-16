@@ -73,6 +73,18 @@
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
+		2A386F791BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F7A1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F7B1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F7C1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F7D1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F7E1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
+		2A386F811BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F821BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F831BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F841BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F851BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F861BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
 		2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C651B32BC8E005F5D15 /* GoodsModel.m */; };
@@ -1385,6 +1397,9 @@
 		2A37B0F51B0CC62A00D0FE88 /* MCMallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCMallTests.m; sourceTree = "<group>"; };
 		2A37B1271B0CCB1800D0FE88 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		2A37B1281B0CCB1800D0FE88 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = McMallPoitRole.html; sourceTree = "<group>"; };
+		2A386F7F1BD0C01D00731AF5 /* PointRoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointRoleViewController.h; sourceTree = "<group>"; };
+		2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointRoleViewController.m; sourceTree = "<group>"; };
 		2A468C5E1B329CBF005F5D15 /* ApplyActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyActivityViewController.h; sourceTree = "<group>"; };
 		2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyActivityViewController.m; sourceTree = "<group>"; };
 		2A468C611B32AF4A005F5D15 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
@@ -2015,6 +2030,7 @@
 		2A37B0D91B0CC62A00D0FE88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A386F771BD0BF3600731AF5 /* Resource */,
 				2A7C4E0A1B14728500912D53 /* Images */,
 				2A37B0DB1B0CC62A00D0FE88 /* main.m */,
 				2A2553281B1355C00046C696 /* PrefixHeader.pch */,
@@ -2143,6 +2159,14 @@
 				2AE3C5271B9C87F600F1434F /* AddressModel.m */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		2A386F771BD0BF3600731AF5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		2A468C5D1B329CB0005F5D15 /* ApplyActivity */ = {
@@ -2319,6 +2343,8 @@
 				2A0946F21B763FA2000A205A /* BabeInfoViewController.m */,
 				2AA7F2DF1B7E1CB900BFC1A1 /* UserStateSelectController.h */,
 				2AA7F2E01B7E1CB900BFC1A1 /* UserStateSelectController.m */,
+				2A386F7F1BD0C01D00731AF5 /* PointRoleViewController.h */,
+				2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -3293,6 +3319,7 @@
 				2A83593C1B8030B900832964 /* UMShareEditViewController.xib in Resources */,
 				2AD38AB91B801E6700BEA56E /* btn_share_qq@2x.png in Resources */,
 				2A83593A1B8030B900832964 /* UMSCommentInputController.xib in Resources */,
+				2A386F791BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */,
 				2A87EE261B4114770051D668 /* jquery-1.9.1.min.js in Resources */,
 				2A83593E1B8030B900832964 /* UMSLoginViewController.xib in Resources */,
@@ -3379,6 +3406,7 @@
 				2ADFB7291BBDA482000BF698 /* item_consume@2x.png in Resources */,
 				2ADFB72A1BBDA482000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB72B1BBDA482000BF698 /* btn_share_qq@2x.png in Resources */,
+				2A386F7A1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2ADFB72C1BBDA482000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFB72D1BBDA482000BF698 /* Main.storyboard in Resources */,
 				2ADFB72E1BBDA482000BF698 /* jquery-1.9.1.min.js in Resources */,
@@ -3465,6 +3493,7 @@
 				2ADFB8261BBDA868000BF698 /* btn_search@2x.png in Resources */,
 				2AE280B31BC509F300752CD8 /* AiYingBao.xcassets in Resources */,
 				2ADFB8271BBDA868000BF698 /* item_consume@2x.png in Resources */,
+				2A386F7B1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2ADFB8281BBDA868000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB8291BBDA868000BF698 /* btn_share_qq@2x.png in Resources */,
 				2ADFB82A1BBDA868000BF698 /* UMSCommentInputController.xib in Resources */,
@@ -3551,6 +3580,7 @@
 				2ADFB9121BBDA877000BF698 /* item_consume@2x.png in Resources */,
 				2ADFB9131BBDA877000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB9141BBDA877000BF698 /* btn_share_qq@2x.png in Resources */,
+				2A386F7C1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2ADFB9151BBDA877000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFB9161BBDA877000BF698 /* Main.storyboard in Resources */,
 				2ADFB9171BBDA877000BF698 /* jquery-1.9.1.min.js in Resources */,
@@ -3637,6 +3667,7 @@
 				2ADFB9FD1BBDA88F000BF698 /* item_consume@2x.png in Resources */,
 				2ADFB9FE1BBDA88F000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFB9FF1BBDA88F000BF698 /* btn_share_qq@2x.png in Resources */,
+				2A386F7D1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2ADFBA001BBDA88F000BF698 /* UMSCommentInputController.xib in Resources */,
 				2ADFBA011BBDA88F000BF698 /* Main.storyboard in Resources */,
 				2ADFBA021BBDA88F000BF698 /* jquery-1.9.1.min.js in Resources */,
@@ -3723,6 +3754,7 @@
 				2ADFBAE61BBDA89B000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFBAE71BBDA89B000BF698 /* btn_search@2x.png in Resources */,
 				2ADFBAE81BBDA89B000BF698 /* item_consume@2x.png in Resources */,
+				2A386F7E1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */,
 				2ADFBAE91BBDA89B000BF698 /* UMShareEditViewController.xib in Resources */,
 				2ADFBAEA1BBDA89B000BF698 /* btn_share_qq@2x.png in Resources */,
 				2ADFBAEB1BBDA89B000BF698 /* UMSCommentInputController.xib in Resources */,
@@ -4064,6 +4096,7 @@
 				2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */,
 				2A95FA9A1B9B14D900962F79 /* SignUpViewController.m in Sources */,
 				2A163DA81BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F811BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2AFFF6881B6492AC00712317 /* SubjectModel.m in Sources */,
 				2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */,
 				2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */,
@@ -4196,6 +4229,7 @@
 				2ADFB6E21BBDA482000BF698 /* GoodsModel.m in Sources */,
 				2ADFB6E31BBDA482000BF698 /* SignUpViewController.m in Sources */,
 				2A163DA91BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F821BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2ADFB6E41BBDA482000BF698 /* SubjectModel.m in Sources */,
 				2ADFB6E51BBDA482000BF698 /* UserModel.m in Sources */,
 				2ADFB6E61BBDA482000BF698 /* main.m in Sources */,
@@ -4328,6 +4362,7 @@
 				2ADFB7DE1BBDA868000BF698 /* GoodsModel.m in Sources */,
 				2ADFB7DF1BBDA868000BF698 /* SignUpViewController.m in Sources */,
 				2A163DAA1BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F831BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2ADFB7E01BBDA868000BF698 /* SubjectModel.m in Sources */,
 				2ADFB7E11BBDA868000BF698 /* UserModel.m in Sources */,
 				2ADFB7E21BBDA868000BF698 /* main.m in Sources */,
@@ -4460,6 +4495,7 @@
 				2ADFB8C91BBDA877000BF698 /* GoodsModel.m in Sources */,
 				2ADFB8CA1BBDA877000BF698 /* SignUpViewController.m in Sources */,
 				2A163DAB1BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F841BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2ADFB8CB1BBDA877000BF698 /* SubjectModel.m in Sources */,
 				2ADFB8CC1BBDA877000BF698 /* UserModel.m in Sources */,
 				2ADFB8CD1BBDA877000BF698 /* main.m in Sources */,
@@ -4592,6 +4628,7 @@
 				2ADFB9B41BBDA88F000BF698 /* GoodsModel.m in Sources */,
 				2ADFB9B51BBDA88F000BF698 /* SignUpViewController.m in Sources */,
 				2A163DAC1BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F851BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2ADFB9B61BBDA88F000BF698 /* SubjectModel.m in Sources */,
 				2ADFB9B71BBDA88F000BF698 /* UserModel.m in Sources */,
 				2ADFB9B81BBDA88F000BF698 /* main.m in Sources */,
@@ -4724,6 +4761,7 @@
 				2ADFBA9F1BBDA89B000BF698 /* GoodsModel.m in Sources */,
 				2ADFBAA01BBDA89B000BF698 /* SignUpViewController.m in Sources */,
 				2A163DAD1BCF49B3006ABBCB /* HHTextField.m in Sources */,
+				2A386F861BD0C01D00731AF5 /* PointRoleViewController.m in Sources */,
 				2ADFBAA11BBDA89B000BF698 /* SubjectModel.m in Sources */,
 				2ADFBAA21BBDA89B000BF698 /* UserModel.m in Sources */,
 				2ADFBAA31BBDA89B000BF698 /* main.m in Sources */,
@@ -5132,8 +5170,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = YingZiGuLaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5154,7 +5192,7 @@
 					"$(PROJECT_DIR)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d8f9c03-ee8a-43ac-b186-737b12d0d84e";
+				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
 			};
 			name = Debug;
 		};

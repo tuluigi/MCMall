@@ -155,19 +155,21 @@
     [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
 }
 -(void)reloadPhotoList:(UIButton *)button{
-    NSSortDescriptor *hotSort;
-     button.selected=YES;
-    if (button==self.hotButton) {
-        self.latestButton.selected=!button.selected;
-        hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_favorCount" ascending:NO];
-    }else{
-        self.hotButton.selected=!button.selected;
-        hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_addTime" ascending:NO];
+    if (_actType==ActivityTypePicture) {
+        NSSortDescriptor *hotSort;
+        button.selected=YES;
+        if (button==self.hotButton) {
+            self.latestButton.selected=!button.selected;
+            hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_favorCount" ascending:NO];
+        }else{
+            self.hotButton.selected=!button.selected;
+            hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_addTime" ascending:NO];
+        }
+        NSArray *sortArray=@[hotSort];
+        PhotoAcitvityModel *photoActivity=(PhotoAcitvityModel *)self.activityModel;
+        [photoActivity.photoListArray sortUsingDescriptors:sortArray];
+        [self.tableView reloadData];        
     }
-    NSArray *sortArray=@[hotSort];
-    PhotoAcitvityModel *photoActivity=(PhotoAcitvityModel *)self.activityModel;
-    [photoActivity.photoListArray sortUsingDescriptors:sortArray];
-    [self.tableView reloadData];
 }
 
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID sort:(NSString *)sort{
@@ -323,7 +325,8 @@
                     [_hotButton mas_makeConstraints:^(MASConstraintMaker *make) {
                         make.right.mas_equalTo(weakCell.contentView.mas_right).offset(-10);
                         make.centerY.mas_equalTo(weakCell.contentView);
-                        make.size.mas_equalTo(CGSizeMake(40, 30));
+                        make.width.mas_equalTo(40);
+                        make.height.mas_equalTo(weakCell.contentView);
                     }];
                     [_latestButton mas_makeConstraints:^(MASConstraintMaker *make) {
                         make.right.mas_equalTo(weakSelf.hotButton.mas_left).offset(-5);

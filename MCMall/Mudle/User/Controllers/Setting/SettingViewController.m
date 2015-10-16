@@ -41,7 +41,7 @@
             cell.textLabel.text=itemModel.itemName;
            NSUInteger cacheSize= [[SDImageCache sharedImageCache] getSize];
             NSString *cacheStr=@"";
-            if (cacheSize<5*1024*1024) {
+            if (cacheSize<50*1024*1024) {
                 if (cacheSize>1024*1024) {
                     cacheStr=[NSString stringWithFormat:@"%.1fM",cacheSize/(1024.0*1024.0)];
                 }else{
@@ -53,11 +53,17 @@
             cell.detailTextLabel.text=cacheStr;
         }
             break;
-        case HHSettingItemTypeReceiveAddress:
+        case HHSettingItemTypeReceiveAddress:{
+            cell.textLabel.text=itemModel.itemName;
+            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            
+            cell.detailTextLabel.text=@"";
+        }break;
         case HHSettingItemTypeVersionUpdate:{
              cell.textLabel.text=itemModel.itemName;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text=@"";
+           
+            cell.detailTextLabel.text=[NSString stringWithFormat:@"当前版本%@", [HHAppInfo appVersion]];
         }break;
         default:
             break;

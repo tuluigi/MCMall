@@ -19,6 +19,7 @@
 #import "SettingViewController.h"
 #import "OrderListViewController.h"
 #import "ActivityViewController.h"
+#import "PointRoleViewController.h"
 @interface HHUserInfoCell : UITableViewCell
 
 @end
@@ -100,11 +101,9 @@
     return _logoutFootView;
 }
 -(void)showSignUpRowAlertView{
-    NSString *rowStr=@"1.签到奖励积分,积分可在会员的'专享汇'按照 1:1 抵扣现金使用。\
-    \n2.每天签到奖励 1 元积分。\
-    \n3.每连续签到满 10 天加赠 5 元积分。\
-    \n4.活动最终解释权归我店所有。";
-    [[[UIAlertView alloc]  initWithTitle:@"签到规则" message:rowStr delegate:nil cancelButtonTitle:nil otherButtonTitles:@"知道啦", nil] show];
+   PointRoleViewController *pointController= [[PointRoleViewController alloc]  init];
+    pointController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:pointController animated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
