@@ -16,7 +16,7 @@
 @end
 
 @interface PhotoActListCell : UITableViewCell
-@property(nonatomic,assign)id<PhotoActListCellDelegate>delegate;
+@property(nonatomic,weak)id<PhotoActListCellDelegate>delegate;
 @property(nonatomic,strong)NSArray *photoArray;
 +(CGFloat)photoListCellHeight;
 @end

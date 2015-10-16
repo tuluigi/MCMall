@@ -135,6 +135,13 @@ return _activityDetail.length>0?_activityDetail:@"";
             NSString *photoUrl=[HHGlobalVarTool fullImagePath:[item objectForKey:@"photo"]];
             photoModel.photoUrl=photoUrl;
             photoModel.photoID=[item objectForKey:@"id"];
+            photoModel.userName=[item objectForKey:@"userName"];
+            photoModel.favorCount=[[item objectForKey:@"praise"] integerValue];
+            photoModel.commentCount=[[item objectForKey:@"commentCount"] integerValue];
+            NSString *timeStr=[item objectForKey:@"time"];
+            NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+            NSDate *date=[formatter dateFromString:timeStr];
+            photoModel.addTime=date;
             [array addObject:photoModel];
         }
         activityModel.photoListArray=array;

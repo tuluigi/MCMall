@@ -75,7 +75,9 @@ typedef NS_ENUM(NSInteger, ActivitySortType) {
 @property(nonatomic,copy)NSString *photoID;
 @property(nonatomic,copy)NSString *photoUrl;
 @property(nonatomic,assign)BOOL isFavor;
-@property(nonatomic,assign)NSInteger favorCount;
+@property(nonatomic,assign)NSInteger favorCount,commentCount;
+@property(nonatomic,strong)NSDate *addTime;
+@property(nonatomic,copy)NSString *userName;
 @property(nonatomic,strong)NSMutableArray *commentArray;
 @end
 

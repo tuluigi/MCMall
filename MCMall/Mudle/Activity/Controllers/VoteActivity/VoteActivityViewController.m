@@ -26,6 +26,8 @@
 @property(nonatomic,assign)ActivityType actType;
 @property(nonatomic,strong)HHImagePickerHelper *imagePickerHelper;
 @property(nonatomic,copy)NSString *applyRemarks;
+
+@property(nonatomic,strong) UIButton *hotButton,*latestButton;
 @end
 
 @implementation VoteActivityViewController
@@ -98,6 +100,7 @@
         self.timeLable.text=[@"截止日期:" stringByAppendingString:_activityModel.activityEndTime];
         [self.detailWebView loadHTMLString:[_activityModel activityDetailHtmlString] baseURL:nil];
     }
+    [self reloadPhotoList:self.hotButton];
     [self.tableView reloadData];
     
 }
@@ -151,12 +154,22 @@
     UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:self.activityModel.activityImageUrl];
     [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
 }
--(void)getHotActivity{
- [self getVoteAcitivityWithActivityID:self.activityID sort:@"0"];
+-(void)reloadPhotoList:(UIButton *)button{
+    NSSortDescriptor *hotSort;
+     button.selected=YES;
+    if (button==self.hotButton) {
+        self.latestButton.selected=!button.selected;
+        hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_favorCount" ascending:NO];
+    }else{
+        self.hotButton.selected=!button.selected;
+        hotSort=[NSSortDescriptor sortDescriptorWithKey:@"_addTime" ascending:NO];
+    }
+    NSArray *sortArray=@[hotSort];
+    PhotoAcitvityModel *photoActivity=(PhotoAcitvityModel *)self.activityModel;
+    [photoActivity.photoListArray sortUsingDescriptors:sortArray];
+    [self.tableView reloadData];
 }
--(void)getNewActivity{
-     [self getVoteAcitivityWithActivityID:self.activityID sort:@"1"];
-}
+
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID sort:(NSString *)sort{
     WEAKSELF
     [self.view showPageLoadingView];
@@ -295,29 +308,34 @@
                     cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
                     cell.selectionStyle=UITableViewCellSelectionStyleNone;
                     
-                    UIButton *hotButton=[UIButton buttonWithTitle:@"最热" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(getHotActivity )];
-                    [cell.contentView addSubview:hotButton];
+                    _hotButton=[UIButton buttonWithTitle:@"最热" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(reloadPhotoList: )];
+                    [_hotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    [_hotButton setTitleColor:MCMallThemeColor forState:UIControlStateSelected];
+                    [cell.contentView addSubview:_hotButton];
                     
-                    UIButton *newButton=[UIButton buttonWithTitle:@"最新" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(getNewActivity )];
-                    [cell.contentView addSubview:newButton];
+                    _latestButton=[UIButton buttonWithTitle:@"最新" titleColor:MCMallThemeColor font: [UIFont systemFontOfSize:14] target:self selector:@selector(reloadPhotoList: )];
+                    [_latestButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    [_latestButton setTitleColor:MCMallThemeColor forState:UIControlStateSelected];
+                    [cell.contentView addSubview:_latestButton];
                     
                     __weak UITableViewCell *weakCell=cell;
-                    [hotButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                    WEAKSELF
+                    [_hotButton mas_makeConstraints:^(MASConstraintMaker *make) {
                         make.right.mas_equalTo(weakCell.contentView.mas_right).offset(-10);
                         make.centerY.mas_equalTo(weakCell.contentView);
                         make.size.mas_equalTo(CGSizeMake(40, 30));
                     }];
-                    [newButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.right.mas_equalTo(hotButton.mas_left).offset(-5);
+                    [_latestButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.right.mas_equalTo(weakSelf.hotButton.mas_left).offset(-5);
                         make.centerY.mas_equalTo(weakCell.contentView);
-                        make.size.mas_equalTo(hotButton);
+                        make.size.mas_equalTo(weakSelf.hotButton);
                     }];
 
                 }
                 cell.textLabel.font=[UIFont systemFontOfSize:13];
                 cell.textLabel.textColor=[UIColor darkGrayColor];
                 cell.textLabel.text=[photoModel.activityEndTime stringByAppendingString:@"结束"];
-                
+                cell.backgroundColor=[UIColor red:240 green:240 blue:240 alpha:1];
                 
                 return cell;
             }else{
@@ -327,6 +345,7 @@
                 cell=[[PhotoActListCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifer];
                 cell.selectionStyle=UITableViewCellSelectionStyleNone;
                 cell.delegate=self;
+                cell.backgroundColor=[UIColor clearColor];
             }
              NSArray *photoArray;
            
