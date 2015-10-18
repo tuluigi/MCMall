@@ -113,23 +113,22 @@
  */
 -(HHNetWorkOperation *)uploadUserImageWithUserID:(NSString *)userID
                                        imagePath:(NSString *)imgPath
-                                  progressHandle:(void(^)(CGFloat progress))progressBlock
+                                  progressHandle:(void(^)(CGFloat progress))progresBlock
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadUserHeadImageAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:userID,@"userid",imgPath,@"img", nil];
-    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:imgPath parmarDic:postDic key:@"img" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:imgPath parmarDic:postDic key:@"img" uploadProgress:^(CGFloat progress) {
+        if (progresBlock) {
+            progresBlock(progress);
+        }
+    } onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"img"]];
             [[NSFileManager defaultManager] removeItemAtPath:[[SDImageCache sharedImageCache] defaultCachePathForKey:responseResult.responseData] error:nil];
             [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imgPath] forKey:responseResult.responseData];
         }
         completionBlcok(responseResult);
-    }];
-    [op setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        if (progressBlock) {
-            progressBlock(totalBytesWritten/totalBytesExpectedToWrite);
-        }
     }];
     return op;
 }

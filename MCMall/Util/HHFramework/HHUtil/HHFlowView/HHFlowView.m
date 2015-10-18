@@ -22,6 +22,8 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
     if (self) {
         self.backgroundColor=[UIColor clearColor];
         self.userInteractionEnabled=YES;
+       
+//        self.clipsToBounds=YES;
         UITapGestureRecognizer *imageViewTapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgViewTapGrTouch:)];
         imageViewTapGr.cancelsTouchesInView = NO;
         [self addGestureRecognizer:imageViewTapGr];
@@ -72,6 +74,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         self.showsVerticalScrollIndicator=NO;
         _imageView0=[[FlowImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         __weak FlowScrollView *weakSelf=self;
+        _imageView0.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
         _imageView0.flowImageViewDidSelectBlock=^(HHFlowModel *flowModel){
             NSInteger index=[weakSelf.dataArry indexOfObject:flowModel];
             weakSelf.flowScrollViewDidSelectedBlock(flowModel,index);
@@ -79,6 +82,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         [self addSubview:_imageView0];
         
         _imageView1=[[FlowImageView alloc] initWithFrame:CGRectMake(frame.size.width, 0, frame.size.width, frame.size.height)];
+         _imageView1.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
         _imageView1.flowImageViewDidSelectBlock=^(HHFlowModel *flowModel){
             NSInteger index=[weakSelf.dataArry indexOfObject:flowModel];
             weakSelf.flowScrollViewDidSelectedBlock(flowModel,index);
@@ -87,6 +91,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         [self addSubview:_imageView1];
         
         _imageView2=[[FlowImageView alloc] initWithFrame:CGRectMake(frame.size.width*2, 0, frame.size.width, frame.size.height)];
+         _imageView2.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
         _imageView2.flowImageViewDidSelectBlock=^(HHFlowModel *flowModel){
             NSInteger index=[weakSelf.dataArry indexOfObject:flowModel];
             weakSelf.flowScrollViewDidSelectedBlock(flowModel,index);
@@ -96,7 +101,18 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
     }
     return self;
 }
-
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    CGRect frame=self.frame;
+    _imageView0.frame=CGRectMake(0, 0, frame.size.width, frame.size.height);
+    _imageView1.frame=CGRectMake(frame.size.width, 0, frame.size.width, frame.size.height);
+    _imageView2.frame=CGRectMake(frame.size.width*2, 0, frame.size.width, frame.size.height);
+}
+-(void)setContentImageViewModel:(UIViewContentMode)contentModel{
+    _imageView0.contentMode=contentModel;
+     _imageView1.contentMode=contentModel;
+     _imageView2.contentMode=contentModel;
+}
 @end
 
 
@@ -105,8 +121,8 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
 #import "HHNetWorkEngine+AD.h"
 @interface HHFlowView ()<UIScrollViewDelegate>
 @property(nonatomic,strong)FlowScrollView *myScrollView;
-@property(nonatomic,strong)UIPageControl *myPageControl;
-@property(nonatomic,assign)NSUInteger firsttage,currenttage,lasttage;
+@property(nonatomic,strong,readwrite)UIPageControl *myPageControl;
+@property(nonatomic,assign,readwrite)NSUInteger firsttage,currenttage,lasttage;
 @property(nonatomic,assign)BOOL isReseting;
 
 
@@ -128,6 +144,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
     if (self) {
         _myScrollView=[[FlowScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _myScrollView.contentSize=CGSizeMake(frame.size.width*3, 0);
+         _myScrollView.autoresizingMask=UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
         _myScrollView.delegate=self;
         __weak HHFlowView *weakSelf=self;
         _myScrollView.flowScrollViewDidSelectedBlock=^(HHFlowModel *flowModel,NSInteger index){
@@ -148,13 +165,16 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         [self addSubview:_myPageControl];
         
         [_myScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
-        [self getFllowDateList];
+//        [self getFllowDateList];
     }
     return self;
 }
 -(instancetype)init{
     self=[self initWithFrame:CGRectZero];
     return self;
+}
+-(void)setContentImageViewModel:(UIViewContentMode)contentModel{
+    [self.myScrollView setContentImageViewModel:contentModel];
 }
 #pragma mark -getFllowDateList
 #define MCMallAdvertismentListKey   @"MCMallAdvertismentListKey"
@@ -178,13 +198,23 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
 //    }
 }
 
-
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    CGRect frame=self.frame;
+    _myScrollView.frame=CGRectMake(0, 0, frame.size.width, frame.size.height);
+    _myScrollView.contentSize=CGSizeMake(frame.size.width*3, 0);
+    _myPageControl.frame=CGRectMake(0, frame.size.height-20, frame.size.width, 20);
+}
 -(void)setDataArry:(NSMutableArray *)dataArry{
     _dataArry=dataArry;
     _myPageControl.numberOfPages=_dataArry.count;
     
     switch (_dataArry.count) {
         case 0:
+            _myScrollView.scrollEnabled=NO;
+            _myScrollView.imageView0.flowModel=nil;
+            _myScrollView.imageView1.flowModel=nil;
+            _myScrollView.imageView2.flowModel=nil;
             return;
             break;
         case 1:{
@@ -204,6 +234,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         }
             break;
     }
+    _myScrollView.scrollEnabled=YES;
     _myScrollView.imageView0.flowModel=[_dataArry objectAtIndex:_firsttage];
     _myScrollView.imageView1.flowModel=[_dataArry objectAtIndex:_currenttage];
     _myScrollView.imageView2.flowModel=[_dataArry objectAtIndex:_lasttage];
@@ -253,7 +284,11 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
     _myScrollView.imageView1.flowModel=[_dataArry objectAtIndex:_currenttage];
     _myScrollView.imageView2.flowModel=[_dataArry objectAtIndex:_lasttage];
     [_myScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.myScrollView.bounds), 0)];
+    if (_delegate&&[_delegate respondsToSelector:@selector(flowViewDidScrollToIndex:)]) {
+        [_delegate flowViewDidScrollToIndex:_currenttage];
+    }
 }
+
 #pragma mark - UIScrollViewDegegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {

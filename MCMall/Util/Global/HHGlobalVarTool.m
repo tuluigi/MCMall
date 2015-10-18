@@ -7,11 +7,10 @@
 //
 
 #import "HHGlobalVarTool.h"
-#import "MCMallAPI.h"
 @implementation HHGlobalVarTool
 +(NSString *)fullImagePath:(NSString *)imgPath{
     if (imgPath&&[imgPath isKindOfClass:[NSString class]]&&(![imgPath hasPrefix:NSHomeDirectory()])&&(![imgPath isInternetUrl])) {
-         return [NSString stringWithFormat:@"%@%@",[MCMallAPI  domainPath],imgPath];
+         return [NSString stringWithFormat:@"%@/muying/%@",[HHGlobalVarTool  domainPath],imgPath];
     }else{
         return imgPath;
     }
@@ -34,6 +33,9 @@
         mallType=MCMallClientTypeMiaoQiMuYing;
     }
     return mallType;
+}
++(NSString *)domainPath{
+    return @"http://120.25.152.224:8080";
 }
 +(NSString *)shopID{
     NSString *str=@"";
@@ -293,7 +295,7 @@
     return str;
 }
 +(NSString *)shareDownloadUrl{
-    NSString *str=[NSString stringWithFormat:@"http://120.25.152.224:8080/muying/h5_download.html?shopid=%@",[HHGlobalVarTool shopID]];
+    NSString *str=[NSString stringWithFormat:@"%@/muying/h5_download.html?shopid=%@",[HHGlobalVarTool domainPath],[HHGlobalVarTool shopID]];
     return str;
 }
 +(NSString *)shareAppstoreUrl{
@@ -322,5 +324,19 @@
             break;
     }
     return str;
+}
++(NSString *)shareActivityUrlWithActivityID:(NSString *)activityID{
+    NSString *shopID=[HHGlobalVarTool shopID];
+    activityID=[NSString stringByReplaceNullString:activityID];
+    NSString *url=[NSString stringWithFormat:@"%@/muying/h5_active.html?activeid=%@&shopid=%@",[HHGlobalVarTool domainPath],activityID,shopID];
+    return url;
+}
++(NSString *)shareMotherDiaryUrlWithUserID:(NSString *)userID date:(NSDate *)date{
+    NSString *shopID=[HHGlobalVarTool shopID];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]  init];
+    formatter.dateFormat=@"yyyy-MM-dd";
+    NSString *dateStr=[formatter stringFromDate:date];
+    NSString *url=[NSString stringWithFormat:@"%@/muying/h5_photo.html?userid=%@&date=%@&shopid=%@",[HHGlobalVarTool domainPath],[HHUserManager userID],dateStr,shopID];
+    return url;
 }
 @end

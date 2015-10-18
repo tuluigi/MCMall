@@ -88,7 +88,7 @@
  */
 -(HHNetWorkOperation *)uploadUserImageWithUserID:(NSString *)userID
                                        imagePath:(NSString *)imgPath
-                                  progressHandle:(void(^)(CGFloat progress))progressBlock
+                                  progressHandle:(void(^)(CGFloat progress))progresBlock
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**

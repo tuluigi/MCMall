@@ -46,6 +46,7 @@
                                       diaryID:(NSString *)diaryID
                                     photoPath:(NSString *)photoPath
                                       content:(NSString *)content
+                               uploadProgress:(void(^)(CGFloat progress))progresBlock
                           onCompletionHandler:(HHResponseResultSucceedBlock)completion;
 /**
  *  获取日记详情
@@ -54,7 +55,7 @@
  *  @param date
  *  @param completion
  *
- *  @return <#return value description#>
+ *  @return
  */
 -(HHNetWorkOperation *)getDiaryDetailUserID:(NSString *)userID
                                        date:(NSString *)date

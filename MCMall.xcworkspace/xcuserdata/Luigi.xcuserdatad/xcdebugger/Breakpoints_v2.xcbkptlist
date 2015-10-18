@@ -79,22 +79,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/Base/Controller/BaseViewController.m"
-            timestampString = "466405323.80259"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "-touchesBegan:withEvent:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
             timestampString = "466607474.495556"
             startingColumnNumber = "9223372036854775807"
@@ -109,30 +93,30 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[AddShopCartViewController didBookButtonPressed]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466671983.567587"
+                  timestampString = "466868932.256042"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
                   endingLineNumber = "116"
-                  offsetFromSymbolStart = "616">
+                  offsetFromSymbolStart = "756">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__49-[AddShopCartViewController didBookButtonPressed]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466671983.567778"
+                  timestampString = "466868932.256317"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
                   endingLineNumber = "116"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -157,30 +141,30 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466671983.568959"
+                  timestampString = "466868932.257598"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "636">
+                  offsetFromSymbolStart = "768">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__111+[GoodsNetService addOrderWithUserID:goodsID:addressID:buyNum:totalPrice:points:payMethod:onCompletionHandler:]_block_invoke"
-                  moduleName = "YingZiGu"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466671983.569161"
+                  timestampString = "466868932.257858"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "112">
+                  offsetFromSymbolStart = "95">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -192,44 +176,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Goods/Controller/GoodsListViewController.m"
-            timestampString = "466502023.562735"
+            timestampString = "466842838.894921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Util/HHFramework/HHUtil/ImagePicker/HHImagePickerHelper.m"
-            timestampString = "466519322.534087"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
-            timestampString = "466522292.182245"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "-checkVersionUpdateWithVersion:onCompletionHandler:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -271,44 +223,60 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
-            timestampString = "466667452.164765"
+            filePath = "MCMall/Mudle/User/Controllers/Setting/SettingViewController.m"
+            timestampString = "466671983.338813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-checkVersionUpdateWithVersion:onCompletionHandler:"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
+            timestampString = "466851927.290709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "+editBabayPhotoWithUserID:noteID:lineID:content:onCompletionHandler:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HHNetWorkEngine(UserCenter) checkVersionUpdateWithVersion:onCompletionHandler:]"
-                  moduleName = "YingZiGu"
+                  symbolName = "__90+[MotherAidNetService editBabayPhotoWithUserID:noteID:lineID:content:onCompletionHandler:]_block_invoke"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
-                  timestampString = "466671983.575635"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
+                  timestampString = "466868932.263195"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "280">
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "103">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__81-[HHNetWorkEngine(UserCenter) checkVersionUpdateWithVersion:onCompletionHandler:]_block_invoke"
-                  moduleName = "YingZiGu"
+                  symbolName = "__90+[MotherAidNetService editBabayPhotoWithUserID:noteID:lineID:content:onCompletionHandler:]_block_invoke_2"
+                  moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/User/Model/NetEngine/HHNetWorkEngine+UserCenter.m"
-                  timestampString = "466671983.575828"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
+                  timestampString = "466868932.263435"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "200"
-                  endingLineNumber = "200"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -319,13 +287,125 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/Setting/SettingViewController.m"
-            timestampString = "466671983.338813"
+            filePath = "MCMall/Util/HHFramework/HHUtil/HHFlowView/HHFlowView.m"
+            timestampString = "466861591.093616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "myPageControl"
+            landmarkType = "19">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/HHFramework/HHUtil/HHFlowView/HHFlowView.m"
+            timestampString = "466861591.093616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-setDataArry:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
+            timestampString = "466856723.510359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkName = "-didRighBarButtonPressed"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AddBabPhotoMemoController didRighBarButtonPressed]"
+                  moduleName = "AiYingBao"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
+                  timestampString = "466868932.265362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "451">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[AddBabPhotoMemoController didRighBarButtonPressed]_block_invoke"
+                  moduleName = "AiYingBao"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
+                  timestampString = "466868932.265558"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Controller/MotherDiaryViewController.m"
+            timestampString = "466868643.308773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-showRoleAlertView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Util/3Class/HHShareTool/HHShaeTool.m"
+            timestampString = "466862424.895936"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "+shareOnController:withTitle:text:image:url:shareType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/MotherAid/Controller/Baby/BabyPhotosViewController.m"
+            timestampString = "466868698.251727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-didDeletePhotoButtonPressed"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

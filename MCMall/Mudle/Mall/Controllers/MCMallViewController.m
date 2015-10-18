@@ -16,10 +16,12 @@
 #import "HomeMenuContentView.h"
 #import "MotherDiaryViewController.h"
 #import "GoodsDetailViewController.h"
-#define McMallCellIdenfier  @"McMallCellIdenfier"
+#import "HHNetWorkEngine+AD.h"
 
+#define McMallCellIdenfier  @"McMallCellIdenfier"
+#define MCMallAdvertismentListKey   @"MCMallAdvertismentListKey"
 @interface MCMallViewController ()<UIActionSheetDelegate>
-@property(nonatomic,strong)NSMutableArray *catArray;
+@property(nonatomic,strong)__block NSMutableArray *catArray,*adArray;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)HHFlowView *flowView;
 @end
@@ -47,6 +49,7 @@
     [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];
     self.tableView.tableHeaderView=self.flowView;
     [self getCategoryList];
+    [self getFllowDateList];
     WEAKSELF
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf getCategoryList];
@@ -59,6 +62,27 @@
     }];
 }
 
+-(void)getFllowDateList{
+    WEAKSELF
+    NSData *adListDate=[[NSUserDefaults standardUserDefaults]  objectForKey:MCMallAdvertismentListKey];
+    self.adArray=[NSKeyedUnarchiver unarchiveObjectWithData:adListDate];
+    [[HHNetWorkEngine sharedHHNetWorkEngine] getAdvertisementListOnCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            weakSelf.adArray=responseResult.responseData;
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSData *adData=[NSKeyedArchiver archivedDataWithRootObject:weakSelf.adArray];
+                [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallAdvertismentListKey];
+            });
+            
+        }
+    }];
+}
+-(void)setAdArray:(NSMutableArray *)adArray{
+    if (adArray) {
+        _adArray=adArray;
+        self.flowView.dataArry=_adArray;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

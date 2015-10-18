@@ -62,6 +62,7 @@
 +(HHNetWorkOperation *)uploadBabayPhotoWithUserID:(NSString *)userID
                                            noteID:(NSString *)noteID
                                          phtoPath:(NSString *)photoPath
+                                   uploadProgress:(void(^)(CGFloat progress))progresBlock
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
     NSString *apiPath=[MCMallAPI uploadBabyPhotoAPI];
     NSDictionary *postDic;
@@ -72,7 +73,11 @@
         postDic=@{@"userid":userID,@"photo":photoPath,};
     }
     
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo" uploadProgress:^(CGFloat progress) {
+        if (progresBlock) {
+            progresBlock(progress);
+        }
+    } onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             NSString *photoID=[responseResult.responseData objectForKey:@"memoId"];
             responseResult.responseData=photoID;
@@ -103,7 +108,7 @@
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:nil error:error onCompletionBlock:^(HHResponseResult *responseResult) {
             if (completionBlcok) {
-                completionBlcok(responseData);
+                completionBlcok(responseResult);
             }
         }];
     }];
@@ -127,13 +132,13 @@
                                        lineID:(NSString *)lineID
                                         content:(NSString *)content
                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
-    NSString *apiPath=[MCMallAPI deleteBabyPhotoDiaryAPI];
+    NSString *apiPath=[MCMallAPI editBabyPhotoAPI];
     content=[NSString stringByReplaceNullString:content];
     NSDictionary *postDic=@{@"userid":userID,@"memoid":noteID,@"lineno":lineID,@"text":content};
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:nil error:error onCompletionBlock:^(HHResponseResult *responseResult) {
             if (completionBlcok) {
-                completionBlcok(responseData);
+                completionBlcok(responseResult);
             }
         }];
     }];

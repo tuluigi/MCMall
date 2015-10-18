@@ -35,6 +35,7 @@
 +(HHNetWorkOperation *)uploadBabayPhotoWithUserID:(NSString *)userID
                                            noteID:(NSString *)noteID
                                          phtoPath:(NSString *)photoPath
+                                   uploadProgress:(void(^)(CGFloat progress))progresBlock
                               onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 /**

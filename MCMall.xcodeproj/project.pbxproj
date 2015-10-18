@@ -22,6 +22,18 @@
 		2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06457A1B7DD97000C27AD5 /* NoteModel.m */; };
 		2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */; };
 		2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */; };
+		2A0741F51BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741F61BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741F71BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741F81BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741F91BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741FA1BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
+		2A0741FC1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0741FD1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0741FE1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0741FF1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0742001BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0742011BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
@@ -51,24 +63,6 @@
 		2A33DEA91BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
 		2A33DEAA1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
 		2A33DEAB1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC21BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC31BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC41BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC51BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC61BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC71BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC81BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEC91BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DECA1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DECB1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DECC1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DECD1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DECE1BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		2A33DECF1BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		2A33DED01BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		2A33DED11BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		2A33DED21BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
-		2A33DED31BCFD888004B5DAF /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */; settings = {ASSET_TAGS = (); }; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -98,7 +92,6 @@
 		2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7001B1099E300607723 /* MCMallViewController.m */; };
 		2A50F7051B109A0C00607723 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A50F7041B109A0C00607723 /* UserCenterViewController.m */; };
 		2A6779DE1B4397FB00144ED2 /* PhotoActListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */; };
-		2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9F71B2721EA00B7920F /* ActivityListCell.m */; };
 		2A73C9FD1B272D1700B7920F /* VoteActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A73C9FC1B272D1700B7920F /* VoteActivityViewController.m */; };
 		2A7959F51B3A4F5C00F7F2EF /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7959F41B3A4F5C00F7F2EF /* libBPush.a */; };
@@ -270,7 +263,6 @@
 		2ADFB6AA1BBDA482000BF698 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADFB6AB1BBDA482000BF698 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A27D1B9AD658003F6AB8 /* UIImageEffects.m */; };
 		2ADFB6AC1BBDA482000BF698 /* OCPageLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2881B9AD6C9003F6AB8 /* OCPageLoadView.m */; };
-		2ADFB6AD1BBDA482000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2ADFB6AE1BBDA482000BF698 /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2ADFB6AF1BBDA482000BF698 /* MotherDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */; };
 		2ADFB6B01BBDA482000BF698 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
@@ -481,7 +473,6 @@
 		2ADFB7A61BBDA868000BF698 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADFB7A71BBDA868000BF698 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A27D1B9AD658003F6AB8 /* UIImageEffects.m */; };
 		2ADFB7A81BBDA868000BF698 /* OCPageLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2881B9AD6C9003F6AB8 /* OCPageLoadView.m */; };
-		2ADFB7A91BBDA868000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2ADFB7AA1BBDA868000BF698 /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2ADFB7AB1BBDA868000BF698 /* MotherDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */; };
 		2ADFB7AC1BBDA868000BF698 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
@@ -690,7 +681,6 @@
 		2ADFB8911BBDA877000BF698 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADFB8921BBDA877000BF698 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A27D1B9AD658003F6AB8 /* UIImageEffects.m */; };
 		2ADFB8931BBDA877000BF698 /* OCPageLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2881B9AD6C9003F6AB8 /* OCPageLoadView.m */; };
-		2ADFB8941BBDA877000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2ADFB8951BBDA877000BF698 /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2ADFB8961BBDA877000BF698 /* MotherDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */; };
 		2ADFB8971BBDA877000BF698 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
@@ -899,7 +889,6 @@
 		2ADFB97C1BBDA88F000BF698 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADFB97D1BBDA88F000BF698 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A27D1B9AD658003F6AB8 /* UIImageEffects.m */; };
 		2ADFB97E1BBDA88F000BF698 /* OCPageLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2881B9AD6C9003F6AB8 /* OCPageLoadView.m */; };
-		2ADFB97F1BBDA88F000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2ADFB9801BBDA88F000BF698 /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2ADFB9811BBDA88F000BF698 /* MotherDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */; };
 		2ADFB9821BBDA88F000BF698 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
@@ -1108,7 +1097,6 @@
 		2ADFBA671BBDA89B000BF698 /* BabyPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD94341BBCC36700B80497 /* BabyPhotosViewController.m */; };
 		2ADFBA681BBDA89B000BF698 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A27D1B9AD658003F6AB8 /* UIImageEffects.m */; };
 		2ADFBA691BBDA89B000BF698 /* OCPageLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A2881B9AD6C9003F6AB8 /* OCPageLoadView.m */; };
-		2ADFBA6A1BBDA89B000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */; };
 		2ADFBA6B1BBDA89B000BF698 /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2ADFBA6C1BBDA89B000BF698 /* MotherDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A95FA961B9B14D900962F79 /* MotherDiaryViewController.m */; };
 		2ADFBA6D1BBDA89B000BF698 /* GoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */; };
@@ -1358,6 +1346,9 @@
 		2A06457A1B7DD97000C27AD5 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteModel.m; sourceTree = "<group>"; };
 		2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@2x.png"; sourceTree = "<group>"; };
 		2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
+		2A0741F31BD3C09400D76CA8 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		2A0741F41BD3C09400D76CA8 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motherDiary.png; sourceTree = "<group>"; };
 		2A0930751B79926F00BF9368 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2A0930761B79926F00BF9368 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2A0946F11B763FA2000A205A /* BabeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabeInfoViewController.h; sourceTree = "<group>"; };
@@ -1375,20 +1366,6 @@
 		2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.2.5.a; sourceTree = "<group>"; };
-		2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSinaSSO.a; sourceTree = "<group>"; };
-		2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
-		2A33DEB61BCFD888004B5DAF /* UMSocialSinaSSOHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaSSOHandler.h; sourceTree = "<group>"; };
-		2A33DEB71BCFD888004B5DAF /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
-		2A33DEB81BCFD888004B5DAF /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
-		2A33DEB91BCFD888004B5DAF /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
-		2A33DEBA1BCFD888004B5DAF /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
-		2A33DEBB1BCFD888004B5DAF /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
-		2A33DEBC1BCFD888004B5DAF /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
-		2A33DEBD1BCFD888004B5DAF /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
-		2A33DEBE1BCFD888004B5DAF /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
-		2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
-		2A33DEC01BCFD888004B5DAF /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
-		2A33DEC11BCFD888004B5DAF /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* BaiJiaXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiJiaXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37B0DD1B0CC62A00D0FE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1426,8 +1403,6 @@
 		2A50F7041B109A0C00607723 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
 		2A6779DC1B4397FB00144ED2 /* PhotoActListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoActListCell.h; sourceTree = "<group>"; };
 		2A6779DD1B4397FB00144ED2 /* PhotoActListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoActListCell.m; sourceTree = "<group>"; };
-		2A6EC9CB1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HHNetWorkEngine+UploadFile.h"; sourceTree = "<group>"; };
-		2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HHNetWorkEngine+UploadFile.m"; sourceTree = "<group>"; };
 		2A6EC9CE1B21393E00DEAF04 /* HHImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHImagePickerHeader.h; sourceTree = "<group>"; };
 		2A73C9F61B2721EA00B7920F /* ActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListCell.h; sourceTree = "<group>"; };
 		2A73C9F71B2721EA00B7920F /* ActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListCell.m; sourceTree = "<group>"; };
@@ -1749,14 +1724,13 @@
 				2A33DEA61BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2A83594E1B8030C700832964 /* libSocialQQ.a in Frameworks */,
 				2AD38AC61B802E5500BEA56E /* SystemConfiguration.framework in Frameworks */,
+				2A0741F51BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2AD38AC41B802E4800BEA56E /* CoreTelephony.framework in Frameworks */,
 				2AD38AC31B802E4100BEA56E /* Security.framework in Frameworks */,
-				2A33DEC21BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2A8359521B8030C700832964 /* libWeChatSDK.a in Frameworks */,
 				2A7959F71B3A4FA300F7F2EF /* libz.dylib in Frameworks */,
 				2AD38A991B801D1300BEA56E /* libstdc++.dylib in Frameworks */,
 				2AD38A971B801D0700BEA56E /* libiconv.dylib in Frameworks */,
-				2A33DEC81BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2A83594F1B8030C700832964 /* TencentOpenAPI.framework in Frameworks */,
 				2A7959F51B3A4F5C00F7F2EF /* libBPush.a in Frameworks */,
 				2A8359511B8030C700832964 /* libSocialWechat.a in Frameworks */,
@@ -1771,14 +1745,13 @@
 				2A33DEA71BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2ADFB6FD1BBDA482000BF698 /* libSocialQQ.a in Frameworks */,
 				2ADFB6FE1BBDA482000BF698 /* SystemConfiguration.framework in Frameworks */,
+				2A0741F61BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2ADFB6FF1BBDA482000BF698 /* CoreTelephony.framework in Frameworks */,
 				2ADFB7001BBDA482000BF698 /* Security.framework in Frameworks */,
-				2A33DEC31BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2ADFB7011BBDA482000BF698 /* libWeChatSDK.a in Frameworks */,
 				2ADFB7031BBDA482000BF698 /* libz.dylib in Frameworks */,
 				2ADFB7041BBDA482000BF698 /* libstdc++.dylib in Frameworks */,
 				2ADFB7051BBDA482000BF698 /* libiconv.dylib in Frameworks */,
-				2A33DEC91BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2ADFB7061BBDA482000BF698 /* TencentOpenAPI.framework in Frameworks */,
 				2ADFB7071BBDA482000BF698 /* libBPush.a in Frameworks */,
 				2ADFB7081BBDA482000BF698 /* libSocialWechat.a in Frameworks */,
@@ -1793,14 +1766,13 @@
 				2A33DEA81BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2ADFB7F91BBDA868000BF698 /* libSocialQQ.a in Frameworks */,
 				2ADFB7FA1BBDA868000BF698 /* SystemConfiguration.framework in Frameworks */,
+				2A0741F71BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2ADFB7FB1BBDA868000BF698 /* CoreTelephony.framework in Frameworks */,
 				2ADFB7FC1BBDA868000BF698 /* Security.framework in Frameworks */,
-				2A33DEC41BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2ADFB7FD1BBDA868000BF698 /* libWeChatSDK.a in Frameworks */,
 				2ADFB7FF1BBDA868000BF698 /* libz.dylib in Frameworks */,
 				2ADFB8001BBDA868000BF698 /* libstdc++.dylib in Frameworks */,
 				2ADFB8011BBDA868000BF698 /* libiconv.dylib in Frameworks */,
-				2A33DECA1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2ADFB8021BBDA868000BF698 /* TencentOpenAPI.framework in Frameworks */,
 				2ADFB8031BBDA868000BF698 /* libBPush.a in Frameworks */,
 				2ADFB8041BBDA868000BF698 /* libSocialWechat.a in Frameworks */,
@@ -1815,14 +1787,13 @@
 				2A33DEA91BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2ADFB8E41BBDA877000BF698 /* libSocialQQ.a in Frameworks */,
 				2ADFB8E51BBDA877000BF698 /* SystemConfiguration.framework in Frameworks */,
+				2A0741F81BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2ADFB8E61BBDA877000BF698 /* CoreTelephony.framework in Frameworks */,
 				2ADFB8E71BBDA877000BF698 /* Security.framework in Frameworks */,
-				2A33DEC51BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2ADFB8E81BBDA877000BF698 /* libWeChatSDK.a in Frameworks */,
 				2ADFB8EA1BBDA877000BF698 /* libz.dylib in Frameworks */,
 				2ADFB8EB1BBDA877000BF698 /* libstdc++.dylib in Frameworks */,
 				2ADFB8EC1BBDA877000BF698 /* libiconv.dylib in Frameworks */,
-				2A33DECB1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2ADFB8ED1BBDA877000BF698 /* TencentOpenAPI.framework in Frameworks */,
 				2ADFB8EE1BBDA877000BF698 /* libBPush.a in Frameworks */,
 				2ADFB8EF1BBDA877000BF698 /* libSocialWechat.a in Frameworks */,
@@ -1837,14 +1808,13 @@
 				2A33DEAA1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2ADFB9CF1BBDA88F000BF698 /* libSocialQQ.a in Frameworks */,
 				2ADFB9D01BBDA88F000BF698 /* SystemConfiguration.framework in Frameworks */,
+				2A0741F91BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2ADFB9D11BBDA88F000BF698 /* CoreTelephony.framework in Frameworks */,
 				2ADFB9D21BBDA88F000BF698 /* Security.framework in Frameworks */,
-				2A33DEC61BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2ADFB9D31BBDA88F000BF698 /* libWeChatSDK.a in Frameworks */,
 				2ADFB9D51BBDA88F000BF698 /* libz.dylib in Frameworks */,
 				2ADFB9D61BBDA88F000BF698 /* libstdc++.dylib in Frameworks */,
 				2ADFB9D71BBDA88F000BF698 /* libiconv.dylib in Frameworks */,
-				2A33DECC1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2ADFB9D81BBDA88F000BF698 /* TencentOpenAPI.framework in Frameworks */,
 				2ADFB9D91BBDA88F000BF698 /* libBPush.a in Frameworks */,
 				2ADFB9DA1BBDA88F000BF698 /* libSocialWechat.a in Frameworks */,
@@ -1859,14 +1829,13 @@
 				2A33DEAB1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */,
 				2ADFBABA1BBDA89B000BF698 /* libSocialQQ.a in Frameworks */,
 				2ADFBABB1BBDA89B000BF698 /* SystemConfiguration.framework in Frameworks */,
+				2A0741FA1BD3C09400D76CA8 /* libSocialSina.a in Frameworks */,
 				2ADFBABC1BBDA89B000BF698 /* CoreTelephony.framework in Frameworks */,
 				2ADFBABD1BBDA89B000BF698 /* Security.framework in Frameworks */,
-				2A33DEC71BCFD888004B5DAF /* libSocialSinaSSO.a in Frameworks */,
 				2ADFBABE1BBDA89B000BF698 /* libWeChatSDK.a in Frameworks */,
 				2ADFBAC01BBDA89B000BF698 /* libz.dylib in Frameworks */,
 				2ADFBAC11BBDA89B000BF698 /* libstdc++.dylib in Frameworks */,
 				2ADFBAC21BBDA89B000BF698 /* libiconv.dylib in Frameworks */,
-				2A33DECD1BCFD888004B5DAF /* libWeiboSDK.a in Frameworks */,
 				2ADFBAC31BBDA89B000BF698 /* TencentOpenAPI.framework in Frameworks */,
 				2ADFBAC41BBDA89B000BF698 /* libBPush.a in Frameworks */,
 				2ADFBAC51BBDA89B000BF698 /* libSocialWechat.a in Frameworks */,
@@ -1950,6 +1919,15 @@
 			path = HomeIcon;
 			sourceTree = "<group>";
 		};
+		2A0741F21BD3C09400D76CA8 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				2A0741F31BD3C09400D76CA8 /* libSocialSina.a */,
+				2A0741F41BD3C09400D76CA8 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
 		2A0946F41B7762BF000A205A /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1966,27 +1944,6 @@
 				2A163DA71BCF49B3006ABBCB /* HHTextField.m */,
 			);
 			path = HHTextField;
-			sourceTree = "<group>";
-		};
-		2A33DEB31BCFD888004B5DAF /* SinaSSO */ = {
-			isa = PBXGroup;
-			children = (
-				2A33DEB41BCFD888004B5DAF /* libSocialSinaSSO.a */,
-				2A33DEB51BCFD888004B5DAF /* libWeiboSDK.a */,
-				2A33DEB61BCFD888004B5DAF /* UMSocialSinaSSOHandler.h */,
-				2A33DEB71BCFD888004B5DAF /* WBHttpRequest+WeiboGame.h */,
-				2A33DEB81BCFD888004B5DAF /* WBHttpRequest+WeiboShare.h */,
-				2A33DEB91BCFD888004B5DAF /* WBHttpRequest+WeiboToken.h */,
-				2A33DEBA1BCFD888004B5DAF /* WBHttpRequest+WeiboUser.h */,
-				2A33DEBB1BCFD888004B5DAF /* WBHttpRequest.h */,
-				2A33DEBC1BCFD888004B5DAF /* WBSDKBasicButton.h */,
-				2A33DEBD1BCFD888004B5DAF /* WBSDKCommentButton.h */,
-				2A33DEBE1BCFD888004B5DAF /* WBSDKRelationshipButton.h */,
-				2A33DEBF1BCFD888004B5DAF /* WeiboSDK.bundle */,
-				2A33DEC01BCFD888004B5DAF /* WeiboSDK.h */,
-				2A33DEC11BCFD888004B5DAF /* WeiboUser.h */,
-			);
-			path = SinaSSO;
 			sourceTree = "<group>";
 		};
 		2A37B0CD1B0CC62A00D0FE88 = {
@@ -2398,7 +2355,7 @@
 		2A8359421B8030C700832964 /* UMSocial_Sdk_Extra_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A33DEB31BCFD888004B5DAF /* SinaSSO */,
+				2A0741F21BD3C09400D76CA8 /* Sina */,
 				2A8359431B8030C700832964 /* TencentOpenAPI */,
 				2A8359481B8030C700832964 /* Wechat */,
 			);
@@ -2444,8 +2401,6 @@
 			children = (
 				2A8DFFE21B2062B70060CA76 /* HHImagePickerHelper.h */,
 				2A8DFFE31B2062B70060CA76 /* HHImagePickerHelper.m */,
-				2A6EC9CB1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.h */,
-				2A6EC9CC1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m */,
 				2A6EC9CE1B21393E00DEAF04 /* HHImagePickerHeader.h */,
 			);
 			path = ImagePicker;
@@ -2513,6 +2468,7 @@
 		2A95FAB51B9B219600962F79 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
+				2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */,
 				2A95FAB61B9B21B900962F79 /* cancel_icon@2x.png */,
 				2A95FAB71B9B21B900962F79 /* cancel_icon@3x.png */,
 				2A95FAB81B9B21B900962F79 /* ok_icon@2x.png */,
@@ -3331,6 +3287,7 @@
 				2A95FABB1B9B21B900962F79 /* cancel_icon@3x.png in Resources */,
 				2AD44C011B889424001B1CDC /* tabbar_me_HL@2x.png in Resources */,
 				2A0645751B7DCDA600C27AD5 /* icon_goods@2x.png in Resources */,
+				2A0741FC1BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2AC28B9D1B71060000F91760 /* item_tel@3x.png in Resources */,
 				2AC28B921B71060000F91760 /* item_activity@2x.png in Resources */,
 				2A95FABA1B9B21B900962F79 /* cancel_icon@2x.png in Resources */,
@@ -3353,7 +3310,6 @@
 				2AD44BFF1B889424001B1CDC /* tabbar_assistnt_HL@2x.png in Resources */,
 				2ADFB76C1BBDA7A3000BF698 /* BaiJiaXin.plist in Resources */,
 				2AE280A61BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
-				2A33DECE1BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2AE280B71BC50A2100752CD8 /* BaiJiaXin.xcassets in Resources */,
 				2A87EE271B4114770051D668 /* mobilearticletem.htm in Resources */,
 				2A0645761B7DCDA600C27AD5 /* icon_goods@3x.png in Resources */,
@@ -3418,6 +3374,7 @@
 				2ADFB7351BBDA482000BF698 /* item_activity@3x.png in Resources */,
 				2ADFB7361BBDA482000BF698 /* cancel_icon@3x.png in Resources */,
 				2ADFB7371BBDA482000BF698 /* tabbar_me_HL@2x.png in Resources */,
+				2A0741FD1BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2ADFB7381BBDA482000BF698 /* icon_goods@2x.png in Resources */,
 				2ADFB7391BBDA482000BF698 /* item_tel@3x.png in Resources */,
 				2AE280B51BC50A0D00752CD8 /* BaoBeiEJia.xcassets in Resources */,
@@ -3440,7 +3397,6 @@
 				2ADFB74A1BBDA482000BF698 /* UMSCommentDetailController.xib in Resources */,
 				2ADFB74B1BBDA482000BF698 /* icon_dirary@2x.png in Resources */,
 				2AE280A71BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
-				2A33DECF1BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2ADFB74C1BBDA482000BF698 /* tabbar_assistnt_HL@2x.png in Resources */,
 				2ADFB74D1BBDA482000BF698 /* mobilearticletem.htm in Resources */,
 				2ADFB74E1BBDA482000BF698 /* icon_goods@3x.png in Resources */,
@@ -3505,6 +3461,7 @@
 				2ADFB8311BBDA868000BF698 /* Localizable.strings in Resources */,
 				2ADFB8321BBDA868000BF698 /* item_shop@3x.png in Resources */,
 				2ADFB8331BBDA868000BF698 /* item_activity@3x.png in Resources */,
+				2A0741FE1BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2ADFB8341BBDA868000BF698 /* cancel_icon@3x.png in Resources */,
 				2ADFB8351BBDA868000BF698 /* tabbar_me_HL@2x.png in Resources */,
 				2ADFB8361BBDA868000BF698 /* icon_goods@2x.png in Resources */,
@@ -3527,7 +3484,6 @@
 				2ADFB8481BBDA868000BF698 /* UMSCommentDetailController.xib in Resources */,
 				2ADFB8491BBDA868000BF698 /* icon_dirary@2x.png in Resources */,
 				2ADFB84A1BBDA868000BF698 /* tabbar_assistnt_HL@2x.png in Resources */,
-				2A33DED01BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2AE280A81BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
 				2ADFB84C1BBDA868000BF698 /* mobilearticletem.htm in Resources */,
 				2ADFB84D1BBDA868000BF698 /* icon_goods@3x.png in Resources */,
@@ -3592,6 +3548,7 @@
 				2ADFB91E1BBDA877000BF698 /* item_activity@3x.png in Resources */,
 				2ADFB91F1BBDA877000BF698 /* cancel_icon@3x.png in Resources */,
 				2ADFB9201BBDA877000BF698 /* tabbar_me_HL@2x.png in Resources */,
+				2A0741FF1BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2ADFB9211BBDA877000BF698 /* icon_goods@2x.png in Resources */,
 				2ADFB9221BBDA877000BF698 /* item_tel@3x.png in Resources */,
 				2ADFB9231BBDA877000BF698 /* item_activity@2x.png in Resources */,
@@ -3614,7 +3571,6 @@
 				2ADFB9341BBDA877000BF698 /* icon_dirary@2x.png in Resources */,
 				2ADFB9351BBDA877000BF698 /* tabbar_assistnt_HL@2x.png in Resources */,
 				2ADFB9371BBDA877000BF698 /* mobilearticletem.htm in Resources */,
-				2A33DED11BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2AE280A91BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
 				2ADFB9381BBDA877000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFB93A1BBDA877000BF698 /* favorButton_HL@2x.png in Resources */,
@@ -3679,6 +3635,7 @@
 				2ADFBA091BBDA88F000BF698 /* item_activity@3x.png in Resources */,
 				2ADFBA0A1BBDA88F000BF698 /* cancel_icon@3x.png in Resources */,
 				2ADFBA0B1BBDA88F000BF698 /* tabbar_me_HL@2x.png in Resources */,
+				2A0742001BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2ADFBA0C1BBDA88F000BF698 /* icon_goods@2x.png in Resources */,
 				2ADFBA0D1BBDA88F000BF698 /* item_tel@3x.png in Resources */,
 				2AE280AA1BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
@@ -3701,7 +3658,6 @@
 				2ADFBA1D1BBDA88F000BF698 /* loading_Default@2x.png in Resources */,
 				2ADFBA1E1BBDA88F000BF698 /* UMSCommentDetailController.xib in Resources */,
 				2ADFBA1F1BBDA88F000BF698 /* icon_dirary@2x.png in Resources */,
-				2A33DED21BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2ADFBA201BBDA88F000BF698 /* tabbar_assistnt_HL@2x.png in Resources */,
 				2ADFBA221BBDA88F000BF698 /* mobilearticletem.htm in Resources */,
 				2ADFBA231BBDA88F000BF698 /* icon_goods@3x.png in Resources */,
@@ -3766,6 +3722,7 @@
 				2ADFBAF21BBDA89B000BF698 /* Localizable.strings in Resources */,
 				2ADFBAF31BBDA89B000BF698 /* item_shop@3x.png in Resources */,
 				2ADFBAF41BBDA89B000BF698 /* item_activity@3x.png in Resources */,
+				2A0742011BD3C74C00D76CA8 /* motherDiary.png in Resources */,
 				2ADFBAF51BBDA89B000BF698 /* cancel_icon@3x.png in Resources */,
 				2ADFBAF61BBDA89B000BF698 /* tabbar_me_HL@2x.png in Resources */,
 				2ADFBAF71BBDA89B000BF698 /* icon_goods@2x.png in Resources */,
@@ -3788,7 +3745,6 @@
 				2ADFBB091BBDA89B000BF698 /* UMSCommentDetailController.xib in Resources */,
 				2ADFBB0A1BBDA89B000BF698 /* icon_dirary@2x.png in Resources */,
 				2ADFBB0B1BBDA89B000BF698 /* tabbar_assistnt_HL@2x.png in Resources */,
-				2A33DED31BCFD888004B5DAF /* WeiboSDK.bundle in Resources */,
 				2AE280AB1BC4EE7700752CD8 /* tabbar_home_HL@3x.png in Resources */,
 				2ADFBB0D1BBDA89B000BF698 /* mobilearticletem.htm in Resources */,
 				2ADFBB0E1BBDA89B000BF698 /* icon_goods@3x.png in Resources */,
@@ -4041,7 +3997,6 @@
 				2ADD94351BBCC36700B80497 /* BabyPhotosViewController.m in Sources */,
 				2AF5A2801B9AD658003F6AB8 /* UIImageEffects.m in Sources */,
 				2AF5A28D1B9AD6C9003F6AB8 /* OCPageLoadView.m in Sources */,
-				2A6EC9CD1B2138E800DEAF04 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */,
 				2A95FA991B9B14D900962F79 /* MotherDiaryViewController.m in Sources */,
 				2AFAC64D1BA59FE200C2B131 /* GoodsListViewController.m in Sources */,
@@ -4174,7 +4129,6 @@
 				2ADFB6AA1BBDA482000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB6AB1BBDA482000BF698 /* UIImageEffects.m in Sources */,
 				2ADFB6AC1BBDA482000BF698 /* OCPageLoadView.m in Sources */,
-				2ADFB6AD1BBDA482000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2ADFB6AE1BBDA482000BF698 /* BabeInfoViewController.m in Sources */,
 				2ADFB6AF1BBDA482000BF698 /* MotherDiaryViewController.m in Sources */,
 				2ADFB6B01BBDA482000BF698 /* GoodsListViewController.m in Sources */,
@@ -4307,7 +4261,6 @@
 				2ADFB7A61BBDA868000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB7A71BBDA868000BF698 /* UIImageEffects.m in Sources */,
 				2ADFB7A81BBDA868000BF698 /* OCPageLoadView.m in Sources */,
-				2ADFB7A91BBDA868000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2ADFB7AA1BBDA868000BF698 /* BabeInfoViewController.m in Sources */,
 				2ADFB7AB1BBDA868000BF698 /* MotherDiaryViewController.m in Sources */,
 				2ADFB7AC1BBDA868000BF698 /* GoodsListViewController.m in Sources */,
@@ -4440,7 +4393,6 @@
 				2ADFB8911BBDA877000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB8921BBDA877000BF698 /* UIImageEffects.m in Sources */,
 				2ADFB8931BBDA877000BF698 /* OCPageLoadView.m in Sources */,
-				2ADFB8941BBDA877000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2ADFB8951BBDA877000BF698 /* BabeInfoViewController.m in Sources */,
 				2ADFB8961BBDA877000BF698 /* MotherDiaryViewController.m in Sources */,
 				2ADFB8971BBDA877000BF698 /* GoodsListViewController.m in Sources */,
@@ -4573,7 +4525,6 @@
 				2ADFB97C1BBDA88F000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB97D1BBDA88F000BF698 /* UIImageEffects.m in Sources */,
 				2ADFB97E1BBDA88F000BF698 /* OCPageLoadView.m in Sources */,
-				2ADFB97F1BBDA88F000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2ADFB9801BBDA88F000BF698 /* BabeInfoViewController.m in Sources */,
 				2ADFB9811BBDA88F000BF698 /* MotherDiaryViewController.m in Sources */,
 				2ADFB9821BBDA88F000BF698 /* GoodsListViewController.m in Sources */,
@@ -4706,7 +4657,6 @@
 				2ADFBA671BBDA89B000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFBA681BBDA89B000BF698 /* UIImageEffects.m in Sources */,
 				2ADFBA691BBDA89B000BF698 /* OCPageLoadView.m in Sources */,
-				2ADFBA6A1BBDA89B000BF698 /* HHNetWorkEngine+UploadFile.m in Sources */,
 				2ADFBA6B1BBDA89B000BF698 /* BabeInfoViewController.m in Sources */,
 				2ADFBA6C1BBDA89B000BF698 /* MotherDiaryViewController.m in Sources */,
 				2ADFBA6D1BBDA89B000BF698 /* GoodsListViewController.m in Sources */,

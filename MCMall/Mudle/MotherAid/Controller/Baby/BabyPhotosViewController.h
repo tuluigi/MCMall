@@ -8,8 +8,12 @@
 
 #import "BaseViewController.h"
 @class NoteModel;
+typedef void(^RemoveBabyPhotoBlock)(NSInteger index);
+
 @interface BabyPhotosViewController : BaseViewController
 @property(nonatomic,assign)BOOL enableUpload;
 -(instancetype)initWithNoteModle:(NoteModel *)noteModel;
+
+@property(nonatomic,copy)RemoveBabyPhotoBlock removeBabyPhotoBlock;
 @end
 

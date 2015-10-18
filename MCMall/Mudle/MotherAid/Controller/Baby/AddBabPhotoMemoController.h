@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface AddBabPhotoMemoController : BaseViewController
+typedef void(^BabyPhotoContentChangedBlock)(NSString *content ,NSString *photoID ,NSString *noteID);
 
+@interface AddBabPhotoMemoController : BaseViewController
+-(instancetype)initWithNoteID:(NSString *)noteID photoID:(NSString *)photoID content:(NSString *)content;
+@property(nonatomic,copy)BabyPhotoContentChangedBlock contentChangedBlock;
 @end

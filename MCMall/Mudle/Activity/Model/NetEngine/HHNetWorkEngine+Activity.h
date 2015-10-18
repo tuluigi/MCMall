@@ -124,6 +124,7 @@
 -(HHNetWorkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
                                               photo:(NSString *)photo
                                                userID:(NSString *)userID
+                                          uploadProgress:(void(^)(CGFloat progress))progresBlock
                                   onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
 @end

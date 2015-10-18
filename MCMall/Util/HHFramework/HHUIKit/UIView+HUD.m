@@ -53,6 +53,7 @@
 }
 -(void)showProgress:(CGFloat)progress{
     MBProgressHUD *hudView=[self hudView];
+    hudView.mode = MBProgressHUDModeDeterminate;
         hudView.progress=progress;
     hudView.square=YES;
 }

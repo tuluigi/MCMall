@@ -121,6 +121,7 @@ static HHNetWorkEngine *sharedNtWorkManager;
                                  filePath:(NSString *)hh_filePath
                                 parmarDic:(NSDictionary *)hh_postDic
                                       key:(NSString *)hh_key
+                         uploadProgress:(void(^)(CGFloat progress))uploadProgresBlock
                       onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion{
     if (nil==hh_path) {
         return nil;
@@ -142,6 +143,12 @@ static HHNetWorkEngine *sharedNtWorkManager;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         HHResponseResult *responseResult=[weakSelf handleRequestOperation:operation error:error];
         hh_completion(responseResult);
+    }];
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        if (uploadProgresBlock) {
+            CGFloat progressValue=totalBytesWritten/(CGFloat)totalBytesExpectedToWrite;
+            uploadProgresBlock(progressValue);
+        }
     }];
     return operation;
 }

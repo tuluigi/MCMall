@@ -17,7 +17,7 @@
  *  @return 
  */
 +(NSString *)shopID;
-
++(NSString *)domainPath;
 #pragma mark- token
 +(NSString *)deviceToken;
 +(void)setDeviceToken:(NSString *)deviceToken;
@@ -34,5 +34,8 @@
 +(NSString *)shareBDPushKey;
 +(NSString *)shareDownloadUrl;
 +(NSString *)shareAppstoreUrl;
+
++(NSString *)shareActivityUrlWithActivityID:(NSString *)activityID;
++(NSString *)shareMotherDiaryUrlWithUserID:(NSString *)userID date:(NSDate *)date;
 
 @end

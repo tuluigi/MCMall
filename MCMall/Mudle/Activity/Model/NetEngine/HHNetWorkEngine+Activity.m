@@ -179,13 +179,18 @@
 -(HHNetWorkOperation *)uploadActivityPhotoWithActivityID:(NSString*)activityID
                                                photo:(NSString *)photo
                                                   userID:(NSString *)userID
+                                          uploadProgress:(void(^)(CGFloat progress))progresBlock
                                      onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok{
 
 
     userID=[NSString stringByReplaceNullString:userID];
     NSString *apiPath=[MCMallAPI uploadActivityPhotoAPI];
     NSDictionary *postDic=[NSDictionary dictionaryWithObjectsAndKeys:activityID,@"activeid",userID,@"userid", nil];
-    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] uploadFileWithPath:apiPath filePath:photo parmarDic:postDic key:@"photo" uploadProgress:^(CGFloat progress) {
+        if (progresBlock) {
+            progresBlock(progress);
+        }
+    }  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             responseResult.responseData=[HHGlobalVarTool fullImagePath:[responseResult.responseData objectForKey:@"photo"]];
         }

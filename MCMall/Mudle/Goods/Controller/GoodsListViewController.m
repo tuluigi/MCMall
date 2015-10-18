@@ -10,7 +10,6 @@
 #import "HHNetWorkEngine+Goods.h"
 #import "GoodsModel.h"
 #import "GoodsDetailViewController.h"
-#import "HHFlowView.h"
 #import "HHClassMenuView.h"
 #import "GoodsCollectionViewCell.h"
 #define HHClassMenuViewHeight  40
@@ -20,7 +19,6 @@
  __block  NSUInteger _pageIndex;
 }
 @property(nonatomic,strong)NSMutableArray *catArray,*dataSourceArray;
-@property(nonatomic,strong)HHFlowView *flowView;
 @property(nonatomic,strong)HHClassMenuView *classMenuView;
 @property(nonatomic,strong)CategoryModel *selectedCatModel;
 @property(nonatomic,strong)UICollectionView *collectionView;
@@ -29,15 +27,7 @@
 @end
 
 @implementation GoodsListViewController
--(HHFlowView *)flowView{
-    if (nil==_flowView) {
-        _flowView=[[HHFlowView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
-        _flowView.flowViewDidSelectedBlock=^(HHFlowModel *flowMode, NSInteger index){
-            
-        };
-    }
-    return _flowView;
-}
+
 -(NSMutableArray *)dataSourceArray{
     if (nil==_dataSourceArray) {
         _dataSourceArray=[NSMutableArray new];

@@ -152,7 +152,7 @@
 
 -(void)didShareBarButtonPressed{
     UIImage *image=[[SDImageCache sharedImageCache]  imageFromDiskCacheForKey:self.activityModel.activityImageUrl];
-    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareDownloadUrl] shareType:0];
+    [HHShaeTool shareOnController:self withTitle:self.activityModel.activityName text:self.activityModel.activityDetail image:image url:[HHGlobalVarTool shareActivityUrlWithActivityID:self.activityID] shareType:0];
 }
 -(void)reloadPhotoList:(UIButton *)button{
     if (_actType==ActivityTypePicture) {
@@ -174,7 +174,9 @@
 
 -(void)getVoteAcitivityWithActivityID:(NSString *)activityID sort:(NSString *)sort{
     WEAKSELF
-    [self.view showPageLoadingView];
+    if (!self.activityModel) {
+        [self.view showPageLoadingView];
+    }
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  getActivityDetailWithActivityID:activityID activityType:self.actType userID:[HHUserManager userID] sortMethod:sort  onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissPageLoadView];
@@ -196,7 +198,9 @@
 -(void)uploadImageWithImagePath:(NSString *)imagePath{
     WEAKSELF
     [self.view showLoadingState];
-    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *operation=[[HHNetWorkEngine sharedHHNetWorkEngine] uploadActivityPhotoWithActivityID:self.activityID photo:imagePath userID:[HHUserManager userID] uploadProgress:^(CGFloat progress) {
+        [weakSelf.view showProgress:progress];
+    } onCompletionHandler:^(HHResponseResult *responseResult) {
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view showSuccessMessage:@"上传成功"];
             [weakSelf getVoteAcitivityWithActivityID:weakSelf.activityID sort:@"0"];
@@ -205,7 +209,6 @@
                 [[SDImageCache sharedImageCache] storeImage:[UIImage imageWithContentsOfFile:imagePath] forKey:responseResult.responseData];
                 
             }
-            [weakSelf.view dismissHUD];
         }else{
             [weakSelf.view showErrorMssage:@"上传失败"];
         }

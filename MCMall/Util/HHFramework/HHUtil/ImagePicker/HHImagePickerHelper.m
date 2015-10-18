@@ -139,7 +139,7 @@
     if (!orignalImage) {
         orignalImage=[info objectForKey:@"UIImagePickerControllerOriginalImage"];
     }
-    NSString *loaclPath=[NSFileManager saveImage:orignalImage presentation:0.5];
+    NSString *loaclPath=[NSFileManager saveImage:orignalImage presentation:0.6];
     self.enableEdit=NO;
     if (self.completionBlock) {
         self.completionBlock(loaclPath);

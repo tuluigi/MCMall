@@ -87,6 +87,7 @@
                                       diaryID:(NSString *)diaryID
                                     photoPath:(NSString *)photoPath
                                       content:(NSString *)content
+                                 uploadProgress:(void(^)(CGFloat progress))progresBlock
                           onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     NSString *apiPath=@"";
     NSDictionary *postDic;
@@ -97,7 +98,12 @@
         postDic=@{@"userid":userID,@"photo":photoPath,@"memodata":content};
     }
 
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo" onCompletionHandler:^(HHResponseResult *responseResult) {
+    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  uploadFileWithPath:apiPath filePath:photoPath parmarDic:postDic key:@"photo"
+    uploadProgress:^(CGFloat progress) {
+        if (progresBlock) {
+            progresBlock(progress);
+        }
+    }  onCompletionHandler:^(HHResponseResult *responseResult) {
         completion(responseResult);
     }];
     return op;

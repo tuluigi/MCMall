@@ -65,6 +65,7 @@ FOUNDATION_EXPORT NSString *const OCNetPOST;
                                  filePath:(NSString *)hh_filePath
                                parmarDic:(NSDictionary *)hh_postDic
                                      key:(NSString *)hh_key
+                         uploadProgress:(void(^)(CGFloat progress))uploadProgresBlock
                          onCompletionHandler:(HHResponseResultSucceedBlock)hh_completion;
 
 
