@@ -1,4 +1,3 @@
-
 platform :ios,'7.0'
 
 pod 'AFNetworking', '~> 2.5.4'
@@ -10,8 +9,7 @@ pod 'TPKeyboardAvoiding', '~> 1.2.6'
 pod 'QBImagePickerController' ,'~> 2.5.2'
 pod 'UITableView+FDTemplateLayoutCell', '~> 1.2'
 pod 'Mantle', '~> 2.0.2'
-#pod 'Toast', '~> 2.4'
 pod 'MWPhotoBrowser', '~> 1.4.1'
-pod 'TTTAttributedLabel'
-pod 'JTCalendar', '~> 2.1.4'
+pod 'JTCalendar'
 pod 'MBProgressHUD', '~> 0.9.1'
+pod 'Pgyer'

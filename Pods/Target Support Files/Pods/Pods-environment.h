@@ -114,6 +114,12 @@
 #define COCOAPODS_VERSION_MINOR_PSTCollectionView 2
 #define COCOAPODS_VERSION_PATCH_PSTCollectionView 3
 
+// Pgyer
+#define COCOAPODS_POD_AVAILABLE_Pgyer
+#define COCOAPODS_VERSION_MAJOR_Pgyer 2
+#define COCOAPODS_VERSION_MINOR_Pgyer 5
+#define COCOAPODS_VERSION_PATCH_Pgyer 0
+
 // QBImagePickerController
 #define COCOAPODS_POD_AVAILABLE_QBImagePickerController
 #define COCOAPODS_VERSION_MAJOR_QBImagePickerController 2
@@ -143,12 +149,6 @@
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
 #define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
 #define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 9
-
-// TTTAttributedLabel
-#define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel
-#define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
-#define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 13
-#define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 4
 
 // UITableView+FDTemplateLayoutCell
 #define COCOAPODS_POD_AVAILABLE_UITableView_FDTemplateLayoutCell

@@ -96,7 +96,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466868932.256042"
+                  timestampString = "466950373.122923"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -111,7 +111,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "466868932.256317"
+                  timestampString = "466950373.123124"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "116"
@@ -144,7 +144,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466868932.257598"
+                  timestampString = "466950373.124247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -159,7 +159,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "466868932.257858"
+                  timestampString = "466950373.124442"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -223,22 +223,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/Mudle/User/Controllers/Setting/SettingViewController.m"
-            timestampString = "466671983.338813"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
             timestampString = "466851927.290709"
             startingColumnNumber = "9223372036854775807"
@@ -256,7 +240,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
-                  timestampString = "466868932.263195"
+                  timestampString = "466950373.127078"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -271,7 +255,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
-                  timestampString = "466868932.263435"
+                  timestampString = "466950373.127297"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -336,7 +320,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
-                  timestampString = "466868932.265362"
+                  timestampString = "466950373.12919"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -351,7 +335,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
-                  timestampString = "466868932.265558"
+                  timestampString = "466950373.1294"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -406,6 +390,22 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "-didDeletePhotoButtonPressed"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/AppDelegate.m"
+            timestampString = "466951265.340782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "-handleCheckPgyVersionUpdate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

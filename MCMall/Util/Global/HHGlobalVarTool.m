@@ -15,7 +15,15 @@
         return imgPath;
     }
 }
-
++(BOOL)isEnterprise{
+     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSRange range=[identifier rangeOfString:@"com.MCMallE."];
+    if (range.length) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
 +(MCMallClientType)mcMallClientType{
     MCMallClientType mallType;
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
@@ -238,7 +246,34 @@
     }
     return str;
 }
++(NSString *)sharePgyAppID{
+    NSString *str=@"";
+    MCMallClientType type=[HHGlobalVarTool mcMallClientType];
+    switch (type) {
+        case MCMallClientTypeAiYingBao:{
+            str=@"6251c2b69644bb30c7af5af7f61e7740";
+        }break;
+        case MCMallClientTypeBaoBeiEJia:{
+            str=@"bfc84c0b6d45d82a3f05754fab15216c";
+        }break;
+        case MCMallClientTypeBaiJiaXin:{
+            str=@"b3f38200126234136831aa7cc2087ee7";
+        }break;
+        case MCMallClientTypeYingZiGu:{
+            str=@"ca5d34ef58077ee2f5db07c0e9333e34";
+        }break;
+        case MCMallClientTypeMiaoQiMuYing:{
+            str=@"3f905d43290dd6a12686d80aae004553";
+        }break;
+        case MCMallClientTypeHaiTunBeiBei:{
+            str=@"ad682d5f5b4dc1271609ebffc7e9d4b0";
+        }break;
+        default:
+            break;
+    }
+    return str;
 
+}
 +(NSString *)shareUMKey{
     NSString *str=@"";
       MCMallClientType type=[HHGlobalVarTool mcMallClientType];

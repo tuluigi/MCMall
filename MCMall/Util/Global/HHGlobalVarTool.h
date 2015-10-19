@@ -16,6 +16,7 @@
  *
  *  @return 
  */
++(BOOL)isEnterprise;
 +(NSString *)shopID;
 +(NSString *)domainPath;
 #pragma mark- token
@@ -29,6 +30,8 @@
 +(NSString *)shareWeXinSecret;
 +(NSString *)shareSinaWeiBoID;
 +(NSString *)shareSinaWeiBoKey;
+
++(NSString *)sharePgyAppID;
 
 +(NSString *)shareUMKey;
 +(NSString *)shareBDPushKey;

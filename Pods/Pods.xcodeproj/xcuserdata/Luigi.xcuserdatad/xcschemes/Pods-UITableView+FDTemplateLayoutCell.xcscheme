@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B1080B301B88792F201F31D"
+               BlueprintIdentifier = "BAC0BB98E3F4ECB346309E70"
                BuildableName = "libPods-UITableView+FDTemplateLayoutCell.a"
                BlueprintName = "Pods-UITableView+FDTemplateLayoutCell"
                ReferencedContainer = "container:Pods.xcodeproj">

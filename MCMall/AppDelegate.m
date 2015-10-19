@@ -13,6 +13,7 @@
 #import "HHShaeTool.h"
 #import "GoodsDetailViewController.h"
 #import "VoteActivityViewController.h"
+#import <PgySDK/PgyManager.h>
 static const NSInteger kAlertCheckVersionUpdate = 100;
 @interface AppDelegate ()<UIAlertViewDelegate>
 @property(nonatomic,copy)__block NSString *downLoadStr;
@@ -54,6 +55,8 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
    
     [HHShaeTool setSharePlatform];
     [self registerAPNSNotification];
+    [[PgyManager sharedPgyManager] setEnableFeedback:NO];
+    [[PgyManager sharedPgyManager] startManagerWithAppId:[HHGlobalVarTool sharePgyAppID]];
     [self checkVersionUpdateShowErrorMessage:NO];
     return YES;
 }
@@ -171,6 +174,13 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
 #pragma mark - 检测版本更新
 -(void)checkVersionUpdateShowErrorMessage:(BOOL)show{
     WEAKSELF
+    if ([HHGlobalVarTool isEnterprise]) {
+        if (show) {
+            [[PgyManager sharedPgyManager] checkUpdateWithDelegete:self selector:@selector(handleCheckPgyVersionUpdate:)];
+        }else{
+            [[PgyManager sharedPgyManager] checkUpdate];
+        }
+    }else{
     [HHAppInfo checkVersionUpdateOnCompletionBlock:^( NSString *downUrl,NSString *errorMessage) {
         BOOL isNeddUpdate=![NSString IsNullOrEmptyString:downUrl];
         if (isNeddUpdate&&downUrl) {
@@ -189,6 +199,16 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
             }
         }
     }];
+    }
+}
+-(void)handleCheckPgyVersionUpdate:(NSDictionary *)versionDic{
+    if (versionDic) {
+        self.downLoadStr=[versionDic objectForKey:@"downloadURL"];
+        NSString *content=[versionDic objectForKey:@"releaseNote"];
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:content delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
+        alert.tag=kAlertCheckVersionUpdate;
+        [alert show];
+    }
 }
 #pragma mark -AlertViewController
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
