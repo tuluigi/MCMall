@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "UserModel.h"
 #import "NSUserDefaults+AesEncrypt.h"
+#import "HHNetWorkEngine+UserCenter.h"
 NSString *const MCMall_UserID       =@"MCMall_UserID";
 NSString *const MCMall_UserName     =@"MCMall_UserName";
 NSString *const MCMall_UserHeadUrl  =@"MCMall_UserHeadUrl";
@@ -100,6 +101,23 @@ NSString *const MCMall_MotherSatte   =@"MCMall_MotherSatte";
         
         [rootViewController presentViewController:rootNavController animated:YES completion:^{
             
+        }];
+    }
+}
++(void)updateUserPointOnCompletionBlock:(void(^)(BOOL isUpdateSucceed, NSInteger userpoint))completionBlock{
+    if ([HHUserManager isLogin]) {
+        [[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                [HHUserManager setUserPoint:responseResult.responseData];
+                if (completionBlock) {
+                    completionBlock(YES,[responseResult.responseData integerValue]);
+                }
+            }else{
+                if (completionBlock) {
+                    UserModel *userModel=[HHUserManager userModel];
+                    completionBlock(NO,userModel.userPoint);
+                }
+            }
         }];
     }
 }

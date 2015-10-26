@@ -60,6 +60,7 @@
         make.height.mas_equalTo(50);
     }];
     [self getDefaultReceiveAddress];
+    [self getUserTotalPoints];
 }
 -(UIToolbar *)tooBar{
     if (nil==_tooBar) {
@@ -133,12 +134,11 @@
 }
 -(void)getUserTotalPoints{
     WEAKSELF
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            weakSelf.userTotalPoints=[responseResult.responseData integerValue];
+    [HHUserManager updateUserPointOnCompletionBlock:^(BOOL isUpdateSucceed, NSInteger userpoint) {
+        if (isUpdateSucceed) {
+            weakSelf.userTotalPoints=userpoint;
         }
     }];
-    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(void)getDefaultReceiveAddress{
     WEAKSELF

@@ -19,4 +19,6 @@
 +(BOOL)isLogin;
 
 +(void)shouldUserLoginOnCompletionBlock:(DidUserLoginCompletionBlock)loginBlock;
+
++(void)updateUserPointOnCompletionBlock:(void(^)(BOOL isUpdateSucceed, NSInteger userpoint))completionBlock;
 @end

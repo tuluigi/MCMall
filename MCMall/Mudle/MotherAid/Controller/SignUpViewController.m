@@ -138,9 +138,9 @@
 #pragma mark - 获取用户积分
 -(void)getUserPoint{
     WEAKSELF
-    [[HHNetWorkEngine sharedHHNetWorkEngine]  getUserPointWithUserID:[HHUserManager userID] onCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-        weakSelf.pointLable.text=[NSString stringWithFormat:@"我的总签到积分%@元",responseResult.responseData];
+    [HHUserManager updateUserPointOnCompletionBlock:^(BOOL isUpdateSucceed, NSInteger userpoint) {
+        if (isUpdateSucceed) {
+             weakSelf.pointLable.text=[NSString stringWithFormat:@"我的总签到积分%ld元",userpoint];
         }
     }];
 }
@@ -171,6 +171,7 @@
             for (SignInModel *signModel in weakSelf.dataSourceArray) {
                 if ([weakSelf.calendarManager.dateHelper date:signModel.signinDate isTheSameDayThan:[NSDate date]]) {
                     signModel.isSigned=YES;
+                    [weakSelf getUserPoint];
                     break;
                 }
             }
