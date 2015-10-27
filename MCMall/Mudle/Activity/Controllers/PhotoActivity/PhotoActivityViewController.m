@@ -73,6 +73,7 @@
                 }
                 weakHeadImageView.frame=CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), height);
             }
+             weakSelf.tableView.tableHeaderView=self.headImageView;
         }];
         [_headImageView addSubview:self.favorBgView];
     
