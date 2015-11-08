@@ -27,6 +27,10 @@
 @property(nonatomic,copy)NSString *goodsDetail;
 @property(nonatomic,copy)NSString *deliverNotice;//发货须知
 @property(nonatomic,copy)NSString *goodsRemark;//商家自荐
+
+//UI用
+@property(nonatomic,assign)__block CGSize goodsImageSize;
+
 @end
 
 @interface OrderModel : BaseModel

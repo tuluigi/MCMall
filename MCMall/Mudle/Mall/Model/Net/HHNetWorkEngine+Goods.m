@@ -31,6 +31,10 @@
     HHResponseResult *responseResult=*aResponseResult;
     if (responseResult.responseCode==HHResponseResultCodeSuccess) {
         NSMutableArray *responseArray=[NSMutableArray new];
+        CategoryModel *allCat=[[CategoryModel alloc]  init];
+        allCat.catID=@"";
+        allCat.catName=@"全部产品";
+        [responseArray addObject:allCat];
         NSArray *resultDataArray=responseResult.responseData;
         for (NSDictionary *dic in resultDataArray  ) {
             NSError *error;

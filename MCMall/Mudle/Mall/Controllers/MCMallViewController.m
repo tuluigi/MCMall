@@ -20,6 +20,7 @@
 
 #define McMallCellIdenfier  @"McMallCellIdenfier"
 #define MCMallAdvertismentListKey   @"MCMallAdvertismentListKey"
+#define MCMallHomeGoodsListKey   @"MCMallHomeGoodsListKey"
 @interface MCMallViewController ()<UIActionSheetDelegate>
 @property(nonatomic,strong)__block NSMutableArray *catArray,*adArray;
 @property(nonatomic,strong)NSTimer *timer;
@@ -51,6 +52,10 @@
     [self getCategoryList];
     [self getFllowDateList];
     WEAKSELF
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [weakSelf getGoodsListWithCatID:@"" userID:[HHUserManager userID]];
+    }];
+    
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf getCategoryList];
     }];
@@ -88,41 +93,50 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)getDataSourse{
-    if (self.catArray.count==0) {
-        [self getCategoryList];
-    }else{
-        if (self.dataSourceArray.count==0) {
-            CategoryModel *catModel=[self.catArray firstObject];
-            [self getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
-        }
+    if (self.dataSourceArray.count==0) {
+        [self getGoodsListWithCatID:@"" userID:[HHUserManager userID]];
     }
 }
 
 
 
 -(void)getCategoryList{
-    [self.view showPageLoadingView];
-    WEAKSELF
-    HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
-        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
-            if (weakSelf.catArray.count) {
-                CategoryModel *catModel=[weakSelf.catArray firstObject];
-                [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
-            }
-        }else{
-            [weakSelf.view makeToast:responseResult.responseMessage];
-        }
-    }];
-    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+    [self getGoodsListWithCatID:@"" userID:[HHUserManager userID]];
+    /*
+     [self.view showPageLoadingView];
+     WEAKSELF
+     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsCategoryOnCompletionHandler:^(HHResponseResult *responseResult) {
+     if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+     weakSelf.catArray=[NSMutableArray arrayWithArray:responseResult.responseData];
+     if (weakSelf.catArray.count) {
+     CategoryModel *catModel=[weakSelf.catArray firstObject];
+     [weakSelf getGoodsListWithCatID:catModel.catID userID:[HHUserManager userID]];
+     }
+     }else{
+     [weakSelf.view makeToast:responseResult.responseMessage];
+     }
+     }];
+     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+     */
 }
 -(void)getGoodsListWithCatID:(NSString *)catID userID:(NSString *)userID{
     WEAKSELF
+    if (self.pageIndex==1&&self.dataSourceArray.count==0) {
+        NSData *adListDate=[[NSUserDefaults standardUserDefaults]  objectForKey:MCMallHomeGoodsListKey];
+        NSArray *array=[NSKeyedUnarchiver unarchiveObjectWithData:adListDate];
+        self.dataSourceArray=[NSMutableArray arrayWithArray:array];
+        [self.tableView reloadData];
+    }
     HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine] getGoodsListWithCatID:catID userID:userID pageNum:_pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
         [weakSelf.view dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (_pageIndex==1) {
                 [self.dataSourceArray removeAllObjects];
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    NSData *adData=[NSKeyedArchiver archivedDataWithRootObject:responseResult.responseData];
+                    [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallHomeGoodsListKey];
+                });
+
             }
             [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
         }else{
@@ -181,9 +195,10 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     __block GoodsModel *goodsModel=[self.dataSourceArray objectAtIndex:indexPath.row];
-    CGFloat height=[tableView fd_heightForCellWithIdentifier:McMallCellIdenfier configuration:^(id cell) {
+    CGFloat height=[tableView fd_heightForCellWithIdentifier:McMallCellIdenfier cacheByIndexPath:indexPath  configuration:^(id cell) {
         ((MallListCell *)cell).goodsModel=goodsModel;
     }];
+    
     return height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -29,7 +29,7 @@
 -(void)onInitUI{
     WEAKSELF
     _goodsImageView=[UIImageView new];
-    _goodsImageView.contentMode=UIViewContentModeScaleAspectFill;
+    _goodsImageView.contentMode=UIViewContentModeScaleAspectFit;
     _goodsImageView.clipsToBounds=YES;
     [self.contentView addSubview:_goodsImageView];
     
@@ -79,7 +79,12 @@
     if (imageUrl==nil) {
         imageUrl=_goodsModel.goodsImageUrl;
     }
-    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg];
+    WEAKSELF
+    [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:MCMallDefaultImg options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (CGSizeEqualToSize(weakSelf.goodsModel.goodsImageSize, CGSizeZero)) {
+            weakSelf.goodsModel.goodsImageSize=image.size;
+        }
+    }];
     _goodsNameLable.text=goodsModel.goodsName;
     _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f元",goodsModel.sellPrice];
     _goodsTimeView.date=goodsModel.endTime;

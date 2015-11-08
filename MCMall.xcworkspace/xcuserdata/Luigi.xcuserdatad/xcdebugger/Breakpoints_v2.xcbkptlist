@@ -96,7 +96,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "468334507.478406"
+                  timestampString = "468658992.208143"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -111,7 +111,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Controller/ShopCart/AddShopCartViewController.m"
-                  timestampString = "468334507.478754"
+                  timestampString = "468658992.208562"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -144,7 +144,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "468334507.483164"
+                  timestampString = "468658992.210231"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -159,7 +159,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/Goods/Model/NetEngine/GoodsNetService.m"
-                  timestampString = "468334507.483631"
+                  timestampString = "468658992.210584"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -176,11 +176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCMall/Mudle/Goods/Controller/GoodsListViewController.m"
-            timestampString = "466842838.894921"
+            timestampString = "468658662.06595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -240,7 +240,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
-                  timestampString = "468334507.486887"
+                  timestampString = "468658992.214845"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -255,7 +255,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Model/Net/MotherAidNetService.m"
-                  timestampString = "468334507.48725"
+                  timestampString = "468658992.215185"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "139"
@@ -320,7 +320,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
-                  timestampString = "468334507.489856"
+                  timestampString = "468658992.217934"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -335,7 +335,7 @@
                   moduleName = "AiYingBao"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xuguojun432/Documents/LuigiDemo/%E6%AF%8D%E5%A9%B4new/MCMall/Mudle/MotherAid/Controller/Baby/AddBabPhotoMemoController.m"
-                  timestampString = "468334507.490244"
+                  timestampString = "468658992.218266"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -405,7 +405,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "206"
             endingLineNumber = "206"
-            landmarkName = "-checkVersionUpdateShowErrorMessage:"
+            landmarkName = "-handleCheckPgyVersionUpdate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -463,13 +463,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MCMall/AppDelegate.m"
-            timestampString = "467865356.038138"
+            filePath = "MCMall/Mudle/Mall/Controllers/MCMallViewController.m"
+            timestampString = "468658976.159524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Goods/Controller/GoodsListViewController.m"
+            timestampString = "468658662.06595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "-getGoodsListWithCatID:userID:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCMall/Mudle/Mall/Controllers/MCMallViewController.m"
+            timestampString = "468658991.101796"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-getGoodsListWithCatID:userID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

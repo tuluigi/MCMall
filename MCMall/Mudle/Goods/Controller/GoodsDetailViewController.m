@@ -31,7 +31,7 @@
     if (nil==_goodsImageView) {
         _goodsImageView=[[UIImageView alloc]  initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 200)];
         _goodsImageView.contentMode=UIViewContentModeScaleAspectFit;
-//        _goodsImageView.clipsToBounds=YES;
+        _goodsImageView.clipsToBounds=YES;
         _goodsImageView.userInteractionEnabled=YES;
         NSString *imageUrl=_goodsModel.goodsBigImageUrl;
         if (imageUrl==nil) {

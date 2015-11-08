@@ -68,6 +68,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"专享汇";
+    self.pageIndex=1;
 //self.tableView.tableHeaderView=self.flowView;
     [self.view addSubview:self.classMenuView];
     [self.view addSubview:self.collectionView];
