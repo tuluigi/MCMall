@@ -22,18 +22,18 @@
 		2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06457A1B7DD97000C27AD5 /* NoteModel.m */; };
 		2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */; };
 		2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */; };
-		2A0741F51BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741F61BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741F71BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741F81BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741F91BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741FA1BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
-		2A0741FC1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
-		2A0741FD1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
-		2A0741FE1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
-		2A0741FF1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
-		2A0742001BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
-		2A0742011BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; settings = {ASSET_TAGS = (); }; };
+		2A0741F51BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741F61BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741F71BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741F81BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741F91BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741FA1BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
+		2A0741FC1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
+		2A0741FD1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
+		2A0741FE1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
+		2A0741FF1BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
+		2A0742001BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
+		2A0742011BD3C74C00D76CA8 /* motherDiary.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */; };
 		2A0930771B79926F00BF9368 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0930761B79926F00BF9368 /* BaseModel.m */; };
 		2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
@@ -57,28 +57,28 @@
 		2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
 		2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
 		2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */; };
-		2A33DEA61BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEA71BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEA81BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEA91BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEAA1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
-		2A33DEAB1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; settings = {ASSET_TAGS = (); }; };
+		2A33DEA61BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A33DEA71BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A33DEA81BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A33DEA91BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A33DEAA1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A33DEAB1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
 		2A37B1291B0CCB1800D0FE88 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B1281B0CCB1800D0FE88 /* UserModel.m */; };
-		2A386F791BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F7A1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F7B1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F7C1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F7D1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F7E1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; settings = {ASSET_TAGS = (); }; };
-		2A386F811BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2A386F821BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2A386F831BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2A386F841BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2A386F851BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
-		2A386F861BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2A386F791BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F7A1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F7B1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F7C1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F7D1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F7E1BD0BF3600731AF5 /* McMallPoitRole.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A386F781BD0BF3600731AF5 /* McMallPoitRole.html */; };
+		2A386F811BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
+		2A386F821BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
+		2A386F831BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
+		2A386F841BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
+		2A386F851BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
+		2A386F861BD0C01D00731AF5 /* PointRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A386F801BD0C01D00731AF5 /* PointRoleViewController.m */; };
 		2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C5F1B329CBF005F5D15 /* ApplyActivityViewController.m */; };
 		2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C621B32AF4A005F5D15 /* PlayerCell.m */; };
 		2A468C661B32BC8E005F5D15 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A468C651B32BC8E005F5D15 /* GoodsModel.m */; };
@@ -5120,8 +5120,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = YingZiGuLaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5142,7 +5142,7 @@
 					"$(PROJECT_DIR)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d8f9c03-ee8a-43ac-b186-737b12d0d84e";
+				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
 			};
 			name = Debug;
 		};
@@ -5152,8 +5152,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = YingZiGuIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = YingZiGuLaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ye xiao (PN94BG49RW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ye xiao (PN94BG49RW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Yisao Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -5174,7 +5174,7 @@
 					"$(PROJECT_DIR)/MCMall/Util/3Class/UMSocial_Sdk_4.2.3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d8f9c03-ee8a-43ac-b186-737b12d0d84e";
+				PROVISIONING_PROFILE = "ede95cee-34cd-4305-ae2a-4339602b6c5b";
 			};
 			name = Release;
 		};

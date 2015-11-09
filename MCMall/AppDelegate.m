@@ -208,6 +208,8 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
         UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"版本更新" message:content delegate:self cancelButtonTitle:@"稍后再说" otherButtonTitles:@"立即更新", nil];
         alert.tag=kAlertCheckVersionUpdate;
         [alert show];
+    }else{
+        [self.window showErrorMssage:@"当前已是最新版本！"];
     }
 }
 #pragma mark -AlertViewController
@@ -219,7 +221,9 @@ static const NSInteger kAlertCheckVersionUpdate = 100;
             if (self.downLoadStr&&self.downLoadStr.length) {
                 BOOL canOpen= [[UIApplication sharedApplication]  canOpenURL:[NSURL URLWithString:self.downLoadStr]];
                 if (canOpen) {
+                    [[PgyManager sharedPgyManager] updateLocalBuildNumber];
                     [[UIApplication sharedApplication]  openURL:[NSURL URLWithString:self.downLoadStr]];
+                    
                 }
             }
         }

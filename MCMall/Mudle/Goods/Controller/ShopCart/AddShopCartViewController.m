@@ -91,7 +91,7 @@
 }
 -(void)updateTotalPrice{
     UIBarButtonItem *titleBarButton=(UIBarButtonItem *)[self.tooBar.items objectAtIndex:1];
-    self.totalPrice=self.goodsModel.vipPrice*self.goodsNum;
+    self.totalPrice=self.goodsModel.sellPrice*self.goodsNum;
     
     NSString *priceStr=[NSString stringWithFormat:@"￥%.1f",(self.totalPrice-self.usePoints)];
     if (self.usePoints) {
@@ -270,7 +270,7 @@
                 }break;
                 case 2:{
                     cell.textLabel.text=@"单价";
-                    cell.detailTextLabel.text=[NSString stringWithFormat:@"￥%.1f",self.goodsModel.vipPrice];
+                    cell.detailTextLabel.text=[NSString stringWithFormat:@"￥%.1f",self.goodsModel.sellPrice];
                 }break;
                 case 3:{
                     cell.textLabel.text=@"运费";
