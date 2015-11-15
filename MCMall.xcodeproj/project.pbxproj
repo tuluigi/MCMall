@@ -38,6 +38,12 @@
 		2A0946F31B763FA2000A205A /* BabeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F21B763FA2000A205A /* BabeInfoViewController.m */; };
 		2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0946F61B7762D0000A205A /* HHUserManager.m */; };
 		2A0C5F941BBD0EA30000F313 /* AddBabPhotoMemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */; };
+		2A10F6FE1BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F6FF1BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F7001BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F7011BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F7021BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F7031BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
 		2A163DA81BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DA91BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DAA1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
@@ -1357,6 +1363,8 @@
 		2A0946F61B7762D0000A205A /* HHUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHUserManager.m; sourceTree = "<group>"; };
 		2A0C5F921BBD0EA30000F313 /* AddBabPhotoMemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBabPhotoMemoController.h; sourceTree = "<group>"; };
 		2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabPhotoMemoController.m; sourceTree = "<group>"; };
+		2A10F6FC1BF8A2E000153813 /* BrandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandModel.h; sourceTree = "<group>"; };
+		2A10F6FD1BF8A2E000153813 /* BrandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandModel.m; sourceTree = "<group>"; };
 		2A163DA61BCF49B3006ABBCB /* HHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextField.h; sourceTree = "<group>"; };
 		2A163DA71BCF49B3006ABBCB /* HHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextField.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
@@ -2114,6 +2122,8 @@
 				2A06457A1B7DD97000C27AD5 /* NoteModel.m */,
 				2AE3C5261B9C87F600F1434F /* AddressModel.h */,
 				2AE3C5271B9C87F600F1434F /* AddressModel.m */,
+				2A10F6FC1BF8A2E000153813 /* BrandModel.h */,
+				2A10F6FD1BF8A2E000153813 /* BrandModel.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -4032,6 +4042,7 @@
 				2AC7665D1BB792F300160837 /* GoodsAddressListCell.m in Sources */,
 				2AF5A27F1B9AD658003F6AB8 /* OCCommentView.m in Sources */,
 				2AC7666C1BB7EEEC00160837 /* ShopCarGoodsCell.m in Sources */,
+				2A10F6FE1BF8A2E000153813 /* BrandModel.m in Sources */,
 				2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */,
 				2A217D4D1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2AFFF6961B64B77700712317 /* SubtitleExpertAnswerController.m in Sources */,
@@ -4164,6 +4175,7 @@
 				2ADFB6D01BBDA482000BF698 /* GoodsAddressListCell.m in Sources */,
 				2ADFB6D11BBDA482000BF698 /* OCCommentView.m in Sources */,
 				2ADFB6D21BBDA482000BF698 /* ShopCarGoodsCell.m in Sources */,
+				2A10F6FF1BF8A2E000153813 /* BrandModel.m in Sources */,
 				2ADFB6D31BBDA482000BF698 /* AppDelegate.m in Sources */,
 				2A217D4E1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB6D41BBDA482000BF698 /* SubtitleExpertAnswerController.m in Sources */,
@@ -4296,6 +4308,7 @@
 				2ADFB7CC1BBDA868000BF698 /* GoodsAddressListCell.m in Sources */,
 				2ADFB7CD1BBDA868000BF698 /* OCCommentView.m in Sources */,
 				2ADFB7CE1BBDA868000BF698 /* ShopCarGoodsCell.m in Sources */,
+				2A10F7001BF8A2E000153813 /* BrandModel.m in Sources */,
 				2ADFB7CF1BBDA868000BF698 /* AppDelegate.m in Sources */,
 				2A217D4F1BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB7D01BBDA868000BF698 /* SubtitleExpertAnswerController.m in Sources */,
@@ -4428,6 +4441,7 @@
 				2ADFB8B71BBDA877000BF698 /* GoodsAddressListCell.m in Sources */,
 				2ADFB8B81BBDA877000BF698 /* OCCommentView.m in Sources */,
 				2ADFB8B91BBDA877000BF698 /* ShopCarGoodsCell.m in Sources */,
+				2A10F7011BF8A2E000153813 /* BrandModel.m in Sources */,
 				2ADFB8BA1BBDA877000BF698 /* AppDelegate.m in Sources */,
 				2A217D501BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB8BB1BBDA877000BF698 /* SubtitleExpertAnswerController.m in Sources */,
@@ -4560,6 +4574,7 @@
 				2ADFB9A21BBDA88F000BF698 /* GoodsAddressListCell.m in Sources */,
 				2ADFB9A31BBDA88F000BF698 /* OCCommentView.m in Sources */,
 				2ADFB9A41BBDA88F000BF698 /* ShopCarGoodsCell.m in Sources */,
+				2A10F7021BF8A2E000153813 /* BrandModel.m in Sources */,
 				2ADFB9A51BBDA88F000BF698 /* AppDelegate.m in Sources */,
 				2A217D511BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFB9A61BBDA88F000BF698 /* SubtitleExpertAnswerController.m in Sources */,
@@ -4692,6 +4707,7 @@
 				2ADFBA8D1BBDA89B000BF698 /* GoodsAddressListCell.m in Sources */,
 				2ADFBA8E1BBDA89B000BF698 /* OCCommentView.m in Sources */,
 				2ADFBA8F1BBDA89B000BF698 /* ShopCarGoodsCell.m in Sources */,
+				2A10F7031BF8A2E000153813 /* BrandModel.m in Sources */,
 				2ADFBA901BBDA89B000BF698 /* AppDelegate.m in Sources */,
 				2A217D521BCA3B0200B72304 /* GoodsCollectionViewCell.m in Sources */,
 				2ADFBA911BBDA89B000BF698 /* SubtitleExpertAnswerController.m in Sources */,

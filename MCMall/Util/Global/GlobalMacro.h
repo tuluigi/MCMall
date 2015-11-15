@@ -23,7 +23,9 @@
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 
 #define OCCOMMONSCALE (([UIScreen mainScreen].bounds.size.width)/375.0f) 
-
+#ifndef StringNotNil
+#define StringNotNil(str) ((str)==nil?@"":str)
+#endif
 typedef NS_ENUM(NSInteger, MCMallNotificationType) {
     MCMallNotificationTypeActivityCommon      =1,//普通
     MCMallNotificationTypeActivityVote        =3 ,//投票
@@ -40,4 +42,10 @@ typedef NS_ENUM(NSInteger,MCMallClientType) {
     MCMallClientTypeMiaoQiMuYing    ,
 };
 
+typedef NS_ENUM(NSInteger,MCVipGoodsItemTag) {
+    MCVipGoodsItemTagTimeLimitedSales=1,//限时抢购
+    MCVipGoodsItemTagImmediatelySend   =2,//及时送达
+    MCVipGoodsItemTagGroupMother       =3,//妈妈团
+    MCVipGoodsItemTagGroupDiscountGoods =4,//会生活列表
+};
 #endif

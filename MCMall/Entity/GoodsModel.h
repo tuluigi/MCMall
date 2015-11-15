@@ -23,10 +23,12 @@
 @property(nonatomic,assign)CGFloat vipPrice;//专享价格
 @property(nonatomic,assign)CGFloat deductionPoint;//抵扣积分
 @property(nonatomic,assign)NSInteger storeNum;//库存
-@property(nonatomic,strong)NSDate   *endTime;
 @property(nonatomic,copy)NSString *goodsDetail;
 @property(nonatomic,copy)NSString *deliverNotice;//发货须知
 @property(nonatomic,copy)NSString *goodsRemark;//商家自荐
+
+
+@property(nonatomic,strong)NSData *startTime,*endTime;
 
 //UI用
 @property(nonatomic,assign)__block CGSize goodsImageSize;

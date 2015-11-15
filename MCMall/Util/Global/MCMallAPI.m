@@ -14,7 +14,9 @@ NSString *const SufferName  =@"/muying/ws/";
 @end
 
 @implementation MCMallAPI
-
++(NSString *)prefixPath{
+    return [[HHGlobalVarTool domainPath] stringByAppendingString:SufferName];
+}
 #pragma mark - 个人中心
 +(NSString *)getUserPointAPI{
     return [[[HHGlobalVarTool domainPath] stringByAppendingString:SufferName] stringByAppendingString:@"getpoint"];

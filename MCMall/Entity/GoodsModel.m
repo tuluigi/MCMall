@@ -31,6 +31,7 @@
               @"deductionPoint":@"deduction",
              @"storeNum":@"stock",
              @"endTime":@"endDay",
+             @"startTime":@"startDay",
              @"goodsDetail":@"synopsis",
              @"goodsBigImageUrl":@"bigImg",
              @"deliverNotice":@"notice",
@@ -53,6 +54,12 @@
                 return value;
             }
         }];
+    }else if([key isEqualToString:@"endTime"]||[key isEqualToString:@"startTime"]){
+        return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+            NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
+            NSDate *date=[formatter dateFromString:value];
+            return date;
+        }];
     }
     return nil;
 }
@@ -63,13 +70,6 @@
 -(void)setGoodsBigImageUrl:(NSString *)goodsBigImageUrl{
     _goodsBigImageUrl=goodsBigImageUrl;
     _goodsBigImageUrl=[HHGlobalVarTool fullImagePath:_goodsBigImageUrl];
-}
-+(MTLValueTransformer *)endTimeJSONTransformer{
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
-        NSDateFormatter *formatter= [NSDateFormatter defaultDateFormatter];
-        NSDate *date=[formatter dateFromString:value];
-        return date;
-    }];
 }
 @end
 

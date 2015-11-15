@@ -31,4 +31,20 @@
                                totalPrice:(CGFloat)price
                                    points:(NSInteger)points payMethod:(NSString *)payMethod
                       onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+//获取限时抢购商品列表
++(HHNetWorkOperation *)getLimitedSalesGoodsListOnCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+
+//获取品牌列表
++(HHNetWorkOperation *)getBrandListWithPageIndex:(NSInteger)pageIndex
+                                        pageSize:(NSInteger )pageSize
+                                           group:(NSInteger )group
+                             onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
+
+-(HHNetWorkOperation *)getVipItemTagGoodsListWithTag:(NSInteger)tag
+                                               CatID:(NSString *)catID
+                                             brandID:(NSString *)brandID
+                                             pageNum:(NSInteger)pid
+                                            pageSize:(NSInteger)pageSize
+                                 onCompletionHandler:(HHResponseResultSucceedBlock)completion;
+
 @end

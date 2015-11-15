@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MCMallAPI : NSObject
-
++(NSString *)prefixPath;
 #pragma mark - 个人中心
 +(NSString *)getUserPointAPI;
 +(NSString *)changeStateAPI;
