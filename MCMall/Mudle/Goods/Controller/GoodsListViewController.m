@@ -137,6 +137,7 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 -(void)getGoodsListWithCatID:(NSString *)catID userID:(NSString *)userID{
+    /*
     NSPredicate *predicate=[NSPredicate predicateWithFormat:@"_catID=%@",catID];
     NSArray *tempArray=[self.catArray filteredArrayUsingPredicate:predicate];
     if (tempArray&&tempArray.count) {
@@ -167,6 +168,29 @@
         [weakSelf.collectionView reloadData];
         [weakSelf.collectionView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
     }];
+    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+     */
+    if (self.dataSourceArray.count==0) {
+        [self.view showPageLoadingView];
+    }
+    WEAKSELF
+    HHNetWorkOperation *op=[GoodsNetService getNewGoodsListWithTag:self.vipGoodsItemTag CatID:catID brandID:self.brandID pageNum:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            [weakSelf.view dismissHUD];
+            if (_pageIndex==1) {
+                [self.dataSourceArray removeAllObjects];
+            }
+            if (((NSArray *)responseResult.responseData).count) {
+                [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+            }else{
+                [weakSelf.view makeToast:@"没有更多商品喽"];
+            }
+        }else{
+            [weakSelf.view makeToast:responseResult.responseMessage];
+        }
+        [weakSelf.collectionView reloadData];
+        [weakSelf.collectionView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
+    } ];
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
 }
 

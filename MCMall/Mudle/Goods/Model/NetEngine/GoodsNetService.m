@@ -61,7 +61,7 @@
     }];
     return op;
 }
--(HHNetWorkOperation *)getVipItemTagGoodsListWithTag:(NSInteger)tag
++(HHNetWorkOperation *)getNewGoodsListWithTag:(NSInteger)tag
                                            CatID:(NSString *)catID
                                          brandID:(NSString *)brandID
                                      pageNum:(NSInteger)pid
@@ -69,7 +69,7 @@
                          onCompletionHandler:(HHResponseResultSucceedBlock)completion{
     NSString *apiPath=[MCMallAPI prefixPath];
     catID=[NSString stringByReplaceNullString:catID];
-    NSMutableDictionary *postDic=[[NSMutableDictionary alloc]  initWithObjectsAndKeys:@(pid),@"pageno",@(pageSize),@"records",catID,@"classify", nil];
+    NSMutableDictionary *postDic=[[NSMutableDictionary alloc]  initWithObjectsAndKeys:@(pid),@"pageno",@(pageSize),@"records",catID,@"classify",[HHUserManager userID],@"userid" ,nil];
     switch (tag) {
         case MCVipGoodsItemTagTimeLimitedSales:{//获取限时抢购列表
             apiPath=[apiPath stringByAppendingString:@"limitlist"];

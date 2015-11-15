@@ -8,6 +8,12 @@
 
 #import "BaseModel.h"
 
+typedef NS_ENUM(NSInteger,HHFlowViewType) {
+    HHFlowViewTypeHomePage  =1,//首页
+    HHFlowViewTypeVipPage    =2,//Vip页面
+};
+
+
 @interface HHFlowModel : BaseModel
 @property(nonatomic,copy)NSString * flowID;
 @property(nonatomic,copy)NSString * flowTitle;//对应的标题

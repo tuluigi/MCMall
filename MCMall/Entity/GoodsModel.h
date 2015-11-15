@@ -28,7 +28,7 @@
 @property(nonatomic,copy)NSString *goodsRemark;//商家自荐
 
 
-@property(nonatomic,strong)NSData *startTime,*endTime;
+@property(nonatomic,strong)NSDate *startTime,*endTime;
 
 //UI用
 @property(nonatomic,assign)__block CGSize goodsImageSize;

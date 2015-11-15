@@ -40,7 +40,7 @@
                                            group:(NSInteger )group
                              onCompletionHandler:(HHResponseResultSucceedBlock)completionBlcok;
 
--(HHNetWorkOperation *)getVipItemTagGoodsListWithTag:(NSInteger)tag
++(HHNetWorkOperation *)getNewGoodsListWithTag:(NSInteger)tag
                                                CatID:(NSString *)catID
                                              brandID:(NSString *)brandID
                                              pageNum:(NSInteger)pid

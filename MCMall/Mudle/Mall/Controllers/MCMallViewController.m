@@ -69,6 +69,7 @@
 
 -(void)getFllowDateList{
     WEAKSELF
+    /*
     NSData *adListDate=[[NSUserDefaults standardUserDefaults]  objectForKey:MCMallAdvertismentListKey];
     self.adArray=[NSKeyedUnarchiver unarchiveObjectWithData:adListDate];
     [[HHNetWorkEngine sharedHHNetWorkEngine] getAdvertisementListOnCompletionHandler:^(HHResponseResult *responseResult) {
@@ -79,6 +80,12 @@
                 [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallAdvertismentListKey];
             });
             
+        }
+    }];
+     */
+    [HHADNetService getAdvertisementListWithType:HHFlowViewTypeHomePage OnCompletionHandler:^(HHResponseResult *responseResult) {
+        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+            weakSelf.adArray=responseResult.responseData;
         }
     }];
 }

@@ -62,6 +62,12 @@
 		2A10F71A1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
 		2A10F71B1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
 		2A10F71C1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F71F1BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
+		2A10F7201BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
+		2A10F7211BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
+		2A10F7221BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
+		2A10F7231BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
+		2A10F7241BF8CB5B00153813 /* HHADNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F71E1BF8CB5B00153813 /* HHADNetService.m */; };
 		2A163DA81BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DA91BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DAA1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
@@ -1389,6 +1395,8 @@
 		2A10F70E1BF8B09C00153813 /* BradnListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BradnListViewController.m; sourceTree = "<group>"; };
 		2A10F7151BF8B32600153813 /* BrandListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListCell.h; sourceTree = "<group>"; };
 		2A10F7161BF8B32600153813 /* BrandListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListCell.m; sourceTree = "<group>"; };
+		2A10F71D1BF8CB5B00153813 /* HHADNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHADNetService.h; sourceTree = "<group>"; };
+		2A10F71E1BF8CB5B00153813 /* HHADNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHADNetService.m; sourceTree = "<group>"; };
 		2A163DA61BCF49B3006ABBCB /* HHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextField.h; sourceTree = "<group>"; };
 		2A163DA71BCF49B3006ABBCB /* HHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextField.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
@@ -1914,6 +1922,8 @@
 				2A0645451B7D82FF00C27AD5 /* HHFlowView.m */,
 				2A06454B1B7D863700C27AD5 /* HHNetWorkEngine+AD.h */,
 				2A06454C1B7D863700C27AD5 /* HHNetWorkEngine+AD.m */,
+				2A10F71D1BF8CB5B00153813 /* HHADNetService.h */,
+				2A10F71E1BF8CB5B00153813 /* HHADNetService.m */,
 			);
 			path = HHFlowView;
 			sourceTree = "<group>";
@@ -4089,6 +4099,7 @@
 				2AD38AA81B801E2400BEA56E /* HHShareItemView.m in Sources */,
 				2A10F7071BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2AF5A2511B99BD2E003F6AB8 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F71F1BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,
 				2AFAC6551BA5A04100C2B131 /* HHClassMenuView.m in Sources */,
 				2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */,
@@ -4225,6 +4236,7 @@
 				2ADFB6D71BBDA482000BF698 /* HHShareItemView.m in Sources */,
 				2A10F7081BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB6D81BBDA482000BF698 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F7201BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2ADFB6D91BBDA482000BF698 /* PlayerCell.m in Sources */,
 				2ADFB6DA1BBDA482000BF698 /* HHClassMenuView.m in Sources */,
 				2ADFB6DB1BBDA482000BF698 /* NoteModel.m in Sources */,
@@ -4361,6 +4373,7 @@
 				2ADFB7D31BBDA868000BF698 /* HHShareItemView.m in Sources */,
 				2A10F7091BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB7D41BBDA868000BF698 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F7211BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2ADFB7D51BBDA868000BF698 /* PlayerCell.m in Sources */,
 				2ADFB7D61BBDA868000BF698 /* HHClassMenuView.m in Sources */,
 				2ADFB7D71BBDA868000BF698 /* NoteModel.m in Sources */,
@@ -4497,6 +4510,7 @@
 				2ADFB8BE1BBDA877000BF698 /* HHShareItemView.m in Sources */,
 				2A10F70A1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB8BF1BBDA877000BF698 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F7221BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2ADFB8C01BBDA877000BF698 /* PlayerCell.m in Sources */,
 				2ADFB8C11BBDA877000BF698 /* HHClassMenuView.m in Sources */,
 				2ADFB8C21BBDA877000BF698 /* NoteModel.m in Sources */,
@@ -4633,6 +4647,7 @@
 				2ADFB9A91BBDA88F000BF698 /* HHShareItemView.m in Sources */,
 				2A10F70B1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB9AA1BBDA88F000BF698 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F7231BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2ADFB9AB1BBDA88F000BF698 /* PlayerCell.m in Sources */,
 				2ADFB9AC1BBDA88F000BF698 /* HHClassMenuView.m in Sources */,
 				2ADFB9AD1BBDA88F000BF698 /* NoteModel.m in Sources */,
@@ -4769,6 +4784,7 @@
 				2ADFBA941BBDA89B000BF698 /* HHShareItemView.m in Sources */,
 				2A10F70C1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFBA951BBDA89B000BF698 /* UIDevice+DeviceInfo.m in Sources */,
+				2A10F7241BF8CB5B00153813 /* HHADNetService.m in Sources */,
 				2ADFBA961BBDA89B000BF698 /* PlayerCell.m in Sources */,
 				2ADFBA971BBDA89B000BF698 /* HHClassMenuView.m in Sources */,
 				2ADFBA981BBDA89B000BF698 /* NoteModel.m in Sources */,

@@ -10,4 +10,5 @@
 
 @interface GoodsListViewController : BaseViewController
 @property(nonatomic,copy)NSString *brandID;
+@property(nonatomic,assign)MCVipGoodsItemTag vipGoodsItemTag;
 @end

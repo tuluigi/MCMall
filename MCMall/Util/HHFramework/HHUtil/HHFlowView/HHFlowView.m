@@ -165,7 +165,6 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
         [self addSubview:_myPageControl];
         
         [_myScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
-//        [self getFllowDateList];
     }
     return self;
 }
@@ -176,27 +175,7 @@ typedef void(^HHFlowImageDidSelectedBlock)(HHFlowModel *flowModel);
 -(void)setContentImageViewModel:(UIViewContentMode)contentModel{
     [self.myScrollView setContentImageViewModel:contentModel];
 }
-#pragma mark -getFllowDateList
-#define MCMallAdvertismentListKey   @"MCMallAdvertismentListKey"
--(void)getFllowDateList{
-    WEAKSELF
-    NSData *adListDate=[[NSUserDefaults standardUserDefaults]  objectForKey:MCMallAdvertismentListKey];
-     NSArray *array=[NSKeyedUnarchiver unarchiveObjectWithData:adListDate];
-//    if (array) {
-        self.dataArry=[NSMutableArray arrayWithArray:array];
-//    }else{
-        [[HHNetWorkEngine sharedHHNetWorkEngine] getAdvertisementListOnCompletionHandler:^(HHResponseResult *responseResult) {
-            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-                weakSelf.dataArry=responseResult.responseData;
-                dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    NSData *adData=[NSKeyedArchiver archivedDataWithRootObject:weakSelf.dataArry];
-                    [[NSUserDefaults standardUserDefaults] setObject:adData forKey:MCMallAdvertismentListKey];
-                });
-               
-            }
-        }];
-//    }
-}
+
 
 -(void)layoutSubviews{
     [super layoutSubviews];
