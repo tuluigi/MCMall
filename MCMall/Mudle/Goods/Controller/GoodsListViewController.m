@@ -12,6 +12,7 @@
 #import "GoodsDetailViewController.h"
 #import "HHClassMenuView.h"
 #import "GoodsCollectionViewCell.h"
+#import "GoodsNetService.h"
 #define HHClassMenuViewHeight  40
 #define kCollectionViewColum  2
 #define     kGoodsCollectionCellIdedtifer   @"kGoodsCollectionCellIdedtifer"
@@ -24,6 +25,7 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,assign)__block NSUInteger pageIndex;
 @property(nonatomic,assign)CGFloat cellHeight;
+
 @end
 
 @implementation GoodsListViewController

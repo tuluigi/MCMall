@@ -44,6 +44,24 @@
 		2A10F7011BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
 		2A10F7021BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
 		2A10F7031BF8A2E000153813 /* BrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F6FD1BF8A2E000153813 /* BrandModel.m */; };
+		2A10F7071BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F7081BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F7091BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F70A1BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F70B1BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F70C1BF8B08D00153813 /* VipHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7061BF8B08D00153813 /* VipHomeViewController.m */; };
+		2A10F70F1BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7101BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7111BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7121BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7131BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7141BF8B09C00153813 /* BradnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F70E1BF8B09C00153813 /* BradnListViewController.m */; };
+		2A10F7171BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F7181BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F7191BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F71A1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F71B1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
+		2A10F71C1BF8B32600153813 /* BrandListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A10F7161BF8B32600153813 /* BrandListCell.m */; };
 		2A163DA81BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DA91BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DAA1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
@@ -1365,6 +1383,12 @@
 		2A0C5F931BBD0EA30000F313 /* AddBabPhotoMemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBabPhotoMemoController.m; sourceTree = "<group>"; };
 		2A10F6FC1BF8A2E000153813 /* BrandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandModel.h; sourceTree = "<group>"; };
 		2A10F6FD1BF8A2E000153813 /* BrandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandModel.m; sourceTree = "<group>"; };
+		2A10F7051BF8B08D00153813 /* VipHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipHomeViewController.h; sourceTree = "<group>"; };
+		2A10F7061BF8B08D00153813 /* VipHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipHomeViewController.m; sourceTree = "<group>"; };
+		2A10F70D1BF8B09C00153813 /* BradnListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BradnListViewController.h; sourceTree = "<group>"; };
+		2A10F70E1BF8B09C00153813 /* BradnListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BradnListViewController.m; sourceTree = "<group>"; };
+		2A10F7151BF8B32600153813 /* BrandListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListCell.h; sourceTree = "<group>"; };
+		2A10F7161BF8B32600153813 /* BrandListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListCell.m; sourceTree = "<group>"; };
 		2A163DA61BCF49B3006ABBCB /* HHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextField.h; sourceTree = "<group>"; };
 		2A163DA71BCF49B3006ABBCB /* HHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextField.m; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
@@ -1943,6 +1967,15 @@
 				2A0946F61B7762D0000A205A /* HHUserManager.m */,
 			);
 			path = UserManager;
+			sourceTree = "<group>";
+		};
+		2A10F7041BF8B07A00153813 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				2A10F70D1BF8B09C00153813 /* BradnListViewController.h */,
+				2A10F70E1BF8B09C00153813 /* BradnListViewController.m */,
+			);
+			path = Brand;
 			sourceTree = "<group>";
 		};
 		2A163DA51BCF4992006ABBCB /* HHTextField */ = {
@@ -2995,6 +3028,7 @@
 		2AFAC6441BA59FC500C2B131 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A10F7041BF8B07A00153813 /* Brand */,
 				2A4956D71BB4667E0036D71C /* ShopCart */,
 				2AFAC6481BA59FE200C2B131 /* GoodsDetailViewController.h */,
 				2AFAC6491BA59FE200C2B131 /* GoodsDetailViewController.m */,
@@ -3002,6 +3036,8 @@
 				2AFAC64B1BA59FE200C2B131 /* GoodsListViewController.m */,
 				2AC766671BB7DF1D00160837 /* GoodsDetailPriceCell.h */,
 				2AC766681BB7DF1D00160837 /* GoodsDetailPriceCell.m */,
+				2A10F7051BF8B08D00153813 /* VipHomeViewController.h */,
+				2A10F7061BF8B08D00153813 /* VipHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3032,6 +3068,8 @@
 				2AC766651BB7D1CC00160837 /* GoodsTimeView.m */,
 				2A217D4B1BCA3B0200B72304 /* GoodsCollectionViewCell.h */,
 				2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */,
+				2A10F7151BF8B32600153813 /* BrandListCell.h */,
+				2A10F7161BF8B32600153813 /* BrandListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4049,6 +4087,7 @@
 				2A0946F71B7762D0000A205A /* HHUserManager.m in Sources */,
 				2AFFF6931B64A9FF00712317 /* SubjectListCell.m in Sources */,
 				2AD38AA81B801E2400BEA56E /* HHShareItemView.m in Sources */,
+				2A10F7071BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2AF5A2511B99BD2E003F6AB8 /* UIDevice+DeviceInfo.m in Sources */,
 				2A468C631B32AF4A005F5D15 /* PlayerCell.m in Sources */,
 				2AFAC6551BA5A04100C2B131 /* HHClassMenuView.m in Sources */,
@@ -4071,6 +4110,7 @@
 				2AA671691B78CFA500ECC8A3 /* HHPhotoBroswer.m in Sources */,
 				2AF5A2501B99BD2E003F6AB8 /* UIColor+Addition.m in Sources */,
 				2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */,
+				2A10F7171BF8B32600153813 /* BrandListCell.m in Sources */,
 				2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
@@ -4078,6 +4118,7 @@
 				2AD321B11B75B7AB0063197D /* HHKeyValueView.m in Sources */,
 				2ADD94381BBCC7AB00B80497 /* BabyPhotCollectionViewCell.m in Sources */,
 				2AD38AA71B801E2400BEA56E /* HHShareContentView.m in Sources */,
+				2A10F70F1BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2AF5A24B1B99BD2E003F6AB8 /* NSDate+Addition.m in Sources */,
 				2AC766631BB79C3D00160837 /* UILabel+Category.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,
@@ -4182,6 +4223,7 @@
 				2ADFB6D51BBDA482000BF698 /* HHUserManager.m in Sources */,
 				2ADFB6D61BBDA482000BF698 /* SubjectListCell.m in Sources */,
 				2ADFB6D71BBDA482000BF698 /* HHShareItemView.m in Sources */,
+				2A10F7081BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB6D81BBDA482000BF698 /* UIDevice+DeviceInfo.m in Sources */,
 				2ADFB6D91BBDA482000BF698 /* PlayerCell.m in Sources */,
 				2ADFB6DA1BBDA482000BF698 /* HHClassMenuView.m in Sources */,
@@ -4204,6 +4246,7 @@
 				2ADFB6E91BBDA482000BF698 /* HHPhotoBroswer.m in Sources */,
 				2ADFB6EA1BBDA482000BF698 /* UIColor+Addition.m in Sources */,
 				2ADFB6EB1BBDA482000BF698 /* OrderListViewController.m in Sources */,
+				2A10F7181BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB6EC1BBDA482000BF698 /* AddressModel.m in Sources */,
 				2ADFB6ED1BBDA482000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB6EE1BBDA482000BF698 /* GTMNSString+HTML.m in Sources */,
@@ -4211,6 +4254,7 @@
 				2ADFB6F01BBDA482000BF698 /* HHKeyValueView.m in Sources */,
 				2ADFB6F11BBDA482000BF698 /* BabyPhotCollectionViewCell.m in Sources */,
 				2ADFB6F21BBDA482000BF698 /* HHShareContentView.m in Sources */,
+				2A10F7101BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2ADFB6F31BBDA482000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB6F41BBDA482000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB6F51BBDA482000BF698 /* ActivityViewController.m in Sources */,
@@ -4315,6 +4359,7 @@
 				2ADFB7D11BBDA868000BF698 /* HHUserManager.m in Sources */,
 				2ADFB7D21BBDA868000BF698 /* SubjectListCell.m in Sources */,
 				2ADFB7D31BBDA868000BF698 /* HHShareItemView.m in Sources */,
+				2A10F7091BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB7D41BBDA868000BF698 /* UIDevice+DeviceInfo.m in Sources */,
 				2ADFB7D51BBDA868000BF698 /* PlayerCell.m in Sources */,
 				2ADFB7D61BBDA868000BF698 /* HHClassMenuView.m in Sources */,
@@ -4337,6 +4382,7 @@
 				2ADFB7E51BBDA868000BF698 /* HHPhotoBroswer.m in Sources */,
 				2ADFB7E61BBDA868000BF698 /* UIColor+Addition.m in Sources */,
 				2ADFB7E71BBDA868000BF698 /* OrderListViewController.m in Sources */,
+				2A10F7191BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB7E81BBDA868000BF698 /* AddressModel.m in Sources */,
 				2ADFB7E91BBDA868000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB7EA1BBDA868000BF698 /* GTMNSString+HTML.m in Sources */,
@@ -4344,6 +4390,7 @@
 				2ADFB7EC1BBDA868000BF698 /* HHKeyValueView.m in Sources */,
 				2ADFB7ED1BBDA868000BF698 /* BabyPhotCollectionViewCell.m in Sources */,
 				2ADFB7EE1BBDA868000BF698 /* HHShareContentView.m in Sources */,
+				2A10F7111BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2ADFB7EF1BBDA868000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB7F01BBDA868000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB7F11BBDA868000BF698 /* ActivityViewController.m in Sources */,
@@ -4448,6 +4495,7 @@
 				2ADFB8BC1BBDA877000BF698 /* HHUserManager.m in Sources */,
 				2ADFB8BD1BBDA877000BF698 /* SubjectListCell.m in Sources */,
 				2ADFB8BE1BBDA877000BF698 /* HHShareItemView.m in Sources */,
+				2A10F70A1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB8BF1BBDA877000BF698 /* UIDevice+DeviceInfo.m in Sources */,
 				2ADFB8C01BBDA877000BF698 /* PlayerCell.m in Sources */,
 				2ADFB8C11BBDA877000BF698 /* HHClassMenuView.m in Sources */,
@@ -4470,6 +4518,7 @@
 				2ADFB8D01BBDA877000BF698 /* HHPhotoBroswer.m in Sources */,
 				2ADFB8D11BBDA877000BF698 /* UIColor+Addition.m in Sources */,
 				2ADFB8D21BBDA877000BF698 /* OrderListViewController.m in Sources */,
+				2A10F71A1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB8D31BBDA877000BF698 /* AddressModel.m in Sources */,
 				2ADFB8D41BBDA877000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB8D51BBDA877000BF698 /* GTMNSString+HTML.m in Sources */,
@@ -4477,6 +4526,7 @@
 				2ADFB8D71BBDA877000BF698 /* HHKeyValueView.m in Sources */,
 				2ADFB8D81BBDA877000BF698 /* BabyPhotCollectionViewCell.m in Sources */,
 				2ADFB8D91BBDA877000BF698 /* HHShareContentView.m in Sources */,
+				2A10F7121BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2ADFB8DA1BBDA877000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB8DB1BBDA877000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB8DC1BBDA877000BF698 /* ActivityViewController.m in Sources */,
@@ -4581,6 +4631,7 @@
 				2ADFB9A71BBDA88F000BF698 /* HHUserManager.m in Sources */,
 				2ADFB9A81BBDA88F000BF698 /* SubjectListCell.m in Sources */,
 				2ADFB9A91BBDA88F000BF698 /* HHShareItemView.m in Sources */,
+				2A10F70B1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFB9AA1BBDA88F000BF698 /* UIDevice+DeviceInfo.m in Sources */,
 				2ADFB9AB1BBDA88F000BF698 /* PlayerCell.m in Sources */,
 				2ADFB9AC1BBDA88F000BF698 /* HHClassMenuView.m in Sources */,
@@ -4603,6 +4654,7 @@
 				2ADFB9BB1BBDA88F000BF698 /* HHPhotoBroswer.m in Sources */,
 				2ADFB9BC1BBDA88F000BF698 /* UIColor+Addition.m in Sources */,
 				2ADFB9BD1BBDA88F000BF698 /* OrderListViewController.m in Sources */,
+				2A10F71B1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB9BE1BBDA88F000BF698 /* AddressModel.m in Sources */,
 				2ADFB9BF1BBDA88F000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB9C01BBDA88F000BF698 /* GTMNSString+HTML.m in Sources */,
@@ -4610,6 +4662,7 @@
 				2ADFB9C21BBDA88F000BF698 /* HHKeyValueView.m in Sources */,
 				2ADFB9C31BBDA88F000BF698 /* BabyPhotCollectionViewCell.m in Sources */,
 				2ADFB9C41BBDA88F000BF698 /* HHShareContentView.m in Sources */,
+				2A10F7131BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2ADFB9C51BBDA88F000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB9C61BBDA88F000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB9C71BBDA88F000BF698 /* ActivityViewController.m in Sources */,
@@ -4714,6 +4767,7 @@
 				2ADFBA921BBDA89B000BF698 /* HHUserManager.m in Sources */,
 				2ADFBA931BBDA89B000BF698 /* SubjectListCell.m in Sources */,
 				2ADFBA941BBDA89B000BF698 /* HHShareItemView.m in Sources */,
+				2A10F70C1BF8B08D00153813 /* VipHomeViewController.m in Sources */,
 				2ADFBA951BBDA89B000BF698 /* UIDevice+DeviceInfo.m in Sources */,
 				2ADFBA961BBDA89B000BF698 /* PlayerCell.m in Sources */,
 				2ADFBA971BBDA89B000BF698 /* HHClassMenuView.m in Sources */,
@@ -4736,6 +4790,7 @@
 				2ADFBAA61BBDA89B000BF698 /* HHPhotoBroswer.m in Sources */,
 				2ADFBAA71BBDA89B000BF698 /* UIColor+Addition.m in Sources */,
 				2ADFBAA81BBDA89B000BF698 /* OrderListViewController.m in Sources */,
+				2A10F71C1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFBAA91BBDA89B000BF698 /* AddressModel.m in Sources */,
 				2ADFBAAA1BBDA89B000BF698 /* MCMallViewController.m in Sources */,
 				2ADFBAAB1BBDA89B000BF698 /* GTMNSString+HTML.m in Sources */,
@@ -4743,6 +4798,7 @@
 				2ADFBAAD1BBDA89B000BF698 /* HHKeyValueView.m in Sources */,
 				2ADFBAAE1BBDA89B000BF698 /* BabyPhotCollectionViewCell.m in Sources */,
 				2ADFBAAF1BBDA89B000BF698 /* HHShareContentView.m in Sources */,
+				2A10F7141BF8B09C00153813 /* BradnListViewController.m in Sources */,
 				2ADFBAB01BBDA89B000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFBAB11BBDA89B000BF698 /* UILabel+Category.m in Sources */,
 				2ADFBAB21BBDA89B000BF698 /* ActivityViewController.m in Sources */,

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface GoodsListViewController : BaseViewController
-
+@property(nonatomic,copy)NSString *brandID;
 @end
