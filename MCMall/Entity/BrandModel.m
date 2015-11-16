@@ -15,7 +15,8 @@
     return @{@"brandID":@"brandId",
              @"brandName":@"brandName",
              @"brandImgUrl":@"bigImg",
-             @"brandIntro":@"explain",};
+             @"brandIntro":@"explain",
+             @"brandDeclaration":@"declaration",};
 };
 
 -(void)setBrandImgUrl:(NSString *)brandImgUrl{

@@ -11,4 +11,5 @@
 @interface BrandModel : BaseModel
 @property(nonatomic,copy)NSString *brandID,*brandName,*brandImgUrl,*brandIntro;
 @property(nonatomic,strong)NSData *endData;
+@property(nonatomic,copy)NSString *brandDeclaration;
 @end
