@@ -23,6 +23,8 @@
 typedef void(^DidUserLoginCompletionBlock)(BOOL isSucceed,NSString *userID);
 
 #define OCCOMMONSCALE (([UIScreen mainScreen].bounds.size.width)/375.0f) 
+#define SCREEN_WIDTH     ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT   ([[UIScreen mainScreen] bounds].size.height)
 #ifndef StringNotNil
 #define StringNotNil(str) ((str)==nil?@"":str)
 #endif

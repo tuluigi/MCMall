@@ -16,7 +16,7 @@
         HHNetWorkOperation *op=[[HHNetWorkEngine sharedHHNetWorkEngine]  startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
             [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[HHFlowModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {
                 if (completion) {
-                    completion(responseData);
+                    completion(responseResult);
                 }
             }];
         }];

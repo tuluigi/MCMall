@@ -171,10 +171,11 @@
     [self addOperationUniqueIdentifer:op.uniqueIdentifier];
      */
     if (self.dataSourceArray.count==0) {
-        [self.view showPageLoadingView];
+        [self.collectionView showPageLoadingView];
     }
     WEAKSELF
     HHNetWorkOperation *op=[GoodsNetService getNewGoodsListWithTag:self.vipGoodsItemTag CatID:catID brandID:self.brandID pageNum:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+        [weakSelf.collectionView dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             [weakSelf.view dismissHUD];
             if (_pageIndex==1) {

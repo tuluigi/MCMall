@@ -11,7 +11,7 @@
 #import "ActivityViewController.h"
 #import "UserCenterViewController.h"
 #import "SubjectViewController.h"
-#import "GoodsListViewController.h"
+#import "VipHomeViewController.h"
 @interface HHTabBarItem  : UITabBarItem;
 @end
 @implementation HHTabBarItem
@@ -87,8 +87,8 @@
     HHTabBarItem *userTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectedImage:[UIImage   imageNamed:@"tabbar_me_HL"]];
     userNavController.tabBarItem=userTabbarItem;
     
-    GoodsListViewController *goodListController=[[GoodsListViewController alloc]  init];
-    UINavigationController *vipNavController=[[UINavigationController alloc]  initWithRootViewController:goodListController];
+    VipHomeViewController *vipHomeController=[[VipHomeViewController alloc]  init];
+    UINavigationController *vipNavController=[[UINavigationController alloc]  initWithRootViewController:vipHomeController];
     HHTabBarItem *goodsTabbarItem=[[HHTabBarItem alloc]  initWithTitle:@"专享汇" image:[UIImage imageNamed:@"tabbar_vip"] selectedImage:[UIImage   imageNamed:@"tabbar_vip_HL"]];
     vipNavController.tabBarItem=goodsTabbarItem;
     

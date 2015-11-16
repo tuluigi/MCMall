@@ -43,7 +43,6 @@
     return mallType;
 }
 +(NSString *)domainPath{
-       return @"http://120.25.152.224:8080";
 #ifdef DEBUG
     return @"http://139.196.45.140:8080";
 #else

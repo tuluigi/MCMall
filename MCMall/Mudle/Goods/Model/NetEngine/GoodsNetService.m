@@ -48,9 +48,9 @@
     NSString *apiPath=[[MCMallAPI prefixPath] stringByAppendingString:@"brandlist"];
     NSMutableDictionary *postDic=[[NSMutableDictionary alloc]  initWithObjectsAndKeys:@(pageIndex),@"pageno",@(pageSize),@"records", nil];
     if (group==MCVipGoodsItemTagGroupMother) {
-        [postDic setObject:@"0" forKey:@"brandid"];
+        [postDic setObject:@"0" forKey:@"group"];
     }else if (group==MCVipGoodsItemTagGroupDiscountGoods){
-        [postDic setObject:@"9" forKey:@"brandid"];
+        [postDic setObject:@"9" forKey:@"group"];
     }
     HHNetWorkOperation *op= [[HHNetWorkEngine sharedHHNetWorkEngine] startRequestWithUrl:apiPath parmars:postDic method:HHGET onCompletionHander:^(id responseData, NSError *error) {
         [HHBaseNetService parseMcMallResponseObject:responseData modelClass:[BrandModel class] error:error onCompletionBlock:^(HHResponseResult *responseResult) {

@@ -9,6 +9,8 @@
 #import "BradnListViewController.h"
 #import "GoodsNetService.h"
 #import "BrandListCell.h"
+#import "GoodsListViewController.h"
+#import "BrandModel.h"
  static NSString *brandListCellIdentifer = @"brandListCellIdentifer";
 
 @interface BradnListViewController ()
@@ -28,6 +30,8 @@
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [weakSelf getBradnList];
     }];
+    [self.tableView registerClass:[BrandListCell class] forCellReuseIdentifier:brandListCellIdentifer];
+    [self getBradnList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +40,11 @@
 }
 -(void)getBradnList{
     WEAKSELF
+    if (self.dataSourceArray.count==0) {
+        [self.tableView showPageLoadingView];
+    }
    HHNetWorkOperation *op=[GoodsNetService getBrandListWithPageIndex:self.pageIndex pageSize:MCMallPageSize group:self.goodsItemTag onCompletionHandler:^(HHResponseResult *responseResult) {
+       [self.tableView dismissPageLoadView];
         if (responseResult.responseCode==HHResponseResultCodeSuccess) {
             if (weakSelf.pageIndex==1) {
                 [weakSelf.dataSourceArray removeAllObjects];
@@ -83,5 +91,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
      BrandModel *brandModel=[self.dataSourceArray objectAtIndex:indexPath.row];
+    GoodsListViewController *goodsListController=[[GoodsListViewController alloc]  init];
+    goodsListController.brandID=brandModel.brandID;
+    goodsListController.vipGoodsItemTag=self.goodsItemTag;
+    goodsListController.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:goodsListController animated:YES];
 }
 @end

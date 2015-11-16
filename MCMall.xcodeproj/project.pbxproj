@@ -74,6 +74,42 @@
 		2A163DAB1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DAC1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
 		2A163DAD1BCF49B3006ABBCB /* HHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A163DA71BCF49B3006ABBCB /* HHTextField.m */; };
+		2A17B78C1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B78D1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B78E1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B78F1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B7901BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B7911BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */; };
+		2A17B7941BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B7951BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B7961BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B7971BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B7981BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B7991BFA167500D1965A /* VipHomeTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A17B7931BFA167500D1965A /* VipHomeTagCell.m */; };
+		2A17B79F1BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A01BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A11BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A21BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A31BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A41BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
+		2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7AB1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7AC1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7AD1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7AE1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7AF1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7B01BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
+		2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
 		2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
 		2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
@@ -1399,6 +1435,14 @@
 		2A10F71E1BF8CB5B00153813 /* HHADNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHADNetService.m; sourceTree = "<group>"; };
 		2A163DA61BCF49B3006ABBCB /* HHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextField.h; sourceTree = "<group>"; };
 		2A163DA71BCF49B3006ABBCB /* HHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextField.m; sourceTree = "<group>"; };
+		2A17B78A1BFA0ACB00D1965A /* LimitGoodsScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitGoodsScrollCell.h; sourceTree = "<group>"; };
+		2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitGoodsScrollCell.m; sourceTree = "<group>"; };
+		2A17B7921BFA167500D1965A /* VipHomeTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipHomeTagCell.h; sourceTree = "<group>"; };
+		2A17B7931BFA167500D1965A /* VipHomeTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipHomeTagCell.m; sourceTree = "<group>"; };
+		2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag0.jpg; sourceTree = "<group>"; };
+		2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag3.jpg; sourceTree = "<group>"; };
+		2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag2.jpg; sourceTree = "<group>"; };
+		2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag1.jpg; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_plus1Effect@2x.png"; sourceTree = "<group>"; };
@@ -1997,6 +2041,28 @@
 			path = HHTextField;
 			sourceTree = "<group>";
 		};
+		2A17B7891BFA0AAE00D1965A /* VipHome */ = {
+			isa = PBXGroup;
+			children = (
+				2A17B78A1BFA0ACB00D1965A /* LimitGoodsScrollCell.h */,
+				2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */,
+				2A17B7921BFA167500D1965A /* VipHomeTagCell.h */,
+				2A17B7931BFA167500D1965A /* VipHomeTagCell.m */,
+			);
+			path = VipHome;
+			sourceTree = "<group>";
+		};
+		2A17B79A1BFA1BF100D1965A /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */,
+				2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */,
+				2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */,
+				2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
 		2A37B0CD1B0CC62A00D0FE88 = {
 			isa = PBXGroup;
 			children = (
@@ -2273,6 +2339,7 @@
 		2A7C4E0A1B14728500912D53 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2A17B79A1BFA1BF100D1965A /* Goods */,
 				2A06456B1B7DCDA000C27AD5 /* Mall */,
 				2A7EA1F51B56B30F005B04A9 /* icon */,
 				2A9B9E401B56323E0052B640 /* Activity */,
@@ -3072,6 +3139,7 @@
 		2AFAC6471BA59FC500C2B131 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2A17B7891BFA0AAE00D1965A /* VipHome */,
 				2AFAC6501BA5A04100C2B131 /* HHClassMenuView.h */,
 				2AFAC6511BA5A04100C2B131 /* HHClassMenuView.m */,
 				2AC766641BB7D1CC00160837 /* GoodsTimeView.h */,
@@ -3314,6 +3382,7 @@
 				2AC28B941B71060000F91760 /* item_babay@2x.png in Resources */,
 				2AD44BEC1B889418001B1CDC /* tabbar_assistnt_HL@3x.png in Resources */,
 				2AD44BFC1B889424001B1CDC /* tabbar_home_HL@2x.png in Resources */,
+				2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2AD44BF01B889418001B1CDC /* tabbar_me@3x.png in Resources */,
 				2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */,
 				2AD38ABC1B801E6700BEA56E /* btn_share_wechatSession@2x.png in Resources */,
@@ -3341,6 +3410,7 @@
 				2AD44C001B889424001B1CDC /* tabbar_assistnt@2x.png in Resources */,
 				2A816DE51B2FBC1D0007862B /* Localizable.strings in Resources */,
 				2AC28B9B1B71060000F91760 /* item_shop@3x.png in Resources */,
+				2A17B7AB1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2AC28B931B71060000F91760 /* item_activity@3x.png in Resources */,
 				2A95FABB1B9B21B900962F79 /* cancel_icon@3x.png in Resources */,
 				2AD44C011B889424001B1CDC /* tabbar_me_HL@2x.png in Resources */,
@@ -3361,6 +3431,7 @@
 				2AD38ABB1B801E6700BEA56E /* btn_share_sms@2x.png in Resources */,
 				2AD44BEF1B889418001B1CDC /* tabbar_me_HL@3x.png in Resources */,
 				2A95FABD1B9B21B900962F79 /* ok_icon@3x.png in Resources */,
+				2A17B79F1BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2AC28B971B71060000F91760 /* item_consume@3x.png in Resources */,
 				2AD019071B14A8C000702BD5 /* loading_Default@2x.png in Resources */,
 				2A8359391B8030B900832964 /* UMSCommentDetailController.xib in Resources */,
@@ -3373,6 +3444,7 @@
 				2A0645761B7DCDA600C27AD5 /* icon_goods@3x.png in Resources */,
 				2A9B9E451B56325E0052B640 /* favorButton_HL@2x.png in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
+				2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2AD44BF21B889418001B1CDC /* tabbar_vip@3x.png in Resources */,
 				2AD44BED1B889418001B1CDC /* tabbar_assistnt@3x.png in Resources */,
 				2AD38ABD1B801E6700BEA56E /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3401,6 +3473,7 @@
 				2ADFB7151BBDA482000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB7161BBDA482000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB7171BBDA482000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
+				2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB7181BBDA482000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFB7191BBDA482000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB71A1BBDA482000BF698 /* navigationBg@2x.png in Resources */,
@@ -3428,6 +3501,7 @@
 				2ADFB7311BBDA482000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFB7321BBDA482000BF698 /* tabbar_assistnt@2x.png in Resources */,
 				2ADFB7331BBDA482000BF698 /* Localizable.strings in Resources */,
+				2A17B7AC1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2ADFB7341BBDA482000BF698 /* item_shop@3x.png in Resources */,
 				2ADFB7351BBDA482000BF698 /* item_activity@3x.png in Resources */,
 				2ADFB7361BBDA482000BF698 /* cancel_icon@3x.png in Resources */,
@@ -3448,6 +3522,7 @@
 				2ADFB7421BBDA482000BF698 /* UMSCommentInputControlleriPad.xib in Resources */,
 				2ADFB7431BBDA482000BF698 /* icon_dirary@3x.png in Resources */,
 				2ADFB7441BBDA482000BF698 /* btn_share_sms@2x.png in Resources */,
+				2A17B7A01BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2ADFB7461BBDA482000BF698 /* tabbar_me_HL@3x.png in Resources */,
 				2ADFB7471BBDA482000BF698 /* ok_icon@3x.png in Resources */,
 				2ADFB7481BBDA482000BF698 /* item_consume@3x.png in Resources */,
@@ -3460,6 +3535,7 @@
 				2ADFB74E1BBDA482000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFB74F1BBDA482000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB7501BBDA482000BF698 /* checkbox_Select@2x.png in Resources */,
+				2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB7511BBDA482000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFB7521BBDA482000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB7531BBDA482000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3488,6 +3564,7 @@
 				2ADFB8121BBDA868000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB8131BBDA868000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB8141BBDA868000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
+				2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB8151BBDA868000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFB8161BBDA868000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB8171BBDA868000BF698 /* navigationBg@2x.png in Resources */,
@@ -3515,6 +3592,7 @@
 				2ADFB82C1BBDA868000BF698 /* jquery-1.9.1.min.js in Resources */,
 				2ADFB82E1BBDA868000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFB82F1BBDA868000BF698 /* tabbar_activity_HL@3x.png in Resources */,
+				2A17B7AD1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2ADFB8301BBDA868000BF698 /* tabbar_assistnt@2x.png in Resources */,
 				2ADFB8311BBDA868000BF698 /* Localizable.strings in Resources */,
 				2ADFB8321BBDA868000BF698 /* item_shop@3x.png in Resources */,
@@ -3535,6 +3613,7 @@
 				2ADFB8401BBDA868000BF698 /* UMSCommentInputControlleriPad.xib in Resources */,
 				2ADFB8411BBDA868000BF698 /* icon_dirary@3x.png in Resources */,
 				2ADFB8421BBDA868000BF698 /* btn_share_sms@2x.png in Resources */,
+				2A17B7A11BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2ADFB8441BBDA868000BF698 /* tabbar_me_HL@3x.png in Resources */,
 				2ADFB8451BBDA868000BF698 /* ok_icon@3x.png in Resources */,
 				2ADFB8461BBDA868000BF698 /* item_consume@3x.png in Resources */,
@@ -3547,6 +3626,7 @@
 				2ADFB84D1BBDA868000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFB84F1BBDA868000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB8501BBDA868000BF698 /* checkbox_Select@2x.png in Resources */,
+				2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB8511BBDA868000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFB8521BBDA868000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB8531BBDA868000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3575,6 +3655,7 @@
 				2ADFB8FE1BBDA877000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB8FF1BBDA877000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
 				2ADFB9001BBDA877000BF698 /* tabbar_home_HL@2x.png in Resources */,
+				2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB9011BBDA877000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB9021BBDA877000BF698 /* navigationBg@2x.png in Resources */,
 				2ADFB9051BBDA877000BF698 /* btn_share_wechatSession@2x.png in Resources */,
@@ -3602,6 +3683,7 @@
 				2ADFB91A1BBDA877000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFB91B1BBDA877000BF698 /* tabbar_assistnt@2x.png in Resources */,
 				2ADFB91C1BBDA877000BF698 /* Localizable.strings in Resources */,
+				2A17B7AE1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2ADFB91D1BBDA877000BF698 /* item_shop@3x.png in Resources */,
 				2ADFB91E1BBDA877000BF698 /* item_activity@3x.png in Resources */,
 				2ADFB91F1BBDA877000BF698 /* cancel_icon@3x.png in Resources */,
@@ -3622,6 +3704,7 @@
 				2ADFB92C1BBDA877000BF698 /* icon_dirary@3x.png in Resources */,
 				2ADFB92D1BBDA877000BF698 /* btn_share_sms@2x.png in Resources */,
 				2ADFB92F1BBDA877000BF698 /* tabbar_me_HL@3x.png in Resources */,
+				2A17B7A21BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2ADFB9301BBDA877000BF698 /* ok_icon@3x.png in Resources */,
 				2ADFB9311BBDA877000BF698 /* item_consume@3x.png in Resources */,
 				2ADFB9321BBDA877000BF698 /* loading_Default@2x.png in Resources */,
@@ -3634,6 +3717,7 @@
 				2ADFB93A1BBDA877000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB93B1BBDA877000BF698 /* checkbox_Select@2x.png in Resources */,
 				2ADFB93C1BBDA877000BF698 /* tabbar_vip@3x.png in Resources */,
+				2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB93D1BBDA877000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB93E1BBDA877000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
 				2ADFB93F1BBDA877000BF698 /* tabbar_activity_HL@2x.png in Resources */,
@@ -3662,6 +3746,7 @@
 				2ADFB9E91BBDA88F000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB9EA1BBDA88F000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
 				2ADFB9EB1BBDA88F000BF698 /* tabbar_home_HL@2x.png in Resources */,
+				2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB9EC1BBDA88F000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB9ED1BBDA88F000BF698 /* navigationBg@2x.png in Resources */,
 				2ADFB9F01BBDA88F000BF698 /* btn_share_wechatSession@2x.png in Resources */,
@@ -3689,6 +3774,7 @@
 				2ADFBA051BBDA88F000BF698 /* tabbar_activity_HL@3x.png in Resources */,
 				2ADFBA061BBDA88F000BF698 /* tabbar_assistnt@2x.png in Resources */,
 				2ADFBA071BBDA88F000BF698 /* Localizable.strings in Resources */,
+				2A17B7AF1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2ADFBA081BBDA88F000BF698 /* item_shop@3x.png in Resources */,
 				2ADFBA091BBDA88F000BF698 /* item_activity@3x.png in Resources */,
 				2ADFBA0A1BBDA88F000BF698 /* cancel_icon@3x.png in Resources */,
@@ -3709,6 +3795,7 @@
 				2ADFBA161BBDA88F000BF698 /* UMSCommentInputControlleriPad.xib in Resources */,
 				2ADFBA171BBDA88F000BF698 /* icon_dirary@3x.png in Resources */,
 				2ADFBA181BBDA88F000BF698 /* btn_share_sms@2x.png in Resources */,
+				2A17B7A31BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2ADFBA1A1BBDA88F000BF698 /* tabbar_me_HL@3x.png in Resources */,
 				2ADFBA1B1BBDA88F000BF698 /* ok_icon@3x.png in Resources */,
 				2AE2809C1BC4CFE900752CD8 /* YingZiGuResources.xcassets in Resources */,
@@ -3721,6 +3808,7 @@
 				2ADFBA231BBDA88F000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFBA251BBDA88F000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFBA261BBDA88F000BF698 /* checkbox_Select@2x.png in Resources */,
+				2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFBA271BBDA88F000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFBA281BBDA88F000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFBA291BBDA88F000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3749,6 +3837,7 @@
 				2ADFBAD41BBDA89B000BF698 /* item_babay@2x.png in Resources */,
 				2ADFBB451BBDA973000BF698 /* MiaoQiMuYing.plist in Resources */,
 				2ADFBAD51BBDA89B000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
+				2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFBAD61BBDA89B000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFBAD71BBDA89B000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFBAD81BBDA89B000BF698 /* navigationBg@2x.png in Resources */,
@@ -3776,6 +3865,7 @@
 				2ADFBAED1BBDA89B000BF698 /* jquery-1.9.1.min.js in Resources */,
 				2ADFBAEF1BBDA89B000BF698 /* UMSLoginViewController.xib in Resources */,
 				2ADFBAF01BBDA89B000BF698 /* tabbar_activity_HL@3x.png in Resources */,
+				2A17B7B01BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */,
 				2ADFBAF11BBDA89B000BF698 /* tabbar_assistnt@2x.png in Resources */,
 				2ADFBAF21BBDA89B000BF698 /* Localizable.strings in Resources */,
 				2ADFBAF31BBDA89B000BF698 /* item_shop@3x.png in Resources */,
@@ -3796,6 +3886,7 @@
 				2ADFBB011BBDA89B000BF698 /* UMSCommentInputControlleriPad.xib in Resources */,
 				2ADFBB021BBDA89B000BF698 /* icon_dirary@3x.png in Resources */,
 				2ADFBB031BBDA89B000BF698 /* btn_share_sms@2x.png in Resources */,
+				2A17B7A41BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */,
 				2ADFBB051BBDA89B000BF698 /* tabbar_me_HL@3x.png in Resources */,
 				2ADFBB061BBDA89B000BF698 /* ok_icon@3x.png in Resources */,
 				2ADFBB071BBDA89B000BF698 /* item_consume@3x.png in Resources */,
@@ -3808,6 +3899,7 @@
 				2ADFBB0E1BBDA89B000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFBB101BBDA89B000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFBB111BBDA89B000BF698 /* checkbox_Select@2x.png in Resources */,
+				2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFBB121BBDA89B000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFBB131BBDA89B000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFBB141BBDA89B000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -4020,6 +4112,7 @@
 				2A0645461B7D82FF00C27AD5 /* HHFlowModel.m in Sources */,
 				2A95FAA91B9B165800962F79 /* HHNetWorkEngine+Goods.m in Sources */,
 				2A468C601B329CBF005F5D15 /* ApplyActivityViewController.m in Sources */,
+				2A17B7941BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2AF5A2701B99C079003F6AB8 /* SubjectNetService.m in Sources */,
 				2AE3C5481B9DCA7800F1434F /* GoodsAddressViewController.m in Sources */,
 				2AD38AAA1B801E2400BEA56E /* HHShareView.m in Sources */,
@@ -4033,6 +4126,7 @@
 				2AFAC64C1BA59FE200C2B131 /* GoodsDetailViewController.m in Sources */,
 				2AF5A2571B99BD2E003F6AB8 /* UIView+Addition.m in Sources */,
 				2A73C9F81B2721EA00B7920F /* ActivityListCell.m in Sources */,
+				2A17B78C1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2A87EE2A1B411DEF0051D668 /* CommonActivityController.m in Sources */,
 				2A9DD3A61B402C390010893F /* PhotoActivityViewController.m in Sources */,
 				2AC766691BB7DF1D00160837 /* GoodsDetailPriceCell.m in Sources */,
@@ -4157,6 +4251,7 @@
 				2ADFB6851BBDA482000BF698 /* HHFlowModel.m in Sources */,
 				2ADFB6861BBDA482000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB6871BBDA482000BF698 /* ApplyActivityViewController.m in Sources */,
+				2A17B7951BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2ADFB6881BBDA482000BF698 /* SubjectNetService.m in Sources */,
 				2ADFB68A1BBDA482000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB68B1BBDA482000BF698 /* HHShareView.m in Sources */,
@@ -4170,6 +4265,7 @@
 				2ADFB6931BBDA482000BF698 /* GoodsDetailViewController.m in Sources */,
 				2ADFB6941BBDA482000BF698 /* UIView+Addition.m in Sources */,
 				2ADFB6951BBDA482000BF698 /* ActivityListCell.m in Sources */,
+				2A17B78D1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2ADFB6961BBDA482000BF698 /* CommonActivityController.m in Sources */,
 				2ADFB6971BBDA482000BF698 /* PhotoActivityViewController.m in Sources */,
 				2ADFB6981BBDA482000BF698 /* GoodsDetailPriceCell.m in Sources */,
@@ -4294,6 +4390,7 @@
 				2ADFB7811BBDA868000BF698 /* HHFlowModel.m in Sources */,
 				2ADFB7821BBDA868000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB7831BBDA868000BF698 /* ApplyActivityViewController.m in Sources */,
+				2A17B7961BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2ADFB7841BBDA868000BF698 /* SubjectNetService.m in Sources */,
 				2ADFB7861BBDA868000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB7871BBDA868000BF698 /* HHShareView.m in Sources */,
@@ -4307,6 +4404,7 @@
 				2ADFB78F1BBDA868000BF698 /* GoodsDetailViewController.m in Sources */,
 				2ADFB7901BBDA868000BF698 /* UIView+Addition.m in Sources */,
 				2ADFB7911BBDA868000BF698 /* ActivityListCell.m in Sources */,
+				2A17B78E1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2ADFB7921BBDA868000BF698 /* CommonActivityController.m in Sources */,
 				2ADFB7931BBDA868000BF698 /* PhotoActivityViewController.m in Sources */,
 				2ADFB7941BBDA868000BF698 /* GoodsDetailPriceCell.m in Sources */,
@@ -4431,6 +4529,7 @@
 				2ADFB86C1BBDA877000BF698 /* HHFlowModel.m in Sources */,
 				2ADFB86D1BBDA877000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB86E1BBDA877000BF698 /* ApplyActivityViewController.m in Sources */,
+				2A17B7971BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2ADFB86F1BBDA877000BF698 /* SubjectNetService.m in Sources */,
 				2ADFB8711BBDA877000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB8721BBDA877000BF698 /* HHShareView.m in Sources */,
@@ -4444,6 +4543,7 @@
 				2ADFB87A1BBDA877000BF698 /* GoodsDetailViewController.m in Sources */,
 				2ADFB87B1BBDA877000BF698 /* UIView+Addition.m in Sources */,
 				2ADFB87C1BBDA877000BF698 /* ActivityListCell.m in Sources */,
+				2A17B78F1BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2ADFB87D1BBDA877000BF698 /* CommonActivityController.m in Sources */,
 				2ADFB87E1BBDA877000BF698 /* PhotoActivityViewController.m in Sources */,
 				2ADFB87F1BBDA877000BF698 /* GoodsDetailPriceCell.m in Sources */,
@@ -4568,6 +4668,7 @@
 				2ADFB9571BBDA88F000BF698 /* HHFlowModel.m in Sources */,
 				2ADFB9581BBDA88F000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFB9591BBDA88F000BF698 /* ApplyActivityViewController.m in Sources */,
+				2A17B7981BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2ADFB95A1BBDA88F000BF698 /* SubjectNetService.m in Sources */,
 				2ADFB95C1BBDA88F000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFB95D1BBDA88F000BF698 /* HHShareView.m in Sources */,
@@ -4581,6 +4682,7 @@
 				2ADFB9651BBDA88F000BF698 /* GoodsDetailViewController.m in Sources */,
 				2ADFB9661BBDA88F000BF698 /* UIView+Addition.m in Sources */,
 				2ADFB9671BBDA88F000BF698 /* ActivityListCell.m in Sources */,
+				2A17B7901BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2ADFB9681BBDA88F000BF698 /* CommonActivityController.m in Sources */,
 				2ADFB9691BBDA88F000BF698 /* PhotoActivityViewController.m in Sources */,
 				2ADFB96A1BBDA88F000BF698 /* GoodsDetailPriceCell.m in Sources */,
@@ -4705,6 +4807,7 @@
 				2ADFBA421BBDA89B000BF698 /* HHFlowModel.m in Sources */,
 				2ADFBA431BBDA89B000BF698 /* HHNetWorkEngine+Goods.m in Sources */,
 				2ADFBA441BBDA89B000BF698 /* ApplyActivityViewController.m in Sources */,
+				2A17B7991BFA167500D1965A /* VipHomeTagCell.m in Sources */,
 				2ADFBA451BBDA89B000BF698 /* SubjectNetService.m in Sources */,
 				2ADFBA471BBDA89B000BF698 /* GoodsAddressViewController.m in Sources */,
 				2ADFBA481BBDA89B000BF698 /* HHShareView.m in Sources */,
@@ -4718,6 +4821,7 @@
 				2ADFBA501BBDA89B000BF698 /* GoodsDetailViewController.m in Sources */,
 				2ADFBA511BBDA89B000BF698 /* UIView+Addition.m in Sources */,
 				2ADFBA521BBDA89B000BF698 /* ActivityListCell.m in Sources */,
+				2A17B7911BFA0ACB00D1965A /* LimitGoodsScrollCell.m in Sources */,
 				2ADFBA531BBDA89B000BF698 /* CommonActivityController.m in Sources */,
 				2ADFBA541BBDA89B000BF698 /* PhotoActivityViewController.m in Sources */,
 				2ADFBA551BBDA89B000BF698 /* GoodsDetailPriceCell.m in Sources */,

@@ -17,4 +17,9 @@
              @"brandImgUrl":@"bigImg",
              @"brandIntro":@"explain",};
 };
+
+-(void)setBrandImgUrl:(NSString *)brandImgUrl{
+    _brandImgUrl=brandImgUrl;
+    _brandImgUrl=[HHGlobalVarTool fullImagePath:_brandImgUrl];
+}
 @end
