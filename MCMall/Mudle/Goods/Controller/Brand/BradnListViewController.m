@@ -23,6 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"享约汇";
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+ 
     WEAKSELF
     [self.tableView addPullToRefreshWithActionHandler:^{
         [weakSelf getBradnList];

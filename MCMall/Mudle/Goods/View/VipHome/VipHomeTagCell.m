@@ -29,13 +29,23 @@
     // Configure the view for the selected state
 }
 -(void)onInitView{
+    UIView *bgView=[UIView new];
+    bgView.layer.cornerRadius=5.0;
+    bgView.layer.masksToBounds=YES;
+    [self.contentView addSubview:bgView];
+    WEAKSELF
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(weakSelf.contentView);
+    }];
+    
     NSInteger colum=2;
     CGFloat padding=10;
-    CGFloat height=VipHomeButtonHeight*OCCOMMONSCALE;
+    
     CGFloat width=(SCREEN_WIDTH-padding*(colum+1))/colum;
+    CGFloat height=width/2.0;
     for (NSInteger i=0; i<4; i++) {
         UIButton *button=[UIButton buttonWithTitle:@"" titleColor:[UIColor clearColor] font:nil target:self selector:@selector(didItemTagButtonPressed :)];
-        [self.contentView addSubview:button];
+        [bgView addSubview:button];
         NSInteger row=i/2;
         NSInteger index=i%2;
         CGFloat offx=(padding+width)*index+padding;
@@ -55,6 +65,6 @@
     }
 }
 +(CGFloat)vipHomeCellHeight{
-    return VipHomeButtonHeight*OCCOMMONSCALE*2 +30;
+    return (SCREEN_WIDTH-10*(2+1))/2+30;
 }
 @end

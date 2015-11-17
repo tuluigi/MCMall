@@ -8,7 +8,7 @@
 
 #import "BrandModel.h"
 
-@implementation BrandModel
+@implementation BrandModel  
 
 
 +(NSDictionary *)JSONKeyPathsByPropertyKey{

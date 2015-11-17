@@ -27,6 +27,7 @@
     // Do any additional setup after loading the view.
     self.title=@"专享汇";
     self.tableView.tableHeaderView=self.flowView;
+    self.tableView.backgroundColor=[UIColor red:245 green:245 blue:245 alpha:1];
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self getFlowList];
     

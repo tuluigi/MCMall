@@ -40,6 +40,8 @@
 }
 -(void)onInitUI{
     _bgView=[[UIView alloc]  init];
+    _bgView.layer.cornerRadius=5.0;
+    _bgView.layer.masksToBounds=YES;
     [self.contentView addSubview:_bgView];
     
     _goodsImageView=[[UIImageView alloc]  init];
@@ -58,7 +60,7 @@
     WEAKSELF
     
     [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(weakSelf.contentView);
+        make.edges.mas_equalTo(UIEdgeInsetsMake(5, 5, 5, 5));
     }];
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.bgView.mas_left).offset(30);
