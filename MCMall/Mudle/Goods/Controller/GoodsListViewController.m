@@ -187,6 +187,9 @@
                 [weakSelf.view makeToast:@"没有更多商品喽"];
             }
         }else{
+            if (_pageIndex==1) {
+                [weakSelf.dataSourceArray removeAllObjects];
+            }
             [weakSelf.view makeToast:responseResult.responseMessage];
         }
         [weakSelf.collectionView reloadData];

@@ -29,19 +29,20 @@
     // Configure the view for the selected state
 }
 -(void)onInitView{
+    self.contentView.backgroundColor=[UIColor red:245.0 green:245.0 blue:245.0 alpha:1];
     UIView *bgView=[UIView new];
+    bgView.backgroundColor=[UIColor whiteColor];
     bgView.layer.cornerRadius=5.0;
     bgView.layer.masksToBounds=YES;
     [self.contentView addSubview:bgView];
-    WEAKSELF
     [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(weakSelf.contentView);
+        make.edges.mas_equalTo(UIEdgeInsetsMake(5, 5, 5, 5));
     }];
     
     NSInteger colum=2;
     CGFloat padding=10;
     
-    CGFloat width=(SCREEN_WIDTH-padding*(colum+1))/colum;
+    CGFloat width=(SCREEN_WIDTH-padding*(colum+1)-5*2)/colum;
     CGFloat height=width/2.0;
     for (NSInteger i=0; i<4; i++) {
         UIButton *button=[UIButton buttonWithTitle:@"" titleColor:[UIColor clearColor] font:nil target:self selector:@selector(didItemTagButtonPressed :)];
@@ -65,6 +66,6 @@
     }
 }
 +(CGFloat)vipHomeCellHeight{
-    return (SCREEN_WIDTH-10*(2+1))/2+30;
+    return (SCREEN_WIDTH-10*(2+1)-5*2)/2+30;
 }
 @end

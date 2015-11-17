@@ -10,13 +10,14 @@
 #import "GoodsNetService.h"
 #import "GoodsTimeView.h"
 #import "GoodsModel.h"
+#define LimitGoodsScrollCellTimeSpan    3
 @interface LimitGoodsScrollCell ()
 @property(nonatomic,strong)NSMutableArray *goodsArray;
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIImageView *goodsImageView;
 @property(nonatomic,strong)UILabel *goodsNameLable,*goodsPriceLable,*goodsCounetLable;
 @property(nonatomic,strong)__block GoodsTimeView *goodsTimeView;
-@property(nonatomic,assign)__block NSInteger currentIndex;
+@property(nonatomic,assign)__block NSInteger currentIndex,timeSpanIndex;
 @end
 
 @implementation LimitGoodsScrollCell
@@ -39,7 +40,10 @@
     // Configure the view for the selected state
 }
 -(void)onInitUI{
+    _timeSpanIndex=1;
+     self.contentView.backgroundColor=[UIColor red:245.0 green:245.0 blue:245.0 alpha:1];
     _bgView=[[UIView alloc]  init];
+    _bgView.backgroundColor=[UIColor whiteColor];
     _bgView.layer.cornerRadius=5.0;
     _bgView.layer.masksToBounds=YES;
     [self.contentView addSubview:_bgView];
@@ -93,16 +97,25 @@
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:MCMallTimerTaskNotification object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification * _Nonnull note) {
         if (weakSelf.goodsArray) {
-            if ((weakSelf.currentIndex+1) ==weakSelf.goodsArray.count) {
-                weakSelf.currentIndex=0;
-            }else{
-                weakSelf.currentIndex++;
-            }
-            GoodsModel *goodsModel=[weakSelf.goodsArray objectAtIndex:weakSelf.currentIndex];
-            [weakSelf updateScrollCellWithGoodsModel:goodsModel];
+            [weakSelf updateLimitGoods];
         }
     }];
     [self getLimitGoodsList];
+}
+-(void)updateLimitGoods{
+    WEAKSELF
+    if (weakSelf.timeSpanIndex<LimitGoodsScrollCellTimeSpan) {
+        weakSelf.timeSpanIndex++;
+    }else{
+        weakSelf.timeSpanIndex=1;
+        if ((weakSelf.currentIndex+1) ==(weakSelf.goodsArray.count)) {
+            weakSelf.currentIndex=0;
+        }else{
+            weakSelf.currentIndex++;
+        }
+        GoodsModel *goodsModel=[weakSelf.goodsArray objectAtIndex:weakSelf.currentIndex];
+        [weakSelf updateScrollCellWithGoodsModel:goodsModel];
+    }
 }
 -(void)getLimitGoodsList{
     WEAKSELF
@@ -113,6 +126,8 @@
             }
             [weakSelf.goodsArray removeAllObjects];
             [weakSelf.goodsArray addObjectsFromArray:responseResult.responseData];
+            GoodsModel *goodsModel=[weakSelf.goodsArray firstObject];
+            [weakSelf updateScrollCellWithGoodsModel:goodsModel];
         }
     }];
 }
@@ -123,9 +138,9 @@
 -(void)updateScrollCellWithGoodsModel:(GoodsModel *)goodsModel{
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
-    _goodsPriceLable.text=[NSString stringWithFormat:@"%f",goodsModel.vipPrice];
+    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",goodsModel.vipPrice];
     _goodsTimeView.date=goodsModel.endTime;
-    _goodsCounetLable.text=[NSString stringWithFormat:@"%ld",goodsModel.storeNum];
+    _goodsCounetLable.text=[NSString stringWithFormat:@"%ld件",goodsModel.storeNum];
 }
 -(GoodsModel *)goodsModel{
     if (self.currentIndex<self.goodsArray.count) {

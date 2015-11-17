@@ -45,7 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=[[HHAppInfo appName] stringByAppendingString:@"会员服务系统"];
-    
+    self.tableView.showsHorizontalScrollIndicator=NO;
+    self.tableView.showsVerticalScrollIndicator=NO;
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[MallListCell class] forCellReuseIdentifier:McMallCellIdenfier];
     self.tableView.tableHeaderView=self.flowView;
