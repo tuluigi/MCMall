@@ -86,6 +86,8 @@
     if (indexPath.row==0) {
         UITableViewCell *cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"tableviewcell01"];
         cell.textLabel.text=@"每日限时抢购";
+        cell.textLabel.textAlignment=NSTextAlignmentRight;
+        cell.textLabel.textColor=[UIColor darkGrayColor];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.row==1){
@@ -112,7 +114,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
-        
+        GoodsListViewController *goodsListController=[[GoodsListViewController alloc]  init];
+        goodsListController.hidesBottomBarWhenPushed=YES;
+        goodsListController.showGoodsClass=NO;
+        [self.navigationController pushViewController:goodsListController animated:YES];
+
     }else if (indexPath.row==1){
         GoodsDetailViewController *detailController=[[GoodsDetailViewController alloc]  init];
         LimitGoodsScrollCell *cell=(LimitGoodsScrollCell *)[tableView cellForRowAtIndexPath:indexPath];

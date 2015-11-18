@@ -66,35 +66,55 @@
     _catArray=catArray;
     self.classMenuView.classDataArry=[NSMutableArray arrayWithArray:_catArray];
 }
+-(instancetype)init{
+    if (self==[super init]) {
+        self.showGoodsClass=YES;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"专享汇";
+  
     self.pageIndex=1;
 //self.tableView.tableHeaderView=self.flowView;
-    [self.view addSubview:self.classMenuView];
-    [self.view addSubview:self.collectionView];
-    WEAKSELF
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-       // make.removeExisting=YES;
-        make.top.mas_equalTo(HHClassMenuViewHeight);
-        make.left.right.bottom.mas_equalTo(weakSelf.view);
-    }];
-    [self.collectionView addPullToRefreshWithActionHandler:^{
-        weakSelf.pageIndex=1;
-        [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
-    }];
-    [self.collectionView addInfiniteScrollingWithActionHandler:^{
-//        weakSelf.pageIndex++;
-        [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
-    }];
+        WEAKSELF
+    if (self.showGoodsClass) {
+          self.title=@"专享汇";
+        [self.view addSubview:self.classMenuView];
+         [self.view addSubview:self.collectionView];
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(HHClassMenuViewHeight);
+            make.left.right.bottom.mas_equalTo(weakSelf.view);
+        }];
+    }else{
+          self.title=@"限时抢购";
+         [self.view addSubview:self.collectionView];
+        [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsZero);
+        }];
+    }
+   
+   
+    if (self.showGoodsClass) {
+        [self.collectionView addPullToRefreshWithActionHandler:^{
+            weakSelf.pageIndex=1;
+            [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
+        }];
+        [self.collectionView addInfiniteScrollingWithActionHandler:^{
+            [weakSelf getGoodsListWithCatID:weakSelf.selectedCatModel.catID userID:[HHUserManager userID]];
+        }];
+    }
+    
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLoginSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [weakSelf getCategoryList];
     }];
     [[NSNotificationCenter defaultCenter]  addObserverForName:UserLogoutSucceedNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        weakSelf.pageIndex=1;
-        [weakSelf.catArray removeAllObjects];
-        weakSelf.classMenuView.classDataArry=nil;
+        if (weakSelf.showGoodsClass) {
+            weakSelf.pageIndex=1;
+            [weakSelf.catArray removeAllObjects];
+            weakSelf.classMenuView.classDataArry=nil;
+        }
         [weakSelf.dataSourceArray removeAllObjects];
         [weakSelf.collectionView reloadData];
     }];
@@ -106,15 +126,21 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)getDataSourse{
-    if (self.catArray.count==0) {
-        [self getCategoryList];
+    if (self.showGoodsClass) {
+        if (self.catArray.count==0) {
+            [self getCategoryList];
+        }else{
+            if (self.dataSourceArray.count==0) {
+                if (!_selectedCatModel) {
+                    _selectedCatModel=[self.catArray firstObject];
+                    [self.classMenuView selectClassMenuAtIndex:0];
+                }
+                [self getGoodsListWithCatID:_selectedCatModel.catID userID:[HHUserManager userID]];
+            }
+        }
     }else{
         if (self.dataSourceArray.count==0) {
-            if (!_selectedCatModel) {
-                _selectedCatModel=[self.catArray firstObject];
-                [self.classMenuView selectClassMenuAtIndex:0];
-            }
-            [self getGoodsListWithCatID:_selectedCatModel.catID userID:[HHUserManager userID]];
+            [self getGoodsListWithCatID:nil userID:[HHUserManager userID]];
         }
     }
 }
@@ -173,29 +199,50 @@
     if (self.dataSourceArray.count==0) {
         [self.collectionView showPageLoadingView];
     }
-    WEAKSELF
-    HHNetWorkOperation *op=[GoodsNetService getNewGoodsListWithTag:self.vipGoodsItemTag CatID:catID brandID:self.brandID pageNum:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
-        [weakSelf.collectionView dismissPageLoadView];
-        if (responseResult.responseCode==HHResponseResultCodeSuccess) {
-            [weakSelf.view dismissHUD];
-            if (_pageIndex==1) {
-                [self.dataSourceArray removeAllObjects];
-            }
-            if (((NSArray *)responseResult.responseData).count) {
-                [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+      WEAKSELF
+    if (self.showGoodsClass) {
+      
+        HHNetWorkOperation *op=[GoodsNetService getNewGoodsListWithTag:self.vipGoodsItemTag CatID:catID brandID:self.brandID pageNum:self.pageIndex pageSize:MCMallPageSize onCompletionHandler:^(HHResponseResult *responseResult) {
+            [weakSelf.collectionView dismissPageLoadView];
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                [weakSelf.view dismissHUD];
+                if (_pageIndex==1) {
+                    [self.dataSourceArray removeAllObjects];
+                }
+                if (((NSArray *)responseResult.responseData).count) {
+                    [self.dataSourceArray addObjectsFromArray:responseResult.responseData];
+                }else{
+                    [weakSelf.view makeToast:@"没有更多商品喽"];
+                }
             }else{
-                [weakSelf.view makeToast:@"没有更多商品喽"];
+                if (_pageIndex==1) {
+                    [weakSelf.dataSourceArray removeAllObjects];
+                }
+                [weakSelf.view makeToast:responseResult.responseMessage];
             }
-        }else{
-            if (_pageIndex==1) {
-                [weakSelf.dataSourceArray removeAllObjects];
+            [weakSelf.collectionView reloadData];
+            [weakSelf.collectionView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
+        } ];
+        [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+    }else{
+        HHNetWorkOperation *op=[GoodsNetService getLimitedSalesGoodsListOnCompletionHandler:^(HHResponseResult *responseResult) {
+            
+            if (responseResult.responseCode==HHResponseResultCodeSuccess) {
+                [weakSelf.view dismissHUD];
+                if (((NSArray *)responseResult.responseData).count) {
+                    [weakSelf.dataSourceArray addObjectsFromArray:responseResult.responseData];
+                    [weakSelf.collectionView dismissPageLoadView];
+                }else{
+                    [weakSelf.collectionView showPageLoadedMessage:@"没有更多商品" delegate:nil];
+                }
+            }else{
+                [weakSelf.collectionView showPageLoadedMessage:responseResult.responseMessage delegate:nil];
             }
-            [weakSelf.view makeToast:responseResult.responseMessage];
-        }
-        [weakSelf.collectionView reloadData];
-        [weakSelf.collectionView handlerInifitScrollingWithPageIndex:&_pageIndex pageSize:MCMallPageSize totalDataCount:weakSelf.dataSourceArray.count];
-    } ];
-    [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+            [weakSelf.collectionView reloadData];
+        }];
+        [self addOperationUniqueIdentifer:op.uniqueIdentifier];
+    }
+   
 }
 
 #pragma mark- collectionViewDelegate

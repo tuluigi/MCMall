@@ -85,6 +85,8 @@
              @"goodsNum":@"quantity",
              @"deductPoints":@"point",
               @"goodsPrice":@"price",
+             @"orderStatus":@"stauts",
+             @"orderSource":@"tpName",
              };
 }
 -(void)setGoodsThumbImageUrl:(NSString *)goodsThumbImageUrl{

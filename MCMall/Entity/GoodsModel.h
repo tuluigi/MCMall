@@ -45,4 +45,7 @@
 @property(nonatomic,assign)NSInteger goodsNum;//商品数量
 @property(nonatomic,assign)CGFloat deductPoints;//抵扣积分
 @property(nonatomic,assign)CGFloat totalPrice;//总价
+
+@property(nonatomic,copy)NSString *orderStatus;//订单状态
+@property(nonatomic,copy)NSString *orderSource;//订单来源
 @end
