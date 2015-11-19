@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class GoodsModel;
 @interface LimitGoodsInfinitScrollCell : UITableViewCell
-
+@property(nonatomic,strong,readonly)GoodsModel *goodsModel;
++(CGFloat)infiniteScrollCellHeight;
 @end

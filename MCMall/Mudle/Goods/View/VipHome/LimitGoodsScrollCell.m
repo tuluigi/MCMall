@@ -50,12 +50,18 @@
     _bgView.layer.masksToBounds=YES;
     [self.contentView addSubview:_bgView];
     
+    UIView *topLineView=[UIView new];
+    topLineView.backgroundColor=MCMallThemeColor;
+    [_bgView addSubview:topLineView];
     _goodsImageView=[[UIImageView alloc]  init];
     [_bgView addSubview:_goodsImageView];
+    _goodsImageView.layer.cornerRadius=5.0;
+    _goodsImageView.layer.masksToBounds=YES;
     _goodsNameLable=[UILabel labelWithText:@"" font:[UIFont systemFontOfSize:16] textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft];
     [_bgView addSubview:self.goodsNameLable];
     
-    _goodsPriceLable=[UILabel labelWithText:@"" font:[UIFont systemFontOfSize:16] textColor:[UIColor redColor] textAlignment:NSTextAlignmentLeft];
+    _goodsPriceLable=[[UILabel alloc]  init];
+    _goodsPriceLable.textAlignment=NSTextAlignmentLeft;
     [_bgView addSubview:_goodsPriceLable];
     
     _goodsTimeView=[[GoodsTimeView alloc]  init];
@@ -71,10 +77,14 @@
     [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(5, 5, 5, 5));
     }];
+    [topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.mas_equalTo(weakSelf.bgView);
+        make.height.mas_equalTo(3);
+    }];
     [_goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.bgView.mas_left).offset(30);
         make.top.mas_equalTo(weakSelf.bgView.mas_top).offset(10);
-        make.size.mas_equalTo(CGSizeMake(100, 150));
+        make.size.mas_equalTo(CGSizeMake(80*OCCOMMONSCALE, 120*OCCOMMONSCALE));
     }];
     [_goodsNameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.goodsImageView.mas_right).offset(15);
@@ -84,7 +94,7 @@
     }];
     [_goodsPriceLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.goodsNameLable.mas_left);
-        make.top.mas_equalTo(weakSelf.goodsNameLable.mas_bottom).offset(10);
+        make.bottom.mas_equalTo(weakSelf.goodsImageView.mas_bottom).offset(-10);
         make.right.mas_equalTo(weakSelf.goodsNameLable);
         make.height.mas_equalTo(weakSelf.goodsNameLable);
     }];
@@ -101,22 +111,25 @@
         make.width.mas_greaterThanOrEqualTo(20);
     }];
 }
-
--(void)updateScrollCellWithGoodsModel:(GoodsModel *)goodsModel{
+-(void)setGoodsModel:(GoodsModel *)goodsModel{
+    _goodsModel=goodsModel;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
-    _goodsPriceLable.text=[NSString stringWithFormat:@"%.2f",goodsModel.vipPrice];
+    NSMutableAttributedString *attrString1=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"￥%.1f",goodsModel.orignalPrice]]
+    ;
+    [attrString1 addAttributes:@{NSForegroundColorAttributeName:MCMallThemeColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:20]} range:NSMakeRange(0, attrString1.length) ];
+    
+    NSMutableAttributedString *attrString2=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"  ￥%.1f",goodsModel.sellPrice]]
+    ;
+    [attrString2 addAttributes:@{NSForegroundColorAttributeName:[UIColor darkGrayColor],NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, attrString2.length) ];
+    [attrString1  appendAttributedString:attrString2];
+    _goodsPriceLable.attributedText=attrString1;
+//    _goodsPriceLable.text=[NSString stringWithFormat:@"￥%.2f ￥%.2f",goodsModel.orignalPrice,goodsModel.sellPrice];
     _goodsTimeView.date=goodsModel.endTime;
     _goodsCounetLable.text=[NSString stringWithFormat:@"%ld ",goodsModel.storeNum];
+
 }
--(GoodsModel *)goodsModel{
-    if (self.currentIndex<self.goodsArray.count) {
-         return [self.goodsArray objectAtIndex:self.currentIndex];
-    }else{
-        return nil;
-    }
-}
--(void)setGoodsModel:(GoodsModel *)goodsModel{
-    [self updateScrollCellWithGoodsModel:goodsModel];
++(CGFloat)infiniteScrollCellHeight{
+    return 45+120*OCCOMMONSCALE;
 }
 @end

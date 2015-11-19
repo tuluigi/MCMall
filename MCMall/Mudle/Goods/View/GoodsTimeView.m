@@ -116,6 +116,7 @@
 }
 -(void)setDate:(NSDate *)date{
     _date=date;
+    [self updateTimeLableText];
 }
 -(void)updateTimeLableText{
     if (self.date) {

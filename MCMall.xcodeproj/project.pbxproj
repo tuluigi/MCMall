@@ -22,6 +22,18 @@
 		2A06457B1B7DD97000C27AD5 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06457A1B7DD97000C27AD5 /* NoteModel.m */; };
 		2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */; };
 		2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */; };
+		2A06E9191BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91A1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91B1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91C1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91D1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91E1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */; };
+		2A06E91F1BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
+		2A06E9201BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
+		2A06E9211BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
+		2A06E9221BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
+		2A06E9231BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
+		2A06E9241BFDFED100D25928 /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A06E9181BFDFED100D25928 /* icon_time@2x.png */; };
 		2A0741F51BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
 		2A0741F61BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
 		2A0741F71BD3C09400D76CA8 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0741F31BD3C09400D76CA8 /* libSocialSina.a */; };
@@ -92,24 +104,24 @@
 		2A17B7A21BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
 		2A17B7A31BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
 		2A17B7A41BFA1BF500D1965A /* vipHomeButtonTag0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */; };
-		2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
-		2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
-		2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
-		2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
-		2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
-		2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
 		2A17B7AB1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
 		2A17B7AC1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
 		2A17B7AD1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
 		2A17B7AE1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
 		2A17B7AF1BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
 		2A17B7B01BFA1BF500D1965A /* vipHomeButtonTag2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */; };
-		2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
-		2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
-		2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
-		2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
-		2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
-		2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */; };
+		2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
+		2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */; };
 		2A1F5E131B4B61FD005460B6 /* PhotoCommontCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */; };
 		2A217D451BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
 		2A217D461BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */; };
@@ -1430,6 +1442,8 @@
 		2A06457A1B7DD97000C27AD5 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteModel.m; sourceTree = "<group>"; };
 		2A06457C1B7DF25200C27AD5 /* navigationBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@2x.png"; sourceTree = "<group>"; };
 		2A06457E1B7DF64700C27AD5 /* navigationBg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@3x.png"; sourceTree = "<group>"; };
+		2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time_pressed@2x.png"; sourceTree = "<group>"; };
+		2A06E9181BFDFED100D25928 /* icon_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time@2x.png"; sourceTree = "<group>"; };
 		2A0741F31BD3C09400D76CA8 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		2A0741F41BD3C09400D76CA8 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		2A0741FB1BD3C74C00D76CA8 /* motherDiary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = motherDiary.png; sourceTree = "<group>"; };
@@ -1458,9 +1472,9 @@
 		2A17B7921BFA167500D1965A /* VipHomeTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VipHomeTagCell.h; sourceTree = "<group>"; };
 		2A17B7931BFA167500D1965A /* VipHomeTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VipHomeTagCell.m; sourceTree = "<group>"; };
 		2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag0.jpg; sourceTree = "<group>"; };
-		2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag3.jpg; sourceTree = "<group>"; };
+		2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag1.jpg; sourceTree = "<group>"; };
 		2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag2.jpg; sourceTree = "<group>"; };
-		2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag1.jpg; sourceTree = "<group>"; };
+		2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vipHomeButtonTag3.jpg; sourceTree = "<group>"; };
 		2A1F5E111B4B61FD005460B6 /* PhotoCommontCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCommontCell.h; sourceTree = "<group>"; };
 		2A1F5E121B4B61FD005460B6 /* PhotoCommontCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCommontCell.m; sourceTree = "<group>"; };
 		2A217D441BC94BEA00B72304 /* bg_plus1Effect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_plus1Effect@2x.png"; sourceTree = "<group>"; };
@@ -2081,10 +2095,12 @@
 		2A17B79A1BFA1BF100D1965A /* Goods */ = {
 			isa = PBXGroup;
 			children = (
+				2A06E9171BFDFED100D25928 /* icon_time_pressed@2x.png */,
+				2A06E9181BFDFED100D25928 /* icon_time@2x.png */,
 				2A17B79B1BFA1BF500D1965A /* vipHomeButtonTag0.jpg */,
-				2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */,
+				2A17B79C1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */,
 				2A17B79D1BFA1BF500D1965A /* vipHomeButtonTag2.jpg */,
-				2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */,
+				2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag3.jpg */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -3416,11 +3432,12 @@
 				2AF0AD5D1B80D2B600BB879B /* beiyun@2x.png in Resources */,
 				2AD019091B14A8D600702BD5 /* loading_Default@3x.png in Resources */,
 				2A06457F1B7DF64700C27AD5 /* navigationBg@3x.png in Resources */,
+				2A06E91F1BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2AC28B951B71060000F91760 /* item_babay@3x.png in Resources */,
 				2AC28B941B71060000F91760 /* item_babay@2x.png in Resources */,
 				2AD44BEC1B889418001B1CDC /* tabbar_assistnt_HL@3x.png in Resources */,
 				2AD44BFC1B889424001B1CDC /* tabbar_home_HL@2x.png in Resources */,
-				2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7A51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2AD44BF01B889418001B1CDC /* tabbar_me@3x.png in Resources */,
 				2A06457D1B7DF25200C27AD5 /* navigationBg@2x.png in Resources */,
 				2AD38ABC1B801E6700BEA56E /* btn_share_wechatSession@2x.png in Resources */,
@@ -3434,6 +3451,7 @@
 				2AD38AB81B801E6700BEA56E /* btn_share_email@2x.png in Resources */,
 				2A8359371B8030B900832964 /* UMSocialLocalizable.strings in Resources */,
 				2A0645771B7DCDA600C27AD5 /* icon_sign@2x.png in Resources */,
+				2A06E9191BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2A83593F1B8030B900832964 /* UMSnsAccountViewController.xib in Resources */,
 				2AD38AB71B801E6700BEA56E /* btn_search@2x.png in Resources */,
 				2AC28B961B71060000F91760 /* item_consume@2x.png in Resources */,
@@ -3482,7 +3500,7 @@
 				2A0645761B7DCDA600C27AD5 /* icon_goods@3x.png in Resources */,
 				2A9B9E451B56325E0052B640 /* favorButton_HL@2x.png in Resources */,
 				2A7C4E161B14760700912D53 /* checkbox_Select@2x.png in Resources */,
-				2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B11BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2AD44BF21B889418001B1CDC /* tabbar_vip@3x.png in Resources */,
 				2AD44BED1B889418001B1CDC /* tabbar_assistnt@3x.png in Resources */,
 				2AD38ABD1B801E6700BEA56E /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3507,11 +3525,12 @@
 				2ADFB7111BBDA482000BF698 /* tabbar_activity@2x.png in Resources */,
 				2ADFB7121BBDA482000BF698 /* beiyun@2x.png in Resources */,
 				2ADFB7131BBDA482000BF698 /* loading_Default@3x.png in Resources */,
+				2A06E9201BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2ADFB7141BBDA482000BF698 /* navigationBg@3x.png in Resources */,
 				2ADFB7151BBDA482000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB7161BBDA482000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB7171BBDA482000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
-				2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7A61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB7181BBDA482000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFB7191BBDA482000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB71A1BBDA482000BF698 /* navigationBg@2x.png in Resources */,
@@ -3525,6 +3544,7 @@
 				2ADFB7231BBDA482000BF698 /* UMShareEditViewControlleriPad.xib in Resources */,
 				2ADFB7241BBDA482000BF698 /* btn_share_email@2x.png in Resources */,
 				2ADFB7251BBDA482000BF698 /* UMSocialLocalizable.strings in Resources */,
+				2A06E91A1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2ADFB7261BBDA482000BF698 /* icon_sign@2x.png in Resources */,
 				2ADFB7271BBDA482000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFB7281BBDA482000BF698 /* btn_search@2x.png in Resources */,
@@ -3573,7 +3593,7 @@
 				2ADFB74E1BBDA482000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFB74F1BBDA482000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB7501BBDA482000BF698 /* checkbox_Select@2x.png in Resources */,
-				2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B21BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB7511BBDA482000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFB7521BBDA482000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB7531BBDA482000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3598,11 +3618,12 @@
 				2ADFBB271BBDA8B2000BF698 /* AiYingBao.plist in Resources */,
 				2ADFB80F1BBDA868000BF698 /* beiyun@2x.png in Resources */,
 				2ADFB8101BBDA868000BF698 /* loading_Default@3x.png in Resources */,
+				2A06E9211BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2ADFB8111BBDA868000BF698 /* navigationBg@3x.png in Resources */,
 				2ADFB8121BBDA868000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB8131BBDA868000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB8141BBDA868000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
-				2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7A71BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB8151BBDA868000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFB8161BBDA868000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB8171BBDA868000BF698 /* navigationBg@2x.png in Resources */,
@@ -3616,6 +3637,7 @@
 				2ADFB8211BBDA868000BF698 /* UMShareEditViewControlleriPad.xib in Resources */,
 				2ADFB8221BBDA868000BF698 /* btn_share_email@2x.png in Resources */,
 				2ADFB8231BBDA868000BF698 /* UMSocialLocalizable.strings in Resources */,
+				2A06E91B1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2ADFB8241BBDA868000BF698 /* icon_sign@2x.png in Resources */,
 				2ADFB8251BBDA868000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2A217D471BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
@@ -3664,7 +3686,7 @@
 				2ADFB84D1BBDA868000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFB84F1BBDA868000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB8501BBDA868000BF698 /* checkbox_Select@2x.png in Resources */,
-				2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B31BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB8511BBDA868000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFB8521BBDA868000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB8531BBDA868000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3689,11 +3711,12 @@
 				2ADFB8FA1BBDA877000BF698 /* beiyun@2x.png in Resources */,
 				2ADFB8FB1BBDA877000BF698 /* loading_Default@3x.png in Resources */,
 				2ADFB8FC1BBDA877000BF698 /* navigationBg@3x.png in Resources */,
+				2A06E9221BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2ADFB8FD1BBDA877000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB8FE1BBDA877000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB8FF1BBDA877000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
 				2ADFB9001BBDA877000BF698 /* tabbar_home_HL@2x.png in Resources */,
-				2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7A81BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB9011BBDA877000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB9021BBDA877000BF698 /* navigationBg@2x.png in Resources */,
 				2ADFB9051BBDA877000BF698 /* btn_share_wechatSession@2x.png in Resources */,
@@ -3707,6 +3730,7 @@
 				2ADFB90D1BBDA877000BF698 /* btn_share_email@2x.png in Resources */,
 				2ADFB90E1BBDA877000BF698 /* UMSocialLocalizable.strings in Resources */,
 				2ADFB90F1BBDA877000BF698 /* icon_sign@2x.png in Resources */,
+				2A06E91C1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2ADFB9101BBDA877000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFB9111BBDA877000BF698 /* btn_search@2x.png in Resources */,
 				2A217D481BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
@@ -3755,7 +3779,7 @@
 				2ADFB93A1BBDA877000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFB93B1BBDA877000BF698 /* checkbox_Select@2x.png in Resources */,
 				2ADFB93C1BBDA877000BF698 /* tabbar_vip@3x.png in Resources */,
-				2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B41BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFB93D1BBDA877000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFB93E1BBDA877000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
 				2ADFB93F1BBDA877000BF698 /* tabbar_activity_HL@2x.png in Resources */,
@@ -3780,11 +3804,12 @@
 				2ADFB9E51BBDA88F000BF698 /* beiyun@2x.png in Resources */,
 				2ADFB9E61BBDA88F000BF698 /* loading_Default@3x.png in Resources */,
 				2ADFB9E71BBDA88F000BF698 /* navigationBg@3x.png in Resources */,
+				2A06E9231BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2ADFB9E81BBDA88F000BF698 /* item_babay@3x.png in Resources */,
 				2ADFB9E91BBDA88F000BF698 /* item_babay@2x.png in Resources */,
 				2ADFB9EA1BBDA88F000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
 				2ADFB9EB1BBDA88F000BF698 /* tabbar_home_HL@2x.png in Resources */,
-				2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7A91BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFB9EC1BBDA88F000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFB9ED1BBDA88F000BF698 /* navigationBg@2x.png in Resources */,
 				2ADFB9F01BBDA88F000BF698 /* btn_share_wechatSession@2x.png in Resources */,
@@ -3798,6 +3823,7 @@
 				2ADFB9F81BBDA88F000BF698 /* btn_share_email@2x.png in Resources */,
 				2ADFB9F91BBDA88F000BF698 /* UMSocialLocalizable.strings in Resources */,
 				2ADFB9FA1BBDA88F000BF698 /* icon_sign@2x.png in Resources */,
+				2A06E91D1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2ADFB9FB1BBDA88F000BF698 /* UMSnsAccountViewController.xib in Resources */,
 				2ADFB9FC1BBDA88F000BF698 /* btn_search@2x.png in Resources */,
 				2A217D491BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
@@ -3846,7 +3872,7 @@
 				2ADFBA231BBDA88F000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFBA251BBDA88F000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFBA261BBDA88F000BF698 /* checkbox_Select@2x.png in Resources */,
-				2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B51BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFBA271BBDA88F000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFBA281BBDA88F000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFBA291BBDA88F000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,
@@ -3871,11 +3897,12 @@
 				2ADFBAD01BBDA89B000BF698 /* beiyun@2x.png in Resources */,
 				2ADFBAD11BBDA89B000BF698 /* loading_Default@3x.png in Resources */,
 				2ADFBAD21BBDA89B000BF698 /* navigationBg@3x.png in Resources */,
+				2A06E9241BFDFED100D25928 /* icon_time@2x.png in Resources */,
 				2ADFBAD31BBDA89B000BF698 /* item_babay@3x.png in Resources */,
 				2ADFBAD41BBDA89B000BF698 /* item_babay@2x.png in Resources */,
 				2ADFBB451BBDA973000BF698 /* MiaoQiMuYing.plist in Resources */,
 				2ADFBAD51BBDA89B000BF698 /* tabbar_assistnt_HL@3x.png in Resources */,
-				2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
+				2A17B7AA1BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
 				2ADFBAD61BBDA89B000BF698 /* tabbar_home_HL@2x.png in Resources */,
 				2ADFBAD71BBDA89B000BF698 /* tabbar_me@3x.png in Resources */,
 				2ADFBAD81BBDA89B000BF698 /* navigationBg@2x.png in Resources */,
@@ -3889,6 +3916,7 @@
 				2AE280AD1BC509A300752CD8 /* MiaoQiMuYing.xcassets in Resources */,
 				2ADFBAE21BBDA89B000BF698 /* UMShareEditViewControlleriPad.xib in Resources */,
 				2ADFBAE31BBDA89B000BF698 /* btn_share_email@2x.png in Resources */,
+				2A06E91E1BFDFED100D25928 /* icon_time_pressed@2x.png in Resources */,
 				2ADFBAE41BBDA89B000BF698 /* UMSocialLocalizable.strings in Resources */,
 				2ADFBAE51BBDA89B000BF698 /* icon_sign@2x.png in Resources */,
 				2A217D4A1BC94BEA00B72304 /* bg_plus1Effect@2x.png in Resources */,
@@ -3937,7 +3965,7 @@
 				2ADFBB0E1BBDA89B000BF698 /* icon_goods@3x.png in Resources */,
 				2ADFBB101BBDA89B000BF698 /* favorButton_HL@2x.png in Resources */,
 				2ADFBB111BBDA89B000BF698 /* checkbox_Select@2x.png in Resources */,
-				2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag1.jpg in Resources */,
+				2A17B7B61BFA1BF500D1965A /* vipHomeButtonTag3.jpg in Resources */,
 				2ADFBB121BBDA89B000BF698 /* tabbar_vip@3x.png in Resources */,
 				2ADFBB131BBDA89B000BF698 /* tabbar_assistnt@3x.png in Resources */,
 				2ADFBB141BBDA89B000BF698 /* btn_share_wechatTimeLine@2x.png in Resources */,

@@ -83,6 +83,17 @@
         }
     }];
 }
+-(GoodsModel *)goodsModel{
+    if (self.goodsArray.count) {
+        if (self.currentIndex<self.goodsArray.count) {
+            return [self.goodsArray objectAtIndex:self.currentIndex];
+        }else{
+            return [self.goodsArray firstObject];
+        }
+    }else{
+        return nil;
+    }
+}
 #pragma mark -tableviewdelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger row=self.goodsArray.count;
@@ -107,5 +118,8 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return tableView.bounds.size.height;
+}
++(CGFloat)infiniteScrollCellHeight{
+   return  [LimitGoodsScrollCell infiniteScrollCellHeight];
 }
 @end

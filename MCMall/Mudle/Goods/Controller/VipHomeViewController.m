@@ -85,11 +85,30 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
-        UITableViewCell *cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"tableviewcell01"];
-        cell.textLabel.text=@"每日限时抢购";
-        cell.textLabel.textAlignment=NSTextAlignmentRight;
-        cell.textLabel.textColor=[UIColor darkGrayColor];
+        UITableViewCell *cell=[[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tableviewcell01"];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        cell.contentView.backgroundColor=[UIColor red:245 green:245 blue:249 alpha:1];
+        
+        UILabel *textLable=[UILabel labelWithText:@"每日限时抢购" font:[UIFont systemFontOfSize:15] textAlignment:NSTextAlignmentCenter];
+        textLable.textColor=[UIColor darkGrayColor];
+        [cell.contentView addSubview:textLable];
+        
+        
+        UIImageView *imageView=[[UIImageView alloc]  init];
+        [cell.contentView addSubview:imageView];
+        imageView.image=[UIImage imageNamed:@"icon_time"];
+        __weak UITableViewCell *weakCell=cell;
+        [textLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(weakCell.mas_centerX);
+            make.centerY.mas_equalTo(weakCell.mas_centerY);
+            make.width.mas_greaterThanOrEqualTo(50);
+            make.height.mas_greaterThanOrEqualTo(20);
+        }];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(textLable.mas_left).offset(-5);
+            make.centerY.mas_equalTo(weakCell.mas_centerY);
+            make.size.mas_equalTo(CGSizeMake(15, 15));
+        }];
         return cell;
     }else if (indexPath.row==1){
 //        LimitGoodsScrollCell *cell=[[LimitGoodsScrollCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"limitiCelll1"];
@@ -107,9 +126,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     CGFloat height=44;
     if (indexPath.row==0) {
-        height=30;
+        height=40;
     }else if (indexPath.row==1){
-        height=180;
+        height=[LimitGoodsScrollCell infiniteScrollCellHeight];
     }else{
         height=[VipHomeTagCell vipHomeCellHeight];
     }

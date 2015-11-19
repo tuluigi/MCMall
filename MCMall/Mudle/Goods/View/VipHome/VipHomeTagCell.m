@@ -40,7 +40,7 @@
     }];
     
     NSInteger colum=2;
-    CGFloat padding=10;
+    CGFloat padding=10*OCCOMMONSCALE;
     
     CGFloat width=(SCREEN_WIDTH-padding*(colum+1)-5*2)/colum;
     CGFloat height=width/2.0;
@@ -66,6 +66,6 @@
     }
 }
 +(CGFloat)vipHomeCellHeight{
-    return (SCREEN_WIDTH-10*(2+1)-5*2)/2+30;
+    return (SCREEN_WIDTH-10*OCCOMMONSCALE*(2+1)-5*2)/2+40*OCCOMMONSCALE;
 }
 @end

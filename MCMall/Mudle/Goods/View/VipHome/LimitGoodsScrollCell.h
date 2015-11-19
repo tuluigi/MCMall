@@ -11,4 +11,5 @@
 @interface LimitGoodsScrollCell : UITableViewCell
 
 @property(nonatomic,strong)GoodsModel *goodsModel;
++(CGFloat)infiniteScrollCellHeight;
 @end
