@@ -141,6 +141,12 @@
 		2A366CC71BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
 		2A366CC81BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
 		2A366CC91BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CCC1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
+		2A366CCD1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
+		2A366CCE1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
+		2A366CCF1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
+		2A366CD01BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
+		2A366CD11BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -1466,6 +1472,8 @@
 		2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHInfiniteScrollView.m; sourceTree = "<group>"; };
 		2A366CC21BFD64E600B11856 /* HHInfiniteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHInfiniteCell.h; sourceTree = "<group>"; };
 		2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHInfiniteCell.m; sourceTree = "<group>"; };
+		2A366CCA1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitGoodsInfinitScrollCell.h; sourceTree = "<group>"; };
+		2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitGoodsInfinitScrollCell.m; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* BaiJiaXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiJiaXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37B0DD1B0CC62A00D0FE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2064,6 +2072,8 @@
 				2A17B78B1BFA0ACB00D1965A /* LimitGoodsScrollCell.m */,
 				2A17B7921BFA167500D1965A /* VipHomeTagCell.h */,
 				2A17B7931BFA167500D1965A /* VipHomeTagCell.m */,
+				2A366CCA1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.h */,
+				2A366CCB1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m */,
 			);
 			path = VipHome;
 			sourceTree = "<group>";
@@ -4246,6 +4256,7 @@
 				2A4956D31BB301DA0036D71C /* OrderListViewController.m in Sources */,
 				2A10F7171BF8B32600153813 /* BrandListCell.m in Sources */,
 				2AE3C5281B9C87F600F1434F /* AddressModel.m in Sources */,
+				2A366CCC1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2A50F7011B1099E300607723 /* MCMallViewController.m in Sources */,
 				2A9DD3A11B401B200010893F /* GTMNSString+HTML.m in Sources */,
 				2AA7F2E11B7E1CB900BFC1A1 /* UserStateSelectController.m in Sources */,
@@ -4387,6 +4398,7 @@
 				2ADFB6EB1BBDA482000BF698 /* OrderListViewController.m in Sources */,
 				2A10F7181BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB6EC1BBDA482000BF698 /* AddressModel.m in Sources */,
+				2A366CCD1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2ADFB6ED1BBDA482000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB6EE1BBDA482000BF698 /* GTMNSString+HTML.m in Sources */,
 				2ADFB6EF1BBDA482000BF698 /* UserStateSelectController.m in Sources */,
@@ -4528,6 +4540,7 @@
 				2ADFB7E71BBDA868000BF698 /* OrderListViewController.m in Sources */,
 				2A10F7191BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB7E81BBDA868000BF698 /* AddressModel.m in Sources */,
+				2A366CCE1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2ADFB7E91BBDA868000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB7EA1BBDA868000BF698 /* GTMNSString+HTML.m in Sources */,
 				2ADFB7EB1BBDA868000BF698 /* UserStateSelectController.m in Sources */,
@@ -4669,6 +4682,7 @@
 				2ADFB8D21BBDA877000BF698 /* OrderListViewController.m in Sources */,
 				2A10F71A1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB8D31BBDA877000BF698 /* AddressModel.m in Sources */,
+				2A366CCF1BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2ADFB8D41BBDA877000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB8D51BBDA877000BF698 /* GTMNSString+HTML.m in Sources */,
 				2ADFB8D61BBDA877000BF698 /* UserStateSelectController.m in Sources */,
@@ -4810,6 +4824,7 @@
 				2ADFB9BD1BBDA88F000BF698 /* OrderListViewController.m in Sources */,
 				2A10F71B1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFB9BE1BBDA88F000BF698 /* AddressModel.m in Sources */,
+				2A366CD01BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2ADFB9BF1BBDA88F000BF698 /* MCMallViewController.m in Sources */,
 				2ADFB9C01BBDA88F000BF698 /* GTMNSString+HTML.m in Sources */,
 				2ADFB9C11BBDA88F000BF698 /* UserStateSelectController.m in Sources */,
@@ -4951,6 +4966,7 @@
 				2ADFBAA81BBDA89B000BF698 /* OrderListViewController.m in Sources */,
 				2A10F71C1BF8B32600153813 /* BrandListCell.m in Sources */,
 				2ADFBAA91BBDA89B000BF698 /* AddressModel.m in Sources */,
+				2A366CD11BFDC59B00B11856 /* LimitGoodsInfinitScrollCell.m in Sources */,
 				2ADFBAAA1BBDA89B000BF698 /* MCMallViewController.m in Sources */,
 				2ADFBAAB1BBDA89B000BF698 /* GTMNSString+HTML.m in Sources */,
 				2ADFBAAC1BBDA89B000BF698 /* UserStateSelectController.m in Sources */,

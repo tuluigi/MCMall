@@ -19,5 +19,5 @@
 @interface HHInfiniteScrollView : UIScrollView
 @property(nonatomic,weak)id<HHInfiniteScrollViewDelegate>infiniteDelegate;
 
--(instancetype)initWithFrame:(CGRect)frame;
+-(instancetype)initWithFrame:(CGRect)frame isVertical:(BOOL)isVertical;
 @end

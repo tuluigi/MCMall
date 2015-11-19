@@ -10,5 +10,5 @@
 @class  GoodsModel;
 @interface LimitGoodsScrollCell : UITableViewCell
 
-@property(nonatomic,strong,readonly)GoodsModel *goodsModel;
+@property(nonatomic,strong)GoodsModel *goodsModel;
 @end

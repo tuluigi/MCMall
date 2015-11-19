@@ -15,6 +15,7 @@
 #import "GoodsListViewController.h"
 #import "GoodsDetailViewController.h"
 #import "GoodsModel.h"
+#import "LimitGoodsInfinitScrollCell.h"
 @interface VipHomeViewController ()<VipHomeTagCellDelegate>
 @property(nonatomic,strong)HHFlowView *flowView;
 @property(nonatomic,strong)NSMutableArray *limitGoodsArray;
@@ -91,7 +92,9 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.row==1){
-        LimitGoodsScrollCell *cell=[[LimitGoodsScrollCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"limitiCelll1"];
+//        LimitGoodsScrollCell *cell=[[LimitGoodsScrollCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"limitiCelll1"];
+        LimitGoodsInfinitScrollCell *cell=[[LimitGoodsInfinitScrollCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"limitiCelll1"];
+
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else{

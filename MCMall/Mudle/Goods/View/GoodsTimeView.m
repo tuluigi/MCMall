@@ -42,9 +42,20 @@
      UILabel *minuteLable=[UILabel labelWithText:@"分" font:font textColor:MCMallThemeColor backgroundColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter];
      UILabel *secondLable=[UILabel labelWithText:@"秒" font:font textColor:MCMallThemeColor backgroundColor:[UIColor whiteColor] textAlignment:NSTextAlignmentCenter];
     _dayValueLable=[UILabel labelWithText:@"" font:font textColor:[UIColor whiteColor] backgroundColor:MCMallThemeColor textAlignment:NSTextAlignmentCenter];
+    _dayValueLable.layer.cornerRadius=3;
+    _dayValueLable.layer.masksToBounds=YES;
+    
     _hourValueLable=[UILabel labelWithText:@"" font:font textColor:[UIColor whiteColor] backgroundColor:MCMallThemeColor textAlignment:NSTextAlignmentCenter];
+    _hourValueLable.layer.cornerRadius=3;
+    _hourValueLable.layer.masksToBounds=YES;
+    
     _minuteValueLable=[UILabel labelWithText:@"" font:font textColor:[UIColor whiteColor] backgroundColor:MCMallThemeColor textAlignment:NSTextAlignmentCenter];
+    _minuteValueLable.layer.cornerRadius=3;
+    _minuteValueLable.layer.masksToBounds=YES;
+    
     _secondsValueLable=[UILabel labelWithText:@"" font:font textColor:[UIColor whiteColor] backgroundColor:MCMallThemeColor textAlignment:NSTextAlignmentCenter];
+    _secondsValueLable.layer.cornerRadius=3;
+    _secondsValueLable.layer.masksToBounds=YES;
     
     [self addSubview:dayLable];
     [self addSubview:hourLable];
