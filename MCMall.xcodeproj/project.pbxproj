@@ -129,6 +129,18 @@
 		2A33DEA91BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
 		2A33DEAA1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
 		2A33DEAB1BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */; };
+		2A366CBC1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CBD1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CBE1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CBF1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CC01BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CC11BFD648500B11856 /* HHInfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */; };
+		2A366CC41BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CC51BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CC61BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CC71BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CC81BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
+		2A366CC91BFD64E600B11856 /* HHInfiniteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */; };
 		2A37B0DC1B0CC62A00D0FE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DB1B0CC62A00D0FE88 /* main.m */; };
 		2A37B0DF1B0CC62A00D0FE88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37B0DE1B0CC62A00D0FE88 /* AppDelegate.m */; };
 		2A37B0E51B0CC62A00D0FE88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37B0E31B0CC62A00D0FE88 /* Main.storyboard */; };
@@ -1450,6 +1462,10 @@
 		2A217D4C1BCA3B0200B72304 /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
 		2A2553281B1355C00046C696 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2A33DEA51BCFD7D7004B5DAF /* libUMSocial_Sdk_4.2.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.2.5.a; sourceTree = "<group>"; };
+		2A366CBA1BFD648500B11856 /* HHInfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHInfiniteScrollView.h; sourceTree = "<group>"; };
+		2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHInfiniteScrollView.m; sourceTree = "<group>"; };
+		2A366CC21BFD64E600B11856 /* HHInfiniteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHInfiniteCell.h; sourceTree = "<group>"; };
+		2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHInfiniteCell.m; sourceTree = "<group>"; };
 		2A37B0D61B0CC62A00D0FE88 /* BaiJiaXin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiJiaXin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A37B0DB1B0CC62A00D0FE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37B0DD1B0CC62A00D0FE88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2061,6 +2077,17 @@
 				2A17B79E1BFA1BF500D1965A /* vipHomeButtonTag1.jpg */,
 			);
 			path = Goods;
+			sourceTree = "<group>";
+		};
+		2A366CB91BFD645D00B11856 /* HHInfiniteScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				2A366CBA1BFD648500B11856 /* HHInfiniteScrollView.h */,
+				2A366CBB1BFD648500B11856 /* HHInfiniteScrollView.m */,
+				2A366CC21BFD64E600B11856 /* HHInfiniteCell.h */,
+				2A366CC31BFD64E600B11856 /* HHInfiniteCell.m */,
+			);
+			path = HHInfiniteScrollView;
 			sourceTree = "<group>";
 		};
 		2A37B0CD1B0CC62A00D0FE88 = {
@@ -2743,6 +2770,7 @@
 		2A984E721B141205004DF4C0 /* HHUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2A366CB91BFD645D00B11856 /* HHInfiniteScrollView */,
 				2A163DA51BCF4992006ABBCB /* HHTextField */,
 				2AF5A2741B9AC5F5003F6AB8 /* HHProgressHUD.h */,
 				2AF5A2751B9AC5F5003F6AB8 /* HHProgressHUD.m */,
@@ -4145,6 +4173,7 @@
 				2AF5A24C1B99BD2E003F6AB8 /* NSDateFormatter+Addititon.m in Sources */,
 				2AF5A2541B99BD2E003F6AB8 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2A50F6F51B10985400607723 /* RootTabBarController.m in Sources */,
+				2A366CBC1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2A06453B1B7C7DFF00C27AD5 /* SignInModel.m in Sources */,
 				2ADD94351BBCC36700B80497 /* BabyPhotosViewController.m in Sources */,
 				2AF5A2801B9AD658003F6AB8 /* UIImageEffects.m in Sources */,
@@ -4227,6 +4256,7 @@
 				2AF5A24B1B99BD2E003F6AB8 /* NSDate+Addition.m in Sources */,
 				2AC766631BB79C3D00160837 /* UILabel+Category.m in Sources */,
 				2A50F6F91B10987C00607723 /* ActivityViewController.m in Sources */,
+				2A366CC41BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2AF5A2551B99BD2E003F6AB8 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2AD38AA91B801E2400BEA56E /* HHShareModel.m in Sources */,
 				2AF5A27E1B9AD658003F6AB8 /* OCBlurCommentView.m in Sources */,
@@ -4284,6 +4314,7 @@
 				2ADFB6A61BBDA482000BF698 /* NSDateFormatter+Addititon.m in Sources */,
 				2ADFB6A71BBDA482000BF698 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2ADFB6A81BBDA482000BF698 /* RootTabBarController.m in Sources */,
+				2A366CBD1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2ADFB6A91BBDA482000BF698 /* SignInModel.m in Sources */,
 				2ADFB6AA1BBDA482000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB6AB1BBDA482000BF698 /* UIImageEffects.m in Sources */,
@@ -4366,6 +4397,7 @@
 				2ADFB6F31BBDA482000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB6F41BBDA482000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB6F51BBDA482000BF698 /* ActivityViewController.m in Sources */,
+				2A366CC51BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2ADFB6F61BBDA482000BF698 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2ADFB6F71BBDA482000BF698 /* HHShareModel.m in Sources */,
 				2ADFB6F81BBDA482000BF698 /* OCBlurCommentView.m in Sources */,
@@ -4423,6 +4455,7 @@
 				2ADFB7A21BBDA868000BF698 /* NSDateFormatter+Addititon.m in Sources */,
 				2ADFB7A31BBDA868000BF698 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2ADFB7A41BBDA868000BF698 /* RootTabBarController.m in Sources */,
+				2A366CBE1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2ADFB7A51BBDA868000BF698 /* SignInModel.m in Sources */,
 				2ADFB7A61BBDA868000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB7A71BBDA868000BF698 /* UIImageEffects.m in Sources */,
@@ -4505,6 +4538,7 @@
 				2ADFB7EF1BBDA868000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB7F01BBDA868000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB7F11BBDA868000BF698 /* ActivityViewController.m in Sources */,
+				2A366CC61BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2ADFB7F21BBDA868000BF698 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2ADFB7F31BBDA868000BF698 /* HHShareModel.m in Sources */,
 				2ADFB7F41BBDA868000BF698 /* OCBlurCommentView.m in Sources */,
@@ -4562,6 +4596,7 @@
 				2ADFB88D1BBDA877000BF698 /* NSDateFormatter+Addititon.m in Sources */,
 				2ADFB88E1BBDA877000BF698 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2ADFB88F1BBDA877000BF698 /* RootTabBarController.m in Sources */,
+				2A366CBF1BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2ADFB8901BBDA877000BF698 /* SignInModel.m in Sources */,
 				2ADFB8911BBDA877000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB8921BBDA877000BF698 /* UIImageEffects.m in Sources */,
@@ -4644,6 +4679,7 @@
 				2ADFB8DA1BBDA877000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB8DB1BBDA877000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB8DC1BBDA877000BF698 /* ActivityViewController.m in Sources */,
+				2A366CC71BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2ADFB8DD1BBDA877000BF698 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2ADFB8DE1BBDA877000BF698 /* HHShareModel.m in Sources */,
 				2ADFB8DF1BBDA877000BF698 /* OCBlurCommentView.m in Sources */,
@@ -4701,6 +4737,7 @@
 				2ADFB9781BBDA88F000BF698 /* NSDateFormatter+Addititon.m in Sources */,
 				2ADFB9791BBDA88F000BF698 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2ADFB97A1BBDA88F000BF698 /* RootTabBarController.m in Sources */,
+				2A366CC01BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2ADFB97B1BBDA88F000BF698 /* SignInModel.m in Sources */,
 				2ADFB97C1BBDA88F000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFB97D1BBDA88F000BF698 /* UIImageEffects.m in Sources */,
@@ -4783,6 +4820,7 @@
 				2ADFB9C51BBDA88F000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFB9C61BBDA88F000BF698 /* UILabel+Category.m in Sources */,
 				2ADFB9C71BBDA88F000BF698 /* ActivityViewController.m in Sources */,
+				2A366CC81BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2ADFB9C81BBDA88F000BF698 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2ADFB9C91BBDA88F000BF698 /* HHShareModel.m in Sources */,
 				2ADFB9CA1BBDA88F000BF698 /* OCBlurCommentView.m in Sources */,
@@ -4840,6 +4878,7 @@
 				2ADFBA631BBDA89B000BF698 /* NSDateFormatter+Addititon.m in Sources */,
 				2ADFBA641BBDA89B000BF698 /* UIScrollView+HHKeyboardControl.m in Sources */,
 				2ADFBA651BBDA89B000BF698 /* RootTabBarController.m in Sources */,
+				2A366CC11BFD648500B11856 /* HHInfiniteScrollView.m in Sources */,
 				2ADFBA661BBDA89B000BF698 /* SignInModel.m in Sources */,
 				2ADFBA671BBDA89B000BF698 /* BabyPhotosViewController.m in Sources */,
 				2ADFBA681BBDA89B000BF698 /* UIImageEffects.m in Sources */,
@@ -4922,6 +4961,7 @@
 				2ADFBAB01BBDA89B000BF698 /* NSDate+Addition.m in Sources */,
 				2ADFBAB11BBDA89B000BF698 /* UILabel+Category.m in Sources */,
 				2ADFBAB21BBDA89B000BF698 /* ActivityViewController.m in Sources */,
+				2A366CC91BFD64E600B11856 /* HHInfiniteCell.m in Sources */,
 				2ADFBAB31BBDA89B000BF698 /* UIScrollView+SVStopAnimation.m in Sources */,
 				2ADFBAB41BBDA89B000BF698 /* HHShareModel.m in Sources */,
 				2ADFBAB51BBDA89B000BF698 /* OCBlurCommentView.m in Sources */,
