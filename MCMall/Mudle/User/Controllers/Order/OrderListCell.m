@@ -110,7 +110,8 @@
     }];
     [_orderNumLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.mas_equalTo(weakSelf.contentView).offset(5);
-        make.size.mas_equalTo(CGSizeMake(200, 35));
+        make.height.mas_equalTo(35);
+        make.width.mas_greaterThanOrEqualTo(100);
     }];
     [_orderTimeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.height.mas_equalTo(weakSelf.orderNumLable);
@@ -184,7 +185,7 @@
     _orderTimeLable.text=_orderModel.orderTime;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:_orderModel.goodsThumbImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=_orderModel.goodsName;
-    _goodsPriceLable.text=[@"单价" stringByAppendingString:[NSString stringWithFormat:@"%.1f￥",_orderModel.goodsPrice]];
+    _goodsPriceLable.text=[@"单价:" stringByAppendingString:[NSString stringWithFormat:@"￥%.1f",_orderModel.goodsPrice]];
     
     _orderCountLable.text=[@"数量:" stringByAppendingString:[NSString stringWithFormat:@"%ld",_orderModel.goodsNum]];
     _pointLable.text=[@"积分:" stringByAppendingString:[NSString stringWithFormat:@"%.0f",_orderModel.deductPoints]];
