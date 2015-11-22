@@ -80,7 +80,16 @@
 //self.tableView.tableHeaderView=self.flowView;
         WEAKSELF
     if (self.showGoodsClass) {
-          self.title=@"专享汇";
+        if (self.vipGoodsItemTag==MCVipGoodsItemTagGroupDiscountGoods) {
+             self.title=@"惠生活";
+        }else  if (self.vipGoodsItemTag==MCVipGoodsItemTagGroupMother) {
+            self.title=@"尝鲜妈妈团";
+        }else  if (self.vipGoodsItemTag==MCVipGoodsItemTagImmediatelySend) {
+            self.title=@"及时达3H";
+        }else  if (self.vipGoodsItemTag==MCVipGoodsItemTagTimeLimitedSales) {
+            self.title=@"享约会";
+        }
+        
         [self.view addSubview:self.classMenuView];
          [self.view addSubview:self.collectionView];
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {

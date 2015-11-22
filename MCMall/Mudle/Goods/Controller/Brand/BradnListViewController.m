@@ -22,7 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"享约汇";
+    if (self.goodsItemTag==MCVipGoodsItemTagGroupDiscountGoods) {
+         self.title=@"惠生活";
+    }else if (self.goodsItemTag==MCVipGoodsItemTagGroupMother){
+        self.title=@"尝鲜妈妈团";
+    }
+   
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
  
     WEAKSELF

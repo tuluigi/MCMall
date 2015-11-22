@@ -115,11 +115,11 @@
     _goodsModel=goodsModel;
     [_goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.goodsImageUrl] placeholderImage:MCMallDefaultImg];
     _goodsNameLable.text=goodsModel.goodsName;
-    NSMutableAttributedString *attrString1=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"￥%.1f",goodsModel.orignalPrice]]
+    NSMutableAttributedString *attrString1=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"￥%.1f",goodsModel.sellPrice]]
     ;
     [attrString1 addAttributes:@{NSForegroundColorAttributeName:MCMallThemeColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:20]} range:NSMakeRange(0, attrString1.length) ];
     
-    NSMutableAttributedString *attrString2=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"  ￥%.1f",goodsModel.sellPrice]]
+    NSMutableAttributedString *attrString2=[[NSMutableAttributedString alloc]  initWithString:[NSString stringWithFormat:@"  ￥%.1f",goodsModel.vipPrice]]
     ;
     [attrString2 addAttributes:@{NSForegroundColorAttributeName:[UIColor darkGrayColor],NSFontAttributeName:[UIFont systemFontOfSize:12]} range:NSMakeRange(0, attrString2.length) ];
     [attrString1  appendAttributedString:attrString2];
